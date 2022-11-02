@@ -3,7 +3,7 @@ from rest_framework import routers
 from . import views
 
 router = routers.DefaultRouter()
-router.register( 'qt', views.QuestTrackerViewSet, basename='/qt' )
+router.register( 'quest_tracker', views.QuestTrackerViewSet, basename='/quest_tracker' )
 router.register( 'test', views.TestViewSet, basename='/test' )
 
 # Wire up our API using automatic URL routing.

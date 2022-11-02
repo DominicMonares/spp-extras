@@ -12,7 +12,7 @@ from spp_extras_api.helpers.accounts import account_ids
 
 class QuestTrackerViewSet(viewsets.ViewSet):
     @action(methods=['GET'], detail=False, name='Get Value from input')
-    def test(self, request):
+    def all(self, request):
         input = request.GET.get('input')
 
         accounts = Account.objects.using('realmd').exclude(username__contains='RNDBOT').values()

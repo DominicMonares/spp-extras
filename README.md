@@ -2,7 +2,8 @@
 Desktop application for WoW Single Player Project extras.
 
 python 3.9.13
-virtualenv-20.16.6
+virtualenv 20.16.6
+node 14.21.0
 
 MUST USE CMD
 
@@ -14,23 +15,25 @@ pip freeze > requirements.txt
 
 =========================================================
 
-VIRTUALENV INSTALL
-python -m pip install --user virtualenv
 
 DJANGO SETUP
 cd api
 
 CREATE VIRTUAL ENV
-python -m virtualenv spp_extras_env
+python -m virtualenv spp_extras_env   |   api:env
 
-Activate vm
+ACTIVATE VE
 .\spp_extras_env\Scripts\activate
+
+
+============ ALL BELOW MUST BE DONE FROM ACTIVATED VE ============
 
 INSTALL PYTHON DEPENDENCIES
 pip install -r requirements.txt
 
+
 RUN SERVER
-python spp_extras/manage.py runserver --settings=spp_extras.settings.dev
+python spp_extras/manage.py runserver --settings=spp_extras.settings.dev   |   run from electron/index
 
 
 CREATE MODELS
@@ -46,3 +49,5 @@ pyinstaller --name=spp_extras_api spp_extras\manage.py --noconfirm
 TEST PACKAGED SERVER
 cd dist\spp_extras_api
 spp_extras_api.exe runserver --settings=spp_extras.settings.prod --noreload
+
+============ ALL ABOVE MUST BE DONE FROM ACTIVATED VE ============

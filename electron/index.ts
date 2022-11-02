@@ -128,10 +128,8 @@ app.on('before-quit', () => {
   // Kill python process when the window is closed
   // Having async issue with killing process, kill callback w/ preventDefault doesn't work
   // This causes the spp_extras_api.exe to continue running after closing app
-  // Current work-around is to call multiple times
+  // NEEDS FIX FOR PRODUCTION
   
-  kill(DJANGO_CHILD_PROCESS.pid);
-  kill(DJANGO_CHILD_PROCESS.pid);
   kill(DJANGO_CHILD_PROCESS.pid);
 });
 

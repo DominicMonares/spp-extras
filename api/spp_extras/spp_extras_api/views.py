@@ -17,9 +17,9 @@ class QuestTrackerViewSet(viewsets.ViewSet):
 
         accounts = Account.objects.using('realmd').exclude(username__contains='RNDBOT').values()
         ids = list(map(account_ids, accounts))
-        print(f'IDSSSSSSSS: {ids}')
+        # print(f'IDSSSSSSSS: {ids}')
         characters = Characters.objects.using('characters').filter(account__in=ids).values()
-        print(f'CHARACTERSSSSSSSSS: {characters}')
+        # print(f'CHARACTERSSSSSSSSS: {characters}')
 
         return Response(
             status=status.HTTP_200_OK, 

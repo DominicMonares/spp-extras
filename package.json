@@ -5,7 +5,12 @@
   "description": "My Electron application description",
   "main": ".webpack/main",
   "scripts": {
-    "start": "electron-forge start",
+    "ve:install": "python -m pip install --user virtualenv",
+    "api:ve-build": "cd api && python -m virtualenv spp_extras_env",
+    "api:ve-activate": "cd api && .\\spp_extras_env\\Scripts\\activate",
+    "api:install": "cd api && pip install -r requirements.txt",
+    "api:setup": "npm run api:vm-build && npm run api:vm-activate && npm run api:install",
+    "dev": "electron-forge start",  
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",

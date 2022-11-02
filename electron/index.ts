@@ -51,6 +51,7 @@ const createWindow = (): void => {
   openDevTools(mainWindow);
 };
 
+// eslint-disable-next-line
 const UpsertKeyValue = (obj : any, keyToChange : string, value : string[]) => {
   const keyToChangeLower = keyToChange.toLowerCase();
   for (const key of Object.keys(obj)) {

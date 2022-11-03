@@ -1,0 +1,306 @@
+{
+  "gold": {
+    "1176": {
+      "name": "Got My Mind On My Money - 100g",
+      "criteria": 3506,
+      "threshold": 1000000
+    },
+    "1177": {
+      "name": "Got My Mind On My Money - 1,000g",
+      "criteria": 3507,
+      "threshold": 10000000
+    },
+    "1178": {
+      "name": "Got My Mind On My Money - 5,000g",
+      "criteria": 3512,
+      "threshold": 50000000
+    },
+    "1180": {
+      "name": "Got My Mind On My Money - 10,000g",
+      "criteria": 3510,
+      "threshold": 100000000
+    },
+    "1181": {
+      "name": "Got My Mind On My Money - 25,000g",
+      "criteria": 3511,
+      "threshold": 250000000
+    }
+  },
+  "emblems": {
+    "3839": {
+      "name": "25 Dungeon & Raid Emblems",
+      "criteria": 11556,
+      "threshold": 25
+    },
+    "3840": {
+      "name": "50 Dungeon & Raid Emblems",
+      "criteria": 11601,
+      "threshold": 50
+    },
+    "3841": {
+      "name": "100 Dungeon & Raid Emblems",
+      "criteria": 11605,
+      "threshold": 100
+    },
+    "3842": {
+      "name": "250 Dungeon & Raid Emblems",
+      "criteria": 11609,
+      "threshold": 250
+    },
+    "3843": {
+      "name": "500 Dungeon & Raid Emblems",
+      "criteria": 11613,
+      "threshold": 500
+    },
+    "3844": {
+      "name": "1000 Dungeon & Raid Emblems",
+      "criteria": 11617,
+      "threshold": 1000
+    },
+    "3876": {
+      "name": "1500 Dungeon & Raid Emblems",
+      "criteria": 11621,
+      "threshold": 1500
+    },
+    "4316": {
+      "name": "2500 Dungeon & Raid Emblems",
+      "criteria": 12421,
+      "threshold": 2500
+    }
+  },
+  "lfg": {
+    "4476": {
+      "name": "Looking For More",
+      "criteria": "NYI",
+      "threshold": 10
+    },
+    "4477": {
+      "name": "Looking For Many",
+      "criteria": "NYI",
+      "threshold": 50
+    },
+    "4478": {
+      "name": "Looking For Multitudes",
+      "criteria": "NYI",
+      "threshold": 100
+    }
+  },
+  "arena": {
+    "398": {
+      "name": "Mercilessly Dedicated",
+      "criteria": 307,
+      "threshold": 100
+    },
+    "875": {
+      "name": "Vengefully Dedicated",
+      "criteria": 1829,
+      "threshold": 200
+    },
+    "876": {
+      "name": "Brutally Dedicated",
+      "criteria": 1830,
+      "threshold": 300
+    }
+  },
+  "bg": {
+    "ab": {
+      "155": {
+        "name": "Arathi Basin Veteran",
+        "criteria": 176,
+        "threshold": 100
+      }
+    },
+    "av": {
+      "219": {
+        "name": "Alterac Valley Veteran",
+        "criteria": 225,
+        "threshold": 100
+      }
+    },
+    "eos": {
+      "209": {
+        "name": "Eye of the Storm Veteran",
+        "criteria": 223,
+        "threshold": 100
+      }
+    },
+    "ioc": {
+      "3777": {
+        "name": "Isle of Conquest Victory",
+        "criteria": "NYI",
+        "threshold": 100
+      }
+    },
+    "soa": {
+      "1309": {
+        "name": "Strand of the Ancients Veteran",
+        "criteria": 4502,
+        "threshold": 100
+      }
+    },
+    "wg": {
+      "1718": {
+        "name": "Wintergrasp Veteran",
+        "criteria": "NYI",
+        "threshold": 100
+      }
+    },
+    "wsg": {
+      "167": {
+        "name": "Warsong Gulch Veteran",
+        "criteria": 221,
+        "threshold": 100
+      }
+    }
+  },
+  "hk": {
+    "513": {
+      "name": "100 Honorable Kills",
+      "criteria": 6797,
+      "threshold": 100
+    },
+    "515": {
+      "name": "500 Honorable Kills",
+      "criteria": 6796,
+      "threshold": 500
+    },
+    "516": {
+      "name": "1000 Honorable Kills",
+      "criteria": 6795,
+      "threshold": 1000
+    },
+    "512": {
+      "name": "5000 Honorable Kills",
+      "criteria": 6794,
+      "threshold": 5000
+    },
+    "509": {
+      "name": "10000 Honorable Kills",
+      "criteria": 6793,
+      "threshold": 10000
+    },
+    "239": {
+      "name": "25000 Honorable Kills",
+      "criteria": 6792,
+      "threshold": 25000
+    },
+    "869": {
+      "name": "50000 Honorable Kills",
+      "criteria": 6791,
+      "threshold": 50000
+    },
+    "870": {
+      "name": "100000 Honorable Kills",
+      "criteria": 6790,
+      "threshold": 100000
+    }
+  },
+  "bread": {
+    "1182": {
+      "name": "The Bread Winner",
+      "criteria": 3513,
+      "threshold": 100000000
+    }
+  },
+  "daily": {
+    "973": {
+      "name": "5 Daily Quests Complete",
+      "criteria": 2232,
+      "threshold": 5
+    },
+    "974": {
+      "name": "50 Daily Quests Complete",
+      "criteria": 2233,
+      "threshold": 50
+    },
+    "975": {
+      "name": "200 Daily Quests Complete",
+      "criteria": 2234,
+      "threshold": 200
+    },
+    "976": {
+      "name": "500 Daily Quests Complete",
+      "criteria": 2235,
+      "threshold": 500
+    },
+    "977": {
+      "name": "1000 Daily Quests Complete",
+      "criteria": 2236,
+      "threshold": 1000
+    }
+  },
+  "lmA": {
+    "0": {
+      "1676": {
+        "name": "Loremaster of Eastern Kingdoms - Alliance",
+        "criteria": 7884,
+        "threshold": 700
+      }
+    },
+    "1": {
+      "1678": {
+        "name": "Loremaster of Kalimdor - Alliance",
+        "criteria": 7894,
+        "threshold": 700
+      }
+    }
+  },
+  "lmH": {
+    "0": {
+      "1677": {
+        "name": "Loremaster of Eastern Kingdoms - Horde",
+        "criteria": 7890,
+        "threshold": 550
+      }
+    },
+    "1": {
+      "1680": {
+        "name": "Loremaster of Kalimdor - Horde",
+        "criteria": 7896,
+        "threshold": 685
+      }
+    }
+  },
+  "quest": {
+    "503": {
+      "name": "50 Quests Completed",
+      "criteria": 230,
+      "threshold": 50
+    },
+    "504": {
+      "name": "100 Quests Completed",
+      "criteria": 231,
+      "threshold": 100
+    },
+    "505": {
+      "name": "250 Quests Completed",
+      "criteria": 232,
+      "threshold": 250
+    },
+    "506": {
+      "name": "500 Quests Completed",
+      "criteria": 233,
+      "threshold": 500
+    },
+    "507": {
+      "name": "1000 Quests Completed",
+      "criteria": 234,
+      "threshold": 1000
+    },
+    "508": {
+      "name": "1500 Quests Completed",
+      "criteria": 236,
+      "threshold": 1500
+    },
+    "32": {
+      "name": "2000 Quests Completed",
+      "criteria": 73,
+      "threshold": 2000
+    },
+    "978": {
+      "name": "3000 Quests Completed",
+      "criteria": 2239,
+      "threshold": 3000
+    }
+  }
+}

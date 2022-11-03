@@ -1,0 +1,908 @@
+[
+  {
+    "id": 472,
+    "name": "Pinto",
+    "faction": "A",
+    "oppFactionSpell": 580
+  },
+  {
+    "id": 580,
+    "name": "Timber Wolf",
+    "faction": "H",
+    "oppFactionSpell": 472
+  },
+  {
+    "id": 458,
+    "name": "Brown Horse",
+    "faction": "A",
+    "oppFactionSpell": 6654
+  },
+  {
+    "id": 6654,
+    "name": "Brown Wolf",
+    "faction": "H",
+    "oppFactionSpell": 458
+  },
+  {
+    "id": 470,
+    "name": "Black Stallion",
+    "faction": "A",
+    "oppFactionSpell": 64658
+  },
+  {
+    "id": 64658,
+    "name": "Black Wolf",
+    "faction": "H",
+    "oppFactionSpell": 470
+  },
+  {
+    "id": 6648,
+    "name": "Chestnut Mare",
+    "faction": "A",
+    "oppFactionSpell": 6653
+  },
+  {
+    "id": 6653,
+    "name": "Dire Wolf",
+    "faction": "H",
+    "oppFactionSpell": 6648
+  },
+  {
+    "id": 6777,
+    "name": "Gray Ram",
+    "faction": "A",
+    "oppFactionSpell": 8395
+  },
+  {
+    "id": 8395,
+    "name": "Emerald Raptor",
+    "faction": "H",
+    "oppFactionSpell": 6777
+  },
+  {
+    "id": 6898,
+    "name": "White Ram",
+    "faction": "A",
+    "oppFactionSpell": 10796
+  },
+  {
+    "id": 10796,
+    "name": "Turquoise Raptor",
+    "faction": "H",
+    "oppFactionSpell": 6898
+  },
+  {
+    "id": 6899,
+    "name": "Brown Ram",
+    "faction": "A",
+    "oppFactionSpell": 10799
+  },
+  {
+    "id": 10799,
+    "name": "Violet Raptor",
+    "faction": "H",
+    "oppFactionSpell": 6899
+  },
+  {
+    "id": 8394,
+    "name": "Striped Frostsaber",
+    "faction": "A",
+    "oppFactionSpell": 64977
+  },
+  {
+    "id": 64977,
+    "name": "Black Skeletal Horse",
+    "faction": "H",
+    "oppFactionSpell": 8394
+  },
+  {
+    "id": 10789,
+    "name": "Spotted Frostsaber",
+    "faction": "A",
+    "oppFactionSpell": 17464
+  },
+  {
+    "id": 17464,
+    "name": "Brown Skeletal Horse",
+    "faction": "H",
+    "oppFactionSpell": 10789
+  },
+  {
+    "id": 10793,
+    "name": "Striped Nightsaber",
+    "faction": "A",
+    "oppFactionSpell": 17463
+  },
+  {
+    "id": 17463,
+    "name": "Blue Skeletal Horse",
+    "faction": "H",
+    "oppFactionSpell": 10793
+  },
+  {
+    "id": 10873,
+    "name": "Red Mechanostrider",
+    "faction": "A",
+    "oppFactionSpell": 64657
+  },
+  {
+    "id": 64657,
+    "name": "White Kodo",
+    "faction": "H",
+    "oppFactionSpell": 10873
+  },
+  {
+    "id": 10969,
+    "name": "Blue Mechanostrider",
+    "faction": "A",
+    "oppFactionSpell": 18990
+  },
+  {
+    "id": 18990,
+    "name": "Brown Kodo",
+    "faction": "H",
+    "oppFactionSpell": 10969
+  },
+  {
+    "id": 15779,
+    "name": "White Mechanostrider Mod B",
+    "faction": "A",
+    "oppFactionSpell": 18992
+  },
+  {
+    "id": 18992,
+    "name": "Teal Kodo",
+    "faction": "H",
+    "oppFactionSpell": 15779
+  },
+  {
+    "id": 16082,
+    "name": "Palomino",
+    "faction": "A",
+    "oppFactionSpell": 16080
+  },
+  {
+    "id": 16080,
+    "name": "Red Wolf",
+    "faction": "H",
+    "oppFactionSpell": 16082
+  },
+  {
+    "id": 16083,
+    "name": "White Stallion",
+    "faction": "A",
+    "oppFactionSpell": 16081
+  },
+  {
+    "id": 16081,
+    "name": "Arctic Wolf",
+    "faction": "H",
+    "oppFactionSpell": 16083
+  },
+  {
+    "id": 17229,
+    "name": "Winterspring Frostsaber",
+    "faction": "A",
+    "oppFactionSpell": 64659
+  },
+  {
+    "id": 64659,
+    "name": "Venomhide Ravasaur",
+    "faction": "H",
+    "oppFactionSpell": 17229
+  },
+  {
+    "id": 17453,
+    "name": "Green Mechanostrider",
+    "faction": "A",
+    "oppFactionSpell": 18989
+  },
+  {
+    "id": 18989,
+    "name": "Gray Kodo",
+    "faction": "H",
+    "oppFactionSpell": 17453
+  },
+  {
+    "id": 17454,
+    "name": "Unpainted Mechanostrider",
+    "faction": "A",
+    "oppFactionSpell": 23248
+  },
+  {
+    "id": 23248,
+    "name": "Great Gray Kodo",
+    "faction": "H",
+    "oppFactionSpell": 17454
+  },
+  {
+    "id": 17459,
+    "name": "Icy Blue Mechanostrider Mod A",
+    "faction": "A",
+    "oppFactionSpell": 18991
+  },
+  {
+    "id": 18991,
+    "name": "Green Kodo",
+    "faction": "H",
+    "oppFactionSpell": 17459
+  },
+  {
+    "id": 17460,
+    "name": "Frost Ram",
+    "faction": "A",
+    "oppFactionSpell": 17450
+  },
+  {
+    "id": 17450,
+    "name": "Ivory Raptor",
+    "faction": "H",
+    "oppFactionSpell": 17460
+  },
+  {
+    "id": 17461,
+    "name": "Black Ram",
+    "faction": "A",
+    "oppFactionSpell": 16084
+  },
+  {
+    "id": 16084,
+    "name": "Mottled Red Raptor",
+    "faction": "H",
+    "oppFactionSpell": 17461
+  },
+  {
+    "id": 22717,
+    "name": "Black War Steed",
+    "faction": "A",
+    "oppFactionSpell": 22724
+  },
+  {
+    "id": 22724,
+    "name": "Black War Wolf",
+    "faction": "H",
+    "oppFactionSpell": 22717
+  },
+  {
+    "id": 22719,
+    "name": "Black Battlestrider",
+    "faction": "A",
+    "oppFactionSpell": 22718
+  },
+  {
+    "id": 22718,
+    "name": "Black War Kodo",
+    "faction": "H",
+    "oppFactionSpell": 22719
+  },
+  {
+    "id": 22720,
+    "name": "Black War Ram",
+    "faction": "A",
+    "oppFactionSpell": 22721
+  },
+  {
+    "id": 22721,
+    "name": "Black War Raptor",
+    "faction": "H",
+    "oppFactionSpell": 22720
+  },
+  {
+    "id": 22723,
+    "name": "Black War Tiger",
+    "faction": "A",
+    "oppFactionSpell": 22722
+  },
+  {
+    "id": 22722,
+    "name": "Red Skeletal Warhorse",
+    "faction": "H",
+    "oppFactionSpell": 22723
+  },
+  {
+    "id": 23219,
+    "name": "Swift Mistsaber",
+    "faction": "A",
+    "oppFactionSpell": 23246
+  },
+  {
+    "id": 23246,
+    "name": "Purple Skeletal Warhorse",
+    "faction": "H",
+    "oppFactionSpell": 23219
+  },
+  {
+    "id": 23221,
+    "name": "Swift Frostsaber",
+    "faction": "A",
+    "oppFactionSpell": 66846
+  },
+  {
+    "id": 66846,
+    "name": "Ochre Skeletal Warhorse",
+    "faction": "H",
+    "oppFactionSpell": 23221
+  },
+  {
+    "id": 23222,
+    "name": "Swift Yellow Mechanostrider",
+    "faction": "A",
+    "oppFactionSpell": 23247
+  },
+  {
+    "id": 23247,
+    "name": "Great White Kodo",
+    "faction": "H",
+    "oppFactionSpell": 23222
+  },
+  {
+    "id": 23225,
+    "name": "Swift Green Mechanostrider",
+    "faction": "A",
+    "oppFactionSpell": 23249
+  },
+  {
+    "id": 23249,
+    "name": "Great Brown Kodo",
+    "faction": "H",
+    "oppFactionSpell": 23225
+  },
+  {
+    "id": 23227,
+    "name": "Swift Palomino",
+    "faction": "A",
+    "oppFactionSpell": 23251
+  },
+  {
+    "id": 23251,
+    "name": "Swift Timber Wolf",
+    "faction": "H",
+    "oppFactionSpell": 23227
+  },
+  {
+    "id": 23228,
+    "name": "Swift White Steed",
+    "faction": "A",
+    "oppFactionSpell": 23252
+  },
+  {
+    "id": 23252,
+    "name": "Swift Gray Wolf",
+    "faction": "H",
+    "oppFactionSpell": 23228
+  },
+  {
+    "id": 23229,
+    "name": "Swift Brown Steed",
+    "faction": "A",
+    "oppFactionSpell": 23250
+  },
+  {
+    "id": 23250,
+    "name": "Swift Brown Wolf",
+    "faction": "H",
+    "oppFactionSpell": 23229
+  },
+  {
+    "id": 23238,
+    "name": "Swift Brown Ram",
+    "faction": "A",
+    "oppFactionSpell": 23243
+  },
+  {
+    "id": 23243,
+    "name": "Swift Orange Raptor",
+    "faction": "H",
+    "oppFactionSpell": 23238
+  },
+  {
+    "id": 23239,
+    "name": "Swift Gray Ram",
+    "faction": "A",
+    "oppFactionSpell": 23241
+  },
+  {
+    "id": 23241,
+    "name": "Swift Blue Raptor",
+    "faction": "H",
+    "oppFactionSpell": 23239
+  },
+  {
+    "id": 23240,
+    "name": "Swift White Ram",
+    "faction": "A",
+    "oppFactionSpell": 23242
+  },
+  {
+    "id": 23242,
+    "name": "Swift Olive Raptor",
+    "faction": "H",
+    "oppFactionSpell": 23240
+  },
+  {
+    "id": 23338,
+    "name": "Swift Stormsaber",
+    "faction": "A",
+    "oppFactionSpell": 17465
+  },
+  {
+    "id": 17465,
+    "name": "Green Skeletal Warhorse",
+    "faction": "H",
+    "oppFactionSpell": 23338
+  },
+  {
+    "id": 23510,
+    "name": "Stormpike Battle Charger",
+    "faction": "A",
+    "oppFactionSpell": 23509
+  },
+  {
+    "id": 23509,
+    "name": "Frostwolf Howler",
+    "faction": "H",
+    "oppFactionSpell": 23510
+  },
+  {
+    "id": 32235,
+    "name": "Golden Gryphon",
+    "faction": "A",
+    "oppFactionSpell": 32245
+  },
+  {
+    "id": 32245,
+    "name": "Green Wind Rider",
+    "faction": "H",
+    "oppFactionSpell": 32235
+  },
+  {
+    "id": 32239,
+    "name": "Ebon Gryphon",
+    "faction": "A",
+    "oppFactionSpell": 32243
+  },
+  {
+    "id": 32243,
+    "name": "Tawny Wind Rider",
+    "faction": "H",
+    "oppFactionSpell": 32239
+  },
+  {
+    "id": 32240,
+    "name": "Snowy Gryphon",
+    "faction": "A",
+    "oppFactionSpell": 32244
+  },
+  {
+    "id": 32244,
+    "name": "Blue Wind Rider",
+    "faction": "H",
+    "oppFactionSpell": 32240
+  },
+  {
+    "id": 32242,
+    "name": "Swift Blue Gryphon",
+    "faction": "A",
+    "oppFactionSpell": 32296
+  },
+  {
+    "id": 32296,
+    "name": "Swift Yellow Wind Rider",
+    "faction": "H",
+    "oppFactionSpell": 32242
+  },
+  {
+    "id": 32289,
+    "name": "Swift Red Gryphon",
+    "faction": "A",
+    "oppFactionSpell": 32246
+  },
+  {
+    "id": 32246,
+    "name": "Swift Red Wind Rider",
+    "faction": "H",
+    "oppFactionSpell": 32289
+  },
+  {
+    "id": 32290,
+    "name": "Swift Green Gryphon",
+    "faction": "A",
+    "oppFactionSpell": 32295
+  },
+  {
+    "id": 32295,
+    "name": "Swift Green Wind Rider",
+    "faction": "H",
+    "oppFactionSpell": 32290
+  },
+  {
+    "id": 32292,
+    "name": "Swift Purple Gryphon",
+    "faction": "A",
+    "oppFactionSpell": 32297
+  },
+  {
+    "id": 32297,
+    "name": "Swift Purple Wind Rider",
+    "faction": "H",
+    "oppFactionSpell": 32292
+  },
+  {
+    "id": 34406,
+    "name": "Brown Elekk",
+    "faction": "A",
+    "oppFactionSpell": 35022
+  },
+  {
+    "id": 35022,
+    "name": "Black Hawkstrider",
+    "faction": "H",
+    "oppFactionSpell": 34406
+  },
+  {
+    "id": 35710,
+    "name": "Gray Elekk",
+    "faction": "A",
+    "oppFactionSpell": 35020
+  },
+  {
+    "id": 35020,
+    "name": "Blue Hawkstrider",
+    "faction": "H",
+    "oppFactionSpell": 35710
+  },
+  {
+    "id": 35711,
+    "name": "Purple Elekk",
+    "faction": "A",
+    "oppFactionSpell": 34795
+  },
+  {
+    "id": 34795,
+    "name": "Red Hawkstrider",
+    "faction": "H",
+    "oppFactionSpell": 35711
+  },
+  {
+    "id": 35712,
+    "name": "Great Green Elekk",
+    "faction": "A",
+    "oppFactionSpell": 35027
+  },
+  {
+    "id": 35027,
+    "name": "Swift Purple Hawkstrider",
+    "faction": "H",
+    "oppFactionSpell": 35712
+  },
+  {
+    "id": 35713,
+    "name": "Great Blue Elekk",
+    "faction": "A",
+    "oppFactionSpell": 35025
+  },
+  {
+    "id": 35025,
+    "name": "Swift Green Hawkstrider",
+    "faction": "H",
+    "oppFactionSpell": 35713
+  },
+  {
+    "id": 35714,
+    "name": "Great Purple Elekk",
+    "faction": "A",
+    "oppFactionSpell": 33660
+  },
+  {
+    "id": 33660,
+    "name": "Swift Pink Hawkstrider",
+    "faction": "H",
+    "oppFactionSpell": 35714
+  },
+  {
+    "id": 48027,
+    "name": "Black War Elekk",
+    "faction": "A",
+    "oppFactionSpell": 35028
+  },
+  {
+    "id": 35028,
+    "name": "Swift Warstrider",
+    "faction": "H",
+    "oppFactionSpell": 48027
+  },
+  {
+    "id": 49908,
+    "name": "Pink Elekk",
+    "faction": "A",
+    "oppFactionSpell": 35018
+  },
+  {
+    "id": 35018,
+    "name": "Purple Hawkstrider",
+    "faction": "H",
+    "oppFactionSpell": 49908
+  },
+  {
+    "id": 59785,
+    "name": "Black War Mammoth",
+    "faction": "A",
+    "oppFactionSpell": 59788
+  },
+  {
+    "id": 59788,
+    "name": "Black War Mammoth",
+    "faction": "H",
+    "oppFactionSpell": 59785
+  },
+  {
+    "id": 59791,
+    "name": "Wooly Mammoth",
+    "faction": "A",
+    "oppFactionSpell": 59793
+  },
+  {
+    "id": 59793,
+    "name": "Wooly Mammoth",
+    "faction": "H",
+    "oppFactionSpell": 59791
+  },
+  {
+    "id": 60114,
+    "name": "Armored Brown Bear",
+    "faction": "A",
+    "oppFactionSpell": 60116
+  },
+  {
+    "id": 60116,
+    "name": "Armored Brown Bear",
+    "faction": "H",
+    "oppFactionSpell": 60114
+  },
+  {
+    "id": 60118,
+    "name": "Black War Bear",
+    "faction": "A",
+    "oppFactionSpell": 60119
+  },
+  {
+    "id": 60119,
+    "name": "Black War Bear",
+    "faction": "H",
+    "oppFactionSpell": 60118
+  },
+  {
+    "id": 60424,
+    "name": "Mekgineer's Chopper",
+    "faction": "A",
+    "oppFactionSpell": 55531
+  },
+  {
+    "id": 55531,
+    "name": "Mechano-hog",
+    "faction": "H",
+    "oppFactionSpell": 60424
+  },
+  {
+    "id": 61230,
+    "name": "Armored Blue Wind Rider",
+    "faction": "H",
+    "oppFactionSpell": 61229
+  },
+  {
+    "id": 61425,
+    "name": "Traveler's Tundra Mammoth",
+    "faction": "A",
+    "oppFactionSpell": 61447
+  },
+  {
+    "id": 61447,
+    "name": "Traveler's Tundra Mammoth",
+    "faction": "H",
+    "oppFactionSpell": 61425
+  },
+  {
+    "id": 61996,
+    "name": "Blue Dragonhawk",
+    "faction": "A",
+    "oppFactionSpell": 61997
+  },
+  {
+    "id": 61997,
+    "name": "Red Dragonhawk",
+    "faction": "H",
+    "oppFactionSpell": 61996
+  },
+  {
+    "id": 62609,
+    "name": "Argent Squire",
+    "faction": "A",
+    "oppFactionSpell": 62746
+  },
+  {
+    "id": 62746,
+    "name": "Argent Gruntling",
+    "faction": "H",
+    "oppFactionSpell": 62609
+  },
+  {
+    "id": 63232,
+    "name": "Stormwind Steed",
+    "faction": "A",
+    "oppFactionSpell": 63640
+  },
+  {
+    "id": 63640,
+    "name": "Orgrimmar Wolf",
+    "faction": "H",
+    "oppFactionSpell": 63232
+  },
+  {
+    "id": 63636,
+    "name": "Ironforge Ram",
+    "faction": "A",
+    "oppFactionSpell": 63635
+  },
+  {
+    "id": 63635,
+    "name": "Darkspear Raptor",
+    "faction": "H",
+    "oppFactionSpell": 63636
+  },
+  {
+    "id": 63637,
+    "name": "Darnassian Nightsaber",
+    "faction": "A",
+    "oppFactionSpell": 63643
+  },
+  {
+    "id": 63643,
+    "name": "Forsaken Warhorse",
+    "faction": "H",
+    "oppFactionSpell": 63637
+  },
+  {
+    "id": 63638,
+    "name": "Gnomeregan Mechanostrider",
+    "faction": "A",
+    "oppFactionSpell": 63641
+  },
+  {
+    "id": 63641,
+    "name": "Thunder Bluff Kodo",
+    "faction": "H",
+    "oppFactionSpell": 63638
+  },
+  {
+    "id": 63639,
+    "name": "Exodar Elekk",
+    "faction": "A",
+    "oppFactionSpell": 63642
+  },
+  {
+    "id": 63642,
+    "name": "Silvermoon Hawkstrider",
+    "faction": "H",
+    "oppFactionSpell": 63639
+  },
+  {
+    "id": 65637,
+    "name": "Great Red Elekk",
+    "faction": "A",
+    "oppFactionSpell": 65639
+  },
+  {
+    "id": 65639,
+    "name": "Swift Red Hawkstrider",
+    "faction": "H",
+    "oppFactionSpell": 65637
+  },
+  {
+    "id": 65638,
+    "name": "Swift Moonsaber",
+    "faction": "A",
+    "oppFactionSpell": 65645
+  },
+  {
+    "id": 65645,
+    "name": "White Skeletal Warhorse",
+    "faction": "H",
+    "oppFactionSpell": 65638
+  },
+  {
+    "id": 65640,
+    "name": "Swift Gray Steed",
+    "faction": "A",
+    "oppFactionSpell": 65646
+  },
+  {
+    "id": 65646,
+    "name": "Swift Burgundy Wolf",
+    "faction": "H",
+    "oppFactionSpell": 65640
+  },
+  {
+    "id": 65642,
+    "name": "Turbostrider",
+    "faction": "A",
+    "oppFactionSpell": 65641
+  },
+  {
+    "id": 65641,
+    "name": "Great Golden Kodo",
+    "faction": "H",
+    "oppFactionSpell": 65642
+  },
+  {
+    "id": 65643,
+    "name": "Swift Violet Ram",
+    "faction": "A",
+    "oppFactionSpell": 65644
+  },
+  {
+    "id": 65644,
+    "name": "Swift Purple Raptor",
+    "faction": "H",
+    "oppFactionSpell": 65643
+  },
+  {
+    "id": 66087,
+    "name": "Silver Covenant Hippogryph",
+    "faction": "A",
+    "oppFactionSpell": 66088
+  },
+  {
+    "id": 66088,
+    "name": "Sunreaver Dragonhawk",
+    "faction": "H",
+    "oppFactionSpell": 66087
+  },
+  {
+    "id": 66090,
+    "name": "Quel'dorei Steed",
+    "faction": "A",
+    "oppFactionSpell": 66091
+  },
+  {
+    "id": 66091,
+    "name": "Sunreaver Hawkstrider",
+    "faction": "H",
+    "oppFactionSpell": 66090
+  },
+  {
+    "id": 66847,
+    "name": "Striped Dawnsaber",
+    "faction": "A",
+    "oppFactionSpell": 17462
+  },
+  {
+    "id": 17462,
+    "name": "Red Skeletal Horse",
+    "faction": "H",
+    "oppFactionSpell": 66847
+  },
+  {
+    "id": 68057,
+    "name": "Swift Alliance Steed",
+    "faction": "A",
+    "oppFactionSpell": 68056
+  },
+  {
+    "id": 68056,
+    "name": "Swift Horde Wolf",
+    "faction": "H",
+    "oppFactionSpell": 68057
+  },
+  {
+    "id": 68187,
+    "name": "Crusader's White Warhorse",
+    "faction": "A",
+    "oppFactionSpell": 68188
+  },
+  {
+    "id": 68188,
+    "name": "Crusader's Black Warhorse",
+    "faction": "H",
+    "oppFactionSpell": 68187
+  }
+]

@@ -6,7 +6,7 @@ function App() {
   const [characters, setCharacters] = useState<any[]>([]);
 
   const testAPI = async () => {
-    await fetch('http://127.0.0.1:8000/quest_tracker/all')
+    await fetch('http://127.0.0.1:8000/characters/all')
       .then(res => res.json())
       .then(data => console.log('API RESPONSE: ', setCharacters(data)))
       .catch(err => console.log('API ERROR: ', err));

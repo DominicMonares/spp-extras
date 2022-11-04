@@ -21,3 +21,9 @@ export interface Characters {
   alliance: Faction | Record<string, never>,
   horde: Faction | Record<string, never>
 }
+
+export type SelectedFeature = 'quest_tracker' | null;
+
+export interface Feature {
+  selected: SelectedFeature
+}

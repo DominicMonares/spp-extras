@@ -5,8 +5,8 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 
 # Models
-from spp_extras_api.models.realmd import Account
-from spp_extras_api.models.characters import Characters
+from spp_extras_api.models.classicrealmd import Account
+from spp_extras_api.models.classiccharacters import Characters
 
 # Helpers
 from spp_extras_api.helpers.characters import get_account_ids, all_characters
@@ -18,14 +18,14 @@ class CharactersViewSet(viewsets.ViewSet):
         input = request.GET.get('input') # will be used for selected expansion
 
         accounts = Account.objects\
-            .using('realmd')\
+            .using('classicrealmd')\
             .exclude(username__contains='RNDBOT')\
             .values('id', 'username')
 
         account_ids = list(map(get_account_ids, accounts))
         
         characters = Characters.objects\
-            .using('characters')\
+            .using('classiccharacters')\
             .filter(account__in=account_ids)\
             .values('guid', 'account', 'name', 'race', 'class_field')
 

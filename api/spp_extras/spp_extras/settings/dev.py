@@ -10,12 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
-import pymysql
-from secrets import *
 from pathlib import Path
 
-# SQL setup
-pymysql.install_as_MySQLdb()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -90,36 +86,30 @@ WSGI_APPLICATION = 'spp_extras.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    # Default SPP credentials used, do not commit sensitive info if you change it!
+# Default SPP credentials used, do not commit sensitive info if you change it!
+credentials = {
+    'ENGINE': 'django.db.backends.mysql',
+    'USER': 'root',
+    'PASSWORD': '123456',
+    'HOST': '127.0.0.1',
+    'PORT': '3310',
+}
 
-    # NYI: switch between expansion databases
-    ## See if there is a way to re-use every property except name
+DATABASES = {
     'default': {},
-    'realmd': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'classicrealmd',
-        'USER': 'root',
-        'PASSWORD': '123456',
-        'HOST': '127.0.0.1',
-        'PORT': '3310',
-    },
-    'characters': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'classiccharacters',
-        'USER': 'root',
-        'PASSWORD': '123456',
-        'HOST': '127.0.0.1',
-        'PORT': '3310',
-    },
-    'mangos': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'classicmangos',
-        'USER': 'root',
-        'PASSWORD': '123456',
-        'HOST': '127.0.0.1',
-        'PORT': '3310',
-    }
+
+    'classicrealmd': { 'NAME': 'classicrealmd'} | credentials,
+    'classiccharacters': { 'NAME': 'classiccharacters' } | credentials,
+    'classicmangos': { 'NAME': 'classicmangos' } | credentials,
+
+    # MUST BE MIGRATED ONCE TESTING WITH BC / WOTLK DATABASES
+    # 'tbcrealmd': { 'NAME': 'tbcrealmd'} | credentials,
+    # 'tbccharacters': { 'NAME': 'tbccharacters' } | credentials,
+    # 'tbcmangos': { 'NAME': 'tbcmangos' } | credentials,
+
+    # 'wotlkrealmd': { 'NAME': 'wotlkrealmd'} | credentials,
+    # 'wotlkcharacters': { 'NAME': 'wotlkcharacters' } | credentials,
+    # 'wotlkmangos': { 'NAME': 'wotlkmangos' } | credentials,
 }
 
 

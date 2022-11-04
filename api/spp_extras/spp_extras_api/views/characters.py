@@ -15,17 +15,17 @@ from spp_extras_api.helpers.characters import get_account_ids, all_characters
 class CharactersViewSet(viewsets.ViewSet):
     @action(methods=['GET'], detail=False, name='Get Value from input')
     def all(self, request):
-        input = request.GET.get('input') # will be used for selected expansion
+        input = request.GET.get('expansion')
 
         accounts = Account.objects\
-            .using('classicrealmd')\
+            .using(f'{input}realmd')\
             .exclude(username__contains='RNDBOT')\
             .values('id', 'username')
 
         account_ids = list(map(get_account_ids, accounts))
         
         characters = Characters.objects\
-            .using('classiccharacters')\
+            .using(f'{input}characters')\
             .filter(account__in=account_ids)\
             .values('guid', 'account', 'name', 'race', 'class_field')
 

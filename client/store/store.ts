@@ -1,9 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import expansionReducer from './slices/expansionSlice';
+import characterReducer from './slices/characterSlice';
+
 
 export const store = configureStore({
   reducer: {
-    expansion: expansionReducer
+    expansion: expansionReducer,
+    characters: characterReducer
   }
 });
 

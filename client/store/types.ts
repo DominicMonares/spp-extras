@@ -1,29 +1,21 @@
 export interface Expansion {
-  expansion: string | null
+  selected: string | null
 }
 
 export interface Character {
-  guid: number | null,
-  account: number | null,
-  name: string | null,
-  race: number | null,
-  class_field: number | null,
-  account_name: string | null
+  guid: number,
+  account: number,
+  name: string,
+  race: number,
+  class_field: number,
+  account_name: string
 }
 
-export interface Alliance {
+export interface Faction {
   [key: string]: Character
-}
-
-export interface Horde {
-  [key: string]: Character
-}
-
-export interface Factions {
-  alliance: Alliance | null,
-  horde: Horde | null
 }
 
 export interface Characters {
-  characters: Factions | null
+  alliance: Faction | Record<string, never>,
+  horde: Faction | Record<string, never>
 }

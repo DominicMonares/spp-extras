@@ -20,4 +20,4 @@ def all_characters(accounts, characters):
         char['account_name'] = account_name
         chars[check_faction(char['race'])][char['guid']] = char
 
-    return { 'characters': chars }
+    return chars

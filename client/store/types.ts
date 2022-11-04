@@ -1,5 +1,5 @@
 export interface Expansion {
-  selected: string | null
+  selected: 'vanilla' | 'tbc' | 'wotlk' | null
 }
 
 export interface Character {

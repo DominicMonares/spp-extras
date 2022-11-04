@@ -1,5 +1,7 @@
+export type SelectedExpansion = 'vanilla' | 'tbc' | 'wotlk' | null;
+
 export interface Expansion {
-  selected: 'vanilla' | 'tbc' | 'wotlk' | null
+  selected: SelectedExpansion
 }
 
 export interface Character {

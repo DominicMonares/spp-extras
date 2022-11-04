@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { Expansion } from '../types';
+import { Expansion, SelectedExpansion } from '../types';
 
 const initialState: Expansion = {
   selected: 'vanilla'
@@ -10,7 +10,7 @@ export const expansionSlice = createSlice({
   name: 'expansion',
   initialState,
   reducers: {
-    updateExpansion: (state, action: PayloadAction<string>) => {
+    updateExpansion: (state, action: PayloadAction<SelectedExpansion>) => {
       state.selected = action.payload;
     }
   }

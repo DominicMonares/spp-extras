@@ -23,22 +23,13 @@ const ExpansionNav = () => {
 
   return (
     <div className='xpac-nav'>
-      <div 
-        className={`vanilla ${xpacs.vanilla}`} 
-        onClick={() => switchXpac('vanilla')}
-      >
+      <div className={`vanilla ${xpacs.vanilla}`} onClick={() => switchXpac('vanilla')}>
         Vanilla
       </div>
-      <div 
-        className={`tbc ${xpacs.tbc}`} 
-        onClick={() => switchXpac('tbc')}
-      >
+      <div className={`tbc ${xpacs.tbc}`} onClick={() => switchXpac('tbc')}>
         The Burning Crusade
       </div>
-      <div 
-        className={`wotlk ${xpacs.wotlk}`} 
-        onClick={() => switchXpac('wotlk')}
-      >
+      <div className={`wotlk ${xpacs.wotlk}`} onClick={() => switchXpac('wotlk')}>
         Wrath of the Lich King
       </div>
     </div>

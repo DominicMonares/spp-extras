@@ -1,32 +1,18 @@
 import React from 'react';
 
-import { url } from '../../config';
-import { useAppSelector, useAppDispatch } from '../../store/hooks';
-import { updateExpansion } from '../../store/slices/expansionSlice';
-import { updateCharacters } from '../../store/slices/characterSlice';
+import { useAppSelector } from '../../store/hooks';
 
 const MainView = () => {
-  const dispatch = useAppDispatch();
-  const expansion = useAppSelector(state => state.expansion);
-  const characters = useAppSelector(state => state.characters);
+  const expansion = useAppSelector(state => state.expansion.selected);
+  const feature = useAppSelector(state => state.feature.selected);
 
-  const testAPI = async () => {
-    const expansionParams = new URLSearchParams({ expansion: 'classic' });
-    console.log('TEST ', `${url}/characters/all?` + expansionParams)
-    await fetch(`${url}/characters/all?` + expansionParams)
-      .then(res => res.json())
-      .then(data => dispatch(updateCharacters(data)))
-      .catch(err => console.log('API ERROR: ', err));
-  }
 
-  const testExpacStore = () => {
-    dispatch(updateExpansion('tbc'));
-    console.log('STORE: ', expansion);
-  }
 
   return (
     <div className='main-view'>
-      MAIN VIEW
+      {!expansion && !feature ? <div>Please select an expansion</div> : <></>}
+      {expansion && !feature ? <div>Please select a feature</div> : <></>}
+      {expansion && feature ? <div>Render feature component here</div> : <></>}
     </div>
   );
 }

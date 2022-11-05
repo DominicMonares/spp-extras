@@ -11,10 +11,16 @@
 }
 
 .vanilla {
+  background-color: tan;
   border-right: 1px solid black;
 }
 
+.tbc {
+  background-color: green;
+}
+
 .wotlk {
+  background-color: blue;
   border-left: 1px solid black;
 }
 

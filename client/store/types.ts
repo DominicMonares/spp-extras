@@ -1,4 +1,4 @@
-export type SelectedExpansion = 'vanilla' | 'tbc' | 'wotlk' | null;
+export type SelectedExpansion = 'vanilla' | 'tbc' | 'wotlk' | '';
 
 export interface Expansion {
   selected: SelectedExpansion

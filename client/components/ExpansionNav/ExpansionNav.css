@@ -1,8 +1,23 @@
 .xpac-nav {
   display: flex;
   justify-content: space-around;
+  border-bottom: 1px solid black;
 }
 
-.nav-button-sel {
+.vanilla, .tbc, .wotlk {
+  width: 300px;
+  text-align: center;
+  text-align: center;
+}
+
+.vanilla {
+  border-right: 1px solid black;
+}
+
+.wotlk {
+  border-left: 1px solid black;
+}
+
+.selected {
   font-weight: bold;
 }

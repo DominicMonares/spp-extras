@@ -1,4 +1,9 @@
+.app {
+  height: 100%;
+}
+
 .lower-app {
   display: flex;
   justify-content: space-between;
+  height: 100%;
 }

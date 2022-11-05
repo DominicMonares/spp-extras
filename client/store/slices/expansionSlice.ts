@@ -3,7 +3,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Expansion, SelectedExpansion } from '../types';
 
 const initialState: Expansion = {
-  selected: 'vanilla'
+  selected: ''
 }
 
 export const expansionSlice = createSlice({

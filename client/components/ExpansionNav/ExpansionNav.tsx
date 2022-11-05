@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { updateExpansion } from '../../store/slices/expansionSlice';

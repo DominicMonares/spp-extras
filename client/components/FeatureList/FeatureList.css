@@ -3,3 +3,8 @@
   width: 200px;
   border-right: 1px solid black;
 }
+
+.feature {
+  margin-top: 2px;
+  border: 1px solid black;
+}

@@ -44,9 +44,11 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.6",
+    "@types/react-modal": "^3.13.1",
     "electron-squirrel-startup": "^1.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-modal": "^3.16.1",
     "react-redux": "^8.0.4",
     "tree-kill": "^1.2.2"
   }

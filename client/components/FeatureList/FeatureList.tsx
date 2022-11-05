@@ -5,7 +5,12 @@ import './FeatureList.css';
 const FeatureList = () => {
   return (
     <div className='feature-list'>
-      FEATURE LIST
+      <div>
+        Quest Tracker
+      </div>
+      <div>
+        Account-wide Achievements
+      </div>
     </div>
   );
 }

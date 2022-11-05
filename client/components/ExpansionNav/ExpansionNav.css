@@ -24,6 +24,6 @@
   border-left: 1px solid black;
 }
 
-.selected {
+.active {
   font-weight: bold;
 }

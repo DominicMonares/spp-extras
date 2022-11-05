@@ -47,7 +47,9 @@ const ExpansionNav = () => {
   }
 
   const xpacModal = (xpac: SelectedExpansion) => {
-    if (expansion) {
+    if (expansion === xpac) {
+      return;
+    } else if (expansion) {
       setNextXpac(xpac);
       openModal();
     } else {

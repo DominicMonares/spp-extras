@@ -1,7 +1,7 @@
 import React from 'react';
 
 import ExpansionNav from './ExpansionNav/ExpansionNav';
-import FeatureList from './FeatureList/FeatureList';
+import FeatureList from './FeatureNav/FeatureNav';
 import Home from './Home/Home';
 import QuestTracker from './QuestTracker/QuestTracker';
 import AwAchieves from './AwAchieves/AwAchieves';

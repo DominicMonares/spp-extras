@@ -5,7 +5,7 @@ import { updateFeature } from '../../store/slices/featureSlice';
 
 import type { SelectedFeature } from '../../store/types';
 
-import './FeatureList.css';
+import './FeatureNav.css';
 
 interface Props {
   feature: SelectedFeature,

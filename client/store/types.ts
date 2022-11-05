@@ -22,7 +22,7 @@ export interface Characters {
   horde: Faction | Record<string, never>
 }
 
-export type SelectedFeature = 'quest_tracker' | null;
+export type SelectedFeature = 'quest_tracker' | 'aw_achieves' | null;
 
 export interface Feature {
   selected: SelectedFeature

@@ -6,7 +6,7 @@ from .views.quest_tracker import QuestTrackerViewSet
 
 router = routers.DefaultRouter()
 router.register( 'characters', CharactersViewSet, basename='/characters/<string = expansion>' )
-router.register( 'quest_tracker', QuestTrackerViewSet, basename='/quest_tracker' )
+router.register( 'quests', QuestTrackerViewSet, basename='/quests' )
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.

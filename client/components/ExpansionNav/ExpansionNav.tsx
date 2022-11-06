@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Modal from 'react-modal';
 
+import { url } from '../../config';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { updateCharacters } from '../../store/slices/characterSlice';
 import { updateExpansion } from '../../store/slices/expansionSlice';
 import { updateFeature } from '../../store/slices/featureSlice';
-
 import type { SelectedExpansion } from '../../store/types';
 
 import './ExpansionNav.css';
@@ -25,15 +26,27 @@ Modal.setAppElement('#root');
 
 const ExpansionNav = () => {
   const dispatch = useAppDispatch();
+  const expansion = useAppSelector(state => state.expansion.selected);
+  const characters = useAppSelector(state => state.characters);
   const [modalIsOpen, setIsOpen] = useState(false);
   const [nextXpac, setNextXpac] = useState<SelectedExpansion>(null);
-  const expansion = useAppSelector(state => state.expansion.selected);
+
   const xpacActive = (xpac: SelectedExpansion) => xpac === expansion ? 'active' : '';
   const xpacs = {
-    vanilla: xpacActive('vanilla'),
+    classic: xpacActive('classic'),
     tbc: xpacActive('tbc'),
     wotlk: xpacActive('wotlk')
   };
+
+  const fetchCharacters = async () => {
+    const expansionParams = new URLSearchParams({ expansion: expansion });
+
+    console.log('TEST ', `${url}/characters/all?` + expansionParams)
+    await fetch(`${url}/characters/all?` + expansionParams)
+      .then(res => res.json())
+      .then(data => dispatch(updateCharacters(data)))
+      .catch(err => console.log('API ERROR: ', err));
+  }
 
   const openModal = () => {
     setIsOpen(true);
@@ -64,6 +77,14 @@ const ExpansionNav = () => {
     closeModal();
   }
 
+  useEffect(() => {
+    const alliance = Object.keys(characters.alliance).length;
+    const horde = Object.keys(characters.horde).length;
+    if (!alliance && !horde) {
+      console.log('TEMP')
+    } 
+  }, []);
+
   return (
     <div className='xpac-nav'>
       <Modal
@@ -78,7 +99,7 @@ const ExpansionNav = () => {
         <button onClick={closeModal}>Cancel</button>
         <button onClick={switchXpac}>Continue</button>
       </Modal>
-      <div className={`vanilla ${xpacs.vanilla}`} onClick={() => xpacModal('vanilla')}>
+      <div className={`classic ${xpacs.classic}`} onClick={() => xpacModal('classic')}>
         Vanilla
       </div>
       <div className={`tbc ${xpacs.tbc}`} onClick={() => xpacModal('tbc')}>

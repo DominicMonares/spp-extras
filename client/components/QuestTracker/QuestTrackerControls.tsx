@@ -17,6 +17,9 @@ const QuestTrackerControls = () => {
       <button onClick={async () => dispatch(updateCharacters(await characters()))}>
         Get Characters
       </button>
+      <button onClick={async () => dispatch(updateCharacters(await characters()))}>
+        Get Quests
+      </button>
     </div>
   );
 }

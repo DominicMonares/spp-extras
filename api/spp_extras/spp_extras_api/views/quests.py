@@ -10,13 +10,24 @@ from spp_extras_api.models.classiccharacters import CharacterQueststatusWeekly
 
 
 class QuestViewSet(viewsets.ViewSet):
-    @action(methods=['GET'], detail=False, name='Get Value from input')
-    def all(self, request):
-        input = request.GET.get('input')
+    @action(methods=['GET'], detail=False)
+    def completed(self, request):
+        expansion = request.GET.get('expansion')
+        characters = request.GET.get('characters')
 
-        print(input)
+        print(characters)
 
         return Response(
             status=status.HTTP_200_OK, 
-            data=input
+            data=expansion
+        )
+    
+    def all(self, request):
+        expansion = request.GET.get('expansion')
+
+        print(expansion)
+
+        return Response(
+            status=status.HTTP_200_OK, 
+            data=expansion
         )

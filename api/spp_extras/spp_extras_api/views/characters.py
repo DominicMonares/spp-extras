@@ -9,23 +9,24 @@ from spp_extras_api.models.classicrealmd import Account
 from spp_extras_api.models.classiccharacters import Characters
 
 # Helpers
-from spp_extras_api.helpers.characters import get_account_ids, all_characters
+from spp_extras_api.helpers.characters import get_account_ids
+from spp_extras_api.helpers.characters import all_characters
 
 
 class CharactersViewSet(viewsets.ViewSet):
-    @action(methods=['GET'], detail=False, name='Get Value from input')
+    @action(methods=['GET'], detail=False)
     def all(self, request):
-        input = request.GET.get('expansion')
+        expansion = request.GET.get('expansion')
 
         accounts = Account.objects\
-            .using(f'{input}realmd')\
+            .using(f'{expansion}realmd')\
             .exclude(username__contains='RNDBOT')\
             .values('id', 'username')
 
         account_ids = list(map(get_account_ids, accounts))
         
         characters = Characters.objects\
-            .using(f'{input}characters')\
+            .using(f'{expansion}characters')\
             .filter(account__in=account_ids)\
             .values('guid', 'account', 'name', 'race', 'class_field')
 

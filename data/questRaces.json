@@ -1,0 +1,102 @@
+{
+  "0": {
+    "questRaceId": 0,
+    "races": "All Races",
+    "raceIds": [1, 2, 3, 4, 5, 6, 7, 8, 10, 11]
+  },
+  "1": {
+    "questRaceId": 1,
+    "races": "Human",
+    "raceIds": [1]
+  },
+  "2": {
+    "questRaceId": 2,
+    "races": "Orc",
+    "raceIds": [2]
+  },
+  "4": {
+    "questRaceId": 4,
+    "races": "Dwarf",
+    "raceIds": [3]
+  },
+  "5": {
+    "questRaceId": 5,
+    "races": "Human, Dwarf",
+    "raceIds": [1, 3]
+  },
+  "8": {
+    "questRaceId": 8,
+    "races": "Night Elf",
+    "raceIds": [4]
+  },
+  "16": {
+    "questRaceId": 16,
+    "races": "Undead",
+    "raceIds": [5]
+  },
+  "32": {
+    "questRaceId": 32,
+    "races": "Tauren",
+    "raceIds": [6]
+  },
+  "64": {
+    "questRaceId": 64,
+    "races": "Gnome",
+    "raceIds": [7]
+  },
+  "65": {
+    "questRaceId": 65,
+    "races": "Human, Gnome",
+    "raceIds": [1, 7]
+  },
+  "68": {
+    "questRaceId": 68,
+    "races": "Dwarf, Gnome",
+    "raceIds": [3, 7]
+  },
+  "77": {
+    "questRaceId": 77,
+    "races": "Alliance",
+    "raceIds": [1, 3, 4, 7, 11]
+  },
+  "128": {
+    "questRaceId": 128,
+    "races": "Troll",
+    "raceIds": [8]
+  },
+  "130": {
+    "questRaceId": 130,
+    "races": "Orc, Troll",
+    "raceIds": [2, 8]
+  },
+  "144": {
+    "questRaceId": 144,
+    "races": "Undead, Troll",
+    "raceIds": [5, 8]
+  },
+  "162": {
+    "questRaceId": 162,
+    "races": "Orc, Tauren, Troll",
+    "raceIds": [2, 6, 8]
+  },
+  "178": {
+    "questRaceId": 178,
+    "races": "Horde",
+    "raceIds": [2, 5, 6, 8, 10]
+  },
+  "255": {
+    "questRaceId": 255,
+    "races": "All Races",
+    "raceIds": [1, 2, 3, 4, 5, 6, 7, 8, 10, 11]
+  },
+  "690": {
+    "questRaceId": 690,
+    "races": "Horde",
+    "raceIds": [2, 5, 6, 8, 10]
+  },
+  "1101": {
+    "questRaceId": 1101,
+    "races": "Alliance",
+    "raceIds": [1, 3, 4, 7, 11]
+  }
+}

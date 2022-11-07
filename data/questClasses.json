@@ -1,0 +1,73 @@
+{
+  "1": {
+   "questClassId": 1,
+   "classId": 1,
+   "class": "Warrior"
+  },
+  "2": {
+   "questClassId": 2,
+   "classId": 2,
+   "class": "Paladin"
+  },
+  "4": {
+   "questClassId": 4,
+   "classId": 3,
+   "class": "Hunter"
+  },
+  "8": {
+   "questClassId": 8,
+   "classId": 4,
+   "class": "Rogue"
+  },
+  "13": {
+   "questClassId": 13,
+   "classId": 0,
+   "class": "None"
+  },
+  "16": {
+   "questClassId": 16,
+   "classId": 5,
+   "class": "Priest"
+  },
+  "32": {
+   "questClassId": 32,
+   "classId": 6,
+   "class": "Death Knight"
+  },
+  "64": {
+   "questClassId": 64,
+   "classId": 7,
+   "class": "Shaman"
+  },
+  "128": {
+   "questClassId": 128,
+   "classId": 8,
+   "class": "Mage"
+  },
+  "256": {
+   "questClassId": 256,
+   "classId": 9,
+   "class": "Warlock"
+  },
+  "384": {
+   "questClassId": 384,
+   "classId": 0,
+   "class": "None"
+  },
+  "1024": {
+   "questClassId": 1024,
+   "classId": 11,
+   "class": "Druid"
+  },
+  "1247": {
+   "questClassId": 1247,
+   "classId": 0,
+   "class": "None"
+  },
+  "1490": {
+   "questClassId": 1490,
+   "classId": 0,
+   "class": "None"
+  }
+}
+ 

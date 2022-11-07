@@ -3,7 +3,8 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Feature, SelectedFeature } from '../types';
 
 const initialState: Feature = {
-  selected: null
+  // selected: null
+  selected: 'quest_tracker'
 }
 
 export const featureSlice = createSlice({

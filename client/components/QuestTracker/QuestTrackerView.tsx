@@ -4,7 +4,6 @@ import { useAppSelector } from '../../store/hooks';
 
 const QuestTrackerView = () => {
   const characters = useAppSelector(state => state.characters);
-  console.log('FUCK, ', characters)
   return (
     <div>
       QT VIEW

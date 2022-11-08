@@ -8,7 +8,7 @@ export interface Character {
   guid: number,
   account: number,
   name: string,
-  race: number,
+  race: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 10 | 11,
   class_field: number,
   account_name: string
 }

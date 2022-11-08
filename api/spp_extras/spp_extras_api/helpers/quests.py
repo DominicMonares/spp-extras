@@ -1,12 +1,22 @@
-def allQuests(reg, weekly):
+def allCompletedQuests(chars, reg, weekly):
     all = {
       'alliance': {},
-      'horde': {},
-      'neutral': {},
-      'weekly': {}
+      'horde': {}
     }
-
-    # add weekly quests first with null values where needed
-    # iterate through reg quests and check if race and class match data from world quest data
     
+    def addQuest(quest, type):
+        guid = str(quest['guid'])
+        questId = str(quest['quest'])
+        faction = chars[guid]
 
+        if not hasattr(all[faction], guid):
+            all[faction][guid] = { 'reg': {}, 'weekly': {} }
+
+        if type == 'reg':
+            all[faction][guid]['reg'][questId] = quest
+        elif type == 'weekly':
+            all[faction][guid]['weekly'][questId] = quest
+
+    for q in reg: addQuest(q, 'reg')
+    for q in weekly: addQuest(q, 'weekly')
+    return all

@@ -6,6 +6,8 @@ import { getCharacters } from '../../apiCalls/characters';
 import { getQuests } from '../../apiCalls/quests';
 import type { SelectedExpansion, Character } from "../../store/types";
 
+import { faction } from '../../helpers/characters';
+
 import './QuestTracker.css';
 
 
@@ -22,11 +24,13 @@ const QuestTrackerControls = () => {
 
   const storeQuests = async () => {
     const chars = await storeCharacters();
-    const alliance = Object.values(chars.alliance).map((c: Character) => c.guid);
-    const horde = Object.values(chars.horde).map((c: Character) => c.guid);
-    const charIds = alliance.concat(horde).join(',');
-    console.log('ASDFASDF ', charIds)
-    await getQuests(expansion, charIds);
+    const allianceChars = Object.values(chars.alliance);
+    const allianceQuery = allianceChars.map((c: Character) => [c.guid, faction(c.race)]);
+    const hordeChars = Object.values(chars.horde);
+    const hordeQuery = hordeChars.map((c: Character) => [c.guid, faction(c.race)]);
+    const charQuery = allianceQuery.concat(hordeQuery).flat().join(',');
+    const completedQuests = await getQuests(expansion, charQuery);
+    console.log('COMPLETED QUESTS: ', completedQuests)
   }
 
   return (

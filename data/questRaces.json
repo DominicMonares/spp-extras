@@ -1,101 +1,121 @@
 {
   "0": {
     "questRaceId": 0,
+    "faction": "both",
     "races": "All Races",
     "raceIds": [1, 2, 3, 4, 5, 6, 7, 8, 10, 11]
   },
   "1": {
     "questRaceId": 1,
+    "faction": "alliance",
     "races": "Human",
     "raceIds": [1]
   },
   "2": {
     "questRaceId": 2,
+    "faction": "horde",
     "races": "Orc",
     "raceIds": [2]
   },
   "4": {
     "questRaceId": 4,
+    "faction": "alliance",
     "races": "Dwarf",
     "raceIds": [3]
   },
   "5": {
     "questRaceId": 5,
+    "faction": "alliance",
     "races": "Human, Dwarf",
     "raceIds": [1, 3]
   },
   "8": {
     "questRaceId": 8,
+    "faction": "alliance",
     "races": "Night Elf",
     "raceIds": [4]
   },
   "16": {
     "questRaceId": 16,
+    "faction": "horde",
     "races": "Undead",
     "raceIds": [5]
   },
   "32": {
     "questRaceId": 32,
+    "faction": "horde",
     "races": "Tauren",
     "raceIds": [6]
   },
   "64": {
     "questRaceId": 64,
+    "faction": "alliance",
     "races": "Gnome",
     "raceIds": [7]
   },
   "65": {
     "questRaceId": 65,
+    "faction": "alliance",
     "races": "Human, Gnome",
     "raceIds": [1, 7]
   },
   "68": {
     "questRaceId": 68,
+    "faction": "alliance",
     "races": "Dwarf, Gnome",
     "raceIds": [3, 7]
   },
   "77": {
     "questRaceId": 77,
+    "faction": "alliance",
     "races": "Alliance",
     "raceIds": [1, 3, 4, 7, 11]
   },
   "128": {
     "questRaceId": 128,
+    "faction": "horde",
     "races": "Troll",
     "raceIds": [8]
   },
   "130": {
     "questRaceId": 130,
+    "faction": "horde",
     "races": "Orc, Troll",
     "raceIds": [2, 8]
   },
   "144": {
     "questRaceId": 144,
+    "faction": "horde",
     "races": "Undead, Troll",
     "raceIds": [5, 8]
   },
   "162": {
     "questRaceId": 162,
+    "faction": "horde",
     "races": "Orc, Tauren, Troll",
     "raceIds": [2, 6, 8]
   },
   "178": {
     "questRaceId": 178,
+    "faction": "horde",
     "races": "Horde",
     "raceIds": [2, 5, 6, 8, 10]
   },
   "255": {
     "questRaceId": 255,
+    "faction": "both",
     "races": "All Races",
     "raceIds": [1, 2, 3, 4, 5, 6, 7, 8, 10, 11]
   },
   "690": {
     "questRaceId": 690,
+    "faction": "horde",
     "races": "Horde",
     "raceIds": [2, 5, 6, 8, 10]
   },
   "1101": {
     "questRaceId": 1101,
+    "faction": "alliance",
     "races": "Alliance",
     "raceIds": [1, 3, 4, 7, 11]
   }

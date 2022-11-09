@@ -7,7 +7,7 @@ const initialState: CompletedQuests = {
   horde: {}
 }
 
-export const completedQuestReducer = createSlice({
+export const completedQuestSlice = createSlice({
   name: 'completedQuests',
   initialState,
   reducers: {
@@ -18,6 +18,6 @@ export const completedQuestReducer = createSlice({
   }
 });
 
-export const { updateCompletedQuests } = completedQuestReducer.actions;
+export const { updateCompletedQuests } = completedQuestSlice.actions;
 
-export default completedQuestReducer.reducer;
+export default completedQuestSlice.reducer;

@@ -3,7 +3,8 @@ import { configureStore } from '@reduxjs/toolkit';
 import expansionReducer from './slices/expansionSlice';
 import characterReducer from './slices/characterSlice';
 import featureReducer from './slices/featureSlice';
-import completedQuestReducer from './slices/questSlice';
+import completedQuestReducer from './slices/completedQuestSlice';
+import allQuestReducer from './slices/allQuestSlice';
 
 
 export const store = configureStore({
@@ -11,7 +12,8 @@ export const store = configureStore({
     expansion: expansionReducer,
     characters: characterReducer,
     feature: featureReducer,
-    completedQuests: completedQuestReducer
+    completedQuests: completedQuestReducer,
+    allQuests: allQuestReducer
   }
 });
 

@@ -71,3 +71,22 @@ export interface CompletedQuests {
   alliance: FactionQuests | Record<string, never>,
   horde: FactionQuests | Record<string, never>
 }
+
+export interface AllQuestTemplate {
+  entry: number,
+  requiredclasses: number,
+  requiredraces: number,
+  title: string,
+  type: number,
+  zoneorsort: number
+}
+
+export interface AllFactionQuests {
+  [key: string]: AllQuestTemplate
+}
+
+export interface AllQuests {
+  alliance: AllFactionQuests | Record<string, never>,
+  horde: AllFactionQuests | Record<string, never>,
+  both: AllFactionQuests | Record<string, never>
+}

@@ -98,9 +98,9 @@ export type QuestTrackerFaction = 'alliance' | 'horde' | 'both';
 export type QuestTrackerClass = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11;
 
 export interface QuestTrackerFilter {
-  faction: QuestTrackerFaction | null,
-  zone: number | null,
-  race: Race | null,
-  class: QuestTrackerClass | null,
-  character: string | null
+  faction?: QuestTrackerFaction | null,
+  zone?: number | null,
+  race?: Race | null,
+  class?: QuestTrackerClass | null,
+  character?: string | null
 }

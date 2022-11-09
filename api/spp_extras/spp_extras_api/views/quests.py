@@ -7,6 +7,7 @@ from rest_framework.response import Response
 # Models
 from spp_extras_api.models.classiccharacters import CharacterQueststatus
 from spp_extras_api.models.classiccharacters import CharacterQueststatusWeekly
+from spp_extras_api.models.classicmangos import QuestTemplate
 
 # Helpers
 from spp_extras_api.helpers.quests import allCompletedQuests
@@ -51,9 +52,12 @@ class QuestViewSet(viewsets.ViewSet):
     def all(self, request):
         expansion = request.GET.get('expansion')
 
-        print(expansion)
+        all_quests = QuestTemplate.objects\
+            .using(f'{expansion}mangos')\
+            .all()\
+            .values('entry', 'ZoneOrSort', 'Type', 'RequiredClasses', 'RequiredRaces', 'Title')
 
         return Response(
             status=status.HTTP_200_OK, 
-            data=expansion
+            data=all_quests
         )

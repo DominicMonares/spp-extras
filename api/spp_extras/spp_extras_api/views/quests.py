@@ -10,7 +10,8 @@ from spp_extras_api.models.classiccharacters import CharacterQueststatusWeekly
 from spp_extras_api.models.classicmangos import QuestTemplate
 
 # Helpers
-from spp_extras_api.helpers.quests import allCompletedQuests
+from spp_extras_api.helpers.quests import all_completed_quests
+from spp_extras_api.helpers.quests import all_quests
 
 
 class QuestViewSet(viewsets.ViewSet):
@@ -37,7 +38,7 @@ class QuestViewSet(viewsets.ViewSet):
             .filter(guid__in=charIds)\
             .values()
 
-        allCompleted = allCompletedQuests(
+        allCompleted = all_completed_quests(
             chars, 
             completedReg, 
             completedWeekly
@@ -48,16 +49,18 @@ class QuestViewSet(viewsets.ViewSet):
             data=allCompleted
         )
     
+
+    @action(methods=['GET'], detail=False)
     # Get all quests from world database
     def all(self, request):
         expansion = request.GET.get('expansion')
 
-        all_quests = QuestTemplate.objects\
+        quests = QuestTemplate.objects\
             .using(f'{expansion}mangos')\
             .all()\
-            .values('entry', 'ZoneOrSort', 'Type', 'RequiredClasses', 'RequiredRaces', 'Title')
+            .values('entry', 'zoneorsort', 'type', 'requiredclasses', 'requiredraces', 'title')
 
         return Response(
             status=status.HTTP_200_OK, 
-            data=all_quests
+            data=all_quests(quests)
         )

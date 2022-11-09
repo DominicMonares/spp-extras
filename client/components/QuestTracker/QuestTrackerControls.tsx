@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useAppSelector, useAppDispatch } from '../../store/hooks';
 import { updateCharacters } from '../../store/slices/characterSlice';
-import { updateQuests } from '../../store/slices/questSlice';
+import { updateCompletedQuests } from '../../store/slices/questSlice';
 import { getCharacters } from '../../apiCalls/characters';
 import { getQuests } from '../../apiCalls/quests';
 import type { SelectedExpansion, Character, CompletedQuests } from "../../store/types";
@@ -16,7 +16,7 @@ const QuestTrackerControls = () => {
   const dispatch = useAppDispatch();
   const expansion = useAppSelector(state => state.expansion.selected);
   const characters = useAppSelector(state => state.characters);
-  const quests = useAppSelector(state => state.quests)
+  const completedQuests = useAppSelector(state => state.completedQuests);
   
   const storeCharacters = async ()  => {
     const chars = await getCharacters(expansion);
@@ -31,9 +31,9 @@ const QuestTrackerControls = () => {
     const hordeChars = Object.values(chars.horde);
     const hordeQuery = hordeChars.map((c: Character) => [c.guid, faction(c.race)]);
     const charQuery = allianceQuery.concat(hordeQuery).flat().join(',');
-    const completedQuests = await getQuests(expansion, charQuery);
-    dispatch(updateQuests(completedQuests));
-    console.log('COMPLETED QUESTS: ', completedQuests)
+    const completed = await getQuests(expansion, charQuery);
+    dispatch(updateCompletedQuests(completed));
+    console.log('COMPLETED QUESTS: ', completed)
   }
 
   return (

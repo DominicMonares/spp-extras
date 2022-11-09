@@ -7,16 +7,16 @@ const initialState: CompletedQuests = {
   horde: null
 }
 
-export const questSlice = createSlice({
-  name: 'quests',
+export const completedQuestReducer = createSlice({
+  name: 'completedQuests',
   initialState,
   reducers: {
-    updateQuests: (state, action: PayloadAction<CompletedQuests>) => {
+    updateCompletedQuests: (state, action: PayloadAction<CompletedQuests>) => {
       state = action.payload;
     }
   }
 });
 
-export const { updateQuests } = questSlice.actions;
+export const { updateCompletedQuests } = completedQuestReducer.actions;
 
-export default questSlice.reducer;
+export default completedQuestReducer.reducer;

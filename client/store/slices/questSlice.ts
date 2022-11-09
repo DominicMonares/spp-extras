@@ -3,8 +3,8 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { CompletedQuests } from '../types';
 
 const initialState: CompletedQuests = {
-  alliance: null,
-  horde: null
+  alliance: {},
+  horde: {}
 }
 
 export const completedQuestReducer = createSlice({

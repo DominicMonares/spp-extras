@@ -68,6 +68,6 @@ export interface FactionQuests {
 }
 
 export interface CompletedQuests {
-  alliance: FactionQuests | null,
-  horde: FactionQuests | null
+  alliance: FactionQuests | Record<string, never>,
+  horde: FactionQuests | Record<string, never>
 }

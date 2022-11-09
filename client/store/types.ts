@@ -4,11 +4,13 @@ export interface Expansion {
   selected: SelectedExpansion
 }
 
+export type Race = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 10 | 11;
+
 export interface Character {
   guid: number,
   account: number,
   name: string,
-  race: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 10 | 11,
+  race: Race,
   class_field: number,
   account_name: string
 }
@@ -89,4 +91,15 @@ export interface AllQuests {
   alliance: AllFactionQuests | Record<string, never>,
   horde: AllFactionQuests | Record<string, never>,
   both: AllFactionQuests | Record<string, never>
+}
+
+export type QuestTrackerFaction = 'alliance' | 'horde' | 'both';
+
+export type QuestTrackerClass = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11;
+
+export interface QuestTrackerFilter {
+  faction: QuestTrackerFaction,
+  race: Race | null,
+  class: QuestTrackerClass | null,
+  character: string | null
 }

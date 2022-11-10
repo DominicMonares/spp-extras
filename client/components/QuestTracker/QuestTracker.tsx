@@ -1,13 +1,13 @@
 import React from 'react';
 
-import QuestTrackerView from './QuestTrackerView';
-import QuestTrackerControls from './QuestTrackerControls';
+import View from './View';
+import Controls from './Controls';
 
 const QuestTracker = () => {
   return (
     <>
-      <QuestTrackerView />
-      <QuestTrackerControls />
+      <View />
+      <Controls />
     </>
   );
 }

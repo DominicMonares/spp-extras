@@ -14,6 +14,8 @@ if (require('electron-squirrel-startup')) {
 }
 
 const createWindow = async () => {
+  startDjangoServer();
+
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 900,

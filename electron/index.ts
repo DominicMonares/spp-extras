@@ -13,18 +13,25 @@ if (require('electron-squirrel-startup')) {
   app.quit();
 }
 
-const createWindow = (): void => {
-  startDjangoServer();
-
+const createWindow = async () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    height: 675,
     width: 900,
+    height: 675,
+    show: false,
     webPreferences: {
       preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
       nodeIntegration: true,
       contextIsolation: false
     },
+  });
+
+  const splash = new BrowserWindow({
+    width: 500,
+    height: 300,
+    transparent: true,
+    frame: false,
+    alwaysOnTop: true
   });
 
   mainWindow.webContents.session.webRequest.onBeforeSendHeaders(
@@ -44,23 +51,29 @@ const createWindow = (): void => {
     });
   });
 
+  splash.loadFile('electron/splash.html');
+  splash.center();
+
   // and load the index.html of the app.
-  mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
+  await mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
+
+  splash.close();
+  mainWindow.show();
 
   // Open the DevTools.
   openDevTools(mainWindow);
 };
 
 // eslint-disable-next-line
-const UpsertKeyValue = (obj : any, keyToChange : string, value : string[]) => {
+const UpsertKeyValue = (obj: any, keyToChange: string, value: string[]) => {
   const keyToChangeLower = keyToChange.toLowerCase();
   for (const key of Object.keys(obj)) {
-      if (key.toLowerCase() === keyToChangeLower) {
+    if (key.toLowerCase() === keyToChangeLower) {
       // Reassign old key
       obj[key] = value;
       // Done
       return;
-      }
+    }
   }
   // Insert at end instead
   obj[keyToChange] = value;
@@ -95,20 +108,20 @@ const spawnDjango = () => {
   if (isDevelopmentEnv()) {
     return spawn(
       `api\\spp_extras_env\\Scripts\\python.exe`,
-      ['api\\spp_extras\\manage.py', 'runserver', '--settings=spp_extras.settings.dev'], 
+      ['api\\spp_extras\\manage.py', 'runserver', '--settings=spp_extras.settings.dev'],
       { shell: true }
     );
   }
 
   return spawn(
-    `cd api && spp_extras_api.exe runserver --settings=spp_extras.settings.prod --noreload`, 
+    `cd api && spp_extras_api.exe runserver --settings=spp_extras.settings.prod --noreload`,
     { shell: true }
   );
 }
 
 const isDevelopmentEnv = () => {
-    console.log( `NODE_ENV=${ process.env.NODE_ENV }` )
-    return process.env.NODE_ENV == 'development'
+  console.log(`NODE_ENV=${process.env.NODE_ENV}`)
+  return process.env.NODE_ENV == 'development'
 }
 
 const openDevTools = (mainWindow: BrowserWindow) => {
@@ -130,7 +143,7 @@ app.on('before-quit', () => {
   // Having async issue with killing process, kill callback w/ preventDefault doesn't work
   // This causes the spp_extras_api.exe to continue running after closing app
   // NEEDS FIX FOR PRODUCTION
-  
+
   kill(DJANGO_CHILD_PROCESS.pid);
 });
 

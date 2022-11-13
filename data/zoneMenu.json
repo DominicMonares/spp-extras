@@ -1,0 +1,47 @@
+[
+  {
+    "main": "Eastern Kingdoms",
+    "options": {
+      
+    }
+  },
+  {
+    "main": "Kalimdor",
+    "options": {
+      
+    }
+  },
+  {
+    "main": "Outland",
+    "options": {
+      
+    }
+  },
+  {
+    "main": "Northrend",
+    "options": {
+      
+    }
+  },
+  {
+    "main": "Dungeons",
+    "options": {
+      
+    }
+  },
+  {
+    "main": "Raids",
+    "options": {
+      
+    }
+  },
+  {
+    "main": "Battlegrounds",
+    "options": {
+      {
+        "sub": "Alterac Valley",
+        "xpac": "all"
+      }
+    }
+  }
+]

@@ -1,1400 +1,1002 @@
 {
-  "battleground": {
-    "0": {
-      "name": "Eastern Kingdoms",
-      "zones": {
-        "Alterac Valley": [
-          {
-            "subzoneId": 2839,
-            "subzone": "Alterac Valley"
-          }
-        ]
-      }
-    },
-    "30": {
-      "name": "Alterac Valley",
-      "zones": {
-        "Alterac Valley": [
-          {
-            "subzoneId": 2597,
-            "subzone": "Alterac Valley"
-          }
-        ]
-      }
-    },
-    "489": {
-      "name": "Warsong Gulch",
-      "zones": {
-        "Warsong Gulch": [
-          {
-            "subzoneId": 3277,
-            "subzone": "Warsong Gulch"
-          }
-        ]
-      }
-    },
-    "529": {
-      "name": "Arathi Basin",
-      "zones": {
-        "Arathi Basin": [
-          {
-            "subzoneId": 3358,
-            "subzone": "Arathi Basin"
-          }
-        ]
-      }
-    },
-    "566": {
-      "name": "Eye of the Storm",
-      "zones": {
-        "Eye of the Storm": [
-          {
-            "subzoneId": 3820,
-            "subzone": "Eye of the Storm"
-          }
-        ]
-      }
-    },
-    "571": {
-      "name": "Northrend",
-      "zones": {
-        "Wintergrasp": [
-          {
-            "subzoneId": 4197,
-            "subzone": "Wintergrasp"
-          }
-        ]
-      }
-    },
-    "607": {
-      "name": "Strand of the Ancients",
-      "zones": {
-        "Strand of the Ancients": [
-          {
-            "subzoneId": 4384,
-            "subzone": "Strand of the Ancients"
-          }
-        ]
-      }
-    },
-    "628": {
-      "name": "Isle of Conquest",
-      "zones": {
-        "Isle of Conquest": [
-          {
-            "subzoneId": 4710,
-            "subzone": "Isle of Conquest"
-          }
-        ]
-      }
+  "Alterac Valley": [
+    {
+      "subzoneId": 2839,
+      "subzone": "Alterac Valley"
     }
-  },
-  "continent": {
-    "0": {
-      "name": "Eastern Kingdoms",
-      "zones": {
-        "Dun Morogh": [
-          {
-            "subzoneId": 1,
-            "subzone": "Dun Morogh"
-          },
-          {
-            "subzoneId": 132,
-            "subzone": "Coldridge Valley"
-          }
-        ],
-        "Badlands": [
-          {
-            "subzoneId": 3,
-            "subzone": "Badlands"
-          }
-        ],
-        "Blasted Lands": [
-          {
-            "subzoneId": 4,
-            "subzone": "Blasted Lands"
-          }
-        ],
-        "Swamp of Sorrows": [
-          {
-            "subzoneId": 8,
-            "subzone": "Swamp of Sorrows"
-          }
-        ],
-        "Elwynn Forest": [
-          {
-            "subzoneId": 9,
-            "subzone": "Northshire Valley"
-          },
-          {
-            "subzoneId": 12,
-            "subzone": "Elwynn Forest"
-          },
-          {
-            "subzoneId": 23,
-            "subzone": "Northshire River"
-          },
-          {
-            "subzoneId": 24,
-            "subzone": "Northshire Abbey"
-          }
-        ],
-        "Duskwood": [
-          {
-            "subzoneId": 10,
-            "subzone": "Duskwood"
-          }
-        ],
-        "Wetlands": [
-          {
-            "subzoneId": 11,
-            "subzone": "Wetlands"
-          }
-        ],
-        "Blackrock Mountain": [
-          {
-            "subzoneId": 25,
-            "subzone": "Blackrock Mountain"
-          }
-        ],
-        "Western Plaguelands": [
-          {
-            "subzoneId": 28,
-            "subzone": "Western Plaguelands"
-          }
-        ],
-        "Stranglethorn Vale": [
-          {
-            "subzoneId": 33,
-            "subzone": "Stranglethorn Vale"
-          }
-        ],
-        "Booty Bay": [
-          {
-            "subzoneId": 35,
-            "subzone": "Booty Bay"
-          }
-        ],
-        "Alterac Mountains": [
-          {
-            "subzoneId": 36,
-            "subzone": "Alterac Mountains"
-          }
-        ],
-        "Loch Modan": [
-          {
-            "subzoneId": 38,
-            "subzone": "Loch Modan"
-          }
-        ],
-        "Westfall": [
-          {
-            "subzoneId": 40,
-            "subzone": "Westfall"
-          }
-        ],
-        "Deadwind Pass": [
-          {
-            "subzoneId": 41,
-            "subzone": "Deadwind Pass"
-          }
-        ],
-        "Redridge Mountains": [
-          {
-            "subzoneId": 44,
-            "subzone": "Redridge Mountains"
-          }
-        ],
-        "Arathi Highlands": [
-          {
-            "subzoneId": 45,
-            "subzone": "Arathi Highlands"
-          }
-        ],
-        "Burning Steppes": [
-          {
-            "subzoneId": 46,
-            "subzone": "Burning Steppes"
-          }
-        ],
-        "The Hinterlands": [
-          {
-            "subzoneId": 47,
-            "subzone": "The Hinterlands"
-          }
-        ],
-        "Searing Gorge": [
-          {
-            "subzoneId": 51,
-            "subzone": "Searing Gorge"
-          }
-        ],
-        "Tirisfal Glades": [
-          {
-            "subzoneId": 85,
-            "subzone": "Tirisfal Glades"
-          },
-          {
-            "subzoneId": 154,
-            "subzone": "Deathknell"
-          }
-        ],
-        "Silverpine Forest": [
-          {
-            "subzoneId": 130,
-            "subzone": "Silverpine Forest"
-          }
-        ],
-        "Eastern Plaguelands": [
-          {
-            "subzoneId": 139,
-            "subzone": "Eastern Plaguelands"
-          }
-        ],
-        "Shadowfang Keep": [
-          {
-            "subzoneId": 236,
-            "subzone": "Shadowfang Keep"
-          }
-        ],
-        "Hillsbrad Foothills": [
-          {
-            "subzoneId": 267,
-            "subzone": "Hillsbrad Foothills"
-          },
-          {
-            "subzoneId": 279,
-            "subzone": "Dalaran Crater"
-          }
-        ],
-        "Undercity": [
-          {
-            "subzoneId": 1497,
-            "subzone": "Undercity"
-          }
-        ],
-        "Uldaman": [
-          {
-            "subzoneId": 1517,
-            "subzone": "Uldaman"
-          }
-        ],
-        "Stormwind City": [
-          {
-            "subzoneId": 1519,
-            "subzone": "Stormwind City"
-          }
-        ],
-        "Ironforge": [
-          {
-            "subzoneId": 1537,
-            "subzone": "Ironforge"
-          }
-        ]
-      }
-    },
-    "1": {
-      "name": "Kalimdor",
-      "zones": {
-        "Durotar": [
-          {
-            "subzoneId": 14,
-            "subzone": "Durotar"
-          },
-          {
-            "subzoneId": 363,
-            "subzone": "Valley of Trials"
-          },
-          {
-            "subzoneId": 393,
-            "subzone": "Darkspear Strand"
-          }
-        ],
-        "Dustwallow Marsh": [
-          {
-            "subzoneId": 15,
-            "subzone": "Dustwallow Marsh"
-          },
-          {
-            "subzoneId": 2079,
-            "subzone": "Alcaz Island"
-          }
-        ],
-        "Azshara": [
-          {
-            "subzoneId": 16,
-            "subzone": "Azshara"
-          }
-        ],
-        "The Barrens": [
-          {
-            "subzoneId": 17,
-            "subzone": "The Barrens"
-          }
-        ],
-        "Teldrassil": [
-          {
-            "subzoneId": 141,
-            "subzone": "Teldrassil"
-          },
-          {
-            "subzoneId": 188,
-            "subzone": "Shadowglen"
-          },
-          {
-            "subzoneId": 702,
-            "subzone": "Rut'theran Village"
-          }
-        ],
-        "Darkshore": [
-          {
-            "subzoneId": 148,
-            "subzone": "Darkshore"
-          }
-        ],
-        "Mulgore": [
-          {
-            "subzoneId": 215,
-            "subzone": "Mulgore"
-          },
-          {
-            "subzoneId": 220,
-            "subzone": "Red Cloud Mesa"
-          },
-          {
-            "subzoneId": 221,
-            "subzone": "Camp Narache"
-          }
-        ],
-        "Ashenvale": [
-          {
-            "subzoneId": 331,
-            "subzone": "Ashenvale"
-          }
-        ],
-        "Feralas": [
-          {
-            "subzoneId": 357,
-            "subzone": "Feralas"
-          },
-          {
-            "subzoneId": 1116,
-            "subzone": "Feathermoon Stronghold"
-          }
-        ],
-        "Felwood": [
-          {
-            "subzoneId": 361,
-            "subzone": "Felwood"
-          },
-          {
-            "subzoneId": 1769,
-            "subzone": "Timbermaw Hold"
-          }
-        ],
-        "Thousand Needles": [
-          {
-            "subzoneId": 400,
-            "subzone": "Thousand Needles"
-          }
-        ],
-        "Desolace": [
-          {
-            "subzoneId": 405,
-            "subzone": "Desolace"
-          }
-        ],
-        "Stonetalon Mountains": [
-          {
-            "subzoneId": 406,
-            "subzone": "Stonetalon Mountains"
-          }
-        ],
-        "Tanaris": [
-          {
-            "subzoneId": 440,
-            "subzone": "Tanaris"
-          }
-        ],
-        "Un'Goro Crater": [
-          {
-            "subzoneId": 490,
-            "subzone": "Un'Goro Crater"
-          }
-        ],
-        "Moonglade": [
-          {
-            "subzoneId": 493,
-            "subzone": "Moonglade"
-          }
-        ],
-        "Winterspring": [
-          {
-            "subzoneId": 618,
-            "subzone": "Winterspring"
-          }
-        ],
-        "Zul'Farrak": [
-          {
-            "subzoneId": 978,
-            "subzone": "Zul'Farrak"
-          }
-        ],
-        "Silithus": [
-          {
-            "subzoneId": 1377,
-            "subzone": "Silithus"
-          }
-        ],
-        "Orgrimmar": [
-          {
-            "subzoneId": 1637,
-            "subzone": "Orgrimmar"
-          }
-        ],
-        "Thunder Bluff": [
-          {
-            "subzoneId": 1638,
-            "subzone": "Thunder Bluff"
-          }
-        ],
-        "Darnassus": [
-          {
-            "subzoneId": 1657,
-            "subzone": "Darnassus"
-          }
-        ],
-        "Caverns of Time": [
-          {
-            "subzoneId": 1941,
-            "subzone": "Caverns of Time"
-          },
-          {
-            "subzoneId": 2300,
-            "subzone": "Caverns of Time"
-          }
-        ]
-      }
-    },
-    "369": {
-      "name": "Deeprun Tram",
-      "zones": {
-        "Deeprun Tram": [
-          {
-            "subzoneId": 2257,
-            "subzone": "Deeprun Tram"
-          }
-        ]
-      }
-    },
-    "530": {
-      "name": "Eastern Kingdoms",
-      "zones": {
-        "Eversong Woods": [
-          {
-            "subzoneId": 3430,
-            "subzone": "Eversong Woods"
-          },
-          {
-            "subzoneId": 3431,
-            "subzone": "Sunstrider Isle"
-          }
-        ],
-        "Ghostlands": [
-          {
-            "subzoneId": 3433,
-            "subzone": "Ghostlands"
-          }
-        ],
-        "Hellfire Peninsula": [
-          {
-            "subzoneId": 3483,
-            "subzone": "Hellfire Peninsula"
-          }
-        ],
-        "Silvermoon City": [
-          {
-            "subzoneId": 3487,
-            "subzone": "Silvermoon City"
-          }
-        ],
-        "Nagrand": [
-          {
-            "subzoneId": 3518,
-            "subzone": "Nagrand"
-          }
-        ],
-        "Terokkar Forest": [
-          {
-            "subzoneId": 3519,
-            "subzone": "Terokkar Forest"
-          },
-          {
-            "subzoneId": 3679,
-            "subzone": "Skettis"
-          },
-          {
-            "subzoneId": 3688,
-            "subzone": "Auchindoun"
-          }
-        ],
-        "Shadowmoon Valley": [
-          {
-            "subzoneId": 3520,
-            "subzone": "Shadowmoon Valley"
-          }
-        ],
-        "Zangarmarsh": [
-          {
-            "subzoneId": 3521,
-            "subzone": "Zangarmarsh"
-          },
-          {
-            "subzoneId": 3905,
-            "subzone": "Coilfang Reservoir"
-          }
-        ],
-        "Blade's Edge Mountains": [
-          {
-            "subzoneId": 3522,
-            "subzone": "Blade's Edge Mountains"
-          },
-          {
-            "subzoneId": 3696,
-            "subzone": "The Barrier Hills"
-          }
-        ],
-        "Netherstorm": [
-          {
-            "subzoneId": 3523,
-            "subzone": "Netherstorm"
-          }
-        ],
-        "Azuremyst Isle": [
-          {
-            "subzoneId": 3524,
-            "subzone": "Azuremyst Isle"
-          },
-          {
-            "subzoneId": 3526,
-            "subzone": "Ammen Vale"
-          }
-        ],
-        "Bloodmyst Isle": [
-          {
-            "subzoneId": 3525,
-            "subzone": "Bloodmyst Isle"
-          }
-        ],
-        "The Exodar": [
-          {
-            "subzoneId": 3557,
-            "subzone": "The Exodar"
-          }
-        ],
-        "Shattrath City": [
-          {
-            "subzoneId": 3703,
-            "subzone": "Shattrath City"
-          },
-          {
-            "subzoneId": 3896,
-            "subzone": "Aldor Rise"
-          }
-        ],
-        "Isle of Quel'Danas": [
-          {
-            "subzoneId": 4080,
-            "subzone": "Isle of Quel'Danas"
-          }
-        ]
-      }
-    },
-    "571": {
-      "name": "Northrend",
-      "zones": {
-        "Dragonblight": [
-          {
-            "subzoneId": 65,
-            "subzone": "Dragonblight"
-          }
-        ],
-        "Zul'Drak": [
-          {
-            "subzoneId": 66,
-            "subzone": "Zul'Drak"
-          }
-        ],
-        "The Storm Peaks": [
-          {
-            "subzoneId": 67,
-            "subzone": "The Storm Peaks"
-          }
-        ],
-        "Icecrown": [
-          {
-            "subzoneId": 210,
-            "subzone": "Icecrown"
-          },
-          {
-            "subzoneId": 4769,
-            "subzone": "Hrothgar's Landing"
-          }
-        ],
-        "Grizzly Hills": [
-          {
-            "subzoneId": 394,
-            "subzone": "Grizzly Hills"
-          }
-        ],
-        "Howling Fjord": [
-          {
-            "subzoneId": 495,
-            "subzone": "Howling Fjord"
-          }
-        ],
-        "Borean Tundra": [
-          {
-            "subzoneId": 3537,
-            "subzone": "Borean Tundra"
-          },
-          {
-            "subzoneId": 4024,
-            "subzone": "Coldarra"
-          }
-        ],
-        "Sholazar Basin": [
-          {
-            "subzoneId": 3711,
-            "subzone": "Sholazar Basin"
-          }
-        ],
-        "Dalaran": [
-          {
-            "subzoneId": 4395,
-            "subzone": "Dalaran"
-          },
-          {
-            "subzoneId": 4613,
-            "subzone": "Dalaran City"
-          }
-        ]
-      }
+  ],
+  "Alterac Valley": [
+    {
+      "subzoneId": 2597,
+      "subzone": "Alterac Valley"
     }
-  },
-  "dungeon": {
-    "0": {
-      "name": "Eastern Kingdoms",
-      "zones": {
-        "Gnomeregan": [
-          {
-            "subzoneId": 133,
-            "subzone": "Gnomeregan"
-          }
-        ]
-      }
-    },
-    "1": {
-      "name": "Kalimdor",
-      "zones": {
-        "Razorfen Kraul": [
-          {
-            "subzoneId": 1717,
-            "subzone": "Razorfen Kraul"
-          }
-        ]
-      }
-    },
-    "33": {
-      "name": "Shadowfang Keep",
-      "zones": {
-        "Shadowfang Keep": [
-          {
-            "subzoneId": 209,
-            "subzone": "Shadowfang Keep"
-          }
-        ]
-      }
-    },
-    "34": {
-      "name": "The Stockade",
-      "zones": {
-        "The Stockade": [
-          {
-            "subzoneId": 717,
-            "subzone": "The Stockade"
-          }
-        ]
-      }
-    },
-    "36": {
-      "name": "The Deadmines",
-      "zones": {
-        "The Deadmines": [
-          {
-            "subzoneId": 1581,
-            "subzone": "The Deadmines"
-          }
-        ]
-      }
-    },
-    "43": {
-      "name": "Wailing Caverns",
-      "zones": {
-        "Wailing Caverns": [
-          {
-            "subzoneId": 718,
-            "subzone": "Wailing Caverns"
-          }
-        ]
-      }
-    },
-    "48": {
-      "name": "Blackfathom Deeps",
-      "zones": {
-        "Blackfathom Deeps": [
-          {
-            "subzoneId": 719,
-            "subzone": "Blackfathom Deeps"
-          }
-        ]
-      }
-    },
-    "109": {
-      "name": "Sunken Temple",
-      "zones": {
-        "Sunken Temple": [
-          {
-            "subzoneId": 1417,
-            "subzone": "Sunken Temple"
-          }
-        ]
-      }
-    },
-    "129": {
-      "name": "Razorfen Downs",
-      "zones": {
-        "Razorfen Downs": [
-          {
-            "subzoneId": 722,
-            "subzone": "Razorfen Downs"
-          }
-        ]
-      }
-    },
-    "189": {
-      "name": "Scarlet Monastery",
-      "zones": {
-        "Scarlet Monastery": [
-          {
-            "subzoneId": 796,
-            "subzone": "Scarlet Monastery"
-          }
-        ]
-      }
-    },
-    "229": {
-      "name": "Blackrock Spire",
-      "zones": {
-        "Blackrock Spire": [
-          {
-            "subzoneId": 1583,
-            "subzone": "Blackrock Spire"
-          }
-        ]
-      }
-    },
-    "230": {
-      "name": "Blackrock Depths",
-      "zones": {
-        "Blackrock Depths": [
-          {
-            "subzoneId": 1584,
-            "subzone": "Blackrock Depths"
-          }
-        ]
-      }
-    },
-    "289": {
-      "name": "Scholomance",
-      "zones": {
-        "Scholomance": [
-          {
-            "subzoneId": 2057,
-            "subzone": "Scholomance"
-          }
-        ]
-      }
-    },
-    "329": {
-      "name": "Stratholme",
-      "zones": {
-        "Stratholme": [
-          {
-            "subzoneId": 2017,
-            "subzone": "Stratholme"
-          }
-        ]
-      }
-    },
-    "349": {
-      "name": "Maraudon",
-      "zones": {
-        "Maraudon": [
-          {
-            "subzoneId": 2100,
-            "subzone": "Maraudon"
-          }
-        ]
-      }
-    },
-    "389": {
-      "name": "Ragefire Chasm",
-      "zones": {
-        "Ragefire Chasm": [
-          {
-            "subzoneId": 2437,
-            "subzone": "Ragefire Chasm"
-          }
-        ]
-      }
-    },
-    "429": {
-      "name": "Dire Maul",
-      "zones": {
-        "Dire Maul": [
-          {
-            "subzoneId": 2557,
-            "subzone": "Dire Maul"
-          }
-        ]
-      }
-    },
-    "540": {
-      "name": "Hellfire Citadel",
-      "zones": {
-        "Hellfire Citadel": [
-          {
-            "subzoneId": 3535,
-            "subzone": "Hellfire Citadel"
-          }
-        ]
-      }
-    },
-    "545": {
-      "name": "The Steamvault",
-      "zones": {
-        "The Steamvault": [
-          {
-            "subzoneId": 3715,
-            "subzone": "The Steamvault"
-          }
-        ]
-      }
-    },
-    "546": {
-      "name": "The Underbog",
-      "zones": {
-        "The Underbog": [
-          {
-            "subzoneId": 3716,
-            "subzone": "The Underbog"
-          }
-        ]
-      }
-    },
-    "547": {
-      "name": "The Slave Pens",
-      "zones": {
-        "The Slave Pens": [
-          {
-            "subzoneId": 3717,
-            "subzone": "The Slave Pens"
-          }
-        ]
-      }
-    },
-    "555": {
-      "name": "Shadow Labyrinth",
-      "zones": {
-        "Shadow Labyrinth": [
-          {
-            "subzoneId": 3789,
-            "subzone": "Shadow Labyrinth"
-          }
-        ]
-      }
-    },
-    "557": {
-      "name": "Mana-Tombs",
-      "zones": {
-        "Mana-Tombs": [
-          {
-            "subzoneId": 3792,
-            "subzone": "Mana-Tombs"
-          }
-        ]
-      }
-    },
-    "558": {
-      "name": "Auchenai Crypts",
-      "zones": {
-        "Auchenai Crypts": [
-          {
-            "subzoneId": 3790,
-            "subzone": "Auchenai Crypts"
-          }
-        ]
-      }
-    },
-    "574": {
-      "name": "Utgarde Keep",
-      "zones": {
-        "Utgarde Keep": [
-          {
-            "subzoneId": 206,
-            "subzone": "Utgarde Keep"
-          }
-        ]
-      }
-    },
-    "575": {
-      "name": "Utgarde Pinnacle",
-      "zones": {
-        "Utgarde Pinnacle": [
-          {
-            "subzoneId": 1196,
-            "subzone": "Utgarde Pinnacle"
-          }
-        ]
-      }
-    },
-    "576": {
-      "name": "The Nexus",
-      "zones": {
-        "The Nexus": [
-          {
-            "subzoneId": 4265,
-            "subzone": "The Nexus"
-          }
-        ]
-      }
-    },
-    "578": {
-      "name": "The Oculus",
-      "zones": {
-        "The Oculus": [
-          {
-            "subzoneId": 4228,
-            "subzone": "The Oculus"
-          }
-        ]
-      }
-    },
-    "585": {
-      "name": "Magisters' Terrace",
-      "zones": {
-        "Magisters' Terrace": [
-          {
-            "subzoneId": 4131,
-            "subzone": "Magisters' Terrace"
-          }
-        ]
-      }
-    },
-    "595": {
-      "name": "The Culling of Stratholme",
-      "zones": {
-        "The Culling of Stratholme": [
-          {
-            "subzoneId": 4100,
-            "subzone": "The Culling of Stratholme"
-          }
-        ]
-      }
-    },
-    "599": {
-      "name": "Halls of Stone",
-      "zones": {
-        "Halls of Stone": [
-          {
-            "subzoneId": 4264,
-            "subzone": "Halls of Stone"
-          }
-        ]
-      }
-    },
-    "600": {
-      "name": "Drak'Tharon Keep",
-      "zones": {
-        "Drak'Tharon Keep": [
-          {
-            "subzoneId": 4196,
-            "subzone": "Drak'Tharon Keep"
-          }
-        ]
-      }
-    },
-    "601": {
-      "name": "Azjol-Nerub",
-      "zones": {
-        "Azjol-Nerub": [
-          {
-            "subzoneId": 4277,
-            "subzone": "Azjol-Nerub"
-          }
-        ]
-      }
-    },
-    "602": {
-      "name": "Halls of Lightning",
-      "zones": {
-        "Halls of Lightning": [
-          {
-            "subzoneId": 4272,
-            "subzone": "Halls of Lightning"
-          }
-        ]
-      }
-    },
-    "604": {
-      "name": "Gundrak",
-      "zones": {
-        "Gundrak": [
-          {
-            "subzoneId": 4416,
-            "subzone": "Gundrak"
-          }
-        ]
-      }
-    },
-    "608": {
-      "name": "The Violet Hold",
-      "zones": {
-        "The Violet Hold": [
-          {
-            "subzoneId": 4415,
-            "subzone": "The Violet Hold"
-          }
-        ]
-      }
-    },
-    "619": {
-      "name": "Ahn'kahet: The Old Kingdom",
-      "zones": {
-        "Ahn'kahet: The Old Kingdom": [
-          {
-            "subzoneId": 4494,
-            "subzone": "Ahn'kahet: The Old Kingdom"
-          }
-        ]
-      }
-    },
-    "632": {
-      "name": "The Forge of Souls",
-      "zones": {
-        "The Forge of Souls": [
-          {
-            "subzoneId": 4809,
-            "subzone": "The Forge of Souls"
-          }
-        ]
-      }
-    },
-    "650": {
-      "name": "Trial of the Champion",
-      "zones": {
-        "Trial of the Champion": [
-          {
-            "subzoneId": 4723,
-            "subzone": "Trial of the Champion"
-          }
-        ]
-      }
-    },
-    "658": {
-      "name": "Pit of Saron",
-      "zones": {
-        "Pit of Saron": [
-          {
-            "subzoneId": 4813,
-            "subzone": "Pit of Saron"
-          }
-        ]
-      }
-    },
-    "668": {
-      "name": "Halls of Reflection",
-      "zones": {
-        "Halls of Reflection": [
-          {
-            "subzoneId": 4820,
-            "subzone": "Halls of Reflection"
-          }
-        ]
-      }
+  ],
+  "Warsong Gulch": [
+    {
+      "subzoneId": 3277,
+      "subzone": "Warsong Gulch"
     }
-  },
-  "raid": {
-    "0": {
-      "name": "Eastern Kingdoms",
-      "zones": {
-        "Zul'Gurub": [
-          {
-            "subzoneId": 19,
-            "subzone": "Zul'Gurub"
-          }
-        ],
-        "Karazhan": [
-          {
-            "subzoneId": 2562,
-            "subzone": "Karazhan"
-          }
-        ]
-      }
-    },
-    "1": {
-      "name": "Kalimdor",
-      "zones": {
-        "Onyxia's Lair": [
-          {
-            "subzoneId": 2159,
-            "subzone": "Onyxia's Lair"
-          }
-        ]
-      }
-    },
-    "309": {
-      "name": "Zul'Gurub",
-      "zones": {
-        "Zul'Gurub": [
-          {
-            "subzoneId": 1977,
-            "subzone": "Zul'Gurub"
-          }
-        ]
-      }
-    },
-    "409": {
-      "name": "Molten Core",
-      "zones": {
-        "Molten Core": [
-          {
-            "subzoneId": 2717,
-            "subzone": "Molten Core"
-          }
-        ]
-      }
-    },
-    "469": {
-      "name": "Blackwing Lair",
-      "zones": {
-        "Blackwing Lair": [
-          {
-            "subzoneId": 2677,
-            "subzone": "Blackwing Lair"
-          }
-        ]
-      }
-    },
-    "509": {
-      "name": "Ruins of Ahn'Qiraj",
-      "zones": {
-        "Ruins of Ahn'Qiraj": [
-          {
-            "subzoneId": 3429,
-            "subzone": "Ruins of Ahn'Qiraj"
-          }
-        ]
-      }
-    },
-    "530": {
-      "name": "Outland",
-      "zones": {
-        "The Black Temple": [
-          {
-            "subzoneId": 3840,
-            "subzone": "The Black Temple"
-          }
-        ],
-        "Tempest Keep": [
-          {
-            "subzoneId": 3842,
-            "subzone": "Tempest Keep"
-          }
-        ]
-      }
-    },
-    "531": {
-      "name": "Ahn'Qiraj",
-      "zones": {
-        "Ahn'Qiraj": [
-          {
-            "subzoneId": 3428,
-            "subzone": "Ahn'Qiraj"
-          }
-        ]
-      }
-    },
-    "533": {
-      "name": "Naxxramas",
-      "zones": {
-        "Naxxramas": [
-          {
-            "subzoneId": 3456,
-            "subzone": "Naxxramas"
-          }
-        ]
-      }
-    },
-    "534": {
-      "name": "Hyjal Summit",
-      "zones": {
-        "Hyjal Summit": [
-          {
-            "subzoneId": 3606,
-            "subzone": "Hyjal Summit"
-          }
-        ]
-      }
-    },
-    "544": {
-      "name": "Magtheridon's Lair",
-      "zones": {
-        "Magtheridon's Lair": [
-          {
-            "subzoneId": 3836,
-            "subzone": "Magtheridon's Lair"
-          }
-        ]
-      }
-    },
-    "548": {
-      "name": "Serpentshrine Cavern",
-      "zones": {
-        "Serpentshrine Cavern": [
-          {
-            "subzoneId": 3607,
-            "subzone": "Serpentshrine Cavern"
-          }
-        ]
-      }
-    },
-    "550": {
-      "name": "Tempest Keep",
-      "zones": {
-        "Tempest Keep": [
-          {
-            "subzoneId": 3845,
-            "subzone": "Tempest Keep"
-          }
-        ]
-      }
-    },
-    "568": {
-      "name": "Zul'Aman",
-      "zones": {
-        "Zul'Aman": [
-          {
-            "subzoneId": 3805,
-            "subzone": "Zul'Aman"
-          }
-        ]
-      }
-    },
-    "571": {
-      "name": "Northrend",
-      "zones": {
-        "Ulduar": [
-          {
-            "subzoneId": 4445,
-            "subzone": "Ulduar"
-          }
-        ],
-        "Icecrown Citadel": [
-          {
-            "subzoneId": 4522,
-            "subzone": "Icecrown Citadel"
-          }
-        ]
-      }
-    },
-    "580": {
-      "name": "Sunwell Plateau",
-      "zones": {
-        "Sunwell Plateau": [
-          {
-            "subzoneId": 4075,
-            "subzone": "Sunwell Plateau"
-          }
-        ]
-      }
-    },
-    "603": {
-      "name": "Ulduar",
-      "zones": {
-        "Ulduar": [
-          {
-            "subzoneId": 4273,
-            "subzone": "Ulduar"
-          }
-        ]
-      }
-    },
-    "615": {
-      "name": "The Obsidian Sanctum",
-      "zones": {
-        "The Obsidian Sanctum": [
-          {
-            "subzoneId": 4493,
-            "subzone": "The Obsidian Sanctum"
-          }
-        ]
-      }
-    },
-    "616": {
-      "name": "The Eye of Eternity",
-      "zones": {
-        "The Eye of Eternity": [
-          {
-            "subzoneId": 4500,
-            "subzone": "The Eye of Eternity"
-          }
-        ]
-      }
-    },
-    "631": {
-      "name": "Icecrown Citadel",
-      "zones": {
-        "Icecrown Citadel": [
-          {
-            "subzoneId": 4812,
-            "subzone": "Icecrown Citadel"
-          }
-        ]
-      }
-    },
-    "649": {
-      "name": "Trial of the Crusader",
-      "zones": {
-        "Trial of the Crusader": [
-          {
-            "subzoneId": 4722,
-            "subzone": "Trial of the Crusader"
-          }
-        ]
-      }
-    },
-    "724": {
-      "name": "The Ruby Sanctum",
-      "zones": {
-        "The Ruby Sanctum": [
-          {
-            "subzoneId": 4987,
-            "subzone": "The Ruby Sanctum"
-          }
-        ]
-      }
+  ],
+  "Arathi Basin": [
+    {
+      "subzoneId": 3358,
+      "subzone": "Arathi Basin"
     }
-  }
+  ],
+  "Eye of the Storm": [
+    {
+      "subzoneId": 3820,
+      "subzone": "Eye of the Storm"
+    }
+  ],
+  "Wintergrasp": [
+    {
+      "subzoneId": 4197,
+      "subzone": "Wintergrasp"
+    }
+  ],
+  "Strand of the Ancients": [
+    {
+      "subzoneId": 4384,
+      "subzone": "Strand of the Ancients"
+    }
+  ],
+  "Isle of Conquest": [
+    {
+      "subzoneId": 4710,
+      "subzone": "Isle of Conquest"
+    }
+  ],
+  "Dun Morogh": [
+    {
+      "subzoneId": 1,
+      "subzone": "Dun Morogh"
+    },
+    {
+      "subzoneId": 132,
+      "subzone": "Coldridge Valley"
+    }
+  ],
+  "Badlands": [
+    {
+      "subzoneId": 3,
+      "subzone": "Badlands"
+    }
+  ],
+  "Blasted Lands": [
+    {
+      "subzoneId": 4,
+      "subzone": "Blasted Lands"
+    }
+  ],
+  "Swamp of Sorrows": [
+    {
+      "subzoneId": 8,
+      "subzone": "Swamp of Sorrows"
+    }
+  ],
+  "Elwynn Forest": [
+    {
+      "subzoneId": 9,
+      "subzone": "Northshire Valley"
+    },
+    {
+      "subzoneId": 12,
+      "subzone": "Elwynn Forest"
+    },
+    {
+      "subzoneId": 23,
+      "subzone": "Northshire River"
+    },
+    {
+      "subzoneId": 24,
+      "subzone": "Northshire Abbey"
+    }
+  ],
+  "Duskwood": [
+    {
+      "subzoneId": 10,
+      "subzone": "Duskwood"
+    }
+  ],
+  "Wetlands": [
+    {
+      "subzoneId": 11,
+      "subzone": "Wetlands"
+    }
+  ],
+  "Blackrock Mountain": [
+    {
+      "subzoneId": 25,
+      "subzone": "Blackrock Mountain"
+    }
+  ],
+  "Western Plaguelands": [
+    {
+      "subzoneId": 28,
+      "subzone": "Western Plaguelands"
+    }
+  ],
+  "Stranglethorn Vale": [
+    {
+      "subzoneId": 33,
+      "subzone": "Stranglethorn Vale"
+    }
+  ],
+  "Booty Bay": [
+    {
+      "subzoneId": 35,
+      "subzone": "Booty Bay"
+    }
+  ],
+  "Alterac Mountains": [
+    {
+      "subzoneId": 36,
+      "subzone": "Alterac Mountains"
+    }
+  ],
+  "Loch Modan": [
+    {
+      "subzoneId": 38,
+      "subzone": "Loch Modan"
+    }
+  ],
+  "Westfall": [
+    {
+      "subzoneId": 40,
+      "subzone": "Westfall"
+    }
+  ],
+  "Deadwind Pass": [
+    {
+      "subzoneId": 41,
+      "subzone": "Deadwind Pass"
+    }
+  ],
+  "Redridge Mountains": [
+    {
+      "subzoneId": 44,
+      "subzone": "Redridge Mountains"
+    }
+  ],
+  "Arathi Highlands": [
+    {
+      "subzoneId": 45,
+      "subzone": "Arathi Highlands"
+    }
+  ],
+  "Burning Steppes": [
+    {
+      "subzoneId": 46,
+      "subzone": "Burning Steppes"
+    }
+  ],
+  "The Hinterlands": [
+    {
+      "subzoneId": 47,
+      "subzone": "The Hinterlands"
+    }
+  ],
+  "Searing Gorge": [
+    {
+      "subzoneId": 51,
+      "subzone": "Searing Gorge"
+    }
+  ],
+  "Tirisfal Glades": [
+    {
+      "subzoneId": 85,
+      "subzone": "Tirisfal Glades"
+    },
+    {
+      "subzoneId": 154,
+      "subzone": "Deathknell"
+    }
+  ],
+  "Silverpine Forest": [
+    {
+      "subzoneId": 130,
+      "subzone": "Silverpine Forest"
+    }
+  ],
+  "Eastern Plaguelands": [
+    {
+      "subzoneId": 139,
+      "subzone": "Eastern Plaguelands"
+    }
+  ],
+  "Hillsbrad Foothills": [
+    {
+      "subzoneId": 267,
+      "subzone": "Hillsbrad Foothills"
+    },
+    {
+      "subzoneId": 279,
+      "subzone": "Dalaran Crater"
+    }
+  ],
+  "Undercity": [
+    {
+      "subzoneId": 1497,
+      "subzone": "Undercity"
+    }
+  ],
+  "Uldaman": [
+    {
+      "subzoneId": 1517,
+      "subzone": "Uldaman"
+    }
+  ],
+  "Stormwind City": [
+    {
+      "subzoneId": 1519,
+      "subzone": "Stormwind City"
+    }
+  ],
+  "Ironforge": [
+    {
+      "subzoneId": 1537,
+      "subzone": "Ironforge"
+    }
+  ],
+  "Durotar": [
+    {
+      "subzoneId": 14,
+      "subzone": "Durotar"
+    },
+    {
+      "subzoneId": 363,
+      "subzone": "Valley of Trials"
+    },
+    {
+      "subzoneId": 393,
+      "subzone": "Darkspear Strand"
+    }
+  ],
+  "Dustwallow Marsh": [
+    {
+      "subzoneId": 15,
+      "subzone": "Dustwallow Marsh"
+    },
+    {
+      "subzoneId": 2079,
+      "subzone": "Alcaz Island"
+    }
+  ],
+  "Azshara": [
+    {
+      "subzoneId": 16,
+      "subzone": "Azshara"
+    }
+  ],
+  "The Barrens": [
+    {
+      "subzoneId": 17,
+      "subzone": "The Barrens"
+    }
+  ],
+  "Teldrassil": [
+    {
+      "subzoneId": 141,
+      "subzone": "Teldrassil"
+    },
+    {
+      "subzoneId": 188,
+      "subzone": "Shadowglen"
+    },
+    {
+      "subzoneId": 702,
+      "subzone": "Rut'theran Village"
+    }
+  ],
+  "Darkshore": [
+    {
+      "subzoneId": 148,
+      "subzone": "Darkshore"
+    }
+  ],
+  "Mulgore": [
+    {
+      "subzoneId": 215,
+      "subzone": "Mulgore"
+    },
+    {
+      "subzoneId": 220,
+      "subzone": "Red Cloud Mesa"
+    },
+    {
+      "subzoneId": 221,
+      "subzone": "Camp Narache"
+    }
+  ],
+  "Ashenvale": [
+    {
+      "subzoneId": 331,
+      "subzone": "Ashenvale"
+    }
+  ],
+  "Feralas": [
+    {
+      "subzoneId": 357,
+      "subzone": "Feralas"
+    },
+    {
+      "subzoneId": 1116,
+      "subzone": "Feathermoon Stronghold"
+    }
+  ],
+  "Felwood": [
+    {
+      "subzoneId": 361,
+      "subzone": "Felwood"
+    },
+    {
+      "subzoneId": 1769,
+      "subzone": "Timbermaw Hold"
+    }
+  ],
+  "Thousand Needles": [
+    {
+      "subzoneId": 400,
+      "subzone": "Thousand Needles"
+    }
+  ],
+  "Desolace": [
+    {
+      "subzoneId": 405,
+      "subzone": "Desolace"
+    }
+  ],
+  "Stonetalon Mountains": [
+    {
+      "subzoneId": 406,
+      "subzone": "Stonetalon Mountains"
+    }
+  ],
+  "Tanaris": [
+    {
+      "subzoneId": 440,
+      "subzone": "Tanaris"
+    }
+  ],
+  "Un'Goro Crater": [
+    {
+      "subzoneId": 490,
+      "subzone": "Un'Goro Crater"
+    }
+  ],
+  "Moonglade": [
+    {
+      "subzoneId": 493,
+      "subzone": "Moonglade"
+    }
+  ],
+  "Winterspring": [
+    {
+      "subzoneId": 618,
+      "subzone": "Winterspring"
+    }
+  ],
+  "Zul'Farrak": [
+    {
+      "subzoneId": 978,
+      "subzone": "Zul'Farrak"
+    }
+  ],
+  "Silithus": [
+    {
+      "subzoneId": 1377,
+      "subzone": "Silithus"
+    }
+  ],
+  "Orgrimmar": [
+    {
+      "subzoneId": 1637,
+      "subzone": "Orgrimmar"
+    }
+  ],
+  "Thunder Bluff": [
+    {
+      "subzoneId": 1638,
+      "subzone": "Thunder Bluff"
+    }
+  ],
+  "Darnassus": [
+    {
+      "subzoneId": 1657,
+      "subzone": "Darnassus"
+    }
+  ],
+  "Caverns of Time": [
+    {
+      "subzoneId": 1941,
+      "subzone": "Caverns of Time"
+    },
+    {
+      "subzoneId": 2300,
+      "subzone": "Caverns of Time"
+    }
+  ],
+  "Deeprun Tram": [
+    {
+      "subzoneId": 2257,
+      "subzone": "Deeprun Tram"
+    }
+  ],
+  "Eversong Woods": [
+    {
+      "subzoneId": 3430,
+      "subzone": "Eversong Woods"
+    },
+    {
+      "subzoneId": 3431,
+      "subzone": "Sunstrider Isle"
+    }
+  ],
+  "Ghostlands": [
+    {
+      "subzoneId": 3433,
+      "subzone": "Ghostlands"
+    }
+  ],
+  "Hellfire Peninsula": [
+    {
+      "subzoneId": 3483,
+      "subzone": "Hellfire Peninsula"
+    }
+  ],
+  "Silvermoon City": [
+    {
+      "subzoneId": 3487,
+      "subzone": "Silvermoon City"
+    }
+  ],
+  "Nagrand": [
+    {
+      "subzoneId": 3518,
+      "subzone": "Nagrand"
+    }
+  ],
+  "Terokkar Forest": [
+    {
+      "subzoneId": 3519,
+      "subzone": "Terokkar Forest"
+    },
+    {
+      "subzoneId": 3679,
+      "subzone": "Skettis"
+    },
+    {
+      "subzoneId": 3688,
+      "subzone": "Auchindoun"
+    }
+  ],
+  "Shadowmoon Valley": [
+    {
+      "subzoneId": 3520,
+      "subzone": "Shadowmoon Valley"
+    }
+  ],
+  "Zangarmarsh": [
+    {
+      "subzoneId": 3521,
+      "subzone": "Zangarmarsh"
+    },
+    {
+      "subzoneId": 3905,
+      "subzone": "Coilfang Reservoir"
+    }
+  ],
+  "Blade's Edge Mountains": [
+    {
+      "subzoneId": 3522,
+      "subzone": "Blade's Edge Mountains"
+    },
+    {
+      "subzoneId": 3696,
+      "subzone": "The Barrier Hills"
+    }
+  ],
+  "Netherstorm": [
+    {
+      "subzoneId": 3523,
+      "subzone": "Netherstorm"
+    }
+  ],
+  "Azuremyst Isle": [
+    {
+      "subzoneId": 3524,
+      "subzone": "Azuremyst Isle"
+    },
+    {
+      "subzoneId": 3526,
+      "subzone": "Ammen Vale"
+    }
+  ],
+  "Bloodmyst Isle": [
+    {
+      "subzoneId": 3525,
+      "subzone": "Bloodmyst Isle"
+    }
+  ],
+  "The Exodar": [
+    {
+      "subzoneId": 3557,
+      "subzone": "The Exodar"
+    }
+  ],
+  "Shattrath City": [
+    {
+      "subzoneId": 3703,
+      "subzone": "Shattrath City"
+    },
+    {
+      "subzoneId": 3896,
+      "subzone": "Aldor Rise"
+    }
+  ],
+  "Isle of Quel'Danas": [
+    {
+      "subzoneId": 4080,
+      "subzone": "Isle of Quel'Danas"
+    }
+  ],
+  "Dragonblight": [
+    {
+      "subzoneId": 65,
+      "subzone": "Dragonblight"
+    }
+  ],
+  "Zul'Drak": [
+    {
+      "subzoneId": 66,
+      "subzone": "Zul'Drak"
+    }
+  ],
+  "The Storm Peaks": [
+    {
+      "subzoneId": 67,
+      "subzone": "The Storm Peaks"
+    }
+  ],
+  "Icecrown": [
+    {
+      "subzoneId": 210,
+      "subzone": "Icecrown"
+    },
+    {
+      "subzoneId": 4769,
+      "subzone": "Hrothgar's Landing"
+    }
+  ],
+  "Grizzly Hills": [
+    {
+      "subzoneId": 394,
+      "subzone": "Grizzly Hills"
+    }
+  ],
+  "Howling Fjord": [
+    {
+      "subzoneId": 495,
+      "subzone": "Howling Fjord"
+    }
+  ],
+  "Borean Tundra": [
+    {
+      "subzoneId": 3537,
+      "subzone": "Borean Tundra"
+    },
+    {
+      "subzoneId": 4024,
+      "subzone": "Coldarra"
+    }
+  ],
+  "Sholazar Basin": [
+    {
+      "subzoneId": 3711,
+      "subzone": "Sholazar Basin"
+    }
+  ],
+  "Dalaran": [
+    {
+      "subzoneId": 4395,
+      "subzone": "Dalaran"
+    },
+    {
+      "subzoneId": 4613,
+      "subzone": "Dalaran City"
+    }
+  ],
+  "Gnomeregan": [
+    {
+      "subzoneId": 133,
+      "subzone": "Gnomeregan"
+    }
+  ],
+  "Razorfen Kraul": [
+    {
+      "subzoneId": 1717,
+      "subzone": "Razorfen Kraul"
+    }
+  ],
+  "Shadowfang Keep": [
+    {
+      "subzoneId": 209,
+      "subzone": "Shadowfang Keep"
+    },
+    {
+      "subzoneId": 236,
+      "subzone": "Shadowfang Keep"
+    }
+  ],
+  "The Stockade": [
+    {
+      "subzoneId": 717,
+      "subzone": "The Stockade"
+    }
+  ],
+  "The Deadmines": [
+    {
+      "subzoneId": 1581,
+      "subzone": "The Deadmines"
+    }
+  ],
+  "Wailing Caverns": [
+    {
+      "subzoneId": 718,
+      "subzone": "Wailing Caverns"
+    }
+  ],
+  "Blackfathom Deeps": [
+    {
+      "subzoneId": 719,
+      "subzone": "Blackfathom Deeps"
+    }
+  ],
+  "Sunken Temple": [
+    {
+      "subzoneId": 1417,
+      "subzone": "Sunken Temple"
+    }
+  ],
+  "Razorfen Downs": [
+    {
+      "subzoneId": 722,
+      "subzone": "Razorfen Downs"
+    }
+  ],
+  "Scarlet Monastery": [
+    {
+      "subzoneId": 796,
+      "subzone": "Scarlet Monastery"
+    }
+  ],
+  "Blackrock Spire": [
+    {
+      "subzoneId": 1583,
+      "subzone": "Blackrock Spire"
+    }
+  ],
+  "Blackrock Depths": [
+    {
+      "subzoneId": 1584,
+      "subzone": "Blackrock Depths"
+    }
+  ],
+  "Scholomance": [
+    {
+      "subzoneId": 2057,
+      "subzone": "Scholomance"
+    }
+  ],
+  "Stratholme": [
+    {
+      "subzoneId": 2017,
+      "subzone": "Stratholme"
+    }
+  ],
+  "Maraudon": [
+    {
+      "subzoneId": 2100,
+      "subzone": "Maraudon"
+    }
+  ],
+  "Ragefire Chasm": [
+    {
+      "subzoneId": 2437,
+      "subzone": "Ragefire Chasm"
+    }
+  ],
+  "Dire Maul": [
+    {
+      "subzoneId": 2557,
+      "subzone": "Dire Maul"
+    }
+  ],
+  "Hellfire Citadel": [
+    {
+      "subzoneId": 3535,
+      "subzone": "Hellfire Citadel"
+    }
+  ],
+  "The Steamvault": [
+    {
+      "subzoneId": 3715,
+      "subzone": "The Steamvault"
+    }
+  ],
+  "The Underbog": [
+    {
+      "subzoneId": 3716,
+      "subzone": "The Underbog"
+    }
+  ],
+  "The Slave Pens": [
+    {
+      "subzoneId": 3717,
+      "subzone": "The Slave Pens"
+    }
+  ],
+  "Shadow Labyrinth": [
+    {
+      "subzoneId": 3789,
+      "subzone": "Shadow Labyrinth"
+    }
+  ],
+  "Mana-Tombs": [
+    {
+      "subzoneId": 3792,
+      "subzone": "Mana-Tombs"
+    }
+  ],
+  "Auchenai Crypts": [
+    {
+      "subzoneId": 3790,
+      "subzone": "Auchenai Crypts"
+    }
+  ],
+  "Utgarde Keep": [
+    {
+      "subzoneId": 206,
+      "subzone": "Utgarde Keep"
+    }
+  ],
+  "Utgarde Pinnacle": [
+    {
+      "subzoneId": 1196,
+      "subzone": "Utgarde Pinnacle"
+    }
+  ],
+  "The Nexus": [
+    {
+      "subzoneId": 4265,
+      "subzone": "The Nexus"
+    }
+  ],
+  "The Oculus": [
+    {
+      "subzoneId": 4228,
+      "subzone": "The Oculus"
+    }
+  ],
+  "Magisters' Terrace": [
+    {
+      "subzoneId": 4131,
+      "subzone": "Magisters' Terrace"
+    }
+  ],
+  "The Culling of Stratholme": [
+    {
+      "subzoneId": 4100,
+      "subzone": "The Culling of Stratholme"
+    }
+  ],
+  "Halls of Stone": [
+    {
+      "subzoneId": 4264,
+      "subzone": "Halls of Stone"
+    }
+  ],
+  "Drak'Tharon Keep": [
+    {
+      "subzoneId": 4196,
+      "subzone": "Drak'Tharon Keep"
+    }
+  ],
+  "Azjol-Nerub": [
+    {
+      "subzoneId": 4277,
+      "subzone": "Azjol-Nerub"
+    }
+  ],
+  "Halls of Lightning": [
+    {
+      "subzoneId": 4272,
+      "subzone": "Halls of Lightning"
+    }
+  ],
+  "Gundrak": [
+    {
+      "subzoneId": 4416,
+      "subzone": "Gundrak"
+    }
+  ],
+  "The Violet Hold": [
+    {
+      "subzoneId": 4415,
+      "subzone": "The Violet Hold"
+    }
+  ],
+  "Ahn'kahet: The Old Kingdom": [
+    {
+      "subzoneId": 4494,
+      "subzone": "Ahn'kahet: The Old Kingdom"
+    }
+  ],
+  "The Forge of Souls": [
+    {
+      "subzoneId": 4809,
+      "subzone": "The Forge of Souls"
+    }
+  ],
+  "Trial of the Champion": [
+    {
+      "subzoneId": 4723,
+      "subzone": "Trial of the Champion"
+    }
+  ],
+  "Pit of Saron": [
+    {
+      "subzoneId": 4813,
+      "subzone": "Pit of Saron"
+    }
+  ],
+  "Halls of Reflection": [
+    {
+      "subzoneId": 4820,
+      "subzone": "Halls of Reflection"
+    }
+  ],
+  "Zul'Gurub": [
+    {
+      "subzoneId": 19,
+      "subzone": "Zul'Gurub"
+    },
+    {
+      "subzoneId": 1977,
+      "subzone": "Zul'Gurub"
+    }
+  ],
+  "Karazhan": [
+    {
+      "subzoneId": 2562,
+      "subzone": "Karazhan"
+    }
+  ],
+  "Onyxia's Lair": [
+    {
+      "subzoneId": 2159,
+      "subzone": "Onyxia's Lair"
+    }
+  ],
+  "Molten Core": [
+    {
+      "subzoneId": 2717,
+      "subzone": "Molten Core"
+    }
+  ],
+  "Blackwing Lair": [
+    {
+      "subzoneId": 2677,
+      "subzone": "Blackwing Lair"
+    }
+  ],
+  "Ruins of Ahn'Qiraj": [
+    {
+      "subzoneId": 3429,
+      "subzone": "Ruins of Ahn'Qiraj"
+    }
+  ],
+  "The Black Temple": [
+    {
+      "subzoneId": 3840,
+      "subzone": "The Black Temple"
+    }
+  ],
+  "Tempest Keep": [
+    {
+      "subzoneId": 3842,
+      "subzone": "Tempest Keep"
+    },
+    {
+      "subzoneId": 3845,
+      "subzone": "Tempest Keep"
+    }
+  ],
+  "Ahn'Qiraj": [
+    {
+      "subzoneId": 3428,
+      "subzone": "Ahn'Qiraj"
+    }
+  ],
+  "Naxxramas": [
+    {
+      "subzoneId": 3456,
+      "subzone": "Naxxramas"
+    }
+  ],
+  "Hyjal Summit": [
+    {
+      "subzoneId": 3606,
+      "subzone": "Hyjal Summit"
+    }
+  ],
+  "Magtheridon's Lair": [
+    {
+      "subzoneId": 3836,
+      "subzone": "Magtheridon's Lair"
+    }
+  ],
+  "Serpentshrine Cavern": [
+    {
+      "subzoneId": 3607,
+      "subzone": "Serpentshrine Cavern"
+    }
+  ],
+  "Zul'Aman": [
+    {
+      "subzoneId": 3805,
+      "subzone": "Zul'Aman"
+    }
+  ],
+  "Ulduar": [
+    {
+      "subzoneId": 4445,
+      "subzone": "Ulduar"
+    },
+    {
+      "subzoneId": 4273,
+      "subzone": "Ulduar"
+    }
+  ],
+  "Icecrown Citadel": [
+    {
+      "subzoneId": 4522,
+      "subzone": "Icecrown Citadel"
+    },
+    {
+      "subzoneId": 4812,
+      "subzone": "Icecrown Citadel"
+    }
+  ],
+  "Sunwell Plateau": [
+    {
+      "subzoneId": 4075,
+      "subzone": "Sunwell Plateau"
+    }
+  ],
+  "The Obsidian Sanctum": [
+    {
+      "subzoneId": 4493,
+      "subzone": "The Obsidian Sanctum"
+    }
+  ],
+  "The Eye of Eternity": [
+    {
+      "subzoneId": 4500,
+      "subzone": "The Eye of Eternity"
+    }
+  ],
+  "Trial of the Crusader": [
+    {
+      "subzoneId": 4722,
+      "subzone": "Trial of the Crusader"
+    }
+  ],
+  "The Ruby Sanctum": [
+    {
+      "subzoneId": 4987,
+      "subzone": "The Ruby Sanctum"
+    }
+  ]
 }

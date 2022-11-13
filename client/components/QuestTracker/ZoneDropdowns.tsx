@@ -4,7 +4,7 @@ import Select from 'react-select';
 import { useAppDispatch } from '../../store/hooks';
 import { updateQTZone } from '../../store/slices/questTrackerSlice';
 
-import zones from '../../../data/zones.json';
+// import zones from '../../../data/zones.json';
 
 const colourOptions = [
   { value: "blue", label: "Blue", color: "#0052CC" },

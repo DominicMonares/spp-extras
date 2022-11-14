@@ -11,7 +11,7 @@ import type { QuestTrackerFaction } from "../../types/quests";
 
 const FactionCheckboxes = () => {
   const dispatch = useAppDispatch();
-  const [checks, setChecks] = useState([true, false, false]);
+  const [checks, setChecks] = useState([false, false, false]);
 
   const selectFaction = (checkboxes: boolean[], qtFaction: QuestTrackerFaction) => {
     setChecks(checkboxes);

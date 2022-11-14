@@ -1,3 +1,6 @@
+// React
+import { useEffect } from 'react';
+
 // Redux
 import { useAppSelector, useAppDispatch } from '../../store/hooks';
 import { updateCharacters } from '../../store/slices/characterSlice';
@@ -17,7 +20,7 @@ import { getCompletedQuests, getAllQuests } from '../../apiCalls/quests';
 import type { Character } from "../../types/characters";
 
 // Helpers
-import { faction } from '../../helpers/characters';
+import { getFaction } from '../../helpers/characters';
 
 // Data
 import zoneMenu from '../../../data/zoneMenu.json';
@@ -31,6 +34,16 @@ const QuestTrackerControls = () => {
   const expansion = useAppSelector(state => state.expansion.selected);
   const characters = useAppSelector(state => state.characters);
   const allQuests = useAppSelector(state => state.allQuests);
+  const settings = useAppSelector(state => state.questTracker);
+  const faction = settings.faction;
+  const zone = settings.zone;
+
+  useEffect(() => {
+    const storageHandler = async () => await storeQuests();
+    if (faction && !allQuests[faction].length) {
+      storageHandler();
+    }
+  }, []);
   
   const storeCharacters = async ()  => {
     const chars = await getCharacters(expansion);
@@ -53,9 +66,9 @@ const QuestTrackerControls = () => {
     !allQuestsExist ? await storeAllQuests() : allQuests;
 
     const allianceChars = Object.values(chars.alliance);
-    const allianceParams = allianceChars.map((c: Character) => [c.guid, faction(c.race)]);
+    const allianceParams = allianceChars.map((c: Character) => [c.guid, getFaction(c.race)]);
     const hordeChars = Object.values(chars.horde);
-    const hordeParams = hordeChars.map((c: Character) => [c.guid, faction(c.race)]);
+    const hordeParams = hordeChars.map((c: Character) => [c.guid, getFaction(c.race)]);
     const charParams = allianceParams.concat(hordeParams).flat().join(',');
     const allCompletedQuests = await getCompletedQuests(expansion, charParams);
     dispatch(updateCompletedQuests(allCompletedQuests));
@@ -67,10 +80,8 @@ const QuestTrackerControls = () => {
   return (
     <div className='controls'>
       <FactionCheckboxes />
-      <DropdownMenu menu={zoneMenu} />
-      <button onClick={async () => await storeQuests()}>
-        Get Quests
-      </button>
+      {faction ? <DropdownMenu menu={zoneMenu} /> : <></>}
+      
     </div>
   );
 }

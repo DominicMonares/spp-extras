@@ -10,7 +10,6 @@ const QuestTrackerView = () => {
   return (
     <div>
       QT VIEW
-      {zone}
       {allQuests.alliance ? Object.values(allQuests.alliance).map(c => <div>{c.entry}</div>) : <></>}
     </div>
   );

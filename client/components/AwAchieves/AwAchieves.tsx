@@ -1,7 +1,7 @@
-import React from 'react';
-
+// Components
 import AwAchievesView from './AwAchievesView';
 import AwAchievesControls from './AwAchievesControls';
+
 
 const AwAchieves = () => {
   return (

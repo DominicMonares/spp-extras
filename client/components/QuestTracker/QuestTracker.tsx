@@ -1,7 +1,7 @@
-import React from 'react';
-
+// Components
 import View from './View';
 import Controls from './Controls';
+
 
 const QuestTracker = () => {
   return (

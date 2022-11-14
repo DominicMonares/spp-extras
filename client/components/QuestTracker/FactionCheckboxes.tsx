@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+// React
+import { useState } from 'react';
 
+// Redux
 import { useAppDispatch } from '../../store/hooks';
 import { updateQTFaction } from '../../store/slices/questTrackerSlice';
 
+// Types
 import type { QuestTrackerFaction } from "../../types/quests";
+
 
 const FactionCheckboxes = () => {
   const dispatch = useAppDispatch();

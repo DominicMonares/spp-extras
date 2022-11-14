@@ -1,9 +1,12 @@
-import React from 'react';
-
+// Redux
 import { useAppSelector } from '../../store/hooks';
+
+// Components
 import Features from './Features';
 
+// Styling
 import './FeatureNav.css';
+
 
 const FeatureList = () => {
   const expansion = useAppSelector(state => state.expansion.selected);

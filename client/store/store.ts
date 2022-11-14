@@ -1,5 +1,7 @@
+// Redux
 import { configureStore } from '@reduxjs/toolkit';
 
+// Slices
 import expansionReducer from './slices/expansionSlice';
 import characterReducer from './slices/characterSlice';
 import featureReducer from './slices/featureSlice';

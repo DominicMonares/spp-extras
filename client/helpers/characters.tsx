@@ -1,4 +1,6 @@
+// Types
 import { Race } from '../types/characters';
+
 
 export const faction = (race: Race) => {
   if (race === 1 || race === 3 || race === 4 || race === 7 || race === 11) {

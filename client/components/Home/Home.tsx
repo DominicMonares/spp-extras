@@ -1,6 +1,6 @@
-import React from 'react';
-
+// Redux
 import { useAppSelector } from '../../store/hooks';
+
 
 const Home = () => {
   const expansion = useAppSelector(state => state.expansion.selected);

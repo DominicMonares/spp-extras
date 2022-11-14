@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
+// React
+import { useState } from 'react';
 import Modal from 'react-modal';
 
+// Redux
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { updateExpansion } from '../../store/slices/expansionSlice';
 import { updateFeature } from '../../store/slices/featureSlice';
+
+// Types
 import type { SelectedExpansion } from '../../types/general';
 
+// Styling
 import './ExpansionNav.css';
 
 
@@ -17,7 +22,7 @@ const customStyles = {
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
-  },
+  }
 };
 
 Modal.setAppElement('#root');
@@ -71,7 +76,7 @@ const ExpansionNav = () => {
         onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         style={customStyles}
-        contentLabel="Expansion Warning"
+        contentLabel='Expansion Warning'
       >
         <div>WARNING</div>
         Switching expansions will unload all current data.

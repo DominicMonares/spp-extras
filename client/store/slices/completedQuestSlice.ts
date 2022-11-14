@@ -1,6 +1,9 @@
+// Redux
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+// Types
 import { CompletedQuests } from '../../types/quests';
+
 
 const initialState: CompletedQuests = {
   alliance: {},
@@ -19,5 +22,4 @@ export const completedQuestSlice = createSlice({
 });
 
 export const { updateCompletedQuests } = completedQuestSlice.actions;
-
 export default completedQuestSlice.reducer;

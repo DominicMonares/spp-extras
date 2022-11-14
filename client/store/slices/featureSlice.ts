@@ -1,10 +1,13 @@
+// Redux
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+// Types
 import { Feature, SelectedFeature } from '../../types/general';
+
 
 const initialState: Feature = {
   // selected: null
-  selected: 'quest_tracker'
+  selected: 'quest_tracker' // temp default
 }
 
 export const featureSlice = createSlice({
@@ -18,5 +21,4 @@ export const featureSlice = createSlice({
 });
 
 export const { updateFeature } = featureSlice.actions;
-
 export default featureSlice.reducer;

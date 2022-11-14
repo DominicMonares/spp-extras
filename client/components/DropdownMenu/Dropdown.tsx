@@ -1,13 +1,17 @@
+// Components
 import MenuItems from './MenuItems';
+
+// Styling
 import './DropdownMenu.css';
 
-interface MenuItemsProps {
+
+interface Props {
   submenus: any, // temp any
   dropdown: any, // temp any
   depthLevel: number
 }
 
-const Dropdown = ({ submenus, dropdown, depthLevel }: MenuItemsProps) => {
+const Dropdown = ({ submenus, dropdown, depthLevel }: Props) => {
   depthLevel = depthLevel + 1;
   const dropdownClass = depthLevel > 1 ? 'dropdown-submenu' : '';
   return (

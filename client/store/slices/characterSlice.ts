@@ -1,6 +1,9 @@
+// Redux
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+// Types
 import { Characters } from '../../types/characters';
+
 
 const initialState: Characters = {
   alliance: {},
@@ -21,5 +24,4 @@ export const characterSlice = createSlice({
 });
 
 export const { updateCharacters } = characterSlice.actions;
-
 export default characterSlice.reducer;

@@ -1,6 +1,6 @@
-import React from 'react';
-
+// Styling
 import './AwAchieves.css';
+
 
 const AwAchievesControls = () => {
   return (

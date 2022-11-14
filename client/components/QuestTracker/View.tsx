@@ -1,9 +1,9 @@
-import React from 'react';
-
+// Redux
 import { useAppSelector } from '../../store/hooks';
 
+
 const QuestTrackerView = () => {
-  const characters = useAppSelector(state => state.characters);
+  // const characters = useAppSelector(state => state.characters);
   const completedQuests = useAppSelector(state => state.completedQuests);
   const allQuests = useAppSelector(state => state.allQuests);
 

@@ -1,11 +1,13 @@
-import React from 'react';
-
+// Redux
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { updateFeature } from '../../store/slices/featureSlice';
 
+//Types
 import type { SelectedFeature } from '../../types/general';
 
+// Styling
 import './FeatureNav.css';
+
 
 interface Props {
   feature: SelectedFeature,

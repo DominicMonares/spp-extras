@@ -1,12 +1,14 @@
-import React from 'react';
+// Redux
+import { useAppSelector } from '../store/hooks';
 
+// Components
 import ExpansionNav from './ExpansionNav/ExpansionNav';
 import FeatureList from './FeatureNav/FeatureNav';
 import Home from './Home/Home';
 import QuestTracker from './QuestTracker/QuestTracker';
 import AwAchieves from './AwAchieves/AwAchieves';
-import { useAppSelector } from '../store/hooks';
 
+// Styling
 import './App.css';
 
 const App = () => {
@@ -14,9 +16,9 @@ const App = () => {
   const feature = useAppSelector(state => state.feature.selected);
 
   return (
-    <div className="app">
+    <div className='app'>
       <ExpansionNav />
-      <div className="lower-app">
+      <div className='lower-app'>
         <FeatureList />
         {!expansion || !feature ? <Home /> : <></>}
         {feature === 'quest_tracker' ? <QuestTracker /> : <></>}

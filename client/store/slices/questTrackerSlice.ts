@@ -1,6 +1,9 @@
+// Redux
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+// Types
 import { QuestTrackerFilter } from '../../types/quests';
+
 
 const initialState: QuestTrackerFilter = {
   faction: null,

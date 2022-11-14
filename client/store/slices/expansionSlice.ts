@@ -1,10 +1,13 @@
+// Redux
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+// Types
 import { Expansion, SelectedExpansion } from '../../types/general';
+
 
 const initialState: Expansion = {
   // selected: null
-  selected: 'classic'
+  selected: 'classic' // temp default
 }
 
 export const expansionSlice = createSlice({
@@ -18,5 +21,4 @@ export const expansionSlice = createSlice({
 });
 
 export const { updateExpansion } = expansionSlice.actions;
-
 export default expansionSlice.reducer;

@@ -1,14 +1,12 @@
-import React from 'react';
-
-// Components
-import FactionCheckboxes from './FactionCheckboxes';
-import DropdownMenu from '../DropdownMenu/DropdownMenu';
-
-// Store
+// Redux
 import { useAppSelector, useAppDispatch } from '../../store/hooks';
 import { updateCharacters } from '../../store/slices/characterSlice';
 import { updateCompletedQuests } from '../../store/slices/completedQuestSlice';
 import { updateAllQuests } from '../../store/slices/allQuestSlice';
+
+// Components
+import FactionCheckboxes from './FactionCheckboxes';
+import DropdownMenu from '../DropdownMenu/DropdownMenu';
 
 // API Calls
 import { getCharacters } from '../../apiCalls/characters';

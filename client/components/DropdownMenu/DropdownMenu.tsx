@@ -1,11 +1,15 @@
+// Components
 import MenuItems from './MenuItems';
+
+// Styling
 import './DropdownMenu.css';
 
-interface DropdownMenuProps {
+
+interface Props {
   menu: any // temp any
 }
 
-const DropdownMenu = ({ menu }: DropdownMenuProps) => {
+const DropdownMenu = ({ menu }: Props) => {
   return (
     <>
       {menu.map((m: any) => { // temp any

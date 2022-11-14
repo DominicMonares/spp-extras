@@ -1,16 +1,20 @@
+// React
 import { useState, useEffect, useRef } from 'react';
+
+// Components
 import Dropdown from './Dropdown';
+
+// Styling
 import './DropdownMenu.css';
 
-interface MenuItemsProps {
+
+interface Props {
   items: any, // temp any
   depthLevel: number
 }
 
-const MenuItems = ({ items, depthLevel }: MenuItemsProps) => {
-  console.log('ASDFDAS ', items)
+const MenuItems = ({ items, depthLevel }: Props) => {
   const [dropdown, setDropdown] = useState(false);
-
   const ref = useRef() as any; // temp any
 
   useEffect(() => {
@@ -46,7 +50,7 @@ const MenuItems = ({ items, depthLevel }: MenuItemsProps) => {
 
   return (
     <li
-      className="menu-items"
+      className='menu-items'
       ref={ref}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
@@ -55,14 +59,14 @@ const MenuItems = ({ items, depthLevel }: MenuItemsProps) => {
       {items.submenu ? (
         <>
           <button
-            type="button"
-            aria-haspopup="menu"
+            type='button'
+            aria-haspopup='menu'
             aria-expanded={dropdown ? 'true' : 'false'}
             onClick={() => setDropdown((prev) => !prev)}
           >
             {depthLevel > 0 ? <span>&laquo;</span> : <></>}
             <div>{items.title}</div>
-            {depthLevel === 0 ? <span className="arrow" /> : <></>}
+            {depthLevel === 0 ? <span className='arrow' /> : <></>}
           </button>
           <Dropdown
             depthLevel={depthLevel}
@@ -73,8 +77,8 @@ const MenuItems = ({ items, depthLevel }: MenuItemsProps) => {
       ) : (
         <>
           <button
-            type="button"
-            aria-haspopup="menu"
+            type='button'
+            aria-haspopup='menu'
             aria-expanded={dropdown ? 'true' : 'false'}
             onClick={() => setDropdown((prev) => !prev)}
           >

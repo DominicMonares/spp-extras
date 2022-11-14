@@ -2,7 +2,7 @@ import React from 'react';
 
 // Components
 import FactionCheckboxes from './FactionCheckboxes';
-import ZoneDropdowns from './ZoneDropdowns';
+import DropdownMenu from '../DropdownMenu/DropdownMenu';
 
 // Store
 import { useAppSelector, useAppDispatch } from '../../store/hooks';
@@ -19,6 +19,9 @@ import type { Character } from "../../store/types";
 
 // Helpers
 import { faction } from '../../helpers/characters';
+
+// Data
+import zoneMenu from '../../../data/zoneMenu.json';
 
 // Styling
 import './QuestTracker.css';
@@ -62,7 +65,7 @@ const QuestTrackerControls = () => {
   return (
     <div className='controls'>
       <FactionCheckboxes />
-      <ZoneDropdowns />
+      <DropdownMenu menu={zoneMenu} />
       <button onClick={async () => await storeQuests()}>
         Get Quests
       </button>

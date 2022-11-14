@@ -1,47 +1,20 @@
 [
   {
-    "main": "Eastern Kingdoms",
-    "options": {
-      
-    }
-  },
-  {
-    "main": "Kalimdor",
-    "options": {
-      
-    }
-  },
-  {
-    "main": "Outland",
-    "options": {
-      
-    }
-  },
-  {
-    "main": "Northrend",
-    "options": {
-      
-    }
-  },
-  {
-    "main": "Dungeons",
-    "options": {
-      
-    }
-  },
-  {
-    "main": "Raids",
-    "options": {
-      
-    }
-  },
-  {
-    "main": "Battlegrounds",
-    "options": {
+    "title": "Zones",
+    "submenu": [
       {
-        "sub": "Alterac Valley",
-        "xpac": "all"
+        "title": "World",
+        "submenu": [
+          {
+            "title": "Eastern Kingdoms",
+            "submenu": [
+              {"title": "Alterac Mountains"},
+              {"title": "Arathi Highlands"}
+            ]
+          }
+        ]
       }
-    }
+    ]
   }
+ 
 ]

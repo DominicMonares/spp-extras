@@ -46,7 +46,7 @@ const QuestTrackerControls = () => {
 
     // Set type for zone dropdown
     dispatch(updateDropdown({ type: 'zone' }));
-  }, []);
+  });
 
   const storeCharacters = async ()  => {
     const chars = await getCharacters(expansion);

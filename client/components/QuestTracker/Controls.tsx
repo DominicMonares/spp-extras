@@ -36,7 +36,6 @@ const QuestTrackerControls = () => {
   const allQuests = useAppSelector(state => state.allQuests);
   const settings = useAppSelector(state => state.questTracker);
   const faction = settings.faction;
-  const zone = settings.zone;
 
   useEffect(() => {
     const storageHandler = async () => await storeQuests();

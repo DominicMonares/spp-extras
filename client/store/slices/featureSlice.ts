@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { Feature, SelectedFeature } from '../types';
+import { Feature, SelectedFeature } from '../../types/general';
 
 const initialState: Feature = {
   // selected: null

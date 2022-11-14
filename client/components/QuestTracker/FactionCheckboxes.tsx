@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useAppDispatch } from '../../store/hooks';
 import { updateQTFaction } from '../../store/slices/questTrackerSlice';
 
-import type { QuestTrackerFaction } from "../../store/types";
+import type { QuestTrackerFaction } from "../../types/quests";
 
 const FactionCheckboxes = () => {
   const dispatch = useAppDispatch();

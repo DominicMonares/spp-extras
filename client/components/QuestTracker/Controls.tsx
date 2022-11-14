@@ -15,7 +15,7 @@ import { getCharacters } from '../../apiCalls/characters';
 import { getCompletedQuests, getAllQuests } from '../../apiCalls/quests';
 
 // Types
-import type { Character } from "../../store/types";
+import type { Character } from "../../types/characters";
 
 // Helpers
 import { faction } from '../../helpers/characters';

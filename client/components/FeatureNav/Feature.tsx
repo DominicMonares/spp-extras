@@ -3,7 +3,7 @@ import React from 'react';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { updateFeature } from '../../store/slices/featureSlice';
 
-import type { SelectedFeature } from '../../store/types';
+import type { SelectedFeature } from '../../types/general';
 
 import './FeatureNav.css';
 

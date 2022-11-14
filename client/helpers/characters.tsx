@@ -1,6 +1,6 @@
-type Faction = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 10 | 11;
+import { Race } from '../types/characters';
 
-export const faction = (race: Faction) => {
+export const faction = (race: Race) => {
   if (race === 1 || race === 3 || race === 4 || race === 7 || race === 11) {
     return 'alliance';
   } else {

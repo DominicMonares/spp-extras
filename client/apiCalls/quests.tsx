@@ -1,6 +1,6 @@
 import { url } from '../config';
 
-import type { SelectedExpansion } from "../store/types";
+import type { SelectedExpansion } from "../types/general";
 
 
 export const getCompletedQuests = async (expansion: SelectedExpansion, charQuery: string) => {

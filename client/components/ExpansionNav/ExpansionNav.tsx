@@ -4,7 +4,7 @@ import Modal from 'react-modal';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { updateExpansion } from '../../store/slices/expansionSlice';
 import { updateFeature } from '../../store/slices/featureSlice';
-import type { SelectedExpansion } from '../../store/types';
+import type { SelectedExpansion } from '../../types/general';
 
 import './ExpansionNav.css';
 

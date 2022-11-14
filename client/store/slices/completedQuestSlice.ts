@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { CompletedQuests } from '../types';
+import { CompletedQuests } from '../../types/quests';
 
 const initialState: CompletedQuests = {
   alliance: {},

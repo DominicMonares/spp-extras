@@ -1,5 +1,5 @@
 // React
-import { useState, MouseEventHandler, MouseEvent } from 'react';
+import { useState, MouseEvent } from 'react';
 
 // Redux
 import { useAppSelector, useAppDispatch } from '../../store/hooks';

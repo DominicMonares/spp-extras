@@ -43,8 +43,11 @@ const QuestTrackerControls = () => {
     if (faction && !allQuests[faction].length) {
       storageHandler();
     }
+
+    // Set type for zone dropdown
+    dispatch(updateDropdown({ type: 'zone' }));
   }, []);
-  
+
   const storeCharacters = async ()  => {
     const chars = await getCharacters(expansion);
     dispatch(updateCharacters(chars));
@@ -73,9 +76,6 @@ const QuestTrackerControls = () => {
     const allCompletedQuests = await getCompletedQuests(expansion, charParams);
     dispatch(updateCompletedQuests(allCompletedQuests));
   }
-
-  // Set type for zone dropdown
-  dispatch(updateDropdown({ type: 'zone' }));
 
   return (
     <div className='controls'>

@@ -11,7 +11,7 @@ import type { QuestTrackerFaction } from "../../types/quests";
 
 const FactionCheckboxes = () => {
   const dispatch = useAppDispatch();
-  const [checks, setChecks] = useState([false, false, false]);
+  const [checks, setChecks] = useState([false, false]);
 
   const selectFaction = (checkboxes: boolean[], qtFaction: QuestTrackerFaction) => {
     setChecks(checkboxes);
@@ -24,7 +24,7 @@ const FactionCheckboxes = () => {
         <input
           type='checkbox'
           checked={checks[0]}
-          onChange={() => selectFaction([true, false, false], 'alliance')}
+          onChange={() => selectFaction([true, false], 'alliance')}
         />
         Alliance
       </label>
@@ -32,17 +32,9 @@ const FactionCheckboxes = () => {
         <input
           type='checkbox'
           checked={checks[1]}
-          onChange={() => selectFaction([false, true, false], 'horde')}
+          onChange={() => selectFaction([false, true], 'horde')}
         />
         Horde
-      </label>
-      <label>
-        <input
-          type='checkbox'
-          checked={checks[2]}
-          onChange={() => selectFaction([false, false, true], 'both')}
-        />
-        Both
       </label>
     </div>
   );

@@ -7,6 +7,7 @@ import characterReducer from './slices/characterSlice';
 import featureReducer from './slices/featureSlice';
 import completedQuestReducer from './slices/completedQuestSlice';
 import allQuestReducer from './slices/allQuestSlice';
+import questTrackerReducer from './slices/questTrackerSlice';
 
 
 export const store = configureStore({
@@ -15,7 +16,8 @@ export const store = configureStore({
     characters: characterReducer,
     feature: featureReducer,
     completedQuests: completedQuestReducer,
-    allQuests: allQuestReducer
+    allQuests: allQuestReducer,
+    questTracker: questTrackerReducer
   }
 });
 

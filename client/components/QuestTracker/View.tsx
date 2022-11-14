@@ -3,9 +3,11 @@ import { useAppSelector } from '../../store/hooks';
 
 
 const QuestTrackerView = () => {
-  const zone = useAppSelector(state => state.questTracker.zone);
-  const completedQuests = useAppSelector(state => state.completedQuests);
+  // const completedQuests = useAppSelector(state => state.completedQuests);
   const allQuests = useAppSelector(state => state.allQuests);
+  // const settings = useAppSelector(state => state.questTracker);
+  // const faction = settings.faction;
+  // const zone = settings.zone;
 
   return (
     <div>

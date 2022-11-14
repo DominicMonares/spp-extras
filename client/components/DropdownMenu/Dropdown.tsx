@@ -1,13 +1,16 @@
 // Components
 import MenuItems from './MenuItems';
 
+// Types
+import { Menu, Submenu } from '../../types/dropdown';
+
 // Styling
 import './DropdownMenu.css';
 
 
 interface Props {
-  submenus: any, // temp any
-  dropdown: any, // temp any
+  submenus: Menu,
+  dropdown: boolean,
   depthLevel: number
 }
 
@@ -20,7 +23,7 @@ const Dropdown = ({ submenus, dropdown, depthLevel }: Props) => {
         dropdown ? 'show' : ''
       }`}
     >
-      {submenus.map((submenu: any, index: any) => ( // temp any
+      {submenus.map((submenu: Submenu, index: number) => (
         <MenuItems
           items={submenu}
           key={index}

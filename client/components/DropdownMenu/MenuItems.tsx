@@ -4,29 +4,35 @@ import { useState, useEffect, useRef } from 'react';
 // Components
 import Dropdown from './Dropdown';
 
+// Types
+import { Submenu } from '../../types/dropdown';
+
 // Styling
 import './DropdownMenu.css';
 
 
 interface Props {
-  items: any, // temp any
+  items: Submenu
   depthLevel: number
 }
 
 const MenuItems = ({ items, depthLevel }: Props) => {
   const [dropdown, setDropdown] = useState(false);
-  const ref = useRef() as any; // temp any
+  const ref = useRef<HTMLLIElement>();
 
   useEffect(() => {
-    const handler = (event: any) => { // temp any
+    const handler = (e: MouseEvent) => {
+      const target = e.target as HTMLInputElement;
+
       if (
         dropdown &&
         ref.current &&
-        !ref.current.contains(event.target)
+        !ref.current.contains(target)
       ) {
         setDropdown(false);
       }
     };
+    
     document.addEventListener('mousedown', handler);
     document.addEventListener('touchstart', handler);
     return () => {
@@ -37,11 +43,11 @@ const MenuItems = ({ items, depthLevel }: Props) => {
   }, [dropdown]);
 
   const onMouseEnter = () => {
-    window.innerWidth > 600 && setDropdown(true);
+    setDropdown(true);
   };
 
   const onMouseLeave = () => {
-    window.innerWidth > 600 && setDropdown(false);
+    setDropdown(false);
   };
 
   const closeDropdown = () => {

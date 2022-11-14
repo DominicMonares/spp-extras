@@ -1,18 +1,21 @@
 // Components
 import MenuItems from './MenuItems';
 
+// Types
+import { Menu, Submenu } from '../../types/dropdown';
+
 // Styling
 import './DropdownMenu.css';
 
 
 interface Props {
-  menu: any // temp any
+  menu: Menu
 }
 
 const DropdownMenu = ({ menu }: Props) => {
   return (
     <>
-      {menu.map((m: any) => { // temp any
+      {menu.map((m: Submenu) => {
         const depthLevel = 0;
         return (
           <MenuItems

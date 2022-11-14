@@ -3,15 +3,14 @@ import { useAppSelector } from '../../store/hooks';
 
 
 const QuestTrackerView = () => {
-  // const characters = useAppSelector(state => state.characters);
+  const zone = useAppSelector(state => state.questTracker.zone);
   const completedQuests = useAppSelector(state => state.completedQuests);
   const allQuests = useAppSelector(state => state.allQuests);
-
-  console.log('ASDF ', completedQuests)
 
   return (
     <div>
       QT VIEW
+      {zone}
       {allQuests.alliance ? Object.values(allQuests.alliance).map(c => <div>{c.entry}</div>) : <></>}
     </div>
   );

@@ -1,5 +1,9 @@
 // React
-import { useState, useEffect, useRef } from 'react';
+import { useState, MouseEventHandler, MouseEvent } from 'react';
+
+// Redux
+import { useAppSelector, useAppDispatch } from '../../store/hooks';
+import { updateQTZone } from '../../store/slices/questTrackerSlice';
 
 // Components
 import Dropdown from './Dropdown';
@@ -17,30 +21,9 @@ interface Props {
 }
 
 const MenuItems = ({ items, depthLevel }: Props) => {
+  const dispatch = useAppDispatch();
+  const type = useAppSelector(state => state.dropdown.type);
   const [dropdown, setDropdown] = useState(false);
-  const ref = useRef<HTMLLIElement>();
-
-  useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      const target = e.target as HTMLInputElement;
-
-      if (
-        dropdown &&
-        ref.current &&
-        !ref.current.contains(target)
-      ) {
-        setDropdown(false);
-      }
-    };
-    
-    document.addEventListener('mousedown', handler);
-    document.addEventListener('touchstart', handler);
-    return () => {
-      // Cleanup the event listener
-      document.removeEventListener('mousedown', handler);
-      document.removeEventListener('touchstart', handler);
-    };
-  }, [dropdown]);
 
   const onMouseEnter = () => {
     setDropdown(true);
@@ -54,10 +37,19 @@ const MenuItems = ({ items, depthLevel }: Props) => {
     dropdown && setDropdown(false);
   };
 
+  const selectionHandler = (e: MouseEvent<HTMLInputElement>) => {
+    const target = e.target as HTMLInputElement;
+
+    if (type === 'zone') {
+      dispatch(updateQTZone({ zone: target.innerText }));
+    }
+
+    setDropdown(!dropdown)
+  }
+
   return (
     <li
       className='menu-items'
-      ref={ref}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       onClick={closeDropdown}
@@ -68,7 +60,7 @@ const MenuItems = ({ items, depthLevel }: Props) => {
             type='button'
             aria-haspopup='menu'
             aria-expanded={dropdown ? 'true' : 'false'}
-            onClick={() => setDropdown((prev) => !prev)}
+            onClick={() => setDropdown(!dropdown)}
           >
             {depthLevel > 0 ? <span>&laquo;</span> : <></>}
             <div>{items.title}</div>
@@ -86,7 +78,7 @@ const MenuItems = ({ items, depthLevel }: Props) => {
             type='button'
             aria-haspopup='menu'
             aria-expanded={dropdown ? 'true' : 'false'}
-            onClick={() => setDropdown((prev) => !prev)}
+            onClick={selectionHandler}
           >
             {items.title}
           </button>

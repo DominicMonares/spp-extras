@@ -3,6 +3,7 @@ import { useAppSelector, useAppDispatch } from '../../store/hooks';
 import { updateCharacters } from '../../store/slices/characterSlice';
 import { updateCompletedQuests } from '../../store/slices/completedQuestSlice';
 import { updateAllQuests } from '../../store/slices/allQuestSlice';
+import { updateDropdown } from '../../store/slices/dropdownSlice';
 
 // Components
 import FactionCheckboxes from './FactionCheckboxes';
@@ -59,6 +60,9 @@ const QuestTrackerControls = () => {
     const allCompletedQuests = await getCompletedQuests(expansion, charParams);
     dispatch(updateCompletedQuests(allCompletedQuests));
   }
+
+  // Set type for zone dropdown
+  dispatch(updateDropdown({ type: 'zone' }));
 
   return (
     <div className='controls'>

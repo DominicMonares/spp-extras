@@ -1,17 +1,247 @@
 [
   {
-    "title": "Zones",
+    "title": "World",
     "submenu": [
       {
-        "title": "World",
+        "title": "Eastern Kingdoms",
         "submenu": [
-          {
-            "title": "Eastern Kingdoms",
-            "submenu": [
-              {"title": "Alterac Mountains"},
-              {"title": "Arathi Highlands"}
-            ]
-          }
+          {"title": "Alterac Mountains"},
+          {"title": "Arathi Highlands"},
+          {"title": "Azuremyst Isle"},
+          {"title": "Badlands"},
+          {"title": "Blackrock Mountain"},
+          {"title": "Blasted Lands"},
+          {"title": "Bloodmyst Isle"},
+          {"title": "Booty Bay"},
+          {"title": "Burning Steppes"},
+          {"title": "Deadwind Pass"},
+          {"title": "Deeprun Tram"},
+          {"title": "Dun Morogh"},
+          {"title": "Duskwood"},
+          {"title": "Eastern Plaguelands"},
+          {"title": "Elwynn Forest"},
+          {"title": "Eversong Woods"},
+          {"title": "Ghostlands"},
+          {"title": "Hillsbrad Foothills"},
+          {"title": "Ironforge"},
+          {"title": "Isle of Quel'Danas"},
+          {"title": "Loch Modan"},
+          {"title": "Redridge Mountains"},
+          {"title": "Searing Gorge"},
+          {"title": "Silvermoon City"},
+          {"title": "Silverpine Forest"},
+          {"title": "Stormwind City"},
+          {"title": "Stranglethorn Vale"},
+          {"title": "Swamp of Sorrows"},
+          {"title": "The Exodar"},
+          {"title": "The Hinterlands"},
+          {"title": "Tirisfal Glades"},
+          {"title": "Uldaman"},
+          {"title": "Undercity"},
+          {"title": "Western Plaguelands"},
+          {"title": "Westfall"},
+          {"title": "Wetlands"}
+        ]
+      },
+      {
+        "title": "Kalimdor",
+        "submenu": [
+          {"title": "Ashenvale"},
+          {"title": "Azshara"},
+          {"title": "Caverns of Time"},
+          {"title": "Darkshore"},
+          {"title": "Darnassus"},
+          {"title": "Desolace"},
+          {"title": "Durotar"},
+          {"title": "Dustwallow Marsh"},
+          {"title": "Felwood"},
+          {"title": "Feralas"},
+          {"title": "Moonglade"},
+          {"title": "Mulgore"},
+          {"title": "Orgrimmar"},
+          {"title": "Silithus"},
+          {"title": "Stonetalon Mountains"},
+          {"title": "Tanaris"},
+          {"title": "Teldrassil"},
+          {"title": "The Barrens"},
+          {"title": "Thousand Needles"},
+          {"title": "Thunder Bluff"},
+          {"title": "Un'Goro Crater"},
+          {"title": "Winterspring"}
+        ]
+      },
+      {
+        "title": "Outland",
+        "submenu": [
+          {"title": "Blade's Edge Mountains"},
+          {"title": "Hellfire Peninsula"},
+          {"title": "Nagrand"},
+          {"title": "Netherstorm"},
+          {"title": "Shadowmoon Valley"},
+          {"title": "Shattrath City"},
+          {"title": "Terokkar Forest"},
+          {"title": "Zangarmarsh"}
+        ]
+      },
+      {
+        "title": "Northrend",
+        "submenu": [
+          {"title": "Borean Tundra"},
+          {"title": "Dalaran"},
+          {"title": "Dragonblight"},
+          {"title": "Grizzly Hills"},
+          {"title": "Howling Fjord"},
+          {"title": "Icecrown"},
+          {"title": "Sholazar Basin"},
+          {"title": "The Storm Peaks"},
+          {"title": "Zul'Drak"}
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Dungeon",
+    "submenu": [
+      {
+        "title": "Eastern Kingdoms",
+        "submenu": [
+          {"title": "Blackrock Depths"},
+          {"title": "Blackrock Spire"},
+          {"title": "The Deadmines"},
+          {"title": "Gnomeregan"},
+          {"title": "Scarlet Monastery"},
+          {"title": "Scholomance"},
+          {"title": "Shadowfang Keep"},
+          {"title": "The Stockade"},
+          {"title": "Stratholme"},
+          {"title": "Sunken Temple"}
+        ]
+      },
+      {
+        "title": "Kalimdor",
+        "submenu": [
+          {"title": "Blackfathom Deeps"},
+          {"title": "Dire Maul"},
+          {"title": "Maraudon"},
+          {"title": "Ragefire Chasm"},
+          {"title": "Razorfen Downs"},
+          {"title": "Razorfen Kraul"},
+          {"title": "Wailing Caverns"},
+          {"title": "Zul'Farrak"}
+        ]
+      },
+      {
+        "title": "Outland",
+        "submenu": [
+          {"title": "Auchenai Crypts"},
+          {"title": "Hellfire Citadel"},
+          {"title": "Magisters' Terrace"},
+          {"title": "Mana-Tombs"},
+          {"title": "Shadow Labyrinth"},
+          {"title": "The Slave Pens"},
+          {"title": "The Steamvault"},
+          {"title": "The Underbog"}
+        ]
+      },
+      {
+        "title": "Northrend",
+        "submenu": [
+          {"title": "Ahn'kahet: The Old Kingdom"},
+          {"title": "Azjol-Nerub"},
+          {"title": "Drak'Tharon Keep"},
+          {"title": "Gundrak"},
+          {"title": "Halls of Lightning"},
+          {"title": "Halls of Reflection"},
+          {"title": "Halls of Stone"},
+          {"title": "Pit of Saron"},
+          {"title": "The Culling of Stratholme"},
+          {"title": "The Forge of Souls"},
+          {"title": "The Nexus"},
+          {"title": "The Oculus"},
+          {"title": "The Violet Hold"},
+          {"title": "Trial of the Champion"},
+          {"title": "Utgarde Keep"},
+          {"title": "Utgarde Pinnacle"}
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Raids",
+    "submenu": [
+      {
+        "title": "Eastern Kingdoms",
+        "submenu": [
+          {"title": "Blackwing Lair"},
+          {"title": "Molten Core"},
+          {"title": "Naxxramas"},
+          {"title": "Zul'Gurub"}
+        ]
+      },
+      {
+        "title": "Kalimdor",
+        "submenu": [
+          {"title": "Ahn'Qiraj"},
+          {"title": "Onyxia's Lair"},
+          {"title": "Ruins of Ahn'Qiraj"}
+        ]
+      },
+      {
+        "title": "Outland",
+        "submenu": [
+          {"title": "Hyjal Summit"},
+          {"title": "Karazhan"},
+          {"title": "Magtheridon's Lair"},
+          {"title": "Serpentshrine Cavern"},
+          {"title": "Sunwell Plateau"},
+          {"title": "Tempest Keep"},
+          {"title": "The Black Temple"},
+          {"title": "Zul'Aman"}
+        ]
+      },
+      {
+        "title": "Northrend",
+        "submenu": [
+          {"title": "Icecrown Citadel"},
+          {"title": "Naxxramas"},
+          {"title": "Onyxia's Lair"},
+          {"title": "The Eye of Eternity"},
+          {"title": "The Obsidian Sanctum"},
+          {"title": "The Ruby Sanctum"},
+          {"title": "Trial of the Crusader"},
+          {"title": "Ulduar"}
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Battlegrounds",
+    "submenu": [
+      {
+        "title": "Eastern Kingdoms",
+        "submenu": [
+          {"title": "Alterac Valley"},
+          {"title": "Arathi Basin"}
+        ]
+      },
+      {
+        "title": "Kalimdor",
+        "submenu": [
+          {"title": "Warsong Gulch"}
+        ]
+      },
+      {
+        "title": "Outland",
+        "submenu": [
+          {"title": "Eye of the Storm"}
+        ]
+      },
+      {
+        "title": "Nothrend",
+        "submenu": [
+          {"title": "Isle of Conquest"},
+          {"title": "Strand of the Ancients"},
+          {"title": "Wintergrasp"}
         ]
       }
     ]

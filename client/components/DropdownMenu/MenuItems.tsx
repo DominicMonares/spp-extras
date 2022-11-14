@@ -23,6 +23,7 @@ interface Props {
 const MenuItems = ({ items, depthLevel }: Props) => {
   const dispatch = useAppDispatch();
   const type = useAppSelector(state => state.dropdown.type);
+  const zone = useAppSelector(state => state.questTracker.zone);
   const [dropdown, setDropdown] = useState(false);
 
   const onMouseEnter = () => {
@@ -63,7 +64,11 @@ const MenuItems = ({ items, depthLevel }: Props) => {
             onClick={() => setDropdown(!dropdown)}
           >
             {depthLevel > 0 ? <span>&laquo;</span> : <></>}
-            <div>{items.title}</div>
+            {depthLevel === 0 ? (
+              <>{zone ? <>{zone}</> : <>{items.title}</>}</>
+            ) : (
+              <>{items.title}</>
+            )}
             {depthLevel === 0 ? <span className='arrow' /> : <></>}
           </button>
           <Dropdown

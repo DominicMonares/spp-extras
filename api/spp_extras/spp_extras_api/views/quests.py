@@ -23,11 +23,12 @@ class QuestViewSet(viewsets.ViewSet):
         chars = {}
 
         for i, c in enumerate(characters):
-            if i % 2 == 1: continue
+            if i % 2 == 1:
+                continue
             chars[c] = characters[int(i) + 1]
 
         charIds = chars.keys()
-        
+
         completedReg = CharacterQueststatus.objects\
             .using(f'{expansion}characters')\
             .filter(guid__in=charIds)\
@@ -39,16 +40,15 @@ class QuestViewSet(viewsets.ViewSet):
             .values()
 
         allCompleted = all_completed_quests(
-            chars, 
-            completedReg, 
+            chars,
+            completedReg,
             completedWeekly
         )
 
         return Response(
-            status=status.HTTP_200_OK, 
+            status=status.HTTP_200_OK,
             data=allCompleted
         )
-    
 
     @action(methods=['GET'], detail=False)
     # Get all quests from world database
@@ -58,9 +58,17 @@ class QuestViewSet(viewsets.ViewSet):
         quests = QuestTemplate.objects\
             .using(f'{expansion}mangos')\
             .all()\
-            .values('entry', 'zoneorsort', 'type', 'requiredclasses', 'requiredraces', 'title')
+            .values(
+                'entry',
+                'zoneorsort',
+                'type',
+                'requiredclasses',
+                'requiredraces',
+                'title',
+                'questflags'
+            )
 
         return Response(
-            status=status.HTTP_200_OK, 
+            status=status.HTTP_200_OK,
             data=all_quests(quests)
         )

@@ -5,13 +5,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { QuestTrackerFilter } from '../../types/quests';
 
 
-const initialState: QuestTrackerFilter = {
-  faction: null,
-  zone: null,
-  race: null,
-  class: null,
-  character: null
-}
+const initialState: QuestTrackerFilter = {};
 
 export const questTrackerSlice = createSlice({
   name: 'questTracker',
@@ -33,16 +27,20 @@ export const questTrackerSlice = createSlice({
       state.race = null;
       state.class = null;
       state.character = action.payload.character;
+    },
+    updateQTType: (state, action: PayloadAction<QuestTrackerFilter>) => {
+      state.type = action.payload.type;
     }
   }
 });
 
 export const { 
-  updateQTFaction, 
-  updateQTZone, 
-  updateQTRace, 
-  updateQTClass, 
-  updateQTCharacter 
+  updateQTFaction,
+  updateQTZone,
+  updateQTRace,
+  updateQTClass,
+  updateQTCharacter,
+  updateQTType
 } = questTrackerSlice.actions;
 
 export default questTrackerSlice.reducer;

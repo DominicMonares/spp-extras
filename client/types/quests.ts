@@ -30,6 +30,8 @@ export interface RepeatQuests {
   [key: string]: RepeatQuest
 }
 
+export type QuestType = 'reg' | 'repeat';
+
 export interface CharQuests {
   reg: RegQuests,
   weekly: RepeatQuests
@@ -66,11 +68,12 @@ export interface AllQuests {
 export type QuestTrackerClass = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11;
 
 export interface QuestTrackerFilter {
-  faction?: Faction | null,
-  zone?: string | null,
-  race?: Race | null,
-  class?: QuestTrackerClass | null,
-  character?: string | null
+  faction?: Faction
+  zone?: string
+  race?: Race
+  class?: QuestTrackerClass
+  character?: string
+  type?: QuestType
 }
 
 export interface ViewQuest extends AllQuestTemplate {

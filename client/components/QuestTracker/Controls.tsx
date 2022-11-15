@@ -10,6 +10,7 @@ import { updateDropdown } from '../../store/slices/dropdownSlice';
 
 // Components
 import FactionCheckboxes from './FactionCheckboxes';
+import TypeCheckboxes from './TypeCheckboxes';
 import DropdownMenu from '../DropdownMenu/DropdownMenu';
 
 // API Calls
@@ -79,6 +80,7 @@ const QuestTrackerControls = () => {
   return (
     <div className='controls'>
       <FactionCheckboxes />
+      <TypeCheckboxes />
       {faction ? <DropdownMenu menu={zoneMenu} /> : <></>}
       
     </div>

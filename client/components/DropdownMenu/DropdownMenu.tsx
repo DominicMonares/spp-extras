@@ -15,12 +15,12 @@ interface Props {
 const DropdownMenu = ({ menu }: Props) => {
   return (
     <>
-      {menu.map((m: Submenu, index: number) => {
+      {menu.map((m: Submenu, i: number) => {
         const depthLevel = 0;
         return (
           <MenuItems
             items={m}
-            key={index}
+            key={i}
             depthLevel={depthLevel}
           />
         );

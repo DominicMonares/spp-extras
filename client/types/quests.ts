@@ -70,12 +70,12 @@ export interface AllQuests {
 export type QuestTrackerClass = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11;
 
 export interface QuestTrackerSettings {
-  faction?: Faction
-  zone?: string
-  race?: Race
-  class?: QuestTrackerClass
+  faction?: Faction,
+  type?: QuestType,
+  zone?: string,
+  class?: QuestTrackerClass,
+  race?: Race,
   character?: string
-  type?: QuestType
 }
 
 export interface QuestFlags {

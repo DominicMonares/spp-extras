@@ -74,3 +74,11 @@ export interface QuestTrackerFilter {
   class?: QuestTrackerClass | null,
   character?: string | null
 }
+
+export interface ViewQuest {
+  completed: boolean
+}
+
+export interface ViewQuests {
+  [key: string]: ViewQuest | Record<string, never>
+}

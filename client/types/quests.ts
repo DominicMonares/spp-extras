@@ -67,7 +67,7 @@ export type QuestTrackerClass = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11;
 
 export interface QuestTrackerFilter {
   faction?: Faction | null,
-  zone?: number | null,
+  zone?: string | null,
   race?: Race | null,
   class?: QuestTrackerClass | null,
   character?: string | null

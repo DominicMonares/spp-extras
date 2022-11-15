@@ -23,10 +23,10 @@ const Dropdown = ({ submenus, dropdown, depthLevel }: Props) => {
         dropdown ? 'show' : ''
       }`}
     >
-      {submenus.map((submenu: Submenu, index: number) => (
+      {submenus.map((submenu: Submenu, i: number) => (
         <MenuItems
           items={submenu}
-          key={index}
+          key={i}
           depthLevel={depthLevel}
         />
       ))}

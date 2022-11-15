@@ -40,8 +40,8 @@ export interface FactionQuests {
 }
 
 export interface CompletedQuests {
-  alliance: FactionQuests | Record<string, never>,
-  horde: FactionQuests | Record<string, never>
+  alliance: FactionQuests,
+  horde: FactionQuests
 }
 
 export interface AllQuestTemplate {
@@ -58,9 +58,9 @@ export interface AllFactionQuests {
 }
 
 export interface AllQuests {
-  alliance: AllFactionQuests | Record<string, never>,
-  horde: AllFactionQuests | Record<string, never>,
-  both: AllFactionQuests | Record<string, never>
+  alliance: AllFactionQuests,
+  horde: AllFactionQuests,
+  both: AllFactionQuests
 }
 
 export type QuestTrackerFaction = 'alliance' | 'horde' | 'both';
@@ -75,10 +75,10 @@ export interface QuestTrackerFilter {
   character?: string | null
 }
 
-export interface ViewQuest {
+export interface ViewQuest extends AllQuestTemplate {
   completed: boolean
 }
 
 export interface ViewQuests {
-  [key: string]: ViewQuest | Record<string, never>
+  [key: string]: ViewQuest
 }

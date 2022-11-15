@@ -14,6 +14,6 @@ export interface Faction {
 }
 
 export interface Characters {
-  alliance: Faction | Record<string, never>,
-  horde: Faction | Record<string, never>
+  alliance: Faction,
+  horde: Faction
 }

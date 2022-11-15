@@ -10,7 +10,11 @@ import { useAppSelector } from '../../store/hooks';
 import Quest from './Quest';
 
 // Types
+import { Subzone, Zones } from "../../types/general";
 import { ViewQuests } from '../../types/quests';
+
+// Data
+import zoneRef from '../../../data/zoneRef.json';
 
 
 const QuestTrackerView = () => {
@@ -22,25 +26,41 @@ const QuestTrackerView = () => {
   const faction = settings.faction;
   const zone = settings.zone;
 
-  // useEffect to fetch and sort by faction, zone, char, etc.
   useEffect(() => {
     const newQuests: ViewQuests = {};
-    if (faction) {
-      for (const q in allQuests[faction]) newQuests[q] = allQuests[faction][q];
-      for (const q in allQuests['both']) newQuests[q] = allQuests['both'][q];
 
-      // ensure class quests and 
-      if (zone) {
-        // modify existing faction quests to sort by zone
+    // Update quest template based on faction and zone
+    if (faction) {
+      const template = { ...allQuests[faction], ...allQuests['both'] };
+      for (const q in template) {
+        const quest = template[q];
+        if (zone) {
+          const zones = zoneRef as Zones;
+          const zoneIds = zones[zone].map((s: Subzone) => s.subzoneId);
+          if (zoneIds.includes(quest.zoneorsort)) {
+            newQuests[q] = { ...quest, completed: false };
+          }
+        } else {
+          newQuests[q] = { ...quest, completed: false };
+        }
       }
     }
-    
+
+    // Mark completed quests
+    for (const c in completedQuests[faction]) {
+      const char = completedQuests[faction][c];
+      for (const q in char['reg']) { // TEMP reg, will include weekly, daily, etc.
+        const quest = char['reg'][q];
+        if (newQuests[quest.quest]) newQuests[quest.quest]['completed'] = true;
+      }
+    }
+
     if (!_.isEqual(quests, newQuests)) setQuests(newQuests);
   });
 
   return (
     <div>
-      QT VIEW
+      Quests
       {Object.values(quests).map((q, i) => <Quest key={i} quest={q} />)}
     </div>
   );

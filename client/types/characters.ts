@@ -1,5 +1,7 @@
 export type Race = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 10 | 11;
 
+export type Faction = 'alliance' | 'horde';
+
 export interface Character {
   guid: number,
   account: number,
@@ -9,11 +11,11 @@ export interface Character {
   account_name: string
 }
 
-export interface Faction {
+export interface FactionCharacters {
   [key: string]: Character
 }
 
 export interface Characters {
-  alliance: Faction,
-  horde: Faction
+  alliance: FactionCharacters,
+  horde: FactionCharacters
 }

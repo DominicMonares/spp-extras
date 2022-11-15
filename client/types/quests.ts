@@ -1,4 +1,4 @@
-import { Race } from './characters';
+import { Race, Faction } from './characters';
 
 export interface RegQuest {
   guid: number,
@@ -63,12 +63,10 @@ export interface AllQuests {
   both: AllFactionQuests
 }
 
-export type QuestTrackerFaction = 'alliance' | 'horde';
-
 export type QuestTrackerClass = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11;
 
 export interface QuestTrackerFilter {
-  faction?: QuestTrackerFaction | null,
+  faction?: Faction | null,
   zone?: number | null,
   race?: Race | null,
   class?: QuestTrackerClass | null,

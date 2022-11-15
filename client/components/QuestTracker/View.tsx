@@ -11,7 +11,7 @@ import Quest from './Quest';
 
 // Types
 import { Subzone, Zones } from "../../types/general";
-import { QuestFlags, ViewQuests } from '../../types/quests';
+import { QuestConditions, QuestFlags, ViewQuests } from '../../types/quests';
 
 // Data
 import zoneRef from '../../../data/zoneRef.json';
@@ -37,25 +37,31 @@ const QuestTrackerView = () => {
     if (faction) {
       const template = { ...allQuests[faction], ...allQuests['both'] };
       for (const q in template) {
-        const conditions = {
-          zone: {
-            setting: faction,
+        const quest = template[q];
+        const conditions: QuestConditions = {
+          type: {
+            setting: type,
             met: () => {
-
+              return type ? questFlags[type].includes(quest.questflags) : false;
+            }
+          },
+          zone: {
+            setting: zone,
+            met: () => {
+              const zoneIds = zone ? zones[zone].map((s: Subzone) => s.subzoneId) : false;
+              return zoneIds ? zoneIds.includes(quest.zoneorsort) : false;
             }
           }
         };
 
-        const quest = template[q];
-        const typeMatch = type ? questFlags[type].includes(quest.questflags) : null;
-        const zoneIds = zone ? zones[zone].map((s: Subzone) => s.subzoneId) : null;
-        const zoneMatch = zoneIds ? zoneIds.includes(quest.zoneorsort) : null;
+        let met = true;
+        for (const c in conditions) {
+          const conditionSetting = conditions[c]['setting'];
+          const conditionMet = conditions[c]['met']();
+          if (conditionSetting && !conditionMet) met = false;
+        }
 
-        // if ((type && typeMatch) && (zone && zoneMatch)) {
-
-        // }
-
-        newQuests[q] = { ...quest, completed: false };
+        if (met) newQuests[q] = { ...quest, completed: false };
       }
     }
 

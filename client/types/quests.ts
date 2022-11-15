@@ -91,3 +91,12 @@ export interface ViewQuest extends AllQuestTemplate {
 export interface ViewQuests {
   [key: string]: ViewQuest
 }
+
+export interface QuestCondition {
+  setting: Faction | QuestType | string | QuestTrackerClass | Race,
+  met: () => boolean;
+}
+
+export interface QuestConditions {
+  [key: string]: QuestCondition
+}

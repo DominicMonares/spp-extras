@@ -44,7 +44,7 @@ export interface CompletedQuests {
   horde: FactionQuests
 }
 
-export interface AllQuestTemplate {
+export interface AllQuestTemplate extends ViewQuest {
   entry: number,
   requiredclasses: number,
   requiredraces: number,
@@ -75,7 +75,7 @@ export interface QuestTrackerFilter {
   character?: string | null
 }
 
-export interface ViewQuest extends AllQuestTemplate {
+export interface ViewQuest {
   completed: boolean
 }
 

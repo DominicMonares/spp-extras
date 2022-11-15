@@ -30,7 +30,7 @@ export interface RepeatQuests {
   [key: string]: RepeatQuest
 }
 
-export type QuestType = 'reg' | 'repeat';
+export type QuestType = 'reg' | 'daily' | 'weekly';
 
 export interface CharQuests {
   reg: RegQuests,
@@ -52,7 +52,8 @@ export interface AllQuestTemplate {
   requiredraces: number,
   title: string,
   type: number,
-  zoneorsort: number
+  zoneorsort: number,
+  questflags: number
 }
 
 export interface AllFactionQuests {
@@ -74,6 +75,12 @@ export interface QuestTrackerFilter {
   class?: QuestTrackerClass
   character?: string
   type?: QuestType
+}
+
+export interface QuestFlags {
+  reg: number[],
+  daily: number[],
+  weekly: number[]
 }
 
 export interface ViewQuest extends AllQuestTemplate {

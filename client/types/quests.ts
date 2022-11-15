@@ -34,6 +34,7 @@ export type QuestType = 'reg' | 'daily' | 'weekly';
 
 export interface CharQuests {
   reg: RegQuests,
+  daily: RepeatQuests,
   weekly: RepeatQuests
 }
 

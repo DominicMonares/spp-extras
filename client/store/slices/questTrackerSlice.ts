@@ -2,33 +2,33 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 // Types
-import { QuestTrackerFilter } from '../../types/quests';
+import { QuestTrackerSettings } from '../../types/quests';
 
 
-const initialState: QuestTrackerFilter = {};
+const initialState: QuestTrackerSettings = {};
 
 export const questTrackerSlice = createSlice({
   name: 'questTracker',
   initialState,
   reducers: {
-    updateQTFaction: (state, action: PayloadAction<QuestTrackerFilter>) => {
+    updateQTFaction: (state, action: PayloadAction<QuestTrackerSettings>) => {
       state.faction = action.payload.faction;
     },
-    updateQTZone: (state, action: PayloadAction<QuestTrackerFilter>) => {
+    updateQTZone: (state, action: PayloadAction<QuestTrackerSettings>) => {
       state.zone = action.payload.zone;
     },
-    updateQTRace: (state, action: PayloadAction<QuestTrackerFilter>) => {
+    updateQTRace: (state, action: PayloadAction<QuestTrackerSettings>) => {
       state.race = action.payload.race;
     },
-    updateQTClass: (state, action: PayloadAction<QuestTrackerFilter>) => {
+    updateQTClass: (state, action: PayloadAction<QuestTrackerSettings>) => {
       state.class = action.payload.class;
     },
-    updateQTCharacter: (state, action: PayloadAction<QuestTrackerFilter>) => {
+    updateQTCharacter: (state, action: PayloadAction<QuestTrackerSettings>) => {
       state.race = null;
       state.class = null;
       state.character = action.payload.character;
     },
-    updateQTType: (state, action: PayloadAction<QuestTrackerFilter>) => {
+    updateQTType: (state, action: PayloadAction<QuestTrackerSettings>) => {
       state.type = action.payload.type;
     }
   }

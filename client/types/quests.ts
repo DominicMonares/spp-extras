@@ -69,7 +69,7 @@ export interface AllQuests {
 
 export type QuestTrackerClass = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11;
 
-export interface QuestTrackerFilter {
+export interface QuestTrackerSettings {
   faction?: Faction
   zone?: string
   race?: Race

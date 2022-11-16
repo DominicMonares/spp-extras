@@ -2,21 +2,21 @@
   {
     "title": "Alliance",
     "submenu": [
-      {"title": "Draenei"},
-      {"title": "Dwarf"},
-      {"title": "Gnome"},
-      {"title": "Human"},
-      {"title": "Night Elf"}
+      { "title": "Draenei" },
+      { "title": "Dwarf" },
+      { "title": "Gnome" },
+      { "title": "Human" },
+      { "title": "Night Elf" }
     ]
   },
   {
     "title": "Horde",
     "submenu": [
-      {"title": "Blood Elf"},
-      {"title": "Orc"},
-      {"title": "Tauren"},
-      {"title": "Troll"},
-      {"title": "Undead"}
+      { "title": "Blood Elf" },
+      { "title": "Orc" },
+      { "title": "Tauren" },
+      { "title": "Troll" },
+      { "title": "Undead" }
     ]
   }
 ]

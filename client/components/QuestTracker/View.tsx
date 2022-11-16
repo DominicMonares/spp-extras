@@ -29,6 +29,7 @@ const QuestTrackerView = () => {
   const faction = settings.faction;
   const type = settings.type;
   const zone = settings.zone;
+  const charClass = settings.charClass;
 
   useEffect(() => {
     const newQuests: ViewQuests = {};
@@ -50,6 +51,12 @@ const QuestTrackerView = () => {
             met: () => {
               const zoneIds = zone ? zones[zone].map((s: Subzone) => s.subzoneId) : false;
               return zoneIds ? zoneIds.includes(quest.zoneorsort) : false;
+            }
+          },
+          class: {
+            setting: className,
+            met: () => {
+              console.log('TEST')
             }
           }
         };

@@ -19,11 +19,6 @@
     "classId": 4,
     "class": "Rogue"
   },
-  "13": {
-    "questClassId": 13,
-    "classId": 0,
-    "class": "None"
-  },
   "16": {
     "questClassId": 16,
     "classId": 5,
@@ -39,74 +34,19 @@
     "classId": 7,
     "class": "Shaman"
   },
-  "82": {
-    "questClassId": 82,
-    "classId": 0,
-    "class": "None"
-  },
   "128": {
     "questClassId": 128,
     "classId": 8,
     "class": "Mage"
-  },
-  "129": {
-    "questClassId": 129,
-    "classId": 0,
-    "class": "None"
-  },
-  "144": {
-    "questClassId": 144,
-    "classId": 0,
-    "class": "None"
   },
   "256": {
     "questClassId": 256,
     "classId": 9,
     "class": "Warlock"
   },
-  "260": {
-    "questClassId": 260,
-    "classId": 0,
-    "class": "None"
-  },
-  "384": {
-    "questClassId": 384,
-    "classId": 0,
-    "class": "None"
-  },
   "1024": {
     "questClassId": 1024,
     "classId": 11,
     "class": "Druid"
-  },
-  "1090": {
-    "questClassId": 1090,
-    "classId": 0,
-    "class": "None"
-  },
-  "1247": {
-    "questClassId": 1247,
-    "classId": 0,
-    "class": "None"
-  },
-  "1280": {
-    "questClassId": 1280,
-    "classId": 0,
-    "class": "None"
-  },
-  "1490": {
-    "questClassId": 1490,
-    "classId": 0,
-    "class": "None"
-  },
-  "1494": {
-    "questClassId": 1494,
-    "classId": 0,
-    "class": "None"
-  },
-  "1503": {
-    "questClassId": 1503,
-    "classId": 0,
-    "class": "None"
   }
 }

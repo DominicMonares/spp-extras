@@ -2,16 +2,56 @@
   {
     "title": "Class",
     "submenu": [
-      { "title": "Death Knight" },
-      { "title": "Druid" },
-      { "title": "Hunter" },
-      { "title": "Mage" },
-      { "title": "Paladin" },
-      { "title": "Priest" },
-      { "title": "Rogue" },
-      { "title": "Shaman" },
-      { "title": "Warlock" },
-      { "title": "Warrior" }
+      {
+        "title": "Death Knight",
+        "id": 6,
+        "value": 32
+      },
+      {
+        "title": "Druid",
+        "id": 1,
+        "value": 1024
+      },
+      {
+        "title": "Hunter",
+        "id": 3,
+        "value": 4
+      },
+      {
+        "title": "Mage",
+        "id": 8,
+        "value": 128
+      },
+      {
+        "title": "Paladin",
+        "id": 2,
+        "value": 2
+      },
+      {
+        "title": "Priest",
+        "id": 5,
+        "value": 16
+      },
+      {
+        "title": "Rogue",
+        "id": 4,
+        "value": 8
+      },
+      {
+        "title": "Shaman",
+        "id": 7,
+        "value": 64
+      },
+      {
+        "title": "Warlock",
+        "id": 9,
+        "value": 256
+      },
+      {
+        "title": "Warrior",
+        "id": 1,
+        "value": 1
+      }
     ]
   }
 ]

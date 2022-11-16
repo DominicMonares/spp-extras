@@ -53,22 +53,24 @@ const QuestTrackerView = () => {
               return zoneIds ? zoneIds.includes(quest.zoneorsort) : false;
             }
           },
-          class: {
-            setting: className,
+          charClass: {
+            setting: charClass,
             met: () => {
-              console.log('TEST')
+              // const 
+              
+              return true;
             }
           }
         };
 
-        let met = true;
+        let conditionsMet = true;
         for (const c in conditions) {
           const conditionSetting = conditions[c]['setting'];
           const conditionMet = conditions[c]['met']();
-          if (conditionSetting && !conditionMet) met = false;
+          if (conditionSetting && !conditionMet) conditionsMet = false;
         }
 
-        if (met) newQuests[q] = { ...quest, completed: false };
+        if (conditionsMet) newQuests[q] = { ...quest, completed: false };
       }
     }
 
@@ -88,6 +90,7 @@ const QuestTrackerView = () => {
   return (
     <div>
       Quests
+      <div>WOWHEAD TEST</div>
       {Object.values(quests).map((q, i) => <Quest key={i} quest={q} />)}
     </div>
   );

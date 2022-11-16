@@ -21,11 +21,11 @@ export const questTrackerSlice = createSlice({
       state.race = action.payload.race;
     },
     updateQTClass: (state, action: PayloadAction<QuestTrackerSettings>) => {
-      state.class = action.payload.class;
+      state.charClass = action.payload.charClass;
     },
     updateQTCharacter: (state, action: PayloadAction<QuestTrackerSettings>) => {
       state.race = null;
-      state.class = null;
+      state.charClass = null;
       state.character = action.payload.character;
     },
     updateQTType: (state, action: PayloadAction<QuestTrackerSettings>) => {

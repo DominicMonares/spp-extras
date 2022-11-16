@@ -30,6 +30,7 @@ const QuestTrackerView = () => {
   const type = settings.type;
   const zone = settings.zone;
   const charClass = settings.charClass;
+  const race = settings.race;
 
   useEffect(() => {
     const newQuests: ViewQuests = {};
@@ -42,23 +43,29 @@ const QuestTrackerView = () => {
         const conditions: QuestConditions = {
           type: {
             setting: type,
-            met: () => {
+            conditionMet: () => {
               return type ? questFlags[type].includes(quest.questflags) : false;
             }
           },
           zone: {
             setting: zone,
-            met: () => {
+            conditionMet: () => {
               const zoneIds = zone ? zones[zone].map((s: Subzone) => s.subzoneId) : false;
               return zoneIds ? zoneIds.includes(quest.zoneorsort) : false;
             }
           },
           charClass: {
             setting: charClass,
-            met: () => {
-              // const 
-              
+            conditionMet: () => {
+              // clear zone if class setting used
+              // don't render faction specific classes for classic
               return true;
+            }
+          },
+          race: {
+            setting: race,
+            conditionMet: () => {
+
             }
           }
         };
@@ -66,7 +73,7 @@ const QuestTrackerView = () => {
         let conditionsMet = true;
         for (const c in conditions) {
           const conditionSetting = conditions[c]['setting'];
-          const conditionMet = conditions[c]['met']();
+          const conditionMet = conditions[c]['conditionMet']();
           if (conditionSetting && !conditionMet) conditionsMet = false;
         }
 

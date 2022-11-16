@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Class",
+    "submenu": [
+      {"title": "Death Knight"},
+      {"title": "Druid"},
+      {"title": "Hunter"},
+      {"title": "Mage"},
+      {"title": "Paladin"},
+      {"title": "Priest"},
+      {"title": "Rogue"},
+      {"title": "Shaman"},
+      {"title": "Warlock"},
+      {"title": "Warrior"}
+    ]
+  }
+]

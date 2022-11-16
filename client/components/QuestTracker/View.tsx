@@ -24,13 +24,8 @@ const QuestTrackerView = () => {
   const completedQuests = useAppSelector(state => state.completedQuests);
   const allQuests = useAppSelector(state => state.allQuests);
   const settings = useAppSelector(state => state.questTracker);
+  const { faction, type, zone, charClass, race, character } = settings;
   const [quests, setQuests] = useState<ViewQuests>({});
-
-  const faction = settings.faction;
-  const type = settings.type;
-  const zone = settings.zone;
-  const charClass = settings.charClass;
-  const race = settings.race;
 
   useEffect(() => {
     const newQuests: ViewQuests = {};
@@ -59,13 +54,24 @@ const QuestTrackerView = () => {
             conditionMet: () => {
               // clear zone if class setting used
               // don't render faction specific classes for classic
-              return true;
+              // filter classes if race selected
+              return false; // TEMP
             }
           },
           race: {
             setting: race,
             conditionMet: () => {
-
+              // filter races if class selected
+              // filter races by faction
+              return false; // TEMP
+            }
+          },
+          character: {
+            setting: character,
+            conditionMet: () => {
+              // filter by selected faction
+              // filter by class and race if they're selected
+              return false; // TEMP
             }
           }
         };

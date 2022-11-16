@@ -95,6 +95,12 @@
     "races": "Orc, Tauren, Troll",
     "raceIds": [2, 6, 8]
   },
+  "176": {
+    "questRaceId": 176,
+    "faction": "horde",
+    "races": "Undead, Tauren, Troll",
+    "raceIds": [5, 6, 8]
+  },
   "178": {
     "questRaceId": 178,
     "faction": "horde",
@@ -107,6 +113,18 @@
     "races": "All Races",
     "raceIds": [1, 2, 3, 4, 5, 6, 7, 8, 10, 11]
   },
+  "512": {
+    "questRaceId": 512,
+    "faction": "horde",
+    "races": "Blood Elf",
+    "raceIds": [10]
+  },
+  "514": {
+    "questRaceId": 514,
+    "faction": "horde",
+    "races": "Orc, Blood Elf",
+    "raceIds": [2, 10]
+  },
   "690": {
     "questRaceId": 690,
     "faction": "horde",
@@ -118,5 +136,17 @@
     "faction": "alliance",
     "races": "Alliance",
     "raceIds": [1, 3, 4, 7, 11]
+  },
+  "1024": {
+    "questRaceId": 1024,
+    "faction": "alliance",
+    "races": "Draenei",
+    "raceIds": [11]
+  },
+  "1791": {
+    "questRaceId": 1791,
+    "faction": "both",
+    "races": "All Races",
+    "raceIds": [1, 2, 3, 4, 5, 6, 7, 8, 10, 11]
   }
 }

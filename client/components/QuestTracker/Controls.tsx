@@ -53,7 +53,7 @@ const QuestTrackerControls = () => {
     // Fetch all template quests if they aren't in store
     const templateQuestsExist = Object.keys(templateQuests.alliance).length;
     if (!templateQuestsExist) await handleTemplateQuests();
- 
+
     // Fetch all completed quests
     const allianceChars = Object.values(chars.alliance);
     const allianceParams = allianceChars.map((c: Character) => [c.guid, getFaction(c.race)]);
@@ -78,8 +78,14 @@ const QuestTrackerControls = () => {
   return (
     <div className='controls'>
       <FactionCheckboxes />
-      <TypeCheckboxes />
-      {faction ? <DropdownMenu type='zone' menu={zoneMenu} /> : <></>}
+      {faction ? (
+        <>
+          <TypeCheckboxes />
+          <DropdownMenu type='zone' menu={zoneMenu} />
+        </>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }

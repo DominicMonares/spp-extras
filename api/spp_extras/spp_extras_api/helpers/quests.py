@@ -9,7 +9,7 @@ def all_completed_quests(chars, reg, weekly):
         questId = str(quest['quest'])
         faction = chars[guid]
 
-        if not hasattr(all[faction], guid):
+        if guid not in all[faction]:
             all[faction][guid] = { 'reg': {}, 'weekly': {} }
 
         if type == 'reg':

@@ -2,19 +2,20 @@
 import MenuItems from './MenuItems';
 
 // Types
-import { Menu, Submenu } from '../../types/dropdown';
+import { Menu, Submenu, DropdownType } from '../../types/dropdown';
 
 // Styling
 import './DropdownMenu.css';
 
 
 interface Props {
+  type: DropdownType,
   submenus: Menu,
   dropdown: boolean,
   depthLevel: number
 }
 
-const Dropdown = ({ submenus, dropdown, depthLevel }: Props) => {
+const Dropdown = ({ type, submenus, dropdown, depthLevel }: Props) => {
   depthLevel = depthLevel + 1;
   const dropdownClass = depthLevel > 1 ? 'dropdown-submenu' : '';
   return (
@@ -25,6 +26,7 @@ const Dropdown = ({ submenus, dropdown, depthLevel }: Props) => {
     >
       {submenus.map((submenu: Submenu, i: number) => (
         <MenuItems
+          type={type}
           items={submenu}
           key={i}
           depthLevel={depthLevel}

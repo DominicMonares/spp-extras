@@ -8,6 +8,4 @@ export interface Submenu {
   charClass?: CharacterClass
 }
 
-export interface DropdownType {
-  type: 'zone' | null
-}
+export type DropdownType ='zone';

@@ -8,7 +8,6 @@ import featureReducer from './slices/featureSlice';
 import completedQuestReducer from './slices/completedQuestSlice';
 import templateQuestReducer from './slices/templateQuestSlice';
 import questTrackerReducer from './slices/questTrackerSlice';
-import dropdownReducer from './slices/dropdownSlice';
 
 
 export const store = configureStore({
@@ -18,8 +17,7 @@ export const store = configureStore({
     feature: featureReducer,
     completedQuests: completedQuestReducer,
     templateQuests: templateQuestReducer,
-    questTracker: questTrackerReducer,
-    dropdown: dropdownReducer
+    questTracker: questTrackerReducer
   }
 });
 

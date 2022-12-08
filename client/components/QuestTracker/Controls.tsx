@@ -6,7 +6,6 @@ import { useAppSelector, useAppDispatch } from '../../store/hooks';
 import { updateCharacters } from '../../store/slices/characterSlice';
 import { updateCompletedQuests } from '../../store/slices/completedQuestSlice';
 import { updateTemplateQuests } from '../../store/slices/templateQuestSlice';
-import { updateDropdown } from '../../store/slices/dropdownSlice';
 
 // Components
 import FactionCheckboxes from './FactionCheckboxes';
@@ -42,9 +41,6 @@ const QuestTrackerControls = () => {
     // Fetch template quests and completed quests if they aren't in store
     const handleStorage = async () => await storeQuests();
     if (faction && !templateQuests[faction].length) handleStorage();
-
-    // Switch dropdown to zones
-    dispatch(updateDropdown({ type: 'zone' }));
   });
 
   const storeQuests = async () => {
@@ -83,7 +79,7 @@ const QuestTrackerControls = () => {
     <div className='controls'>
       <FactionCheckboxes />
       <TypeCheckboxes />
-      {faction ? <DropdownMenu menu={zoneMenu} /> : <></>}
+      {faction ? <DropdownMenu type='zone' menu={zoneMenu} /> : <></>}
     </div>
   );
 }

@@ -9,20 +9,20 @@ import { updateQTZone } from '../../store/slices/questTrackerSlice';
 import Dropdown from './Dropdown';
 
 // Types
-import { Submenu } from '../../types/dropdown';
+import { Submenu, DropdownType } from '../../types/dropdown';
 
 // Styling
 import './DropdownMenu.css';
 
 
 interface Props {
-  items: Submenu
+  type: DropdownType,
+  items: Submenu,
   depthLevel: number
 }
 
-const MenuItems = ({ items, depthLevel }: Props) => {
+const MenuItems = ({ type, items, depthLevel }: Props) => {
   const dispatch = useAppDispatch();
-  const type = useAppSelector(state => state.dropdown.type);
   const zone = useAppSelector(state => state.questTracker.zone);
   const [dropdown, setDropdown] = useState(false);
 
@@ -72,6 +72,7 @@ const MenuItems = ({ items, depthLevel }: Props) => {
             {depthLevel === 0 ? <span className='arrow' /> : <></>}
           </button>
           <Dropdown
+            type={type}
             depthLevel={depthLevel}
             submenus={items.submenu}
             dropdown={dropdown}

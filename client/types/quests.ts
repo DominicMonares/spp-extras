@@ -99,7 +99,7 @@ export interface ViewQuests {
 
 export interface QuestCondition {
   setting: Faction | QuestType | string | ClassSetting | Race,
-  conditionMet: () => boolean;
+  conditionMet: () => boolean
 }
 
 export interface QuestConditions {

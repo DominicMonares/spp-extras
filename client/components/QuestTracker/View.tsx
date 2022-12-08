@@ -15,14 +15,15 @@ import { QuestConditions, QuestFlags, ViewQuests } from '../../types/quests';
 
 // Data
 import zoneRef from '../../../data/zoneRef.json';
-const zones = zoneRef as Zones;
 import repeatQuestFlags from '../../../data/repeatQuestFlags.json';
-const questFlags = repeatQuestFlags as QuestFlags; 
 
+
+const zones = zoneRef as Zones;
+const questFlags = repeatQuestFlags as QuestFlags;
 
 const QuestTrackerView = () => {
-  const completedQuests = useAppSelector(state => state.completedQuests);
   const templateQuests = useAppSelector(state => state.templateQuests);
+  const completedQuests = useAppSelector(state => state.completedQuests);
   const settings = useAppSelector(state => state.questTracker);
   const { faction, type, zone, charClass, race, character } = settings;
   const [quests, setQuests] = useState<ViewQuests>({});
@@ -30,17 +31,16 @@ const QuestTrackerView = () => {
   useEffect(() => {
     const newQuests: ViewQuests = {};
 
-    // Update quest template based on faction, type, and zone
+    // Render quests once faction selected, filter by settings
     if (faction) {
+      // Add template quests that meet conditions to render object
       const template = { ...templateQuests[faction], ...templateQuests['both'] };
       for (const q in template) {
         const quest = template[q];
         const conditions: QuestConditions = {
           type: {
             setting: type,
-            conditionMet: () => {
-              return type ? questFlags[type].includes(quest.questflags) : false;
-            }
+            conditionMet: () => type ? questFlags[type].includes(quest.questflags) : false
           },
           zone: {
             setting: zone,
@@ -87,7 +87,6 @@ const QuestTrackerView = () => {
       }
     }
 
-    // USE CHARACTER SETTING HERE
     // Mark completed quests
     for (const c in completedQuests[faction]) {
       const char = completedQuests[faction][c];

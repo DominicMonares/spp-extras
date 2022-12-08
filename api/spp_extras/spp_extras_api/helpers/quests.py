@@ -19,7 +19,6 @@ def all_completed_quests(chars, reg, weekly):
 
     for q in reg: addQuest(q, 'reg')
     for q in weekly: addQuest(q, 'weekly')
-    print(all)
     return all
 
 

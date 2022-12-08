@@ -1,15 +1,17 @@
 // Types
-import { TemplateQuest } from '../../types/quests';
+import { ViewQuest } from '../../types/quests';
 
 
 interface Props {
-  quest: TemplateQuest
+  quest: ViewQuest
 }
 
 const Quest = ({ quest }: Props) => {
   return (
     <div>
-      <span>{quest.title}</span>
+      <span className={quest.completed ? 'complete' : 'incomplete'}>
+        {quest.title}
+      </span>
     </div>
   );
 }

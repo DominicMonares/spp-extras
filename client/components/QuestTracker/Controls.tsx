@@ -40,22 +40,25 @@ const QuestTrackerControls = () => {
 
   useEffect(() => {
     // Fetch template quests and completed quests if they aren't in store
-    const storageHandler = async () => await storeQuests();
-    if (faction && !templateQuests[faction].length) storageHandler();
+    const handleStorage = async () => await storeQuests();
+    if (faction && !templateQuests[faction].length) handleStorage();
 
     // Switch dropdown to zones
     dispatch(updateDropdown({ type: 'zone' }));
   });
 
   const storeQuests = async () => {
+    // Fetch all characters if they aren't in store
     const allianceCharsExist = Object.keys(characters.alliance).length;
     const hordeCharsExist = Object.keys(characters.horde).length;
     const charsExist = allianceCharsExist || hordeCharsExist;
-    const chars = !charsExist ? await storeCharacters() : characters;
+    const chars = !charsExist ? await handleCharacters() : characters;
 
+    // Fetch all template quests if they aren't in store
     const templateQuestsExist = Object.keys(templateQuests.alliance).length;
-    !templateQuestsExist ? await storeTemplateQuests() : templateQuests;
-
+    if (!templateQuestsExist) await handleTemplateQuests();
+ 
+    // Fetch all completed quests
     const allianceChars = Object.values(chars.alliance);
     const allianceParams = allianceChars.map((c: Character) => [c.guid, getFaction(c.race)]);
     const hordeChars = Object.values(chars.horde);
@@ -65,13 +68,13 @@ const QuestTrackerControls = () => {
     dispatch(updateCompletedQuests(allCompletedQuests));
   }
 
-  const storeCharacters = async () => {
+  const handleCharacters = async () => {
     const chars = await getCharacters(expansion);
     dispatch(updateCharacters(chars));
     return chars;
   }
 
-  const storeTemplateQuests = async () => {
+  const handleTemplateQuests = async () => {
     const quests = await getTemplateQuests(expansion);
     dispatch(updateTemplateQuests(quests));
   }
@@ -81,7 +84,6 @@ const QuestTrackerControls = () => {
       <FactionCheckboxes />
       <TypeCheckboxes />
       {faction ? <DropdownMenu menu={zoneMenu} /> : <></>}
-      
     </div>
   );
 }

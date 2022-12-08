@@ -12,7 +12,7 @@ def all_completed_quests(chars, reg, weekly):
         if not hasattr(all[faction], guid):
             all[faction][guid] = { 'reg': {}, 'weekly': {} }
 
-        if type == 'reg':
+        if type == 'reg' and quest['rewarded']:
             all[faction][guid]['reg'][questId] = quest
         elif type == 'weekly':
             all[faction][guid]['weekly'][questId] = quest

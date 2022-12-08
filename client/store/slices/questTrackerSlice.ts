@@ -5,7 +5,9 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { QuestTrackerSettings } from '../../types/quests';
 
 
-const initialState: QuestTrackerSettings = {};
+const initialState: QuestTrackerSettings = {
+  type: 'reg'
+};
 
 export const questTrackerSlice = createSlice({
   name: 'questTracker',

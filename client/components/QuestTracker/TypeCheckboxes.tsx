@@ -11,7 +11,7 @@ import type { QuestType } from "../../types/quests";
 
 const TypeCheckboxes = () => {
   const dispatch = useAppDispatch();
-  const [checks, setChecks] = useState([false, false, false]);
+  const [checks, setChecks] = useState([true, false, false]);
 
   const selectType = (checkboxes: boolean[], type: QuestType) => {
     setChecks(checkboxes);

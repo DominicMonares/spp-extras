@@ -19,11 +19,7 @@ const Dropdown = ({ type, submenus, dropdown, depthLevel }: Props) => {
   depthLevel = depthLevel + 1;
   const dropdownClass = depthLevel > 1 ? 'dropdown-submenu' : '';
   return (
-    <ul
-      className={`dropdown ${dropdownClass} ${
-        dropdown ? 'show' : ''
-      }`}
-    >
+    <ul className={`dropdown ${dropdownClass} ${dropdown ? 'show' : ''}`}>
       {submenus.map((submenu: Submenu, i: number) => (
         <MenuItems
           type={type}

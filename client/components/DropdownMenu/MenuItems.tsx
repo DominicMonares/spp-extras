@@ -40,12 +40,11 @@ const MenuItems = ({ type, items, depthLevel }: Props) => {
 
   const selectionHandler = (e: MouseEvent<HTMLInputElement>) => {
     const target = e.target as HTMLInputElement;
-
     if (type === 'zone') {
       dispatch(updateQTZone({ zone: target.innerText }));
     }
 
-    setDropdown(!dropdown)
+    setDropdown(!dropdown);
   }
 
   return (

@@ -6,7 +6,7 @@ import expansionReducer from './slices/expansionSlice';
 import characterReducer from './slices/characterSlice';
 import featureReducer from './slices/featureSlice';
 import completedQuestReducer from './slices/completedQuestSlice';
-import allQuestReducer from './slices/allQuestSlice';
+import templateQuestReducer from './slices/templateQuestSlice';
 import questTrackerReducer from './slices/questTrackerSlice';
 import dropdownReducer from './slices/dropdownSlice';
 
@@ -17,7 +17,7 @@ export const store = configureStore({
     characters: characterReducer,
     feature: featureReducer,
     completedQuests: completedQuestReducer,
-    allQuests: allQuestReducer,
+    templateQuests: templateQuestReducer,
     questTracker: questTrackerReducer,
     dropdown: dropdownReducer
   }

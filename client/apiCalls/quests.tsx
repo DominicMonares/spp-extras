@@ -16,7 +16,7 @@ export const getCompletedQuests = async (
     .catch(err => console.log('API ERROR: ', err));
 }
 
-export const getAllQuests = async (expansion: SelectedExpansion) => {
+export const getTemplateQuests = async (expansion: SelectedExpansion) => {
   const expansionParams = new URLSearchParams({ expansion });
 
   return fetch(`${url}/quests/all?` + expansionParams)

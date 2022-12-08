@@ -47,7 +47,7 @@ export interface CompletedQuests {
   horde: FactionQuests
 }
 
-export interface AllQuestTemplate {
+export interface TemplateQuest {
   entry: number,
   requiredclasses: number,
   requiredraces: number,
@@ -57,14 +57,14 @@ export interface AllQuestTemplate {
   questflags: number
 }
 
-export interface AllFactionQuests {
-  [key: string]: AllQuestTemplate
+export interface TemplateFactionQuests {
+  [key: string]: TemplateQuest
 }
 
-export interface AllQuests {
-  alliance: AllFactionQuests,
-  horde: AllFactionQuests,
-  both: AllFactionQuests
+export interface TemplateQuests {
+  alliance: TemplateFactionQuests,
+  horde: TemplateFactionQuests,
+  both: TemplateFactionQuests
 }
 
 export type CharacterQuestClass = 1 | 2 | 4 | 8 | 16 | 32 | 64 | 128 | 256 | 1024;
@@ -89,7 +89,7 @@ export interface QuestFlags {
   weekly: number[]
 }
 
-export interface ViewQuest extends AllQuestTemplate {
+export interface ViewQuest extends TemplateQuest {
   completed: boolean
 }
 

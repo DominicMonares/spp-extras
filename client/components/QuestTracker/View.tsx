@@ -22,7 +22,7 @@ const questFlags = repeatQuestFlags as QuestFlags;
 
 const QuestTrackerView = () => {
   const completedQuests = useAppSelector(state => state.completedQuests);
-  const allQuests = useAppSelector(state => state.allQuests);
+  const templateQuests = useAppSelector(state => state.templateQuests);
   const settings = useAppSelector(state => state.questTracker);
   const { faction, type, zone, charClass, race, character } = settings;
   const [quests, setQuests] = useState<ViewQuests>({});
@@ -32,7 +32,7 @@ const QuestTrackerView = () => {
 
     // Update quest template based on faction, type, and zone
     if (faction) {
-      const template = { ...allQuests[faction], ...allQuests['both'] };
+      const template = { ...templateQuests[faction], ...templateQuests['both'] };
       for (const q in template) {
         const quest = template[q];
         const conditions: QuestConditions = {

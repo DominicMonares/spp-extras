@@ -1,9 +1,9 @@
 // Types
-import { AllQuestTemplate } from '../../types/quests';
+import { TemplateQuest } from '../../types/quests';
 
 
 interface Props {
-  quest: AllQuestTemplate
+  quest: TemplateQuest
 }
 
 const Quest = ({ quest }: Props) => {

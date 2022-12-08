@@ -4,7 +4,7 @@ def all_completed_quests(chars, reg, weekly):
       'horde': {}
     }
     
-    def addQuest(quest, type):
+    def add_quest(quest, type):
         guid = str(quest['guid'])
         questId = str(quest['quest'])
         faction = chars[guid]
@@ -17,8 +17,8 @@ def all_completed_quests(chars, reg, weekly):
         elif type == 'weekly':
             all[faction][guid]['weekly'][questId] = quest
 
-    for q in reg: addQuest(q, 'reg')
-    for q in weekly: addQuest(q, 'weekly')
+    for q in reg: add_quest(q, 'reg')
+    for q in weekly: add_quest(q, 'weekly')
     return all
 
 

@@ -52,7 +52,6 @@ const QuestTrackerView = () => {
           charClass: {
             setting: charClass,
             conditionMet: () => {
-              // clear zone if class setting used
               // don't render faction specific classes for classic
               // filter classes if race selected
               return false; // TEMP
@@ -96,7 +95,10 @@ const QuestTrackerView = () => {
       }
     }
 
-    if (!_.isEqual(quests, newQuests)) setQuests(newQuests);
+    if (!_.isEqual(quests, newQuests)) {
+      // clear zone if class setting used
+      setQuests(newQuests);
+    }
   });
 
   return (

@@ -31,7 +31,7 @@ class QuestViewSet(viewsets.ViewSet):
 
         completedReg = CharacterQueststatus.objects\
             .using(f'{expansion}characters')\
-            .filter(guid__in=charIds)\
+            .filter(guid__in=charIds, status=1)\
             .values()
 
         completedWeekly = CharacterQueststatusWeekly.objects\
@@ -39,7 +39,7 @@ class QuestViewSet(viewsets.ViewSet):
             .filter(guid__in=charIds)\
             .values()
 
-        allCompleted = all_completed_quests(
+        all_completed = all_completed_quests(
             chars,
             completedReg,
             completedWeekly
@@ -47,7 +47,7 @@ class QuestViewSet(viewsets.ViewSet):
 
         return Response(
             status=status.HTTP_200_OK,
-            data=allCompleted
+            data=all_completed
         )
 
     @action(methods=['GET'], detail=False)

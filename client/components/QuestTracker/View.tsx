@@ -86,9 +86,10 @@ const QuestTrackerView = () => {
       }
     }
 
-    // Mark completed quests
-    for (const c in completedQuests[faction]) {
-      const char = completedQuests[faction][c];
+    // Mark completed quests, check both factions so neutral quests are marked
+    const allCompleted = { ...completedQuests['alliance'], ...completedQuests['horde'] };
+    for (const c in allCompleted) {
+      const char = allCompleted[c];
       for (const q in char[type]) {
         const quest = char[type][q];
         if (newQuests[quest.quest]) newQuests[quest.quest]['completed'] = true;

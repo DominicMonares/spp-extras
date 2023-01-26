@@ -1,27 +1,12 @@
-// React
 import { useState, MouseEvent } from 'react';
-
-// Redux
-import { useAppSelector, useAppDispatch } from '../../store/hooks';
-import { updateQTZone } from '../../store/slices/questTrackerSlice';
-
-// Components
 import Dropdown from './Dropdown';
-
-// Types
-import { Submenu, DropdownType } from '../../types/dropdown';
-
-// Styling
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { updateQTZone } from '../../store/slices';
+import { MenuItemsProps } from '../../types';
 import './DropdownMenu.css';
 
 
-interface Props {
-  type: DropdownType,
-  items: Submenu,
-  depthLevel: number
-}
-
-const MenuItems = ({ type, items, depthLevel }: Props) => {
+const MenuItems = ({ type, items, depthLevel }: MenuItemsProps) => {
   const dispatch = useAppDispatch();
   const zone = useAppSelector(state => state.questTracker.zone);
   const [dropdown, setDropdown] = useState(false);
@@ -49,7 +34,7 @@ const MenuItems = ({ type, items, depthLevel }: Props) => {
 
   return (
     <li
-      className='menu-items'
+      className="menu-items"
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       onClick={closeDropdown}
@@ -57,8 +42,8 @@ const MenuItems = ({ type, items, depthLevel }: Props) => {
       {items.submenu ? (
         <>
           <button
-            type='button'
-            aria-haspopup='menu'
+            type="button"
+            aria-haspopup="menu"
             aria-expanded={dropdown ? 'true' : 'false'}
             onClick={() => setDropdown(!dropdown)}
           >
@@ -68,7 +53,7 @@ const MenuItems = ({ type, items, depthLevel }: Props) => {
             ) : (
               <>{items.title}</>
             )}
-            {depthLevel === 0 ? <span className='arrow' /> : <></>}
+            {depthLevel === 0 ? <span className="arrow" /> : <></>}
           </button>
           <Dropdown
             type={type}
@@ -80,8 +65,8 @@ const MenuItems = ({ type, items, depthLevel }: Props) => {
       ) : (
         <>
           <button
-            type='button'
-            aria-haspopup='menu'
+            type="button"
+            aria-haspopup="menu"
             aria-expanded={dropdown ? 'true' : 'false'}
             onClick={selectionHandler}
           >

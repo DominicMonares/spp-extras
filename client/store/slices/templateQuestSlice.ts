@@ -1,8 +1,5 @@
-// Redux
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
-// Types
-import { TemplateQuests } from '../../types/quests';
+import { TemplateQuests } from '../../types';
 
 
 const initialState: TemplateQuests = {

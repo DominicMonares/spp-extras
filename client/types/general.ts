@@ -1,22 +1,27 @@
-export type SelectedExpansion = 'classic' | 'tbc' | 'wotlk' | null;
-
 export interface Expansion {
-  selected: SelectedExpansion
+  selected: SelectedExpansion;
 }
 
+export interface Feature {
+  selected: SelectedFeature;
+}
+
+export interface FeatureNavProps {
+  feature: SelectedFeature;
+  name: string;
+}
+
+export type SelectedExpansion = 'classic' | 'tbc' | 'wotlk' | null;
+
+export type SelectedFeature = 'questTracker' | 'awAchieves' | null;
+
 export interface Subzone {
-  subzoneId: number,
-  subzone: string
+  subzoneId: number;
+  subzone: string;
 }
 
 export type Zone = Subzone[];
 
 export interface Zones {
-  [key: string]: Zone
-}
-
-export type SelectedFeature = 'quest_tracker' | 'aw_achieves' | null;
-
-export interface Feature {
-  selected: SelectedFeature
+  [key: string]: Zone;
 }

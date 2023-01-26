@@ -1,12 +1,7 @@
-// React
 import { useState } from 'react';
-
-// Redux
 import { useAppDispatch } from '../../store/hooks';
-import { updateQTType } from '../../store/slices/questTrackerSlice';
-
-// Types
-import type { QuestType } from "../../types/quests";
+import { updateQTType } from '../../store/slices';
+import { QuestType } from "../../types";
 
 
 const TypeCheckboxes = () => {
@@ -22,7 +17,7 @@ const TypeCheckboxes = () => {
     <div>
       <label>
         <input
-          type='checkbox'
+          type="checkbox"
           checked={checks[0]}
           onChange={() => selectType([true, false, false], 'reg')}
         />
@@ -30,7 +25,7 @@ const TypeCheckboxes = () => {
       </label>
       <label>
         <input
-          type='checkbox'
+          type="checkbox"
           checked={checks[1]}
           onChange={() => selectType([false, true, false], 'daily')}
         />
@@ -38,7 +33,7 @@ const TypeCheckboxes = () => {
       </label>
       <label>
         <input
-          type='checkbox'
+          type="checkbox"
           checked={checks[2]}
           onChange={() => selectType([false, false, true], 'weekly')}
         />

@@ -1,21 +1,16 @@
 import _ from "lodash";
-
-// React
-import { useState, useEffect } from 'react';
-
-// Redux
-import { useAppSelector } from '../../store/hooks';
-
-// Components
+import { useEffect, useState } from 'react';
 import Quest from './Quest';
-
-// Types
-import { Subzone, Zones } from "../../types/general";
-import { QuestConditions, QuestFlags, ViewQuests } from '../../types/quests';
-
-// Data
-import zoneRef from '../../../data/zoneRef.json';
+import { useAppSelector } from '../../store/hooks';
+import {
+  QuestConditions,
+  QuestFlags,
+  Subzone,
+  ViewQuests,
+  Zones
+} from '../../types';
 import repeatQuestFlags from '../../../data/repeatQuestFlags.json';
+import zoneRef from '../../../data/zoneRef.json';
 
 
 const zones = zoneRef as Zones;
@@ -87,11 +82,11 @@ const QuestTrackerView = () => {
     }
 
     // Mark completed quests, check both factions so neutral quests are marked
-    const allCompleted = { ...completedQuests['alliance'], ...completedQuests['horde'] };
-    for (const c in allCompleted) {
-      const char = allCompleted[c];
-      for (const q in char[type]) {
-        const quest = char[type][q];
+    const allCompletedQuests = { ...completedQuests['alliance'], ...completedQuests['horde'] };
+    for (const c in allCompletedQuests) {
+      const character = allCompletedQuests[c];
+      for (const q in character[type]) {
+        const quest = character[type][q];
         if (newQuests[quest.quest]) newQuests[quest.quest]['completed'] = true;
       }
     }

@@ -1,6 +1,5 @@
-// Components
-import View from './View';
 import Controls from './Controls';
+import View from './View';
 
 
 const QuestTracker = () => {

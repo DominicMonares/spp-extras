@@ -1,5 +1,4 @@
-// Types
-import { Race } from '../types/characters';
+import { Race } from '../types';
 
 
 export const getFaction = (race: Race) => {

@@ -1,31 +1,21 @@
-// React
 import { useEffect } from 'react';
-
-// Redux
-import { useAppSelector, useAppDispatch } from '../../store/hooks';
-import { updateCharacters } from '../../store/slices/characterSlice';
-import { updateCompletedQuests } from '../../store/slices/completedQuestSlice';
-import { updateTemplateQuests } from '../../store/slices/templateQuestSlice';
-
-// Components
+import DropdownMenu from '../DropdownMenu';
 import FactionCheckboxes from './FactionCheckboxes';
 import TypeCheckboxes from './TypeCheckboxes';
-import DropdownMenu from '../DropdownMenu/DropdownMenu';
-
-// API Calls
-import { getCharacters } from '../../apiCalls/characters';
-import { getCompletedQuests, getTemplateQuests } from '../../apiCalls/quests';
-
-// Types
-import type { Character } from "../../types/characters";
-
-// Helpers
-import { getFaction } from '../../helpers/characters';
-
-// Data
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import {
+  updateCharacters,
+  updateCompletedQuests,
+  updateTemplateQuests
+} from '../../store/slices';
+import {
+  fetchCharacters,
+  fetchCompletedQuests,
+  fetchTemplateQuests
+} from '../../apiCalls';
+import { getFaction } from '../../utils/characters';
 import zoneMenu from '../../../data/zoneMenu.json';
-
-// Styling
+import { Character } from "../../types";
 import './QuestTracker.css';
 
 
@@ -45,43 +35,43 @@ const QuestTrackerControls = () => {
 
   const storeQuests = async () => {
     // Fetch all characters if they aren't in store
-    const allianceCharsExist = Object.keys(characters.alliance).length;
-    const hordeCharsExist = Object.keys(characters.horde).length;
-    const charsExist = allianceCharsExist || hordeCharsExist;
-    const chars = !charsExist ? await handleCharacters() : characters;
+    const allianceCharactersExist = Object.keys(characters.alliance).length;
+    const hordeCharactersExist = Object.keys(characters.horde).length;
+    const charactersExist = allianceCharactersExist || hordeCharactersExist;
+    const existingCharacters = !charactersExist ? await getCharacters() : characters;
 
     // Fetch all template quests if they aren't in store
     const templateQuestsExist = Object.keys(templateQuests.alliance).length;
-    if (!templateQuestsExist) await handleTemplateQuests();
+    if (!templateQuestsExist) await getTemplateQuests();
 
     // Fetch all completed quests
-    const allianceChars = Object.values(chars.alliance);
-    const allianceParams = allianceChars.map((c: Character) => [c.guid, getFaction(c.race)]);
-    const hordeChars = Object.values(chars.horde);
-    const hordeParams = hordeChars.map((c: Character) => [c.guid, getFaction(c.race)]);
-    const charParams = allianceParams.concat(hordeParams).flat().join(',');
-    const allCompletedQuests = await getCompletedQuests(expansion, charParams);
+    const allianceCharacters = Object.values(existingCharacters.alliance);
+    const allianceParameters = allianceCharacters.map((c: Character) => [c.guid, getFaction(c.race)]);
+    const hordeCharacters = Object.values(existingCharacters.horde);
+    const hordeParameters = hordeCharacters.map((c: Character) => [c.guid, getFaction(c.race)]);
+    const characterParameters = allianceParameters.concat(hordeParameters).flat().join(',');
+    const allCompletedQuests = await fetchCompletedQuests(expansion, characterParameters);
     dispatch(updateCompletedQuests(allCompletedQuests));
   }
 
-  const handleCharacters = async () => {
-    const chars = await getCharacters(expansion);
-    dispatch(updateCharacters(chars));
-    return chars;
+  const getCharacters = async () => {
+    const newCharacters = await fetchCharacters(expansion);
+    dispatch(updateCharacters(newCharacters));
+    return newCharacters;
   }
 
-  const handleTemplateQuests = async () => {
-    const quests = await getTemplateQuests(expansion);
-    dispatch(updateTemplateQuests(quests));
+  const getTemplateQuests = async () => {
+    const newTemplateQuests = await fetchTemplateQuests(expansion);
+    dispatch(updateTemplateQuests(newTemplateQuests));
   }
 
   return (
-    <div className='controls'>
+    <div className="controls">
       <FactionCheckboxes />
       {faction ? (
         <>
           <TypeCheckboxes />
-          <DropdownMenu type='zone' menu={zoneMenu} />
+          <DropdownMenu type="zone" menu={zoneMenu} />
         </>
       ) : (
         <></>

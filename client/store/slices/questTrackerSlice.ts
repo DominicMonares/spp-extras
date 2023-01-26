@@ -1,8 +1,5 @@
-// Redux
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
-// Types
-import { QuestTrackerSettings } from '../../types/quests';
+import { QuestTrackerSettings } from '../../types';
 
 
 const initialState: QuestTrackerSettings = {
@@ -37,7 +34,7 @@ export const questTrackerSlice = createSlice({
   }
 });
 
-export const { 
+export const {
   updateQTFaction,
   updateQTZone,
   updateQTRace,

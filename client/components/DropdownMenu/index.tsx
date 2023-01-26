@@ -1,19 +1,9 @@
-// Components
 import MenuItems from './MenuItems';
-
-// Types
-import { Menu, Submenu, DropdownType } from '../../types/dropdown';
-
-// Styling
+import { DropdownMenuProps, Submenu } from '../../types';
 import './DropdownMenu.css';
 
 
-interface Props {
-  menu: Menu,
-  type: DropdownType
-}
-
-const DropdownMenu = ({ type, menu }: Props) => {
+const DropdownMenu = ({ type, menu }: DropdownMenuProps) => {
   return (
     <>
       {menu.map((m: Submenu, i: number) => {

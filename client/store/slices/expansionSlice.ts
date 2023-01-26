@@ -1,8 +1,5 @@
-// Redux
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
-// Types
-import { Expansion, SelectedExpansion } from '../../types/general';
+import { Expansion, SelectedExpansion } from '../../types';
 
 
 const initialState: Expansion = {

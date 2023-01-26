@@ -1,12 +1,7 @@
-// React
 import { useState } from 'react';
-
-// Redux
 import { useAppDispatch } from '../../store/hooks';
-import { updateQTFaction } from '../../store/slices/questTrackerSlice';
-
-// Types
-import type { Faction } from "../../types/characters";
+import { updateQTFaction } from '../../store/slices';
+import { Faction } from "../../types";
 
 
 const FactionCheckboxes = () => {
@@ -22,7 +17,7 @@ const FactionCheckboxes = () => {
     <div>
       <label>
         <input
-          type='checkbox'
+          type="checkbox"
           checked={checks[0]}
           onChange={() => selectFaction([true, false], 'alliance')}
         />
@@ -30,7 +25,7 @@ const FactionCheckboxes = () => {
       </label>
       <label>
         <input
-          type='checkbox'
+          type="checkbox"
           checked={checks[1]}
           onChange={() => selectFaction([false, true], 'horde')}
         />

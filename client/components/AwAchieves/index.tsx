@@ -1,6 +1,5 @@
-// Components
-import AwAchievesView from './AwAchievesView';
 import AwAchievesControls from './AwAchievesControls';
+import AwAchievesView from './AwAchievesView';
 
 
 const AwAchieves = () => {

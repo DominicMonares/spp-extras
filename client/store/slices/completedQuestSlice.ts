@@ -1,8 +1,5 @@
-// Redux
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
-// Types
-import { CompletedQuests } from '../../types/quests';
+import { CompletedQuests } from '../../types';
 
 
 const initialState: CompletedQuests = {

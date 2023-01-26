@@ -1,12 +1,7 @@
-// Types
-import { ViewQuest } from '../../types/quests';
+import { QuestProps } from '../../types';
 
 
-interface Props {
-  quest: ViewQuest
-}
-
-const Quest = ({ quest }: Props) => {
+const Quest = ({ quest }: QuestProps) => {
   return (
     <div>
       <span className={quest.completed ? 'complete' : 'incomplete'}>

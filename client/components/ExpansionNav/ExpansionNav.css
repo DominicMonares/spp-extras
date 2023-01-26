@@ -4,7 +4,9 @@
   border-bottom: 1px solid black;
 }
 
-.classic, .tbc, .wotlk {
+.classic,
+.tbc,
+.wotlk {
   width: 300px;
   text-align: center;
   text-align: center;

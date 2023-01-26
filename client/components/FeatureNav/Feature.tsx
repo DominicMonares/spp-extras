@@ -1,32 +1,23 @@
-// Redux
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { updateFeature } from '../../store/slices/featureSlice';
-
-//Types
-import type { SelectedFeature } from '../../types/general';
-
-// Styling
+import { updateFeature } from '../../store/slices';
+import { FeatureNavProps, SelectedFeature } from '../../types';
 import './FeatureNav.css';
 
 
-interface Props {
-  feature: SelectedFeature,
-  name: string
-}
-
-const Feature = ({ feature, name }: Props) => {
+const Feature = ({ feature, name }: FeatureNavProps) => {
   const dispatch = useAppDispatch();
-  const selFeature = useAppSelector(state => state.feature.selected);
-  const featActive = (feat: SelectedFeature) => feat === selFeature ? 'active' : '';
-  const featClassName = featActive(feature);
+  const selectedFeature = useAppSelector(state => state.feature.selected);
 
-  const switchFeat = (feat: SelectedFeature): void => {
+  const switchFeature = (feat: SelectedFeature): void => {
     dispatch(updateFeature(feat));
   }
 
   return (
     <>
-      <div className={`feature ${featClassName}`} onClick={() => switchFeat(feature)}>
+      <div
+        className={`feature ${feature === selectedFeature ? 'active' : ''}`}
+        onClick={() => switchFeature(feature)}
+      >
         {name}
       </div>
     </>

@@ -1,8 +1,5 @@
-// Redux
-import { useAppSelector } from '../../store/hooks';
-
-// Components
 import Feature from './Feature';
+import { useAppSelector } from '../../store/hooks';
 
 
 const Features = () => {
@@ -10,9 +7,9 @@ const Features = () => {
 
   return (
     <>
-      <Feature feature='quest_tracker' name='Quest Tracker' />
+      <Feature feature="questTracker" name="Quest Tracker" />
       {expansion === 'wotlk' ? (
-        <Feature feature='aw_achieves' name='Account-wide Achievements' />
+        <Feature feature="awAchieves" name="Account-wide Achievements" />
       ) : (
         <></>
       )}

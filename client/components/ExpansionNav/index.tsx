@@ -1,19 +1,12 @@
-// React
 import { useState } from 'react';
 import Modal from 'react-modal';
-
-// Redux
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { updateExpansion } from '../../store/slices/expansionSlice';
-import { updateFeature } from '../../store/slices/featureSlice';
-
-// Types
-import type { SelectedExpansion } from '../../types/general';
-
-// Styling
+import { updateExpansion, updateFeature } from '../../store/slices';
+import { SelectedExpansion } from '../../types';
 import './ExpansionNav.css';
 
 
+// Modal Styling
 const customStyles = {
   content: {
     top: '50%',
@@ -21,7 +14,7 @@ const customStyles = {
     right: 'auto',
     bottom: 'auto',
     marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
+    transform: 'translate(-50%, -50%)'
   }
 };
 
@@ -30,18 +23,18 @@ Modal.setAppElement('#root');
 const ExpansionNav = () => {
   const dispatch = useAppDispatch();
   const expansion = useAppSelector(state => state.expansion.selected);
-  const [modalIsOpen, setIsOpen] = useState(false);
-  const [nextXpac, setNextXpac] = useState<SelectedExpansion>(null);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [nextExpansion, setNextExpansion] = useState<SelectedExpansion>(null);
 
-  const xpacActive = (xpac: SelectedExpansion) => xpac === expansion ? 'active' : '';
-  const xpacs = {
-    classic: xpacActive('classic'),
-    tbc: xpacActive('tbc'),
-    wotlk: xpacActive('wotlk')
+  const expansionActive = (xpac: SelectedExpansion) => xpac === expansion ? 'active' : '';
+  const expansions = {
+    classic: expansionActive('classic'),
+    tbc: expansionActive('tbc'),
+    wotlk: expansionActive('wotlk')
   };
 
   const openModal = () => {
-    setIsOpen(true);
+    setModalIsOpen(true);
   }
 
   const afterOpenModal = () => {
@@ -49,47 +42,47 @@ const ExpansionNav = () => {
   }
 
   const closeModal = () => {
-    setIsOpen(false);
+    setModalIsOpen(false);
   }
 
-  const xpacModal = (xpac: SelectedExpansion) => {
+  const expansionModal = (xpac: SelectedExpansion) => {
     if (expansion === xpac) {
       return;
     } else if (expansion) {
-      setNextXpac(xpac);
+      setNextExpansion(xpac);
       openModal();
     } else {
       dispatch(updateExpansion(xpac));
     }
   }
 
-  const switchXpac = () => {
-    dispatch(updateExpansion(nextXpac));
+  const switchExpansion = () => {
+    dispatch(updateExpansion(nextExpansion));
     dispatch(updateFeature(null));
     closeModal();
   }
 
   return (
-    <div className='xpac-nav'>
+    <div className="xpac-nav">
       <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         style={customStyles}
-        contentLabel='Expansion Warning'
+        contentLabel="Expansion Warning"
       >
         <div>WARNING</div>
         Switching expansions will unload all current data.
         <button onClick={closeModal}>Cancel</button>
-        <button onClick={switchXpac}>Continue</button>
+        <button onClick={switchExpansion}>Continue</button>
       </Modal>
-      <div className={`classic ${xpacs.classic}`} onClick={() => xpacModal('classic')}>
+      <div className={`classic ${expansions.classic}`} onClick={() => expansionModal('classic')}>
         Vanilla
       </div>
-      <div className={`tbc ${xpacs.tbc}`} onClick={() => xpacModal('tbc')}>
+      <div className={`tbc ${expansions.tbc}`} onClick={() => expansionModal('tbc')}>
         The Burning Crusade
       </div>
-      <div className={`wotlk ${xpacs.wotlk}`} onClick={() => xpacModal('wotlk')}>
+      <div className={`wotlk ${expansions.wotlk}`} onClick={() => expansionModal('wotlk')}>
         Wrath of the Lich King
       </div>
     </div>

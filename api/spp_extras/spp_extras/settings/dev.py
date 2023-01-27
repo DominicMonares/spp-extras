@@ -98,7 +98,7 @@ credentials = {
 DATABASES = {
     'default': {},
 
-    'classicrealmd': { 'NAME': 'classicrealmd'}  | credentials,
+    'classicrealmd': { 'NAME': 'classicrealmd' }  | credentials,
     'classiccharacters': { 'NAME': 'classiccharacters' } | credentials,
     'classicmangos': { 'NAME': 'classicmangos' } | credentials,
 

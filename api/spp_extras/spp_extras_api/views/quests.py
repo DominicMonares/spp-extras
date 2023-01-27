@@ -19,7 +19,7 @@ class QuestViewSet(viewsets.ViewSet):
     # Get completed quests from all characters
     def completed(self, request):
         expansion = request.GET.get('expansion')
-        characters = request.GET.get('chars').split(',')
+        characters = request.GET.get('characters').split(',')
         chars = {}
 
         for i, c in enumerate(characters):

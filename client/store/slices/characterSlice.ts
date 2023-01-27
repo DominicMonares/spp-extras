@@ -11,7 +11,7 @@ export const characterSlice = createSlice({
   name: 'characters',
   initialState,
   reducers: {
-    updateCharacters: (state, action: PayloadAction<Characters>) => {
+    storeCharacters: (state, action: PayloadAction<Characters>) => {
       const alliance = action.payload.alliance;
       const horde = action.payload.horde;
       if (alliance) state.alliance = alliance;
@@ -20,5 +20,5 @@ export const characterSlice = createSlice({
   }
 });
 
-export const { updateCharacters } = characterSlice.actions;
+export const { storeCharacters } = characterSlice.actions;
 export default characterSlice.reducer;

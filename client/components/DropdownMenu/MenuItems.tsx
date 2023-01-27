@@ -1,7 +1,7 @@
 import { useState, MouseEvent } from 'react';
 import Dropdown from './Dropdown';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { updateQTZone } from '../../store/slices';
+import { storeQuestTrackerZone } from '../../store/slices';
 import { MenuItemsProps } from '../../types';
 import './DropdownMenu.css';
 
@@ -26,7 +26,7 @@ const MenuItems = ({ type, items, depthLevel }: MenuItemsProps) => {
   const selectionHandler = (e: MouseEvent<HTMLInputElement>) => {
     const target = e.target as HTMLInputElement;
     if (type === 'zone') {
-      dispatch(updateQTZone({ zone: target.innerText }));
+      dispatch(storeQuestTrackerZone({ zone: target.innerText }));
     }
 
     setDropdown(!dropdown);

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useAppDispatch } from '../../store/hooks';
-import { updateQTFaction } from '../../store/slices';
+import { storeQuestTrackerFaction } from '../../store/slices';
 import { Faction } from "../../types";
 
 
@@ -10,7 +10,7 @@ const FactionCheckboxes = () => {
 
   const selectFaction = (checkboxes: boolean[], qtFaction: Faction) => {
     setChecks(checkboxes);
-    dispatch(updateQTFaction({ faction: qtFaction }));
+    dispatch(storeQuestTrackerFaction({ faction: qtFaction }));
   }
 
   return (

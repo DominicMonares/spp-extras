@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useAppDispatch } from '../../store/hooks';
-import { updateQTType } from '../../store/slices';
+import { storeQuestTrackerType } from '../../store/slices';
 import { QuestType } from "../../types";
 
 
@@ -10,7 +10,7 @@ const TypeCheckboxes = () => {
 
   const selectType = (checkboxes: boolean[], type: QuestType) => {
     setChecks(checkboxes);
-    dispatch(updateQTType({ type: type }));
+    dispatch(storeQuestTrackerType({ type: type }));
   }
 
   return (

@@ -4,9 +4,9 @@ import FactionCheckboxes from './FactionCheckboxes';
 import TypeCheckboxes from './TypeCheckboxes';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import {
-  updateCharacters,
-  updateCompletedQuests,
-  updateTemplateQuests
+  storeCharacters,
+  storeCompletedQuests,
+  storeTemplateQuests
 } from '../../store/slices';
 import {
   fetchCharacters,
@@ -23,14 +23,13 @@ const QuestTrackerControls = () => {
   const dispatch = useAppDispatch();
   const expansion = useAppSelector(state => state.expansion.selected);
   const characters = useAppSelector(state => state.characters);
-  const templateQuests = useAppSelector(state => state.templateQuests);
   const settings = useAppSelector(state => state.questTracker);
   const faction = settings.faction;
 
   useEffect(() => {
-    // Fetch template quests and completed quests if they aren't in store
-    const handleStorage = async () => await storeQuests();
-    if (faction && !templateQuests[faction].length) handleStorage();
+    // Fetch template quests and completed quests
+    const updateQuests = async () => await storeQuests();
+    updateQuests();
   });
 
   const storeQuests = async () => {
@@ -40,9 +39,8 @@ const QuestTrackerControls = () => {
     const charactersExist = allianceCharactersExist || hordeCharactersExist;
     const existingCharacters = !charactersExist ? await getCharacters() : characters;
 
-    // Fetch all template quests if they aren't in store
-    const templateQuestsExist = Object.keys(templateQuests.alliance).length;
-    if (!templateQuestsExist) await getTemplateQuests();
+    // Fetch all template quests
+    await getTemplateQuests();
 
     // Fetch all completed quests
     const allianceCharacters = Object.values(existingCharacters.alliance);
@@ -51,18 +49,18 @@ const QuestTrackerControls = () => {
     const hordeParameters = hordeCharacters.map((c: Character) => [c.guid, getFaction(c.race)]);
     const characterParameters = allianceParameters.concat(hordeParameters).flat().join(',');
     const allCompletedQuests = await fetchCompletedQuests(expansion, characterParameters);
-    dispatch(updateCompletedQuests(allCompletedQuests));
+    dispatch(storeCompletedQuests(allCompletedQuests));
   }
 
   const getCharacters = async () => {
     const newCharacters = await fetchCharacters(expansion);
-    dispatch(updateCharacters(newCharacters));
+    dispatch(storeCharacters(newCharacters));
     return newCharacters;
   }
 
   const getTemplateQuests = async () => {
     const newTemplateQuests = await fetchTemplateQuests(expansion);
-    dispatch(updateTemplateQuests(newTemplateQuests));
+    dispatch(storeTemplateQuests(newTemplateQuests));
   }
 
   return (

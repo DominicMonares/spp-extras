@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Modal from 'react-modal';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { updateExpansion, updateFeature } from '../../store/slices';
+import { storeExpansion, storeFeature } from '../../store/slices';
 import { SelectedExpansion } from '../../types';
 import './ExpansionNav.css';
 
@@ -52,13 +52,13 @@ const ExpansionNav = () => {
       setNextExpansion(xpac);
       openModal();
     } else {
-      dispatch(updateExpansion(xpac));
+      dispatch(storeExpansion(xpac));
     }
   }
 
   const switchExpansion = () => {
-    dispatch(updateExpansion(nextExpansion));
-    dispatch(updateFeature(null));
+    dispatch(storeExpansion(nextExpansion));
+    dispatch(storeFeature(null));
     closeModal();
   }
 

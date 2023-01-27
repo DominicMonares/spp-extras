@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { updateFeature } from '../../store/slices';
+import { storeFeature } from '../../store/slices';
 import { FeatureNavProps, SelectedFeature } from '../../types';
 import './FeatureNav.css';
 
@@ -9,7 +9,7 @@ const Feature = ({ feature, name }: FeatureNavProps) => {
   const selectedFeature = useAppSelector(state => state.feature.selected);
 
   const switchFeature = (feat: SelectedFeature): void => {
-    dispatch(updateFeature(feat));
+    dispatch(storeFeature(feat));
   }
 
   return (

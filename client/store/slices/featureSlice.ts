@@ -11,11 +11,11 @@ export const featureSlice = createSlice({
   name: 'feature',
   initialState,
   reducers: {
-    updateFeature: (state, action: PayloadAction<SelectedFeature>) => {
+    storeFeature: (state, action: PayloadAction<SelectedFeature>) => {
       state.selected = action.payload;
     }
   }
 });
 
-export const { updateFeature } = featureSlice.actions;
+export const { storeFeature } = featureSlice.actions;
 export default featureSlice.reducer;

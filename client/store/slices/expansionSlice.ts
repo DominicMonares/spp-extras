@@ -11,11 +11,11 @@ export const expansionSlice = createSlice({
   name: 'expansion',
   initialState,
   reducers: {
-    updateExpansion: (state, action: PayloadAction<SelectedExpansion>) => {
+    storeExpansion: (state, action: PayloadAction<SelectedExpansion>) => {
       state.selected = action.payload;
     }
   }
 });
 
-export const { updateExpansion } = expansionSlice.actions;
+export const { storeExpansion } = expansionSlice.actions;
 export default expansionSlice.reducer;

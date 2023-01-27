@@ -10,37 +10,37 @@ export const questTrackerSlice = createSlice({
   name: 'questTracker',
   initialState,
   reducers: {
-    updateQTFaction: (state, action: PayloadAction<QuestTrackerSettings>) => {
+    storeQuestTrackerFaction: (state, action: PayloadAction<QuestTrackerSettings>) => {
       state.faction = action.payload.faction;
     },
-    updateQTZone: (state, action: PayloadAction<QuestTrackerSettings>) => {
+    storeQuestTrackerZone: (state, action: PayloadAction<QuestTrackerSettings>) => {
       state.zone = action.payload.zone;
     },
-    updateQTRace: (state, action: PayloadAction<QuestTrackerSettings>) => {
+    storeQuestTrackerRace: (state, action: PayloadAction<QuestTrackerSettings>) => {
       state.race = action.payload.race;
     },
-    updateQTClass: (state, action: PayloadAction<QuestTrackerSettings>) => {
+    storeQuestTrackerClass: (state, action: PayloadAction<QuestTrackerSettings>) => {
       state.charClass.id = action.payload.charClass.id;
       state.charClass.value = action.payload.charClass.value;
     },
-    updateQTCharacter: (state, action: PayloadAction<QuestTrackerSettings>) => {
+    storeQuestTrackerCharacter: (state, action: PayloadAction<QuestTrackerSettings>) => {
       state.race = null;
       state.charClass = null;
       state.character = action.payload.character;
     },
-    updateQTType: (state, action: PayloadAction<QuestTrackerSettings>) => {
+    storeQuestTrackerType: (state, action: PayloadAction<QuestTrackerSettings>) => {
       state.type = action.payload.type;
     }
   }
 });
 
 export const {
-  updateQTFaction,
-  updateQTZone,
-  updateQTRace,
-  updateQTClass,
-  updateQTCharacter,
-  updateQTType
+  storeQuestTrackerFaction,
+  storeQuestTrackerZone,
+  storeQuestTrackerRace,
+  storeQuestTrackerClass,
+  storeQuestTrackerCharacter,
+  storeQuestTrackerType
 } = questTrackerSlice.actions;
 
 export default questTrackerSlice.reducer;

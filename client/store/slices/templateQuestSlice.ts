@@ -12,7 +12,7 @@ export const templateQuestSlice = createSlice({
   name: 'templateQuests',
   initialState,
   reducers: {
-    updateTemplateQuests: (state, action: PayloadAction<TemplateQuests>) => {
+    storeTemplateQuests: (state, action: PayloadAction<TemplateQuests>) => {
       state.alliance = action.payload.alliance;
       state.horde = action.payload.horde;
       state.both = action.payload.both;
@@ -20,5 +20,5 @@ export const templateQuestSlice = createSlice({
   }
 });
 
-export const { updateTemplateQuests } = templateQuestSlice.actions;
+export const { storeTemplateQuests } = templateQuestSlice.actions;
 export default templateQuestSlice.reducer;

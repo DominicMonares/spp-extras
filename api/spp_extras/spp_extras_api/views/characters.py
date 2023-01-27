@@ -1,14 +1,9 @@
-# Rest Framework
 from rest_framework import viewsets
 from rest_framework import status
 from rest_framework.decorators import action
 from rest_framework.response import Response
-
-# Models
 from spp_extras_api.models.classicrealmd import Account
 from spp_extras_api.models.classiccharacters import Characters
-
-# Helpers
 from spp_extras_api.helpers.characters import get_account_ids
 from spp_extras_api.helpers.characters import all_characters
 

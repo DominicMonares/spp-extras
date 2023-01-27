@@ -1,15 +1,10 @@
-# Rest Framework
 from rest_framework import viewsets
 from rest_framework import status
 from rest_framework.decorators import action
 from rest_framework.response import Response
-
-# Models
 from spp_extras_api.models.classiccharacters import CharacterQueststatus
 from spp_extras_api.models.classiccharacters import CharacterQueststatusWeekly
 from spp_extras_api.models.classicmangos import QuestTemplate
-
-# Helpers
 from spp_extras_api.helpers.quests import all_completed_quests
 from spp_extras_api.helpers.quests import all_quests
 

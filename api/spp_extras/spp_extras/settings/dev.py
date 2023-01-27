@@ -98,18 +98,17 @@ credentials = {
 DATABASES = {
     'default': {},
 
-    'classicrealmd': { 'NAME': 'classicrealmd'} | credentials,
+    'classicrealmd': { 'NAME': 'classicrealmd'}  | credentials,
     'classiccharacters': { 'NAME': 'classiccharacters' } | credentials,
     'classicmangos': { 'NAME': 'classicmangos' } | credentials,
 
-    # MUST BE MIGRATED ONCE TESTING WITH BC / WOTLK DATABASES
-    # 'tbcrealmd': { 'NAME': 'tbcrealmd'} | credentials,
-    # 'tbccharacters': { 'NAME': 'tbccharacters' } | credentials,
-    # 'tbcmangos': { 'NAME': 'tbcmangos' } | credentials,
+    'tbcrealmd': { 'NAME': 'tbcrealmd' } | credentials,
+    'tbccharacters': { 'NAME': 'tbccharacters' } | credentials,
+    'tbcmangos': { 'NAME': 'tbcmangos' } | credentials,
 
-    # 'wotlkrealmd': { 'NAME': 'wotlkrealmd'} | credentials,
-    # 'wotlkcharacters': { 'NAME': 'wotlkcharacters' } | credentials,
-    # 'wotlkmangos': { 'NAME': 'wotlkmangos' } | credentials,
+    'wotlkrealmd': { 'NAME': 'wotlkrealmd' } | credentials,
+    'wotlkcharacters': { 'NAME': 'wotlkcharacters' } | credentials,
+    'wotlkmangos': { 'NAME': 'wotlkmangos' } | credentials
 }
 
 

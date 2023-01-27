@@ -8,6 +8,45 @@
 from django.db import models
 
 
+class AchievementCriteriaData(models.Model):
+    criteria_id = models.IntegerField(blank=True, null=True)
+    type = models.IntegerField(blank=True, null=True)
+    value1 = models.IntegerField(blank=True, null=True)
+    value2 = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'achievement_criteria_data'
+
+
+class AchievementCriteriaRequirement(models.Model):
+    criteria_id = models.IntegerField(primary_key=True)
+    type = models.PositiveIntegerField()
+    value1 = models.PositiveIntegerField()
+    value2 = models.PositiveIntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'achievement_criteria_requirement'
+        unique_together = (('criteria_id', 'type'),)
+
+
+class AchievementReward(models.Model):
+    entry = models.PositiveIntegerField(primary_key=True)
+    gender = models.IntegerField()
+    title_a = models.PositiveIntegerField(db_column='title_A')  # Field name made lowercase.
+    title_h = models.PositiveIntegerField(db_column='title_H')  # Field name made lowercase.
+    item = models.PositiveIntegerField()
+    sender = models.PositiveIntegerField()
+    subject = models.CharField(max_length=255, blank=True, null=True)
+    text = models.TextField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'achievement_reward'
+        unique_together = (('entry', 'gender'),)
+
+
 class CreatureLootTemplate(models.Model):
     entry = models.PositiveIntegerField(primary_key=True)
     item = models.PositiveIntegerField()
@@ -30,7 +69,7 @@ class ItemLootTemplate(models.Model):
     chanceorquestchance = models.FloatField(db_column='ChanceOrQuestChance')  # Field name made lowercase.
     groupid = models.PositiveIntegerField()
     mincountorref = models.IntegerField(db_column='mincountOrRef')  # Field name made lowercase.
-    maxcount = models.PositiveIntegerField()
+    maxcount = models.PositiveSmallIntegerField()
     condition_id = models.PositiveIntegerField()
     comments = models.CharField(max_length=300, blank=True, null=True)
 
@@ -44,17 +83,19 @@ class ItemTemplate(models.Model):
     entry = models.PositiveIntegerField(primary_key=True)
     class_field = models.PositiveIntegerField(db_column='class')  # Field renamed because it was a Python reserved word.
     subclass = models.PositiveIntegerField()
+    unk0 = models.IntegerField()
     name = models.CharField(max_length=255)
     displayid = models.PositiveIntegerField()
     quality = models.PositiveIntegerField(db_column='Quality')  # Field name made lowercase.
     flags = models.PositiveIntegerField(db_column='Flags')  # Field name made lowercase.
+    flags2 = models.PositiveIntegerField(db_column='Flags2')  # Field name made lowercase.
     buycount = models.PositiveIntegerField(db_column='BuyCount')  # Field name made lowercase.
     buyprice = models.PositiveIntegerField(db_column='BuyPrice')  # Field name made lowercase.
     sellprice = models.PositiveIntegerField(db_column='SellPrice')  # Field name made lowercase.
     inventorytype = models.PositiveIntegerField(db_column='InventoryType')  # Field name made lowercase.
     allowableclass = models.IntegerField(db_column='AllowableClass')  # Field name made lowercase.
     allowablerace = models.IntegerField(db_column='AllowableRace')  # Field name made lowercase.
-    itemlevel = models.PositiveIntegerField(db_column='ItemLevel')  # Field name made lowercase.
+    itemlevel = models.PositiveSmallIntegerField(db_column='ItemLevel')  # Field name made lowercase.
     requiredlevel = models.PositiveIntegerField(db_column='RequiredLevel')  # Field name made lowercase.
     requiredskill = models.PositiveSmallIntegerField(db_column='RequiredSkill')  # Field name made lowercase.
     requiredskillrank = models.PositiveSmallIntegerField(db_column='RequiredSkillRank')  # Field name made lowercase.
@@ -63,9 +104,10 @@ class ItemTemplate(models.Model):
     requiredcityrank = models.PositiveIntegerField(db_column='RequiredCityRank')  # Field name made lowercase.
     requiredreputationfaction = models.PositiveSmallIntegerField(db_column='RequiredReputationFaction')  # Field name made lowercase.
     requiredreputationrank = models.PositiveSmallIntegerField(db_column='RequiredReputationRank')  # Field name made lowercase.
-    maxcount = models.PositiveSmallIntegerField()
-    stackable = models.PositiveSmallIntegerField()
+    maxcount = models.SmallIntegerField()
+    stackable = models.SmallIntegerField()
     containerslots = models.PositiveIntegerField(db_column='ContainerSlots')  # Field name made lowercase.
+    statscount = models.PositiveIntegerField(db_column='StatsCount')  # Field name made lowercase.
     stat_type1 = models.PositiveIntegerField()
     stat_value1 = models.SmallIntegerField()
     stat_type2 = models.PositiveIntegerField()
@@ -86,21 +128,14 @@ class ItemTemplate(models.Model):
     stat_value9 = models.SmallIntegerField()
     stat_type10 = models.PositiveIntegerField()
     stat_value10 = models.SmallIntegerField()
+    scalingstatdistribution = models.SmallIntegerField(db_column='ScalingStatDistribution')  # Field name made lowercase.
+    scalingstatvalue = models.PositiveIntegerField(db_column='ScalingStatValue')  # Field name made lowercase.
     dmg_min1 = models.FloatField()
     dmg_max1 = models.FloatField()
     dmg_type1 = models.PositiveIntegerField()
     dmg_min2 = models.FloatField()
     dmg_max2 = models.FloatField()
     dmg_type2 = models.PositiveIntegerField()
-    dmg_min3 = models.FloatField()
-    dmg_max3 = models.FloatField()
-    dmg_type3 = models.PositiveIntegerField()
-    dmg_min4 = models.FloatField()
-    dmg_max4 = models.FloatField()
-    dmg_type4 = models.PositiveIntegerField()
-    dmg_min5 = models.FloatField()
-    dmg_max5 = models.FloatField()
-    dmg_type5 = models.PositiveIntegerField()
     armor = models.PositiveSmallIntegerField()
     holy_res = models.PositiveIntegerField()
     fire_res = models.PositiveIntegerField()
@@ -113,35 +148,35 @@ class ItemTemplate(models.Model):
     rangedmodrange = models.FloatField(db_column='RangedModRange')  # Field name made lowercase.
     spellid_1 = models.PositiveIntegerField()
     spelltrigger_1 = models.PositiveIntegerField()
-    spellcharges_1 = models.IntegerField()
+    spellcharges_1 = models.SmallIntegerField()
     spellppmrate_1 = models.FloatField(db_column='spellppmRate_1')  # Field name made lowercase.
     spellcooldown_1 = models.IntegerField()
     spellcategory_1 = models.PositiveSmallIntegerField()
     spellcategorycooldown_1 = models.IntegerField()
     spellid_2 = models.PositiveIntegerField()
     spelltrigger_2 = models.PositiveIntegerField()
-    spellcharges_2 = models.IntegerField()
+    spellcharges_2 = models.SmallIntegerField()
     spellppmrate_2 = models.FloatField(db_column='spellppmRate_2')  # Field name made lowercase.
     spellcooldown_2 = models.IntegerField()
     spellcategory_2 = models.PositiveSmallIntegerField()
     spellcategorycooldown_2 = models.IntegerField()
     spellid_3 = models.PositiveIntegerField()
     spelltrigger_3 = models.PositiveIntegerField()
-    spellcharges_3 = models.IntegerField()
+    spellcharges_3 = models.SmallIntegerField()
     spellppmrate_3 = models.FloatField(db_column='spellppmRate_3')  # Field name made lowercase.
     spellcooldown_3 = models.IntegerField()
     spellcategory_3 = models.PositiveSmallIntegerField()
     spellcategorycooldown_3 = models.IntegerField()
     spellid_4 = models.PositiveIntegerField()
     spelltrigger_4 = models.PositiveIntegerField()
-    spellcharges_4 = models.IntegerField()
+    spellcharges_4 = models.SmallIntegerField()
     spellppmrate_4 = models.FloatField(db_column='spellppmRate_4')  # Field name made lowercase.
     spellcooldown_4 = models.IntegerField()
     spellcategory_4 = models.PositiveSmallIntegerField()
     spellcategorycooldown_4 = models.IntegerField()
     spellid_5 = models.PositiveIntegerField()
     spelltrigger_5 = models.PositiveIntegerField()
-    spellcharges_5 = models.IntegerField()
+    spellcharges_5 = models.SmallIntegerField()
     spellppmrate_5 = models.FloatField(db_column='spellppmRate_5')  # Field name made lowercase.
     spellcooldown_5 = models.IntegerField()
     spellcategory_5 = models.PositiveSmallIntegerField()
@@ -156,18 +191,32 @@ class ItemTemplate(models.Model):
     material = models.IntegerField(db_column='Material')  # Field name made lowercase.
     sheath = models.PositiveIntegerField()
     randomproperty = models.PositiveIntegerField(db_column='RandomProperty')  # Field name made lowercase.
+    randomsuffix = models.PositiveIntegerField(db_column='RandomSuffix')  # Field name made lowercase.
     block = models.PositiveIntegerField()
     itemset = models.PositiveIntegerField()
     maxdurability = models.PositiveSmallIntegerField(db_column='MaxDurability')  # Field name made lowercase.
     area = models.PositiveIntegerField()
     map = models.SmallIntegerField(db_column='Map')  # Field name made lowercase.
     bagfamily = models.IntegerField(db_column='BagFamily')  # Field name made lowercase.
+    totemcategory = models.IntegerField(db_column='TotemCategory')  # Field name made lowercase.
+    socketcolor_1 = models.IntegerField(db_column='socketColor_1')  # Field name made lowercase.
+    socketcontent_1 = models.IntegerField(db_column='socketContent_1')  # Field name made lowercase.
+    socketcolor_2 = models.IntegerField(db_column='socketColor_2')  # Field name made lowercase.
+    socketcontent_2 = models.IntegerField(db_column='socketContent_2')  # Field name made lowercase.
+    socketcolor_3 = models.IntegerField(db_column='socketColor_3')  # Field name made lowercase.
+    socketcontent_3 = models.IntegerField(db_column='socketContent_3')  # Field name made lowercase.
+    socketbonus = models.IntegerField(db_column='socketBonus')  # Field name made lowercase.
+    gemproperties = models.IntegerField(db_column='GemProperties')  # Field name made lowercase.
+    requireddisenchantskill = models.SmallIntegerField(db_column='RequiredDisenchantSkill')  # Field name made lowercase.
+    armordamagemodifier = models.FloatField(db_column='ArmorDamageModifier')  # Field name made lowercase.
+    duration = models.PositiveIntegerField(db_column='Duration')  # Field name made lowercase.
+    itemlimitcategory = models.SmallIntegerField(db_column='ItemLimitCategory')  # Field name made lowercase.
+    holidayid = models.PositiveIntegerField(db_column='HolidayId')  # Field name made lowercase.
     scriptname = models.CharField(db_column='ScriptName', max_length=64)  # Field name made lowercase.
     disenchantid = models.PositiveIntegerField(db_column='DisenchantID')  # Field name made lowercase.
     foodtype = models.PositiveIntegerField(db_column='FoodType')  # Field name made lowercase.
     minmoneyloot = models.PositiveIntegerField(db_column='minMoneyLoot')  # Field name made lowercase.
     maxmoneyloot = models.PositiveIntegerField(db_column='maxMoneyLoot')  # Field name made lowercase.
-    duration = models.PositiveIntegerField(db_column='Duration')  # Field name made lowercase.
     extraflags = models.PositiveIntegerField(db_column='ExtraFlags')  # Field name made lowercase.
 
     class Meta:
@@ -224,13 +273,17 @@ class QuestTemplate(models.Model):
     requiredmaxrepvalue = models.IntegerField(db_column='RequiredMaxRepValue')  # Field name made lowercase.
     suggestedplayers = models.PositiveIntegerField(db_column='SuggestedPlayers')  # Field name made lowercase.
     limittime = models.PositiveIntegerField(db_column='LimitTime')  # Field name made lowercase.
-    questflags = models.PositiveSmallIntegerField(db_column='QuestFlags')  # Field name made lowercase.
+    questflags = models.PositiveIntegerField(db_column='QuestFlags')  # Field name made lowercase.
     specialflags = models.PositiveIntegerField(db_column='SpecialFlags')  # Field name made lowercase.
+    chartitleid = models.PositiveIntegerField(db_column='CharTitleId')  # Field name made lowercase.
+    playersslain = models.PositiveIntegerField(db_column='PlayersSlain')  # Field name made lowercase.
+    bonustalents = models.PositiveIntegerField(db_column='BonusTalents')  # Field name made lowercase.
     prevquestid = models.IntegerField(db_column='PrevQuestId')  # Field name made lowercase.
     nextquestid = models.IntegerField(db_column='NextQuestId')  # Field name made lowercase.
     exclusivegroup = models.IntegerField(db_column='ExclusiveGroup')  # Field name made lowercase.
     breadcrumbforquestid = models.PositiveIntegerField(db_column='BreadcrumbForQuestId')  # Field name made lowercase.
     nextquestinchain = models.PositiveIntegerField(db_column='NextQuestInChain')  # Field name made lowercase.
+    rewxpid = models.PositiveIntegerField(db_column='RewXPId')  # Field name made lowercase.
     srcitemid = models.PositiveIntegerField(db_column='SrcItemId')  # Field name made lowercase.
     srcitemcount = models.PositiveIntegerField(db_column='SrcItemCount')  # Field name made lowercase.
     srcspell = models.PositiveIntegerField(db_column='SrcSpell')  # Field name made lowercase.
@@ -240,6 +293,7 @@ class QuestTemplate(models.Model):
     offerrewardtext = models.TextField(db_column='OfferRewardText', blank=True, null=True)  # Field name made lowercase.
     requestitemstext = models.TextField(db_column='RequestItemsText', blank=True, null=True)  # Field name made lowercase.
     endtext = models.TextField(db_column='EndText', blank=True, null=True)  # Field name made lowercase.
+    completedtext = models.TextField(db_column='CompletedText', blank=True, null=True)  # Field name made lowercase.
     objectivetext1 = models.TextField(db_column='ObjectiveText1', blank=True, null=True)  # Field name made lowercase.
     objectivetext2 = models.TextField(db_column='ObjectiveText2', blank=True, null=True)  # Field name made lowercase.
     objectivetext3 = models.TextField(db_column='ObjectiveText3', blank=True, null=True)  # Field name made lowercase.
@@ -248,10 +302,14 @@ class QuestTemplate(models.Model):
     reqitemid2 = models.PositiveIntegerField(db_column='ReqItemId2')  # Field name made lowercase.
     reqitemid3 = models.PositiveIntegerField(db_column='ReqItemId3')  # Field name made lowercase.
     reqitemid4 = models.PositiveIntegerField(db_column='ReqItemId4')  # Field name made lowercase.
+    reqitemid5 = models.PositiveIntegerField(db_column='ReqItemId5')  # Field name made lowercase.
+    reqitemid6 = models.PositiveIntegerField(db_column='ReqItemId6')  # Field name made lowercase.
     reqitemcount1 = models.PositiveSmallIntegerField(db_column='ReqItemCount1')  # Field name made lowercase.
     reqitemcount2 = models.PositiveSmallIntegerField(db_column='ReqItemCount2')  # Field name made lowercase.
     reqitemcount3 = models.PositiveSmallIntegerField(db_column='ReqItemCount3')  # Field name made lowercase.
     reqitemcount4 = models.PositiveSmallIntegerField(db_column='ReqItemCount4')  # Field name made lowercase.
+    reqitemcount5 = models.PositiveSmallIntegerField(db_column='ReqItemCount5')  # Field name made lowercase.
+    reqitemcount6 = models.PositiveSmallIntegerField(db_column='ReqItemCount6')  # Field name made lowercase.
     reqsourceid1 = models.PositiveIntegerField(db_column='ReqSourceId1')  # Field name made lowercase.
     reqsourceid2 = models.PositiveIntegerField(db_column='ReqSourceId2')  # Field name made lowercase.
     reqsourceid3 = models.PositiveIntegerField(db_column='ReqSourceId3')  # Field name made lowercase.
@@ -297,11 +355,23 @@ class QuestTemplate(models.Model):
     rewrepfaction3 = models.PositiveSmallIntegerField(db_column='RewRepFaction3')  # Field name made lowercase.
     rewrepfaction4 = models.PositiveSmallIntegerField(db_column='RewRepFaction4')  # Field name made lowercase.
     rewrepfaction5 = models.PositiveSmallIntegerField(db_column='RewRepFaction5')  # Field name made lowercase.
+    rewrepvalueid1 = models.IntegerField(db_column='RewRepValueId1')  # Field name made lowercase.
+    rewrepvalueid2 = models.IntegerField(db_column='RewRepValueId2')  # Field name made lowercase.
+    rewrepvalueid3 = models.IntegerField(db_column='RewRepValueId3')  # Field name made lowercase.
+    rewrepvalueid4 = models.IntegerField(db_column='RewRepValueId4')  # Field name made lowercase.
+    rewrepvalueid5 = models.IntegerField(db_column='RewRepValueId5')  # Field name made lowercase.
     rewrepvalue1 = models.IntegerField(db_column='RewRepValue1')  # Field name made lowercase.
     rewrepvalue2 = models.IntegerField(db_column='RewRepValue2')  # Field name made lowercase.
     rewrepvalue3 = models.IntegerField(db_column='RewRepValue3')  # Field name made lowercase.
     rewrepvalue4 = models.IntegerField(db_column='RewRepValue4')  # Field name made lowercase.
     rewrepvalue5 = models.IntegerField(db_column='RewRepValue5')  # Field name made lowercase.
+    rewmaxrepvalue1 = models.IntegerField(db_column='RewMaxRepValue1')  # Field name made lowercase.
+    rewmaxrepvalue2 = models.IntegerField(db_column='RewMaxRepValue2')  # Field name made lowercase.
+    rewmaxrepvalue3 = models.IntegerField(db_column='RewMaxRepValue3')  # Field name made lowercase.
+    rewmaxrepvalue4 = models.IntegerField(db_column='RewMaxRepValue4')  # Field name made lowercase.
+    rewmaxrepvalue5 = models.IntegerField(db_column='RewMaxRepValue5')  # Field name made lowercase.
+    rewhonoraddition = models.PositiveIntegerField(db_column='RewHonorAddition')  # Field name made lowercase.
+    rewhonormultiplier = models.FloatField(db_column='RewHonorMultiplier')  # Field name made lowercase.
     reworreqmoney = models.IntegerField(db_column='RewOrReqMoney')  # Field name made lowercase.
     rewmoneymaxlevel = models.PositiveIntegerField(db_column='RewMoneyMaxLevel')  # Field name made lowercase.
     rewspell = models.PositiveIntegerField(db_column='RewSpell')  # Field name made lowercase.
@@ -393,9 +463,7 @@ class SpellLootTemplate(models.Model):
 
 class SpellTemplate(models.Model):
     id = models.PositiveIntegerField(db_column='Id', primary_key=True)  # Field name made lowercase.
-    school = models.PositiveIntegerField(db_column='School')  # Field name made lowercase.
     category = models.PositiveIntegerField(db_column='Category')  # Field name made lowercase.
-    castui = models.PositiveIntegerField(db_column='CastUI')  # Field name made lowercase.
     dispel = models.PositiveIntegerField(db_column='Dispel')  # Field name made lowercase.
     mechanic = models.PositiveIntegerField(db_column='Mechanic')  # Field name made lowercase.
     attributes = models.PositiveIntegerField(db_column='Attributes')  # Field name made lowercase.
@@ -403,13 +471,25 @@ class SpellTemplate(models.Model):
     attributesex2 = models.PositiveIntegerField(db_column='AttributesEx2')  # Field name made lowercase.
     attributesex3 = models.PositiveIntegerField(db_column='AttributesEx3')  # Field name made lowercase.
     attributesex4 = models.PositiveIntegerField(db_column='AttributesEx4')  # Field name made lowercase.
+    attributesex5 = models.PositiveIntegerField(db_column='AttributesEx5')  # Field name made lowercase.
+    attributesex6 = models.PositiveIntegerField(db_column='AttributesEx6')  # Field name made lowercase.
+    attributesex7 = models.PositiveIntegerField(db_column='AttributesEx7')  # Field name made lowercase.
     stances = models.PositiveIntegerField(db_column='Stances')  # Field name made lowercase.
+    stances2 = models.PositiveIntegerField(db_column='Stances2')  # Field name made lowercase.
     stancesnot = models.PositiveIntegerField(db_column='StancesNot')  # Field name made lowercase.
+    stancesnot2 = models.PositiveIntegerField(db_column='StancesNot2')  # Field name made lowercase.
     targets = models.PositiveIntegerField(db_column='Targets')  # Field name made lowercase.
     targetcreaturetype = models.PositiveIntegerField(db_column='TargetCreatureType')  # Field name made lowercase.
     requiresspellfocus = models.PositiveIntegerField(db_column='RequiresSpellFocus')  # Field name made lowercase.
+    facingcasterflags = models.PositiveIntegerField(db_column='FacingCasterFlags')  # Field name made lowercase.
     casteraurastate = models.PositiveIntegerField(db_column='CasterAuraState')  # Field name made lowercase.
     targetaurastate = models.PositiveIntegerField(db_column='TargetAuraState')  # Field name made lowercase.
+    casteraurastatenot = models.PositiveIntegerField(db_column='CasterAuraStateNot')  # Field name made lowercase.
+    targetaurastatenot = models.PositiveIntegerField(db_column='TargetAuraStateNot')  # Field name made lowercase.
+    casterauraspell = models.PositiveIntegerField(db_column='CasterAuraSpell')  # Field name made lowercase.
+    targetauraspell = models.PositiveIntegerField(db_column='TargetAuraSpell')  # Field name made lowercase.
+    excludecasterauraspell = models.PositiveIntegerField(db_column='ExcludeCasterAuraSpell')  # Field name made lowercase.
+    excludetargetauraspell = models.PositiveIntegerField(db_column='ExcludeTargetAuraSpell')  # Field name made lowercase.
     castingtimeindex = models.PositiveIntegerField(db_column='CastingTimeIndex')  # Field name made lowercase.
     recoverytime = models.PositiveIntegerField(db_column='RecoveryTime')  # Field name made lowercase.
     categoryrecoverytime = models.PositiveIntegerField(db_column='CategoryRecoveryTime')  # Field name made lowercase.
@@ -459,12 +539,6 @@ class SpellTemplate(models.Model):
     effectdiesides1 = models.IntegerField(db_column='EffectDieSides1')  # Field name made lowercase.
     effectdiesides2 = models.IntegerField(db_column='EffectDieSides2')  # Field name made lowercase.
     effectdiesides3 = models.IntegerField(db_column='EffectDieSides3')  # Field name made lowercase.
-    effectbasedice1 = models.PositiveIntegerField(db_column='EffectBaseDice1')  # Field name made lowercase.
-    effectbasedice2 = models.PositiveIntegerField(db_column='EffectBaseDice2')  # Field name made lowercase.
-    effectbasedice3 = models.PositiveIntegerField(db_column='EffectBaseDice3')  # Field name made lowercase.
-    effectdiceperlevel1 = models.FloatField(db_column='EffectDicePerLevel1')  # Field name made lowercase.
-    effectdiceperlevel2 = models.FloatField(db_column='EffectDicePerLevel2')  # Field name made lowercase.
-    effectdiceperlevel3 = models.FloatField(db_column='EffectDicePerLevel3')  # Field name made lowercase.
     effectrealpointsperlevel1 = models.FloatField(db_column='EffectRealPointsPerLevel1')  # Field name made lowercase.
     effectrealpointsperlevel2 = models.FloatField(db_column='EffectRealPointsPerLevel2')  # Field name made lowercase.
     effectrealpointsperlevel3 = models.FloatField(db_column='EffectRealPointsPerLevel3')  # Field name made lowercase.
@@ -501,13 +575,26 @@ class SpellTemplate(models.Model):
     effectmiscvalue1 = models.IntegerField(db_column='EffectMiscValue1')  # Field name made lowercase.
     effectmiscvalue2 = models.IntegerField(db_column='EffectMiscValue2')  # Field name made lowercase.
     effectmiscvalue3 = models.IntegerField(db_column='EffectMiscValue3')  # Field name made lowercase.
+    effectmiscvalueb1 = models.IntegerField(db_column='EffectMiscValueB1')  # Field name made lowercase.
+    effectmiscvalueb2 = models.IntegerField(db_column='EffectMiscValueB2')  # Field name made lowercase.
+    effectmiscvalueb3 = models.IntegerField(db_column='EffectMiscValueB3')  # Field name made lowercase.
     effecttriggerspell1 = models.PositiveIntegerField(db_column='EffectTriggerSpell1')  # Field name made lowercase.
     effecttriggerspell2 = models.PositiveIntegerField(db_column='EffectTriggerSpell2')  # Field name made lowercase.
     effecttriggerspell3 = models.PositiveIntegerField(db_column='EffectTriggerSpell3')  # Field name made lowercase.
     effectpointspercombopoint1 = models.FloatField(db_column='EffectPointsPerComboPoint1')  # Field name made lowercase.
     effectpointspercombopoint2 = models.FloatField(db_column='EffectPointsPerComboPoint2')  # Field name made lowercase.
     effectpointspercombopoint3 = models.FloatField(db_column='EffectPointsPerComboPoint3')  # Field name made lowercase.
+    effectspellclassmask1_1 = models.PositiveIntegerField(db_column='EffectSpellClassMask1_1')  # Field name made lowercase.
+    effectspellclassmask1_2 = models.PositiveIntegerField(db_column='EffectSpellClassMask1_2')  # Field name made lowercase.
+    effectspellclassmask1_3 = models.PositiveIntegerField(db_column='EffectSpellClassMask1_3')  # Field name made lowercase.
+    effectspellclassmask2_1 = models.PositiveIntegerField(db_column='EffectSpellClassMask2_1')  # Field name made lowercase.
+    effectspellclassmask2_2 = models.PositiveIntegerField(db_column='EffectSpellClassMask2_2')  # Field name made lowercase.
+    effectspellclassmask2_3 = models.PositiveIntegerField(db_column='EffectSpellClassMask2_3')  # Field name made lowercase.
+    effectspellclassmask3_1 = models.PositiveIntegerField(db_column='EffectSpellClassMask3_1')  # Field name made lowercase.
+    effectspellclassmask3_2 = models.PositiveIntegerField(db_column='EffectSpellClassMask3_2')  # Field name made lowercase.
+    effectspellclassmask3_3 = models.PositiveIntegerField(db_column='EffectSpellClassMask3_3')  # Field name made lowercase.
     spellvisual = models.PositiveIntegerField(db_column='SpellVisual')  # Field name made lowercase.
+    spellvisual2 = models.PositiveIntegerField(db_column='SpellVisual2')  # Field name made lowercase.
     spelliconid = models.PositiveIntegerField(db_column='SpellIconID')  # Field name made lowercase.
     activeiconid = models.PositiveIntegerField(db_column='ActiveIconID')  # Field name made lowercase.
     spellpriority = models.PositiveIntegerField(db_column='SpellPriority')  # Field name made lowercase.
@@ -519,6 +606,14 @@ class SpellTemplate(models.Model):
     spellname6 = models.TextField(db_column='SpellName6', blank=True, null=True)  # Field name made lowercase.
     spellname7 = models.TextField(db_column='SpellName7', blank=True, null=True)  # Field name made lowercase.
     spellname8 = models.TextField(db_column='SpellName8', blank=True, null=True)  # Field name made lowercase.
+    spellname9 = models.TextField(db_column='SpellName9', blank=True, null=True)  # Field name made lowercase.
+    spellname10 = models.TextField(db_column='SpellName10', blank=True, null=True)  # Field name made lowercase.
+    spellname11 = models.TextField(db_column='SpellName11', blank=True, null=True)  # Field name made lowercase.
+    spellname12 = models.TextField(db_column='SpellName12', blank=True, null=True)  # Field name made lowercase.
+    spellname13 = models.TextField(db_column='SpellName13', blank=True, null=True)  # Field name made lowercase.
+    spellname14 = models.TextField(db_column='SpellName14', blank=True, null=True)  # Field name made lowercase.
+    spellname15 = models.TextField(db_column='SpellName15', blank=True, null=True)  # Field name made lowercase.
+    spellname16 = models.TextField(db_column='SpellName16', blank=True, null=True)  # Field name made lowercase.
     rank1 = models.TextField(db_column='Rank1', blank=True, null=True)  # Field name made lowercase.
     rank2 = models.TextField(db_column='Rank2', blank=True, null=True)  # Field name made lowercase.
     rank3 = models.TextField(db_column='Rank3', blank=True, null=True)  # Field name made lowercase.
@@ -527,12 +622,21 @@ class SpellTemplate(models.Model):
     rank6 = models.TextField(db_column='Rank6', blank=True, null=True)  # Field name made lowercase.
     rank7 = models.TextField(db_column='Rank7', blank=True, null=True)  # Field name made lowercase.
     rank8 = models.TextField(db_column='Rank8', blank=True, null=True)  # Field name made lowercase.
+    rank9 = models.TextField(db_column='Rank9', blank=True, null=True)  # Field name made lowercase.
+    rank10 = models.TextField(db_column='Rank10', blank=True, null=True)  # Field name made lowercase.
+    rank11 = models.TextField(db_column='Rank11', blank=True, null=True)  # Field name made lowercase.
+    rank12 = models.TextField(db_column='Rank12', blank=True, null=True)  # Field name made lowercase.
+    rank13 = models.TextField(db_column='Rank13', blank=True, null=True)  # Field name made lowercase.
+    rank14 = models.TextField(db_column='Rank14', blank=True, null=True)  # Field name made lowercase.
+    rank15 = models.TextField(db_column='Rank15', blank=True, null=True)  # Field name made lowercase.
+    rank16 = models.TextField(db_column='Rank16', blank=True, null=True)  # Field name made lowercase.
     manacostpercentage = models.PositiveIntegerField(db_column='ManaCostPercentage')  # Field name made lowercase.
     startrecoverycategory = models.PositiveIntegerField(db_column='StartRecoveryCategory')  # Field name made lowercase.
     startrecoverytime = models.PositiveIntegerField(db_column='StartRecoveryTime')  # Field name made lowercase.
     maxtargetlevel = models.PositiveIntegerField(db_column='MaxTargetLevel')  # Field name made lowercase.
     spellfamilyname = models.PositiveIntegerField(db_column='SpellFamilyName')  # Field name made lowercase.
     spellfamilyflags = models.PositiveBigIntegerField(db_column='SpellFamilyFlags')  # Field name made lowercase.
+    spellfamilyflags2 = models.PositiveIntegerField(db_column='SpellFamilyFlags2')  # Field name made lowercase.
     maxaffectedtargets = models.PositiveIntegerField(db_column='MaxAffectedTargets')  # Field name made lowercase.
     dmgclass = models.PositiveIntegerField(db_column='DmgClass')  # Field name made lowercase.
     preventiontype = models.PositiveIntegerField(db_column='PreventionType')  # Field name made lowercase.
@@ -543,6 +647,18 @@ class SpellTemplate(models.Model):
     minfactionid = models.PositiveIntegerField(db_column='MinFactionId')  # Field name made lowercase.
     minreputation = models.PositiveIntegerField(db_column='MinReputation')  # Field name made lowercase.
     requiredauravision = models.PositiveIntegerField(db_column='RequiredAuraVision')  # Field name made lowercase.
+    totemcategory1 = models.PositiveIntegerField(db_column='TotemCategory1')  # Field name made lowercase.
+    totemcategory2 = models.PositiveIntegerField(db_column='TotemCategory2')  # Field name made lowercase.
+    areaid = models.PositiveIntegerField(db_column='AreaId')  # Field name made lowercase.
+    schoolmask = models.PositiveIntegerField(db_column='SchoolMask')  # Field name made lowercase.
+    runecostid = models.PositiveIntegerField(db_column='RuneCostID')  # Field name made lowercase.
+    spellmissileid = models.PositiveIntegerField(db_column='SpellMissileID')  # Field name made lowercase.
+    powerdisplayid = models.PositiveIntegerField(db_column='PowerDisplayId')  # Field name made lowercase.
+    effectbonuscoefficient1 = models.FloatField(db_column='EffectBonusCoefficient1')  # Field name made lowercase.
+    effectbonuscoefficient2 = models.FloatField(db_column='EffectBonusCoefficient2')  # Field name made lowercase.
+    effectbonuscoefficient3 = models.FloatField(db_column='EffectBonusCoefficient3')  # Field name made lowercase.
+    spelldescriptionvariableid = models.PositiveIntegerField(db_column='SpellDescriptionVariableID')  # Field name made lowercase.
+    spelldifficultyid = models.PositiveIntegerField(db_column='SpellDifficultyId')  # Field name made lowercase.
     isserverside = models.PositiveIntegerField(db_column='IsServerSide')  # Field name made lowercase.
     attributesserverside = models.PositiveIntegerField(db_column='AttributesServerside')  # Field name made lowercase.
 

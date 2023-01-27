@@ -96,19 +96,26 @@ credentials = {
 }
 
 DATABASES = {
-    'default': {},
-    'classicrealmd': { 'NAME': 'classicrealmd'} | credentials,
+    'default': {
+        'NAME': 'tbcrealmd',
+    'ENGINE': 'django.db.backends.mysql',
+    'USER': 'root',
+    'PASSWORD': '123456',
+    'HOST': '127.0.0.1',
+    'PORT': '3310',
+},
+
+    'classicrealmd': { 'NAME': 'classicrealmd' } | credentials,
     'classiccharacters': { 'NAME': 'classiccharacters' } | credentials,
     'classicmangos': { 'NAME': 'classicmangos' } | credentials,
 
-    # MUST BE MIGRATED ONCE TESTING WITH BC / WOTLK DATABASES
-    # 'tbcrealmd': { 'NAME': 'tbcrealmd'} | credentials,
-    # 'tbccharacters': { 'NAME': 'tbccharacters' } | credentials,
-    # 'tbcmangos': { 'NAME': 'tbcmangos' } | credentials,
+    'tbcrealmd': { 'NAME': 'tbcrealmd' } | credentials,
+    'tbccharacters': { 'NAME': 'tbccharacters' } | credentials,
+    'tbcmangos': { 'NAME': 'tbcmangos' } | credentials,
 
-    # 'wotlkrealmd': { 'NAME': 'wotlkrealmd'} | credentials,
-    # 'wotlkcharacters': { 'NAME': 'wotlkcharacters' } | credentials,
-    # 'wotlkmangos': { 'NAME': 'wotlkmangos' } | credentials,
+    'wotlkrealmd': { 'NAME': 'wotlkrealmd' } | credentials,
+    'wotlkcharacters': { 'NAME': 'wotlkcharacters' } | credentials,
+    'wotlkmangos': { 'NAME': 'wotlkmangos' } | credentials
 }
 
 

@@ -34,19 +34,6 @@ class CharacterGifts(models.Model):
         db_table = 'character_gifts'
 
 
-class CharacterHonorCp(models.Model):
-    guid = models.PositiveIntegerField()
-    victim_type = models.PositiveIntegerField()
-    victim = models.PositiveIntegerField()
-    honor = models.FloatField()
-    date = models.PositiveIntegerField()
-    type = models.PositiveIntegerField()
-
-    class Meta:
-        managed = False
-        db_table = 'character_honor_cp'
-
-
 class CharacterInventory(models.Model):
     guid = models.PositiveIntegerField()
     bag = models.PositiveIntegerField()
@@ -78,6 +65,26 @@ class CharacterQueststatus(models.Model):
     class Meta:
         managed = False
         db_table = 'character_queststatus'
+        unique_together = (('guid', 'quest'),)
+
+
+class CharacterQueststatusDaily(models.Model):
+    guid = models.PositiveIntegerField(primary_key=True)
+    quest = models.PositiveIntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'character_queststatus_daily'
+        unique_together = (('guid', 'quest'),)
+
+
+class CharacterQueststatusMonthly(models.Model):
+    guid = models.PositiveIntegerField(primary_key=True)
+    quest = models.PositiveIntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'character_queststatus_monthly'
         unique_together = (('guid', 'quest'),)
 
 
@@ -278,6 +285,7 @@ class Characters(models.Model):
     position_y = models.FloatField()
     position_z = models.FloatField()
     map = models.PositiveIntegerField()
+    dungeon_difficulty = models.PositiveIntegerField()
     orientation = models.FloatField()
     taximask = models.TextField(blank=True, null=True)
     online = models.PositiveIntegerField()
@@ -300,11 +308,26 @@ class Characters(models.Model):
     zone = models.PositiveIntegerField()
     death_expire_time = models.PositiveBigIntegerField()
     taxi_path = models.TextField(blank=True, null=True)
-    honor_highest_rank = models.PositiveIntegerField()
-    honor_standing = models.PositiveIntegerField()
-    stored_honor_rating = models.FloatField()
-    stored_dishonorable_kills = models.IntegerField()
-    stored_honorable_kills = models.IntegerField()
+    # Field name made lowercase.
+    arenapoints = models.PositiveIntegerField(db_column='arenaPoints')
+    # Field name made lowercase.
+    totalhonorpoints = models.PositiveIntegerField(
+        db_column='totalHonorPoints')
+    # Field name made lowercase.
+    todayhonorpoints = models.PositiveIntegerField(
+        db_column='todayHonorPoints')
+    # Field name made lowercase.
+    yesterdayhonorpoints = models.PositiveIntegerField(
+        db_column='yesterdayHonorPoints')
+    # Field name made lowercase.
+    totalkills = models.PositiveIntegerField(db_column='totalKills')
+    # Field name made lowercase.
+    todaykills = models.PositiveSmallIntegerField(db_column='todayKills')
+    # Field name made lowercase.
+    yesterdaykills = models.PositiveSmallIntegerField(
+        db_column='yesterdayKills')
+    # Field name made lowercase.
+    chosentitle = models.PositiveIntegerField(db_column='chosenTitle')
     # Field name made lowercase.
     watchedfaction = models.PositiveIntegerField(db_column='watchedFaction')
     drunk = models.PositiveSmallIntegerField()
@@ -322,6 +345,9 @@ class Characters(models.Model):
         db_column='equipmentCache', blank=True, null=True)
     # Field name made lowercase.
     ammoid = models.PositiveIntegerField(db_column='ammoId')
+    # Field name made lowercase.
+    knowntitles = models.TextField(
+        db_column='knownTitles', blank=True, null=True)
     # Field name made lowercase.
     actionbars = models.PositiveIntegerField(db_column='actionBars')
     # Field name made lowercase.
@@ -373,6 +399,7 @@ class ItemLoot(models.Model):
     owner_guid = models.PositiveIntegerField()
     itemid = models.PositiveIntegerField()
     amount = models.PositiveIntegerField()
+    suffix = models.PositiveIntegerField()
     property = models.IntegerField()
 
     class Meta:

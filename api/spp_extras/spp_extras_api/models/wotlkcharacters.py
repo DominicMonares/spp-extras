@@ -8,6 +8,88 @@
 from django.db import models
 
 
+class ArenaTeam(models.Model):
+    arenateamid = models.PositiveIntegerField(primary_key=True)
+    name = models.CharField(max_length=255)
+    captainguid = models.PositiveIntegerField()
+    type = models.PositiveIntegerField()
+    # Field name made lowercase.
+    backgroundcolor = models.PositiveIntegerField(db_column='BackgroundColor')
+    # Field name made lowercase.
+    emblemstyle = models.PositiveIntegerField(db_column='EmblemStyle')
+    # Field name made lowercase.
+    emblemcolor = models.PositiveIntegerField(db_column='EmblemColor')
+    # Field name made lowercase.
+    borderstyle = models.PositiveIntegerField(db_column='BorderStyle')
+    # Field name made lowercase.
+    bordercolor = models.PositiveIntegerField(db_column='BorderColor')
+
+    class Meta:
+        managed = False
+        db_table = 'arena_team'
+
+
+class ArenaTeamMember(models.Model):
+    arenateamid = models.PositiveIntegerField(primary_key=True)
+    guid = models.PositiveIntegerField()
+    played_week = models.PositiveIntegerField()
+    wons_week = models.PositiveIntegerField()
+    played_season = models.PositiveIntegerField()
+    wons_season = models.PositiveIntegerField()
+    personal_rating = models.PositiveIntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'arena_team_member'
+        unique_together = (('arenateamid', 'guid'),)
+
+
+class ArenaTeamStats(models.Model):
+    arenateamid = models.PositiveIntegerField(primary_key=True)
+    rating = models.PositiveIntegerField()
+    games_week = models.PositiveIntegerField()
+    wins_week = models.PositiveIntegerField()
+    games_season = models.PositiveIntegerField()
+    wins_season = models.PositiveIntegerField()
+    rank = models.PositiveIntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'arena_team_stats'
+
+
+class CharacterAchievement(models.Model):
+    guid = models.PositiveIntegerField(primary_key=True)
+    achievement = models.PositiveIntegerField()
+    date = models.PositiveBigIntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'character_achievement'
+        unique_together = (('guid', 'achievement'),)
+
+
+class CharacterAchievementProgress(models.Model):
+    guid = models.PositiveIntegerField(primary_key=True)
+    criteria = models.PositiveIntegerField()
+    counter = models.PositiveIntegerField()
+    date = models.PositiveBigIntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'character_achievement_progress'
+        unique_together = (('guid', 'criteria'),)
+
+
+class CharacterAchievementSharedProgress(models.Model):
+    achievement = models.IntegerField(primary_key=True)
+    progress = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'character_achievement_shared_progress'
+
+
 class CharacterBattlegroundData(models.Model):
     guid = models.PositiveIntegerField(primary_key=True)
     instance_id = models.PositiveIntegerField()
@@ -17,10 +99,44 @@ class CharacterBattlegroundData(models.Model):
     join_z = models.FloatField()
     join_o = models.FloatField()
     join_map = models.IntegerField()
+    mount_spell = models.IntegerField()
 
     class Meta:
         managed = False
         db_table = 'character_battleground_data'
+
+
+class CharacterEquipmentsets(models.Model):
+    guid = models.IntegerField()
+    setguid = models.BigAutoField(primary_key=True)
+    setindex = models.IntegerField()
+    name = models.CharField(max_length=100)
+    iconname = models.CharField(max_length=100)
+    ignore_mask = models.PositiveIntegerField()
+    item0 = models.PositiveIntegerField()
+    item1 = models.PositiveIntegerField()
+    item2 = models.PositiveIntegerField()
+    item3 = models.PositiveIntegerField()
+    item4 = models.PositiveIntegerField()
+    item5 = models.PositiveIntegerField()
+    item6 = models.PositiveIntegerField()
+    item7 = models.PositiveIntegerField()
+    item8 = models.PositiveIntegerField()
+    item9 = models.PositiveIntegerField()
+    item10 = models.PositiveIntegerField()
+    item11 = models.PositiveIntegerField()
+    item12 = models.PositiveIntegerField()
+    item13 = models.PositiveIntegerField()
+    item14 = models.PositiveIntegerField()
+    item15 = models.PositiveIntegerField()
+    item16 = models.PositiveIntegerField()
+    item17 = models.PositiveIntegerField()
+    item18 = models.PositiveIntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'character_equipmentsets'
+        unique_together = (('guid', 'setguid', 'setindex'),)
 
 
 class CharacterGifts(models.Model):
@@ -32,6 +148,18 @@ class CharacterGifts(models.Model):
     class Meta:
         managed = False
         db_table = 'character_gifts'
+
+
+class CharacterGlyphs(models.Model):
+    guid = models.PositiveIntegerField(primary_key=True)
+    spec = models.PositiveIntegerField()
+    slot = models.PositiveIntegerField()
+    glyph = models.PositiveIntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'character_glyphs'
+        unique_together = (('guid', 'spec', 'slot'),)
 
 
 class CharacterHonorCp(models.Model):
@@ -74,10 +202,32 @@ class CharacterQueststatus(models.Model):
     itemcount2 = models.PositiveIntegerField()
     itemcount3 = models.PositiveIntegerField()
     itemcount4 = models.PositiveIntegerField()
+    itemcount5 = models.PositiveIntegerField()
+    itemcount6 = models.PositiveIntegerField()
 
     class Meta:
         managed = False
         db_table = 'character_queststatus'
+        unique_together = (('guid', 'quest'),)
+
+
+class CharacterQueststatusDaily(models.Model):
+    guid = models.PositiveIntegerField(primary_key=True)
+    quest = models.PositiveIntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'character_queststatus_daily'
+        unique_together = (('guid', 'quest'),)
+
+
+class CharacterQueststatusMonthly(models.Model):
+    guid = models.PositiveIntegerField(primary_key=True)
+    quest = models.PositiveIntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'character_queststatus_monthly'
         unique_together = (('guid', 'quest'),)
 
 
@@ -278,6 +428,7 @@ class Characters(models.Model):
     position_y = models.FloatField()
     position_z = models.FloatField()
     map = models.PositiveIntegerField()
+    dungeon_difficulty = models.PositiveIntegerField()
     orientation = models.FloatField()
     taximask = models.TextField(blank=True, null=True)
     online = models.PositiveIntegerField()
@@ -300,20 +451,44 @@ class Characters(models.Model):
     zone = models.PositiveIntegerField()
     death_expire_time = models.PositiveBigIntegerField()
     taxi_path = models.TextField(blank=True, null=True)
-    honor_highest_rank = models.PositiveIntegerField()
-    honor_standing = models.PositiveIntegerField()
-    stored_honor_rating = models.FloatField()
-    stored_dishonorable_kills = models.IntegerField()
-    stored_honorable_kills = models.IntegerField()
+    # Field name made lowercase.
+    arenapoints = models.PositiveIntegerField(db_column='arenaPoints')
+    # Field name made lowercase.
+    totalhonorpoints = models.PositiveIntegerField(
+        db_column='totalHonorPoints')
+    # Field name made lowercase.
+    todayhonorpoints = models.PositiveIntegerField(
+        db_column='todayHonorPoints')
+    # Field name made lowercase.
+    yesterdayhonorpoints = models.PositiveIntegerField(
+        db_column='yesterdayHonorPoints')
+    # Field name made lowercase.
+    totalkills = models.PositiveIntegerField(db_column='totalKills')
+    # Field name made lowercase.
+    todaykills = models.PositiveSmallIntegerField(db_column='todayKills')
+    # Field name made lowercase.
+    yesterdaykills = models.PositiveSmallIntegerField(
+        db_column='yesterdayKills')
+    # Field name made lowercase.
+    chosentitle = models.PositiveIntegerField(db_column='chosenTitle')
+    # Field name made lowercase.
+    knowncurrencies = models.PositiveBigIntegerField(
+        db_column='knownCurrencies')
     # Field name made lowercase.
     watchedfaction = models.PositiveIntegerField(db_column='watchedFaction')
-    drunk = models.PositiveSmallIntegerField()
+    drunk = models.PositiveIntegerField()
     health = models.PositiveIntegerField()
     power1 = models.PositiveIntegerField()
     power2 = models.PositiveIntegerField()
     power3 = models.PositiveIntegerField()
     power4 = models.PositiveIntegerField()
     power5 = models.PositiveIntegerField()
+    power6 = models.PositiveIntegerField()
+    power7 = models.PositiveIntegerField()
+    # Field name made lowercase.
+    speccount = models.PositiveIntegerField(db_column='specCount')
+    # Field name made lowercase.
+    activespec = models.PositiveIntegerField(db_column='activeSpec')
     # Field name made lowercase.
     exploredzones = models.TextField(
         db_column='exploredZones', blank=True, null=True)
@@ -322,6 +497,9 @@ class Characters(models.Model):
         db_column='equipmentCache', blank=True, null=True)
     # Field name made lowercase.
     ammoid = models.PositiveIntegerField(db_column='ammoId')
+    # Field name made lowercase.
+    knowntitles = models.TextField(
+        db_column='knownTitles', blank=True, null=True)
     # Field name made lowercase.
     actionbars = models.PositiveIntegerField(db_column='actionBars')
     # Field name made lowercase.
@@ -361,7 +539,8 @@ class ItemInstance(models.Model):
     randompropertyid = models.SmallIntegerField(db_column='randomPropertyId')
     durability = models.PositiveIntegerField()
     # Field name made lowercase.
-    itemtextid = models.PositiveIntegerField(db_column='itemTextId')
+    playedtime = models.PositiveIntegerField(db_column='playedTime')
+    text = models.TextField(blank=True, null=True)
 
     class Meta:
         managed = False
@@ -373,21 +552,13 @@ class ItemLoot(models.Model):
     owner_guid = models.PositiveIntegerField()
     itemid = models.PositiveIntegerField()
     amount = models.PositiveIntegerField()
+    suffix = models.PositiveIntegerField()
     property = models.IntegerField()
 
     class Meta:
         managed = False
         db_table = 'item_loot'
         unique_together = (('guid', 'itemid'),)
-
-
-class ItemText(models.Model):
-    id = models.PositiveIntegerField(primary_key=True)
-    text = models.TextField(blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'item_text'
 
 
 class Mail(models.Model):
@@ -400,8 +571,7 @@ class Mail(models.Model):
     sender = models.PositiveIntegerField()
     receiver = models.PositiveIntegerField()
     subject = models.TextField(blank=True, null=True)
-    # Field name made lowercase.
-    itemtextid = models.PositiveIntegerField(db_column='itemTextId')
+    body = models.TextField(blank=True, null=True)
     has_items = models.PositiveIntegerField()
     expire_time = models.PositiveBigIntegerField()
     deliver_time = models.PositiveBigIntegerField()

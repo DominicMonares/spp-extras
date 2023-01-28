@@ -5,7 +5,7 @@ block_cipher = None
 
 
 a = Analysis(
-    ['spp_extras\\manage.py'],
+    ['src\\manage.py'],
     pathex=[],
     binaries=[],
     datas=[],

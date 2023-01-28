@@ -112,7 +112,7 @@ const spawnDjango = () => {
   if (isDevelopmentEnv()) {
     return spawn(
       `api\\spp_extras_env\\Scripts\\python.exe`,
-      ['api\\spp_extras\\manage.py', 'runserver', '--settings=spp_extras.settings.dev'],
+      ['api\\src\\manage.py', 'runserver', '--settings=spp_extras.settings.dev'],
       { shell: true }
     );
   }

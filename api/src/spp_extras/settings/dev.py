@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-^-%ms(a*y%vjv(wrb^tpt)d#(oj^5q#g)@)p19#qe_thx)ctlg'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = [ '127.0.0.1', 'localhost' ]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -60,7 +60,7 @@ MIDDLEWARE = [
 CORS_ALLOW_ALL_ORIGINS = True # If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGIN_REGEXES = [
-    'http://localhost:3000',
+    'http://localhost:8000',
 ]
 
 ROOT_URLCONF = 'spp_extras.urls'
@@ -106,7 +106,7 @@ credentials = {
 DATABASES = {
     'default': {},
 
-    'classicrealmd': { 'NAME': 'classicrealmd' } | credentials,
+    'classicrealmd': { 'NAME': 'classicrealmd' }  | credentials,
     'classiccharacters': { 'NAME': 'classiccharacters' } | credentials,
     'classicmangos': { 'NAME': 'classicmangos' } | credentials,
 

@@ -23,7 +23,7 @@ CREATE VIRTUAL ENV
 python -m virtualenv spp_extras_env   |   api:env
 
 ACTIVATE VE
-.\spp_extras_env\Scripts\activate
+.\env\Scripts\activate
 
 
 ============ ALL BELOW MUST BE DONE FROM ACTIVATED VE ============
@@ -33,18 +33,18 @@ pip install -r requirements.txt
 
 
 RUN SERVER
-python spp_extras/manage.py runserver --settings=spp_extras.settings.dev   |   run from electron/index
+python src/manage.py runserver --settings=spp_extras.settings.dev   |   run from electron/index
 
 
 CREATE MODELS
-python spp_extras/manage.py inspectdb --database=characters > spp_extras/spp_extras_api/characters.py
+python src/manage.py inspectdb --database=characters > src/spp_extras_api/characters.py
 
 MIGRATE AFTER CHANGING MODELS
 python spp_extras/manage.py migrate --database=characters --fake spp_extras_api
 
 
 PACKAGE
-pyinstaller --name=spp_extras_api spp_extras\manage.py --noconfirm
+pyinstaller --name=spp_extras_api src\manage.py --noconfirm
 
 TEST PACKAGED SERVER
 cd dist\spp_extras_api

@@ -1,12 +1,9 @@
-from rest_framework import viewsets
-from rest_framework import status
+from rest_framework import viewsets, status
 from rest_framework.decorators import action
-from rest_framework.response import Response
-from spp_extras_api.models.classiccharacters import CharacterQueststatus
-from spp_extras_api.models.classiccharacters import CharacterQueststatusWeekly
+from rest_framework.response import Response 
+from spp_extras_api.models.classiccharacters import CharacterQueststatus, CharacterQueststatusWeekly
 from spp_extras_api.models.classicmangos import QuestTemplate
-from spp_extras_api.helpers.quests import all_completed_quests
-from spp_extras_api.helpers.quests import all_quests
+from spp_extras_api.utils.quests import all_completed_quests, all_quests
 
 
 class QuestViewSet(viewsets.ViewSet):

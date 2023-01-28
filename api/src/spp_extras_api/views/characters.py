@@ -4,8 +4,8 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from spp_extras_api.models.classicrealmd import Account
 from spp_extras_api.models.classiccharacters import Characters
-from spp_extras_api.helpers.characters import get_account_ids
-from spp_extras_api.helpers.characters import all_characters
+from spp_extras_api.utils.characters import get_account_ids
+from spp_extras_api.utils.characters import all_characters
 
 
 class CharactersViewSet(viewsets.ViewSet):

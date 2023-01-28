@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'spp_extras_api',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -80,8 +81,15 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'spp_extras.wsgi.application'
+# WSGI_APPLICATION = 'spp_extras.wsgi.application'
 
+ASGI_APPLICATION = 'spp_extras.asgi.application'
+
+CHANNEL_LAYERS = {
+    'default': {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+    },
+}
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases

@@ -6,7 +6,8 @@
   "main": ".webpack/main",
   "scripts": {
     "api:env": "cd api && python -m virtualenv spp_extras_env",
-    "start": "electron-forge start",
+    "start:dev": "cross-env NODE_ENV=development electron-forge start",
+    "start:prod": "cross-env NODE_ENV=production electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",

@@ -9,7 +9,7 @@ const Features = () => {
     <>
       <Feature feature="questTracker" name="Quest Tracker" />
       {expansion === 'wotlk' ? (
-        <Feature feature="awAchieves" name="Account-wide Achievements" />
+        <Feature feature="accountAchievements" name="Account-wide Achievements" />
       ) : (
         <></>
       )}

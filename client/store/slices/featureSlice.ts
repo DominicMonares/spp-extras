@@ -4,7 +4,7 @@ import { Feature, SelectedFeature } from '../../types';
 
 const initialState: Feature = {
   // selected: null
-  selected: 'questTracker' // temp default
+  selected: 'awAchieves' // temp default
 }
 
 export const featureSlice = createSlice({

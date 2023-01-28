@@ -1,4 +1,4 @@
-import AwAchieves from './AwAchieves';
+import AwAchieves from './AccountAchievements';
 import ExpansionNav from './ExpansionNav';
 import FeatureList from './FeatureNav';
 import Home from './Home';
@@ -18,7 +18,7 @@ const App = () => {
         <FeatureList />
         {!expansion || !feature ? <Home /> : <></>}
         {feature === 'questTracker' ? <QuestTracker /> : <></>}
-        {feature === 'awAchieves' ? <AwAchieves /> : <></>}
+        {feature === 'accountAchievements' ? <AwAchieves /> : <></>}
       </div>
     </div>
   );

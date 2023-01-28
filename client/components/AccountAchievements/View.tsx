@@ -1,4 +1,4 @@
-const AwAchievesView = () => {
+const View = () => {
   return (
     <div>
       AW ACHIEVES VIEW
@@ -6,4 +6,4 @@ const AwAchievesView = () => {
   );
 }
 
-export default AwAchievesView;
+export default View;

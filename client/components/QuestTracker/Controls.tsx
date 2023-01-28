@@ -19,7 +19,7 @@ import { Character } from "../../types";
 import './QuestTracker.css';
 
 
-const QuestTrackerControls = () => {
+const Controls = () => {
   const dispatch = useAppDispatch();
   const expansion = useAppSelector(state => state.expansion.selected);
   const characters = useAppSelector(state => state.characters);
@@ -78,4 +78,4 @@ const QuestTrackerControls = () => {
   );
 }
 
-export default QuestTrackerControls;
+export default Controls;

@@ -16,7 +16,7 @@ import zoneRef from '../../../data/zoneRef.json';
 const zones = zoneRef as Zones;
 const questFlags = repeatQuestFlags as QuestFlags;
 
-const QuestTrackerView = () => {
+const View = () => {
   const templateQuests = useAppSelector(state => state.templateQuests);
   const completedQuests = useAppSelector(state => state.completedQuests);
   const settings = useAppSelector(state => state.questTracker);
@@ -106,4 +106,4 @@ const QuestTrackerView = () => {
   );
 }
 
-export default QuestTrackerView;
+export default View;

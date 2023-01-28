@@ -13,7 +13,7 @@ export interface FeatureNavProps {
 
 export type SelectedExpansion = 'classic' | 'tbc' | 'wotlk' | null;
 
-export type SelectedFeature = 'questTracker' | 'awAchieves' | null;
+export type SelectedFeature = 'questTracker' | 'accountAchievements' | null;
 
 export interface Subzone {
   subzoneId: number;

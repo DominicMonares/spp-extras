@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import DropdownMenu from '../DropdownMenu';
 import FactionCheckboxes from './FactionCheckboxes';
-import TypeCheckboxes from './TypeCheckboxes';
+import QuestTypeCheckboxes from './QuestTypeCheckboxes';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import {
   storeCharacters,
@@ -68,7 +68,7 @@ const Controls = () => {
       <FactionCheckboxes />
       {faction ? (
         <>
-          <TypeCheckboxes />
+          <QuestTypeCheckboxes />
           <DropdownMenu type="zone" menu={zoneMenu} />
         </>
       ) : (

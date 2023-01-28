@@ -4,7 +4,7 @@ import { storeQuestTrackerType } from '../../store/slices';
 import { QuestType } from "../../types";
 
 
-const TypeCheckboxes = () => {
+const QuestTypeCheckboxes = () => {
   const dispatch = useAppDispatch();
   const [checks, setChecks] = useState([true, false, false]);
 
@@ -43,4 +43,4 @@ const TypeCheckboxes = () => {
   );
 }
 
-export default TypeCheckboxes;
+export default QuestTypeCheckboxes;

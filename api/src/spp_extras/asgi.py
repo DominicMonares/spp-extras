@@ -12,6 +12,9 @@ import os
 import django
 from channels.http import AsgiHandler
 from channels.routing import ProtocolTypeRouter
+from channels.auth import AuthMiddlewareStack
+from channels.routing import ProtocolTypeRouter, URLRouter
+import game.routing
 # from django.core.asgi import get_asgi_application
 
 
@@ -20,6 +23,10 @@ django.setup()
 
 # application = get_asgi_application()
 application = ProtocolTypeRouter({
-  'http': AsgiHandler(),
+    'http': AsgiHandler(),
+    "websocket": AuthMiddlewareStack(
+        URLRouter(
+            game.routing.websocket_urlpatterns
+        )
+    ),
 })
-

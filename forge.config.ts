@@ -6,7 +6,7 @@ import { MakerRpm } from '@electron-forge/maker-rpm';
 import { WebpackPlugin } from '@electron-forge/plugin-webpack';
 import { mainConfig } from './webpack.main.config';
 import { rendererConfig } from './webpack.renderer.config';
-import { port, url } from './client/config';
+import { port, httpUrl, wsUrl } from './client/config';
 
 import copyApiFolder from './electron/buildScripts/copyApiFolder';
 
@@ -34,7 +34,7 @@ const config: ForgeConfig = {
   plugins: [
     new WebpackPlugin({
       mainConfig,
-      devContentSecurityPolicy: `connect-src 'self' ${url}:${port} 'unsafe-eval'`,
+      devContentSecurityPolicy: `connect-src 'self' ${httpUrl}:${port} ${wsUrl}:${port} 'unsafe-eval'`,
       renderer: {
         config: rendererConfig,
         entryPoints: [

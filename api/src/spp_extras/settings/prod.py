@@ -61,6 +61,7 @@ CORS_ALLOW_ALL_ORIGINS = True # If this is used then `CORS_ALLOWED_ORIGINS` will
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGIN_REGEXES = [
     'http://localhost:80',
+    'ws://localhost:80',
 ]
 
 ROOT_URLCONF = 'spp_extras.urls'

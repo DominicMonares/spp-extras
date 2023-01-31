@@ -60,7 +60,8 @@ MIDDLEWARE = [
 CORS_ALLOW_ALL_ORIGINS = True # If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGIN_REGEXES = [
-    'http://localhost:8000',
+    'http://localhost:8080',
+    'ws://127.0.0.1:8080',
 ]
 
 ROOT_URLCONF = 'spp_extras.urls'

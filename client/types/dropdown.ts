@@ -1,6 +1,3 @@
-import { CharacterClass } from "./characters";
-
-
 export interface DropdownMenuProps {
   menu: Menu;
   type: DropdownType;

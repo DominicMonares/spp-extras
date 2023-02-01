@@ -1,22 +1,66 @@
-[
-  {
-    "title": "Alliance",
-    "submenu": [
-      { "title": "Draenei" },
-      { "title": "Dwarf" },
-      { "title": "Gnome" },
-      { "title": "Human" },
-      { "title": "Night Elf" }
-    ]
-  },
-  {
-    "title": "Horde",
-    "submenu": [
-      { "title": "Blood Elf" },
-      { "title": "Orc" },
-      { "title": "Tauren" },
-      { "title": "Troll" },
-      { "title": "Undead" }
-    ]
-  }
-]
+{
+  "alliance": [
+    {
+      "title": "Race",
+      "submenu": [
+        {
+          "title": "Draenei",
+          "id": 11,
+          "value": 1024
+        },
+        {
+          "title": "Dwarf",
+          "id": 3,
+          "value": 4
+        },
+        {
+          "title": "Gnome",
+          "id": 7,
+          "value": 64
+        },
+        {
+          "title": "Human",
+          "id": 1,
+          "value": 1
+        },
+        {
+          "title": "Night Elf",
+          "id": 4,
+          "value": 8
+        }
+      ]
+    }
+  ],
+  "horde": [
+    {
+      "title": "Race",
+      "submenu": [
+        {
+          "title": "Blood Elf",
+          "id": 10,
+          "value": 512
+        },
+        {
+          "title": "Orc",
+          "id": 2,
+          "value": 2
+        },
+        {
+          "title": "Tauren",
+          "id": 6,
+          "value": 32
+        },
+        {
+          "title": "Troll",
+          "id": 8,
+          "value": 128
+        },
+        {
+          "title": "Undead",
+          "id": 5,
+          "value": 16
+        }
+      ]
+    }
+  ]
+}

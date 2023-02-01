@@ -12,6 +12,7 @@ export interface CharacterQuests {
 
 export interface ClassSetting {
   id: CharacterClass;
+  title: string;
   value: CharacterQuestClass;
 }
 
@@ -19,7 +20,13 @@ export type CharacterQuestRace = 1 | 2 | 4 | 8 | 16 | 32 | 64 | 128 | 512 | 1024
 
 export interface RaceSetting { 
   id: Race;
+  title: string;
   value: CharacterQuestRace;
+}
+
+export interface CharacterSetting {
+  id: number;
+  name: string;
 }
 
 export interface CompletedQuests {
@@ -32,7 +39,7 @@ export interface FactionQuests {
 }
 
 export interface QuestCondition {
-  setting: Faction | QuestType | string | ClassSetting | RaceSetting | Record<string, never>;
+  setting: Faction | QuestType | string | ClassSetting | RaceSetting | CharacterSetting | Record<string, never>;
   conditionMet: () => boolean;
 }
 
@@ -57,7 +64,7 @@ export interface QuestTrackerSettings {
   zone?: string;
   characterClass?: ClassSetting | Record<string, never>;
   race?: RaceSetting | Record<string, never>;
-  character?: string;
+  character?: CharacterSetting | Record<string, never>;
 }
 
 export type QuestType = 'reg' | 'daily' | 'weekly' | 'monthly';

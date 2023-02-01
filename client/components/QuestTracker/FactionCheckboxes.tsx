@@ -8,9 +8,9 @@ const FactionCheckboxes = () => {
   const dispatch = useAppDispatch();
   const [checks, setChecks] = useState([false, false]);
 
-  const selectFaction = (checkboxes: boolean[], qtFaction: Faction) => {
+  const selectFaction = (checkboxes: boolean[], faction: Faction) => {
     setChecks(checkboxes);
-    dispatch(storeQuestTrackerFaction({ faction: qtFaction }));
+    dispatch(storeQuestTrackerFaction({ faction: faction }));
   }
 
   return (

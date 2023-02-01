@@ -83,7 +83,6 @@ export interface RepeatQuests {
   [key: string]: RepeatQuest;
 }
 
-
 export interface TemplateFactionQuests {
   [key: string]: TemplateQuest;
 }

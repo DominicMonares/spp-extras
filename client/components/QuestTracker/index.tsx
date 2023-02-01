@@ -2,13 +2,18 @@ import { useEffect, useState } from 'react';
 import { useAppSelector } from '../../store/hooks';
 import Controls from './Controls';
 import View from './View';
-import { 
-  fetchCharacters, 
+import {
+  fetchCharacters,
   fetchCompletedQuests,
-  fetchTemplateQuests 
+  fetchTemplateQuests
 } from '../../apiCalls';
 import { getFaction } from '../../utils/characters';
-import { Character, Characters, CompletedQuests, TemplateQuests } from '../../types';
+import {
+  Character,
+  Characters,
+  CompletedQuests,
+  TemplateQuests
+} from '../../types';
 
 
 const defaultCharsAndCompleted = {
@@ -31,7 +36,7 @@ const QuestTracker = () => {
   useEffect(() => {
     storeQuestsAndCharacters();
   }, []);
-  
+
   const getTemplateQuests = async () => {
     const newTemplateQuests = await fetchTemplateQuests(expansion);
     setTemplateQuests(newTemplateQuests);

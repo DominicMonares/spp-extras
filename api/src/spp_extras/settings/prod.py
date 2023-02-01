@@ -33,6 +33,7 @@ ALLOWED_HOSTS = [ '127.0.0.1', 'localhost' ]
 # Application definition
 
 INSTALLED_APPS = [
+    'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -59,10 +60,9 @@ MIDDLEWARE = [
 
 CORS_ALLOW_ALL_ORIGINS = True # If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
 CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOWED_ORIGIN_REGEXES = [
-    'http://localhost:80',
-    'ws://localhost:80',
-]
+# CORS_ALLOWED_ORIGIN_REGEXES = [
+#     'http://localhost:80',
+# ]
 
 ROOT_URLCONF = 'spp_extras.urls'
 

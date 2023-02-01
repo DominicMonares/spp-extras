@@ -7,23 +7,28 @@ For more information on this file, see
 https://docs.djangoproject.com/en/4.1/howto/deployment/asgi/
 """
 
+import spp_extras_api.routing
 import os
 import django
-from channels.http import AsgiHandler
-from channels.routing import ProtocolTypeRouter
+
 from channels.auth import AuthMiddlewareStack
 from channels.routing import ProtocolTypeRouter, URLRouter
-import spp_extras_api.routing
+from channels.security.websocket import AllowedHostsOriginValidator
+from django.core.asgi import get_asgi_application
 
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'spp_extras.settings')
 django.setup()
 
+
+# application = get_asgi_application()
 application = ProtocolTypeRouter({
-    'http': AsgiHandler(),
-    "websocket": AuthMiddlewareStack(
-        URLRouter(
-            spp_extras_api.routing.websocket_urlpatterns
-        )
+    'http': get_asgi_application(),
+    'websocket': AllowedHostsOriginValidator(
+        AuthMiddlewareStack(
+            URLRouter(
+                spp_extras_api.routing.websocket_urlpatterns
+            )
+        ),
     ),
 })

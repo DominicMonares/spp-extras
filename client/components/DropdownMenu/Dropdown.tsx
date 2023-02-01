@@ -1,4 +1,4 @@
-import MenuItems from './MenuItems';
+import MenuItem from './MenuItem';
 import { DropdownProps, Submenu } from '../../types';
 import './DropdownMenu.css';
 
@@ -10,7 +10,7 @@ const Dropdown = ({ type, submenus, dropdown, depthLevel }: DropdownProps) => {
   return (
     <ul className={`dropdown ${dropdownClass} ${dropdown ? 'show' : ''}`}>
       {submenus.map((submenu: Submenu, i: number) => (
-        <MenuItems
+        <MenuItem
           type={type}
           items={submenu}
           key={i}

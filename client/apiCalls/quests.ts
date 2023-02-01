@@ -1,5 +1,5 @@
-import type { FetchCompQuests, FetchTemplateQuests } from '../types';
-import { port, httpUrl } from '../config';
+import { httpUrl, port } from '../config';
+import { FetchCompQuests, FetchTemplateQuests } from '../types';
 
 
 export const fetchCompletedQuests: FetchCompQuests = async (expansion, characters) => {

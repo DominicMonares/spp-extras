@@ -1,8 +1,8 @@
 const View = () => {
   return (
-    <div>
+    <>
       AW ACHIEVES VIEW
-    </div>
+    </>
   );
 }
 

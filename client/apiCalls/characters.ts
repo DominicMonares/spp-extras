@@ -1,5 +1,5 @@
-import type { FetchChars } from '../types';
-import { port, httpUrl } from '../config';
+import { httpUrl, port } from '../config';
+import { FetchChars } from '../types';
 
 
 export const fetchCharacters: FetchChars = async expansion => {

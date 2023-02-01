@@ -1,5 +1,5 @@
 import { fetchAchievements } from '../../apiCalls';
-import './AccountAchievements.css';
+import './AccountWideAchievements.css';
 
 
 const Controls = () => {

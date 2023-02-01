@@ -1,8 +1,9 @@
 import Controls from './Controls';
 import View from './View';
+import './AccountWideAchievements.css';
 
 
-const AccountAchievements = () => {
+const AccountWideAchievements = () => {
   return (
     <>
       <View />
@@ -11,4 +12,4 @@ const AccountAchievements = () => {
   );
 }
 
-export default AccountAchievements;
+export default AccountWideAchievements;

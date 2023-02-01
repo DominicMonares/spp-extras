@@ -93,5 +93,9 @@ api/build
 api/dist
 __pycache__
 
+# Build
+build
+dist
+
 # Dev Notes
 NOTES

@@ -19,7 +19,7 @@ const questFlags = repeatQuestFlags as QuestFlags;
 
 const View = ({ templateQuests, completedQuests }: QuestTrackerViewProps) => {
   const settings = useAppSelector(state => state.questTracker);
-  const { faction, type, zone, charClass, race, character } = settings;
+  const { faction, type, zone, characterClass, race, character } = settings;
   const [quests, setQuests] = useState<ViewQuests>({});
 
   useEffect(() => {
@@ -43,8 +43,8 @@ const View = ({ templateQuests, completedQuests }: QuestTrackerViewProps) => {
               return zoneIds ? zoneIds.includes(quest.zoneorsort) : false;
             }
           },
-          charClass: {
-            setting: charClass,
+          characterClass: {
+            setting: characterClass,
             conditionMet: () => {
               // don't render faction specific classes for classic
               // filter classes if race selected

@@ -48,7 +48,7 @@ export interface QuestTrackerSettings {
   faction?: Faction;
   type?: QuestType;
   zone?: string;
-  charClass?: ClassSetting;
+  characterClass?: ClassSetting;
   race?: Race;
   character?: string;
 }

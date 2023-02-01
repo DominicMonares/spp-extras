@@ -23,12 +23,12 @@ export const questTrackerSlice = createSlice({
       state.race = action.payload.race;
     },
     storeQuestTrackerClass: (state, action: PayloadAction<QuestTrackerSettings>) => {
-      state.charClass.id = action.payload.charClass.id;
-      state.charClass.value = action.payload.charClass.value;
+      state.characterClass.id = action.payload.characterClass.id;
+      state.characterClass.value = action.payload.characterClass.value;
     },
     storeQuestTrackerCharacter: (state, action: PayloadAction<QuestTrackerSettings>) => {
       state.race = null;
-      state.charClass = null;
+      state.characterClass = null;
       state.character = action.payload.character;
     },
     storeQuestTrackerType: (state, action: PayloadAction<QuestTrackerSettings>) => {

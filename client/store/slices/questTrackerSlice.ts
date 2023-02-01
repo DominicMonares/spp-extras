@@ -3,6 +3,7 @@ import { QuestTrackerSettings } from '../../types';
 
 
 const initialState: QuestTrackerSettings = {
+  faction: 'alliance',
   type: 'reg'
 };
 
@@ -12,6 +13,8 @@ export const questTrackerSlice = createSlice({
   reducers: {
     storeQuestTrackerFaction: (state, action: PayloadAction<QuestTrackerSettings>) => {
       state.faction = action.payload.faction;
+      if (state.race) delete state.race;
+      if (state.character) delete state.character;
     },
     storeQuestTrackerZone: (state, action: PayloadAction<QuestTrackerSettings>) => {
       state.zone = action.payload.zone;

@@ -6,7 +6,7 @@ import { Faction } from "../../types";
 
 const FactionCheckboxes = () => {
   const dispatch = useAppDispatch();
-  const [checks, setChecks] = useState([false, false]);
+  const [checks, setChecks] = useState([true, false]);
 
   const selectFaction = (checkboxes: boolean[], faction: Faction) => {
     setChecks(checkboxes);

@@ -5,8 +5,9 @@ export type CharacterQuestClass = 1 | 2 | 4 | 8 | 16 | 32 | 64 | 128 | 256 | 102
 
 export interface CharQuests {
   reg: RegQuests;
-  daily: RepeatQuests;
+  daily?: RepeatQuests;
   weekly: RepeatQuests;
+  monthly?: RepeatQuests;
 }
 
 export interface ClassSetting {
@@ -34,8 +35,9 @@ export interface QuestConditions {
 
 export interface QuestFlags {
   reg: number[];
-  daily: number[];
+  daily?: number[];
   weekly: number[];
+  monthly?: number[];
 }
 
 export interface QuestProps {
@@ -51,7 +53,7 @@ export interface QuestTrackerSettings {
   character?: string;
 }
 
-export type QuestType = 'reg' | 'daily' | 'weekly';
+export type QuestType = 'reg' | 'daily' | 'weekly' | 'monthly';
 
 export interface RegQuest {
   guid: number;

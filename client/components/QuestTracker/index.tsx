@@ -28,10 +28,10 @@ const defaultTemplateQuests = {
 };
 
 const QuestTracker = () => {
+  const expansion = useAppSelector(state => state.expansion.selected);
   const [templateQuests, setTemplateQuests] = useState<TemplateQuests>(defaultTemplateQuests);
   const [characters, setCharacters] = useState<Characters>(defaultCharsAndCompleted);
   const [completedQuests, setCompletedQuests] = useState<CompletedQuests>(defaultCharsAndCompleted);
-  const expansion = useAppSelector(state => state.expansion.selected);
 
   useEffect(() => {
     storeQuestsAndCharacters();

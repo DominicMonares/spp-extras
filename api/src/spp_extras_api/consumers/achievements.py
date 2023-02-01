@@ -21,7 +21,3 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
         self.send(text_data=json.dumps({'message': message}))
         self.send(text_data=json.dumps({'message': message}))
 
-    def send_message(self, res):
-        self.send(text_data=json.dumps({
-            'payload': res,
-        }))

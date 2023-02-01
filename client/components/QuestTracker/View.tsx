@@ -48,6 +48,7 @@ const View = ({ templateQuests, completedQuests }: QuestTrackerViewProps) => {
             conditionMet: () => {
               // don't render faction specific classes for classic
               // filter classes if race selected
+              // console.log('CHAR CLASS SET ', characterClass)
               return false; // TEMP
             }
           },
@@ -56,6 +57,7 @@ const View = ({ templateQuests, completedQuests }: QuestTrackerViewProps) => {
             conditionMet: () => {
               // filter races if class selected
               // filter races by faction
+              // console.log('RACE SET ', race);
               return false; // TEMP
             }
           },
@@ -64,6 +66,7 @@ const View = ({ templateQuests, completedQuests }: QuestTrackerViewProps) => {
             conditionMet: () => {
               // filter by selected faction
               // filter by class and race if they're selected
+              // console.log('CHARACTER SET ', character);
               return false; // TEMP
             }
           }

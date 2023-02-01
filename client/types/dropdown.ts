@@ -26,5 +26,6 @@ export interface MenuItemsProps {
 export interface Submenu {
   title: string;
   submenu?: Menu;
-  charClass?: CharacterClass;
+  id?: number;
+  value?: number;
 }

@@ -3,7 +3,7 @@ import { Race, CharacterClass, Faction, Characters } from './characters';
 
 export type CharacterQuestClass = 1 | 2 | 4 | 8 | 16 | 32 | 64 | 128 | 256 | 1024;
 
-export interface CharQuests {
+export interface CharacterQuests {
   reg: RegQuests;
   daily?: RepeatQuests;
   weekly: RepeatQuests;
@@ -15,17 +15,24 @@ export interface ClassSetting {
   value: CharacterQuestClass;
 }
 
+export type CharacterQuestRace = 1 | 2 | 4 | 8 | 16 | 32 | 64 | 128 | 512 | 1024;
+
+export interface RaceSetting { 
+  id: Race;
+  value: CharacterQuestRace;
+}
+
 export interface CompletedQuests {
   alliance: FactionQuests;
   horde: FactionQuests;
 }
 
 export interface FactionQuests {
-  [key: string]: CharQuests;
+  [key: string]: CharacterQuests;
 }
 
 export interface QuestCondition {
-  setting: Faction | QuestType | string | ClassSetting | Race;
+  setting: Faction | QuestType | string | ClassSetting | RaceSetting | Record<string, never>;
   conditionMet: () => boolean;
 }
 
@@ -48,8 +55,8 @@ export interface QuestTrackerSettings {
   faction?: Faction;
   type?: QuestType;
   zone?: string;
-  characterClass?: ClassSetting;
-  race?: Race;
+  characterClass?: ClassSetting | Record<string, never>;
+  race?: RaceSetting | Record<string, never>;
   character?: string;
 }
 

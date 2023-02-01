@@ -5,6 +5,7 @@ import { useAppSelector } from '../../store/hooks';
 import {
   QuestConditions,
   QuestFlags,
+  QuestTrackerViewProps,
   Subzone,
   ViewQuests,
   Zones
@@ -16,9 +17,7 @@ import zoneRef from '../../../data/zoneRef.json';
 const zones = zoneRef as Zones;
 const questFlags = repeatQuestFlags as QuestFlags;
 
-const View = () => {
-  const templateQuests = useAppSelector(state => state.templateQuests);
-  const completedQuests = useAppSelector(state => state.completedQuests);
+const View = ({ templateQuests, completedQuests }: QuestTrackerViewProps) => {
   const settings = useAppSelector(state => state.questTracker);
   const { faction, type, zone, charClass, race, character } = settings;
   const [quests, setQuests] = useState<ViewQuests>({});

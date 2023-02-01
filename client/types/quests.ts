@@ -1,4 +1,4 @@
-import { Race, CharacterClass, Faction } from './characters';
+import { Race, CharacterClass, Faction, Characters } from './characters';
 
 
 export type CharacterQuestClass = 1 | 2 | 4 | 8 | 16 | 32 | 64 | 128 | 256 | 1024;
@@ -110,4 +110,13 @@ export interface ViewQuest extends TemplateQuest {
 
 export interface ViewQuests {
   [key: string]: ViewQuest;
+}
+
+export interface QuestTrackerViewProps {
+  templateQuests: TemplateQuests;
+  completedQuests: CompletedQuests;
+}
+
+export interface QuestTrackerControlsProps {
+  characters: Characters;
 }

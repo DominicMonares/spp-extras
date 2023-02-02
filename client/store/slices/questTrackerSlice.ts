@@ -15,12 +15,15 @@ export const questTrackerSlice = createSlice({
       state.faction = action.payload.faction;
       if (state.race) delete state.race;
       if (state.character) delete state.character;
+      return state;
     },
     storeQuestTrackerType: (state, action: PayloadAction<QuestTrackerSettings>) => {
       state.type = action.payload.type;
+      return state;
     },
     storeQuestTrackerZone: (state, action: PayloadAction<QuestTrackerSettings>) => {
       state.zone = action.payload.zone;
+      return state;
     },
     storeQuestTrackerClass: (state, action: PayloadAction<QuestTrackerSettings>) => {
       if (!state.characterClass) state.characterClass = {};
@@ -30,6 +33,7 @@ export const questTrackerSlice = createSlice({
       if (state.zone) delete state.zone;
       if (state.race) delete state.race;
       if (state.character) delete state.character;
+      return state;
     },
     storeQuestTrackerRace: (state, action: PayloadAction<QuestTrackerSettings>) => {
       if (!state.race) state.race = {};
@@ -39,6 +43,7 @@ export const questTrackerSlice = createSlice({
       if (state.zone) delete state.zone;
       if (state.characterClass) delete state.characterClass;
       if (state.character) delete state.character;
+      return state;
     },
     storeQuestTrackerCharacter: (state, action: PayloadAction<QuestTrackerSettings>) => {
       if (!state.character) state.character = {};
@@ -46,6 +51,7 @@ export const questTrackerSlice = createSlice({
       state.character.name = action.payload.character.name;
       if (state.race) delete state.race;
       if (state.characterClass) delete state.characterClass;
+      return state;
     }
   }
 });

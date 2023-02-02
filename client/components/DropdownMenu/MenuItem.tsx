@@ -16,19 +16,6 @@ const MenuItems = ({ type, items, depthLevel }: MenuItemsProps) => {
   const settings = useAppSelector(state => state.questTracker);
   const { zone, characterClass, race, character } = settings;
   const [dropdown, setDropdown] = useState(false);
-  const [selected, setSelected] = useState<string>('');
-
-  useEffect(() => {
-    if (type === 'zone' && zone) {
-      setSelected(zone);
-    } else if (type === 'class' && characterClass) {
-      setSelected(characterClass.title);
-    } else if (type === 'race' && race) {
-      setSelected(race.title);
-    } else if (type === 'character' && character) {
-      setSelected(character.name);
-    }
-  });
 
   const onMouseEnter = () => {
     setDropdown(true);
@@ -78,6 +65,18 @@ const MenuItems = ({ type, items, depthLevel }: MenuItemsProps) => {
     setDropdown(!dropdown);
   }
 
+  const selected = () => {
+    if (type === 'zone' && zone) {
+      return zone;
+    } else if (type === 'class' && characterClass) {
+      return characterClass.title;
+    } else if (type === 'race' && race) {
+      return race.title;
+    } else if (type === 'character' && character) {
+      return character.name;
+    }
+  }
+
   return (
     <li
       className="menu-items"
@@ -95,7 +94,7 @@ const MenuItems = ({ type, items, depthLevel }: MenuItemsProps) => {
           >
             {depthLevel > 0 ? <span>&laquo;</span> : <></>}
             {depthLevel === 0 ? (
-              <>{selected ? selected : items.title}</>
+              <>{selected() ? selected() : items.title}</>
             ) : (
               <>{items.title}</>
             )}

@@ -43,9 +43,14 @@ export const questTrackerSlice = createSlice({
     },
     storeQuestTrackerCharacter: (state, action: PayloadAction<QuestTrackerSettings>) => {
       if (!state.character) state.character = {};
-      state.character.id = action.payload.character.id;
-      state.character.name = action.payload.character.name;
-      state.character.value = action.payload.character.value;
+      if (state.character?.id === 0) {
+        delete state.character;
+      } else {
+        state.character.id = action.payload.character.id;
+        state.character.name = action.payload.character.name;
+        state.character.value = action.payload.character.value;
+      }
+
       if (state.race) delete state.race;
       if (state.characterClass) delete state.characterClass;
     }

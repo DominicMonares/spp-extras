@@ -16,19 +16,20 @@ const Controls = ({ characters }: QuestTrackerControlsProps) => {
   const { faction, character } = settings;
 
   const characterMenu = () => {
-    return [
-      {
-        title: 'Characters',
-        submenu: Object.values(characters[faction]).map(c => {
-          const value = {
-            characterClass: c.class_field,
-            race: c.race
-          };
+    const submenu = Object.values(characters[faction]).map(c => {
+      const value = { characterClass: c.class_field, race: c.race };
+      return { title: c.name, id: c.guid, value: JSON.stringify(value) };
+    });
 
-          return { title: c.name, id: c.guid, value: JSON.stringify(value) };
-        })
-      }
-    ];
+    if (character) {
+      submenu.unshift({ 
+        title: 'All Characters', 
+        id: 0, 
+        value: '{ "characterClass": 1, "race": 1 }'
+      });
+    }
+
+    return [{ title: 'All Characters', submenu: submenu }];
   }
 
   const characterClass = () => {

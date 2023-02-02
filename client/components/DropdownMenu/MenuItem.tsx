@@ -1,4 +1,4 @@
-import { useEffect, useState, MouseEvent } from 'react';
+import { useState, MouseEvent } from 'react';
 import Dropdown from './Dropdown';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import {

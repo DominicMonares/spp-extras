@@ -33,7 +33,7 @@ const MenuItems = ({ type, items, depthLevel }: MenuItemsProps) => {
     const target = e.target as HTMLInputElement;
     const title = target.innerText;
     const id = Number(target.id);
-    const value = Number(target.value);
+    const value = target.value;
 
     if (type === 'zone') {
       dispatch(storeQuestTrackerZone({ zone: title }));
@@ -42,7 +42,7 @@ const MenuItems = ({ type, items, depthLevel }: MenuItemsProps) => {
         characterClass: {
           id: id,
           title: title,
-          value: value
+          value: Number(value)
         }
       }));
     } else if (type === 'race') {
@@ -50,14 +50,15 @@ const MenuItems = ({ type, items, depthLevel }: MenuItemsProps) => {
         race: { 
           id: id,
           title: title,
-          value: value
+          value: Number(value)
         } 
       }));
     } else if (type === 'character') {
       dispatch(storeQuestTrackerCharacter({
         character: {
           id: id,
-          name: title
+          name: title,
+          value: value
         }
       }));
     }

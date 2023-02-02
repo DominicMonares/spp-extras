@@ -1,8 +1,6 @@
 import { Race, CharacterClass, Faction, Characters } from './characters';
 
 
-export type CharacterQuestClass = 1 | 2 | 4 | 8 | 16 | 32 | 64 | 128 | 256 | 1024;
-
 export interface CharacterQuests {
   reg: RegQuests;
   daily?: RepeatQuests;
@@ -10,23 +8,20 @@ export interface CharacterQuests {
   monthly?: RepeatQuests;
 }
 
-export interface ClassSetting {
-  id: CharacterClass;
-  title: string;
-  value: CharacterQuestClass;
-}
+export type CharacterQuestClass = 1 | 2 | 4 | 8 | 16 | 32 | 64 | 128 | 256 | 1024;
 
 export type CharacterQuestRace = 1 | 2 | 4 | 8 | 16 | 32 | 64 | 128 | 512 | 1024;
-
-export interface RaceSetting { 
-  id: Race;
-  title: string;
-  value: CharacterQuestRace;
-}
 
 export interface CharacterSetting {
   id: number;
   name: string;
+  value: string;
+}
+
+export interface ClassSetting {
+  id: CharacterClass;
+  title: string;
+  value: CharacterQuestClass;
 }
 
 export interface CompletedQuests {
@@ -58,6 +53,10 @@ export interface QuestProps {
   quest: ViewQuest;
 }
 
+export interface QuestTrackerControlsProps {
+  characters: Characters;
+}
+
 export interface QuestTrackerSettings {
   faction?: Faction;
   type?: QuestType;
@@ -67,7 +66,18 @@ export interface QuestTrackerSettings {
   character?: CharacterSetting | Record<string, never>;
 }
 
+export interface QuestTrackerViewProps {
+  templateQuests: TemplateQuests;
+  completedQuests: CompletedQuests;
+}
+
 export type QuestType = 'reg' | 'daily' | 'weekly' | 'monthly';
+
+export interface RaceSetting { 
+  id: Race;
+  title: string;
+  value: CharacterQuestRace;
+}
 
 export interface RegQuest {
   guid: number;
@@ -125,13 +135,4 @@ export interface ViewQuest extends TemplateQuest {
 
 export interface ViewQuests {
   [key: string]: ViewQuest;
-}
-
-export interface QuestTrackerViewProps {
-  templateQuests: TemplateQuests;
-  completedQuests: CompletedQuests;
-}
-
-export interface QuestTrackerControlsProps {
-  characters: Characters;
 }

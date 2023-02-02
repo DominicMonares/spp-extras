@@ -13,17 +13,17 @@ export const questTrackerSlice = createSlice({
   reducers: {
     storeQuestTrackerFaction: (state, action: PayloadAction<QuestTrackerSettings>) => {
       state.faction = action.payload.faction;
+      if (state.characterClass) delete state.characterClass;
       if (state.race) delete state.race;
       if (state.character) delete state.character;
-      return state;
     },
     storeQuestTrackerType: (state, action: PayloadAction<QuestTrackerSettings>) => {
       state.type = action.payload.type;
-      return state;
     },
     storeQuestTrackerZone: (state, action: PayloadAction<QuestTrackerSettings>) => {
       state.zone = action.payload.zone;
-      return state;
+      if (state.characterClass) delete state.characterClass;
+      if (state.race) delete state.race;
     },
     storeQuestTrackerClass: (state, action: PayloadAction<QuestTrackerSettings>) => {
       if (!state.characterClass) state.characterClass = {};
@@ -32,8 +32,6 @@ export const questTrackerSlice = createSlice({
       state.characterClass.value = action.payload.characterClass.value;
       if (state.zone) delete state.zone;
       if (state.race) delete state.race;
-      if (state.character) delete state.character;
-      return state;
     },
     storeQuestTrackerRace: (state, action: PayloadAction<QuestTrackerSettings>) => {
       if (!state.race) state.race = {};
@@ -42,16 +40,14 @@ export const questTrackerSlice = createSlice({
       state.race.value = action.payload.race.value;
       if (state.zone) delete state.zone;
       if (state.characterClass) delete state.characterClass;
-      if (state.character) delete state.character;
-      return state;
     },
     storeQuestTrackerCharacter: (state, action: PayloadAction<QuestTrackerSettings>) => {
       if (!state.character) state.character = {};
       state.character.id = action.payload.character.id;
       state.character.name = action.payload.character.name;
+      state.character.value = action.payload.character.value;
       if (state.race) delete state.race;
       if (state.characterClass) delete state.characterClass;
-      return state;
     }
   }
 });

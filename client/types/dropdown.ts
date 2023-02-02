@@ -24,5 +24,5 @@ export interface Submenu {
   title: string;
   submenu?: Menu;
   id?: number;
-  value?: number;
+  value?: number | string;
 }

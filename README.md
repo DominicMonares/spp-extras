@@ -23,7 +23,7 @@ CREATE VIRTUAL ENV
 python -m virtualenv spp_extras_env   |   api:env
 
 ACTIVATE VE
-.\env\Scripts\activate
+.\spp_extras_env\Scripts\activate
 
 
 ============ ALL BELOW MUST BE DONE FROM ACTIVATED VE ============

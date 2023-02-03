@@ -21,13 +21,13 @@ const Controls = ({ characters }: QuestTrackerControlsProps) => {
       return { title: c.name, id: c.guid, value: JSON.stringify(value) };
     });
 
-    if (character) {
-      submenu.unshift({ 
-        title: 'All Characters', 
-        id: 0, 
-        value: '{ "characterClass": 1, "race": 1 }'
-      });
-    }
+    submenu.unshift({ 
+      title: 'All Characters', 
+      id: 0, 
+      value: '{ "characterClass": 1, "race": 1 }'
+    });
+    // if (character) {
+    // }
 
     return [{ title: 'All Characters', submenu: submenu }];
   }

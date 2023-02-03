@@ -1,5 +1,3 @@
-import _ from "lodash";
-import { useEffect, useState } from 'react';
 import Quest from './Quest';
 import { useAppSelector } from '../../store/hooks';
 import {
@@ -20,9 +18,8 @@ const questFlags = repeatQuestFlags as QuestFlags;
 const View = ({ templateQuests, completedQuests }: QuestTrackerViewProps) => {
   const settings = useAppSelector(state => state.questTracker);
   const { faction, type, zone, characterClass, race, character } = settings;
-  const [quests, setQuests] = useState<ViewQuests>({});
 
-  useEffect(() => {
+  const filteredQuests = () => {
     const newQuests: ViewQuests = {};
 
     // Render quests once faction selected, filter by settings
@@ -93,17 +90,14 @@ const View = ({ templateQuests, completedQuests }: QuestTrackerViewProps) => {
       }
     }
 
-    if (!_.isEqual(quests, newQuests)) {
-      // clear zone if class setting used
-      setQuests(newQuests);
-    }
-  });
+    return newQuests;
+  };
 
   return (
     <div>
       Quests
       <div>WOWHEAD TEST</div>
-      {Object.values(quests).map((q, i) => <Quest key={i} quest={q} />)}
+      {Object.values(filteredQuests()).map((q, i) => <Quest key={i} quest={q} />)}
     </div>
   );
 }

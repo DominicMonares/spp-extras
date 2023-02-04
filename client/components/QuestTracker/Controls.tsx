@@ -26,8 +26,6 @@ const Controls = ({ characters }: QuestTrackerControlsProps) => {
       id: 0, 
       value: '{ "characterClass": 1, "race": 1 }'
     });
-    // if (character) {
-    // }
 
     return [{ title: 'All Characters', submenu: submenu }];
   }

@@ -58,15 +58,15 @@ const View = ({ templateQuests, completedQuests }: QuestTrackerViewProps) => {
               return false; // TEMP
             }
           },
-          character: {
-            setting: character,
-            conditionMet: () => {
-              // filter by selected faction
-              // filter by class and race if they're selected
-              // console.log('CHARACTER SET ', character);
-              return false; // TEMP
-            }
-          }
+          // character: {
+          //   setting: character,
+          //   conditionMet: () => {
+          //     // filter by selected faction
+          //     // filter by class and race if they're selected
+          //     // console.log('CHARACTER SET ', character);
+          //     return false; // TEMP
+          //   }
+          // }
         };
 
         let conditionsMet = true;
@@ -81,12 +81,20 @@ const View = ({ templateQuests, completedQuests }: QuestTrackerViewProps) => {
     }
 
     // Mark completed quests, check both factions so neutral quests are marked
-    const allCompletedQuests = { ...completedQuests['alliance'], ...completedQuests['horde'] };
-    for (const c in allCompletedQuests) {
-      const character = allCompletedQuests[c];
-      for (const q in character[type]) {
-        const quest = character[type][q];
+    if (character && character.id) {
+      const characterQuests = completedQuests[faction][character.id];
+      for (const q in characterQuests[type]) {
+        const quest = characterQuests[type][q];
         if (newQuests[quest.quest]) newQuests[quest.quest]['completed'] = true;
+      }
+    } else {
+      const allCompletedQuests = { ...completedQuests['alliance'], ...completedQuests['horde'] };
+      for (const c in allCompletedQuests) {
+        const char = allCompletedQuests[c];
+        for (const q in char[type]) {
+          const quest = char[type][q];
+          if (newQuests[quest.quest]) newQuests[quest.quest]['completed'] = true;
+        }
       }
     }
 

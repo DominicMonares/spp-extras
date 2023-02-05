@@ -24,7 +24,7 @@ const Controls = ({ characters }: QuestTrackerControlsProps) => {
     submenu.unshift({ 
       title: 'All Characters', 
       id: 0, 
-      value: '{ "characterClass": 1, "race": 1 }'
+      value: '{ "characterClass": 0, "race": 0 }'
     });
 
     return [{ title: 'All Characters', submenu: submenu }];
@@ -60,16 +60,16 @@ const Controls = ({ characters }: QuestTrackerControlsProps) => {
       <DropdownMenu type="character" menu={characterMenu()} />
       <QuestTypeCheckboxes />
       <DropdownMenu type="zone" menu={zoneMenu} />
-      {character ? (
+      {character && JSON.parse(character.value).characterClass ? (
         <button onClick={dispatchCharacterClass}>
-          {characterClass().title}
+          {characterClass()?.title}
         </button>
       ) : (
         <DropdownMenu type="class" menu={classMenu} />
       )}
-      {character ? (
+      {character && JSON.parse(character.value).race ? (
         <button onClick={dispatchCharacterRace}>
-          {characterRace().title}
+          {characterRace()?.title}
         </button>
       ) : (
         <DropdownMenu type="race" menu={raceMenu[faction]} />

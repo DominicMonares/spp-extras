@@ -57,16 +57,7 @@ const View = ({ templateQuests, completedQuests }: QuestTrackerViewProps) => {
               // console.log('RACE SET ', race);
               return false; // TEMP
             }
-          },
-          // character: {
-          //   setting: character,
-          //   conditionMet: () => {
-          //     // filter by selected faction
-          //     // filter by class and race if they're selected
-          //     // console.log('CHARACTER SET ', character);
-          //     return false; // TEMP
-          //   }
-          // }
+          }
         };
 
         let conditionsMet = true;

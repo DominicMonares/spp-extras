@@ -14,7 +14,7 @@ export interface Characters {
   horde: FactionCharacters;
 }
 
-export type Faction = 'alliance' | 'horde' | 'both';
+export type Faction = 'alliance' | 'horde';
 
 export interface FactionCharacters {
   [key: string]: Character;

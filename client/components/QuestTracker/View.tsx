@@ -3,17 +3,20 @@ import { useAppSelector } from '../../store/hooks';
 import {
   QuestConditions,
   QuestFlags,
+  QuestRaces,
   QuestTrackerViewProps,
   Subzone,
   ViewQuests,
   Zones
 } from '../../types';
+import _questRaces from '../../../data/questRaces.json';
 import repeatQuestFlags from '../../../data/repeatQuestFlags.json';
 import zoneRef from '../../../data/zoneRef.json';
 
 
-const zones = zoneRef as Zones;
 const questFlags = repeatQuestFlags as QuestFlags;
+const questRaces = _questRaces as QuestRaces;
+const zones = zoneRef as Zones;
 
 const View = ({ templateQuests, completedQuests }: QuestTrackerViewProps) => {
   const settings = useAppSelector(state => state.questTracker);
@@ -28,6 +31,10 @@ const View = ({ templateQuests, completedQuests }: QuestTrackerViewProps) => {
       const template = { ...templateQuests[faction], ...templateQuests['both'] };
       for (const q in template) {
         const quest = template[q];
+        const questClass = quest.requiredclasses;
+        const questRace = quest.requiredraces;
+        const factionMatch = faction === questRaces[questRace]['faction'];
+
         const conditions: QuestConditions = {
           type: {
             setting: type,
@@ -43,20 +50,18 @@ const View = ({ templateQuests, completedQuests }: QuestTrackerViewProps) => {
           characterClass: {
             setting: characterClass,
             conditionMet: () => {
-              // don't render faction specific classes for classic
-              // filter classes if race selected
-              // console.log('CHAR CLASS SET ', characterClass)
-              return false; // TEMP
+              let completeMatch = true;
+              const classesMatch = characterClass?.value === questClass;
+              const racesMatch = questRaces[questRace]['raceIds'].includes(race?.value);
+              if (!classesMatch) completeMatch = false;
+              if (race && !racesMatch) completeMatch = false;
+              if (!race && !factionMatch) completeMatch = false;
+              return completeMatch;
             }
           },
           race: {
             setting: race,
-            conditionMet: () => {
-              // filter races if class selected
-              // filter races by faction
-              // console.log('RACE SET ', race);
-              return false; // TEMP
-            }
+            conditionMet: () => questRaces[questRace]['raceIds'].includes(race?.value)
           }
         };
 

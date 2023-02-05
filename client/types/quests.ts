@@ -53,6 +53,17 @@ export interface QuestProps {
   quest: ViewQuest;
 }
 
+export interface QuestRace {
+  questRaceId: number;
+  faction: Faction;
+  races: string;
+  raceIds: number[];
+}
+
+export interface QuestRaces {
+  [key: string]: QuestRace;
+}
+
 export interface QuestTrackerControlsProps {
   characters: Characters;
 }

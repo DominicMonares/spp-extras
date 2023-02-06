@@ -4,6 +4,11 @@
       "title": "Race",
       "submenu": [
         {
+          "title": "Clear Race",
+          "id": 0,
+          "value": 0
+        },
+        {
           "title": "Draenei",
           "id": 11,
           "value": 1024
@@ -35,6 +40,11 @@
     {
       "title": "Race",
       "submenu": [
+        {
+          "title": "Clear Race",
+          "id": 0,
+          "value": 0
+        },
         {
           "title": "Blood Elf",
           "id": 10,

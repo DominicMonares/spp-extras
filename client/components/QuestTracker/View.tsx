@@ -1,6 +1,7 @@
 import Quest from './Quest';
 import { useAppSelector } from '../../store/hooks';
 import {
+  Faction,
   QuestConditions,
   QuestFlags,
   QuestRaces,
@@ -33,7 +34,8 @@ const View = ({ templateQuests, completedQuests }: QuestTrackerViewProps) => {
         const quest = template[q];
         const questClass = quest.requiredclasses;
         const questRace = quest.requiredraces;
-        const factionMatch = faction === questRaces[questRace]['faction'];
+        const questFaction = questRaces[questRace]['faction'] as Faction | 'both';
+        const factionMatch = questFaction === faction || questFaction === 'both';
 
         const conditions: QuestConditions = {
           type: {
@@ -52,7 +54,7 @@ const View = ({ templateQuests, completedQuests }: QuestTrackerViewProps) => {
             conditionMet: () => {
               let completeMatch = true;
               const classesMatch = characterClass?.value === questClass;
-              const racesMatch = questRaces[questRace]['raceIds'].includes(race?.value);
+              const racesMatch = questRaces[questRace]['raceIds'].includes(race?.id);
               if (!classesMatch) completeMatch = false;
               if (race && !racesMatch) completeMatch = false;
               if (!race && !factionMatch) completeMatch = false;
@@ -61,7 +63,7 @@ const View = ({ templateQuests, completedQuests }: QuestTrackerViewProps) => {
           },
           race: {
             setting: race,
-            conditionMet: () => questRaces[questRace]['raceIds'].includes(race?.value)
+            conditionMet: () => questRaces[questRace]['raceIds'].includes(race?.id)
           }
         };
 

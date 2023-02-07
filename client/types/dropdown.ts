@@ -1,6 +1,6 @@
 export interface DropdownMenuProps {
   menu: Menu;
-  questType: DropdownType;
+  type: DropdownType;
 }
 
 export interface DropdownProps {

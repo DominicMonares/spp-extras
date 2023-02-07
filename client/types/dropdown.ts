@@ -1,10 +1,10 @@
 export interface DropdownMenuProps {
   menu: Menu;
-  type: DropdownType;
+  questType: DropdownType;
 }
 
 export interface DropdownProps {
-  type: DropdownType;
+  questType: DropdownType;
   submenus: Menu;
   dropdown: boolean;
   depthLevel: number;

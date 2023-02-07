@@ -3,14 +3,14 @@ import { DropdownMenuProps, Submenu } from '../../types';
 import './DropdownMenu.css';
 
 
-const DropdownMenu = ({ type, menu }: DropdownMenuProps) => {
+const DropdownMenu = ({ menu, questType, }: DropdownMenuProps) => {
   return (
     <>
       {menu.map((m: Submenu, i: number) => {
         const depthLevel = 0;
         return (
           <MenuItem
-            type={type}
+            questType={questType}
             items={m}
             key={i}
             depthLevel={depthLevel}

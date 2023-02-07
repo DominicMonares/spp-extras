@@ -15,7 +15,7 @@ const Controls = ({ characters }: QuestTrackerControlsProps) => {
   const settings = useAppSelector(state => state.questTracker);
   const { character, characterClass, faction, race, zone } = settings;
 
-  const characterMenu = () => {
+  const filteredCharacterMenu = () => {
     const submenu = Object.values(characters[faction]).map(c => {
       const value = { characterClass: c.class_field, race: c.race };
       return { title: c.name, id: c.guid, value: JSON.stringify(value) };
@@ -27,8 +27,43 @@ const Controls = ({ characters }: QuestTrackerControlsProps) => {
       value: '{ "characterClass": 0, "race": 0 }'
     });
 
-    submenu.filter(s => s.title !== character.name) ? false : true;
-    return [{ title: 'All Characters', submenu: submenu }];
+    return [{ 
+      title: 'All Characters', 
+      submenu: submenu.filter(s => s.id !== character?.id) 
+    }];
+  }
+
+  const filteredZoneMenu = () => {
+    return [{
+      title: zoneMenu[0]['title'],
+      submenu: zoneMenu[0]['submenu'].map(w => {
+        return {
+          title: w.title,
+          submenu: w.submenu.map(c => {
+            return {
+              title: c.title,
+              submenu: c.submenu.filter(z => z.title !== zone)
+            };
+          })
+        };
+      })
+    }];
+  }
+
+  const filteredClassMenu = () => {
+    return [{
+      title: classMenu[0]['title'],
+      submenu: classMenu[0]['submenu'].filter(c => c.id !== characterClass?.id)
+    }];
+  }
+
+  const filteredRaceMenu = () => {
+    const raceMenuFaction = raceMenu[faction][0];
+
+    return [{
+      title: raceMenuFaction.title,
+      submenu: raceMenuFaction.submenu.filter(r => r.id !== race?.id)
+    }];
   }
 
   const currentCharacterClass = () => {
@@ -43,7 +78,7 @@ const Controls = ({ characters }: QuestTrackerControlsProps) => {
     }));
   }
 
-  const characterRace = () => {
+  const currentCharacterRace = () => {
     const race = JSON.parse(character.value).race;
     const races = raceMenu[faction][0]['submenu'];
     for (const r of races) if (r.id === race) return r;
@@ -51,38 +86,29 @@ const Controls = ({ characters }: QuestTrackerControlsProps) => {
 
   const dispatchCharacterRace = () => {
     dispatch(storeQuestTrackerRace({
-      race: characterRace()
+      race: currentCharacterRace()
     }));
   }
 
   return (
     <div className="controls">
       <FactionCheckboxes />
-      <DropdownMenu type="character" menu={characterMenu()} />
+      <DropdownMenu type="character" menu={filteredCharacterMenu()} />
       <QuestTypeCheckboxes />
-      <DropdownMenu
-        type="zone"
-        menu={zoneMenu.filter(w => w.submenu.filter(c => c.submenu.filter(z => z.title !== zone)))}
-      />
+      <DropdownMenu type="zone" menu={filteredZoneMenu()} />
       {character && JSON.parse(character.value).characterClass ? (
         <button onClick={dispatchCharacterClass}>
           {currentCharacterClass()?.title}
         </button>
       ) : (
-        <DropdownMenu
-          type="class"
-          menu={classMenu.filter(c => c.submenu.filter(cl => cl.id === characterClass.id))}
-        />
+        <DropdownMenu type="class" menu={filteredClassMenu()} />
       )}
       {character && JSON.parse(character.value).race ? (
         <button onClick={dispatchCharacterRace}>
-          {characterRace()?.title}
+          {currentCharacterRace()?.title}
         </button>
       ) : (
-        <DropdownMenu
-          type="race"
-          menu={raceMenu[faction].filter(r => r.submenu.filter(ra => ra.id === race.id))}
-        />
+        <DropdownMenu type="race" menu={filteredRaceMenu()} />
       )}
     </div>
   );

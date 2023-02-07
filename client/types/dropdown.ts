@@ -15,7 +15,7 @@ export type DropdownType = 'character' | 'class' | 'type' | 'race' | 'zone';
 export type Menu = Submenu[];
 
 export interface MenuItemsProps {
-  type: DropdownType;
+  questType: DropdownType;
   items: Submenu;
   depthLevel: number;
 }

@@ -21,7 +21,7 @@ class QuestViewSet(viewsets.ViewSet):
 
         charIds = chars.keys()
 
-        completedReg = CharacterQueststatus.objects\
+        completedRegular = CharacterQueststatus.objects\
             .using(f'{expansion}characters')\
             .filter(guid__in=charIds, status=1)\
             .values()
@@ -33,7 +33,7 @@ class QuestViewSet(viewsets.ViewSet):
 
         all_completed = all_completed_quests(
             chars,
-            completedReg,
+            completedRegular,
             completedWeekly
         )
 

@@ -1,4 +1,4 @@
-def all_completed_quests(chars, reg, weekly):
+def all_completed_quests(chars, regular, weekly):
     all = {
       'alliance': {},
       'horde': {}
@@ -10,14 +10,14 @@ def all_completed_quests(chars, reg, weekly):
         faction = chars[guid]
 
         if guid not in all[faction]:
-            all[faction][guid] = { 'reg': {}, 'weekly': {} }
+            all[faction][guid] = { 'regular': {}, 'weekly': {} }
 
-        if type == 'reg':
-            all[faction][guid]['reg'][questId] = quest
+        if type == 'regular':
+            all[faction][guid]['regular'][questId] = quest
         elif type == 'weekly':
             all[faction][guid]['weekly'][questId] = quest
 
-    for q in reg: add_quest(q, 'reg')
+    for q in regular: add_quest(q, 'regular')
     for q in weekly: add_quest(q, 'weekly')
     return all
 

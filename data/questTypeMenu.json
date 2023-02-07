@@ -1,17 +1,22 @@
 [
   {
-    "title": "All Quest Types"
-  },
-  {
-    "title": "Regular"
-  },
-  {
-    "title": "Daily"
-  },
-  {
-    "title": "Weekly"
-  },
-  {
-    "title": "Monthly"
+    "title": "Quest Type",
+    "submenu": [
+      {
+        "title": "All Quest Types"
+      },
+      {
+        "title": "Regular"
+      },
+      {
+        "title": "Daily"
+      },
+      {
+        "title": "Weekly"
+      },
+      {
+        "title": "Monthly"
+      }
+    ]
   }
 ]

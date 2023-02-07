@@ -1,10 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { QuestTrackerSettings } from '../../types';
+import { QuestTrackerSettings, QuestType } from '../../types';
 
 
 const initialState: QuestTrackerSettings = {
-  faction: 'alliance',
-  type: 'reg'
+  faction: 'alliance'
 };
 
 export const questTrackerSlice = createSlice({
@@ -18,7 +17,11 @@ export const questTrackerSlice = createSlice({
       if (state.character) delete state.character;
     },
     storeQuestTrackerType: (state, action: PayloadAction<QuestTrackerSettings>) => {
-      state.type = action.payload.type;
+      if (action.payload.type.toLowerCase() === 'all quest types') {
+        delete state.type;
+      } else {
+        state.type = action.payload.type.toLowerCase() as QuestType;
+      }
     },
     storeQuestTrackerZone: (state, action: PayloadAction<QuestTrackerSettings>) => {
       if (action.payload.zone === 'All Zones') {

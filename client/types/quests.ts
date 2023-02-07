@@ -2,7 +2,7 @@ import { Race, CharacterClass, Faction, Characters } from './characters';
 
 
 export interface CharacterQuests {
-  reg: RegQuests;
+  regular: RegQuests;
   daily?: RepeatQuests;
   weekly: RepeatQuests;
   monthly?: RepeatQuests;
@@ -43,7 +43,7 @@ export interface QuestConditions {
 }
 
 export interface QuestFlags {
-  reg: number[];
+  regular: number[];
   daily?: number[];
   weekly: number[];
   monthly?: number[];
@@ -82,7 +82,7 @@ export interface QuestTrackerViewProps {
   completedQuests: CompletedQuests;
 }
 
-export type QuestType = 'reg' | 'daily' | 'weekly' | 'monthly';
+export type QuestType = 'regular' | 'daily' | 'weekly' | 'monthly';
 
 export interface RaceSetting { 
   id: Race;

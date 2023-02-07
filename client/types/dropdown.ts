@@ -10,7 +10,7 @@ export interface DropdownProps {
   depthLevel: number;
 }
 
-export type DropdownType = 'character' | 'class' | 'race' | 'zone';
+export type DropdownType = 'character' | 'class' | 'type' | 'race' | 'zone';
 
 export type Menu = Submenu[];
 

@@ -3,7 +3,7 @@
     "title": "Class",
     "submenu": [
       {
-        "title": "Clear Class",
+        "title": "All Classes",
         "id": 0,
         "value": 0
       },

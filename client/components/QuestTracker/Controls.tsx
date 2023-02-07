@@ -34,26 +34,35 @@ const Controls = ({ characters }: QuestTrackerControlsProps) => {
   }
 
   const filteredZoneMenu = () => {
-    return [{
+    const menu = [{
       title: zoneMenu[0]['title'],
       submenu: zoneMenu[0]['submenu'].map(w => {
         return {
           title: w.title,
-          submenu: w.submenu.map(c => {
+          submenu: w.submenu?.map(c => {
             return {
               title: c.title,
-              submenu: c.submenu.filter(z => z.title !== zone)
+              submenu: c.submenu.filter(z => {
+                return z.title !== zone
+              })
             };
           })
         };
       })
     }];
+
+    if (!zone) menu[0]['submenu'].shift();
+    return menu;
   }
 
   const filteredClassMenu = () => {
     return [{
       title: classMenu[0]['title'],
-      submenu: classMenu[0]['submenu'].filter(c => c.id !== characterClass?.id)
+      submenu: classMenu[0]['submenu'].filter(c => {
+        const noClassMatch = c.id !== characterClass?.id;
+        const noClassSelected = !characterClass && !c.id;
+        return noClassMatch && noClassSelected ? false : noClassMatch;
+      })
     }];
   }
 
@@ -62,7 +71,11 @@ const Controls = ({ characters }: QuestTrackerControlsProps) => {
 
     return [{
       title: raceMenuFaction.title,
-      submenu: raceMenuFaction.submenu.filter(r => r.id !== race?.id)
+      submenu: raceMenuFaction.submenu.filter(r => {
+        const noRaceMatch = r.id !== race?.id;
+        const noRaceSelected = !race && !r.id;
+        return noRaceMatch && noRaceSelected ? false : noRaceMatch;
+      })
     }];
   }
 

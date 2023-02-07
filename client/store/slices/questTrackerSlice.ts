@@ -21,7 +21,12 @@ export const questTrackerSlice = createSlice({
       state.type = action.payload.type;
     },
     storeQuestTrackerZone: (state, action: PayloadAction<QuestTrackerSettings>) => {
-      state.zone = action.payload.zone;
+      if (action.payload.zone === 'All Zones') {
+        delete state.zone;
+      } else {
+        state.zone = action.payload.zone;
+      }
+
       if (state.characterClass) delete state.characterClass;
       if (state.race) delete state.race;
     },

@@ -1,14 +1,13 @@
 import { useState } from 'react';
 import { useAppDispatch } from '../../store/hooks';
 import { storeQuestTrackerType } from '../../store/slices';
-import { QuestType } from "../../types";
 
 
 const QuestTypeCheckboxes = () => {
   const dispatch = useAppDispatch();
-  const [checks, setChecks] = useState([true, false, false]);
+  const [checks, setChecks] = useState([true, false, false, false]);
 
-  const selectType = (checkboxes: boolean[], type: QuestType) => {
+  const selectType = (checkboxes: boolean[], type: string) => {
     setChecks(checkboxes);
     dispatch(storeQuestTrackerType({ type: type }));
   }
@@ -19,7 +18,7 @@ const QuestTypeCheckboxes = () => {
         <input
           type="checkbox"
           checked={checks[0]}
-          onChange={() => selectType([true, false, false], 'reg')}
+          onChange={() => selectType([true, false, false], 'regular')}
         />
         Regular
       </label>
@@ -30,6 +29,14 @@ const QuestTypeCheckboxes = () => {
           onChange={() => selectType([false, true, false], 'daily')}
         />
         Daily
+      </label>
+      <label>
+        <input
+          type="checkbox"
+          checked={checks[2]}
+          onChange={() => selectType([false, false, true], 'weekly')}
+        />
+        Weekly
       </label>
       <label>
         <input

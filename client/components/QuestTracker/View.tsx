@@ -40,7 +40,17 @@ const View = ({ templateQuests, completedQuests }: QuestTrackerViewProps) => {
         const conditions: QuestConditions = {
           type: {
             setting: type,
-            conditionMet: () => type ? questFlags[type].includes(quest.questflags) : false
+            conditionMet: () => {
+              if (type === 'regular' || type === 'daily' || type === 'weekly') {
+                return questFlags[type].includes(quest.questflags);
+              } else if (type === 'monthly') {
+                // Only 4 monthly quests prior to patch 4.3
+                const entry = quest.entry;
+                if (entry >= 9884 && entry <= 9887) return true;
+              }
+            
+              return true;
+            }
           },
           zone: {
             setting: zone,

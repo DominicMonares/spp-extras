@@ -5,16 +5,17 @@ import {
   storeQuestTrackerCharacter,
   storeQuestTrackerClass,
   storeQuestTrackerRace,
+  storeQuestTrackerType,
   storeQuestTrackerZone
 } from '../../store/slices';
 import { MenuItemsProps } from '../../types';
 import './DropdownMenu.css';
 
 
-const MenuItems = ({ type, items, depthLevel }: MenuItemsProps) => {
+const MenuItems = ({ questType, items, depthLevel }: MenuItemsProps) => {
   const dispatch = useAppDispatch();
   const settings = useAppSelector(state => state.questTracker);
-  const { zone, characterClass, race, character } = settings;
+  const { character, characterClass, race, type, zone } = settings;
   const [dropdown, setDropdown] = useState(false);
 
   const onMouseEnter = () => {
@@ -35,25 +36,7 @@ const MenuItems = ({ type, items, depthLevel }: MenuItemsProps) => {
     const id = Number(target.id);
     const value = target.value;
 
-    if (type === 'zone') {
-      dispatch(storeQuestTrackerZone({ zone: title }));
-    } else if (type === 'class') {
-      dispatch(storeQuestTrackerClass({
-        characterClass: {
-          id: id,
-          title: title,
-          value: Number(value)
-        }
-      }));
-    } else if (type === 'race') {
-      dispatch(storeQuestTrackerRace({ 
-        race: { 
-          id: id,
-          title: title,
-          value: Number(value)
-        } 
-      }));
-    } else if (type === 'character') {
+    if (questType === 'character') {
       dispatch(storeQuestTrackerCharacter({
         character: {
           id: id,
@@ -61,20 +44,42 @@ const MenuItems = ({ type, items, depthLevel }: MenuItemsProps) => {
           value: value
         }
       }));
+    } else if (questType === 'type') {
+      dispatch(storeQuestTrackerType({ type: title }))
+    } else if (questType === 'zone') {
+      dispatch(storeQuestTrackerZone({ zone: title }));
+    } else if (questType === 'class') {
+      dispatch(storeQuestTrackerClass({
+        characterClass: {
+          id: id,
+          title: title,
+          value: Number(value)
+        }
+      }));
+    } else if (questType === 'race') {
+      dispatch(storeQuestTrackerRace({ 
+        race: { 
+          id: id,
+          title: title,
+          value: Number(value)
+        } 
+      }));
     }
-
+    
     setDropdown(!dropdown);
   }
 
   const selected = () => {
-    if (type === 'zone' && zone) {
-      return zone;
-    } else if (type === 'class' && characterClass) {
-      return characterClass.title;
-    } else if (type === 'race' && race) {
-      return race.title;
-    } else if (type === 'character' && character) {
+    if (questType === 'character' && character) {
       return character.name;
+    } else if (questType === 'type' && type) {
+      return type[0].toUpperCase().concat(type.substring(1));
+    } else if (questType === 'zone' && zone) {
+      return zone;
+    } else if (questType === 'class' && characterClass) {
+      return characterClass.title;
+    } else if (questType === 'race' && race) {
+      return race.title;
     }
   }
 
@@ -102,7 +107,7 @@ const MenuItems = ({ type, items, depthLevel }: MenuItemsProps) => {
             {depthLevel === 0 ? <span className="arrow" /> : <></>}
           </button>
           <Dropdown
-            type={type}
+            questType={questType}
             depthLevel={depthLevel}
             submenus={items.submenu}
             dropdown={dropdown}

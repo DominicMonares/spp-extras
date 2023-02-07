@@ -1,10 +1,10 @@
 import DropdownMenu from '../DropdownMenu';
 import FactionCheckboxes from './FactionCheckboxes';
-import QuestTypeCheckboxes from './QuestTypeCheckboxes';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { storeQuestTrackerClass, storeQuestTrackerRace } from '../../store/slices';
 import { QuestTrackerControlsProps } from '../../types';
 import classMenu from '../../../data/classMenu.json';
+import questTypeMenu from '../../../data/questTypeMenu.json';
 import raceMenu from '../../../data/raceMenu.json';
 import zoneMenu from '../../../data/zoneMenu.json';
 import './QuestTracker.css';
@@ -13,7 +13,7 @@ import './QuestTracker.css';
 const Controls = ({ characters }: QuestTrackerControlsProps) => {
   const dispatch = useAppDispatch();
   const settings = useAppSelector(state => state.questTracker);
-  const { character, characterClass, faction, race, zone } = settings;
+  const { character, characterClass, faction, race, type, zone } = settings;
 
   const filteredCharacterMenu = () => {
     const submenu = Object.values(characters[faction]).map(c => {
@@ -31,6 +31,17 @@ const Controls = ({ characters }: QuestTrackerControlsProps) => {
       title: 'All Characters', 
       submenu: submenu.filter(s => s.id !== character?.id) 
     }];
+  }
+
+  const filteredQuestTypeMenu = () => {
+    return [{
+      title: questTypeMenu[0]['title'],
+      submenu: questTypeMenu[0]['submenu'].filter(t => {
+        const noTypeMatch = t.title.toLowerCase() !== type;
+        const noTypeSelected = !type && t.title === 'All Quest Types';
+        return noTypeMatch && noTypeSelected ? false : noTypeMatch;
+      })
+    }]
   }
 
   const filteredZoneMenu = () => {
@@ -107,7 +118,7 @@ const Controls = ({ characters }: QuestTrackerControlsProps) => {
     <div className="controls">
       <FactionCheckboxes />
       <DropdownMenu type="character" menu={filteredCharacterMenu()} />
-      <QuestTypeCheckboxes />
+      <DropdownMenu type="type" menu={filteredQuestTypeMenu()} />
       <DropdownMenu type="zone" menu={filteredZoneMenu()} />
       {character && JSON.parse(character.value).characterClass ? (
         <button onClick={dispatchCharacterClass}>

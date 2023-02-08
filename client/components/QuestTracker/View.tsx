@@ -74,7 +74,11 @@ const View = ({ templateQuests, completedQuests }: QuestTrackerViewProps) => {
           },
           race: {
             setting: race,
-            conditionMet: () => questRaces[questRace]['raceIds'].includes(race?.id)
+            conditionMet: () => {
+              if (!characterClass && !quest.requiredclasses && race) {
+                return questRaces[questRace]['raceIds'][0] === race?.id;
+              }
+            }
           }
         };
 
@@ -90,8 +94,8 @@ const View = ({ templateQuests, completedQuests }: QuestTrackerViewProps) => {
     }
 
     const allTypeQuests = (characterQuests: CharacterQuests) => {
-      const allCharacterQuests = { 
-        ...characterQuests.regular, 
+      const allCharacterQuests = {
+        ...characterQuests.regular,
         ...characterQuests.daily,
         ...characterQuests.weekly,
         ...characterQuests.monthly
@@ -118,9 +122,11 @@ const View = ({ templateQuests, completedQuests }: QuestTrackerViewProps) => {
 
   return (
     <div>
-      Quests
-      <div>WOWHEAD TEST</div>
-      {Object.values(filteredQuests()).map((q, i) => <Quest key={i} quest={q} />)}
+      {characterClass || race || zone ? (
+        Object.values(filteredQuests()).map((q, i) => <Quest key={i} quest={q} />)
+      ) : (
+        <span>Please select a zone OR class and/or race combo</span>
+      )}
     </div>
   );
 }

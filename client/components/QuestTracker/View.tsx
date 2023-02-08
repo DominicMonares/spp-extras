@@ -1,6 +1,7 @@
 import Quest from './Quest';
 import { useAppSelector } from '../../store/hooks';
 import {
+  CharacterQuests,
   Faction,
   QuestConditions,
   QuestFlags,
@@ -24,7 +25,7 @@ const View = ({ templateQuests, completedQuests }: QuestTrackerViewProps) => {
   const { faction, type, zone, characterClass, race, character } = settings;
 
   const filteredQuests = () => {
-    const newQuests: ViewQuests = {};
+    const quests: ViewQuests = {};
 
     // Render quests once faction selected, filter by settings
     if (faction) {
@@ -84,29 +85,35 @@ const View = ({ templateQuests, completedQuests }: QuestTrackerViewProps) => {
           if (conditionSetting && !conditionMet) conditionsMet = false;
         }
 
-        if (conditionsMet) newQuests[q] = { ...quest, completed: false };
+        if (conditionsMet) quests[q] = { ...quest, completed: false };
+      }
+    }
+
+    const allTypeQuests = (characterQuests: CharacterQuests) => {
+      const allCharacterQuests = { 
+        ...characterQuests.regular, 
+        ...characterQuests.daily,
+        ...characterQuests.weekly,
+        ...characterQuests.monthly
+      }
+
+      const typeQuests = type ? characterQuests[type] : allCharacterQuests;
+      for (const q in typeQuests) {
+        const quest = typeQuests[q];
+        if (quests[quest.quest]) quests[quest.quest]['completed'] = true;
       }
     }
 
     // Mark completed quests, check both factions so neutral quests are marked
     if (character && character.id) {
       const characterQuests = completedQuests[faction][character.id];
-      for (const q in characterQuests[type]) {
-        const quest = characterQuests[type][q];
-        if (newQuests[quest.quest]) newQuests[quest.quest]['completed'] = true;
-      }
+      allTypeQuests(characterQuests);
     } else {
       const allCompletedQuests = { ...completedQuests['alliance'], ...completedQuests['horde'] };
-      for (const c in allCompletedQuests) {
-        const char = allCompletedQuests[c];
-        for (const q in char[type]) {
-          const quest = char[type][q];
-          if (newQuests[quest.quest]) newQuests[quest.quest]['completed'] = true;
-        }
-      }
+      for (const c in allCompletedQuests) allTypeQuests(allCompletedQuests[c]);
     }
 
-    return newQuests;
+    return quests;
   };
 
   return (

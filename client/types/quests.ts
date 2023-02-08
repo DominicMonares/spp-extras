@@ -2,10 +2,10 @@ import { Race, CharacterClass, Faction, Characters } from './characters';
 
 
 export interface CharacterQuests {
-  regular: RegQuests;
-  daily?: RepeatQuests;
-  weekly: RepeatQuests;
-  monthly?: RepeatQuests;
+  regular: Quests;
+  daily?: Quests;
+  weekly: Quests;
+  monthly?: Quests;
 }
 
 export type CharacterQuestClass = 1 | 2 | 4 | 8 | 16 | 32 | 64 | 128 | 256 | 1024;
@@ -31,6 +31,23 @@ export interface CompletedQuests {
 
 export interface FactionQuests {
   [key: string]: CharacterQuests;
+}
+
+export interface Quest {
+  guid: number;
+  quest: number;
+  status?: number;
+  rewarded?: number;
+  explored?: number;
+  timer?: number;
+  mobcount1?: number;
+  mobcount2?: number;
+  mobcount3?: number;
+  mobcount4?: number;
+  itemcount1?: number;
+  itemcount2?: number;
+  itemcount3?: number;
+  itemcount4?: number;
 }
 
 export interface QuestCondition {
@@ -64,6 +81,10 @@ export interface QuestRaces {
   [key: string]: QuestRace;
 }
 
+export interface Quests {
+  [key: string]: Quest;
+}
+
 export interface QuestTrackerControlsProps {
   characters: Characters;
 }
@@ -88,36 +109,6 @@ export interface RaceSetting {
   id: Race;
   title: string;
   value: CharacterQuestRace;
-}
-
-export interface RegQuest {
-  guid: number;
-  quest: number;
-  status: number;
-  rewarded: number;
-  explored: number;
-  timer: number;
-  mobcount1: number;
-  mobcount2: number;
-  mobcount3: number;
-  mobcount4: number;
-  itemcount1: number;
-  itemcount2: number;
-  itemcount3: number;
-  itemcount4: number;
-}
-
-export interface RegQuests {
-  [key: string]: RegQuest;
-}
-
-export interface RepeatQuest {
-  guid: number;
-  quest: number;
-}
-
-export interface RepeatQuests {
-  [key: string]: RepeatQuest;
 }
 
 export interface TemplateFactionQuests {

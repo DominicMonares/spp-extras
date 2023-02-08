@@ -77,6 +77,8 @@ const View = ({ templateQuests, completedQuests }: QuestTrackerViewProps) => {
             conditionMet: () => {
               if (!characterClass && !quest.requiredclasses && race) {
                 return questRaces[questRace]['raceIds'][0] === race?.id;
+              } else if (characterClass && race) {
+                return questRaces[questRace]['raceIds'].includes(race?.id);
               }
             }
           }
@@ -125,7 +127,7 @@ const View = ({ templateQuests, completedQuests }: QuestTrackerViewProps) => {
       {characterClass || race || zone ? (
         Object.values(filteredQuests()).map((q, i) => <Quest key={i} quest={q} />)
       ) : (
-        <span>Please select a zone OR class and/or race combo</span>
+        <span>Please Select a Zone OR Class and/or Race</span>
       )}
     </div>
   );

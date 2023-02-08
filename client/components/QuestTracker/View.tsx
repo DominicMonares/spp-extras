@@ -48,9 +48,9 @@ const View = ({ templateQuests, completedQuests }: QuestTrackerViewProps) => {
                 // Only 4 monthly quests prior to patch 4.3
                 const entry = quest.entry;
                 if (entry >= 9884 && entry <= 9887) return true;
+              } else {
+                return true;
               }
-            
-              return true;
             }
           },
           zone: {

@@ -117,8 +117,6 @@ const Controls = ({ characters }: QuestTrackerControlsProps) => {
   return (
     <div className="controls">
       <FactionCheckboxes />
-      <DropdownMenu type="character" menu={filteredCharacterMenu()} />
-      <DropdownMenu type="type" menu={filteredQuestTypeMenu()} />
       <DropdownMenu type="zone" menu={filteredZoneMenu()} />
       {character && JSON.parse(character.value).characterClass ? (
         <button onClick={dispatchCharacterClass}>
@@ -134,6 +132,9 @@ const Controls = ({ characters }: QuestTrackerControlsProps) => {
       ) : (
         <DropdownMenu type="race" menu={filteredRaceMenu()} />
       )}
+      Additional Filters
+      <DropdownMenu type="character" menu={filteredCharacterMenu()} />
+      <DropdownMenu type="type" menu={filteredQuestTypeMenu()} />
     </div>
   );
 }

@@ -40,7 +40,7 @@ CREATE MODELS
 python src/manage.py inspectdb --database=characters > src/spp_extras_api/characters.py
 
 MIGRATE AFTER CHANGING MODELS
-python spp_extras/manage.py migrate --database=characters --fake spp_extras_api
+python src/manage.py migrate --database=wotlkmangos --fake spp_extras_api
 
 
 PACKAGE

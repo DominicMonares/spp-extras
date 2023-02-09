@@ -2,8 +2,8 @@ from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from spp_extras_api.models.classiccharacters import CharacterQueststatus, CharacterQueststatusWeekly
-from spp_extras_api.models.tbccharacters import CharacterQueststatusDaily, CharacterQueststatusMonthly
 from spp_extras_api.models.classicmangos import QuestTemplate
+from spp_extras_api.models.tbccharacters import CharacterQueststatusDaily, CharacterQueststatusMonthly
 from spp_extras_api.utils.quests import all_completed_quests, all_quests
 
 
@@ -27,24 +27,24 @@ class QuestViewSet(viewsets.ViewSet):
             .filter(guid__in=charIds, status=1)\
             .values()
 
-        completedDaily
-        if expansion == 'tbc' or expansion =='wotlk':
-            completedDaily = CharacterQueststatusDaily.objects\
-                .using(f'{expansion}characters')\
-                .filter(guid__in=charIds)\
-                .values()
+        completedDaily = 0
+        # if expansion == 'tbc' or expansion =='wotlk':
+        #     completedDaily = CharacterQueststatusDaily.objects\
+        #         .using(f'{expansion}characters')\
+        #         .filter(guid__in=charIds)\
+        #         .values()
 
         completedWeekly = CharacterQueststatusWeekly.objects\
             .using(f'{expansion}characters')\
             .filter(guid__in=charIds)\
             .values()
 
-        completedMonthly
-        if expansion == 'tbc' or expansion == 'wotlk':
-            completedMonthly = CharacterQueststatusMonthly.objects\
-                .using(f'{expansion}characters')\
-                .filter(guid__in=charIds)\
-                .values()
+        completedMonthly = 0
+        # if expansion == 'tbc' or expansion == 'wotlk':
+        #     completedMonthly = CharacterQueststatusMonthly.objects\
+        #         .using(f'{expansion}characters')\
+        #         .filter(guid__in=charIds)\
+        #         .values()
 
         all_completed = all_completed_quests(
             chars,

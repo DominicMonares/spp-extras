@@ -1,14 +1,7 @@
-# This is an auto-generated Django model module.
-# You'll have to do the following manually to clean this up:
-#   * Rearrange models' order
-#   * Make sure each model has one field with primary_key=True
-#   * Make sure each ForeignKey and OneToOneField has `on_delete` set to the desired behavior
-#   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
-# Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
 
 
-class AchievementCriteriaData(models.Model):
+class WotlkAchievementCriteriaData(models.Model):
     criteria_id = models.IntegerField(blank=True, null=True)
     type = models.IntegerField(blank=True, null=True)
     value1 = models.IntegerField(blank=True, null=True)
@@ -19,7 +12,7 @@ class AchievementCriteriaData(models.Model):
         db_table = 'achievement_criteria_data'
 
 
-class AchievementCriteriaRequirement(models.Model):
+class WotlkAchievementCriteriaRequirement(models.Model):
     criteria_id = models.IntegerField(primary_key=True)
     type = models.PositiveIntegerField()
     value1 = models.PositiveIntegerField()
@@ -31,7 +24,7 @@ class AchievementCriteriaRequirement(models.Model):
         unique_together = (('criteria_id', 'type'),)
 
 
-class AchievementReward(models.Model):
+class WotlkAchievementReward(models.Model):
     entry = models.PositiveIntegerField(primary_key=True)
     gender = models.IntegerField()
     title_a = models.PositiveIntegerField(db_column='title_A')  # Field name made lowercase.
@@ -47,7 +40,7 @@ class AchievementReward(models.Model):
         unique_together = (('entry', 'gender'),)
 
 
-class CreatureLootTemplate(models.Model):
+class WotlkCreatureLootTemplate(models.Model):
     entry = models.PositiveIntegerField(primary_key=True)
     item = models.PositiveIntegerField()
     chanceorquestchance = models.FloatField(db_column='ChanceOrQuestChance')  # Field name made lowercase.
@@ -63,7 +56,7 @@ class CreatureLootTemplate(models.Model):
         unique_together = (('entry', 'item'),)
 
 
-class ItemLootTemplate(models.Model):
+class WotlkItemLootTemplate(models.Model):
     entry = models.PositiveIntegerField(primary_key=True)
     item = models.PositiveIntegerField()
     chanceorquestchance = models.FloatField(db_column='ChanceOrQuestChance')  # Field name made lowercase.
@@ -79,7 +72,7 @@ class ItemLootTemplate(models.Model):
         unique_together = (('entry', 'item'),)
 
 
-class ItemTemplate(models.Model):
+class WotlkItemTemplate(models.Model):
     entry = models.PositiveIntegerField(primary_key=True)
     class_field = models.PositiveIntegerField(db_column='class')  # Field renamed because it was a Python reserved word.
     subclass = models.PositiveIntegerField()
@@ -224,7 +217,7 @@ class ItemTemplate(models.Model):
         db_table = 'item_template'
 
 
-class MailLevelReward(models.Model):
+class WotlkMailLevelReward(models.Model):
     level = models.PositiveIntegerField(primary_key=True)
     racemask = models.PositiveIntegerField(db_column='raceMask')  # Field name made lowercase.
     mailtemplateid = models.PositiveIntegerField(db_column='mailTemplateId')  # Field name made lowercase.
@@ -236,7 +229,7 @@ class MailLevelReward(models.Model):
         unique_together = (('level', 'racemask'),)
 
 
-class MailLootTemplate(models.Model):
+class WotlkMailLootTemplate(models.Model):
     entry = models.PositiveIntegerField(primary_key=True)
     item = models.PositiveIntegerField()
     chanceorquestchance = models.FloatField(db_column='ChanceOrQuestChance')  # Field name made lowercase.
@@ -252,7 +245,7 @@ class MailLootTemplate(models.Model):
         unique_together = (('entry', 'item'),)
 
 
-class QuestTemplate(models.Model):
+class WotlkQuestTemplate(models.Model):
     entry = models.PositiveIntegerField(primary_key=True)
     method = models.PositiveIntegerField(db_column='Method')  # Field name made lowercase.
     zoneorsort = models.SmallIntegerField(db_column='ZoneOrSort')  # Field name made lowercase.
@@ -410,7 +403,7 @@ class QuestTemplate(models.Model):
         db_table = 'quest_template'
 
 
-class ReferenceLootTemplate(models.Model):
+class WotlkReferenceLootTemplate(models.Model):
     entry = models.PositiveIntegerField(primary_key=True)
     item = models.PositiveIntegerField()
     chanceorquestchance = models.FloatField(db_column='ChanceOrQuestChance')  # Field name made lowercase.
@@ -426,7 +419,7 @@ class ReferenceLootTemplate(models.Model):
         unique_together = (('entry', 'item'),)
 
 
-class ReferenceLootTemplateNames(models.Model):
+class WotlkReferenceLootTemplateNames(models.Model):
     entry = models.PositiveIntegerField(primary_key=True)
     name = models.CharField(max_length=255)
 
@@ -435,18 +428,7 @@ class ReferenceLootTemplateNames(models.Model):
         db_table = 'reference_loot_template_names'
 
 
-class SpellLearnSpell(models.Model):
-    entry = models.PositiveSmallIntegerField(primary_key=True)
-    spellid = models.PositiveSmallIntegerField(db_column='SpellID')  # Field name made lowercase.
-    active = models.PositiveIntegerField(db_column='Active')  # Field name made lowercase.
-
-    class Meta:
-        managed = False
-        db_table = 'spell_learn_spell'
-        unique_together = (('entry', 'spellid'),)
-
-
-class SpellLootTemplate(models.Model):
+class WotlkSpellLootTemplate(models.Model):
     entry = models.PositiveIntegerField(primary_key=True)
     item = models.PositiveIntegerField()
     chanceorquestchance = models.FloatField(db_column='ChanceOrQuestChance')  # Field name made lowercase.
@@ -461,7 +443,7 @@ class SpellLootTemplate(models.Model):
         unique_together = (('entry', 'item'),)
 
 
-class SpellTemplate(models.Model):
+class WotlkSpellTemplate(models.Model):
     id = models.PositiveIntegerField(db_column='Id', primary_key=True)  # Field name made lowercase.
     category = models.PositiveIntegerField(db_column='Category')  # Field name made lowercase.
     dispel = models.PositiveIntegerField(db_column='Dispel')  # Field name made lowercase.

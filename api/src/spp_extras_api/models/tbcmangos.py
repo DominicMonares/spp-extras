@@ -1,14 +1,7 @@
-# This is an auto-generated Django model module.
-# You'll have to do the following manually to clean this up:
-#   * Rearrange models' order
-#   * Make sure each model has one field with primary_key=True
-#   * Make sure each ForeignKey and OneToOneField has `on_delete` set to the desired behavior
-#   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
-# Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
 
 
-class CreatureLootTemplate(models.Model):
+class TbcCreatureLootTemplate(models.Model):
     entry = models.PositiveIntegerField(primary_key=True)
     item = models.PositiveIntegerField()
     chanceorquestchance = models.FloatField(db_column='ChanceOrQuestChance')  # Field name made lowercase.
@@ -24,7 +17,7 @@ class CreatureLootTemplate(models.Model):
         unique_together = (('entry', 'item'),)
 
 
-class ItemLootTemplate(models.Model):
+class TbcItemLootTemplate(models.Model):
     entry = models.PositiveIntegerField(primary_key=True)
     item = models.PositiveIntegerField()
     chanceorquestchance = models.FloatField(db_column='ChanceOrQuestChance')  # Field name made lowercase.
@@ -40,7 +33,7 @@ class ItemLootTemplate(models.Model):
         unique_together = (('entry', 'item'),)
 
 
-class ItemTemplate(models.Model):
+class TbcItemTemplate(models.Model):
     entry = models.PositiveIntegerField(primary_key=True)
     class_field = models.PositiveIntegerField(db_column='class')  # Field renamed because it was a Python reserved word.
     subclass = models.PositiveIntegerField()
@@ -188,7 +181,7 @@ class ItemTemplate(models.Model):
         db_table = 'item_template'
 
 
-class MailLevelReward(models.Model):
+class TbcMailLevelReward(models.Model):
     level = models.PositiveIntegerField(primary_key=True)
     racemask = models.PositiveIntegerField(db_column='raceMask')  # Field name made lowercase.
     mailtemplateid = models.PositiveIntegerField(db_column='mailTemplateId')  # Field name made lowercase.
@@ -200,7 +193,7 @@ class MailLevelReward(models.Model):
         unique_together = (('level', 'racemask'),)
 
 
-class MailLootTemplate(models.Model):
+class TbcMailLootTemplate(models.Model):
     entry = models.PositiveIntegerField(primary_key=True)
     item = models.PositiveIntegerField()
     chanceorquestchance = models.FloatField(db_column='ChanceOrQuestChance')  # Field name made lowercase.
@@ -216,7 +209,7 @@ class MailLootTemplate(models.Model):
         unique_together = (('entry', 'item'),)
 
 
-class QuestTemplate(models.Model):
+class TbcQuestTemplate(models.Model):
     entry = models.PositiveIntegerField(primary_key=True)
     method = models.PositiveIntegerField(db_column='Method')  # Field name made lowercase.
     zoneorsort = models.SmallIntegerField(db_column='ZoneOrSort')  # Field name made lowercase.
@@ -360,7 +353,7 @@ class QuestTemplate(models.Model):
         db_table = 'quest_template'
 
 
-class ReferenceLootTemplate(models.Model):
+class TbcReferenceLootTemplate(models.Model):
     entry = models.PositiveIntegerField(primary_key=True)
     item = models.PositiveIntegerField()
     chanceorquestchance = models.FloatField(db_column='ChanceOrQuestChance')  # Field name made lowercase.
@@ -376,7 +369,7 @@ class ReferenceLootTemplate(models.Model):
         unique_together = (('entry', 'item'),)
 
 
-class ReferenceLootTemplateNames(models.Model):
+class TbcReferenceLootTemplateNames(models.Model):
     entry = models.PositiveIntegerField(primary_key=True)
     name = models.CharField(max_length=255)
 
@@ -385,18 +378,7 @@ class ReferenceLootTemplateNames(models.Model):
         db_table = 'reference_loot_template_names'
 
 
-class SpellLearnSpell(models.Model):
-    entry = models.PositiveSmallIntegerField(primary_key=True)
-    spellid = models.PositiveSmallIntegerField(db_column='SpellID')  # Field name made lowercase.
-    active = models.PositiveIntegerField(db_column='Active')  # Field name made lowercase.
-
-    class Meta:
-        managed = False
-        db_table = 'spell_learn_spell'
-        unique_together = (('entry', 'spellid'),)
-
-
-class SpellTemplate(models.Model):
+class TbcSpellTemplate(models.Model):
     id = models.PositiveIntegerField(db_column='Id', primary_key=True)  # Field name made lowercase.
     category = models.PositiveIntegerField(db_column='Category')  # Field name made lowercase.
     castui = models.PositiveIntegerField(db_column='CastUI')  # Field name made lowercase.

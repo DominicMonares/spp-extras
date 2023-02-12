@@ -14,27 +14,27 @@ class CharactersViewSet(viewsets.ViewSet):
     @action(methods=['GET'], detail=False)
     def all(self, request):
         expansion = request.GET.get('expansion')
-        accountModel = {}
-        charactersModel = {}
+        account_model = {}
+        characters_model = {}
 
         if expansion == 'classic':
-            accountModel = ClassicAccount
-            charactersModel = ClassicCharacters
+            account_model = ClassicAccount
+            characters_model = ClassicCharacters
         elif expansion == 'tbc': 
-            accountModel = TbcAccount
-            charactersModel = TbcCharacters
+            account_model = TbcAccount
+            characters_model = TbcCharacters
         elif expansion == 'wotlk':
-            accountModel = WotlkAccount
-            charactersModel = WotlkCharacters
+            account_model = WotlkAccount
+            characters_model = WotlkCharacters
 
-        accounts = accountModel.objects\
+        accounts = account_model.objects\
             .using(f'{expansion}realmd')\
             .exclude(username__contains='RNDBOT')\
             .values('id', 'username')
 
         account_ids = list(map(get_account_ids, accounts))
         
-        characters = charactersModel.objects\
+        characters = characters_model.objects\
             .using(f'{expansion}characters')\
             .filter(account__in=account_ids)\
             .values('guid', 'account', 'name', 'race', 'class_field')

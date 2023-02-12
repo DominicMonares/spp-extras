@@ -26,24 +26,24 @@ class QuestViewSet(viewsets.ViewSet):
     def completed(self, request):
         expansion = request.GET.get('expansion')
         characters = request.GET.get('characters').split(',')
-        regularQuestModel = {}
-        dailyQuestModel = {}
-        weeklyQuestModel = {}
-        monthlyQuestModel = {}
+        regular_quest_model = {}
+        daily_quest_model = {}
+        weekly_quest_model = {}
+        monthly_quest_model = {}
 
         if expansion == 'classic':
-            regularQuestModel = ClassicCharacterQueststatus
-            weeklyQuestModel = ClassicCharacterQueststatusWeekly
+            regular_quest_model = ClassicCharacterQueststatus
+            weekly_quest_model = ClassicCharacterQueststatusWeekly
         elif expansion == 'tbc':
-            regularQuestModel = TbcCharacterQueststatus
-            dailyQuestModel = TbcCharacterQueststatusDaily
-            weeklyQuestModel = TbcCharacterQueststatusWeekly
-            monthlyQuestModel = TbcCharacterQueststatusMonthly
+            regular_quest_model = TbcCharacterQueststatus
+            daily_quest_model = TbcCharacterQueststatusDaily
+            weekly_quest_model = TbcCharacterQueststatusWeekly
+            monthly_quest_model = TbcCharacterQueststatusMonthly
         elif expansion == 'wotlk':
-            regularQuestModel = WotlkCharacterQueststatus
-            dailyQuestModel = WotlkCharacterQueststatusDaily
-            weeklyQuestModel = WotlkCharacterQueststatusWeekly
-            monthlyQuestModel = WotlkCharacterQueststatusMonthly
+            regular_quest_model = WotlkCharacterQueststatus
+            daily_quest_model = WotlkCharacterQueststatusDaily
+            weekly_quest_model = WotlkCharacterQueststatusWeekly
+            monthly_quest_model = WotlkCharacterQueststatusMonthly
 
         chars = {}
         for i, c in enumerate(characters):
@@ -53,36 +53,36 @@ class QuestViewSet(viewsets.ViewSet):
 
         charIds = chars.keys()
 
-        completedRegular = regularQuestModel.objects\
+        completed_regular = regular_quest_model.objects\
             .using(f'{expansion}characters')\
             .filter(guid__in=charIds, status=1)\
             .values()
 
-        completedDaily = []
+        completed_daily = []
         if expansion == 'tbc' or expansion =='wotlk':
-            completedDaily = dailyQuestModel.objects\
+            completed_daily = daily_quest_model.objects\
                 .using(f'{expansion}characters')\
                 .filter(guid__in=charIds)\
                 .values()
 
-        completedWeekly = weeklyQuestModel.objects\
+        completed_weekly = weekly_quest_model.objects\
             .using(f'{expansion}characters')\
             .filter(guid__in=charIds)\
             .values()
 
-        completedMonthly = []
+        completed_monthly = []
         if expansion == 'tbc' or expansion == 'wotlk':
-            completedMonthly = monthlyQuestModel.objects\
+            completed_monthly = monthly_quest_model.objects\
                 .using(f'{expansion}characters')\
                 .filter(guid__in=charIds)\
                 .values()
 
         all_completed = all_completed_quests(
             chars,
-            completedRegular,
-            completedDaily,
-            completedWeekly,
-            completedMonthly
+            completed_regular,
+            completed_daily,
+            completed_weekly,
+            completed_monthly
         )
 
         return Response(
@@ -94,16 +94,16 @@ class QuestViewSet(viewsets.ViewSet):
     # Get all quests from world database
     def all(self, request):
         expansion = request.GET.get('expansion')
-        questTemplateModel = {}
+        quest_template_model = {}
 
         if expansion == 'classic':
-            questTemplateModel = ClassicQuestTemplate
+            quest_template_model = ClassicQuestTemplate
         elif expansion == 'tbc':
-            questTemplateModel = TbcQuestTemplate
+            quest_template_model = TbcQuestTemplate
         elif expansion == 'wotlk':
-            questTemplateModel = WotlkQuestTemplate
+            quest_template_model = WotlkQuestTemplate
 
-        quests = questTemplateModel.objects\
+        quests = quest_template_model.objects\
             .using(f'{expansion}mangos')\
             .all()\
             .values(

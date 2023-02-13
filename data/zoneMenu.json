@@ -13,11 +13,9 @@
             "submenu": [
               { "title": "Alterac Mountains" },
               { "title": "Arathi Highlands" },
-              { "title": "Azuremyst Isle" },
               { "title": "Badlands" },
               { "title": "Blackrock Mountain" },
               { "title": "Blasted Lands" },
-              { "title": "Bloodmyst Isle" },
               { "title": "Booty Bay" },
               { "title": "Burning Steppes" },
               { "title": "Deadwind Pass" },
@@ -39,10 +37,8 @@
               { "title": "Stormwind City" },
               { "title": "Stranglethorn Vale" },
               { "title": "Swamp of Sorrows" },
-              { "title": "The Exodar" },
               { "title": "The Hinterlands" },
               { "title": "Tirisfal Glades" },
-              { "title": "Uldaman" },
               { "title": "Undercity" },
               { "title": "Western Plaguelands" },
               { "title": "Westfall" },
@@ -54,6 +50,8 @@
             "submenu": [
               { "title": "Ashenvale" },
               { "title": "Azshara" },
+              { "title": "Azuremyst Isle" },
+              { "title": "Bloodmyst Isle" },
               { "title": "Caverns of Time" },
               { "title": "Darkshore" },
               { "title": "Darnassus" },
@@ -70,6 +68,7 @@
               { "title": "Tanaris" },
               { "title": "Teldrassil" },
               { "title": "The Barrens" },
+              { "title": "The Exodar" },
               { "title": "Thousand Needles" },
               { "title": "Thunder Bluff" },
               { "title": "Un'Goro Crater" },
@@ -120,7 +119,8 @@
               { "title": "Shadowfang Keep" },
               { "title": "The Stockade" },
               { "title": "Stratholme" },
-              { "title": "Sunken Temple" }
+              { "title": "Sunken Temple" },
+              { "title": "Uldaman" }
             ]
           },
           {

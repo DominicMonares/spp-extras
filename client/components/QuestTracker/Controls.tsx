@@ -40,8 +40,8 @@ const Controls = ({ characters }: QuestTrackerControlsProps) => {
       submenu: questTypeMenu[0]['submenu'].filter(t => {
         const noTypeMatch = t.title.toLowerCase() !== type;
         const noTypeSelected = !type && t.title === 'All Quest Types';
-        const nonVanillaType = t.title === 'Daily' || t.title === 'Monthly';
         const onVanilla = expansion === 'classic';
+        const nonVanillaType = t.title === 'Daily' || t.title === 'Monthly';
         if (noTypeMatch && noTypeSelected || nonVanillaType && onVanilla) {
           return false;
         } else {
@@ -86,13 +86,18 @@ const Controls = ({ characters }: QuestTrackerControlsProps) => {
 
   const filteredRaceMenu = () => {
     const raceMenuFaction = raceMenu[faction][0];
-
     return [{
       title: raceMenuFaction.title,
       submenu: raceMenuFaction.submenu.filter(r => {
         const noRaceMatch = r.id !== race?.id;
         const noRaceSelected = !race && !r.id;
-        return noRaceMatch && noRaceSelected ? false : noRaceMatch;
+        const onVanilla = expansion === 'classic';
+        const nonVanillaRace = r.id === 10 || r.id === 11;
+        if (noRaceMatch && noRaceSelected || onVanilla && nonVanillaRace) {
+          return false;
+        } else {
+          return noRaceMatch;
+        }
       })
     }];
   }

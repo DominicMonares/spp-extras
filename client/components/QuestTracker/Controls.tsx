@@ -12,6 +12,7 @@ import './QuestTracker.css';
 
 const Controls = ({ characters }: QuestTrackerControlsProps) => {
   const dispatch = useAppDispatch();
+  const expansion = useAppSelector(state => state.expansion.selected);
   const settings = useAppSelector(state => state.questTracker);
   const { character, characterClass, faction, race, type, zone } = settings;
 
@@ -39,9 +40,15 @@ const Controls = ({ characters }: QuestTrackerControlsProps) => {
       submenu: questTypeMenu[0]['submenu'].filter(t => {
         const noTypeMatch = t.title.toLowerCase() !== type;
         const noTypeSelected = !type && t.title === 'All Quest Types';
-        return noTypeMatch && noTypeSelected ? false : noTypeMatch;
+        const nonVanillaType = t.title === 'Daily' || t.title === 'Monthly';
+        const onVanilla = expansion === 'classic';
+        if (noTypeMatch && noTypeSelected || nonVanillaType && onVanilla) {
+          return false;
+        } else {
+          return noTypeMatch;
+        }
       })
-    }]
+    }];
   }
 
   const filteredZoneMenu = () => {

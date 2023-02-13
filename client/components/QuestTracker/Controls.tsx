@@ -38,9 +38,8 @@ const Controls = ({ characters }: QuestTrackerControlsProps) => {
     return [{
       title: questTypeMenu[0]['title'],
       submenu: questTypeMenu[0]['submenu'].filter(t => {
-        const onVanilla = expansion === 'classic';
         const nonVanillaType = t.title === 'Daily' || t.title === 'Monthly';
-        if (nonVanillaType && onVanilla) return false;
+        if (nonVanillaType && expansion === 'classic') return false;
 
         const noTypeMatch = t.title.toLowerCase() !== type;
         const noTypeSelected = !type && t.title === 'All Quest Types';
@@ -59,9 +58,25 @@ const Controls = ({ characters }: QuestTrackerControlsProps) => {
             return {
               title: c.title,
               submenu: c.submenu.filter(z => {
-                return z.title !== zone
+                const eversong = z.title === 'Eversong Woods';
+                const ghostlands = z.title === 'Ghostlands';
+                const isle = z.title === 'Isle of Quel\'Danas';
+                const silvermoon = z.title === 'Silvermoon City';
+                const azuremyst = z.title === 'Azuremyst Isle';
+                const bloodmyst = z.title === 'Bloodmyst Isle';
+                const exodar = z.title === 'The Exodar';
+                const easternKingdoms = eversong || ghostlands || isle || silvermoon;
+                const kalimdor = azuremyst || bloodmyst || exodar;
+                const newZones = easternKingdoms || kalimdor;
+                return expansion === 'classic' && newZones ? false : z.title !== zone;
               })
             };
+          }).filter(f => {
+            const onOutland = f.title === 'Outland';
+            const onNorthrend = f.title === 'Northrend';
+            if (expansion === 'classic' && (onOutland || onNorthrend)) return false;
+            if (expansion === 'tbc' && onNorthrend) return false;
+            return true;
           })
         };
       })
@@ -75,18 +90,16 @@ const Controls = ({ characters }: QuestTrackerControlsProps) => {
     return [{
       title: classMenu[0]['title'],
       submenu: classMenu[0]['submenu'].filter(c => {
-        const onVanilla = expansion === 'classic';
         const onAlliance = faction === 'alliance';
         const onHorde = faction === 'horde';
         const paladin = c.id === 2;
         const shaman = c.id === 7;
-        const noAllianceMatch = onVanilla && onAlliance && shaman;
-        const noHordeMatch = onVanilla && onHorde && paladin;
-        if (noAllianceMatch || noHordeMatch) return false;
+        const noAllianceMatch = onAlliance && shaman;
+        const noHordeMatch = onHorde && paladin;
+        if (expansion === 'classic' && (noAllianceMatch || noHordeMatch)) return false;
 
-        const onWotlk = expansion === 'wotlk';
         const deathKnight = c.id === 6;
-        if (!onWotlk && deathKnight) return false;
+        if (expansion !== 'wotlk' && deathKnight) return false;
 
         const noClassMatch = c.id !== characterClass?.id;
         const noClassSelected = !characterClass && !c.id;
@@ -100,9 +113,8 @@ const Controls = ({ characters }: QuestTrackerControlsProps) => {
     return [{
       title: raceMenuFaction.title,
       submenu: raceMenuFaction.submenu.filter(r => {
-        const onVanilla = expansion === 'classic';
         const nonVanillaRace = r.id === 10 || r.id === 11;
-        if (onVanilla && nonVanillaRace) return false;
+        if (expansion === 'classic' && nonVanillaRace) return false;
                 
         const noRaceMatch = r.id !== race?.id;
         const noRaceSelected = !race && !r.id;

@@ -7,9 +7,9 @@ import {
   QuestFlags,
   QuestRaces,
   QuestTrackerViewProps,
-  Subzone,
+  SubzoneData,
   ViewQuests,
-  Zones
+  ZonesData
 } from '../../types';
 import _questRaces from '../../../data/questRaces.json';
 import repeatQuestFlags from '../../../data/repeatQuestFlags.json';
@@ -18,7 +18,7 @@ import zoneRef from '../../../data/zoneRef.json';
 
 const questFlags = repeatQuestFlags as QuestFlags;
 const questRaces = _questRaces as QuestRaces;
-const zones = zoneRef as Zones;
+const zones = zoneRef as ZonesData;
 
 const View = ({ templateQuests, completedQuests }: QuestTrackerViewProps) => {
   const settings = useAppSelector(state => state.questTracker);
@@ -56,7 +56,7 @@ const View = ({ templateQuests, completedQuests }: QuestTrackerViewProps) => {
           zone: {
             setting: zone,
             conditionMet: () => {
-              const zoneIds = zone ? zones[zone].map((s: Subzone) => s.subzoneId) : false;
+              const zoneIds = zone ? zones[zone].map((s: SubzoneData) => s.subzoneId) : false;
               return zoneIds ? zoneIds.includes(quest.zoneorsort) : false;
             }
           },

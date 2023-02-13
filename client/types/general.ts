@@ -15,13 +15,13 @@ export type SelectedExpansion = 'classic' | 'tbc' | 'wotlk' | null;
 
 export type SelectedFeature = 'questTracker' | 'accountAchievements' | null;
 
-export interface Subzone {
+export interface SubzoneData {
   subzoneId: number;
   subzone: string;
 }
 
-export type Zone = Subzone[];
+export type ZoneData = SubzoneData[];
 
-export interface Zones {
-  [key: string]: Zone;
+export interface ZonesData {
+  [key: string]: ZoneData;
 }

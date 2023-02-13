@@ -38,15 +38,13 @@ const Controls = ({ characters }: QuestTrackerControlsProps) => {
     return [{
       title: questTypeMenu[0]['title'],
       submenu: questTypeMenu[0]['submenu'].filter(t => {
-        const noTypeMatch = t.title.toLowerCase() !== type;
-        const noTypeSelected = !type && t.title === 'All Quest Types';
         const onVanilla = expansion === 'classic';
         const nonVanillaType = t.title === 'Daily' || t.title === 'Monthly';
-        if (noTypeMatch && noTypeSelected || nonVanillaType && onVanilla) {
-          return false;
-        } else {
-          return noTypeMatch;
-        }
+        if (nonVanillaType && onVanilla) return false;
+
+        const noTypeMatch = t.title.toLowerCase() !== type;
+        const noTypeSelected = !type && t.title === 'All Quest Types';
+        return noTypeMatch && noTypeSelected ? false : noTypeMatch;
       })
     }];
   }
@@ -77,6 +75,19 @@ const Controls = ({ characters }: QuestTrackerControlsProps) => {
     return [{
       title: classMenu[0]['title'],
       submenu: classMenu[0]['submenu'].filter(c => {
+        const onVanilla = expansion === 'classic';
+        const onAlliance = faction === 'alliance';
+        const onHorde = faction === 'horde';
+        const paladin = c.id === 2;
+        const shaman = c.id === 7;
+        const noAllianceMatch = onVanilla && onAlliance && shaman;
+        const noHordeMatch = onVanilla && onHorde && paladin;
+        if (noAllianceMatch || noHordeMatch) return false;
+
+        const onWotlk = expansion === 'wotlk';
+        const deathKnight = c.id === 6;
+        if (!onWotlk && deathKnight) return false;
+
         const noClassMatch = c.id !== characterClass?.id;
         const noClassSelected = !characterClass && !c.id;
         return noClassMatch && noClassSelected ? false : noClassMatch;
@@ -89,15 +100,13 @@ const Controls = ({ characters }: QuestTrackerControlsProps) => {
     return [{
       title: raceMenuFaction.title,
       submenu: raceMenuFaction.submenu.filter(r => {
-        const noRaceMatch = r.id !== race?.id;
-        const noRaceSelected = !race && !r.id;
         const onVanilla = expansion === 'classic';
         const nonVanillaRace = r.id === 10 || r.id === 11;
-        if (noRaceMatch && noRaceSelected || onVanilla && nonVanillaRace) {
-          return false;
-        } else {
-          return noRaceMatch;
-        }
+        if (onVanilla && nonVanillaRace) return false;
+                
+        const noRaceMatch = r.id !== race?.id;
+        const noRaceSelected = !race && !r.id;
+        return noRaceMatch && noRaceSelected ? false : noRaceMatch;
       })
     }];
   }

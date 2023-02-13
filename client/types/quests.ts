@@ -1,4 +1,11 @@
-import { Race, CharacterClass, Faction, Characters } from './characters';
+import { 
+  CharacterClass, 
+  Characters, 
+  Faction, 
+  Race
+} from './characters';
+import { Menu } from './dropdown';
+import { SelectedExpansion } from './general';
 
 
 export interface CharacterQuests {
@@ -32,6 +39,34 @@ export interface CompletedQuests {
 export interface FactionQuests {
   [key: string]: CharacterQuests;
 }
+
+export type FilteredCharacterMenu = (
+  chararcter: CharacterSetting | Record<string, never>,
+  characters: Characters,
+  faction: Faction
+) => Menu;
+
+export type FilteredClassMenu = (
+  expansion: SelectedExpansion,
+  faction: Faction,
+  characterClass: ClassSetting | Record<string, never>
+) => Menu;
+
+export type FilteredQuestTypeMenu = (
+  expansion: SelectedExpansion,
+  type: QuestType
+) => Menu;
+
+export type FilteredRaceMenu = (
+  expansion: SelectedExpansion,
+  faction: Faction,
+  race: RaceSetting | Record<string, never>
+) => Menu;
+
+export type FilteredZoneMenu = (
+  expansion: SelectedExpansion,
+  zone: string
+) => Menu;
 
 export interface Quest {
   guid: number;

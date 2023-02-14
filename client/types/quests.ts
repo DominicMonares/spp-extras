@@ -173,3 +173,14 @@ export interface ViewQuest extends TemplateQuest {
 export interface ViewQuests {
   [key: string]: ViewQuest;
 }
+
+export interface ViewSubzone {
+  subzoneId: number;
+  subzone: string;
+}
+
+export type ViewZone = ViewSubzone[];
+
+export interface ViewZones {
+  [key: string]: ViewZone;
+}

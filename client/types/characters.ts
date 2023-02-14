@@ -1,4 +1,8 @@
-import { CharacterSetting, RaceSetting } from "./quests";
+import { 
+  CharacterSetting, 
+  ClassSetting, 
+  RaceSetting 
+} from "./quests";
 
 
 export interface Character {
@@ -22,6 +26,10 @@ export type Faction = 'alliance' | 'horde';
 export interface FactionCharacters {
   [key: string]: Character;
 }
+
+export type GetClass = (
+  character: CharacterSetting | Record<string, never>
+) => ClassSetting;
 
 export type GetRace = (
   character: CharacterSetting | Record<string, never>,

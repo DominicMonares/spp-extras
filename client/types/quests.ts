@@ -40,6 +40,11 @@ export interface FactionQuests {
   [key: string]: CharacterQuests;
 }
 
+export type FilterQuests = (
+  settings: QuestTrackerSettings,
+  templateQuests: TemplateQuests
+) => ViewQuests;
+
 export type FilteredCharacterMenu = (
   chararcter: CharacterSetting | Record<string, never>,
   characters: Characters,
@@ -67,6 +72,12 @@ export type FilteredZoneMenu = (
   expansion: SelectedExpansion,
   zone: string
 ) => Menu;
+
+export type MarkTemplateQuests = (
+  characterQuests: CharacterQuests,
+  filteredTemplateQuests: ViewQuests,
+  type: QuestType
+) => ViewQuests;
 
 export interface Quest {
   guid: number;

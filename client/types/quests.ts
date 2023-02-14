@@ -36,6 +36,12 @@ export interface CompletedQuests {
   horde: FactionQuests;
 }
 
+export type CreateViewQuests = (
+  completedQuests: CompletedQuests,
+  settings: QuestTrackerSettings,
+  templateQuests: TemplateQuests
+) => ViewQuests;
+
 export interface FactionQuests {
   [key: string]: CharacterQuests;
 }

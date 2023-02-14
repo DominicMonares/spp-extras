@@ -1,4 +1,5 @@
 import {
+  CreateViewQuests,
   Faction,
   FilterQuests,
   FilteredCharacterMenu,
@@ -61,6 +62,24 @@ export const classMenu: FilteredClassMenu = (expansion, faction, characterClass)
       return noClassMatch && noClassSelected ? false : noClassMatch;
     })
   }];
+}
+
+export const createViewQuests: CreateViewQuests = (completedQuests, settings, templateQuests) => {
+  const { faction, type, character } = settings;
+  const filteredTemplateQuests = filterTemplateQuests(settings, templateQuests);
+
+  // Mark completed quests, check both factions so neutral quests are marked
+  if (character && character.id) {
+    const characterQuests = completedQuests[faction][character.id];
+    markTemplateQuests(characterQuests, filteredTemplateQuests, type);
+  } else {
+    const allCompletedQuests = { ...completedQuests['alliance'], ...completedQuests['horde'] };
+    for (const c in allCompletedQuests) {
+      markTemplateQuests(allCompletedQuests[c], filteredTemplateQuests, type);
+    }
+  }
+
+  return filteredTemplateQuests;
 }
 
 export const filterTemplateQuests: FilterQuests = (settings, templateQuests) => {

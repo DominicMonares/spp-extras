@@ -5,13 +5,13 @@ import { storeQuestTrackerClass, storeQuestTrackerRace } from '../../store/slice
 import {
   characterMenu,
   classMenu,
+  getRace,
   questTypeMenu,
   raceMenu,
   zoneMenu
 } from '../../utils';
 import { QuestTrackerControlsProps } from '../../types';
 import _classMenu from '../../../data/classMenu.json';
-import _raceMenu from '../../../data/raceMenu.json';
 import './QuestTracker.css';
 
 
@@ -33,15 +33,9 @@ const Controls = ({ characters }: QuestTrackerControlsProps) => {
     }));
   }
 
-  const currentCharacterRace = () => {
-    const race = JSON.parse(character.value).race;
-    const races = _raceMenu[faction][0]['submenu'];
-    for (const r of races) if (r.id === race) return r;
-  }
-
   const dispatchCharacterRace = () => {
     dispatch(storeQuestTrackerRace({
-      race: currentCharacterRace()
+      race: getRace(character, faction)
     }));
   }
 
@@ -58,7 +52,7 @@ const Controls = ({ characters }: QuestTrackerControlsProps) => {
       )}
       {character && JSON.parse(character.value).race ? (
         <button onClick={dispatchCharacterRace}>
-          {currentCharacterRace()?.title}
+          {getRace(character, faction)?.title}
         </button>
       ) : (
         <DropdownMenu type="race" menu={raceMenu(expansion, faction, race)} />

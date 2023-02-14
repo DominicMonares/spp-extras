@@ -1,3 +1,6 @@
+import { CharacterSetting, RaceSetting } from "./quests";
+
+
 export interface Character {
   guid: number;
   account: number;
@@ -19,5 +22,10 @@ export type Faction = 'alliance' | 'horde';
 export interface FactionCharacters {
   [key: string]: Character;
 }
+
+export type GetRace = (
+  character: CharacterSetting | Record<string, never>,
+  faction: Faction
+) => RaceSetting;
 
 export type Race = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 10 | 11;

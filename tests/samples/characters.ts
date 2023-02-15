@@ -2,7 +2,7 @@ export const dwarf = {
   'title': 'Dwarf',
   'id': 3,
   'value': 4
-}
+};
 
 export const dwarfCharacter = {
   id: 1135,
@@ -17,7 +17,7 @@ export const orc = {
   'title': 'Orc',
   'id': 2,
   'value': 2
-}
+};
 
 export const orcCharacter = {
   id: 9563,
@@ -32,7 +32,7 @@ export const paladin = {
   'title': 'Paladin',
   'id': 2,
   'value': 2
-}
+};
 
 export const paladinCharacter = {
   id: 2500,
@@ -47,7 +47,7 @@ export const shaman = {
   'title': 'Shaman',
   'id': 7,
   'value': 64
-}
+};
 
 export const shamanCharacter = {
   id: 79411,

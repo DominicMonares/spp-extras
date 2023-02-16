@@ -27,6 +27,24 @@ export const hordeTemplateQuests = {
       type: 0,
       zoneorsort: -82,
       questflags: 8
+    },
+    9621: {
+      entry: 9621,
+      requiredclasses: 0,
+      requiredraces: 512,
+      title: 'Envoy to the Horde',
+      type: 0,
+      zoneorsort: 1497,
+      questflags: 128
+    },
+    9678: {
+      entry: 9678,
+      requiredclasses: 2,
+      requiredraces: 512,
+      title: 'The First Trial',
+      type: 0,
+      zoneorsort: -141,
+      questflags: 136
     }
   },
   both: {

@@ -29,6 +29,26 @@ export const filteredHordeQuests = {
     questflags: 8,
     completed: true
   },
+  9621: {
+    entry: 9621,
+    requiredclasses: 0,
+    requiredraces: 512,
+    title: 'Envoy to the Horde',
+    type: 0,
+    zoneorsort: 1497,
+    questflags: 128,
+    completed: true
+  },
+  9678: {
+    entry: 9678,
+    requiredclasses: 2,
+    requiredraces: 512,
+    title: 'The First Trial',
+    type: 0,
+    zoneorsort: -141,
+    questflags: 136,
+    completed: true
+  },
   9884: {
     entry: 9884,
     requiredclasses: 0,

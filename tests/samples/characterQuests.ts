@@ -1,6 +1,45 @@
 export const hordeCharacterQuests = {
   alliance: {},
   horde: {
+    1001: {
+      regular: {
+        9621: {
+          guid: 1001,
+          quest: 9621,
+          status: 1,
+          rewarded: 1,
+          explored: 0,
+          timer: 1675052267,
+          mobcount1: 0,
+          mobcount2: 0,
+          mobcount3: 0,
+          mobcount4: 0,
+          itemcount1: 0,
+          itemcount2: 0,
+          itemcount3: 0,
+          itemcount4: 0
+        },
+        9678: {
+          guid: 1001,
+          quest: 9678,
+          status: 1,
+          rewarded: 1,
+          explored: 0,
+          timer: 1675052267,
+          mobcount1: 0,
+          mobcount2: 0,
+          mobcount3: 0,
+          mobcount4: 0,
+          itemcount1: 0,
+          itemcount2: 0,
+          itemcount3: 0,
+          itemcount4: 0
+        }
+      },
+      daily: {},
+      weekly: {},
+      monthly: {}
+    },
     4501: {
       regular: {
         8: {
@@ -57,9 +96,9 @@ export const hordeCharacterQuests = {
           itemcount3: 0,
           itemcount4: 0
         },
-        9467: {
+        1523: {
           guid: 79411,
-          quest: 9467,
+          quest: 1523,
           status: 1,
           rewarded: 1,
           explored: 0,

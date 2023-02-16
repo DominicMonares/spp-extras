@@ -52,16 +52,19 @@ export const filterTemplateQuests: FilterQuests = (settings, templateQuests) => 
       const questRace = quest.requiredraces;
       const questFaction = questRaces[questRace]['faction'] as Faction | 'both';
       const factionMatch = questFaction === faction || questFaction === 'both';
-
+      const entry = quest.entry;
+      
       const conditions: QuestConditions = {
         type: {
           setting: type,
           conditionMet: () => {
+            console.log('EVENERFG ', entry)
             if (type === 'regular' || type === 'daily' || type === 'weekly') {
+              // The 4 monthly quests are marked as regular in template
+              if (entry >= 9884 && entry <= 9887) return false;
               return questFlags[type].includes(quest.questflags);
             } else if (type === 'monthly') {
               // Only 4 monthly quests prior to patch 4.3
-              const entry = quest.entry;
               if (entry >= 9884 && entry <= 9887) return true;
             } else {
               return true;

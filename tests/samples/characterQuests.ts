@@ -41,7 +41,7 @@ export const hordeCharacterQuests = {
     },
     79411: {
       regular: {
-        8: {
+        25: {
           guid: 79411,
           quest: 25,
           status: 1,

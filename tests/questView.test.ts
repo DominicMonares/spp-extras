@@ -7,14 +7,22 @@ import {
   allTypesSetting,
   hordeCharacterQuests,
   hordeTemplateQuests,
-  filteredHordeQuests
+  filteredHordeQuests,
+  noCharacterSetting
 } from './samples';
 
 
 describe.only('createViewQuests', () => {
-  it('should return marked, filtered template quests', () => {
+  it('should return character marked, filtered template quests', () => {
     const result = createViewQuests(hordeCharacterQuests, allTypesSetting, hordeTemplateQuests);
     expect(result).toStrictEqual(filteredHordeQuests);
+  });
+
+  it('should return all character marked, filtered template quests', () => {
+    const newFilteredQuests = filteredHordeQuests;
+    newFilteredQuests['25']['completed'] = true;
+    const result = createViewQuests(hordeCharacterQuests, noCharacterSetting, hordeTemplateQuests);
+    expect(result).toStrictEqual(newFilteredQuests);
   });
 });
 

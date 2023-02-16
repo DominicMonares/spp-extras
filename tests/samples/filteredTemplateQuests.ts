@@ -19,6 +19,16 @@ export const filteredHordeQuests = {
     questflags: 12,
     completed: false
   },
+  1523: {
+    entry: 1523,
+    requiredclasses: 64,
+    requiredraces: 690,
+    title: 'Call of Fire',
+    type: 0,
+    zoneorsort: -82,
+    questflags: 8,
+    completed: true
+  },
   9884: {
     entry: 9884,
     requiredclasses: 0,

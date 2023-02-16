@@ -55,28 +55,6 @@ export const filterTemplateQuests: FilterQuests = (settings, templateQuests) => 
       const entry = quest.entry;
       
       const conditions: QuestConditions = {
-        type: {
-          setting: type,
-          conditionMet: () => {
-            if (type === 'regular' || type === 'daily' || type === 'weekly') {
-              // The 4 monthly quests are marked as regular in template
-              if (entry >= 9884 && entry <= 9887) return false;
-              return questFlags[type].includes(quest.questflags);
-            } else if (type === 'monthly') {
-              // Only 4 monthly quests prior to patch 4.3
-              if (entry >= 9884 && entry <= 9887) return true;
-            } else {
-              return true;
-            }
-          }
-        },
-        zone: {
-          setting: zone,
-          conditionMet: () => {
-            const zoneIds = zone ? zones[zone].map((s: ViewSubzone) => s.subzoneId) : false;
-            return zoneIds ? zoneIds.includes(quest.zoneorsort) : false;
-          }
-        },
         characterClass: {
           setting: characterClass,
           conditionMet: () => {
@@ -97,6 +75,28 @@ export const filterTemplateQuests: FilterQuests = (settings, templateQuests) => 
             } else if (characterClass && race) {
               return questRaces[questRace]['raceIds'].includes(race?.id);
             }
+          }
+        },
+        type: {
+          setting: type,
+          conditionMet: () => {
+            if (type === 'regular' || type === 'daily' || type === 'weekly') {
+              // The 4 monthly quests are marked as regular in template
+              if (entry >= 9884 && entry <= 9887) return false;
+              return questFlags[type].includes(quest.questflags);
+            } else if (type === 'monthly') {
+              // Only 4 monthly quests prior to patch 4.3
+              if (entry >= 9884 && entry <= 9887) return true;
+            } else {
+              return true;
+            }
+          }
+        },
+        zone: {
+          setting: zone,
+          conditionMet: () => {
+            const zoneIds = zone ? zones[zone].map((s: ViewSubzone) => s.subzoneId) : false;
+            return zoneIds ? zoneIds.includes(quest.zoneorsort) : false;
           }
         }
       };

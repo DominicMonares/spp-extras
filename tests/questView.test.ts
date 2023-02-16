@@ -4,7 +4,7 @@ import {
 import {
   allTypesSetting,
   hordeCharacterQuests,
-  hordeTemplateQuests,
+  templateQuests,
   filteredHordeQuests,
   monthlyTypesSetting,
   noCharacterSetting,
@@ -12,11 +12,12 @@ import {
   regularTypesSetting,
   raceClassMatchSetting,
   raceClassMismatchSetting,
-  noClassSetting
+  noClassSetting,
+  noFactionMatchSetting
 } from './samples';
 
 
-describe('createViewQuests', () => {
+describe.only('createViewQuests', () => {
   it('should return all character marked, filtered template quests', () => {
     const newFilteredQuests = { 
       ...filteredHordeQuests,
@@ -26,7 +27,7 @@ describe('createViewQuests', () => {
       }
     };
 
-    const result = createViewQuests(hordeCharacterQuests, noCharacterSetting, hordeTemplateQuests);
+    const result = createViewQuests(hordeCharacterQuests, noCharacterSetting, templateQuests);
     expect(result).toStrictEqual(newFilteredQuests);
   });
   
@@ -48,7 +49,7 @@ describe('createViewQuests', () => {
       }
     };
 
-    const result = createViewQuests(hordeCharacterQuests, allTypesSetting, hordeTemplateQuests);
+    const result = createViewQuests(hordeCharacterQuests, allTypesSetting, templateQuests);
     expect(result).toStrictEqual(newFilteredQuests);
   });
   
@@ -62,7 +63,7 @@ describe('createViewQuests', () => {
       9678: { ...filteredHordeQuests['9678'] }
     };
     
-    const result = createViewQuests(hordeCharacterQuests, regularTypesSetting, hordeTemplateQuests);
+    const result = createViewQuests(hordeCharacterQuests, regularTypesSetting, templateQuests);
     expect(result).toStrictEqual(newFilteredQuests);
   });
 
@@ -72,35 +73,42 @@ describe('createViewQuests', () => {
       9884: { ...filteredHordeQuests['9884'] } 
     };
 
-    const result = createViewQuests(hordeCharacterQuests, monthlyTypesSetting, hordeTemplateQuests);
+    const result = createViewQuests(hordeCharacterQuests, monthlyTypesSetting, templateQuests);
     expect(result).toStrictEqual(newFilteredQuests);
   });
 
 
   it('should return all shaman marked, filtered template quests', () => {
     const newFilteredQuests = { 1523: { ...filteredHordeQuests['1523'] } };
-    const result = createViewQuests(hordeCharacterQuests, shamanSetting, hordeTemplateQuests);
+    const result = createViewQuests(hordeCharacterQuests, shamanSetting, templateQuests);
 
     expect(result).toStrictEqual(newFilteredQuests);
+  });
+
+
+  // MAY NOT BE NECESSARY
+  it('should return no quests if faction does not match but class does', () => {
+    const result = createViewQuests(hordeCharacterQuests, noFactionMatchSetting, templateQuests);
+    expect(result).toStrictEqual({});
   });
 
 
   it('should return all blood elf paladin marked, filtered template quests', () => {
     const newFilteredQuests = { 9678: { ...filteredHordeQuests['9678'] } };
-    const result = createViewQuests(hordeCharacterQuests, raceClassMatchSetting, hordeTemplateQuests);
+    const result = createViewQuests(hordeCharacterQuests, raceClassMatchSetting, templateQuests);
     expect(result).toStrictEqual(newFilteredQuests);
   });
 
 
   it('should return no quests for race/class mismatch', () => {
-    const result = createViewQuests(hordeCharacterQuests, raceClassMismatchSetting, hordeTemplateQuests);
+    const result = createViewQuests(hordeCharacterQuests, raceClassMismatchSetting, templateQuests);
     expect(result).toStrictEqual({});
   });
 
 
-  it.only('should return all classless blood elf marked, filtered template quests', () => {
+  it('should return all classless blood elf marked, filtered template quests', () => {
     const newFilteredQuests = { 9621: { ...filteredHordeQuests['9621'] } };
-    const result = createViewQuests(hordeCharacterQuests, noClassSetting, hordeTemplateQuests);
+    const result = createViewQuests(hordeCharacterQuests, noClassSetting, templateQuests);
     expect(result).toStrictEqual(newFilteredQuests);
   });
 });

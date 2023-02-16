@@ -20,10 +20,10 @@ export const orc = {
 };
 
 export const orcCharacter = {
-  id: 9563,
+  id: 4501,
   name: 'Drak',
   value: `{
-    "characterClass": 9,
+    "characterClass": 3,
     "race": 2
   }`
 };

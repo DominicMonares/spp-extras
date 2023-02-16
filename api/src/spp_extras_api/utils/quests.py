@@ -47,9 +47,9 @@ def all_quests(quests):
         'both': {}
     }
 
-    alliance = [1, 4, 5, 8, 64, 65, 68, 77, 1101]
-    horde = [2, 16, 32, 128, 130, 144, 162, 178, 690]
-    both = [0, 255]
+    alliance = [1, 4, 5, 8, 64, 65, 68, 77, 1101, 1024]
+    horde = [2, 16, 32, 128, 130, 144, 162, 176, 178, 512, 514, 690]
+    both = [0, 255, 1791]
 
     for quest in quests:
         required_races = quest['requiredraces']

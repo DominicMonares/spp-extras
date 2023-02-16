@@ -1,7 +1,9 @@
 import {
   bloodElf,
   orc,
-  orcCharacter, paladin, shaman
+  orcCharacter, 
+  paladin, 
+  shaman
 } from './characters';
 import { QuestTrackerSettings } from '../../client/types';
 
@@ -15,6 +17,10 @@ export const monthlyTypesSetting = {
   faction: 'horde',
   character: orcCharacter, 
   type: 'monthly' 
+} as QuestTrackerSettings;
+
+export const noCharacterSetting = {
+  faction: 'horde'
 } as QuestTrackerSettings;
 
 export const noClassSetting = {
@@ -34,16 +40,12 @@ export const raceClassMismatchSetting = {
   race: orc
 } as QuestTrackerSettings;
 
-export const shamanSetting = {
-  faction: 'horde',
-  characterClass: shaman
-} as QuestTrackerSettings;
-
 export const regularTypesSetting = {
   faction: 'horde',
   type: 'regular' 
 } as QuestTrackerSettings;
 
-export const noCharacterSetting = {
-  faction: 'horde'
+export const shamanSetting = {
+  faction: 'horde',
+  characterClass: shaman
 } as QuestTrackerSettings;

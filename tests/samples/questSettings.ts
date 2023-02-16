@@ -28,6 +28,11 @@ export const noClassSetting = {
   race: bloodElf
 } as QuestTrackerSettings;
 
+export const noFactionMatchSetting = {
+  faction: 'alliance',
+  class: paladin
+} as QuestTrackerSettings;
+
 export const raceClassMatchSetting = {
   faction: 'horde',
   characterClass: paladin,

@@ -1,5 +1,15 @@
-export const hordeTemplateQuests = {
-  alliance: {},
+export const templateQuests = {
+  alliance: {
+    1639: {
+      entry: 1639,
+      requiredclasses: 1,
+      requiredraces: 1101,
+      title: 'Bartleby the Drunk',
+      type: 0,
+      zoneorsort: -81,
+      questflags: 8
+    }
+  },
   horde: {
     8: {
       entry: 8,

@@ -58,7 +58,6 @@ export const filterTemplateQuests: FilterQuests = (settings, templateQuests) => 
         type: {
           setting: type,
           conditionMet: () => {
-            console.log('EVENERFG ', entry)
             if (type === 'regular' || type === 'daily' || type === 'weekly') {
               // The 4 monthly quests are marked as regular in template
               if (entry >= 9884 && entry <= 9887) return false;

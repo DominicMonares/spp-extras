@@ -1,3 +1,9 @@
+export const bloodElf = {
+  'title': 'Blood Elf',
+  'id': 10,
+  'value': 512
+};
+
 export const dwarf = {
   'title': 'Dwarf',
   'id': 3,

@@ -1,10 +1,11 @@
+import { QuestTrackerSettings } from '../../client/types';
 import {
-  shaman
+  shamanCharacter
 } from './characters';
 
 
-export const cvqSettings1 = {
+export const cqvSettings1 = {
   faction: 'horde',
   type: 'regular',
-  character: shaman
-};
+  character: shamanCharacter
+} as QuestTrackerSettings;

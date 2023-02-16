@@ -1,4 +1,4 @@
-export const hordeTemplateQuests = {
+export const filteredHordeQuests = {
   alliance: {},
   horde: {
     8: {
@@ -8,7 +8,8 @@ export const hordeTemplateQuests = {
       title: 'A Rogue\'s Deal',
       type: 0,
       zoneorsort: 154,
-      questflags: 0
+      questflags: 0,
+      completed: true
     },
     25: {
       entry: 25,
@@ -17,7 +18,8 @@ export const hordeTemplateQuests = {
       title: 'Stonetalon Standstill',
       type: 0,
       zoneorsort: 331,
-      questflags: 12
+      questflags: 12,
+      completed: false
     }
   },
   both: {}

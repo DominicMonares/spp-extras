@@ -12,7 +12,8 @@ import {
   regularTypesSetting,
   raceClassMatchSetting,
   raceClassMismatchSetting,
-  noClassSetting
+  noClassSetting,
+  zoneSetting
 } from './samples';
 
 
@@ -101,6 +102,13 @@ describe.only('createViewQuests', () => {
   it('should return all classless blood elf marked, filtered template quests', () => {
     const newFilteredQuests = { 9621: { ...filteredHordeQuests['9621'] } };
     const result = createViewQuests(hordeCharacterQuests, noClassSetting, templateQuests);
+    expect(result).toStrictEqual(newFilteredQuests);
+  });
+
+
+  it('should return all zone marked, filtered template quests', () => {
+    const newFilteredQuests = { 25: { ...filteredHordeQuests['25'], completed: true } };
+    const result = createViewQuests(hordeCharacterQuests, zoneSetting, templateQuests);
     expect(result).toStrictEqual(newFilteredQuests);
   });
 });

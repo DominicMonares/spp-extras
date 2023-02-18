@@ -49,3 +49,8 @@ export const shamanSetting = {
   faction: 'horde',
   characterClass: shaman
 } as QuestTrackerSettings;
+
+export const zoneSetting = {
+  faction: 'horde',
+  zone: 'Ashenvale'
+} as QuestTrackerSettings;

@@ -52,7 +52,7 @@ export type FilterQuests = (
 ) => ViewQuests;
 
 export type FilteredCharacterMenu = (
-  chararcter: CharacterSetting | Record<string, never>,
+  chararcter: CharacterSetting | never,
   characters: Characters,
   faction: Faction
 ) => Menu;
@@ -60,7 +60,7 @@ export type FilteredCharacterMenu = (
 export type FilteredClassMenu = (
   expansion: SelectedExpansion,
   faction: Faction,
-  characterClass: ClassSetting | Record<string, never>
+  characterClass: ClassSetting | never
 ) => Menu;
 
 export type FilteredQuestTypeMenu = (
@@ -71,7 +71,7 @@ export type FilteredQuestTypeMenu = (
 export type FilteredRaceMenu = (
   expansion: SelectedExpansion,
   faction: Faction,
-  race: RaceSetting | Record<string, never>
+  race: RaceSetting | never
 ) => Menu;
 
 export type FilteredZoneMenu = (
@@ -103,7 +103,7 @@ export interface Quest {
 }
 
 export interface QuestCondition {
-  setting: Faction | QuestType | string | ClassSetting | RaceSetting | CharacterSetting | Record<string, never>;
+  setting: Faction | QuestType | string | ClassSetting | RaceSetting | CharacterSetting | never;
   conditionMet: () => boolean;
 }
 
@@ -142,10 +142,10 @@ export interface QuestTrackerControlsProps {
 }
 
 export interface QuestTrackerSettings {
-  character?: CharacterSetting | Record<string, never>;
-  characterClass?: ClassSetting | Record<string, never>;
+  character?: CharacterSetting | never;
+  characterClass?: ClassSetting | never;
   faction: Faction;
-  race?: RaceSetting | Record<string, never>;
+  race?: RaceSetting | never;
   type?: QuestType;
   zone?: string;
 }

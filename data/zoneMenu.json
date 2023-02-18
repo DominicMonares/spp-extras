@@ -3,7 +3,8 @@
     "title": "Zone",
     "submenu": [
       {
-        "title": "All Zones"
+        "title": "All Zones",
+        "submenu": []
       },
       {
         "title": "World",

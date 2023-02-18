@@ -144,7 +144,7 @@ export interface QuestTrackerControlsProps {
 export interface QuestTrackerSettings {
   character?: CharacterSetting | Record<string, never>;
   characterClass?: ClassSetting | Record<string, never>;
-  faction?: Faction;
+  faction: Faction;
   race?: RaceSetting | Record<string, never>;
   type?: QuestType;
   zone?: string;

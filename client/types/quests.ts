@@ -65,7 +65,7 @@ export type FilteredClassMenu = (
 
 export type FilteredQuestTypeMenu = (
   expansion: SelectedExpansion,
-  type: QuestType
+  type: QuestType | undefined
 ) => Menu;
 
 export type FilteredRaceMenu = (
@@ -76,7 +76,7 @@ export type FilteredRaceMenu = (
 
 export type FilteredZoneMenu = (
   expansion: SelectedExpansion,
-  zone: string
+  zone: string | undefined
 ) => Menu;
 
 export type MarkTemplateQuests = (

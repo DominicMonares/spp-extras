@@ -1,12 +1,14 @@
 import {
   characterMenu,
   classMenu,
+  questTypeMenu,
   raceMenu
 } from '../client/utils';
 import { 
   ClassSetting, 
   Menu, 
-  RaceSetting
+  RaceSetting,
+  Submenu
 } from '../client/types';
 import {
   currentCharacterMenu,
@@ -18,6 +20,7 @@ import {
 } from './samples';
 import _classMenu from '../data/classMenu.json';
 import _raceMenu from '../data/raceMenu.json';
+import _questTypes from '../data/questTypeMenu.json';
 
 
 describe.only('TEMP WRAPPER ', () => {
@@ -92,6 +95,30 @@ describe.only('TEMP WRAPPER ', () => {
       races[0]?.submenu?.splice(2, 1);
       const result = raceMenu('wotlk', 'horde', orc as RaceSetting);
       expect(result).toStrictEqual(races);
+    });
+  });
+
+
+  describe('questTypeMenu', () => {
+    let menu: Menu, submenu: Menu | undefined;
+    beforeEach(() => {
+      menu = JSON.parse(JSON.stringify(_questTypes));
+      submenu = menu[0]?.submenu;
+    });
+
+    it('should not render the all quest types option if no type selected', () => {
+      submenu?.shift();
+      const result = questTypeMenu('wotlk', undefined as never);
+      expect(result).toStrictEqual(menu);
+    });
+
+
+    it('should not render the daily and monthly options if on classic and no type selected', () => {
+      submenu?.shift();
+      submenu?.splice(1, 1);
+      submenu?.pop();
+      const result = questTypeMenu('classic', undefined as never);
+      expect(result).toStrictEqual(menu);
     });
   });
 })

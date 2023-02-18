@@ -1,16 +1,23 @@
 import {
   characterMenu,
-  classMenu
+  classMenu,
+  raceMenu
 } from '../client/utils';
+import { 
+  ClassSetting, 
+  Menu, 
+  RaceSetting
+} from '../client/types';
 import {
   currentCharacterMenu,
   noCharacterMenu,
+  orc,
   orcCharacter,
   paladin,
   storedCharacters
 } from './samples';
 import _classMenu from '../data/classMenu.json';
-import { ClassSetting, Menu } from '../client/types';
+import _raceMenu from '../data/raceMenu.json';
 
 
 describe.only('TEMP WRAPPER ', () => {
@@ -59,5 +66,32 @@ describe.only('TEMP WRAPPER ', () => {
       const result = classMenu('wotlk', 'horde', paladin as ClassSetting);
       expect(result).toStrictEqual(classes);
     })
+  });
+
+
+  describe('raceMenu', () => {
+    let races: Menu;
+    beforeEach(() => races = JSON.parse(JSON.stringify(_raceMenu)).horde);
+
+
+    it('should not render the all races option if no race selected', () => {
+      races[0]?.submenu?.shift();
+      const result = raceMenu('wotlk', 'horde', undefined as never);
+      expect(result).toStrictEqual(races);
+    });
+
+
+    it('should not render the blood elf option if on classic and no race selected', () => {
+      races[0]?.submenu?.splice(0, 2);
+      const result = raceMenu('classic', 'horde', undefined as never);
+      expect(result).toStrictEqual(races);
+    });
+
+
+    it('should render all races option and not orc option when race selected', () => {
+      races[0]?.submenu?.splice(2, 1);
+      const result = raceMenu('wotlk', 'horde', orc as RaceSetting);
+      expect(result).toStrictEqual(races);
+    });
   });
 })

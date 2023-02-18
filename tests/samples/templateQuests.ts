@@ -1,12 +1,12 @@
 export const templateQuests = {
   alliance: {
-    1639: {
-      entry: 1639,
-      requiredclasses: 1,
-      requiredraces: 1101,
-      title: 'Bartleby the Drunk',
+    1780: {
+      entry: 1780,
+      requiredclasses: 2,
+      requiredraces: 1,
+      title: 'The Tome of Divinity',
       type: 0,
-      zoneorsort: -81,
+      zoneorsort: -141,
       questflags: 8
     }
   },

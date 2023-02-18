@@ -2,9 +2,9 @@ export const hordeCharacterQuests = {
   alliance: {
     5263: {
       regular: {
-        1639: {
+        1780: {
           guid: 5263,
-          quest: 1639,
+          quest: 1780,
           status: 1,
           rewarded: 1,
           explored: 0,

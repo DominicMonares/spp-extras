@@ -1,6 +1,5 @@
 import {
   CreateViewQuests,
-  Faction,
   FilterQuests,
   MarkTemplateQuests,
   QuestConditions,
@@ -50,8 +49,6 @@ export const filterTemplateQuests: FilterQuests = (settings, templateQuests) => 
       const quest = template[q];
       const questClass = quest.requiredclasses;
       const questRace = quest.requiredraces;
-      const questFaction = questRaces[questRace]['faction'] as Faction | 'both';
-      const factionMatch = questFaction === faction || questFaction === 'both';
       const entry = quest.entry;
       
       const conditions: QuestConditions = {
@@ -60,10 +57,9 @@ export const filterTemplateQuests: FilterQuests = (settings, templateQuests) => 
           conditionMet: () => {
             let completeMatch = true;
             const classesMatch = characterClass?.value === questClass;
-            const racesMatch = questRaces[questRace]['raceIds'].includes(race?.id);
+            const racesMatch = questRaces[questRace]['raceIds'][0] === race?.id;
             if (!classesMatch) completeMatch = false;
             if (race && !racesMatch) completeMatch = false;
-            if (!race && !factionMatch) completeMatch = false;
             return completeMatch;
           }
         },

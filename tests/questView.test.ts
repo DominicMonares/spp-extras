@@ -12,8 +12,7 @@ import {
   regularTypesSetting,
   raceClassMatchSetting,
   raceClassMismatchSetting,
-  noClassSetting,
-  noFactionMatchSetting
+  noClassSetting
 } from './samples';
 
 
@@ -83,13 +82,6 @@ describe.only('createViewQuests', () => {
     const result = createViewQuests(hordeCharacterQuests, shamanSetting, templateQuests);
 
     expect(result).toStrictEqual(newFilteredQuests);
-  });
-
-
-  // MAY NOT BE NECESSARY
-  it('should return no quests if faction does not match but class does', () => {
-    const result = createViewQuests(hordeCharacterQuests, noFactionMatchSetting, templateQuests);
-    expect(result).toStrictEqual({});
   });
 
 

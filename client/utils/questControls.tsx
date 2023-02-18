@@ -17,11 +17,13 @@ export const characterMenu: FilteredCharacterMenu = (character, characters, fact
     return { title: c.name, id: c.guid, value: JSON.stringify(value) };
   });
 
-  submenu.unshift({
-    title: 'All Characters',
-    id: 0,
-    value: '{ "characterClass": 0, "race": 0 }'
-  });
+  if (character) {
+    submenu.unshift({
+      title: 'All Characters',
+      id: 0,
+      value: '{ "characterClass": 0, "race": 0 }'
+    });
+  }
 
   return [{
     title: 'All Characters',

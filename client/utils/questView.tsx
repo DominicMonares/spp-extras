@@ -41,71 +41,68 @@ export const filterTemplateQuests: FilterQuests = (settings, templateQuests) => 
   // Add template quests that meet conditions to render object
   const quests: ViewQuests = {};
 
-  // Render quests once faction selected, filter by settings
-  if (faction) {
-    // Add template quests that meet conditions to render object
-    const template = { ...templateQuests[faction], ...templateQuests['both'] };
-    for (const q in template) {
-      const quest = template[q];
-      const questClass = quest.requiredclasses;
-      const questRace = quest.requiredraces;
-      const entry = quest.entry;
-      
-      const conditions: QuestConditions = {
-        characterClass: {
-          setting: characterClass,
-          conditionMet: () => {
-            let completeMatch = true;
-            const classesMatch = characterClass?.value === questClass;
-            const racesMatch = questRaces[questRace]['raceIds'][0] === race?.id;
-            if (!classesMatch) completeMatch = false;
-            if (race && !racesMatch) completeMatch = false;
-            return completeMatch;
-          }
-        },
-        race: {
-          setting: race,
-          conditionMet: () => {
-            if (!characterClass && !quest.requiredclasses && race) {
-              return questRaces[questRace]['raceIds'][0] === race?.id;
-            } else if (characterClass && race) {
-              return questRaces[questRace]['raceIds'].includes(race?.id);
-            }
-          }
-        },
-        type: {
-          setting: type,
-          conditionMet: () => {
-            if (type === 'regular' || type === 'daily' || type === 'weekly') {
-              // The 4 monthly quests are marked as regular in template
-              if (entry >= 9884 && entry <= 9887) return false;
-              return questFlags[type].includes(quest.questflags);
-            } else if (type === 'monthly') {
-              // Only 4 monthly quests prior to patch 4.3
-              if (entry >= 9884 && entry <= 9887) return true;
-            } else {
-              return true;
-            }
-          }
-        },
-        zone: {
-          setting: zone,
-          conditionMet: () => {
-            const zoneIds = zone ? zones[zone].map((s: ViewSubzone) => s.subzoneId) : false;
-            return zoneIds ? zoneIds.includes(quest.zoneorsort) : false;
+  // Add template quests that meet conditions to render object
+  const template = { ...templateQuests[faction], ...templateQuests['both'] };
+  for (const q in template) {
+    const quest = template[q];
+    const questClass = quest.requiredclasses;
+    const questRace = quest.requiredraces;
+    const entry = quest.entry;
+    
+    const conditions: QuestConditions = {
+      characterClass: {
+        setting: characterClass,
+        conditionMet: () => {
+          let completeMatch = true;
+          const classesMatch = characterClass?.value === questClass;
+          const racesMatch = questRaces[questRace]['raceIds'][0] === race?.id;
+          if (!classesMatch) completeMatch = false;
+          if (race && !racesMatch) completeMatch = false;
+          return completeMatch;
+        }
+      },
+      race: {
+        setting: race,
+        conditionMet: () => {
+          if (!characterClass && !quest.requiredclasses && race) {
+            return questRaces[questRace]['raceIds'][0] === race?.id;
+          } else if (characterClass && race) {
+            return questRaces[questRace]['raceIds'].includes(race?.id);
           }
         }
-      };
-
-      let conditionsMet = true;
-      for (const c in conditions) {
-        const conditionSetting = conditions[c]['setting'];
-        const conditionMet = conditions[c]['conditionMet']();
-        if (conditionSetting && !conditionMet) conditionsMet = false;
+      },
+      type: {
+        setting: type,
+        conditionMet: () => {
+          if (type === 'regular' || type === 'daily' || type === 'weekly') {
+            // The 4 monthly quests are marked as regular in template
+            if (entry >= 9884 && entry <= 9887) return false;
+            return questFlags[type].includes(quest.questflags);
+          } else if (type === 'monthly') {
+            // Only 4 monthly quests prior to patch 4.3
+            if (entry >= 9884 && entry <= 9887) return true;
+          } else {
+            return true;
+          }
+        }
+      },
+      zone: {
+        setting: zone,
+        conditionMet: () => {
+          const zoneIds = zone ? zones[zone].map((s: ViewSubzone) => s.subzoneId) : false;
+          return zoneIds ? zoneIds.includes(quest.zoneorsort) : false;
+        }
       }
+    };
 
-      if (conditionsMet) quests[q] = { ...quest, completed: false };
+    let conditionsMet = true;
+    for (const c in conditions) {
+      const conditionSetting = conditions[c]['setting'];
+      const conditionMet = conditions[c]['conditionMet']();
+      if (conditionSetting && !conditionMet) conditionsMet = false;
     }
+
+    if (conditionsMet) quests[q] = { ...quest, completed: false };
   }
 
   return quests;

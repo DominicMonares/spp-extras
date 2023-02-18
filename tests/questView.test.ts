@@ -17,7 +17,7 @@ import {
 } from './samples';
 
 
-describe.only('createViewQuests', () => {
+describe('createViewQuests', () => {
   it('should return all character marked, filtered template quests', () => {
     const newFilteredQuests = { 
       ...filteredHordeQuests,

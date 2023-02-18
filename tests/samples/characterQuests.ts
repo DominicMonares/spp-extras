@@ -1,4 +1,4 @@
-export const hordeCharacterQuests = {
+export const characterQuests = {
   alliance: {
     5263: {
       regular: {

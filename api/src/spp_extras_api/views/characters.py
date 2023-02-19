@@ -7,7 +7,7 @@ from spp_extras_api.models.tbcrealmd import TbcAccount
 from spp_extras_api.models.tbccharacters import TbcCharacters
 from spp_extras_api.models.wotlkrealmd import WotlkAccount
 from spp_extras_api.models.wotlkcharacters import WotlkCharacters
-from spp_extras_api.utils.characters import get_account_ids, all_characters
+from spp_extras_api.utils.characters import get_account_id, all_characters
 
 
 class CharactersViewSet(viewsets.ViewSet):
@@ -32,7 +32,7 @@ class CharactersViewSet(viewsets.ViewSet):
             .exclude(username__contains='RNDBOT')\
             .values('id', 'username')
 
-        account_ids = list(map(get_account_ids, accounts))
+        account_ids = list(map(get_account_id, accounts))
         
         characters = characters_model.objects\
             .using(f'{expansion}characters')\

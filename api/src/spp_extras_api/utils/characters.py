@@ -2,7 +2,7 @@ def check_faction(faction):
     alliance = [1, 3, 4, 7, 11]
     return 'alliance' if faction in alliance else 'horde'
 
-def get_account_ids(account):
+def get_account_id(account):
     return account['id']
 
 def all_characters(accounts, characters):

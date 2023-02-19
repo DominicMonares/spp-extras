@@ -1,19 +1,17 @@
-import {
-  getClass,
-  getFaction,
-  getRace
-} from '../../client/utils';
-import {
-  dwarf,
-  dwarfCharacter,
-  orc,
-  orcCharacter,
-  paladin,
-  paladinCharacter,
-  shaman,
-  shamanCharacter
-} from '../samples';
+import { getClass, getFaction, getRace } from '../../client/utils';
+import sampleCharacterSettings from '../samples/characterSettings.json';
+import sampleClasses from '../samples/classes.json';
+import sampleRaces from '../samples/races.json';
 
+
+const { 
+  dwarfCharacter, 
+  orcCharacter,
+  paladinCharacter,
+  shamanCharacter
+} = sampleCharacterSettings;
+const { paladin, shaman } = sampleClasses;
+const { dwarf, orc } = sampleRaces;
 
 describe('getClass', () => {
   it('Should return a paladin class setting for a paladin character', () => {

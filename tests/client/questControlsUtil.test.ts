@@ -6,33 +6,37 @@ import {
   zoneMenu
 } from '../../client/utils';
 import { 
+  Characters,
   ClassSetting, 
   Menu, 
   RaceSetting
 } from '../../client/types';
-import {
-  currentCharacterMenu,
-  noCharacterMenu,
-  orc,
-  orcCharacter,
-  paladin,
-  storedCharacters
-} from '../samples';
 import _classMenu from '../../data/classMenu.json';
 import _raceMenu from '../../data/raceMenu.json';
 import _questTypes from '../../data/questTypeMenu.json';
 import _zoneMenu from '../../data/zoneMenu.json';
+import _sampleCharacters from '../samples/characters.json';
+import sampleCharacterMenus from '../samples/characterMenus.json';
+import sampleCharacterSettings from '../samples/characterSettings.json';
+import sampleClasses from '../samples/classes.json';
+import sampleRaces from '../samples/races.json';
 
+
+const sampleCharacters = _sampleCharacters as Characters;
+const { currentCharacterMenu, noCharacterMenu } = sampleCharacterMenus;
+const { orcCharacter } = sampleCharacterSettings;
+const { paladin } = sampleClasses;
+const { orc } = sampleRaces;
 
 describe('characterMenu', () => {
   it('should create a menu with two characters if no character provided', () => {
-    const result = characterMenu(undefined, storedCharacters, 'horde');
+    const result = characterMenu(undefined, sampleCharacters, 'horde');
     expect(result).toStrictEqual(noCharacterMenu);
   });
 
 
   it('should create a menu with an all characters option and unselected characters', () => {
-    const result = characterMenu(orcCharacter, storedCharacters, 'horde');
+    const result = characterMenu(orcCharacter, sampleCharacters, 'horde');
     expect(result).toStrictEqual(currentCharacterMenu);
   });
 });

@@ -1,0 +1,22 @@
+{
+  "dwarfCharacter": {
+    "id": 1135,
+    "name": "Tolrig",
+    "value": "{\"characterClass\": 1, \"race\": 3 }"
+  },
+  "orcCharacter": {
+    "id": 4501,
+    "name": "Drak",
+    "value": "{ \"characterClass\": 3, \"race\": 2 }"
+  },
+  "paladinCharacter": {
+    "id": 2500,
+    "name": "Smith",
+    "value": "{ \"characterClass\": 2, \"race\": 1 }"
+  },
+  "shamanCharacter": {
+    "id": 79411,
+    "name": "Gazjin",
+    "value": "{ \"characterClass\": 7, \"race\": 8 }"
+  }
+}

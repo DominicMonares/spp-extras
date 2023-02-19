@@ -1,5 +1,14 @@
 {
-  "alliance": {},
+  "alliance": {
+    "4503": {
+      "guid": 4503,
+      "account": 501,
+      "name": "Bub",
+      "race": 1,
+      "class_field": 1,
+      "account_name": "ACCOUNT2"
+    }
+  },
   "horde": {
     "4501": {
       "guid": 4501,

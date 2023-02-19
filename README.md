@@ -51,3 +51,6 @@ cd dist\spp_extras_api
 spp_extras_api.exe runserver --settings=spp_extras.settings.prod --noreload
 
 ============ ALL ABOVE MUST BE DONE FROM ACTIVATED VE ============
+
+
+pytest tests/api/test_suites.py

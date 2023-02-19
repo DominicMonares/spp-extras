@@ -9,6 +9,7 @@
     "start:dev": "cross-env NODE_ENV=development electron-forge start",
     "start:prod": "cross-env NODE_ENV=production electron-forge start",
     "test:client": "jest --coverage",
+    "test:api": "pytest tests/api/test_suites.py",
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",

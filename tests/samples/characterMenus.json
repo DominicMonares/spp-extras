@@ -4,14 +4,14 @@
       "title": "All Characters",
       "submenu": [
         {
-          "title": "Gaz",
-          "id": 2501,
-          "value": "{\"characterClass\":7,\"race\":8}"
-        },
-        {
           "title": "Drak",
           "id": 4501,
           "value": "{\"characterClass\":3,\"race\":2}"
+        },
+        {
+          "title": "Gaz",
+          "id": 4502,
+          "value": "{\"characterClass\":7,\"race\":8}"
         }
       ]
     }
@@ -27,7 +27,7 @@
         },
         {
           "title": "Gaz",
-          "id": 2501,
+          "id": 4502,
           "value": "{\"characterClass\":7,\"race\":8}"
         }
       ]

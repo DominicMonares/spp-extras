@@ -1,6 +1,6 @@
 import {
   createViewQuests
-} from '../client/utils';
+} from '../../client/utils';
 import {
   allTypesSetting,
   characterQuests,
@@ -14,7 +14,7 @@ import {
   raceClassMismatchSetting,
   noClassSetting,
   zoneSetting
-} from './samples';
+} from '../samples';
 
 
 describe('createViewQuests', () => {

@@ -2,7 +2,7 @@ import {
   getClass,
   getFaction,
   getRace
-} from '../client/utils';
+} from '../../client/utils';
 import {
   dwarf,
   dwarfCharacter,
@@ -12,7 +12,7 @@ import {
   paladinCharacter,
   shaman,
   shamanCharacter
-} from './samples';
+} from '../samples';
 
 
 describe('getClass', () => {

@@ -99,3 +99,6 @@ dist
 
 # Dev Notes
 NOTES
+
+# Tests
+*.pytest_cache

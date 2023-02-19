@@ -7,9 +7,23 @@ class TestAllCharacters(TestCase):
 
     def test_all_characters(self):
         accounts = [
-            {'id': 4501, 'username': 'ACCOUNT1'},
-            {'id': 4505, 'username': 'ACCOUNT1'}
+            {'id': 500, 'username': 'ACCOUNT1'},
+            {'id': 501, 'username': 'ACCOUNT2'}
         ]
+        characters = [
+            {'guid': 4501, 'account': 500, 'name': 'Drak', 'race': 2, 'class_field': 3},
+            {'guid': 4502, 'account': 500, 'name': 'Gazjin', 'race': 8, 'class_field': 7},
+            {'guid': 4503, 'account': 501, 'name': 'Bub', 'race': 1, 'class_field': 1}
+        ]
+        result = {
+            'alliance': {
+                {'guid': 4503, 'account': 501, 'name': 'Bub', 'race': 1, 'class_field': 1}
+            },
+            'horde': {
+                {'guid': 4501, 'account': 500, 'name': 'Drak', 'race': 2, 'class_field': 3},
+                {'guid': 4502, 'account': 500, 'name': 'Gazjin', 'race': 8, 'class_field': 7}
+            }
+        }
 
 
 class TestCheckFaction(TestCase):

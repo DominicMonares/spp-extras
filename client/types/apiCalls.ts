@@ -3,7 +3,7 @@ import { SelectedExpansion } from "./general";
 import { CompletedQuests, TemplateQuests } from "./quests";
 
 
-export type FetchChars = (
+export type FetchCharacters = (
   expansion: SelectedExpansion
 ) => Promise<Characters>;
 

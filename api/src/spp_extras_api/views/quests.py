@@ -45,6 +45,8 @@ class QuestViewSet(viewsets.ViewSet):
             weekly_quest_model = WotlkCharacterQueststatusWeekly
             monthly_quest_model = WotlkCharacterQueststatusMonthly
 
+        # Split and organize char guid and faction based on string sent from client
+        # 'guid, faction, guid, faction, ...'
         chars = {}
         for i, c in enumerate(characters):
             if i % 2 == 1:
@@ -53,13 +55,14 @@ class QuestViewSet(viewsets.ViewSet):
 
         charIds = chars.keys()
 
+        # Fetch all completed quest data for all quest types
         completed_regular = regular_quest_model.objects\
             .using(f'{expansion}characters')\
             .filter(guid__in=charIds, status=1)\
             .values()
 
         completed_daily = []
-        if expansion == 'tbc' or expansion =='wotlk':
+        if expansion == 'tbc' or expansion == 'wotlk':
             completed_daily = daily_quest_model.objects\
                 .using(f'{expansion}characters')\
                 .filter(guid__in=charIds)\
@@ -77,6 +80,7 @@ class QuestViewSet(viewsets.ViewSet):
                 .filter(guid__in=charIds)\
                 .values()
 
+        # Organize quest data by faction and character and send to client
         all_completed = all_completed_quests(
             chars,
             completed_regular,
@@ -103,6 +107,7 @@ class QuestViewSet(viewsets.ViewSet):
         elif expansion == 'wotlk':
             quest_template_model = WotlkQuestTemplate
 
+        # Fetch template quests
         quests = quest_template_model.objects\
             .using(f'{expansion}mangos')\
             .all()\
@@ -116,6 +121,7 @@ class QuestViewSet(viewsets.ViewSet):
                 'questflags'
             )
 
+        # Send response with template quest data, filtered by faction
         return Response(
             status=status.HTTP_200_OK,
             data=all_template_quests(quests)

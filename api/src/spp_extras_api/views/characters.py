@@ -27,6 +27,7 @@ class CharactersViewSet(viewsets.ViewSet):
             account_model = WotlkAccount
             characters_model = WotlkCharacters
 
+        # Fetch all player account data, excluding random bot accounts
         accounts = account_model.objects\
             .using(f'{expansion}realmd')\
             .exclude(username__contains='RNDBOT')\
@@ -34,11 +35,13 @@ class CharactersViewSet(viewsets.ViewSet):
 
         account_ids = list(map(get_account_id, accounts))
         
+        # Fetch all player character data
         characters = characters_model.objects\
             .using(f'{expansion}characters')\
             .filter(account__in=account_ids)\
             .values('guid', 'account', 'name', 'race', 'class_field')
 
+        # Send response with character and account data, filtered by faction
         return Response(
             status=status.HTTP_200_OK, 
             data=all_characters(accounts, characters)

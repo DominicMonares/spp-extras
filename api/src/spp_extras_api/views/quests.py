@@ -17,7 +17,7 @@ from spp_extras_api.models.wotlkcharacters import\
     WotlkCharacterQueststatusWeekly,\
     WotlkCharacterQueststatusMonthly
 from spp_extras_api.models.wotlkmangos import WotlkQuestTemplate
-from spp_extras_api.utils.quests import all_completed_quests, all_quests
+from spp_extras_api.utils.quests import all_completed_quests, all_template_quests
 
 
 class QuestViewSet(viewsets.ViewSet):
@@ -118,5 +118,5 @@ class QuestViewSet(viewsets.ViewSet):
 
         return Response(
             status=status.HTTP_200_OK,
-            data=all_quests(quests)
+            data=all_template_quests(quests)
         )

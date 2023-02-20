@@ -28,11 +28,14 @@ def all_completed_quests(chars, regular, daily, weekly, monthly):
 
     for q in regular:
         add_quest(q, 'regular')
+        
+    for q in weekly:
+        add_quest(q, 'weekly')
+
     if daily:
         for q in daily:
             add_quest(q, 'daily')
-    for q in weekly:
-        add_quest(q, 'weekly')
+
     if monthly:
         for q in monthly:
             add_quest(q, 'monthly')
@@ -40,7 +43,7 @@ def all_completed_quests(chars, regular, daily, weekly, monthly):
     return all
 
 
-def all_quests(quests):
+def all_template_quests(quests):
     all = {
         'alliance': {},
         'horde': {},

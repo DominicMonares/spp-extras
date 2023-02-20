@@ -7,7 +7,7 @@ export const fetchCompletedQuests: FetchCompQuests = async (expansion, character
 
   return fetch(`${httpUrl}:${port}/quests/completed/?` + expansionParams)
     .then(data => data.json())
-    .catch(err => console.error('API ERROR: ', err)); // TEMP ERR HANDLING
+    .catch(err => { throw err });
 }
 
 export const fetchTemplateQuests: FetchTemplateQuests = async expansion => {
@@ -15,5 +15,5 @@ export const fetchTemplateQuests: FetchTemplateQuests = async expansion => {
 
   return fetch(`${httpUrl}:${port}/quests/all/?` + expansionParams)
     .then(data => data.json())
-    .catch(err => console.error('API ERROR: ', err)); // TEMP ERR HANDLING
+    .catch(err => { throw err });
 }

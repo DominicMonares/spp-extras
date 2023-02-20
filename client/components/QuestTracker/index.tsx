@@ -32,20 +32,23 @@ const QuestTracker = () => {
   const [templateQuests, setTemplateQuests] = useState<TemplateQuests>(defaultTemplateQuests);
   const [characters, setCharacters] = useState<Characters>(defaultCharsAndCompleted);
   const [completedQuests, setCompletedQuests] = useState<CompletedQuests>(defaultCharsAndCompleted);
+  const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
     storeQuestsAndCharacters();
   }, []);
 
   const getTemplateQuests = async () => {
-    const newTemplateQuests = await fetchTemplateQuests(expansion);
-    setTemplateQuests(newTemplateQuests);
+    const newTemplateQuests = await fetchTemplateQuests(expansion).catch(err => setError(err));
+    if (newTemplateQuests) setTemplateQuests(newTemplateQuests);
   }
 
   const getCharacters = async () => {
-    const newCharacters = await fetchCharacters(expansion);
-    setCharacters(newCharacters);
-    return newCharacters;
+    const newCharacters = await fetchCharacters(expansion).catch(err => setError(err));
+    if (newCharacters) {
+      setCharacters(newCharacters);
+      return newCharacters;
+    }
   }
 
   const getCompletedQuests = async (chars: Characters) => {
@@ -54,8 +57,9 @@ const QuestTracker = () => {
     const hordeCharacters = Object.values(chars.horde);
     const hordeParameters = hordeCharacters.map((c: Character) => [c.guid, getFaction(c.race)]);
     const characterParameters = allianceParameters.concat(hordeParameters).flat().join(',');
-    const allCompletedQuests = await fetchCompletedQuests(expansion, characterParameters);
-    setCompletedQuests(allCompletedQuests);
+    const allCompletedQuests = await fetchCompletedQuests(expansion, characterParameters)
+      .catch(err => setError(err));
+    if (allCompletedQuests) setCompletedQuests(allCompletedQuests);
   }
 
   const storeQuestsAndCharacters = async () => {
@@ -66,7 +70,11 @@ const QuestTracker = () => {
 
   return (
     <>
-      <View templateQuests={templateQuests} completedQuests={completedQuests} />
+      <View 
+        templateQuests={templateQuests} 
+        completedQuests={completedQuests} 
+        error={error}
+      />
       <Controls characters={characters} />
     </>
   );

@@ -4,7 +4,7 @@ import { createViewQuests } from '../../utils';
 import { QuestTrackerViewProps } from '../../types';
 
 
-const View = ({ templateQuests, completedQuests }: QuestTrackerViewProps) => {
+const View = ({ templateQuests, completedQuests, error }: QuestTrackerViewProps) => {
   const settings = useAppSelector(state => state.questTracker);
   const { zone, characterClass, race } = settings;
   const viewQuests = createViewQuests(completedQuests, settings, templateQuests);
@@ -16,6 +16,7 @@ const View = ({ templateQuests, completedQuests }: QuestTrackerViewProps) => {
       ) : (
         <span>Please Select a Zone OR Class and/or Race</span>
       )}
+      {error ? <div>ERROR: {JSON.stringify(error)}</div> : <></>}
     </div>
   );
 }

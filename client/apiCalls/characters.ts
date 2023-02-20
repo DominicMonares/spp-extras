@@ -7,5 +7,8 @@ export const fetchCharacters: FetchCharacters = async expansion => {
 
   return fetch(`${httpUrl}:${port}/characters/all/?` + expansionParams)
     .then(data => data.json())
-    .catch(err => { throw err });
+    .catch(err => { 
+      console.log('ERRR ', err)
+      throw err
+     });
 }

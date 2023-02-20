@@ -1,6 +1,6 @@
 import { createViewQuests } from '../../client/utils';
 import { QuestTrackerSettings } from '../../client/types';
-import characterQuests from '../samples/characterQuests.json';
+import completedQuests from '../samples/completedQuests.json';
 import sampleCharacterSettings from '../samples/characterSettings.json';
 import sampleClasses from '../samples/classes.json';
 import filteredTemplateQuests from '../samples/filteredTemplateQuests.json';
@@ -23,7 +23,7 @@ describe('createViewQuests', () => {
       }
     };
 
-    const result = createViewQuests(characterQuests, noCharacterSetting, templateQuests);
+    const result = createViewQuests(completedQuests, noCharacterSetting, templateQuests);
     expect(result).toStrictEqual(newFilteredQuests);
   });
 
@@ -46,7 +46,7 @@ describe('createViewQuests', () => {
       }
     };
 
-    const result = createViewQuests(characterQuests, allTypesSetting, templateQuests);
+    const result = createViewQuests(completedQuests, allTypesSetting, templateQuests);
     expect(result).toStrictEqual(newFilteredQuests);
   });
 
@@ -61,7 +61,7 @@ describe('createViewQuests', () => {
       9678: { ...filteredTemplateQuests['9678'] }
     };
 
-    const result = createViewQuests(characterQuests, regularTypesSetting, templateQuests);
+    const result = createViewQuests(completedQuests, regularTypesSetting, templateQuests);
     expect(result).toStrictEqual(newFilteredQuests);
   });
 
@@ -77,7 +77,7 @@ describe('createViewQuests', () => {
       9884: { ...filteredTemplateQuests['9884'] }
     };
 
-    const result = createViewQuests(characterQuests, monthlyTypesSetting, templateQuests);
+    const result = createViewQuests(completedQuests, monthlyTypesSetting, templateQuests);
     expect(result).toStrictEqual(newFilteredQuests);
   });
 
@@ -85,7 +85,7 @@ describe('createViewQuests', () => {
   it('should return all shaman marked, filtered template quests', () => {
     const shamanSetting = { faction: 'horde', characterClass: shaman } as QuestTrackerSettings;
     const newFilteredQuests = { 1523: { ...filteredTemplateQuests['1523'] } };
-    const result = createViewQuests(characterQuests, shamanSetting, templateQuests);
+    const result = createViewQuests(completedQuests, shamanSetting, templateQuests);
     expect(result).toStrictEqual(newFilteredQuests);
   });
 
@@ -98,7 +98,7 @@ describe('createViewQuests', () => {
     } as QuestTrackerSettings;
 
     const newFilteredQuests = { 9678: { ...filteredTemplateQuests['9678'] } };
-    const result = createViewQuests(characterQuests, raceClassMatchSetting, templateQuests);
+    const result = createViewQuests(completedQuests, raceClassMatchSetting, templateQuests);
     expect(result).toStrictEqual(newFilteredQuests);
   });
 
@@ -110,7 +110,7 @@ describe('createViewQuests', () => {
       race: orc
     } as QuestTrackerSettings;
 
-    const result = createViewQuests(characterQuests, raceClassMismatchSetting, templateQuests);
+    const result = createViewQuests(completedQuests, raceClassMismatchSetting, templateQuests);
     expect(result).toStrictEqual({});
   });
 
@@ -118,7 +118,7 @@ describe('createViewQuests', () => {
   it('should return all classless blood elf marked, filtered template quests', () => {
     const noClassSetting = { faction: 'horde', race: bloodElf } as QuestTrackerSettings;
     const newFilteredQuests = { 9621: { ...filteredTemplateQuests['9621'] } };
-    const result = createViewQuests(characterQuests, noClassSetting, templateQuests);
+    const result = createViewQuests(completedQuests, noClassSetting, templateQuests);
     expect(result).toStrictEqual(newFilteredQuests);
   });
 
@@ -126,7 +126,7 @@ describe('createViewQuests', () => {
   it('should return all zone marked, filtered template quests', () => {
     const zoneSetting = { faction: 'horde', zone: 'Ashenvale' } as QuestTrackerSettings;
     const newFilteredQuests = { 25: { ...filteredTemplateQuests['25'], completed: true } };
-    const result = createViewQuests(characterQuests, zoneSetting, templateQuests);
+    const result = createViewQuests(completedQuests, zoneSetting, templateQuests);
     expect(result).toStrictEqual(newFilteredQuests);
   });
 });

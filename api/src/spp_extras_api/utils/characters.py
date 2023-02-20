@@ -17,6 +17,6 @@ def all_characters(accounts, characters):
     for char in characters:
         account_name = player_accounts[char['account']]
         char['account_name'] = account_name
-        chars[check_faction(char['race'])][char['guid']] = char
+        chars[check_faction(char['race'])][str(char['guid'])] = char
 
     return chars

@@ -7,7 +7,7 @@ with open(from_root('tests/samples/characters.json'), 'r') as json_file:
 
 
 class TestAllCharacters(TestCase):
-    """Should return 'alliance' if Alliance ID provided"""
+    """Should return characters dict sorted by faction"""
     def test_all_characters(self):
         accounts = [
             {'id': 500, 'username': 'ACCOUNT1'},
@@ -21,10 +21,15 @@ class TestAllCharacters(TestCase):
         ]
 
         result = all_characters(accounts, characters)
-        print(sample_characters)
-        print(result)
         self.assertDictEqual(result, sample_characters)
-        
+
+    """Should return empty characters dict if no characters provided"""
+    def test_no_characters(self):
+        accounts = []
+        characters = []
+        expected = {'alliance': {}, 'horde': {}}
+        result = all_characters(accounts, characters)
+        self.assertDictEqual(result, expected)
 
 
 class TestCheckFaction(TestCase):

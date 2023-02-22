@@ -153,7 +153,7 @@ export interface QuestTrackerSettings {
 export interface QuestTrackerViewProps {
   templateQuests: TemplateQuests;
   completedQuests: CompletedQuests;
-  error: Error | null;
+  error: string;
 }
 
 export type QuestType = 'regular' | 'daily' | 'weekly' | 'monthly';

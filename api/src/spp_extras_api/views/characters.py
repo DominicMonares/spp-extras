@@ -52,16 +52,16 @@ class CharactersViewSet(viewsets.ViewSet):
         except OperationalError:
             return Response(
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR, 
-                data={'res': 'Failed to connect to database...'}
+                data={'message': 'Failed to connect to database...'}
             )
         except Exception as e:
             return Response(
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR, 
-                data={'res': f'Server error: {e.message}'}
+                data={'message': f'Server error: {e.message}'}
             )
         except:
             return Response(
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR, 
-                data={'res': 'Something weird happened! Please submit a ticket on the GitHub issue tracker.'}
+                data={'message': 'Something weird happened!'}
             )
             

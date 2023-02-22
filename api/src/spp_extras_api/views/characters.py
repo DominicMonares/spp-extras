@@ -1,6 +1,8 @@
+from asgiref.sync import sync_to_async
 from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
+from django.db.utils import OperationalError
 from spp_extras_api.models.classicrealmd import ClassicAccount
 from spp_extras_api.models.classiccharacters import ClassicCharacters
 from spp_extras_api.models.tbcrealmd import TbcAccount
@@ -27,23 +29,39 @@ class CharactersViewSet(viewsets.ViewSet):
             account_model = WotlkAccount
             characters_model = WotlkCharacters
             
-        # Fetch all player account data, excluding random bot accounts
-        accounts = account_model.objects\
-            .using(f'{expansion}realmd')\
-            .exclude(username__contains='RNDBOT')\
-            .values('id', 'username')
+        try:
+            # Fetch all player account data, excluding random bot accounts
+            accounts = account_model.objects\
+                .using(f'{expansion}realmd')\
+                .exclude(username__contains='RNDBOT')\
+                .values('id', 'username')
 
-        account_ids = list(map(get_account_id, accounts))
+            account_ids = list(map(get_account_id, accounts))
         
-        # Fetch all player character data
-        characters = characters_model.objects\
-            .using(f'{expansion}characters')\
-            .filter(account__in=account_ids)\
-            .values('guid', 'account', 'name', 'race', 'class_field')
+            # Fetch all player character data
+            characters = characters_model.objects\
+                .using(f'{expansion}characters')\
+                .filter(account__in=account_ids)\
+                .values('guid', 'account', 'name', 'race', 'class_field')
 
-        # Send response with character and account data, filtered by faction
-        return Response(
-            status=status.HTTP_200_OK, 
-            data=all_characters(accounts, characters)
-        )
-        
+            # Send response with character and account data, filtered by faction
+            return Response(
+                status=status.HTTP_200_OK, 
+                data=all_characters(accounts, characters)
+            )
+        except OperationalError:
+            return Response(
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR, 
+                data={'res': 'Failed to connect to database...'}
+            )
+        except Exception as e:
+            return Response(
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR, 
+                data={'res': f'Server error: {e.message}'}
+            )
+        except:
+            return Response(
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR, 
+                data={'res': 'Something weird happened! Please submit a ticket on the GitHub issue tracker.'}
+            )
+            

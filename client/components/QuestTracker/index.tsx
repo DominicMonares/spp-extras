@@ -32,19 +32,14 @@ const QuestTracker = () => {
   const [templateQuests, setTemplateQuests] = useState<TemplateQuests>(defaultTemplateQuests);
   const [characters, setCharacters] = useState<Characters>(defaultCharsAndCompleted);
   const [completedQuests, setCompletedQuests] = useState<CompletedQuests>(defaultCharsAndCompleted);
-  const [error, setError] = useState<Error | null>(null);
+  const [error, setError] = useState<string>('');
 
   useEffect(() => {
     storeQuestsAndCharacters();
   }, []);
 
-  const getTemplateQuests = async () => {
-    const newTemplateQuests = await fetchTemplateQuests(expansion).catch(err => setError(err));
-    if (newTemplateQuests) setTemplateQuests(newTemplateQuests);
-  }
-
   const getCharacters = async () => {
-    const newCharacters = await fetchCharacters(expansion).catch(err => setError(err));
+    const newCharacters = await fetchCharacters(expansion).catch(err => setError(err.message));
     if (newCharacters) {
       setCharacters(newCharacters);
       return newCharacters;
@@ -62,10 +57,15 @@ const QuestTracker = () => {
     if (allCompletedQuests) setCompletedQuests(allCompletedQuests);
   }
 
+  const getTemplateQuests = async () => {
+    const newTemplateQuests = await fetchTemplateQuests(expansion).catch(err => setError(err));
+    if (newTemplateQuests) setTemplateQuests(newTemplateQuests);
+  }
+
   const storeQuestsAndCharacters = async () => {
-    await getTemplateQuests();
     const chars = await getCharacters();
     await getCompletedQuests(chars);
+    await getTemplateQuests();
   }
 
   return (

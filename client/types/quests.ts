@@ -154,6 +154,7 @@ export interface QuestTrackerViewProps {
   templateQuests: TemplateQuests;
   completedQuests: CompletedQuests;
   error: string;
+  retry: () => void;
 }
 
 export type QuestType = 'regular' | 'daily' | 'weekly' | 'monthly';

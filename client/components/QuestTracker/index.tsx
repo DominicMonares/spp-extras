@@ -81,6 +81,7 @@ const QuestTracker = () => {
     if (!completed) return;
     const template = await getTemplateQuests();
     if (!template) return;
+    setError('');
   }
 
   return (
@@ -89,6 +90,7 @@ const QuestTracker = () => {
         templateQuests={templateQuests} 
         completedQuests={completedQuests} 
         error={error}
+        retry={storeQuestsAndCharacters}
       />
       <Controls characters={characters} />
     </>

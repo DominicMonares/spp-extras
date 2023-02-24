@@ -52,7 +52,7 @@ class CharactersViewSet(viewsets.ViewSet):
         except OperationalError:
             return Response(
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR, 
-                data={'message': 'Failed to connect to database...'}
+                data={'message': 'Failed to retrieve account and character data...'}
             )
         except Exception as e:
             return Response(

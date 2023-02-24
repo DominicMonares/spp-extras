@@ -32,6 +32,7 @@ const QuestTracker = () => {
   const [templateQuests, setTemplateQuests] = useState<TemplateQuests>(defaultTemplateQuests);
   const [characters, setCharacters] = useState<Characters>(defaultCharsAndCompleted);
   const [completedQuests, setCompletedQuests] = useState<CompletedQuests>(defaultCharsAndCompleted);
+  const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>('');
 
   useEffect(() => {
@@ -75,12 +76,15 @@ const QuestTracker = () => {
   }
 
   const storeQuestsAndCharacters = async () => {
+    setLoading(true);
+    setError('');
     const chars = await getCharacters();
-    if (!chars) return;
+    if (!chars) return setLoading(false);
     const completed = await getCompletedQuests(chars);
-    if (!completed) return;
+    if (!completed) return setLoading(false);
     const template = await getTemplateQuests();
-    if (!template) return;
+    if (!template) return setLoading(false);
+    setLoading(false);
     setError('');
   }
 
@@ -89,6 +93,7 @@ const QuestTracker = () => {
       <View 
         templateQuests={templateQuests} 
         completedQuests={completedQuests} 
+        loading={loading}
         error={error}
         retry={storeQuestsAndCharacters}
       />

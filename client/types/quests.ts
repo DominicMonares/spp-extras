@@ -153,6 +153,7 @@ export interface QuestTrackerSettings {
 export interface QuestTrackerViewProps {
   templateQuests: TemplateQuests;
   completedQuests: CompletedQuests;
+  loading: boolean;
   error: string;
   retry: () => void;
 }

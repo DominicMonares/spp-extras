@@ -43,6 +43,8 @@ const QuestTracker = () => {
     if (newCharacters) {
       setCharacters(newCharacters);
       return newCharacters;
+    } else {
+      return;
     }
   }
 
@@ -54,18 +56,31 @@ const QuestTracker = () => {
     const characterParameters = allianceParameters.concat(hordeParameters).flat().join(',');
     const allCompletedQuests = await fetchCompletedQuests(expansion, characterParameters)
       .catch(err => setError(err));
-    if (allCompletedQuests) setCompletedQuests(allCompletedQuests);
+    if (allCompletedQuests) {
+      setCompletedQuests(allCompletedQuests);
+      return allCompletedQuests;
+    } else {
+      return;
+    }
   }
 
   const getTemplateQuests = async () => {
     const newTemplateQuests = await fetchTemplateQuests(expansion).catch(err => setError(err));
-    if (newTemplateQuests) setTemplateQuests(newTemplateQuests);
+    if (newTemplateQuests) {
+      setTemplateQuests(newTemplateQuests);
+      return newTemplateQuests;
+    } else {
+      return;
+    }
   }
 
   const storeQuestsAndCharacters = async () => {
     const chars = await getCharacters();
-    await getCompletedQuests(chars);
-    await getTemplateQuests();
+    if (!chars) return;
+    const completed = await getCompletedQuests(chars);
+    if (!completed) return;
+    const template = await getTemplateQuests();
+    if (!template) return;
   }
 
   return (

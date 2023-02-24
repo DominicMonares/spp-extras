@@ -4,7 +4,6 @@ import { FetchCharacters } from '../types';
 
 export const fetchCharacters: FetchCharacters = async expansion => {
   const expansionParams = new URLSearchParams({ expansion });
-
   return await fetch(`${httpUrl}:${port}/characters/all/?` + expansionParams)
     .then(async data => {
       const status = data.status;

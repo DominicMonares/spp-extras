@@ -18,6 +18,10 @@ const Tabs = ({ openModal }: TabsProps) => {
   return (
     <nav>
       <ol className="xpac-tabs">
+        <li className="buffer">
+          <div className="classic-circle"></div>
+          <div className="classic-square"></div>
+        </li>
         <li
           className={`classic-tab${expansions.classic}`}
           onClick={() => openModal('classic')}
@@ -36,6 +40,7 @@ const Tabs = ({ openModal }: TabsProps) => {
         >
           Wrath of the Lich King
         </li>
+        <li className="buffer"></li>
       </ol>
     </nav>
   );

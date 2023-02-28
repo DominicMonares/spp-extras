@@ -20,9 +20,15 @@
 .tbc-tab-active,
 .wotlk-tab,
 .wotlk-tab-active {
-  /* width: calc(100% / 3); */
+  width: calc(100% / 3);
   height: 48px;
   text-align: center;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.buffer {
+  width: 20px;
 }
 
 

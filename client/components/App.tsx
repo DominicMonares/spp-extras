@@ -12,7 +12,7 @@ const App = () => {
   const feature = useAppSelector(state => state.feature.selected);
 
   return (
-    <div className="app">
+    <div className={`app ${expansion}-container`}>
       <ExpansionNav />
       <div className="lower-app">
         <FeatureList />

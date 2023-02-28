@@ -6,10 +6,6 @@ export interface Feature {
   selected: SelectedFeature;
 }
 
-export interface NavbarProps {
-  openModal: (xpac: SelectedExpansion) => void;
-}
-
 export interface FeatureNavProps {
   feature: SelectedFeature;
   name: string;
@@ -18,3 +14,7 @@ export interface FeatureNavProps {
 export type SelectedExpansion = 'classic' | 'tbc' | 'wotlk' | null;
 
 export type SelectedFeature = 'questTracker' | 'accountAchievements' | null;
+
+export interface TabsProps {
+  openModal: (xpac: SelectedExpansion) => void;
+}

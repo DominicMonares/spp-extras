@@ -1,31 +1,68 @@
-.xpac-nav {
+/* General */
+
+.xpac-nav-classic,
+.xpac-nav-tbc,
+.xpac-nav-wotlk {
   display: flex;
-  justify-content: space-around;
-  border-bottom: 1px solid black;
+  flex-direction: column-reverse;
+  height: 70px;
+  /* border-bottom: 1px solid black; */
 }
 
-.classic,
-.tbc,
-.wotlk {
-  width: 300px;
-  text-align: center;
+.xpac-tabs {
+  display: flex;
+  flex-direction: row;
+}
+
+.classic-tab,
+.classic-tab-active,
+.tbc-tab,
+.tbc-tab-active,
+.wotlk-tab,
+.wotlk-tab-active {
+  /* width: calc(100% / 3); */
+  height: 48px;
   text-align: center;
 }
 
-.classic {
+
+/* Classic */
+
+.classic-tab,
+.classic-tab-active {
   background-color: tan;
   border-right: 1px solid black;
 }
 
-.tbc {
+.classic-nav-active {
+  font-weight: bold;
+}
+
+.xpac-nav-classic {
+  background-image: linear-gradient(#120501, #190a07);
+}
+
+
+/* TBC */
+
+.tbc-tab,
+.tbc-tab-active {
   background-color: green;
 }
 
-.wotlk {
+.tbc-tab-active {
+  font-weight: bold;
+}
+
+
+/* WotLK */
+
+.wotlk-tab,
+.wotlk-tab-active {
   background-color: blue;
   border-left: 1px solid black;
 }
 
-.active {
+.wotlk-tab-active {
   font-weight: bold;
 }

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Modal from 'react-modal';
-import Navbar from './Navbar';
+import Tabs from './Tabs';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { storeExpansion, storeFeature } from '../../store/slices';
 import { SelectedExpansion } from '../../types';
@@ -27,19 +27,8 @@ const ExpansionNav = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [nextExpansion, setNextExpansion] = useState<SelectedExpansion>(null);
 
-  const expansionActive = (xpac: SelectedExpansion) => xpac === expansion ? 'active' : '';
-  const expansions = {
-    classic: expansionActive('classic'),
-    tbc: expansionActive('tbc'),
-    wotlk: expansionActive('wotlk')
-  };
-
   const openModal = () => {
     setModalIsOpen(true);
-  }
-
-  const afterOpenModal = () => {
-    // references are now sync'd and can be accessed.
   }
 
   const closeModal = () => {
@@ -64,10 +53,9 @@ const ExpansionNav = () => {
   }
 
   return (
-    <div className="xpac-nav-container">
+    <div className={`xpac-nav-${expansion}`}>
       <Modal
         isOpen={modalIsOpen}
-        onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         style={customStyles}
         contentLabel="Expansion Warning"
@@ -77,7 +65,7 @@ const ExpansionNav = () => {
         <button onClick={closeModal}>Cancel</button>
         <button onClick={switchExpansion}>Continue</button>
       </Modal>
-      <Navbar expansions={expansions} openModal={openExpansionModal} />
+      <Tabs openModal={openExpansionModal} />
     </div>
   );
 }

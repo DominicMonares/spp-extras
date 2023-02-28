@@ -4,7 +4,7 @@ import { Expansion, SelectedExpansion } from '../../types';
 
 const initialState: Expansion = {
   // selected: null
-  selected: 'wotlk' // temp default
+  selected: 'classic' // temp default
 }
 
 export const expansionSlice = createSlice({

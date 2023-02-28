@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Modal from 'react-modal';
+import Navbar from './Navbar';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { storeExpansion, storeFeature } from '../../store/slices';
 import { SelectedExpansion } from '../../types';
@@ -45,7 +46,7 @@ const ExpansionNav = () => {
     setModalIsOpen(false);
   }
 
-  const expansionModal = (xpac: SelectedExpansion) => {
+  const openExpansionModal = (xpac: SelectedExpansion) => {
     if (expansion === xpac) {
       return;
     } else if (expansion) {
@@ -63,7 +64,7 @@ const ExpansionNav = () => {
   }
 
   return (
-    <div className="xpac-nav">
+    <div className="xpac-nav-container">
       <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
@@ -76,15 +77,7 @@ const ExpansionNav = () => {
         <button onClick={closeModal}>Cancel</button>
         <button onClick={switchExpansion}>Continue</button>
       </Modal>
-      <div className={`classic ${expansions.classic}`} onClick={() => expansionModal('classic')}>
-        Vanilla
-      </div>
-      <div className={`tbc ${expansions.tbc}`} onClick={() => expansionModal('tbc')}>
-        The Burning Crusade
-      </div>
-      <div className={`wotlk ${expansions.wotlk}`} onClick={() => expansionModal('wotlk')}>
-        Wrath of the Lich King
-      </div>
+      <Navbar expansions={expansions} openModal={openExpansionModal} />
     </div>
   );
 }

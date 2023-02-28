@@ -22,6 +22,8 @@ const createWindow = async () => {
   const mainWindow = new BrowserWindow({
     width: 1080,
     height: 1080,
+    maxWidth: 1080,
+    maxHeight: 1080,
     show: false,
     webPreferences: {
       preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,

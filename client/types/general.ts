@@ -7,7 +7,6 @@ export interface Feature {
 }
 
 export interface NavbarProps {
-  expansions: { [key: string]: string };
   openModal: (xpac: SelectedExpansion) => void;
 }
 

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Modal from 'react-modal';
 import Tabs from './Tabs';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { storeExpansion, storeFeature } from '../../store/slices';
+import { storeExpansion, storeTool } from '../../store/slices';
 import { SelectedExpansion } from '../../types';
 import './ExpansionNav.css';
 
@@ -48,7 +48,7 @@ const ExpansionNav = () => {
 
   const switchExpansion = () => {
     dispatch(storeExpansion(nextExpansion));
-    dispatch(storeFeature(null));
+    dispatch(storeTool(null));
     closeModal();
   }
 

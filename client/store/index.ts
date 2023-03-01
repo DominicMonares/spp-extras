@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import expansionReducer from './slices/expansionSlice';
-import featureReducer from './slices/featureSlice';
+import featureReducer from './slices/toolSlice';
 import questTrackerReducer from './slices/questTrackerSlice';
 
 

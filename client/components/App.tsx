@@ -1,6 +1,6 @@
 import AccountWideAchievements from './AccountWideAchievements';
 import ExpansionNav from './ExpansionNav';
-import FeatureList from './FeatureNav';
+import ToolList from './ToolNav';
 import Home from './Home';
 import QuestTracker from './QuestTracker';
 import { useAppSelector } from '../store/hooks';
@@ -15,7 +15,7 @@ const App = () => {
     <div className={`app ${expansion}-container`}>
       <ExpansionNav />
       <div className="lower-app">
-        <FeatureList />
+        <ToolList />
         {!expansion || !feature ? <Home /> : <></>}
         {feature === 'questTracker' ? <QuestTracker /> : <></>}
         {feature === 'accountAchievements' ? <AccountWideAchievements /> : <></>}

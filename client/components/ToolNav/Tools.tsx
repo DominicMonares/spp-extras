@@ -1,15 +1,15 @@
-import Feature from './Feature';
+import Tool from './Tool';
 import { useAppSelector } from '../../store/hooks';
 
 
-const Features = () => {
+const Tools = () => {
   const expansion = useAppSelector(state => state.expansion.selected);
 
   return (
     <>
-      <Feature feature="questTracker" name="Quest Tracker" />
+      <Tool tool="questTracker" name="Quest Tracker" />
       {expansion === 'wotlk' ? (
-        <Feature feature="accountAchievements" name="Account-wide Achievements" />
+        <Tool tool="accountAchievements" name="Account-wide Achievements" />
       ) : (
         <></>
       )}
@@ -17,4 +17,4 @@ const Features = () => {
   );
 }
 
-export default Features;
+export default Tools;

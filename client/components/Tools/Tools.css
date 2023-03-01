@@ -1,6 +1,9 @@
 .classic-tools,
 .tbc-tools,
 .wotlk-tools {
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
   width: 292px;
   height: max-content;
   margin-left: 10px;
@@ -23,7 +26,22 @@
   background: rgba(25, 118, 174, 0.5);
 }
 
+.tool-label {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 21px;
+}
+
+.tool-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
 .tool {
-  margin-top: 2px;
-  border: 1px solid black;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }

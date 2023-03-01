@@ -20,7 +20,7 @@ const Tabs = ({ openModal }: TabsProps) => {
 
   return (
     <nav>
-      <ol className="xpac-tabs">
+      <ul className="xpac-tabs">
         <li className="left-buffer classic-lb">
           <div className="square classic-color"></div>
           <div className={`curve ${expansion}-flc`}></div>
@@ -75,7 +75,7 @@ const Tabs = ({ openModal }: TabsProps) => {
           <div className="square wotlk-color"></div>
           <div className={`curve ${expansion}-frc`}></div>
         </li>
-      </ol>
+      </ul>
     </nav>
   );
 }

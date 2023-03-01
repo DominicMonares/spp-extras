@@ -26,19 +26,12 @@
   background: rgba(25, 118, 174, 0.5);
 }
 
-.tool-label {
+.tools-label {
   display: block;
   margin-left: auto;
   margin-right: auto;
   margin-top: 10px;
   margin-bottom: 21px;
-}
-
-.tool-label-text {
-  font-size: 26px;
-  background: -webkit-linear-gradient(#d19a1b, #f5ef41);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .tool-list {
@@ -51,4 +44,43 @@
 .tool {
   margin-top: 5px;
   margin-bottom: 5px;
+}
+
+.tool-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tool-label-text {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  height: 54px;
+  margin-top: -54px;
+  z-index: 1;
+  font-family: Friz Quadrata;
+  font-size: 26px;
+  background: -webkit-linear-gradient(#d19a1b, #f5ef41);
+  background-clip: inherit;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tool-big-label-text {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  height: 74px;
+  margin-top: -74px;
+  z-index: 1;
+  font-family: Friz Quadrata;
+  font-size: 26px;
+  background: -webkit-linear-gradient(#d19a1b, #f5ef41);
+  background-clip: inherit;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

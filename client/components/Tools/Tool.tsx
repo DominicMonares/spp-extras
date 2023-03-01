@@ -16,13 +16,16 @@ const Tool = ({ tool, name }: ToolNavProps) => {
 
   return (
     <li className={`tool ${tool === selectedTool ? 'active' : ''}`}>
-      <button onClick={() => switchFeature(tool)}>
-        {tool === 'accountAchievements' ? (
+      {tool === 'accountAchievements' ? (
+        <button onClick={() => switchFeature(tool)}>
           <img src={bigButton} />
-        ) : (
+        </button>
+      ) : (
+        <button onClick={() => switchFeature(tool)}>
           <img src={button} />
-        )}
-      </button>
+          <div className="tool-label-text">{name}</div>
+        </button>
+      )}
     </li>
   );
 }

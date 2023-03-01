@@ -34,6 +34,13 @@
   margin-bottom: 21px;
 }
 
+.tool-label-text {
+  font-size: 26px;
+  background: -webkit-linear-gradient(#d19a1b, #f5ef41);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .tool-list {
   display: flex;
   flex-direction: column;

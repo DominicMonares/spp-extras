@@ -13,14 +13,12 @@ const Tool = ({ tool, name }: ToolNavProps) => {
   }
 
   return (
-    <>
-      <div
-        className={`tool ${tool === selectedTool ? 'active' : ''}`}
-        onClick={() => switchFeature(tool)}
-      >
-        {name}
-      </div>
-    </>
+    <li
+      className={`tool ${tool === selectedTool ? 'active' : ''}`}
+      onClick={() => switchFeature(tool)}
+    >
+      {name}
+    </li>
   );
 }
 

@@ -10,12 +10,14 @@ const Tools = () => {
   return (
     <div className="tool-list">
       <img src={label} />
-      <Tool tool="questTracker" name="Quest Tracker" />
-      {expansion === 'wotlk' ? (
-        <Tool tool="accountAchievements" name="Account-wide Achievements" />
-      ) : (
-        <></>
-      )}
+      <ul>
+        <Tool tool="questTracker" name="Quest Tracker" />
+        {expansion === 'wotlk' ? (
+          <Tool tool="accountAchievements" name="Account-wide Achievements" />
+        ) : (
+          <></>
+        )}
+      </ul>
     </div>
   );
 }

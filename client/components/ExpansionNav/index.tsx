@@ -53,7 +53,7 @@ const ExpansionNav = () => {
   }
 
   return (
-    <div className={`xpac-nav-${expansion}`}>
+    <div className={`${expansion}-xpac-nav`}>
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}

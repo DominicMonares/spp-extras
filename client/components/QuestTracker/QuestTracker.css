@@ -1,7 +1,14 @@
-.controls {
-  height: 100%;
-  width: 200px;
-  border-left: 1px solid black;
+.quest-tracker-view {
+  height: max-content;
+}
+
+.quest-tracker-controls {
+  width: 272px;
+  height: 596px;
+  margin-right: 10px;
+  margin-top: 10px;
+  border: 1px solid black;
+  border-radius: 15px;
 }
 
 .complete {

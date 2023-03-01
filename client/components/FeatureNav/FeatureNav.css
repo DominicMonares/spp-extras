@@ -1,6 +1,10 @@
 .feature-list {
-  height: 100%;
-  width: 200px;
+  width: 272px;
+  height: max-content;
+  margin-right: 10px;
+  margin-top: 10px;
+  border: 1px solid black;
+  border-radius: 15px;
   border-right: 1px solid black;
 }
 

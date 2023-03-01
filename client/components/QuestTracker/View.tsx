@@ -13,7 +13,7 @@ const View = ({
   const viewQuests = createViewQuests(completedQuests, settings, templateQuests);
 
   return (
-    <div>
+    <div className="quest-tracker-view">
       {loading ? <Loading /> : <></>}
       {characterClass || race || zone ? (
         Object.values(viewQuests).map((q, i) => <Quest key={i} quest={q} />)

@@ -5,7 +5,7 @@
 .wotlk-xpac-nav {
   display: flex;
   flex-direction: column-reverse;
-  height: 70px;
+  height: 68px;
 }
 
 .classic-xpac-nav {
@@ -24,6 +24,13 @@
   height: 2px;
   background-color: #b8a34f;
   border-bottom: 1px solid black;
+}
+
+.classic-button,
+.tbc-button,
+.wotlk-button {
+  width: 100%;
+  height: 100%;
 }
 
 

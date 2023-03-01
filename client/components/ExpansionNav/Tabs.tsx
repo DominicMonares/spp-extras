@@ -3,6 +3,7 @@ import {
   TabsProps,
   SelectedExpansion
 } from "../../types";
+import vanillaTab from '../../assets/tabs/vanilla.png';
 import './ExpansionNav.css';
 
 
@@ -23,8 +24,11 @@ const Tabs = ({ openModal }: TabsProps) => {
           <div className={`curve ${expansion}-flc`}></div>
         </li>
         <li className={`classic-tab${expansions.classic} classic-gradient`}>
-          <button onClick={() => openModal('classic')}>
-            Vanilla
+          <button 
+            className="classic-button"
+            onClick={() => openModal('classic')}
+          >
+            <img src={vanillaTab} />
           </button>
         </li>
         {expansion === 'classic' ? (
@@ -39,7 +43,10 @@ const Tabs = ({ openModal }: TabsProps) => {
           </li>
         )}
         <li className={`tbc-tab${expansions.tbc} tbc-gradient`}>
-          <button onClick={() => openModal('tbc')}>
+          <button
+            className="tbc-button"
+            onClick={() => openModal('tbc')}
+          >
             The Burning Crusade
           </button>
         </li>
@@ -54,11 +61,13 @@ const Tabs = ({ openModal }: TabsProps) => {
             <div className="curve tbc-rc"></div>
           </li>
         )}
-        <li
-          className={`wotlk-tab${expansions.wotlk} wotlk-gradient`}
-          onClick={() => openModal('wotlk')}
-        >
-          Wrath of the Lich King
+        <li className={`wotlk-tab${expansions.wotlk} wotlk-gradient`}>
+          <button 
+            className="wotlk-button"
+            onClick={() => openModal('wotlk')}
+          >
+            Wrath of the Lich King
+          </button>
         </li>
         <li className="right-buffer wotlk-rb">
           <div className="square wotlk-color"></div>

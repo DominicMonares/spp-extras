@@ -26,13 +26,6 @@
   border-bottom: 1px solid black;
 }
 
-.classic-button,
-.tbc-button,
-.wotlk-button {
-  width: 100%;
-  height: 100%;
-}
-
 
 /* Tabs */
 
@@ -62,7 +55,6 @@
   box-sizing: border-box;
   width: calc(100% / 3);
   height: 48px;
-  text-align: center;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   border: 1px solid black;
@@ -92,6 +84,29 @@
 .tbc-tab-active,
 .wotlk-tab-active {
   font-weight: bold;
+}
+
+
+/* Labels */
+
+.classic-label,
+.tbc-label,
+.wotlk-label {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.label-inactive {
+  height: 30px;
+  transition: height 0.15s linear;
+}
+
+.label-inactive:hover {
+  height: 39px;
+  transition: height 0.15s linear;
 }
 
 

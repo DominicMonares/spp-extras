@@ -24,3 +24,13 @@ body {
 button {
   all: unset;
 }
+
+@font-face {
+  font-family: 'Friz Quadrata';
+  src: url('assets/fonts/Friz\ Quadrata\ Std\ Medium.otf');
+}
+
+@font-face {
+  font-family: 'MORPHEUS';
+  src: url('assets/fonts/MORPHEUS.TTF');
+}

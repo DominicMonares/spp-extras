@@ -15,7 +15,7 @@
   list-style-type: none;
 }
 
-/* .classic-container {
+.classic-container {
   background-image: url("../assets/background/vanilla.jpg");
 }
 
@@ -25,4 +25,4 @@
 
 .wotlk-container {
   background-image: url("../assets/background/wotlk.jpg");
-} */
+}

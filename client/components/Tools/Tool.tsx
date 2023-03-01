@@ -1,7 +1,7 @@
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { storeTool } from '../../store/slices';
 import { ToolNavProps, SelectedTool } from '../../types';
-import './ToolNav.css';
+import './Tools.css';
 
 
 const Tool = ({ tool, name }: ToolNavProps) => {

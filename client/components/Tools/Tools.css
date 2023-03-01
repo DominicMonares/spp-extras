@@ -34,6 +34,15 @@
   margin-bottom: 21px;
 }
 
+.tools-label-text {
+  font-family: Friz Quadrata;
+  font-size: 26px;
+  background: -webkit-linear-gradient(#d19a1b, #f5ef41);
+  background-clip: inherit;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .tool-list {
   display: flex;
   flex-direction: column;

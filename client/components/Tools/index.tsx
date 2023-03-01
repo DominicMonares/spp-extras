@@ -9,7 +9,10 @@ const Tools = () => {
 
   return (
     <div className={`${expansion}-tools`}>
-      <img className="tools-label" src={label} />
+      <div>
+        <img className="tools-label" src={label} />
+        <div className="tools-label-text">Tools</div>
+      </div>
       <ul className="tool-list">
         <Tool tool="questTracker" name="Quest Tracker" />
         {expansion === 'wotlk' ? (

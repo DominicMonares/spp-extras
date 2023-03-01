@@ -1,15 +1,23 @@
 /* Navbar */
 
-.xpac-nav-classic,
-.xpac-nav-tbc,
-.xpac-nav-wotlk {
+.classic-xpac-nav,
+.tbc-xpac-nav,
+.wotlk-xpac-nav {
   display: flex;
   flex-direction: column-reverse;
   height: 70px;
 }
 
-.xpac-nav-classic {
+.classic-xpac-nav {
   background-image: linear-gradient(#140804, #190a07 50%);
+}
+
+.tbc-xpac-nav {
+  background-image: linear-gradient(#080d07, #0b160e 50%);
+}
+
+.wotlk-xpac-nav {
+  background-image: linear-gradient(#040817, #05283c 50%);
 }
 
 .nav-underline {
@@ -21,16 +29,16 @@
 
 /* Tabs */
 
-.classic-color {
-  background: #f1dd6f;
+.classic-gradient {
+  background-image: linear-gradient(#080d07, #f1dd6f 55%);
 }
 
-.tbc-color {
-  background: #2d9f05;
+.tbc-gradient {
+  background-image: linear-gradient(#080d07, #2d9f05 55%);
 }
 
-.wotlk-color {
-  background: #0282b7;
+.wotlk-gradient {
+  background-image: linear-gradient(#080d07, #0282b7 55%);
 }
 
 .xpac-tabs {
@@ -81,6 +89,18 @@
 
 
 /* Buffers */
+
+.classic-color {
+  background: #f1dd6f;
+}
+
+.tbc-color {
+  background: #2d9f05;
+}
+
+.wotlk-color {
+  background: #0282b7;
+}
 
 .left-buffer,
 .right-buffer {
@@ -140,27 +160,32 @@
 }
 
 .classic-rc,
+.classic-frc,
 .tbc-rc,
-.wotlk-rc {
+.tbc-frc,
+.wotlk-frc {
   box-sizing: border-box;
   border-left: 1px solid black;
   border-bottom-left-radius: 15px;
 }
 
-.classic-lc,
+.classic-flc,
 .tbc-lc,
-.wotlk-lc {
+.tbc-flc,
+.wotlk-lc,
+.wotlk-flc {
   box-sizing: border-box;
   border-right: 1px solid black;
   border-bottom-right-radius: 15px;
 }
 
-.classic-lc {
-  background: #190a07;
-}
-
 .classic-rc {
   background: #2d9f05;
+}
+
+.classic-flc,
+.classic-frc {
+  background: #190a07;
 }
 
 .tbc-lc {
@@ -173,9 +198,12 @@
   background: #0282b7;
 }
 
-.wotlk-lc,
-.wotlk-lc-active {
-  /* margin-left: 1px; */
+.tbc-flc,
+.tbc-frc {
+  background: #0b160e;
+}
+
+.wotlk-lc {
   background: #2d9f05;
 }
 
@@ -183,6 +211,7 @@
   margin-left: 1px;
 }
 
-.wotlk-rc {
-  background: #190a07;
+.wotlk-flc,
+.wotlk-frc {
+  background: #05283c;
 }

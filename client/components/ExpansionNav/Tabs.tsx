@@ -20,9 +20,9 @@ const Tabs = ({ openModal }: TabsProps) => {
       <ol className="xpac-tabs">
         <li className="left-buffer classic-lb">
           <div className="square classic-color"></div>
-          <div className="curve classic-lc"></div>
+          <div className={`curve ${expansion}-flc`}></div>
         </li>
-        <li className={`classic-tab${expansions.classic} classic-color`}>
+        <li className={`classic-tab${expansions.classic} classic-gradient`}>
           <button onClick={() => openModal('classic')}>
             Vanilla
           </button>
@@ -38,7 +38,7 @@ const Tabs = ({ openModal }: TabsProps) => {
             <div className="curve tbc-lc"></div>
           </li>
         )}
-        <li className={`tbc-tab${expansions.tbc} tbc-color`}>
+        <li className={`tbc-tab${expansions.tbc} tbc-gradient`}>
           <button onClick={() => openModal('tbc')}>
             The Burning Crusade
           </button>
@@ -55,14 +55,14 @@ const Tabs = ({ openModal }: TabsProps) => {
           </li>
         )}
         <li
-          className={`wotlk-tab${expansions.wotlk} wotlk-color`}
+          className={`wotlk-tab${expansions.wotlk} wotlk-gradient`}
           onClick={() => openModal('wotlk')}
         >
           Wrath of the Lich King
         </li>
         <li className="right-buffer wotlk-rb">
           <div className="square wotlk-color"></div>
-          <div className="curve wotlk-rc"></div>
+          <div className={`curve ${expansion}-frc`}></div>
         </li>
       </ol>
     </nav>

@@ -1,10 +1,21 @@
-.quest-tracker-view {
-  height: max-content;
-}
+/* Controls */
 
 .quest-tracker-controls {
   width: 272px;
   height: 596px;
+  margin-right: 10px;
+  margin-top: 10px;
+  border: 1px solid black;
+  border-radius: 15px;
+}
+
+
+/* View */
+
+.quest-tracker-view {
+  width: 100%;
+  height: max-content;
+  margin-left: 10px;
   margin-right: 10px;
   margin-top: 10px;
   border: 1px solid black;

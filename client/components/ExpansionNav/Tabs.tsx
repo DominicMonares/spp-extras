@@ -3,9 +3,9 @@ import {
   TabsProps,
   SelectedExpansion
 } from "../../types";
-import vanillaTab from '../../assets/tabs/vanilla.png';
-import tbcTab from '../../assets/tabs/tbc.png';
-import wotlkTab from '../../assets/tabs/wotlk.png';
+import vanillaTab from '../../assets/labels/vanilla.png';
+import tbcTab from '../../assets/labels/tbc.png';
+import wotlkTab from '../../assets/labels/wotlk.png';
 import './ExpansionNav.css';
 
 

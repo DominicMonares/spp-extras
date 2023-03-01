@@ -8,7 +8,7 @@ const Tools = () => {
   const expansion = useAppSelector(state => state.expansion.selected);
 
   return (
-    <div className="tool-list">
+    <div className={`${expansion}-tools`}>
       <img src={label} />
       <ul>
         <Tool tool="questTracker" name="Quest Tracker" />

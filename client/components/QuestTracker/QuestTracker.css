@@ -1,27 +1,45 @@
 /* Shared */
 
-.quest-tracker-controls,
-.quest-tracker-view {
+.classic-qt-controls,
+.classic-qt-view,
+.tbc-qt-controls,
+.tbc-qt-view,
+.wotlk-qt-controls,
+.wotlk-qt-view {
   height: max-content;
   margin-top: 10px;
   border: 1px solid black;
   border-radius: 15px;
-  background: rgba(241, 221, 111, 0.5);
 }
 
 
 /* Controls */
 
-.quest-tracker-controls {
+.classic-qt-controls {
   width: 292px;
   margin-left: 10px;
   margin-right: 10px;
 }
 
+.classic-qt-controls,
+.classic-qt-view {
+  background: rgba(241, 221, 111, 0.5);
+}
+
+.tbc-qt-controls,
+.tbc-qt-view {
+  background: rgba(45, 159, 5, 0.5);
+}
+
+.wotlk-qt-controls,
+.wotlk-qt-view {
+  background: rgba(25, 118, 174, 0.5);
+}
+
 
 /* View */
 
-.quest-tracker-view {
+.classic-qt-view {
   /* width: calc(100% - 584px); */
   max-width: 496px;
 }

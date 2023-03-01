@@ -1,4 +1,6 @@
-.tool-list {
+.classic-tools,
+.tbc-tools,
+.wotlk-tools {
   width: 292px;
   height: max-content;
   margin-left: 10px;
@@ -7,7 +9,18 @@
   border: 1px solid black;
   border-radius: 15px;
   border-right: 1px solid black;
+}
+
+.classic-tools {
   background: rgba(241, 221, 111, 0.5);
+}
+
+.tbc-tools {
+  background: rgba(45, 159, 5, 0.5);
+}
+
+.wotlk-tools {
+  background: rgba(25, 118, 174, 0.5);
 }
 
 .tool {

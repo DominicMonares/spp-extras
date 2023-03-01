@@ -34,7 +34,7 @@ const Controls = ({ characters }: QuestTrackerControlsProps) => {
   }
 
   return (
-    <div className="quest-tracker-controls">
+    <div className={`${expansion}-qt-controls`}>
       <FactionCheckboxes />
       <DropdownMenu type="zone" menu={zoneMenu(expansion, zone)} />
       {character && JSON.parse(character.value).characterClass ? (

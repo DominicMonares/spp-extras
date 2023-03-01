@@ -1,6 +1,6 @@
+import { useAppSelector } from '../../store/hooks';
 import Loading from '../Loading';
 import Quest from './Quest';
-import { useAppSelector } from '../../store/hooks';
 import { createViewQuests } from '../../utils';
 import { QuestTrackerViewProps } from '../../types';
 
@@ -8,12 +8,13 @@ import { QuestTrackerViewProps } from '../../types';
 const View = ({ 
   templateQuests, completedQuests, loading, error, retry 
 }: QuestTrackerViewProps) => {
+  const expansion = useAppSelector(state => state.expansion.selected);
   const settings = useAppSelector(state => state.questTracker);
   const { zone, characterClass, race } = settings;
   const viewQuests = createViewQuests(completedQuests, settings, templateQuests);
 
   return (
-    <div className="quest-tracker-view">
+    <div className={`${expansion}-qt-view`}>
       {loading ? <Loading /> : <></>}
       {characterClass || race || zone ? (
         Object.values(viewQuests).map((q, i) => <Quest key={i} quest={q} />)

@@ -65,6 +65,7 @@ const ExpansionNav = () => {
         <button onClick={closeModal}>Cancel</button>
         <button onClick={switchExpansion}>Continue</button>
       </Modal>
+      <div className="nav-underline"></div>
       <Tabs openModal={openExpansionModal} />
     </div>
   );

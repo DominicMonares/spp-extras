@@ -1,4 +1,4 @@
-/* General */
+/* Navbar */
 
 .xpac-nav-classic,
 .xpac-nav-tbc,
@@ -6,7 +6,31 @@
   display: flex;
   flex-direction: column-reverse;
   height: 70px;
-  /* border-bottom: 1px solid black; */
+}
+
+.xpac-nav-classic {
+  background-image: linear-gradient(#140804, #190a07 50%);
+}
+
+.nav-underline {
+  height: 2px;
+  background-color: #b8a34f;
+  border-bottom: 1px solid black;
+}
+
+
+/* Tabs */
+
+.classic-color {
+  background: #f1dd6f;
+}
+
+.tbc-color {
+  background: #2d9f05;
+}
+
+.wotlk-color {
+  background: #0282b7;
 }
 
 .xpac-tabs {
@@ -20,55 +44,129 @@
 .tbc-tab-active,
 .wotlk-tab,
 .wotlk-tab-active {
+  box-sizing: border-box;
   width: calc(100% / 3);
   height: 48px;
   text-align: center;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
+  border: 1px solid black;
+  font-size: 12px;
 }
-
-.buffer {
-  width: 20px;
-}
-
-
-/* Classic */
 
 .classic-tab,
 .classic-tab-active {
-  background-color: tan;
+  margin-right: -1px;
   border-right: 1px solid black;
 }
 
-.classic-nav-active {
-  font-weight: bold;
-}
-
-.xpac-nav-classic {
-  background-image: linear-gradient(#120501, #190a07);
-}
-
-
-/* TBC */
-
-.tbc-tab,
+/* .tbc-tab,
 .tbc-tab-active {
-  background-color: green;
-}
-
-.tbc-tab-active {
-  font-weight: bold;
-}
-
-
-/* WotLK */
+} */
 
 .wotlk-tab,
 .wotlk-tab-active {
-  background-color: blue;
+  /* margin-left: -1px; */
   border-left: 1px solid black;
 }
 
+.classic-tab-active,
+.tbc-tab-active,
 .wotlk-tab-active {
   font-weight: bold;
+}
+
+
+/* Buffers */
+
+.left-buffer,
+.right-buffer {
+  display: flex;
+  flex-direction: column-reverse;
+  width: 20px;
+  z-index: 1;
+}
+
+.classic-lb {
+  margin-right: -1px;
+}
+
+.classic-rb {
+  margin-right: -20px;
+}
+
+.tbc-lb {
+  margin-left: -20px;
+}
+
+.tbc-rb {
+  margin-right: -20px;
+}
+
+.wotlk-rb {
+  margin-left: -1px;
+}
+
+.square {
+  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  z-index: 2;
+  border-bottom: 1px solid black;
+}
+
+.tbc-left-sq {
+  margin-left: 1px;
+}
+
+.tbc-right-sq {
+  margin-left: -1px;
+  /* z-index: ; */
+}
+
+.curve {
+  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  margin-bottom: -20px;
+  z-index: 3;
+  border-bottom: 1px solid black;
+}
+
+.classic-rc,
+.tbc-rc,
+.wotlk-rc {
+  box-sizing: border-box;
+  border-left: 1px solid black;
+  border-bottom-left-radius: 15px;
+}
+
+.classic-lc,
+.tbc-lc,
+.wotlk-lc {
+  box-sizing: border-box;
+  border-right: 1px solid black;
+  border-bottom-right-radius: 15px;
+}
+
+.classic-lc {
+  background: #190a07;
+}
+
+.classic-rc {
+  background: #2d9f05;
+}
+
+.tbc-lc {
+  margin-left: 1px;
+  background: #f1dd6f;
+}
+
+.tbc-rc {
+  margin-left: -1px;
+  background: #0282b7;
+}
+
+.wotlk-rc {
+  background: #190a07;
 }

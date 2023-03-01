@@ -2,10 +2,12 @@
   width: 272px;
   height: max-content;
   margin-left: 10px;
+  margin-right: 10px;
   margin-top: 10px;
   border: 1px solid black;
   border-radius: 15px;
   border-right: 1px solid black;
+  background: rgba(241, 221, 111, 0.5);
 }
 
 .tool {

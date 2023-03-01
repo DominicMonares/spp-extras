@@ -1,12 +1,21 @@
+/* Shared */
+
+.quest-tracker-controls,
+.quest-tracker-view {
+  height: max-content;
+  margin-top: 10px;
+  border: 1px solid black;
+  border-radius: 15px;
+  background: rgba(241, 221, 111, 0.5);
+}
+
+
 /* Controls */
 
 .quest-tracker-controls {
   width: 272px;
-  height: 596px;
+  margin-left: 10px;
   margin-right: 10px;
-  margin-top: 10px;
-  border: 1px solid black;
-  border-radius: 15px;
 }
 
 
@@ -14,12 +23,6 @@
 
 .quest-tracker-view {
   width: 100%;
-  height: max-content;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-top: 10px;
-  border: 1px solid black;
-  border-radius: 15px;
 }
 
 .complete {

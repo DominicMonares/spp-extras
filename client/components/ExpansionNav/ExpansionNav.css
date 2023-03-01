@@ -66,8 +66,11 @@
 
 .wotlk-tab,
 .wotlk-tab-active {
-  /* margin-left: -1px; */
   border-left: 1px solid black;
+}
+
+.wotlk-tab-active {
+  margin-left: -1px;
 }
 
 .classic-tab-active,
@@ -103,6 +106,10 @@
   margin-right: -20px;
 }
 
+.wotlk-lb {
+  margin-left: -20px;
+}
+
 .wotlk-rb {
   margin-left: -1px;
 }
@@ -121,7 +128,6 @@
 
 .tbc-right-sq {
   margin-left: -1px;
-  /* z-index: ; */
 }
 
 .curve {
@@ -165,6 +171,16 @@
 .tbc-rc {
   margin-left: -1px;
   background: #0282b7;
+}
+
+.wotlk-lc,
+.wotlk-lc-active {
+  /* margin-left: 1px; */
+  background: #2d9f05;
+}
+
+.wotlk-lc-active {
+  margin-left: 1px;
 }
 
 .wotlk-rc {

@@ -52,7 +52,6 @@
 .tbc-tab-active,
 .wotlk-tab,
 .wotlk-tab-active {
-  box-sizing: border-box;
   width: calc(100% / 3);
   height: 48px;
   border-top-left-radius: 15px;
@@ -153,7 +152,6 @@
 }
 
 .square {
-  box-sizing: border-box;
   width: 20px;
   height: 20px;
   z-index: 2;
@@ -169,7 +167,6 @@
 }
 
 .curve {
-  box-sizing: border-box;
   width: 20px;
   height: 20px;
   margin-bottom: -20px;
@@ -182,7 +179,6 @@
 .tbc-rc,
 .tbc-frc,
 .wotlk-frc {
-  box-sizing: border-box;
   border-left: 1px solid black;
   border-bottom-left-radius: 15px;
 }
@@ -192,7 +188,6 @@
 .tbc-flc,
 .wotlk-lc,
 .wotlk-flc {
-  box-sizing: border-box;
   border-right: 1px solid black;
   border-bottom-right-radius: 15px;
 }

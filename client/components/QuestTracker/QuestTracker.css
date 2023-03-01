@@ -13,7 +13,7 @@
 /* Controls */
 
 .quest-tracker-controls {
-  width: 272px;
+  width: 292px;
   margin-left: 10px;
   margin-right: 10px;
 }
@@ -22,7 +22,8 @@
 /* View */
 
 .quest-tracker-view {
-  width: 100%;
+  /* width: calc(100% - 584px); */
+  max-width: 496px;
 }
 
 .complete {

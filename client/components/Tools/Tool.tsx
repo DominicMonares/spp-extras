@@ -22,7 +22,10 @@ const Tool = ({ tool, name }: ToolNavProps) => {
           onClick={() => switchFeature(tool)}
         >
           <img src={bigButton} />
-          <div className="tool-big-label-text">{name}</div>
+          <div className="tool-big-text-container">
+            <div className="tool-label-text">{name.split(' ')[0]}</div>
+            <div className="tool-label-text">{name.split(' ')[1]}</div>
+          </div>
         </button>
       ) : (
         <button 
@@ -30,7 +33,7 @@ const Tool = ({ tool, name }: ToolNavProps) => {
           onClick={() => switchFeature(tool)}
         >
           <img src={button} />
-          <div className="tool-label-text">{name}</div>
+          <div className="tool-label-text tool-text-container">{name}</div>
         </button>
       )}
     </li>

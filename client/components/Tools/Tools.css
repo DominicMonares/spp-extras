@@ -1,9 +1,6 @@
 .classic-tools,
 .tbc-tools,
 .wotlk-tools {
-  /* display: flex;
-  flex-direction: column;
-  align-items: center; */
   width: 292px;
   height: max-content;
   margin-left: 10px;
@@ -67,8 +64,6 @@
   align-items: center;
   text-align: center;
   position: relative;
-  height: 54px;
-  margin-top: -54px;
   z-index: 1;
   font-family: Friz Quadrata;
   font-size: 26px;
@@ -78,18 +73,16 @@
   -webkit-text-fill-color: transparent;
 }
 
-.tool-big-label-text {
+.tool-text-container {
+  height: 54px;
+  margin-top: -54px;
+}
+
+.tool-big-text-container {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  text-align: center;
-  position: relative;
   height: 74px;
   margin-top: -74px;
-  z-index: 1;
-  font-family: Friz Quadrata;
-  font-size: 26px;
-  background: -webkit-linear-gradient(#d19a1b, #f5ef41);
-  background-clip: inherit;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }

@@ -16,7 +16,7 @@ const Tools = () => {
       <ul className="tool-list">
         <Tool tool="questTracker" name="Quest Tracker" />
         {expansion === 'wotlk' ? (
-          <Tool tool="accountAchievements" name={'Account-wide\nAchievements'} />
+          <Tool tool="accountAchievements" name={'Account-wide Achievements'} />
         ) : (
           <></>
         )}

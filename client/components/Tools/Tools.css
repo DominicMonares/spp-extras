@@ -28,12 +28,13 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: 10px;
-  margin-bottom: 21px;
+  margin-bottom: 26px;
 }
 
 .tools-label-text {
+  height: 40px;
   font-family: Friz Quadrata;
-  font-size: 26px;
+  font-size: 24px;
   background: -webkit-linear-gradient(#d19a1b, #f5ef41);
   background-clip: inherit;
   -webkit-background-clip: text;
@@ -52,13 +53,6 @@
   margin-bottom: 5px;
 }
 
-.tool-button {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .tool-label-text {
   display: flex;
   align-items: center;
@@ -73,16 +67,21 @@
   -webkit-text-fill-color: transparent;
 }
 
+.tool-button,
+.tool-text-container,
+.tool-big-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .tool-text-container {
   height: 54px;
   margin-top: -54px;
 }
 
 .tool-big-text-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   height: 74px;
   margin-top: -74px;
 }

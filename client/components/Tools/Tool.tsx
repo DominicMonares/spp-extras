@@ -33,7 +33,9 @@ const Tool = ({ tool, name }: ToolNavProps) => {
           onClick={() => switchFeature(tool)}
         >
           <img src={button} />
-          <div className="tool-label-text tool-text-container">{name}</div>
+          <div className="tool-text-container">
+            <div className="tool-label-text">{name}</div>
+          </div>
         </button>
       )}
     </li>

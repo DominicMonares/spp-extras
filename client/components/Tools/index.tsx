@@ -9,8 +9,8 @@ const Tools = () => {
 
   return (
     <div className={`${expansion}-tools`}>
-      <div>
-        <img className="tools-label" src={label} />
+      <div className="tools-label">
+        <img src={label} />
         <div className="tools-label-text">Tools</div>
       </div>
       <ul className="tool-list">

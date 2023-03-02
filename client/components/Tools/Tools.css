@@ -70,21 +70,44 @@
   margin-bottom: 5px;
 }
 
+.tool-button-img:hover {
+  height: 60px;
+}
+
+/* .tool-button-img:hover ~ .tool-label-text {
+  font-size: 28px;
+} */
+
 .tool-text-container {
+  width: 100%;
   height: 54px;
   margin-top: -54px;
 }
 
 .tool-big-text-container {
+  position: relative;
+  width: 100%;
   height: 74px;
   margin-top: -74px;
 }
 
-
 .tool-label-text {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  /* height: 100%; */
   font-size: 26px;
   background: -webkit-linear-gradient(#c88f19 40%, #f7f243 80%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.last-label-text {
+  display: flex;
+  flex-direction: column-reverse;
+  margin: 0px;
+  height: 74px;
+  position: absolute;
+  z-index: 3;
 }

@@ -17,24 +17,23 @@ const Tool = ({ tool, name }: ToolNavProps) => {
   return (
     <li className={`tool ${tool === selectedTool ? 'active' : ''}`}>
       {tool === 'accountAchievements' ? (
-        <button 
+        <button
           className="tool-button"
           onClick={() => switchFeature(tool)}
         >
           <img src={bigButton} />
           <div className="tool-big-text-container">
             <div className="tool-label-text">{name.split(' ')[0]}</div>
-            <div className="tool-label-text">{name.split(' ')[1]}</div>
+            <div className="tool-label-text last-label-text">{name.split(' ')[1]}</div>
           </div>
         </button>
       ) : (
-        <button 
-          className="tool-button"
-          onClick={() => switchFeature(tool)}
-        >
-          <img src={button} />
+        <button className="tool-button">
+          <img className="tool-button-img" src={button} />
           <div className="tool-text-container">
-            <div className="tool-label-text">{name}</div>
+            <div className="tool-label-text" onClick={() => switchFeature(tool)}>
+              {name}
+            </div>
           </div>
         </button>
       )}

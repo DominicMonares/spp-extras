@@ -103,19 +103,25 @@
   display: flex;
   justify-content: center;
   width: 100%;
+}
+
+.tool-label-text {
+  font-size: 26px;
   background: -webkit-linear-gradient(#c88f19 40%, #f7f243 80%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.tool-label-text {
-  font-size: 26px;
-}
-
 .tool-label-text-hovering {
-  margin-top: 10px;
-  font-size: 30px;
+  /* height: 60px; */
+  /* overflow-y: visible; */
+  /* line-height: 2; */
+  font-size: 26px;
+  background: -webkit-linear-gradient(#c88f19 40%, #f7f243 80%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .tool-button-overlay,
@@ -135,7 +141,7 @@
 }
 
 .tool-button-overlay-hovering {
-  margin-top: -40px;
+  /* margin-top: -60px; */
   height: 60px;
 }
 

@@ -33,6 +33,10 @@
   align-items: center;
 }
 
+.tool-button-img-hovering {
+  height: 60px;
+}
+
 .tools-label {
   margin-top: 10px;
   margin-bottom: 21px;
@@ -70,44 +74,72 @@
   margin-bottom: 5px;
 }
 
-.tool-button-img:hover {
-  height: 60px;
+.tool-text-container,
+.tool-text-container-hovering {
+  position: relative;
+  width: 100%;
 }
 
-/* .tool-button-img:hover ~ .tool-label-text {
-  font-size: 28px;
-} */
-
 .tool-text-container {
-  width: 100%;
-  height: 54px;
   margin-top: -54px;
+  height: 54px;
+}
+
+.tool-text-container-hovering {
+  margin-top: -60px;
+  height: 60px;
 }
 
 .tool-big-text-container {
   position: relative;
   width: 100%;
+  height: 100%;
   height: 74px;
   margin-top: -74px;
 }
 
-.tool-label-text {
+.tool-label-text,
+.tool-label-text-hovering {
   display: flex;
   justify-content: center;
   width: 100%;
-  /* height: 100%; */
-  font-size: 26px;
   background: -webkit-linear-gradient(#c88f19 40%, #f7f243 80%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.last-label-text {
-  display: flex;
-  flex-direction: column-reverse;
-  margin: 0px;
-  height: 74px;
+.tool-label-text {
+  font-size: 26px;
+}
+
+.tool-label-text-hovering {
+  margin-top: 10px;
+  font-size: 30px;
+}
+
+.tool-button-overlay,
+.tool-button-overlay-hovering,
+.tool-big-button-overlay {
   position: absolute;
   z-index: 3;
+}
+
+.tool-button-overlay,
+.tool-button-overlay-hovering {
+  width: 100%;
+}
+
+.tool-button-overlay {
+  height: 54px;
+}
+
+.tool-button-overlay-hovering {
+  margin-top: -40px;
+  height: 60px;
+}
+
+.tool-big-button-overlay {
+  width: 100%;
+  height: 74px;
 }

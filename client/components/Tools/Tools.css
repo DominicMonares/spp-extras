@@ -1,3 +1,5 @@
+/* General */
+
 .classic-tools,
 .tbc-tools,
 .wotlk-tools {
@@ -33,9 +35,8 @@
   align-items: center;
 }
 
-.tool-button-img-hovering {
-  height: 60px;
-}
+
+/* Tools Label */
 
 .tools-label {
   margin-top: 10px;
@@ -43,7 +44,8 @@
 }
 
 .tools-label-text,
-.tool-label-text {
+.tool-label-text,
+.tool-label-text-hovering {
   display: flex;
   align-items: center;
   text-align: center;
@@ -62,6 +64,9 @@
   -webkit-text-fill-color: transparent;
 }
 
+
+/* Tools */
+
 .tool-list {
   display: flex;
   flex-direction: column;
@@ -74,10 +79,27 @@
   margin-bottom: 5px;
 }
 
+
+/* Buttons */
+
+.tool-button-img,
+.tool-button-img-hovering {
+  transition: height 0.10s linear;
+}
+
+.tool-button-img {
+  height: 54px;
+}
+
+.tool-button-img-hovering {
+  height: 60px;
+}
+
 .tool-text-container,
 .tool-text-container-hovering {
   position: relative;
   width: 100%;
+  transition: width 0.10s linear, height 0.10s linear, margin-top 0.10s linear;
 }
 
 .tool-text-container {
@@ -93,7 +115,6 @@
 .tool-big-text-container {
   position: relative;
   width: 100%;
-  height: 100%;
   height: 74px;
   margin-top: -74px;
 }
@@ -103,6 +124,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
+  transition: width 0.10s linear, font-size 0.10s linear, margin-top 0.10s linear;
 }
 
 .tool-label-text {
@@ -114,10 +136,8 @@
 }
 
 .tool-label-text-hovering {
-  /* height: 60px; */
-  /* overflow-y: visible; */
-  /* line-height: 2; */
-  font-size: 26px;
+  margin-top: 11px;
+  font-size: 30px;
   background: -webkit-linear-gradient(#c88f19 40%, #f7f243 80%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -134,6 +154,7 @@
 .tool-button-overlay,
 .tool-button-overlay-hovering {
   width: 100%;
+  transition: width 0.10s linear, height 0.10s linear, margin-top 0.10s linear;
 }
 
 .tool-button-overlay {
@@ -141,7 +162,7 @@
 }
 
 .tool-button-overlay-hovering {
-  /* margin-top: -60px; */
+  margin-top: -48px;
   height: 60px;
 }
 

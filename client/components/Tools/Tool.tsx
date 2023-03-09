@@ -28,17 +28,13 @@ const Tool = ({ tool, name }: ToolNavProps) => {
           </div>
         </button>
       ) : (
-        <button className="tool-button">
-          <img className={`tool-button-img${hovering}`} src={button} />
-          <div className={`tool-text-container${hovering}`}>
-            <div className={`tool-label-text${hovering}`}>{name}</div>
-            <div 
-              className={`tool-button-overlay${hovering}`}
-              onClick={() => switchFeature(tool)}
-              onMouseEnter={() => setHovering('-hovering')}
-              onMouseLeave={() => setHovering('')}
-            />
-          </div>
+        <button
+          className={`tool-button${hovering}`}
+          onClick={() => switchFeature(tool)}
+          onMouseEnter={() => setHovering('-hovering')}
+          onMouseLeave={() => setHovering('')}
+        >
+          <div className={`tool-button-text${hovering}`}>Quest Tracker</div>
         </button>
       )}
     </li>

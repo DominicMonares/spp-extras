@@ -25,38 +25,27 @@
   background: rgba(25, 118, 174, 0.5);
 }
 
-.tools-label,
-.tool-button,
-.tool-text-container,
-.tool-big-text-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 
 /* Tools Label */
 
 .tools-label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-top: 10px;
   margin-bottom: 21px;
 }
 
-.tools-label-text,
-.tool-label-text,
-.tool-label-text-hovering {
+.tools-label-text {
   display: flex;
   align-items: center;
   text-align: center;
   position: relative;
   z-index: 1;
-  font-family: Friz Quadrata;
-}
-
-.tools-label-text {
   height: 40px;
   margin-top: -40px;
+  font-family: Friz Quadrata;
   font-size: 24px;
   background: -webkit-linear-gradient(#c88f19 40%, #f7f243 70%);
   background-clip: text;
@@ -80,68 +69,101 @@
 }
 
 
-/* Buttons */
+/* Tool Buttons */
 
-.tool-button-img,
-.tool-button-img-hovering {
+.tool-button,
+.tool-button-hovering {
+  background-image: url("../../assets/buttons/button.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
   transition: width 0.10s linear, height 0.10s linear;
 }
 
-.tool-button-img {
+.tool-button {
+  width: 224px;
+  height: 54px;
+}
+
+.tool-button-hovering {
+  width: 248px;
+  height: 60px;
+}
+
+.tool-button-text,
+.tool-button-text-hovering {
+  display: flex;
+  justify-content: center;
+  font-family: Friz Quadrata;
+  background: -webkit-linear-gradient(#c88f19 40%, #f7f243 80%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: font-size 0.10s linear;
+}
+
+.tool-button-text {
+  font-size: 26px;
+}
+
+.tool-button-text-hovering {
+  font-size: 30px;
+}
+
+/* .tool-button-img,
+.tool-button-img-hovering {
+} */
+
+/* .tool-button-img {
   width: 224px;
   height: 54px;
 }
 
 .tool-button-img-hovering {
   width: 248px;
-  height: 60px;
-}
+  height: 54px;
+} */
 
-.tool-text-container,
-.tool-text-container-hovering {
+/* .tool-button-text-container,
+.tool-button-text-container-hovering {
   position: relative;
   width: 100%;
-  /* transition: width 0.10s linear, height 0.10s linear; */
-}
+} */
 
-.tool-text-container {
+/* .tool-button-text-container {
   margin-top: -54px;
   width: 224px;
   height: 54px;
 }
 
-.tool-text-container-hovering {
-  margin-top: -60px;
+.tool-button-text-container-hovering {
+  margin-top: -54px;
   width: 248px;
-  height: 60px;
-}
+  height: 54px;
+} */
 
-.tool-big-text-container {
+/* .tool-big-text-container {
   position: relative;
   width: 100%;
   height: 74px;
   margin-top: -74px;
-}
+} */
 
-.tool-label-text,
-.tool-label-text-hovering {
+/* .tool-button-text,
+.tool-button-text-hovering {
   display: flex;
   justify-content: center;
   width: 100%;
-  transition: font-size 0.10s linear;
-}
+} */
 
-.tool-label-text {
-  margin-top: 0px;
+/* .tool-button-text {
   font-size: 26px;
   background: -webkit-linear-gradient(#c88f19 40%, #f7f243 80%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
+} */
 
-.tool-label-text-hovering {
-  margin-top: 12px;
+/* .tool-button-text-hovering {
   font-size: 30px;
   background: -webkit-linear-gradient(#c88f19 40%, #f7f243 80%);
   background-clip: text;
@@ -158,15 +180,17 @@
 .tool-button-overlay,
 .tool-button-overlay-hovering {
   width: 248px;
-  height: 60px;
+  height: 54px;
   z-index: 3;
+  background: rgba(45, 159, 5, 0.5);
 }
 
 .tool-button-overlay-hovering {
-  margin-top: -47px;
+  margin-top: -31.5px;
+  background: rgba(45, 159, 5, 0.5);
 }
 
 .tool-big-button-overlay {
   width: 100%;
   height: 74px;
-}
+} */

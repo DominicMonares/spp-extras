@@ -101,7 +101,7 @@
 .tool-text-container-hovering {
   position: relative;
   width: 100%;
-  transition: width 0.10s linear, height 0.10s linear, margin-top 0.10s linear;
+  /* transition: width 0.10s linear, height 0.10s linear; */
 }
 
 .tool-text-container {
@@ -128,7 +128,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  transition: width 0.10s linear, font-size 0.10s linear, margin-top 0.10s linear;
+  transition: font-size 0.10s linear;
 }
 
 .tool-label-text {
@@ -141,7 +141,7 @@
 }
 
 .tool-label-text-hovering {
-  margin-top: 11px;
+  margin-top: 12px;
   font-size: 30px;
   background: -webkit-linear-gradient(#c88f19 40%, #f7f243 80%);
   background-clip: text;
@@ -153,24 +153,17 @@
 .tool-button-overlay-hovering,
 .tool-big-button-overlay {
   position: absolute;
-  z-index: 3;
 }
 
 .tool-button-overlay,
 .tool-button-overlay-hovering {
-  transition: width 0.10s linear, height 0.10s linear, margin-top 0.10s linear;
-}
-
-.tool-button-overlay {
-  margin-top: 0px;
-  width: 224px;
-  height: 54px;
+  width: 248px;
+  height: 60px;
+  z-index: 3;
 }
 
 .tool-button-overlay-hovering {
-  margin-top: -48px;
-  width: 248px;
-  height: 60px;
+  margin-top: -47px;
 }
 
 .tool-big-button-overlay {

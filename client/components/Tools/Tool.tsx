@@ -2,8 +2,6 @@ import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { storeTool } from '../../store/slices';
 import { ToolNavProps, SelectedTool } from '../../types';
-import button from '../../assets/buttons/button.png';
-import bigButton from '../../assets/buttons/big-button.png';
 import './Tools.css';
 
 
@@ -19,14 +17,16 @@ const Tool = ({ tool, name }: ToolNavProps) => {
   return (
     <li className={`tool ${tool === selectedTool ? 'active' : ''}`}>
       {tool === 'accountAchievements' ? (
-        <button className="tool-button">
-          <img src={bigButton} />
-          <div className="tool-big-text-container">
-            <div className="tool-label-text">{name.split(' ')[0]}</div>
-            <div className="tool-label-text">{name.split(' ')[1]}</div>
-            <div className="tool-big-button-overlay" onClick={() => switchFeature(tool)}></div>
-          </div>
+        <button
+          className={`tool-big-button${hovering}`}
+          onClick={() => switchFeature(tool)}
+          onMouseEnter={() => setHovering('-hovering')}
+          onMouseLeave={() => setHovering('')}
+        >
+          <div className={`tool-big-button-text${hovering}`}>{name.split(' ')[0]}</div>
+          <div className={`tool-big-button-text${hovering}`}>{name.split(' ')[1]}</div>
         </button>
+
       ) : (
         <button
           className={`tool-button${hovering}`}

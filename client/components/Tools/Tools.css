@@ -54,7 +54,7 @@
 }
 
 
-/* Tools */
+/* Tools List */
 
 .tool-list {
   display: flex;
@@ -72,11 +72,22 @@
 /* Tool Buttons */
 
 .tool-button,
-.tool-button-hovering {
-  background-image: url("../../assets/buttons/button.png");
+.tool-button-hovering,
+.tool-big-button,
+.tool-big-button-hovering {
   background-repeat: no-repeat;
   background-size: 100%;
-  transition: width 0.10s linear, height 0.10s linear;
+  transition: width 0.1s linear, height 0.1s linear;
+}
+
+.tool-button,
+.tool-button-hovering {
+  background-image: url("../../assets/buttons/button.png");
+}
+
+.tool-big-button,
+.tool-big-button-hovering {
+  background-image: url("../../assets/buttons/big-button.png");
 }
 
 .tool-button {
@@ -89,8 +100,20 @@
   height: 60px;
 }
 
+.tool-big-button {
+  width: 224px;
+  height: 74px;
+}
+
+.tool-big-button-hovering {
+  width: 248px;
+  height: 82px;
+}
+
 .tool-button-text,
-.tool-button-text-hovering {
+.tool-button-text-hovering,
+.tool-big-button-text,
+.tool-big-button-text-hovering {
   display: flex;
   justify-content: center;
   font-family: Friz Quadrata;
@@ -98,99 +121,15 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  transition: font-size 0.10s linear;
+  transition: font-size 0.1s linear;
 }
 
-.tool-button-text {
+.tool-button-text,
+.tool-big-button-text {
   font-size: 26px;
 }
 
-.tool-button-text-hovering {
+.tool-button-text-hovering,
+.tool-big-button-text-hovering {
   font-size: 30px;
 }
-
-/* .tool-button-img,
-.tool-button-img-hovering {
-} */
-
-/* .tool-button-img {
-  width: 224px;
-  height: 54px;
-}
-
-.tool-button-img-hovering {
-  width: 248px;
-  height: 54px;
-} */
-
-/* .tool-button-text-container,
-.tool-button-text-container-hovering {
-  position: relative;
-  width: 100%;
-} */
-
-/* .tool-button-text-container {
-  margin-top: -54px;
-  width: 224px;
-  height: 54px;
-}
-
-.tool-button-text-container-hovering {
-  margin-top: -54px;
-  width: 248px;
-  height: 54px;
-} */
-
-/* .tool-big-text-container {
-  position: relative;
-  width: 100%;
-  height: 74px;
-  margin-top: -74px;
-} */
-
-/* .tool-button-text,
-.tool-button-text-hovering {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-} */
-
-/* .tool-button-text {
-  font-size: 26px;
-  background: -webkit-linear-gradient(#c88f19 40%, #f7f243 80%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-} */
-
-/* .tool-button-text-hovering {
-  font-size: 30px;
-  background: -webkit-linear-gradient(#c88f19 40%, #f7f243 80%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.tool-button-overlay,
-.tool-button-overlay-hovering,
-.tool-big-button-overlay {
-  position: absolute;
-}
-
-.tool-button-overlay,
-.tool-button-overlay-hovering {
-  width: 248px;
-  height: 54px;
-  z-index: 3;
-  background: rgba(45, 159, 5, 0.5);
-}
-
-.tool-button-overlay-hovering {
-  margin-top: -31.5px;
-  background: rgba(45, 159, 5, 0.5);
-}
-
-.tool-big-button-overlay {
-  width: 100%;
-  height: 74px;
-} */

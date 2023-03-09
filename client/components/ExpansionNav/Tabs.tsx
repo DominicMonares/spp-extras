@@ -19,63 +19,52 @@ const Tabs = ({ openModal }: TabsProps) => {
   };
 
   return (
-    <nav>
-      <ul className="xpac-tabs">
-        <li className="left-buffer classic-lb">
+    <nav className="xpac-tabs">
+      <span className="left-buffer classic-lb">
+        <div className="square classic-color"></div>
+        <div className={`curve ${expansion}-flc`}></div>
+      </span>
+      <span className={`classic-tab${expansions.classic} classic-gradient`}>
+        <button className="classic-label" onClick={() => openModal('classic')}>
+          <img className={expansions.classic ? '' : 'label-inactive'} src={vanillaTab} />
+        </button>
+      </span>
+      {expansion === 'classic' ? (
+        <span className="right-buffer classic-rb">
           <div className="square classic-color"></div>
-          <div className={`curve ${expansion}-flc`}></div>
-        </li>
-        <li className={`classic-tab${expansions.classic} classic-gradient`}>
-          <button 
-            className="classic-label"
-            onClick={() => openModal('classic')}
-          >
-            <img className={expansions.classic ? '' : 'label-inactive'} src={vanillaTab} />
-          </button>
-        </li>
-        {expansion === 'classic' ? (
-          <li className="right-buffer classic-rb">
-            <div className="square classic-color"></div>
-            <div className="curve classic-rc"></div>
-          </li>
-        ) : (
-          <li className="left-buffer tbc-lb">
-            <div className="square tbc-color tbc-left-sq"></div>
-            <div className="curve tbc-lc"></div>
-          </li>
-        )}
-        <li className={`tbc-tab${expansions.tbc} tbc-gradient`}>
-          <button
-            className="tbc-label"
-            onClick={() => openModal('tbc')}
-          >
-            <img className={expansions.tbc ? '' : 'label-inactive'} src={tbcTab} />
-          </button>
-        </li>
-        {expansion === 'wotlk' ? (
-          <li className="left-buffer wotlk-lb">
-            <div className="square wotlk-color wotlk-left-sq"></div>
-            <div className="curve wotlk-lc"></div>
-          </li>
-        ) : (
-          <li className="right-buffer tbc-rb">
-            <div className="square tbc-color tbc-right-sq"></div>
-            <div className="curve tbc-rc"></div>
-          </li>
-        )}
-        <li className={`wotlk-tab${expansions.wotlk} wotlk-gradient`}>
-          <button 
-            className="wotlk-label"
-            onClick={() => openModal('wotlk')}
-          >
-            <img className={expansions.wotlk ? '' : 'label-inactive'} src={wotlkTab} />
-          </button>
-        </li>
-        <li className="right-buffer wotlk-rb">
-          <div className="square wotlk-color"></div>
-          <div className={`curve ${expansion}-frc`}></div>
-        </li>
-      </ul>
+          <div className="curve classic-rc"></div>
+        </span>
+      ) : (
+        <span className="left-buffer tbc-lb">
+          <div className="square tbc-color tbc-left-sq"></div>
+          <div className="curve tbc-lc"></div>
+        </span>
+      )}
+      <span className={`tbc-tab${expansions.tbc} tbc-gradient`}>
+        <button className="tbc-label" onClick={() => openModal('tbc')}>
+          <img className={expansions.tbc ? '' : 'label-inactive'} src={tbcTab} />
+        </button>
+      </span>
+      {expansion === 'wotlk' ? (
+        <span className="left-buffer wotlk-lb">
+          <div className="square wotlk-color wotlk-left-sq"></div>
+          <div className="curve wotlk-lc"></div>
+        </span>
+      ) : (
+        <span className="right-buffer tbc-rb">
+          <div className="square tbc-color tbc-right-sq"></div>
+          <div className="curve tbc-rc"></div>
+        </span>
+      )}
+      <span className={`wotlk-tab${expansions.wotlk} wotlk-gradient`}>
+        <button className="wotlk-label" onClick={() => openModal('wotlk')}>
+          <img className={expansions.wotlk ? '' : 'label-inactive'} src={wotlkTab} />
+        </button>
+      </span>
+      <span className="right-buffer wotlk-rb">
+        <div className="square wotlk-color"></div>
+        <div className={`curve ${expansion}-frc`}></div>
+      </span>
     </nav>
   );
 }

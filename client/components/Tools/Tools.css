@@ -84,14 +84,16 @@
 
 .tool-button-img,
 .tool-button-img-hovering {
-  transition: height 0.10s linear;
+  transition: width 0.10s linear, height 0.10s linear;
 }
 
 .tool-button-img {
+  width: 224px;
   height: 54px;
 }
 
 .tool-button-img-hovering {
+  width: 248px;
   height: 60px;
 }
 
@@ -104,11 +106,13 @@
 
 .tool-text-container {
   margin-top: -54px;
+  width: 224px;
   height: 54px;
 }
 
 .tool-text-container-hovering {
   margin-top: -60px;
+  width: 248px;
   height: 60px;
 }
 
@@ -128,6 +132,7 @@
 }
 
 .tool-label-text {
+  margin-top: 0px;
   font-size: 26px;
   background: -webkit-linear-gradient(#c88f19 40%, #f7f243 80%);
   background-clip: text;
@@ -153,16 +158,18 @@
 
 .tool-button-overlay,
 .tool-button-overlay-hovering {
-  width: 100%;
   transition: width 0.10s linear, height 0.10s linear, margin-top 0.10s linear;
 }
 
 .tool-button-overlay {
+  margin-top: 0px;
+  width: 224px;
   height: 54px;
 }
 
 .tool-button-overlay-hovering {
   margin-top: -48px;
+  width: 248px;
   height: 60px;
 }
 

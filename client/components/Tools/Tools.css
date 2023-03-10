@@ -72,21 +72,29 @@
 /* Tool Buttons */
 
 .tool-button,
+.tool-button-active,
 .tool-button-hovering,
+.tool-button-hovering-active,
 .tool-big-button,
-.tool-big-button-hovering {
+.tool-big-button-active,
+.tool-big-button-hovering,
+.tool-big-button-hovering-active {
   background-repeat: no-repeat;
   background-size: 100%;
   transition: width 0.1s linear, height 0.1s linear;
 }
 
 .tool-button,
-.tool-button-hovering {
+.tool-button-active,
+.tool-button-hovering,
+.tool-button-hovering-active {
   background-image: url("../../assets/buttons/button.png");
 }
 
 .tool-big-button,
-.tool-big-button-hovering {
+.tool-big-button-active,
+.tool-big-button-hovering,
+.tool-big-button-hovering-active {
   background-image: url("../../assets/buttons/big-button.png");
 }
 
@@ -95,7 +103,9 @@
   height: 54px;
 }
 
-.tool-button-hovering {
+.tool-button-active,
+.tool-button-hovering,
+.tool-button-hovering-active {
   width: 248px;
   height: 60px;
 }
@@ -105,15 +115,21 @@
   height: 74px;
 }
 
-.tool-big-button-hovering {
+.tool-big-button-active,
+.tool-big-button-hovering,
+.tool-big-button-hovering-active {
   width: 248px;
   height: 82px;
 }
 
 .tool-button-text,
+.tool-button-text-active,
 .tool-button-text-hovering,
+.tool-button-text-hovering-active,
 .tool-big-button-text,
-.tool-big-button-text-hovering {
+.tool-big-button-text-active,
+.tool-big-button-text-hovering,
+.tool-big-button-text-hovering-active {
   display: flex;
   justify-content: center;
   font-family: Friz Quadrata;
@@ -129,7 +145,11 @@
   font-size: 26px;
 }
 
+.tool-button-text-active,
 .tool-button-text-hovering,
-.tool-big-button-text-hovering {
+.tool-button-text-hovering-active,
+.tool-big-button-text-active,
+.tool-big-button-text-hovering,
+.tool-big-button-text-hovering-active {
   font-size: 30px;
 }

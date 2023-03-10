@@ -6,6 +6,7 @@ export type SelectedExpansion = 'classic' | 'tbc' | 'wotlk' | null;
 
 export interface TabProps extends TabsProps {
   active: string;
+  expansion: SelectedExpansion;
 }
 
 export interface TabsProps {

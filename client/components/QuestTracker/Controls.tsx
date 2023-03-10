@@ -12,6 +12,7 @@ import {
   zoneMenu
 } from '../../utils';
 import { QuestTrackerControlsProps } from '../../types';
+import label from '../../assets/labels/small-label.png';
 import './QuestTracker.css';
 
 
@@ -35,6 +36,11 @@ const Controls = ({ characters }: QuestTrackerControlsProps) => {
 
   return (
     <div className={`${expansion}-qt-controls`}>
+      <div className="controls-label">
+        <img src={label} />
+        <div className="controls-label-text">Controls</div>
+      </div>
+      <div>Select Faction</div>
       <FactionCheckboxes />
       <DropdownMenu type="zone" menu={zoneMenu(expansion, zone)} />
       {character && JSON.parse(character.value).characterClass ? (

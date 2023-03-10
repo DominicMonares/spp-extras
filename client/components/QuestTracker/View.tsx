@@ -3,6 +3,7 @@ import Loading from '../Loading';
 import Quest from './Quest';
 import { createViewQuests } from '../../utils';
 import { QuestTrackerViewProps } from '../../types';
+import label from '../../assets/labels/long-label.png';
 
 
 const View = ({ 
@@ -22,7 +23,12 @@ const View = ({
         <></>
       )}
       {(!loading && !error) && (!characterClass || !race || !zone) ? (
-        <span>Please Select a Zone OR Class and/or Race</span>
+        <div className="qt-select-label">
+          <img src={label} />
+          <div className="qt-select-text">
+            Please select a zone ~or~ class and/or race
+          </div>
+        </div>
       ) : (
         <></>
       )}

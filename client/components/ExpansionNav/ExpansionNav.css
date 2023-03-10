@@ -43,65 +43,103 @@
 
 .xpac-tabs {
   display: flex;
-  flex-direction: row;
 }
 
 .classic-tab,
 .classic-tab-active,
+.classic-tab-hovering,
+.classic-tab-hovering-active,
 .tbc-tab,
 .tbc-tab-active,
+.tbc-tab-hovering,
+.tbc-tab-hovering-active,
 .wotlk-tab,
-.wotlk-tab-active {
+.wotlk-tab-active,
+.wotlk-tab-hovering,
+.wotlk-tab-hovering-active  {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: calc(100% / 3);
   height: 48px;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   border: 1px solid black;
-  font-size: 12px;
 }
 
 .classic-tab,
-.classic-tab-active {
+.classic-tab-active,
+.classic-tab-hovering,
+.classic-tab-hovering-active {
   margin-right: -1px;
   border-right: 1px solid black;
 }
 
 .wotlk-tab,
-.wotlk-tab-active {
+.wotlk-tab-active,
+.wotlk-tab-hovering,
+.wotlk-tab-hovering-active {
   border-left: 1px solid black;
 }
 
-.wotlk-tab-active {
+.wotlk-tab-active,
+.wotlk-tab-hovering,
+.wotlk-tab-hovering-active {
   margin-left: -1px;
-}
-
-.classic-tab-active,
-.tbc-tab-active,
-.wotlk-tab-active {
-  font-weight: bold;
 }
 
 
 /* Labels */
 
 .classic-label,
+.classic-label-active,
+.classic-label-hovering,
+.classic-label-hovering-active,
 .tbc-label,
-.wotlk-label {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.tbc-label-active,
+.tbc-label-hovering,
+.tbc-label-hovering-active,
+.wotlk-label,
+.wotlk-label-active,
+.wotlk-label-hovering,
+.wotlk-label-hovering-active {
+  transition: width 0.1s linear, height 0.1s linear;
 }
 
-.label-inactive {
+.classic-label {
+  width: 115px;
   height: 30px;
-  transition: height 0.15s linear;
 }
 
-.label-inactive:hover {
+.classic-label-active,
+.classic-label-hovering,
+.classic-label-hovering-active {
+  width: 150px;
   height: 39px;
-  transition: height 0.15s linear;
+}
+
+.tbc-label {
+  width: 49px;
+  height: 30px;
+}
+
+.tbc-label-active,
+.tbc-label-hovering,
+.tbc-label-hovering-active {
+  width: 64px;
+  height: 39px;
+}
+
+.wotlk-label {
+  width: 94px;
+  height: 30px;
+}
+
+.wotlk-label-active,
+.wotlk-label-hovering,
+.wotlk-label-hovering-active {
+  width: 122px;
+  height: 39px;
 }
 
 

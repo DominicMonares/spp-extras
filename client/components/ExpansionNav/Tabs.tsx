@@ -1,16 +1,12 @@
+import Tab from './Tab';
 import { useAppSelector } from '../../store/hooks';
-import {
-  TabsProps,
-  SelectedExpansion
-} from "../../types";
-import vanillaTab from '../../assets/labels/vanilla.png';
-import tbcTab from '../../assets/labels/tbc.png';
-import wotlkTab from '../../assets/labels/wotlk.png';
+import { TabsProps, SelectedExpansion} from "../../types";
 import './ExpansionNav.css';
 
 
 const Tabs = ({ openModal }: TabsProps) => {
   const expansion = useAppSelector(state => state.expansion.selected);
+  
   const expansionActive = (xpac: SelectedExpansion) => xpac === expansion ? '-active' : '';
   const expansions = {
     classic: expansionActive('classic'),
@@ -24,11 +20,7 @@ const Tabs = ({ openModal }: TabsProps) => {
         <div className="square classic-color"></div>
         <div className={`curve ${expansion}-flc`}></div>
       </span>
-      <span className={`classic-tab${expansions.classic} classic-gradient`}>
-        <button className="classic-label" onClick={() => openModal('classic')}>
-          <img className={expansions.classic ? '' : 'label-inactive'} src={vanillaTab} />
-        </button>
-      </span>
+      <Tab active={expansions.classic} expansion={'classic'} openModal={openModal} />
       {expansion === 'classic' ? (
         <span className="right-buffer classic-rb">
           <div className="square classic-color"></div>
@@ -40,11 +32,7 @@ const Tabs = ({ openModal }: TabsProps) => {
           <div className="curve tbc-lc"></div>
         </span>
       )}
-      <span className={`tbc-tab${expansions.tbc} tbc-gradient`}>
-        <button className="tbc-label" onClick={() => openModal('tbc')}>
-          <img className={expansions.tbc ? '' : 'label-inactive'} src={tbcTab} />
-        </button>
-      </span>
+      <Tab active={expansions.tbc} expansion={'tbc'} openModal={openModal} />
       {expansion === 'wotlk' ? (
         <span className="left-buffer wotlk-lb">
           <div className="square wotlk-color wotlk-left-sq"></div>
@@ -56,11 +44,7 @@ const Tabs = ({ openModal }: TabsProps) => {
           <div className="curve tbc-rc"></div>
         </span>
       )}
-      <span className={`wotlk-tab${expansions.wotlk} wotlk-gradient`}>
-        <button className="wotlk-label" onClick={() => openModal('wotlk')}>
-          <img className={expansions.wotlk ? '' : 'label-inactive'} src={wotlkTab} />
-        </button>
-      </span>
+      <Tab active={expansions.wotlk} expansion={'wotlk'} openModal={openModal} />
       <span className="right-buffer wotlk-rb">
         <div className="square wotlk-color"></div>
         <div className={`curve ${expansion}-frc`}></div>

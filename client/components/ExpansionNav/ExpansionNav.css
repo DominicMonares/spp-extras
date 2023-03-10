@@ -67,21 +67,30 @@
   border: 1px solid black;
 }
 
+.classic-tab-active,
+.classic-tab-hovering-active,
+.tbc-tab-active,
+.tbc-tab-hovering-active,
+.wotlk-tab-active,
+.wotlk-tab-hovering-active {
+  z-index: 2;
+}
+
 .classic-tab,
 .classic-tab-active,
 .classic-tab-hovering,
 .classic-tab-hovering-active {
   margin-right: -1px;
-  border-right: 1px solid black;
+}
+
+.tbc-tab,
+.tbc-tab-active,
+.tbc-tab-hovering,
+.tbc-tab-hovering-active {
+  z-index: 1;
 }
 
 .wotlk-tab,
-.wotlk-tab-active,
-.wotlk-tab-hovering,
-.wotlk-tab-hovering-active {
-  border-left: 1px solid black;
-}
-
 .wotlk-tab-active,
 .wotlk-tab-hovering,
 .wotlk-tab-hovering-active {
@@ -162,7 +171,7 @@
   display: flex;
   flex-direction: column-reverse;
   width: 20px;
-  z-index: 1;
+  z-index: 3;
 }
 
 .classic-lb {
@@ -192,7 +201,6 @@
 .square {
   width: 20px;
   height: 20px;
-  z-index: 2;
   border-bottom: 1px solid black;
 }
 
@@ -208,7 +216,7 @@
   width: 20px;
   height: 20px;
   margin-bottom: -20px;
-  z-index: 3;
+  z-index: 4;
   border-bottom: 1px solid black;
 }
 
@@ -231,6 +239,7 @@
 }
 
 .classic-rc {
+  margin-left: 0.75px;
   background: #2d9f05;
 }
 
@@ -240,7 +249,7 @@
 }
 
 .tbc-lc {
-  margin-left: 1px;
+  margin-left: 0.75px;
   background: #f1dd6f;
 }
 
@@ -256,10 +265,6 @@
 
 .wotlk-lc {
   background: #2d9f05;
-}
-
-.wotlk-lc-active {
-  margin-left: 1px;
 }
 
 .wotlk-flc,

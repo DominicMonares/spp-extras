@@ -6,7 +6,7 @@ import './ExpansionNav.css';
 
 const Tabs = ({ openModal }: TabsProps) => {
   const expansion = useAppSelector(state => state.expansion.selected);
-  
+
   const expansionActive = (xpac: SelectedExpansion) => xpac === expansion ? '-active' : '';
   const expansions = {
     classic: expansionActive('classic'),
@@ -28,19 +28,19 @@ const Tabs = ({ openModal }: TabsProps) => {
         </span>
       ) : (
         <span className="left-buffer tbc-lb">
-          <div className="square tbc-color tbc-left-sq"></div>
+          <div className="square tbc-left-sq tbc-color"></div>
           <div className="curve tbc-lc"></div>
         </span>
       )}
       <Tab active={expansions.tbc} expansion={'tbc'} openModal={openModal} />
       {expansion === 'wotlk' ? (
         <span className="left-buffer wotlk-lb">
-          <div className="square wotlk-color wotlk-left-sq"></div>
+          <div className="square wotlk-left-sq wotlk-color"></div>
           <div className="curve wotlk-lc"></div>
         </span>
       ) : (
         <span className="right-buffer tbc-rb">
-          <div className="square tbc-color tbc-right-sq"></div>
+          <div className="square tbc-right-sq tbc-color"></div>
           <div className="curve tbc-rc"></div>
         </span>
       )}

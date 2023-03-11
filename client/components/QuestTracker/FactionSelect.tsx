@@ -8,22 +8,24 @@ import { Faction } from "../../types";
 
 const FactionSelect = () => {
   const dispatch = useAppDispatch();
-  const [checks, setChecks] = useState([true, false]);
+  const [animation, setAnimation] = useState<string>('');
 
-  const selectFaction = (checkboxes: boolean[], faction: Faction) => {
-    setChecks(checkboxes);
+  const selectFaction = (faction: Faction) => {
+    faction === 'horde' ? setAnimation('-anim-1') : setAnimation('-anim-2');
     dispatch(storeQuestTrackerFaction({ faction: faction }));
   }
 
   return (
-    <div>
+    <div className="faction-select">
       <img 
+        className={`qt-alliance${animation}`}
         src={alliance}
-        onClick={() => selectFaction([true, false], 'alliance')}
+        onClick={() => selectFaction('alliance')}
       />
       <img 
+        className={`qt-horde${animation}`}
         src={horde}
-        onChange={() => selectFaction([false, true], 'horde')}
+        onClick={() => selectFaction('horde')}
       />
     </div>
   );

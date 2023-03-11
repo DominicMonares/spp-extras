@@ -12,12 +12,12 @@ const FactionSelect = () => {
   const [animation, setAnimation] = useState<string>('');
 
   const selectFaction = (selectedFaction: Faction) => {
-    const allianceAnimation = animation === '' || animation === '-anim-2';
+    // const allianceAnimation = animation === '' || animation === '-anim-2';
     const allianceSelected = selectedFaction === 'alliance' && faction !== 'alliance';
-    const allianceMatch = allianceAnimation && allianceSelected;
-    const hordeAnimation = animation === '' || animation === '-anim-1';
+    // const allianceMatch = allianceAnimation && allianceSelected;
+    // const hordeAnimation = animation === '' || animation === '-anim-1';
     const hordeSelected = selectedFaction === 'horde' && faction !== 'horde';
-    const hordeMatch = hordeAnimation && hordeSelected;
+    // const hordeMatch = hordeAnimation && hordeSelected;
     if (allianceSelected) {
       setAnimation('-anim-1');
     } else if (hordeSelected) {
@@ -32,12 +32,12 @@ const FactionSelect = () => {
       {faction === 'alliance' ? (
         <>
           <img
-            className={`qt-faction-1${animation ? animation : '-alliance'}`}
+            className={`qt-alliance-1${animation}`}
             src={alliance}
             onClick={() => selectFaction('alliance')}
           />
           <img
-            className={`qt-faction-2${animation ? animation : '-alliance'}`}
+            className={`qt-horde-1${animation}`}
             src={horde}
             onClick={() => selectFaction('horde')}
           />
@@ -45,12 +45,12 @@ const FactionSelect = () => {
       ) : (
         <>
           <img
-            className={`qt-faction-1${animation ? animation : '-horde'}`}
+            className={`qt-horde-2${animation}`}
             src={horde}
             onClick={() => selectFaction('horde')}
           />
           <img
-            className={`qt-faction-2${animation ? animation : '-horde'}`}
+            className={`qt-alliance-2${animation}`}
             src={alliance}
             onClick={() => selectFaction('alliance')}
           />

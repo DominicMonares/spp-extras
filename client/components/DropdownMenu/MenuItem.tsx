@@ -8,11 +8,11 @@ import {
   storeQuestTrackerType,
   storeQuestTrackerZone
 } from '../../store/slices';
-import { MenuItemsProps } from '../../types';
+import { MenuItemProps } from '../../types';
 import './DropdownMenu.css';
 
 
-const MenuItems = ({ questType, items, depthLevel }: MenuItemsProps) => {
+const MenuItem = ({ questType, items, depthLevel }: MenuItemProps) => {
   const dispatch = useAppDispatch();
   const settings = useAppSelector(state => state.questTracker);
   const { character, characterClass, race, type, zone } = settings;
@@ -131,4 +131,4 @@ const MenuItems = ({ questType, items, depthLevel }: MenuItemsProps) => {
   );
 };
 
-export default MenuItems;
+export default MenuItem;

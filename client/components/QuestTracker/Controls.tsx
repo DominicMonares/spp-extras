@@ -40,26 +40,34 @@ const Controls = ({ characters }: QuestTrackerControlsProps) => {
         <img src={label} />
         <div className="controls-label-text">Controls</div>
       </div>
-      <div>Select Faction</div>
-      <FactionCheckboxes />
-      <DropdownMenu type="zone" menu={zoneMenu(expansion, zone)} />
-      {character && JSON.parse(character.value).characterClass ? (
-        <button onClick={dispatchCharacterClass}>
-          {getClass(character)?.title}
-        </button>
-      ) : (
-        <DropdownMenu type="class" menu={classMenu(expansion, faction, characterClass)} />
-      )}
-      {character && JSON.parse(character.value).race ? (
-        <button onClick={dispatchCharacterRace}>
-          {getRace(character, faction)?.title}
-        </button>
-      ) : (
-        <DropdownMenu type="race" menu={raceMenu(expansion, faction, race)} />
-      )}
-      Additional Filters
-      <DropdownMenu type="character" menu={characterMenu(character, characters, faction)} />
-      <DropdownMenu type="type" menu={questTypeMenu(expansion, type)} />
+      <div className="qt-faction">
+        <div className="filter-label">Select Faction:</div>
+        <FactionCheckboxes />
+      </div>
+      <div className="qt-filters">
+        <div className="filter-label">Select Zone:</div>
+        <DropdownMenu type="zone" menu={zoneMenu(expansion, zone)} />
+        <div className="filter-label">~ or ~</div>
+        {character && JSON.parse(character.value).characterClass ? (
+          <button onClick={dispatchCharacterClass}>
+            {getClass(character)?.title}
+          </button>
+        ) : (
+          <DropdownMenu type="class" menu={classMenu(expansion, faction, characterClass)} />
+        )}
+        {character && JSON.parse(character.value).race ? (
+          <button onClick={dispatchCharacterRace}>
+            {getRace(character, faction)?.title}
+          </button>
+        ) : (
+          <DropdownMenu type="race" menu={raceMenu(expansion, faction, race)} />
+        )}
+      </div>
+      <div className="qt-additional-filters">
+        <div className="filter-label">Additional Filters:</div>
+        <DropdownMenu type="character" menu={characterMenu(character, characters, faction)} />
+        <DropdownMenu type="type" menu={questTypeMenu(expansion, type)} />
+      </div>
     </div>
   );
 }

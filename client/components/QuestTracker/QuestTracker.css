@@ -111,17 +111,27 @@
   margin-top: 86px;
 }
 
-.qt-alliance {
+.qt-faction-1-alliance {
   margin-right: 48px;
   z-index: 1;
 }
 
-.qt-horde {
+.qt-faction-2-alliance {
   margin-top: -48px;
   margin-left: 48px;
 }
 
-@keyframes qt-alliance-animation-1 {
+.qt-faction-1-horde {
+  margin-left: 48px;
+  z-index: 1;
+}
+
+.qt-faction-2-horde {
+  margin-top: -48px;
+  margin-right: 48px;
+}
+
+@keyframes qt-faction-1-animation-1 {
   50% {
     margin-bottom: -72px;
   }
@@ -131,69 +141,59 @@
   }
 }
 
-.qt-alliance-anim-1 {
+.qt-faction-1-anim-1 {
   margin-right: 48px;
-  z-index: 1;
-  animation-name: qt-alliance-animation-1;
+  animation-name: qt-faction-1-animation-1;
   animation-duration: 0.5s;
 }
 
-@keyframes qt-horde-animation-1 {
+@keyframes qt-faction-1-animation-2 {
   50% {
-    margin-top: -72px;
+    margin-bottom: -72px;
   }
   100% {
-    margin-top: -48px;
-    z-index: 2;
+    margin-bottom: 0px;
+    z-index: 1;
   }
 }
 
-.qt-horde-anim-1 {
-  margin-top: -48px;
+.qt-faction-1-anim-2 {
   margin-left: 48px;
-  animation-name: qt-horde-animation-1;
+  animation-name: qt-faction-1-animation-2;
   animation-duration: 0.5s;
 }
 
-.qt-horde-anim-1::after {
-  margin-top: -48px;
-  margin-left: 48px;
-  z-index: 2;
-}
-
-@keyframes qt-alliance-animation-2 {
+@keyframes qt-faction-2-animation-1 {
   50% {
     margin-top: -24px;
-    z-index: 1;
   }
   100% {
     margin-top: -48px;
-    z-index: 2;
+    z-index: 1;
   }
 }
 
-.qt-alliance-anim-2 {
-  margin-right: 48px;
-  z-index: 1;
-  animation-name: qt-alliance-animation-2;
+.qt-faction-2-anim-1 {
+  margin-left: 48px;
+  margin-top: -48px;
+  animation-name: qt-faction-2-animation-1;
   animation-duration: 0.5s;
 }
 
-@keyframes qt-horde-animation-2 {
+@keyframes qt-faction-2-animation-2 {
   50% {
-    margin-top: 0px;
-    z-index: 2;
+    margin-top: -24px;
   }
   100% {
     margin-top: -48px;
-    z-index: 1;
+    z-index: 2;
   }
 }
 
-.qt-horde-anim-2 {
+.qt-faction-2-anim-2 {
+  margin-right: 48px;
   margin-top: -48px;
-  margin-left: 48px;
-  animation-name: qt-horde-animation-2;
+  animation-name: qt-faction-2-animation-2;
   animation-duration: 0.5s;
 }
 

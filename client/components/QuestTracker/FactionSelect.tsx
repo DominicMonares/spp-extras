@@ -12,19 +12,15 @@ const FactionSelect = () => {
   const [animation, setAnimation] = useState<string>('');
 
   const selectFaction = (selectedFaction: Faction) => {
-    // const allianceAnimation = animation === '' || animation === '-anim-2';
     const allianceSelected = selectedFaction === 'alliance' && faction !== 'alliance';
-    // const allianceMatch = allianceAnimation && allianceSelected;
-    // const hordeAnimation = animation === '' || animation === '-anim-1';
     const hordeSelected = selectedFaction === 'horde' && faction !== 'horde';
-    // const hordeMatch = hordeAnimation && hordeSelected;
     if (allianceSelected) {
       setAnimation('-anim-1');
+      dispatch(storeQuestTrackerFaction({ faction: selectedFaction }));
     } else if (hordeSelected) {
       setAnimation('-anim-2');
+      dispatch(storeQuestTrackerFaction({ faction: selectedFaction }));
     }
-
-    dispatch(storeQuestTrackerFaction({ faction: selectedFaction }));
   }
 
   return (

@@ -28,11 +28,11 @@ export interface FactionCharacters {
 }
 
 export type GetClass = (
-  character: CharacterSetting | undefined
+  character: CharacterSetting | Record<string,never> | undefined
 ) => ClassSetting;
 
 export type GetRace = (
-  character: CharacterSetting | undefined,
+  character: CharacterSetting | Record<string,never> | undefined,
   faction: Faction
 ) => RaceSetting;
 

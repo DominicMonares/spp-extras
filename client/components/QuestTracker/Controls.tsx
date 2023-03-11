@@ -1,5 +1,5 @@
 import DropdownMenu from '../DropdownMenu';
-import FactionCheckboxes from './FactionCheckboxes';
+import FactionSelect from './FactionSelect';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { storeQuestTrackerClass, storeQuestTrackerRace } from '../../store/slices';
 import {
@@ -42,7 +42,7 @@ const Controls = ({ characters }: QuestTrackerControlsProps) => {
       </div>
       <div className="qt-faction">
         <div className="filter-label">Select Faction:</div>
-        <FactionCheckboxes />
+        <FactionSelect />
       </div>
       <div className="qt-filters">
         <div className="filter-label">Select Zone:</div>

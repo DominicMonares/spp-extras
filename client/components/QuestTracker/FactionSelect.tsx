@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { useAppDispatch } from '../../store/hooks';
 import { storeQuestTrackerFaction } from '../../store/slices';
+import alliance from '../../assets/buttons/alliance.png';
+import horde from '../../assets/buttons/horde.png';
 import { Faction } from "../../types";
 
 
-const FactionCheckboxes = () => {
+const FactionSelect = () => {
   const dispatch = useAppDispatch();
   const [checks, setChecks] = useState([true, false]);
 
@@ -15,24 +17,16 @@ const FactionCheckboxes = () => {
 
   return (
     <div>
-      <label>
-        <input
-          type="checkbox"
-          checked={checks[0]}
-          onChange={() => selectFaction([true, false], 'alliance')}
-        />
-        Alliance
-      </label>
-      <label>
-        <input
-          type="checkbox"
-          checked={checks[1]}
-          onChange={() => selectFaction([false, true], 'horde')}
-        />
-        Horde
-      </label>
+      <img 
+        src={alliance}
+        onClick={() => selectFaction([true, false], 'alliance')}
+      />
+      <img 
+        src={horde}
+        onChange={() => selectFaction([false, true], 'horde')}
+      />
     </div>
   );
 }
 
-export default FactionCheckboxes;
+export default FactionSelect;

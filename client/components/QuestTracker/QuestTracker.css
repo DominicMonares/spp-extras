@@ -142,24 +142,8 @@
 }
 
 .qt-faction-1-anim-1 {
-  margin-right: 48px;
-  animation-name: qt-faction-1-animation-1;
-  animation-duration: 0.5s;
-}
-
-@keyframes qt-faction-1-animation-2 {
-  50% {
-    margin-bottom: -72px;
-  }
-  100% {
-    margin-bottom: 0px;
-    z-index: 1;
-  }
-}
-
-.qt-faction-1-anim-2 {
   margin-left: 48px;
-  animation-name: qt-faction-1-animation-2;
+  animation-name: qt-faction-1-animation-1;
   animation-duration: 0.5s;
 }
 
@@ -174,9 +158,25 @@
 }
 
 .qt-faction-2-anim-1 {
-  margin-left: 48px;
+  margin-right: 48px;
   margin-top: -48px;
   animation-name: qt-faction-2-animation-1;
+  animation-duration: 0.5s;
+}
+
+@keyframes qt-faction-1-animation-2 {
+  50% {
+    margin-bottom: -72px;
+  }
+  100% {
+    margin-bottom: 0px;
+    z-index: 1;
+  }
+}
+
+.qt-faction-1-anim-2 {
+  margin-right: 48px;
+  animation-name: qt-faction-1-animation-2;
   animation-duration: 0.5s;
 }
 
@@ -191,7 +191,7 @@
 }
 
 .qt-faction-2-anim-2 {
-  margin-right: 48px;
+  margin-left: 48px;
   margin-top: -48px;
   animation-name: qt-faction-2-animation-2;
   animation-duration: 0.5s;

@@ -1,5 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { QuestTrackerSettings, QuestType } from '../../types';
+import { 
+  CharacterSetting,
+  ClassSetting,
+  QuestTrackerSettings, 
+  QuestType, 
+  RaceSetting
+} from '../../types';
 
 
 const initialState: QuestTrackerSettings = {
@@ -11,7 +17,7 @@ export const questTrackerSlice = createSlice({
   initialState,
   reducers: {
     storeQuestTrackerCharacter: (state, action: PayloadAction<QuestTrackerSettings>) => {
-      if (!state.character) state.character = {};
+      if (!state.character) state.character = {} as CharacterSetting;
       if (action.payload.character.id === 0) {
         delete state.character;
       } else {
@@ -24,7 +30,7 @@ export const questTrackerSlice = createSlice({
       if (state.characterClass) delete state.characterClass;
     },
     storeQuestTrackerClass: (state, action: PayloadAction<QuestTrackerSettings>) => {
-      if (!state.characterClass) state.characterClass = {};
+      if (!state.characterClass) state.characterClass = {} as ClassSetting;
       if (action.payload.characterClass.id as number === 0) {
         delete state.characterClass;
       } else {
@@ -42,7 +48,7 @@ export const questTrackerSlice = createSlice({
       if (state.character) delete state.character;
     },
     storeQuestTrackerRace: (state, action: PayloadAction<QuestTrackerSettings>) => {
-      if (!state.race) state.race = {};
+      if (!state.race) state.race = {} as RaceSetting;
       if (action.payload.race.id as number === 0) {
         delete state.race;
       } else {

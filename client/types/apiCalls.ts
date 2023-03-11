@@ -1,5 +1,5 @@
 import { Characters } from "./characters";
-import { SelectedExpansion } from "./general";
+import { SelectedExpansion } from "./expansions";
 import { CompletedQuests, TemplateQuests } from "./quests";
 
 

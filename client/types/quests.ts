@@ -5,7 +5,7 @@ import {
   Race
 } from './characters';
 import { Menu } from './dropdown';
-import { SelectedExpansion } from './general';
+import { SelectedExpansion } from './expansions';
 
 
 export interface CharacterQuests {
@@ -142,12 +142,12 @@ export interface QuestTrackerControlsProps {
 }
 
 export interface QuestTrackerSettings {
-  character?: CharacterSetting | undefined;
-  characterClass?: ClassSetting | undefined;
+  character?: CharacterSetting | Record<string,never> | undefined;
+  characterClass?: ClassSetting | Record<string,never> | undefined;
   faction?: Faction;
-  race?: RaceSetting | undefined;
-  type?: QuestType | undefined;
-  zone?: string | undefined;
+  race?: RaceSetting | Record<string,never> | undefined;
+  type?: QuestType | Record<string,never> | undefined;
+  zone?: string | Record<string,never> | undefined;
 }
 
 export interface QuestTrackerViewProps {

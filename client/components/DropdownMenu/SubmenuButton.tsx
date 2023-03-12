@@ -11,19 +11,17 @@ const SubmenuButton = ({
   title
 }: SubmenuButtonProps) => {
   const [hovering, setHovering] = useState<string>('');
+  useEffect(() => subHovering ? setHovering('-hovering') : setHovering(''));
 
   return (
-    <>
-      {final ? (
-        <button className="dd-sub-button" onClick={handleSelection}>
-          {title}
-        </button>
-      ) : (
-        <button className="dd-sub-button">
-          {title}
-        </button>
-      )}
-    </>
+    <button
+      className={`dd-sub-button${hovering}`}
+      onClick={final ? handleSelection : () => null}
+      onMouseEnter={() => setHovering('-hovering')}
+      onMouseLeave={() => setHovering('')}
+    >
+      {title}
+    </button>
   );
 }
 

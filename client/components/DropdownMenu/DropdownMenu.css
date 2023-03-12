@@ -1,19 +1,5 @@
 /* Menu Items */
 
-/* .menus {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  list-style: none;
-} */
-
-/* .menu-items a {
-  display: block;
-  font-size: inherit;
-  color: inherit;
-  text-decoration: none;
-} */
-
 .menu-items {
   display: flex;
   justify-content: center;
@@ -91,25 +77,16 @@
 
 /* Sub Menu Button */
 
-.dd-sub-button {
+.dd-sub-button,
+.dd-sub-button-hovering {
   width: 234px;
   height: 30px;
   background-image: url("../../assets/menu/menu-item.png");
 }
 
-/* button span {
-  margin-left: 3px;
-} */
-
-/* .menu-items > a, .menu-items button {
-  text-align: left;
-  padding: 0.7rem 1rem;
-} */
-
-/* .menu-items a:hover,
-.menu-items button:hover {
-  background-color: #f2f2f2;
-} */
+.dd-sub-button-hovering {
+  filter: brightness(2)
+}
 
 
 /* Dropdown */
@@ -143,8 +120,6 @@
   left: -224px;
 }
 
-
 .dropdown-submenu {
   left: -234px;
 }
-

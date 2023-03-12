@@ -1,4 +1,4 @@
-import MenuItem from './MenuItem';
+import MenuItems from './MenuItems';
 import { DropdownMenuProps, Submenu } from '../../types';
 import './DropdownMenu.css';
 
@@ -9,7 +9,7 @@ const DropdownMenu = ({ menu, type, }: DropdownMenuProps) => {
       {menu.map((m: Submenu, i: number) => {
         const depthLevel = 0;
         return (
-          <MenuItem
+          <MenuItems
             questType={type}
             items={m}
             key={i}

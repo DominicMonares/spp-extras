@@ -23,9 +23,12 @@
   color: inherit;
   font-size: inherit;
   border: none;
-  background-color: transparent;
   cursor: pointer;
   width: 100%;
+}
+
+.dd-main-button {
+  background-image: url("../../assets/buttons/button.png");
 }
 
 button span {
@@ -62,7 +65,7 @@ button span {
   min-width: 10rem;
   padding: 0.5rem 0;
   list-style: none;
-  background-color: #fff;
+  background-image: url("../../assets/menu/menu-item.png");
   border-radius: 0.5rem;
   display: none;
 }

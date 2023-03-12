@@ -6,7 +6,6 @@ import './DropdownMenu.css';
 
 const MenuButton = ({ selected, subHovering, title }: MenuButtonProps) => {
   const [hovering, setHovering] = useState<string>('');
-
   useEffect(() => subHovering ? setHovering('-hovering') : setHovering(''));
 
   return (

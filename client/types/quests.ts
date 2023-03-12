@@ -147,7 +147,7 @@ export interface QuestTrackerSettings {
   faction?: Faction;
   race?: RaceSetting | Record<string,never> | undefined;
   type?: QuestType | undefined;
-  zone?: string | Record<string,never> | undefined;
+  zone?: string | undefined;
 }
 
 export interface QuestTrackerViewProps {

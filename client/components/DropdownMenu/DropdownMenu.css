@@ -74,10 +74,6 @@
   font-size: 30px;
 }
 
-.dd-sub-button-text {
-  font-weight: bold;
-}
-
 
 /* Sub Menu Button */
 
@@ -86,6 +82,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
   width: 234px;
   height: 30px;
   background-image: url("../../assets/menu/menu-item.png");
@@ -93,6 +90,39 @@
 
 .dd-sub-button-hovering {
   filter: brightness(2)
+}
+
+.dd-sub-button-text,
+.dd-sub-button-text-hovering {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  font-family: Friz Quadrata;
+  font-weight: bold;
+}
+
+.dd-sub-button-text {
+  background: -webkit-linear-gradient(#c88f19 40%, #f7f243 80%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: font-size 0.1s linear;
+}
+
+.dd-sub-button-text-hovering {
+  background: -webkit-linear-gradient(#000000 40%, darkgreen 80%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: font-size 0.1s linear;
+}
+
+.dd-sub-arrow {
+  position: absolute;
+  left: 0;
+  margin-left: 6px;
+  width: 18px;
+  height: 18px;
 }
 
 

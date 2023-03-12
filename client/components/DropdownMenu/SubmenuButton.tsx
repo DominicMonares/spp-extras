@@ -20,8 +20,8 @@ const SubmenuButton = ({
       onMouseEnter={() => setHovering('-hovering')}
       onMouseLeave={() => setHovering('')}
     >
-      <img src={arrow} />
-      <div className="dd-sub-button-text">{title}</div>
+      {!final ? <img className="dd-sub-arrow" src={arrow} /> : <></>}
+      <div className={`dd-sub-button-text${hovering}`}>{title}</div>
     </button>
   );
 }

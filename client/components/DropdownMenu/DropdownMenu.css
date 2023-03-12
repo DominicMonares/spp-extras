@@ -51,20 +51,21 @@
   height: 60px;
 }
 
-.dd-arrow {
+.dd-arrow,
+.dd-arrow-hovering {
   position: absolute;
-  left: 0;
-  margin-left: 20px;
+  left: 20px;
+  transition: width 0.1s linear, height 0.1s linear;
 }
 
-.dd-arrow::after {
-  content: "";
-  display: inline-block;
-  margin-left: 0.28em;
-  vertical-align: 0.09em;
-  border-top: 0.42em solid;
-  border-right: 0.32em solid transparent;
-  border-left: 0.32em solid transparent;
+.dd-arrow {
+  width: 18px;
+  height: 18px;
+}
+
+.dd-arrow-hovering {
+  width: 22px;
+  height: 22px;
 }
 
 .dd-main-button-text,
@@ -115,7 +116,7 @@
 
 .dropdown {
   position: absolute;
-  margin-right: 218px;
+  /* margin-right: 218px; */
   box-shadow: 0 10px 15px -3px rgba(46, 41, 51, 0.08),
     0 4px 6px -2px rgba(71, 63, 79, 0.16);
   font-size: 0.875rem;
@@ -132,8 +133,9 @@
   display: block;
 }
 
-.dropdown .dropdown-submenu {
+.dropdown,
+.dropdown-submenu {
   position: absolute;
-  left: -100%;
-  top: -7px;
+  left: -224px;
+  top: -8px;
 }

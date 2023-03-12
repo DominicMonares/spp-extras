@@ -18,6 +18,7 @@ export interface MenuButtonProps {
   dropdown: boolean;
   items: Submenu;
   selected: () => string;
+  subHovering: boolean;
 } 
 
 export interface MenuItemsProps {

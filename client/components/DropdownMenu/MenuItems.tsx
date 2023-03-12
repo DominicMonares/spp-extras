@@ -18,13 +18,16 @@ const MenuItems = ({ questType, items, depthLevel }: MenuItemsProps) => {
   const settings = useAppSelector(state => state.questTracker);
   const { character, characterClass, race, type, zone } = settings;
   const [dropdown, setDropdown] = useState<boolean>(false);
+  const [subHovering, setSubHovering] = useState<boolean>(false);
 
   const onMouseEnter = () => {
     setDropdown(true);
+    setSubHovering(true);
   };
 
   const onMouseLeave = () => {
     setDropdown(false);
+    setSubHovering(false);
   };
 
   const closeDropdown = () => {
@@ -98,6 +101,7 @@ const MenuItems = ({ questType, items, depthLevel }: MenuItemsProps) => {
               dropdown={dropdown}
               items={items}
               selected={selected}
+              subHovering={subHovering}
             />
           ) : (
             <button

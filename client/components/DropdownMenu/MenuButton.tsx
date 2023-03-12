@@ -1,11 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { MenuButtonProps } from '../../types';
 import arrow from '../../assets/buttons/arrow.png';
 import './DropdownMenu.css';
 
 
-const MenuButton = ({ dropdown, items, selected }: MenuButtonProps) => {
+const MenuButton = ({ dropdown, items, selected, subHovering }: MenuButtonProps) => {
   const [hovering, setHovering] = useState<string>('');
+
+  useEffect(() => subHovering ? setHovering('-hovering') : setHovering(''));
 
   return (
     <button
@@ -16,7 +18,7 @@ const MenuButton = ({ dropdown, items, selected }: MenuButtonProps) => {
       onMouseEnter={() => setHovering('-hovering')}
       onMouseLeave={() => setHovering('')}
     >
-      <img className="dd-arrow" src={arrow} />
+      <img className={`dd-arrow${hovering}`} src={arrow} />
       <div className={`dd-main-button-text${hovering}`}>
         {selected() ? selected() : items.title}
       </div>

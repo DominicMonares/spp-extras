@@ -26,7 +26,7 @@ export const characterMenu: FilteredCharacterMenu = (character, characters, fact
   }
 
   return [{
-    title: 'All Characters',
+    title: 'Characters',
     submenu: submenu.filter(s => s.id !== character?.id)
   }];
 }

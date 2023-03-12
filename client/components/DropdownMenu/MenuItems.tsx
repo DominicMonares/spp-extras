@@ -1,6 +1,7 @@
 import { useState, MouseEvent } from 'react';
 import Dropdown from './Dropdown';
-import MenuButton from './MenuButton'
+import MenuButton from './MenuButton';
+import SubmenuButton from './SubmenuButton';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import {
   storeQuestTrackerCharacter,
@@ -97,24 +98,18 @@ const MenuItems = ({ questType, items, depthLevel }: MenuItemsProps) => {
       {items.submenu ? (
         <>
           {depthLevel === 0 ? (
-            <MenuButton 
-              items={items}
+            <MenuButton
               selected={selected}
               subHovering={subHovering}
+              title={items.title}
             />
           ) : (
-            <button
-              className={depthLevel === 0 ? 'dd-main-button' : 'dd-sub-button'}
-              onClick={() => setDropdown(!dropdown)}
-            >
-              {depthLevel > 0 ? <span>&laquo;</span> : <></>}
-              {depthLevel === 0 ? (
-                <>{selected() ? selected() : items.title}</>
-              ) : (
-                <>{items.title}</>
-              )}
-              {depthLevel === 0 ? <span className="arrow" /> : <></>}
-            </button>
+            <SubmenuButton
+              final={false}
+              handleSelection={handleSelection}
+              subHovering={subHovering}
+              title={items.title}
+            />
           )}
           <Dropdown
             questType={questType}
@@ -124,16 +119,12 @@ const MenuItems = ({ questType, items, depthLevel }: MenuItemsProps) => {
           />
         </>
       ) : (
-        <>
-          <button
-            className="dd-sub-button"
-            id={items.id ? items.id.toString() : ''}
-            value={items.value ? items.value : ''}
-            onClick={handleSelection}
-          >
-            {items.title}
-          </button>
-        </>
+        <SubmenuButton
+          final={true}
+          handleSelection={handleSelection}
+          subHovering={subHovering}
+          title={items.title}
+        />
       )}
     </li >
   );

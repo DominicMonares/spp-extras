@@ -15,9 +15,9 @@ export type DropdownType = 'character' | 'class' | 'type' | 'race' | 'zone';
 export type Menu = Submenu[];
 
 export interface MenuButtonProps {
-  items: Submenu;
   selected: () => string;
   subHovering: boolean;
+  title: string;
 } 
 
 export interface MenuItemsProps {
@@ -32,3 +32,10 @@ export interface Submenu {
   id?: number;
   value?: number | string;
 }
+
+export interface SubmenuButtonProps {
+  final: boolean;
+  handleSelection: (e: React.MouseEvent<HTMLInputElement>) => void;
+  subHovering: boolean;
+  title: string;
+} 

@@ -1,3 +1,118 @@
+/* Menu Items */
+
+/* .menus {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style: none;
+} */
+
+/* .menu-items a {
+  display: block;
+  font-size: inherit;
+  color: inherit;
+  text-decoration: none;
+} */
+
+.menu-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+
+/* Main Menu Button */
+
+.dd-main-button,
+.dd-main-button-hovering {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 10px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  transition: width 0.1s linear, height 0.1s linear;
+  background-image: url("../../assets/buttons/button.png");
+}
+
+.dd-main-button {
+  width: 224px;
+  height: 54px;
+}
+
+.dd-main-button-hovering {
+  width: 248px;
+  height: 60px;
+}
+
+.dd-arrow {
+  position: absolute;
+  left: 0;
+  margin-left: 20px;
+}
+
+.dd-arrow::after {
+  content: "";
+  display: inline-block;
+  margin-left: 0.28em;
+  vertical-align: 0.09em;
+  border-top: 0.42em solid;
+  border-right: 0.32em solid transparent;
+  border-left: 0.32em solid transparent;
+}
+
+.dd-main-button-text,
+.dd-main-button-text-hovering {
+  display: flex;
+  justify-content: center;
+  font-family: Friz Quadrata;
+  background: -webkit-linear-gradient(#c88f19 40%, #f7f243 80%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: font-size 0.1s linear;
+}
+
+.dd-main-button-text {
+  font-size: 26px;
+}
+
+.dd-main-button-text-hovering {
+  font-size: 30px;
+}
+
+
+/* Sub Menu Button */
+
+.dd-sub-button {
+  width: 234px;
+  height: 30px;
+  background-image: url("../../assets/menu/menu-item.png");
+}
+
+/* button span {
+  margin-left: 3px;
+} */
+
+/* .menu-items > a, .menu-items button {
+  text-align: left;
+  padding: 0.7rem 1rem;
+} */
+
+/* .menu-items a:hover,
+.menu-items button:hover {
+  background-color: #f2f2f2;
+} */
+
+
+/* Dropdown */
+
 .dropdown {
   position: absolute;
   margin-right: 218px;
@@ -22,113 +137,3 @@
   left: -100%;
   top: -7px;
 }
-
-/* .menus {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  list-style: none;
-} */
-
-/* .menu-items a {
-  display: block;
-  font-size: inherit;
-  color: inherit;
-  text-decoration: none;
-} */
-
-.menu-items {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  font-size: 14px;
-  /* color: inherit;
-  font-size: inherit; */
-  border: none;
-  cursor: pointer;
-  width: 100%;
-}
-
-
-.menu-button,
-.menu-button-hovering {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  margin-bottom: 10px;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  transition: width 0.1s linear, height 0.1s linear;
-  background-image: url("../../assets/buttons/button.png");
-}
-
-.menu-button {
-  width: 224px;
-  height: 54px;
-}
-
-.menu-button-hovering {
-  width: 248px;
-  height: 60px;
-}
-
-.arrow {
-  position: absolute;
-  left: 0;
-  margin-left: 20px;
-}
-
-.arrow::after {
-  content: "";
-  display: inline-block;
-  margin-left: 0.28em;
-  vertical-align: 0.09em;
-  border-top: 0.42em solid;
-  border-right: 0.32em solid transparent;
-  border-left: 0.32em solid transparent;
-}
-
-.menu-button-text,
-.menu-button-text-hovering {
-  display: flex;
-  justify-content: center;
-  font-family: Friz Quadrata;
-  background: -webkit-linear-gradient(#c88f19 40%, #f7f243 80%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transition: font-size 0.1s linear;
-}
-
-.menu-button-text {
-  font-size: 26px;
-}
-
-.menu-button-text-hovering {
-  font-size: 30px;
-}
-
-
-
-
-.dd-sub-button {
-  background-image: url("../../assets/menu/menu-item.png");
-}
-
-/* button span {
-  margin-left: 3px;
-} */
-
-/* .menu-items > a, .menu-items button {
-  text-align: left;
-  padding: 0.7rem 1rem;
-} */
-
-/* .menu-items a:hover,
-.menu-items button:hover {
-  background-color: #f2f2f2;
-} */
-
-

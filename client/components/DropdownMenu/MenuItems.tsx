@@ -1,5 +1,6 @@
 import { useState, MouseEvent } from 'react';
 import Dropdown from './Dropdown';
+import MenuButton from './MenuButton'
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import {
   storeQuestTrackerCharacter,
@@ -16,7 +17,7 @@ const MenuItems = ({ questType, items, depthLevel }: MenuItemsProps) => {
   const dispatch = useAppDispatch();
   const settings = useAppSelector(state => state.questTracker);
   const { character, characterClass, race, type, zone } = settings;
-  const [dropdown, setDropdown] = useState(false);
+  const [dropdown, setDropdown] = useState<boolean>(false);
 
   const onMouseEnter = () => {
     setDropdown(true);
@@ -57,15 +58,15 @@ const MenuItems = ({ questType, items, depthLevel }: MenuItemsProps) => {
         }
       }));
     } else if (questType === 'race') {
-      dispatch(storeQuestTrackerRace({ 
-        race: { 
+      dispatch(storeQuestTrackerRace({
+        race: {
           id: id,
           title: title,
           value: Number(value)
-        } 
+        }
       }));
     }
-    
+
     setDropdown(!dropdown);
   }
 
@@ -92,21 +93,29 @@ const MenuItems = ({ questType, items, depthLevel }: MenuItemsProps) => {
     >
       {items.submenu ? (
         <>
-          <button
-            className="dd-main-button"
-            type="button"
-            aria-haspopup="menu"
-            aria-expanded={dropdown ? 'true' : 'false'}
-            onClick={() => setDropdown(!dropdown)}
-          >
-            {depthLevel > 0 ? <span>&laquo;</span> : <></>}
-            {depthLevel === 0 ? (
-              <>{selected() ? selected() : items.title}</>
-            ) : (
-              <>{items.title}</>
-            )}
-            {depthLevel === 0 ? <span className="arrow" /> : <></>}
-          </button>
+          {depthLevel === 0 ? (
+            <MenuButton 
+              dropdown={dropdown}
+              items={items}
+              selected={selected}
+            />
+          ) : (
+            <button
+              className={depthLevel === 0 ? 'dd-main-button' : 'dd-sub-button'}
+              type="button"
+              aria-haspopup="menu"
+              aria-expanded={dropdown ? 'true' : 'false'}
+              onClick={() => setDropdown(!dropdown)}
+            >
+              {depthLevel > 0 ? <span>&laquo;</span> : <></>}
+              {depthLevel === 0 ? (
+                <>{selected() ? selected() : items.title}</>
+              ) : (
+                <>{items.title}</>
+              )}
+              {depthLevel === 0 ? <span className="arrow" /> : <></>}
+            </button>
+          )}
           <Dropdown
             questType={questType}
             depthLevel={depthLevel}
@@ -129,7 +138,7 @@ const MenuItems = ({ questType, items, depthLevel }: MenuItemsProps) => {
           </button>
         </>
       )}
-    </li>
+    </li >
   );
 };
 

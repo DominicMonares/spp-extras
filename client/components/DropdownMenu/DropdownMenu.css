@@ -37,19 +37,19 @@
   height: 60px;
 }
 
-.dd-arrow,
-.dd-arrow-hovering {
+.dd-main-arrow,
+.dd-main-arrow-hovering {
   position: absolute;
   left: 20px;
   transition: width 0.1s linear, height 0.1s linear;
 }
 
-.dd-arrow {
+.dd-main-arrow {
   width: 18px;
   height: 18px;
 }
 
-.dd-arrow-hovering {
+.dd-main-arrow-hovering {
   width: 22px;
   height: 22px;
 }
@@ -74,11 +74,18 @@
   font-size: 30px;
 }
 
+.dd-sub-button-text {
+  font-weight: bold;
+}
+
 
 /* Sub Menu Button */
 
 .dd-sub-button,
 .dd-sub-button-hovering {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 234px;
   height: 30px;
   background-image: url("../../assets/menu/menu-item.png");

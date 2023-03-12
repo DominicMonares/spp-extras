@@ -98,7 +98,6 @@ const MenuItems = ({ questType, items, depthLevel }: MenuItemsProps) => {
         <>
           {depthLevel === 0 ? (
             <MenuButton 
-              dropdown={dropdown}
               items={items}
               selected={selected}
               subHovering={subHovering}

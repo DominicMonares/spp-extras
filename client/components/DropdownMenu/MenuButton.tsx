@@ -4,7 +4,7 @@ import arrow from '../../assets/buttons/arrow.png';
 import './DropdownMenu.css';
 
 
-const MenuButton = ({ dropdown, items, selected, subHovering }: MenuButtonProps) => {
+const MenuButton = ({ items, selected, subHovering }: MenuButtonProps) => {
   const [hovering, setHovering] = useState<string>('');
 
   useEffect(() => subHovering ? setHovering('-hovering') : setHovering(''));

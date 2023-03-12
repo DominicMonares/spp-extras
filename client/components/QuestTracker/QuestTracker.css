@@ -71,7 +71,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10px;
 }
 
 .qt-faction {
@@ -87,6 +86,18 @@
   font-family: MORPHEUS;
   font-size: 24px;
   text-align: center;
+}
+
+.filter-zone {
+  margin-top: 6px;
+}
+
+.filter-or {
+  margin-top: -10px;
+}
+
+.filter-additional {
+  margin-top: 1px;
 }
 
 .controls-list {
@@ -108,7 +119,7 @@
   display: flex;
   flex-direction: column;
   position: absolute;
-  margin-top: 86px;
+  margin-top: 90px;
 }
 
 .qt-alliance-1,

@@ -14,6 +14,12 @@ export type DropdownType = 'character' | 'class' | 'type' | 'race' | 'zone';
 
 export type Menu = Submenu[];
 
+export interface MenuButtonProps {
+  dropdown: boolean;
+  items: Submenu;
+  selected: () => string;
+} 
+
 export interface MenuItemsProps {
   questType: DropdownType;
   items: Submenu;

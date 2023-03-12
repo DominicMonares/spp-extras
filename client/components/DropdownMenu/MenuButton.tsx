@@ -17,7 +17,9 @@ const MenuButton = ({ dropdown, items, selected }: MenuButtonProps) => {
       onMouseLeave={() => setHovering('')}
     >
       <img className="arrow" src={arrow} />
-      <>{selected() ? selected() : items.title}</>
+      <div className={`menu-button-text${hovering}`}>
+        {selected() ? selected() : items.title}
+      </div>
     </button>
   );
 }

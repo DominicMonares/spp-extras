@@ -117,6 +117,7 @@ const MenuItems = ({ questType, items, depthLevel }: MenuItemsProps) => {
       ) : (
         <>
           <button
+            className="dd-sub-button"
             type="button"
             id={items.id ? items.id.toString() : ''}
             value={items.value ? items.value : ''}

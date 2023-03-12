@@ -17,7 +17,7 @@
   text-decoration: none;
 }
 
-.menu-items button {
+.menu-items {
   display: flex;
   align-items: center;
   color: inherit;
@@ -29,6 +29,10 @@
 
 .dd-main-button {
   background-image: url("../../assets/buttons/button.png");
+}
+
+.dd-sub-button {
+  background-image: url("../../assets/menu/menu-item.png");
 }
 
 button span {
@@ -65,7 +69,7 @@ button span {
   min-width: 10rem;
   padding: 0.5rem 0;
   list-style: none;
-  background-image: url("../../assets/menu/menu-item.png");
+
   border-radius: 0.5rem;
   display: none;
 }

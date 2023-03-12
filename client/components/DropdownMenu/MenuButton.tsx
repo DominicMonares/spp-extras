@@ -12,9 +12,6 @@ const MenuButton = ({ dropdown, items, selected, subHovering }: MenuButtonProps)
   return (
     <button
       className={`dd-main-button${hovering}`}
-      type="button"
-      aria-haspopup="menu"
-      aria-expanded={dropdown ? 'true' : 'false'}
       onMouseEnter={() => setHovering('-hovering')}
       onMouseLeave={() => setHovering('')}
     >

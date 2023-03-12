@@ -136,6 +136,15 @@
 .dropdown,
 .dropdown-submenu {
   position: absolute;
-  left: -224px;
   top: -8px;
 }
+
+.dropdown {
+  left: -224px;
+}
+
+
+.dropdown-submenu {
+  left: -234px;
+}
+

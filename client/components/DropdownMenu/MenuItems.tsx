@@ -106,9 +106,6 @@ const MenuItems = ({ questType, items, depthLevel }: MenuItemsProps) => {
           ) : (
             <button
               className={depthLevel === 0 ? 'dd-main-button' : 'dd-sub-button'}
-              type="button"
-              aria-haspopup="menu"
-              aria-expanded={dropdown ? 'true' : 'false'}
               onClick={() => setDropdown(!dropdown)}
             >
               {depthLevel > 0 ? <span>&laquo;</span> : <></>}
@@ -131,11 +128,8 @@ const MenuItems = ({ questType, items, depthLevel }: MenuItemsProps) => {
         <>
           <button
             className="dd-sub-button"
-            type="button"
             id={items.id ? items.id.toString() : ''}
             value={items.value ? items.value : ''}
-            aria-haspopup="menu"
-            aria-expanded={dropdown ? 'true' : 'false'}
             onClick={handleSelection}
           >
             {items.title}

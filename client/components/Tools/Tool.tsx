@@ -15,7 +15,7 @@ const Tool = ({ tool, name }: ToolNavProps) => {
     tool === selectedTool ? setActive('-active') : setActive('');
   });
 
-  const switchFeature = (feat: SelectedTool): void => {
+  const switchTool = (feat: SelectedTool): void => {
     setActive('-active');
     dispatch(storeTool(feat));
   }
@@ -25,7 +25,7 @@ const Tool = ({ tool, name }: ToolNavProps) => {
       {tool === 'accountAchievements' ? (
         <button
           className={`tool-big-button${hovering}${active}`}
-          onClick={() => switchFeature(tool)}
+          onClick={() => switchTool(tool)}
           onMouseEnter={() => setHovering('-hovering')}
           onMouseLeave={() => setHovering('')}
         >
@@ -35,7 +35,7 @@ const Tool = ({ tool, name }: ToolNavProps) => {
       ) : (
         <button
           className={`tool-button${hovering}${active}`}
-          onClick={() => switchFeature(tool)}
+          onClick={() => switchTool(tool)}
           onMouseEnter={() => setHovering('-hovering')}
           onMouseLeave={() => setHovering('')}
         >

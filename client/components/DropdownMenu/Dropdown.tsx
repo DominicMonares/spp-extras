@@ -5,10 +5,10 @@ import './DropdownMenu.css';
 
 const Dropdown = ({ depthLevel, dropdown, questType, submenus }: DropdownProps) => {
   depthLevel = depthLevel + 1;
-  const dropdownClass = depthLevel > 1 ? 'dropdown-submenu' : '';
+  const submenu = depthLevel > 1 ? '-submenu' : '';
 
   return (
-    <ul className={`dropdown ${dropdownClass} ${dropdown ? 'show' : ''}`}>
+    <ul className={`dropdown${submenu} ${dropdown ? 'dropdown-show' : ''}`}>
       {submenus.map((submenu: Submenu, i: number) => (
         <MenuItems
           questType={questType}

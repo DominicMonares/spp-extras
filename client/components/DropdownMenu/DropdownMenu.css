@@ -128,29 +128,11 @@
 
 /* Dropdown */
 
-.dropdown {
-  position: absolute;
-  /* margin-right: 218px; */
-  box-shadow: 0 10px 15px -3px rgba(46, 41, 51, 0.08),
-    0 4px 6px -2px rgba(71, 63, 79, 0.16);
-  font-size: 0.875rem;
-  z-index: 9999;
-  min-width: 10rem;
-  padding: 0.5rem 0;
-  list-style: none;
-
-  border-radius: 0.5rem;
-  display: none;
-}
-
-.dropdown.show {
-  display: block;
-}
-
 .dropdown,
 .dropdown-submenu {
+  display: none;
   position: absolute;
-  top: -8px;
+  top: 0;
 }
 
 .dropdown {
@@ -159,4 +141,8 @@
 
 .dropdown-submenu {
   left: -174px;
+}
+
+.dropdown-show {
+  display: block;
 }

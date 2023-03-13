@@ -83,13 +83,13 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  width: 234px;
+  width: 174px;
   height: 30px;
-  background-image: url("../../assets/menu/menu-item.png");
+  background-image: url("../../assets/buttons/sub-button.png");
 }
 
 .dd-sub-button-hovering {
-  filter: brightness(2)
+  filter: brightness(1.5)
 }
 
 .dd-sub-button-text,
@@ -110,7 +110,7 @@
 }
 
 .dd-sub-button-text-hovering {
-  background: -webkit-linear-gradient(#000000 40%, darkgreen 80%);
+  background: -webkit-linear-gradient(#c88f19 40%, #f7f243 80%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -154,9 +154,9 @@
 }
 
 .dropdown {
-  left: -224px;
+  left: -164px;
 }
 
 .dropdown-submenu {
-  left: -234px;
+  left: -174px;
 }

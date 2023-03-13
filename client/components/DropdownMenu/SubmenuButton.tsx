@@ -12,6 +12,7 @@ const SubmenuButton = ({
 }: SubmenuButtonProps) => {
   const [hovering, setHovering] = useState<string>('');
   useEffect(() => subHovering ? setHovering('-hovering') : setHovering(''));
+  const longTitle = title.length > 25 ? 'long-sub-text' : '';
 
   return (
     <button
@@ -21,7 +22,10 @@ const SubmenuButton = ({
       onMouseLeave={() => setHovering('')}
     >
       {!final ? <img className="dd-sub-arrow" src={arrow} /> : <></>}
-      <div className={`dd-sub-button-text${hovering}`}>{title}</div>
+      <div className={`dd-sub-button-text${hovering} ${longTitle}`}>
+        {title}
+      </div>
+
     </button>
   );
 }

@@ -117,6 +117,10 @@
   transition: font-size 0.1s linear;
 }
 
+.long-sub-text {
+  font-size: 13px;
+}
+
 .dd-sub-arrow {
   position: absolute;
   left: 0;

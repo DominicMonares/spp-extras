@@ -24,22 +24,48 @@ const Tool = ({ tool, name }: ToolNavProps) => {
     <li className="tool">
       {tool === 'accountAchievements' ? (
         <button
-          className={`tool-big-button${hovering}${active}`}
+          className={`
+            tool-big-button 
+            ${hovering ? 'tool-big-hovering' : ''} 
+            ${active ? 'tool-big-active' : ''}
+          `}
           onClick={() => switchTool(tool)}
           onMouseEnter={() => setHovering('-hovering')}
           onMouseLeave={() => setHovering('')}
         >
-          <div className={`tool-big-button-text${hovering}${active}`}>{name.split(' ')[0]}</div>
-          <div className={`tool-big-button-text${hovering}${active}`}>{name.split(' ')[1]}</div>
+          <div className={`
+            tool-big-button-text 
+            ${hovering ? 'tool-big-text-hovering' : ''} 
+            ${active ? 'tool-big-text-active' : ''}
+          `}>
+            {name.split(' ')[0]}
+          </div>
+          <div className={`
+            tool-big-button-text 
+            ${hovering ? 'tool-big-text-hovering' : ''} 
+            ${active ? 'tool-big-text-active' : ''}
+          `}>
+            {name.split(' ')[1]}
+          </div>
         </button>
       ) : (
         <button
-          className={`tool-button${hovering}${active}`}
+          className={`
+            tool-button 
+            ${hovering ? 'tool-hovering' : ''} 
+            ${active ? 'tool-active' : ''}
+          `}
           onClick={() => switchTool(tool)}
           onMouseEnter={() => setHovering('-hovering')}
           onMouseLeave={() => setHovering('')}
         >
-          <div className={`tool-button-text${hovering}${active}`}>Quest Tracker</div>
+          <div className={`
+            tool-button-text 
+            ${hovering ? 'tool-text-hovering' : ''} 
+            ${active ? 'tool-text-active' : ''}
+          `}>
+            Quest Tracker
+          </div>
         </button>
       )}
     </li>

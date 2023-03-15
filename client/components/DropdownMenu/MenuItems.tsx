@@ -1,5 +1,5 @@
 import { useState, MouseEvent } from 'react';
-import Dropdown from './Dropdown';
+import DropdownMenu from './index';
 import MenuButton from './MenuButton';
 import SubmenuButton from './SubmenuButton';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
@@ -111,10 +111,10 @@ const MenuItems = ({ dropdownType, items, depthLevel }: MenuItemsProps) => {
               item={items}
             />
           )}
-          <Dropdown
+          <DropdownMenu
             dropdownType={dropdownType}
             depthLevel={depthLevel}
-            submenus={items.submenu}
+            menu={items.submenu}
             dropdown={dropdown}
           />
         </>

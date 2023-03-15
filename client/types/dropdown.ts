@@ -5,9 +5,9 @@ export interface DropdownMenuProps {
 
 export interface DropdownProps {
   dropdownType: DropdownType;
-  submenus: Menu;
-  dropdown: boolean;
-  depthLevel: number;
+  menu: Menu;
+  dropdown?: boolean;
+  depthLevel?: number;
 }
 
 export type DropdownType = 'character' | 'class' | 'type' | 'race' | 'zone';

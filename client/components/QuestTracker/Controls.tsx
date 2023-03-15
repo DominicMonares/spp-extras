@@ -46,27 +46,33 @@ const Controls = ({ characters }: QuestTrackerControlsProps) => {
       </div>
       <div className="qt-filters">
         <div className="filter-label filter-zone">Select Zone:</div>
-        <DropdownMenu type="zone" menu={zoneMenu(expansion, zone)} />
+        <DropdownMenu dropdownType="zone" menu={zoneMenu(expansion, zone)} />
         <div className="filter-label filter-or">~ or ~</div>
         {character && JSON.parse(character.value).characterClass ? (
           <button onClick={dispatchCharacterClass}>
             {getClass(character)?.title}
           </button>
         ) : (
-          <DropdownMenu type="class" menu={classMenu(expansion, faction, characterClass)} />
+          <DropdownMenu 
+            dropdownType="class" 
+            menu={classMenu(expansion, faction, characterClass)} 
+          />
         )}
         {character && JSON.parse(character.value).race ? (
           <button onClick={dispatchCharacterRace}>
             {getRace(character, faction)?.title}
           </button>
         ) : (
-          <DropdownMenu type="race" menu={raceMenu(expansion, faction, race)} />
+          <DropdownMenu dropdownType="race" menu={raceMenu(expansion, faction, race)} />
         )}
       </div>
       <div className="qt-additional-filters">
         <div className="filter-label filter-additional">Additional Filters:</div>
-        <DropdownMenu type="character" menu={characterMenu(character, characters, faction)} />
-        <DropdownMenu type="type" menu={questTypeMenu(expansion, type)} />
+        <DropdownMenu 
+          dropdownType="character" 
+          menu={characterMenu(character, characters, faction)} 
+        />
+        <DropdownMenu dropdownType="type" menu={questTypeMenu(expansion, type)} />
       </div>
     </div>
   );

@@ -1,23 +1,28 @@
 import MenuItems from './MenuItems';
-import { DropdownMenuProps, Submenu } from '../../types';
+import { DropdownProps, Submenu } from '../../types';
 import './DropdownMenu.css';
 
 
-const DropdownMenu = ({ menu, type, }: DropdownMenuProps) => {
+const DropdownMenu = ({ depthLevel, dropdown, dropdownType, menu }: DropdownProps) => {
+  depthLevel === undefined ? depthLevel = 0 : depthLevel = depthLevel + 1;
+  const submenu = depthLevel > 1 ? '-submenu' : '';
+
   return (
-    <>
+    <ul className={`
+      ${depthLevel ? `dropdown${submenu}` : ''}
+      ${dropdown ? 'dropdown-show' : ''}
+    `}>
       {menu.map((m: Submenu, i: number) => {
-        const depthLevel = 0;
         return (
           <MenuItems
-            dropdownType={type}
+            dropdownType={dropdownType}
             items={m}
             key={i}
             depthLevel={depthLevel}
           />
         );
       })}
-    </>
+    </ul>
   );
 };
 

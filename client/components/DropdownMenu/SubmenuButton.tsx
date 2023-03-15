@@ -12,7 +12,7 @@ const SubmenuButton = ({
 }: SubmenuButtonProps) => {
   const [hovering, setHovering] = useState<string>('');
   useEffect(() => subHovering ? setHovering('-hovering') : setHovering(''));
-  const longTitle = item.title.length > 25 ? 'long-sub-text' : '';
+  const longTitle = item.title.length > 25 ? 'dd-long-sub-text' : '';
 
   return (
     <button

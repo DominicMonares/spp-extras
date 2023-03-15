@@ -108,7 +108,7 @@ const MenuItems = ({ questType, items, depthLevel }: MenuItemsProps) => {
               final={false}
               handleSelection={handleSelection}
               subHovering={subHovering}
-              title={items.title}
+              item={items}
             />
           )}
           <Dropdown
@@ -123,7 +123,7 @@ const MenuItems = ({ questType, items, depthLevel }: MenuItemsProps) => {
           final={true}
           handleSelection={handleSelection}
           subHovering={subHovering}
-          title={items.title}
+          item={items}
         />
       )}
     </li >

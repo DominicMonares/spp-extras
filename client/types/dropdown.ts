@@ -37,5 +37,5 @@ export interface SubmenuButtonProps {
   final: boolean;
   handleSelection: (e: React.MouseEvent<HTMLInputElement>) => void;
   subHovering: boolean;
-  title: string;
+  item: Submenu;
 } 

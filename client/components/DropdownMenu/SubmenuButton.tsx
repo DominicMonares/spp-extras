@@ -8,24 +8,29 @@ const SubmenuButton = ({
   final,
   handleSelection,
   subHovering,
-  title
+  item
 }: SubmenuButtonProps) => {
   const [hovering, setHovering] = useState<string>('');
   useEffect(() => subHovering ? setHovering('-hovering') : setHovering(''));
-  const longTitle = title.length > 25 ? 'long-sub-text' : '';
+  const longTitle = item.title.length > 25 ? 'long-sub-text' : '';
 
   return (
     <button
+      id={item.id ? item.id.toString() : ''}
       className={`dd-sub-button${hovering}`}
+      value={item.value ? item.value : ''}
       onClick={final ? handleSelection : () => null}
       onMouseEnter={() => setHovering('-hovering')}
       onMouseLeave={() => setHovering('')}
     >
       {!final ? <img className="dd-sub-arrow" src={arrow} /> : <></>}
-      <div className={`dd-sub-button-text${hovering} ${longTitle}`}>
-        {title}
-      </div>
-
+      <li
+        id={item.id ? item.id.toString() : ''}
+        className={`dd-sub-button-text${hovering} ${longTitle}`}
+        value={item.value ? item.value : ''}
+      >
+        {item.title}
+      </li>
     </button>
   );
 }

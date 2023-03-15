@@ -4,7 +4,7 @@ export interface DropdownMenuProps {
 }
 
 export interface DropdownProps {
-  questType: DropdownType;
+  dropdownType: DropdownType;
   submenus: Menu;
   dropdown: boolean;
   depthLevel: number;
@@ -18,10 +18,10 @@ export interface MenuButtonProps {
   selected: () => string;
   subHovering: boolean;
   title: string;
-} 
+}
 
 export interface MenuItemsProps {
-  questType: DropdownType;
+  dropdownType: DropdownType;
   items: Submenu;
   depthLevel: number;
 }

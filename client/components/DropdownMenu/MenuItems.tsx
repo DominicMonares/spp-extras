@@ -14,7 +14,7 @@ import { MenuItemsProps } from '../../types';
 import './DropdownMenu.css';
 
 
-const MenuItems = ({ questType, items, depthLevel }: MenuItemsProps) => {
+const MenuItems = ({ dropdownType, items, depthLevel }: MenuItemsProps) => {
   const dispatch = useAppDispatch();
   const settings = useAppSelector(state => state.questTracker);
   const { character, characterClass, race, type, zone } = settings;
@@ -41,7 +41,7 @@ const MenuItems = ({ questType, items, depthLevel }: MenuItemsProps) => {
     const id = Number(target.id);
     const value = target.value;
 
-    if (questType === 'character') {
+    if (dropdownType === 'character') {
       dispatch(storeQuestTrackerCharacter({
         character: {
           id: id,
@@ -49,11 +49,11 @@ const MenuItems = ({ questType, items, depthLevel }: MenuItemsProps) => {
           value: value
         }
       }));
-    } else if (questType === 'type') {
+    } else if (dropdownType === 'type') {
       dispatch(storeQuestTrackerType({ type: title }))
-    } else if (questType === 'zone') {
+    } else if (dropdownType === 'zone') {
       dispatch(storeQuestTrackerZone({ zone: title }));
-    } else if (questType === 'class') {
+    } else if (dropdownType === 'class') {
       dispatch(storeQuestTrackerClass({
         characterClass: {
           id: id,
@@ -61,7 +61,7 @@ const MenuItems = ({ questType, items, depthLevel }: MenuItemsProps) => {
           value: Number(value)
         }
       }));
-    } else if (questType === 'race') {
+    } else if (dropdownType === 'race') {
       dispatch(storeQuestTrackerRace({
         race: {
           id: id,
@@ -75,15 +75,15 @@ const MenuItems = ({ questType, items, depthLevel }: MenuItemsProps) => {
   }
 
   const selected = () => {
-    if (questType === 'character' && character) {
+    if (dropdownType === 'character' && character) {
       return character.name;
-    } else if (questType === 'type' && type) {
+    } else if (dropdownType === 'type' && type) {
       return type[0].toUpperCase().concat(type.substring(1));
-    } else if (questType === 'zone' && zone) {
+    } else if (dropdownType === 'zone' && zone) {
       return zone;
-    } else if (questType === 'class' && characterClass) {
+    } else if (dropdownType === 'class' && characterClass) {
       return characterClass.title;
-    } else if (questType === 'race' && race) {
+    } else if (dropdownType === 'race' && race) {
       return race.title;
     }
   }
@@ -112,7 +112,7 @@ const MenuItems = ({ questType, items, depthLevel }: MenuItemsProps) => {
             />
           )}
           <Dropdown
-            questType={questType}
+            dropdownType={dropdownType}
             depthLevel={depthLevel}
             submenus={items.submenu}
             dropdown={dropdown}

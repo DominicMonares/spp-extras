@@ -10,7 +10,7 @@ const DropdownMenu = ({ menu, type, }: DropdownMenuProps) => {
         const depthLevel = 0;
         return (
           <MenuItems
-            questType={type}
+            dropdownType={type}
             items={m}
             key={i}
             depthLevel={depthLevel}

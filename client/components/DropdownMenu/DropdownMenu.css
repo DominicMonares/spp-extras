@@ -54,8 +54,20 @@
   height: 22px;
 }
 
-.dd-main-button-text,
-.dd-main-button-text-hovering {
+.dd-button-text-short,
+.dd-button-text-short-hovering,
+.dd-button-text-lower-mid,
+.dd-button-text-lower-mid-hovering,
+.dd-button-text-mid,
+.dd-button-text-mid-hovering,
+.dd-button-text-upper-mid,
+.dd-button-text-upper-mid-hovering,
+.dd-button-text-long,
+.dd-button-text-long-hovering,
+.dd-button-text-extra-long,
+.dd-button-text-extra-long-hovering,
+.dd-button-text-jumbo,
+.dd-button-text-jumbo-hovering {
   display: flex;
   justify-content: center;
   font-family: Friz Quadrata;
@@ -64,14 +76,63 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   transition: font-size 0.1s linear;
+  text-align: center;
 }
 
-.dd-main-button-text {
+.dd-button-text-short {
   font-size: 26px;
 }
 
-.dd-main-button-text-hovering {
+.dd-button-text-short-hovering {
   font-size: 30px;
+}
+
+.dd-button-text-lower-mid {
+  font-size: 24px;
+}
+
+.dd-button-text-lower-mid-hovering {
+  font-size: 27px;
+}
+
+.dd-button-text-mid {
+  font-size: 18px;
+}
+
+.dd-button-text-mid-hovering {
+  font-size: 20px;
+}
+
+.dd-button-text-upper-mid {
+  font-size: 16px;
+}
+
+.dd-button-text-upper-mid-hovering {
+  font-size: 18px;
+}
+
+.dd-button-text-long {
+  font-size: 13px;
+}
+
+.dd-button-text-long-hovering {
+  font-size: 15px;
+}
+
+.dd-button-text-extra-long {
+  font-size: 12px;
+}
+
+.dd-button-text-extra-long-hovering {
+  font-size: 14px;
+}
+
+.dd-button-text-jumbo {
+  font-size: 11px;
+}
+
+.dd-button-text-jumbo-hovering {
+  font-size: 12px;
 }
 
 
@@ -117,7 +178,7 @@
   transition: font-size 0.1s linear;
 }
 
-.long-sub-text {
+.dd-long-sub-text {
   font-size: 13px;
 }
 
@@ -137,13 +198,6 @@
   display: none;
   position: absolute;
   top: 0;
-}
-
-.dropdown {
-  left: -164px;
-}
-
-.dropdown-submenu {
   left: -174px;
 }
 

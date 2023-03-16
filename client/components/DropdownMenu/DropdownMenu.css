@@ -17,9 +17,8 @@
 .dd-main-button,
 .dd-main-button-hovering {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  position: relative;
   margin-bottom: 10px;
   background-repeat: no-repeat;
   background-size: 100%;
@@ -39,8 +38,7 @@
 
 .dd-main-arrow,
 .dd-main-arrow-hovering {
-  position: absolute;
-  left: 20px;
+  margin-left: 20px;
   transition: width 0.1s linear, height 0.1s linear;
 }
 
@@ -54,22 +52,21 @@
   height: 22px;
 }
 
-.dd-button-text-short,
-.dd-button-text-short-hovering,
-.dd-button-text-lower-mid,
-.dd-button-text-lower-mid-hovering,
-.dd-button-text-mid,
-.dd-button-text-mid-hovering,
-.dd-button-text-upper-mid,
-.dd-button-text-upper-mid-hovering,
-.dd-button-text-long,
-.dd-button-text-long-hovering,
-.dd-button-text-extra-long,
-.dd-button-text-extra-long-hovering,
-.dd-button-text-jumbo,
-.dd-button-text-jumbo-hovering {
-  display: flex;
-  justify-content: center;
+.c12, .c12-hovering,
+.c13, .c13-hovering,
+.c14, .c14-hovering,
+.c15, .c15-hovering,
+.c16, .c16-hovering,
+.c17, .c17-hovering,
+.c18, .c18-hovering,
+.c19, .c19-hovering,
+.c20, .c20-hovering,
+.c21, .c21-hovering,
+.c22, .c22-hovering,
+.c25, .c25-hovering,
+.c26, .c26-hovering {
+  margin-right: 20px;
+  width: 100%;
   font-family: Friz Quadrata;
   background: -webkit-linear-gradient(#c88f19 40%, #f7f243 80%);
   background-clip: text;
@@ -79,60 +76,108 @@
   text-align: center;
 }
 
-.dd-button-text-short {
+.c12 {
   font-size: 26px;
 }
 
-.dd-button-text-short-hovering {
+.c12-hovering {
   font-size: 30px;
 }
 
-.dd-button-text-lower-mid {
+.c13 {
+  font-size: 25px;
+}
+
+.c13-hovering {
+  font-size: 29px;
+}
+
+.c14 {
+  font-size: 21.5px;
+}
+
+.c14-hovering {
   font-size: 24px;
 }
 
-.dd-button-text-lower-mid-hovering {
-  font-size: 27px;
+.c15 {
+  font-size: 22px;
 }
 
-.dd-button-text-mid {
-  font-size: 18px;
+.c15-hovering {
+  font-size: 25px;
 }
 
-.dd-button-text-mid-hovering {
+.c16 {
+  font-size: 22px;
+}
+
+.c16-hovering {
+  font-size: 25px;
+}
+
+.c17 {
   font-size: 20px;
 }
 
-.dd-button-text-upper-mid {
-  font-size: 16px;
+.c17-hovering {
+  font-size: 22.5px;
 }
 
-.dd-button-text-upper-mid-hovering {
+.c18 {
+  font-size: 18.5px;
+}
+
+.c18-hovering {
+  font-size: 21px;
+}
+
+.c19 {
   font-size: 18px;
 }
 
-.dd-button-text-long {
-  font-size: 13px;
+.c19-hovering {
+  font-size: 20px;
 }
 
-.dd-button-text-long-hovering {
+.c20 {
+  font-size: 16.5px;
+}
+
+.c20-hovering {
+  font-size: 18.5px;
+}
+
+.c21 {
+  font-size: 17px;
+}
+
+.c21-hovering {
+  font-size: 18.5px;
+}
+
+.c22 {
   font-size: 15px;
 }
 
-.dd-button-text-extra-long {
-  font-size: 12px;
+.c22-hovering {
+  font-size: 17px;
 }
 
-.dd-button-text-extra-long-hovering {
+.c25 {
   font-size: 14px;
 }
 
-.dd-button-text-jumbo {
-  font-size: 11px;
+.c25-hovering {
+  font-size: 15px;
 }
 
-.dd-button-text-jumbo-hovering {
-  font-size: 12px;
+.c26 {
+  font-size: 12.5px;
+}
+
+.c26-hovering {
+  font-size: 14px;
 }
 
 

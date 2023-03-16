@@ -77,19 +77,19 @@
 }
 
 .c12 {
-  font-size: 26px;
-}
-
-.c12-hovering {
-  font-size: 30px;
-}
-
-.c13 {
   font-size: 25px;
 }
 
+.c12-hovering {
+  font-size: 28.5px;
+}
+
+.c13 {
+  font-size: 23.5px;
+}
+
 .c13-hovering {
-  font-size: 29px;
+  font-size: 26.5px;
 }
 
 .c14 {
@@ -101,27 +101,27 @@
 }
 
 .c15 {
-  font-size: 22px;
-}
-
-.c15-hovering {
-  font-size: 25px;
-}
-
-.c16 {
-  font-size: 22px;
-}
-
-.c16-hovering {
-  font-size: 25px;
-}
-
-.c17 {
   font-size: 20px;
 }
 
-.c17-hovering {
+.c15-hovering {
   font-size: 22.5px;
+}
+
+.c16 {
+  font-size: 19.5px;
+}
+
+.c16-hovering {
+  font-size: 22px;
+}
+
+.c17 {
+  font-size: 18px;
+}
+
+.c17-hovering {
+  font-size: 20px;
 }
 
 .c18 {
@@ -133,11 +133,11 @@
 }
 
 .c19 {
-  font-size: 18px;
+  font-size: 17.5px;
 }
 
 .c19-hovering {
-  font-size: 20px;
+  font-size: 19.5px;
 }
 
 .c20 {
@@ -153,7 +153,7 @@
 }
 
 .c21-hovering {
-  font-size: 18.5px;
+  font-size: 19px;
 }
 
 .c22 {
@@ -169,7 +169,7 @@
 }
 
 .c25-hovering {
-  font-size: 15px;
+  font-size: 15.5px;
 }
 
 .c26 {

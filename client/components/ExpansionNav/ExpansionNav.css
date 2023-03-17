@@ -30,15 +30,15 @@
 /* Tabs */
 
 .classic-gradient {
-  background-image: linear-gradient(#080d07, #f1dd6f 55%);
+  background-image: linear-gradient(#080d07, #f1dd6f 80%);
 }
 
 .tbc-gradient {
-  background-image: linear-gradient(#080d07, #2d9f05 55%);
+  background-image: linear-gradient(#080d07, #2d9f05 80%);
 }
 
 .wotlk-gradient {
-  background-image: linear-gradient(#080d07, #0282b7 55%);
+  background-image: linear-gradient(#080d07, #0282b7 80%);
 }
 
 .xpac-tabs {
@@ -200,7 +200,7 @@
 
 .square {
   width: 20px;
-  height: 20px;
+  height: 10px;
   border-bottom: 1px solid black;
 }
 
@@ -214,8 +214,8 @@
 
 .curve {
   width: 20px;
-  height: 20px;
-  margin-bottom: -20px;
+  height: 10px;
+  margin-bottom: -10px;
   z-index: 4;
   border-bottom: 1px solid black;
 }
@@ -254,7 +254,6 @@
 }
 
 .tbc-rc {
-  margin-left: -1px;
   background: #0282b7;
 }
 

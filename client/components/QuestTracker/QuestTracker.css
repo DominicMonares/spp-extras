@@ -15,8 +15,8 @@
 .classic-qt-controls,
 .tbc-qt-controls,
 .wotlk-qt-controls {
-  width: 270px;
-  min-width: 270px;
+  width: 256px;
+  min-width: 256px;
   margin-left: 10px;
   margin-right: 10px;
 }

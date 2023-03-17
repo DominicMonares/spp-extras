@@ -6,8 +6,8 @@ import { QuestTrackerViewProps } from '../../types';
 import label from '../../assets/labels/long-label.png';
 
 
-const View = ({ 
-  templateQuests, completedQuests, loading, error, retry 
+const View = ({
+  templateQuests, completedQuests, loading, error, retry
 }: QuestTrackerViewProps) => {
   const expansion = useAppSelector(state => state.expansion.selected);
   const settings = useAppSelector(state => state.questTracker);
@@ -17,8 +17,12 @@ const View = ({
   return (
     <div className={`${expansion}-qt-view`}>
       {loading ? <Loading /> : <></>}
-      {characterClass || race || zone ? (
-        Object.values(viewQuests).map((q, i) => <Quest key={i} quest={q} />)
+      {error ? (
+        <div>
+          <div>ERROR: {JSON.stringify(error)}</div>
+          <div>Please ensure the database is still running.</div>
+          <div onClick={retry}>Retry connection</div>
+        </div>
       ) : (
         <></>
       )}
@@ -32,12 +36,8 @@ const View = ({
       ) : (
         <></>
       )}
-      {error ? (
-        <div>
-          <div>ERROR: {JSON.stringify(error)}</div>
-          <div>Please ensure the database is still running.</div>
-          <div onClick={retry}>Retry connection</div>
-        </div>
+      {characterClass || race || zone ? (
+        Object.values(viewQuests).map((q, i) => <Quest key={i} quest={q} />)
       ) : (
         <></>
       )}

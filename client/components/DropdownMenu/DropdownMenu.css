@@ -1,3 +1,20 @@
+/* Dropdown */
+
+.dropdown,
+.dropdown-submenu {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: -174px;
+}
+
+.dropdown-show {
+  display: block;
+  max-height: 250px;
+  /* overflow-y: auto; */
+}
+
+
 /* Menu Items */
 
 .menu-items {
@@ -233,19 +250,4 @@
   margin-left: 6px;
   width: 18px;
   height: 18px;
-}
-
-
-/* Dropdown */
-
-.dropdown,
-.dropdown-submenu {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: -174px;
-}
-
-.dropdown-show {
-  display: block;
 }

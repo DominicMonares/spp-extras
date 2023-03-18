@@ -37,7 +37,7 @@ export interface FactionQuests {
 
 export type FilterQuests = (
   settings: QuestTrackerSettings,
-  templateQuests: TemplateQuests
+  templateQuests: TemplateQuests | Record<string,never>
 ) => ViewQuests;
 
 export type FilteredCharacterMenu = (
@@ -92,7 +92,7 @@ export interface Quest {
 }
 
 export interface QuestCondition {
-  setting: Faction | QuestType | string | ClassSetting | RaceSetting | CharacterSetting | undefined;
+  setting: Faction | QuestType | string | ClassSetting | RaceSetting | CharacterSetting | undefined | Record<string,never>;
   conditionMet: () => boolean;
 }
 

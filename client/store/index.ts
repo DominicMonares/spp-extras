@@ -2,8 +2,9 @@ import { configureStore } from '@reduxjs/toolkit';
 import characterReducer from './slices/characterSlice';
 import expansionReducer from './slices/expansionSlice';
 import questReducer from './slices/questSlice';
-import toolReducer from './slices/toolSlice';
 import questTrackerReducer from './slices/questTrackerSlice';
+import toolReducer from './slices/toolSlice';
+import windowReducer from './slices/windowSlice';
 
 
 export const store = configureStore({
@@ -12,7 +13,8 @@ export const store = configureStore({
     expansion: expansionReducer,
     quests: questReducer,
     tool: toolReducer,
-    questTracker: questTrackerReducer
+    questTracker: questTrackerReducer,
+    window: windowReducer
   }
 });
 

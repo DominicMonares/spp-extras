@@ -9,34 +9,33 @@ import { useAppDispatch, useAppSelector } from '../store/hooks';
 import {
   storeCharacters,
   storeCompletedQuests,
-  storeTemplateQuests
+  storeTemplateQuests,
+  storeWindowWidth
 } from '../store/slices';
 import {
   fetchCharacters,
   fetchCompletedQuests,
   fetchTemplateQuests
 } from '../apiCalls';
-import { getFaction } from '../utils';
+import { getFaction, windowIsSmall } from '../utils';
 import { Character, Characters } from '../types';
 import './App.css';
-
 
 
 const App = () => {
   const dispatch = useAppDispatch();
   const tool = useAppSelector(state => state.tool.selected);
   const expansion = useAppSelector(state => state.expansion.selected);
+  const smallWindow = useAppSelector(state => state.window.smallWindow);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>('');
-  const isSmall = () =>  window.innerWidth < 990 ? true : false;
-  const [smallWindow, setSmallWindow] = useState<boolean>(isSmall());
 
   useEffect(() => {
     storeQuestsAndCharacters();
   }, []);
 
   useEffect(() => {
-    const handleWidthChange = () => setSmallWindow(isSmall());
+    const handleWidthChange = () => dispatch(storeWindowWidth(windowIsSmall()));
     window.addEventListener('resize', handleWidthChange);
     return () => window.removeEventListener('resize', handleWidthChange);
   }, []);

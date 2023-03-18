@@ -2,13 +2,14 @@ import { useAppSelector } from '../../store/hooks';
 import Loading from '../Loading';
 import Quest from './Quest';
 import { createViewQuests } from '../../utils';
-import { QuestTrackerViewProps } from '../../types';
+import { ViewProps } from '../../types';
 import label from '../../assets/labels/long-label.png';
+import './View.css';
 
 
-const View = ({
-  templateQuests, completedQuests, loading, error, retry
-}: QuestTrackerViewProps) => {
+const QuestTrackerView = ({ loading, error, retry }: ViewProps) => {
+  const quests = useAppSelector(state => state.quests);
+  const { completedQuests, templateQuests } = quests;
   const expansion = useAppSelector(state => state.expansion.selected);
   const settings = useAppSelector(state => state.questTracker);
   const { zone, characterClass, race } = settings;
@@ -45,4 +46,4 @@ const View = ({
   );
 }
 
-export default View;
+export default QuestTrackerView;

@@ -2,7 +2,7 @@ import {
   CharacterSetting, 
   ClassSetting, 
   RaceSetting 
-} from "./quests";
+} from "./questTracker";
 
 
 export interface Character {
@@ -17,8 +17,12 @@ export interface Character {
 export type CharacterClass = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11;
 
 export interface Characters {
-  alliance: FactionCharacters;
-  horde: FactionCharacters;
+  alliance: FactionCharacters | Record<string,never>;
+  horde: FactionCharacters | Record<string,never>;
+}
+
+export interface CharactersInitSlice {
+  characters: Characters;
 }
 
 export type Faction = 'alliance' | 'horde';

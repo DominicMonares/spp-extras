@@ -11,13 +11,13 @@ import {
   raceMenu,
   zoneMenu
 } from '../../utils';
-import { QuestTrackerControlsProps } from '../../types';
 import label from '../../assets/labels/small-label.png';
-import './QuestTracker.css';
+import './Controls.css';
 
 
-const Controls = ({ characters }: QuestTrackerControlsProps) => {
+const QuestTrackerControls = () => {
   const dispatch = useAppDispatch();
+  const characters = useAppSelector(state => state.characters)
   const expansion = useAppSelector(state => state.expansion.selected);
   const settings = useAppSelector(state => state.questTracker);
   const { character, characterClass, faction, race, type, zone } = settings;
@@ -78,4 +78,4 @@ const Controls = ({ characters }: QuestTrackerControlsProps) => {
   );
 }
 
-export default Controls;
+export default QuestTrackerControls;

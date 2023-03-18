@@ -1,0 +1,53 @@
+/* Containers */
+
+.classic-qt-view,
+.tbc-qt-view,
+.wotlk-qt-view {
+  height: max-content;
+  margin-top: 10px;
+  border: 1px solid black;
+  border-radius: 15px;
+}
+
+.classic-qt-view {
+  background: rgba(241, 221, 111, 0.5);
+}
+
+.tbc-qt-view {
+  background: rgba(45, 159, 5, 0.5);
+}
+
+.wotlk-qt-view {
+  background: rgba(25, 118, 174, 0.5);
+}
+
+
+/* View */
+
+.classic-qt-view {
+  width: 100%;
+  max-width: 500px;
+}
+
+.qt-select-label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 18px;
+}
+
+.qt-select-text {
+  margin-top: -32px;
+  font-family: Friz Quadrata;
+  font-size: 20px;
+  background: -webkit-linear-gradient(#c88f19 40%, #f7f243 70%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.complete {
+  background-color: green;
+}

@@ -7,7 +7,7 @@ import './Tools.css';
 
 const Tool = ({ tool, name }: ToolNavProps) => {
   const dispatch = useAppDispatch();
-  const selectedTool = useAppSelector(state => state.feature.selected);
+  const selectedTool = useAppSelector(state => state.tool.selected);
   const [hovering, setHovering] = useState<string>('');
   const [active, setActive] = useState<string>('');
 

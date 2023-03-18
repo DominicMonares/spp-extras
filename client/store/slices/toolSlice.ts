@@ -8,7 +8,7 @@ const initialState: Tool = {
 }
 
 export const toolSlice = createSlice({
-  name: 'feature',
+  name: 'tool',
   initialState,
   reducers: {
     storeTool: (state, action: PayloadAction<SelectedTool>) => {

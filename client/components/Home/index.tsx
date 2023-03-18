@@ -3,12 +3,12 @@ import { useAppSelector } from '../../store/hooks';
 
 const Home = () => {
   const expansion = useAppSelector(state => state.expansion.selected);
-  const feature = useAppSelector(state => state.feature.selected);
+  const tool = useAppSelector(state => state.tool.selected);
 
   return (
     <div className="home">
-      {!expansion && !feature ? <div>Please select an expansion</div> : <></>}
-      {expansion && !feature ? <div>Please select a feature</div> : <></>}
+      {!expansion && !tool ? <div>Please select an expansion</div> : <></>}
+      {expansion && !tool ? <div>Please select a tool</div> : <></>}
     </div>
   );
 }

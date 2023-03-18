@@ -1,11 +1,12 @@
-import { 
-  CharacterClass, 
-  Characters, 
-  Faction, 
-  Race
-} from './characters';
+import { Characters, Faction } from './characters';
 import { Menu } from './dropdown';
 import { SelectedExpansion } from './expansions';
+import {
+  CharacterSetting,
+  ClassSetting,
+  QuestTrackerSettings,
+  RaceSetting
+} from './questTracker';
 
 
 export interface CharacterQuests {
@@ -19,27 +20,15 @@ export type CharacterQuestClass = 1 | 2 | 4 | 8 | 16 | 32 | 64 | 128 | 256 | 102
 
 export type CharacterQuestRace = 1 | 2 | 4 | 8 | 16 | 32 | 64 | 128 | 512 | 1024;
 
-export interface CharacterSetting {
-  id: number;
-  name: string;
-  value: string;
-}
-
-export interface ClassSetting {
-  id: CharacterClass;
-  title: string;
-  value: CharacterQuestClass;
-}
-
 export interface CompletedQuests {
   alliance: FactionQuests;
   horde: FactionQuests;
 }
 
 export type CreateViewQuests = (
-  completedQuests: CompletedQuests,
+  completedQuests: CompletedQuests | Record<string,never>,
   settings: QuestTrackerSettings,
-  templateQuests: TemplateQuests
+  templateQuests: TemplateQuests | Record<string,never>
 ) => ViewQuests;
 
 export interface FactionQuests {
@@ -137,34 +126,12 @@ export interface Quests {
   [key: string]: Quest;
 }
 
-export interface QuestTrackerControlsProps {
-  characters: Characters;
-}
-
-export interface QuestTrackerSettings {
-  character?: CharacterSetting | Record<string,never> | undefined;
-  characterClass?: ClassSetting | Record<string,never> | undefined;
-  faction?: Faction;
-  race?: RaceSetting | Record<string,never> | undefined;
-  type?: QuestType | undefined;
-  zone?: string | undefined;
-}
-
-export interface QuestTrackerViewProps {
-  templateQuests: TemplateQuests;
-  completedQuests: CompletedQuests;
-  loading: boolean;
-  error: string;
-  retry: () => void;
+export interface QuestSliceInitState {
+  completedQuests: CompletedQuests | Record<string,never>;
+  templateQuests: TemplateQuests | Record<string,never>;
 }
 
 export type QuestType = 'regular' | 'daily' | 'weekly' | 'monthly';
-
-export interface RaceSetting { 
-  id: Race;
-  title: string;
-  value: CharacterQuestRace;
-}
 
 export interface TemplateFactionQuests {
   [key: string]: TemplateQuest;
@@ -181,9 +148,9 @@ export interface TemplateQuest {
 }
 
 export interface TemplateQuests {
-  alliance: TemplateFactionQuests;
-  horde: TemplateFactionQuests;
-  both: TemplateFactionQuests;
+  alliance: TemplateFactionQuests | Record<string,never>;
+  horde: TemplateFactionQuests | Record<string,never>;
+  both: TemplateFactionQuests | Record<string,never>;
 }
 
 export interface ViewQuest extends TemplateQuest {

@@ -41,9 +41,9 @@ const Tool = ({ tool, name }: ToolNavProps) => {
             {name.split(' ')[0]}
           </div>
           <div className={`
-            tool-big-button-text 
-            ${hovering ? 'tool-big-text-hovering' : ''} 
-            ${active ? 'tool-big-text-active' : ''}
+            tool-big-button-text-bottom
+            ${hovering ? 'tool-big-text-hovering-bottom' : ''} 
+            ${active ? 'tool-big-text-active-bottom' : ''}
           `}>
             {name.split(' ')[1]}
           </div>

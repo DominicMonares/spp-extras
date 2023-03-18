@@ -93,18 +93,19 @@
 
 .tool-active,
 .tool-hovering {
-  width: 248px;
+  width: 236px;
   height: 60px;
 }
 
 .tool-big-active,
 .tool-big-hovering {
-  width: 248px;
+  width: 236px;
   height: 82px;
 }
 
 .tool-button-text,
-.tool-big-button-text {
+.tool-big-button-text,
+.tool-big-button-text-bottom {
   display: flex;
   justify-content: center;
   font-family: Friz Quadrata;
@@ -112,17 +113,36 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  transition: font-size 0.1s linear;
+  transition: font-size 0.1s linear, margin-top 0.1s linear, margin-bottom 0.1s linear;
 }
 
-.tool-button-text,
-.tool-big-button-text {
+.tool-button-text {
+  margin-bottom: 3px;
   font-size: 26px;
 }
 
+.tool-big-button-text,
+.tool-big-button-text-bottom {
+  font-size: 24px;
+}
+
+.tool-big-button-text-bottom {
+  margin-top: -5px;
+}
+
 .tool-text-active,
-.tool-text-hovering,
+.tool-text-hovering {
+  font-size: 28px;
+}
+
 .tool-big-text-active,
-.tool-big-text-hovering {
-  font-size: 30px;
+.tool-big-text-hovering,
+.tool-big-text-active-bottom,
+.tool-big-text-hovering-bottom {
+  font-size: 26px;
+}
+
+.tool-big-text-active-bottom,
+.tool-big-text-hovering-bottom {
+  margin-bottom: 5px;
 }

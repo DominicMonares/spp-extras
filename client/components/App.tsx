@@ -6,7 +6,7 @@ import Home from './Home';
 import Tools from './Tools';
 import View from './View';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
-import { 
+import {
   storeCharacters,
   storeCompletedQuests,
   storeTemplateQuests
@@ -21,15 +21,24 @@ import { Character, Characters } from '../types';
 import './App.css';
 
 
+
 const App = () => {
   const dispatch = useAppDispatch();
   const tool = useAppSelector(state => state.tool.selected);
   const expansion = useAppSelector(state => state.expansion.selected);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>('');
+  const isSmall = () =>  window.innerWidth < 900 ? true : false;
+  const [smallWindow, setSmallWindow] = useState<boolean>(isSmall());
 
   useEffect(() => {
     storeQuestsAndCharacters();
+  }, []);
+
+  useEffect(() => {
+    const handleWidthChange = () => setSmallWindow(isSmall());
+    window.addEventListener('resize', handleWidthChange);
+    return () => window.removeEventListener('resize', handleWidthChange);
   }, []);
 
   const getCharacters = async () => {
@@ -85,16 +94,25 @@ const App = () => {
     <div className={`app ${expansion}-container`}>
       <ExpansionNav />
       <div className="lower-app">
-        <Tools />
         {!expansion || !tool ? <Home /> : <></>}
-        {tool === 'questTracker' ? (
-          <>
-            <View error={error} loading={loading} retry={storeQuestsAndCharacters} />
-            <Controls />
-          </>
-        ) : (
+
+        {smallWindow ? (
           <></>
+        ) : (
+          <>
+            <Tools />
+            {tool === 'questTracker' ? (
+              <>
+                <View error={error} loading={loading} retry={storeQuestsAndCharacters} />
+                <Controls />
+              </>
+            ) : (
+              <></>
+            )}
+          </>
         )}
+
+
         {tool === 'accountAchievements' ? (
           <div>
             <View />
@@ -104,7 +122,7 @@ const App = () => {
           <></>
         )}
       </div>
-    </div>
+    </div >
   );
 
 }

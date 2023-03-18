@@ -10,7 +10,10 @@ body,
 #root {
   height: 1080px;
   max-height: 1080px;
-  overflow: hidden;
+}
+
+html::-webkit-scrollbar {
+  display: none;
 }
 
 body {

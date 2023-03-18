@@ -4,10 +4,11 @@ import { ViewProps } from '../../types';
 import './View.css';
 
 const View = ({ error, loading, retry }: ViewProps) => {
+  const expansion = useAppSelector(state => state.expansion.selected);
   const tool = useAppSelector(state => state.tool.selected);
 
   return (
-    <div>
+    <div className={`view ${expansion}-view`}>
       {tool === 'questTracker' ? (
         <QuestTrackerView 
           error={error}

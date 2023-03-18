@@ -1,23 +1,23 @@
-/* Containers */
+/* Container */
 
-.classic-qt-view,
-.tbc-qt-view,
-.wotlk-qt-view {
+.view {
+  width: 100%;
+  max-width: 568px;
   height: max-content;
   margin-top: 10px;
   border: 1px solid black;
   border-radius: 15px;
 }
 
-.classic-qt-view {
+.classic-view {
   background: rgba(241, 221, 111, 0.5);
 }
 
-.tbc-qt-view {
+.tbc-view {
   background: rgba(45, 159, 5, 0.5);
 }
 
-.wotlk-qt-view {
+.wotlk-view {
   background: rgba(25, 118, 174, 0.5);
 }
 
@@ -26,7 +26,7 @@
 
 .classic-qt-view {
   width: 100%;
-  max-width: 500px;
+  max-width: 568px;
 }
 
 .qt-select-label {

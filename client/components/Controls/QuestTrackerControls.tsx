@@ -11,7 +11,7 @@ import {
   raceMenu,
   zoneMenu
 } from '../../utils';
-import label from '../../assets/labels/small-label.png';
+
 import './Controls.css';
 
 
@@ -35,19 +35,15 @@ const QuestTrackerControls = () => {
   }
 
   return (
-    <div className={`${expansion}-qt-controls`}>
-      <div className="controls-label">
-        <img src={label} />
-        <div className="controls-label-text">Controls</div>
-      </div>
+    <>
       <div className="qt-faction">
-        <div className="filter-label">Select Faction:</div>
+        <div className="control-label">Select Faction:</div>
         <FactionSelect />
       </div>
       <div className="qt-filters">
-        <div className="filter-label filter-zone">Select Zone:</div>
+        <div className="control-label filter-zone">Select Zone:</div>
         <DropdownMenu dropdownType="zone" menu={zoneMenu(expansion, zone)} />
-        <div className="filter-label filter-or">~ or ~</div>
+        <div className="control-label filter-or">~ or ~</div>
         {character && JSON.parse(character.value).characterClass ? (
           <button onClick={dispatchCharacterClass}>
             {getClass(character)?.title}
@@ -67,14 +63,14 @@ const QuestTrackerControls = () => {
         )}
       </div>
       <div className="qt-additional-filters">
-        <div className="filter-label filter-additional">Additional Filters:</div>
+        <div className="control-label filter-additional">Additional Filters:</div>
         <DropdownMenu 
           dropdownType="character" 
           menu={characterMenu(character, characters, faction)} 
         />
         <DropdownMenu dropdownType="type" menu={questTypeMenu(expansion, type)} />
       </div>
-    </div>
+    </>
   );
 }
 

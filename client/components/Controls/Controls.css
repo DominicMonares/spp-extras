@@ -1,8 +1,6 @@
-/* Containers */
+/* Container */
 
-.classic-qt-controls,
-.tbc-qt-controls,
-.wotlk-qt-controls {
+.controls {
   margin-left: 10px;
   margin-right: 10px;
   margin-top: 10px;
@@ -13,22 +11,22 @@
   border-radius: 15px;
 }
 
-.classic-qt-controls {
+.classic-controls {
   background: rgba(241, 221, 111, 0.5);
 }
 
-.tbc-qt-controls {
+.tbc-controls {
   background: rgba(45, 159, 5, 0.5);
 }
 
-.wotlk-qt-controls {
+.wotlk-controls {
   background: rgba(25, 118, 174, 0.5);
 }
 
 
-/* Controls */
+/* Header */
 
-.controls-label {
+.controls-header {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -37,7 +35,7 @@
   margin-bottom: 11px;
 }
 
-.controls-label-text {
+.controls-header-text {
   display: flex;
   align-items: center;
   text-align: center;
@@ -52,6 +50,31 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+
+/* Controls */
+
+.controls-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.control-label {
+  margin-bottom: 10px;
+  font-family: MORPHEUS;
+  font-size: 24px;
+  text-align: center;
+}
+
+.control {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+
+/* Quest Tracker */
 
 .qt-faction,
 .qt-filters,
@@ -70,13 +93,6 @@
   margin-top: 53px;
 }
 
-.filter-label {
-  margin-bottom: 10px;
-  font-family: MORPHEUS;
-  font-size: 24px;
-  text-align: center;
-}
-
 .filter-zone {
   margin-top: 6px;
 }
@@ -87,18 +103,6 @@
 
 .filter-additional {
   margin-top: 1px;
-}
-
-.controls-list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 5px;
-}
-
-.control {
-  margin-top: 5px;
-  margin-bottom: 5px;
 }
 
 

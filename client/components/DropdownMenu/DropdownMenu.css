@@ -115,6 +115,7 @@
 .dd-main-button-hovering {
   width: 236px;
   height: 60px;
+  margin-bottom: -10px;
 }
 
 .mb {

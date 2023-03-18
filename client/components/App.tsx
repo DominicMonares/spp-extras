@@ -28,7 +28,7 @@ const App = () => {
   const expansion = useAppSelector(state => state.expansion.selected);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>('');
-  const isSmall = () =>  window.innerWidth < 900 ? true : false;
+  const isSmall = () =>  window.innerWidth < 990 ? true : false;
   const [smallWindow, setSmallWindow] = useState<boolean>(isSmall());
 
   useEffect(() => {
@@ -97,29 +97,37 @@ const App = () => {
         {!expansion || !tool ? <Home /> : <></>}
 
         {smallWindow ? (
-          <></>
-        ) : (
           <>
-            <Tools />
+            <div>
+              <Tools />
+              <Controls />
+            </div>
             {tool === 'questTracker' ? (
-              <>
-                <View error={error} loading={loading} retry={storeQuestsAndCharacters} />
-                <Controls />
-              </>
+              <View error={error} loading={loading} retry={storeQuestsAndCharacters} />
+            ) : (
+              <></>
+            )}
+            {tool === 'accountAchievements' ? (
+              <View error={error} loading={loading} retry={() => 'TEMP'} />
             ) : (
               <></>
             )}
           </>
-        )}
-
-
-        {tool === 'accountAchievements' ? (
-          <div>
-            <View />
-            <Controls />
-          </div>
         ) : (
-          <></>
+          <>
+            <Tools />
+            {tool === 'questTracker' ? (
+              <View error={error} loading={loading} retry={storeQuestsAndCharacters} />
+            ) : (
+              <></>
+            )}
+            {tool === 'accountAchievements' ? (
+              <View error={error} loading={loading} retry={() => 'TEMP'} />
+            ) : (
+              <></>
+            )}
+            <Controls />
+          </>
         )}
       </div>
     </div >

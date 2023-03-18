@@ -1,11 +1,6 @@
 /* Container */
 
 .controls {
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-top: 10px;
-  width: 256px;
-  min-width: 256px;
   height: max-content;
   border: 1px solid black;
   border-radius: 15px;
@@ -23,16 +18,43 @@
   background: rgba(25, 118, 174, 0.5);
 }
 
+.ctrl {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  width: 256px;
+  min-width: 256px;
+}
+
+.ctrl-sm {
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
+  width: 246px;
+  min-width: 246px;
+}
+
 
 /* Header */
 
-.controls-header {
+.controls-header,
+.controls-header-sm {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 10px;
   margin-bottom: 11px;
+}
+
+.controls-header {
+  margin-top: 10px;
+  margin-bottom: 11px;
+}
+
+.controls-header-sm {
+  margin-top: 5px;
+  margin-bottom: 1px;
 }
 
 .controls-header-text {
@@ -61,11 +83,19 @@
   margin-bottom: 5px;
 }
 
-.control-label {
-  margin-bottom: 10px;
+.control-label,
+.control-label-sm {
   font-family: MORPHEUS;
   font-size: 24px;
   text-align: center;
+}
+
+.control-label {
+  margin-bottom: 10px;
+}
+
+.control-label-sm {
+  margin-bottom: 1px;
 }
 
 .control {
@@ -78,14 +108,18 @@
 
 .qt-faction,
 .qt-filters,
-.qt-additional-filters {
+.qt-additional-filters,
+.qt-faction-sm,
+.qt-filters-sm,
+.qt-additional-filters-sm {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.qt-faction {
+.qt-faction,
+.qt-faction-sm {
   position: relative;
 }
 
@@ -93,26 +127,51 @@
   margin-top: 53px;
 }
 
+.qt-filters-sm {
+  margin-top: 41px;
+}
+
 .filter-zone {
   margin-top: 6px;
 }
 
+.filter-zone-sm {
+  margin-top: 6px;
+}
+
 .filter-or {
-  margin-top: -10px;
+  margin-top: -11px;
+}
+
+.filter-or-sm {
+  margin-top: -15px;
+  margin-bottom: 0px;
 }
 
 .filter-additional {
   margin-top: 1px;
 }
 
+.filter-additional-sm {
+  margin-top: -6px;
+}
+
 
 /* FactionSelect */
 
-.faction-select {
+.faction-select,
+.faction-select-sm {
   display: flex;
   flex-direction: column;
   position: absolute;
+}
+
+.faction-select {
   margin-top: 90px;
+}
+
+.faction-select-sm {
+  margin-top: 82px;
 }
 
 .qt-alliance-1,

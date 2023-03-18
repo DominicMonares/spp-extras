@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useAppSelector } from '../../store/hooks';
 import { SubmenuButtonProps } from '../../types';
 import arrow from '../../assets/buttons/arrow.png';
 import './DropdownMenu.css';
@@ -10,6 +11,7 @@ const SubmenuButton = ({
   subHovering,
   item
 }: SubmenuButtonProps) => {
+  const smallWindow = useAppSelector(state => state.window.smallWindow);
   const [hovering, setHovering] = useState<string>('');
   useEffect(() => subHovering ? setHovering('-hovering') : setHovering(''));
   const longTitle = item.title.length > 25 ? 'dd-long-sub-text' : '';
@@ -23,7 +25,7 @@ const SubmenuButton = ({
       onMouseEnter={() => setHovering('-hovering')}
       onMouseLeave={() => setHovering('')}
     >
-      {!final ? <img className="dd-sub-arrow" src={arrow} /> : <></>}
+      {!final && !smallWindow ? <img className="dd-sub-arrow" src={arrow} /> : <></>}
       <li
         id={item.id ? item.id.toString() : ''}
         className={`dd-sub-button-text${hovering} ${longTitle}`}
@@ -31,6 +33,7 @@ const SubmenuButton = ({
       >
         {item.title}
       </li>
+      {!final && smallWindow ? <img className="dd-sub-arrow-sm" src={arrow} /> : <></>}
     </button>
   );
 }

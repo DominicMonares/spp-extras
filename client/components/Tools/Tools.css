@@ -1,14 +1,7 @@
 /* General */
 
-.classic-tools,
-.tbc-tools,
-.wotlk-tools {
-  width: 256px;
-  min-width: 256px;
+.tools{
   height: max-content;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-top: 10px;
   border: 1px solid black;
   border-radius: 15px;
   border-right: 1px solid black;
@@ -26,16 +19,41 @@
   background: rgba(25, 118, 174, 0.5);
 }
 
+.tc {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  width: 256px;
+  min-width: 256px;
+}
+
+.tc-sm {
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
+  width: 246px;
+  min-width: 246px;
+}
+
 
 /* Tools Label */
 
-.tools-label {
+.tools-label,
+.tools-label-sm {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.tools-label {
   margin-top: 10px;
   margin-bottom: 15px;
+}
+
+.tools-label-sm {
+  margin-top: 5px;
+  margin-bottom: 4.5px;
 }
 
 .tools-label-text {
@@ -67,6 +85,10 @@
 .tool {
   margin-top: 5px;
   margin-bottom: 5px;
+}
+
+.tool-sm {
+  margin-top: 5px;
 }
 
 

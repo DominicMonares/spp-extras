@@ -21,6 +21,8 @@ const QuestTrackerControls = () => {
   const expansion = useAppSelector(state => state.expansion.selected);
   const settings = useAppSelector(state => state.questTracker);
   const { character, characterClass, faction, race, type, zone } = settings;
+  const smallWindow = useAppSelector(state => state.window.smallWindow);
+  const size = smallWindow ? '-sm' : '';
 
   const dispatchCharacterClass = () => {
     dispatch(storeQuestTrackerClass({
@@ -36,14 +38,14 @@ const QuestTrackerControls = () => {
 
   return (
     <>
-      <div className="qt-faction">
-        <div className="control-label">Select Faction:</div>
+      <div className={`qt-faction${size}`}>
+        <div className={`control-label${size}`}>Select Faction:</div>
         <FactionSelect />
       </div>
-      <div className="qt-filters">
-        <div className="control-label filter-zone">Select Zone:</div>
+      <div className={`qt-filters${size}`}>
+        <div className={`control-label${size} filter-zone${size}`}>Select Zone:</div>
         <DropdownMenu dropdownType="zone" menu={zoneMenu(expansion, zone)} />
-        <div className="control-label filter-or">~ or ~</div>
+        <div className={`control-label${size} filter-or${size}`}>~ or ~</div>
         {character && JSON.parse(character.value).characterClass ? (
           <button onClick={dispatchCharacterClass}>
             {getClass(character)?.title}
@@ -62,8 +64,8 @@ const QuestTrackerControls = () => {
           <DropdownMenu dropdownType="race" menu={raceMenu(expansion, faction, race)} />
         )}
       </div>
-      <div className="qt-additional-filters">
-        <div className="control-label filter-additional">Additional Filters:</div>
+      <div className={`qt-additional-filters${size}`}>
+        <div className={`control-label${size} filter-additional${size}`}>Additional Filters:</div>
         <DropdownMenu 
           dropdownType="character" 
           menu={characterMenu(character, characters, faction)} 

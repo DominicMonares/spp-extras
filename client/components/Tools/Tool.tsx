@@ -8,6 +8,8 @@ import './Tools.css';
 const Tool = ({ tool, name }: ToolNavProps) => {
   const dispatch = useAppDispatch();
   const selectedTool = useAppSelector(state => state.tool.selected);
+  const smallWindow = useAppSelector(state => state.window.smallWindow);
+  const size = smallWindow ? '-sm' : '';
   const [hovering, setHovering] = useState<string>('');
   const [active, setActive] = useState<string>('');
 
@@ -21,7 +23,7 @@ const Tool = ({ tool, name }: ToolNavProps) => {
   }
 
   return (
-    <li className="tool">
+    <li className={`tool${size}`}>
       {tool === 'accountAchievements' ? (
         <button
           className={`

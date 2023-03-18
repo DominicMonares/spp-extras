@@ -7,7 +7,7 @@ import './DropdownMenu.css';
 
 const MenuButton = ({ selected, subHovering, title }: MenuButtonProps) => {
   const smallWindow = useAppSelector(state => state.window.smallWindow);
-  const size = smallWindow ? 'c-sm' : '';
+  const size = smallWindow ? '-sm' : '';
   const [hovering, setHovering] = useState<string>('');
   useEffect(() => subHovering ? setHovering('-hovering') : setHovering(''));
   
@@ -18,13 +18,13 @@ const MenuButton = ({ selected, subHovering, title }: MenuButtonProps) => {
 
   return (
     <button
-      className={`dd-main-button${hovering}`}
+      className={`dd-main-button${hovering} mb${size}`}
       onMouseEnter={() => setHovering('-hovering')}
       onMouseLeave={() => setHovering('')}
     >
       <div className={`dd-main-button-content${hovering}`}>
         {!smallWindow ? <img className={`dd-main-arrow${hovering}`} src={arrow} /> : <></>}
-        <div className={`c${titleLength()}${hovering} ${size}`}>
+        <div className={`c${titleLength()}${hovering} c${size}`}>
           {selected() ? selected() : title}
         </div>
         {smallWindow ? <img className={`dd-main-arrow-sm${hovering}`} src={arrow} /> : <></>}

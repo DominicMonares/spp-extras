@@ -48,7 +48,7 @@
 
 .dropdown-sm-l3{
   direction: ltr;
-  height: 120px;
+  height: 240px;
 }
 
 .dropdown-l3::-webkit-scrollbar,
@@ -101,7 +101,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
   background-repeat: no-repeat;
   background-size: 100%;
   transition: width 0.1s linear, height 0.1s linear;
@@ -116,6 +115,14 @@
 .dd-main-button-hovering {
   width: 236px;
   height: 60px;
+}
+
+.mb {
+  margin-bottom: 10px;
+}
+
+.mb-sm {
+  margin-bottom: 5px;
 }
 
 .dd-main-button-content,
@@ -335,10 +342,20 @@
   font-size: 13px;
 }
 
-.dd-sub-arrow {
+.dd-sub-arrow,
+.dd-sub-arrow-sm {
   position: absolute;
-  left: 0;
-  margin-left: 6px;
   width: 18px;
   height: 18px;
+}
+
+.dd-sub-arrow {
+  left: 0;
+  margin-left: 6px;
+}
+
+.dd-sub-arrow-sm {
+  right: 0;
+  margin-right: 6px;
+  transform: scaleX(-1);
 }

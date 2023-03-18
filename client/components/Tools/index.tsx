@@ -6,10 +6,12 @@ import './Tools.css';
 
 const Tools = () => {
   const expansion = useAppSelector(state => state.expansion.selected);
+  const smallWindow = useAppSelector(state => state.window.smallWindow);
+  const size = smallWindow ? '-sm' : '';
 
   return (
-    <div className={`${expansion}-tools`}>
-      <div className="tools-label">
+    <div className={`tools ${expansion}-tools tc${size}`}>
+      <div className={`tools-label${size}`}>
         <img src={label} />
         <div className="tools-label-text">Tools</div>
       </div>

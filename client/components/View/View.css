@@ -3,13 +3,8 @@
 .view {
   width: 100%;
   height: max-content;
-  margin-top: 10px;
   border: 1px solid black;
   border-radius: 15px;
-}
-
-.small-view {
-  margin-right: 10px;
 }
 
 .classic-view {
@@ -22,6 +17,15 @@
 
 .wotlk-view {
   background: rgba(25, 118, 174, 0.5);
+}
+
+.v {
+  margin-top: 10px;
+}
+
+.v-sm {
+  margin-top: 5px;
+  margin-right: 5px;
 }
 
 

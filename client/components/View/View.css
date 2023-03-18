@@ -2,7 +2,6 @@
 
 .view {
   width: 100%;
-  max-width: 568px;
   height: max-content;
   margin-top: 10px;
   border: 1px solid black;

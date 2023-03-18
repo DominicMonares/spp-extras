@@ -1,12 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { 
-  CharacterSetting,
-  ClassSetting,
   CompletedQuests,
   QuestSliceInitState,
-  QuestTrackerSettings, 
-  QuestType, 
-  RaceSetting,
   TemplateQuests
 } from '../../types';
 

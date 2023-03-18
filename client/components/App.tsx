@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import AccountWideAchievements from './AccountWideAchievements';
+// import AccountWideAchievements from './AccountWideAchievements';
 import Controls from './Controls';
 import ExpansionNav from './ExpansionNav';
 import Home from './Home';
@@ -16,21 +16,14 @@ import {
   fetchCompletedQuests,
   fetchTemplateQuests
 } from '../apiCalls';
-import { getFaction } from '../utils/characters';
-import { 
-  Character,
-  Characters,
-  CompletedQuests,
-  TemplateQuests 
-} from '../types';
+import { getFaction } from '../utils';
+import { Character, Characters } from '../types';
 import './App.css';
 
 
 const App = () => {
-  // const expansion = useAppSelector(state => state.expansion.selected);
   const dispatch = useAppDispatch();
   const tool = useAppSelector(state => state.tool.selected);
-
   const expansion = useAppSelector(state => state.expansion.selected);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>('');

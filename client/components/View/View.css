@@ -21,11 +21,13 @@
 
 .v {
   margin-top: 10px;
+  padding-bottom: 10px;
 }
 
 .v-sm {
   margin-top: 5px;
   margin-right: 5px;
+  padding-bottom: 5px;
 }
 
 
@@ -42,7 +44,7 @@
   justify-content: center;
   align-items: center;
   margin-top: 10px;
-  margin-bottom: 18px;
+  margin-bottom: 8px;
 }
 
 .qt-select-text {
@@ -57,4 +59,16 @@
 
 .complete {
   background-color: green;
+}
+
+
+/* Quest Table */
+
+.quest-table {
+  margin-left: 24px;
+  margin-right: 24px;
+  margin-top: 12.5px;
+  width: 100%;
+  max-width: 478px;
+  border: black 1px solid;
 }

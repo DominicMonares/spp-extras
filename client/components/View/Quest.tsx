@@ -3,16 +3,11 @@ import { QuestProps } from '../../types';
 
 const Quest = ({ quest }: QuestProps) => {
   return (
-    <div>
-      <span className={quest.completed ? 'complete' : 'incomplete'}>
-        {`
-          ${quest.title} |
-          Quest: ${quest.entry} |
-          Race: ${quest.requiredraces} |
-          Class: ${quest.requiredclasses}
-        `}
-      </span>
-    </div>
+    <tr className={quest.completed ? 'complete' : 'incomplete'}>
+      <td>{quest.title}</td>
+      <td>{quest.entry}</td>
+      <td>{quest.completed}</td>
+    </tr>
   );
 }
 

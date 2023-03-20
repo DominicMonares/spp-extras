@@ -39,7 +39,14 @@ const QuestTrackerView = ({ loading, error, retry }: ViewProps) => {
         <></>
       )}
       {characterClass || race || zone ? (
-        Object.values(viewQuests).map((q, i) => <Quest key={i} quest={q} />)
+        <table className="quest-table">
+          <tr>
+            <th>Quest Name / Wowhead Link</th>
+            <th>ID</th>
+            <th>Status</th>
+          </tr>
+          {Object.values(viewQuests).map((q, i) => <Quest key={i} quest={q} />)}
+        </table>
       ) : (
         <></>
       )}

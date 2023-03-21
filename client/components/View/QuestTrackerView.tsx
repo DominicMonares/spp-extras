@@ -10,14 +10,14 @@ import './View.css';
 const QuestTrackerView = ({ loading, error, retry }: ViewProps) => {
   const quests = useAppSelector(state => state.quests);
   const { completedQuests, templateQuests } = quests;
-  const expansion = useAppSelector(state => state.expansion.selected);
+  // const expansion = useAppSelector(state => state.expansion.selected);
   const settings = useAppSelector(state => state.questTracker);
   const { zone, characterClass, race } = settings;
   // const smallWindow = useAppSelector(state => state.window.smallWindow);
   const viewQuests = createViewQuests(completedQuests, settings, templateQuests);
 
   return (
-    <div className={`${expansion}-qt-view`}>
+    <div>
       {loading ? <Loading /> : <></>}
       {error ? (
         <div>

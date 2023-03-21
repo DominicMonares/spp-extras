@@ -25,19 +25,14 @@
 }
 
 
-/* View */
-
-.classic-qt-view {
-  width: 100%;
-  max-width: 568px;
-}
+/* Quest Tracker Header */
 
 .qt-select-header {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 7px;
+  margin-top: 5px;
   margin-bottom: 7px;
 }
 
@@ -53,7 +48,7 @@
 }
 
 
-/* Quest Table */
+/* Quest Tracker Table */
 
 .quest-table {
   display: flex;
@@ -64,6 +59,7 @@
   margin-right: 5px;
   margin-bottom: 5px;
   border: black 1px solid;
+  border-radius: 5px;
   background: rgba(3, 130, 183, 0.7);
 }
 

@@ -4,6 +4,7 @@
 .dropdown-l2,
 .dropdown-l3 {
   display: none;
+  position: absolute;
   top: 0;
   right: 174px;
 }
@@ -12,33 +13,33 @@
 .dropdown-sm-l2,
 .dropdown-sm-l3 {
   display: none;
-  top: 0;
+  position: absolute;
   left: 174px;
 }
 
 .dropdown-l1 {
-  position: absolute;
   right: 236px;
 }
 
 .dropdown-sm-l1 {
-  position: absolute;
+  bottom: 0;
   left: 236px;
 }
 
 .dropdown-l2,
 .dropdown-sm-l2 {
-  position: absolute;
   z-index: 1;
+}
+
+.dropdown-sm-l2 {
+  top: 0;
 }
 
 .dropdown-l3,
 .dropdown-sm-l3 {
-  position: absolute;
   z-index: 2;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
-  direction: rtl;
 }
 
 .dropdown-l3{
@@ -47,31 +48,28 @@
 }
 
 .dropdown-sm-l3{
+  top: 0;
   direction: ltr;
-  height: 240px;
+  height: 270px;
 }
 
-.dropdown-l3::-webkit-scrollbar,
-.dropdown-sm-l3::-webkit-scrollbar {
+.dd-scroll::-webkit-scrollbar {
   width: 10px;
 }
 
-.dropdown-l3::-webkit-scrollbar-track,
-.dropdown-sm-l3::-webkit-scrollbar-track {
+.dd-scroll::-webkit-scrollbar-track {
   margin-top: 2px;
   margin-bottom: 2px;
 }
 
-.dropdown-l3::-webkit-scrollbar-thumb,
-.dropdown-sm-l3::-webkit-scrollbar-thumb {
+.dd-scroll::-webkit-scrollbar-thumb {
   height: 10px;
   background: -webkit-linear-gradient(#c88f19 40%, #f7f243 70%);
   border: #11151b 1px solid;
   border-radius: 10px;
 }
 
-.dropdown-l3::-webkit-scrollbar-thumb:hover,
-.dropdown-sm-l3::-webkit-scrollbar-thumb:hover {
+.dd-scroll::-webkit-scrollbar-thumb:hover {
   border: #11151b 2px solid;
 }
 

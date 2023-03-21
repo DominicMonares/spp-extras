@@ -40,9 +40,9 @@ const QuestTrackerControls = () => {
         <FactionSelect />
       </div>
       <div className="qt-filters">
-        <div className="control-label filter-zone">Select Zone:</div>
+        <div className="control-label qt-zone-label">Select Zone:</div>
         <DropdownMenu dropdownType="zone" menu={zoneMenu(expansion, zone)} />
-        <div className="control-label filter-or">~ or ~</div>
+        <div className="control-label qt-or-label">~ or ~</div>
         {character && JSON.parse(character.value).characterClass ? (
           <button onClick={dispatchCharacterClass}>
             {getClass(character)?.title}
@@ -62,7 +62,7 @@ const QuestTrackerControls = () => {
         )}
       </div>
       <div className="qt-additional-filters">
-        <div className="control-label filter-additional">Additional Filters:</div>
+        <div className="control-label qt-additional-label">Additional Filters:</div>
         <DropdownMenu 
           dropdownType="character" 
           menu={characterMenu(character, characters, faction)} 

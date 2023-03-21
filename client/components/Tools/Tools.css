@@ -1,15 +1,14 @@
 /* General */
 
-.tools{
+.tools {
   margin-left: 5px;
   margin-right: 5px;
   margin-top: 5px;
-  width: 246px;
-  min-width: 246px;
+  width: 249.5px;
+  min-width: 249.5px;
   height: max-content;
-  border: 1px solid black;
-  border-radius: 15px;
-  border-right: 1px solid black;
+  border: 2px solid black;
+  border-radius: 10px;
 }
 
 .classic-tools {
@@ -81,7 +80,7 @@
 
 .tool-active,
 .tool-hovering {
-  width: 236px;
+  width: 236.5px;
   height: 57px;
 }
 
@@ -93,7 +92,7 @@
 
 .tool-big-active,
 .tool-big-hovering {
-  width: 236px;
+  width: 236.5px;
   height: 77.5px;
 }
 

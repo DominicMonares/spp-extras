@@ -9,8 +9,6 @@ import { Faction } from "../../types";
 const FactionSelect = () => {
   const dispatch = useAppDispatch();
   const faction = useAppSelector(state => state.questTracker.faction);
-  const smallWindow = useAppSelector(state => state.window.smallWindow);
-  const size = smallWindow ? '-sm' : '';
   const [animation, setAnimation] = useState<string>('');
 
   const selectFaction = (selectedFaction: Faction) => {
@@ -26,7 +24,7 @@ const FactionSelect = () => {
   }
 
   return (
-    <div className={`faction-select${size}`}>
+    <div className="faction-select">
       {faction === 'alliance' ? (
         <>
           <img

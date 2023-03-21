@@ -1,6 +1,11 @@
 /* Container */
 
 .controls {
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
+  width: 252px;
+  min-width: 252px;
   height: max-content;
   border: 1px solid black;
   border-radius: 15px;
@@ -18,43 +23,16 @@
   background: rgba(25, 118, 174, 0.5);
 }
 
-.ctrl {
-  margin-left: 7px;
-  margin-right: 7px;
-  margin-top: 7px;
-  width: 252px;
-  min-width: 252px;
-}
-
-.ctrl-sm {
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-top: 5px;
-  width: 246px;
-  min-width: 246px;
-}
-
 
 /* Header */
 
-.controls-header,
-.controls-header-sm {
+.controls-header {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* margin-top: 10px;
-  margin-bottom: 11px; */
-}
-
-.controls-header {
-  margin-top: 7px;
-  margin-bottom: 7px;
-}
-
-.controls-header-sm {
   margin-top: 5px;
-  margin-bottom: 1px;
+  margin-bottom: 5px;
 }
 
 .controls-header-text {
@@ -101,28 +79,20 @@
 
 .qt-faction,
 .qt-filters,
-.qt-additional-filters,
-.qt-faction-sm,
-.qt-filters-sm,
-.qt-additional-filters-sm {
+.qt-additional-filters {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.qt-faction,
-.qt-faction-sm {
+.qt-faction {
   position: relative;
   margin-top: -8.5px;
 }
 
 .qt-filters {
-  margin-top: 51px;
-}
-
-.qt-filters-sm {
-  margin-top: 41px;
+  margin-top: 48.5px;
 }
 
 .qt-additional-filters {
@@ -130,7 +100,7 @@
 }
 
 .filter-zone {
-  margin-bottom: 5px;
+  margin-bottom: 2.5px;
 }
 
 .filter-zone-sm {
@@ -139,7 +109,7 @@
 
 .filter-or {
   margin-top: -7.5px;
-  margin-bottom: 3px;
+  margin-bottom: 0px;
 }
 
 .filter-or-sm {
@@ -149,7 +119,7 @@
 
 .filter-additional {
   margin-top: -1.5px;
-  margin-bottom: 5px;
+  margin-bottom: 2.5px;
 }
 
 .filter-additional-sm {
@@ -159,19 +129,11 @@
 
 /* FactionSelect */
 
-.faction-select,
-.faction-select-sm {
+.faction-select {
   display: flex;
   flex-direction: column;
   position: absolute;
-}
-
-.faction-select {
-  margin-top: 90px;
-}
-
-.faction-select-sm {
-  margin-top: 82px;
+  margin-top: 86px;
 }
 
 .qt-alliance-1,

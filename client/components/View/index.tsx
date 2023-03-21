@@ -6,11 +6,14 @@ import './View.css';
 const View = ({ error, loading, retry }: ViewProps) => {
   const expansion = useAppSelector(state => state.expansion.selected);
   const smallWindow = useAppSelector(state => state.window.smallWindow);
-  const size = smallWindow ? '-sm' : '';
   const tool = useAppSelector(state => state.tool.selected);
 
   return (
-    <div className={`view ${expansion}-view v${size}`}>
+    <div className={`
+      view 
+      ${expansion}-view 
+      ${smallWindow ? 'small-view' : ''}
+    `}>
       {tool === 'questTracker' ? (
         <QuestTrackerView 
           error={error}

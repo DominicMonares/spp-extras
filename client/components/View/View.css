@@ -1,6 +1,7 @@
 /* Container */
 
 .view {
+  margin-top: 5px;
   width: 100%;
   height: max-content;
   border: 1px solid black;
@@ -19,15 +20,8 @@
   background: rgba(25, 118, 174, 0.5);
 }
 
-.v {
-  margin-top: 7px;
-  /* padding-bottom: 7px; */
-}
-
-.v-sm {
-  margin-top: 5px;
+.small-view {
   margin-right: 5px;
-  /* padding-bottom: 5px; */
 }
 
 

@@ -6,8 +6,6 @@ import './Tools.css';
 
 const Tools = () => {
   const expansion = useAppSelector(state => state.expansion.selected);
-  const smallWindow = useAppSelector(state => state.window.smallWindow);
-  const size = smallWindow ? '-sm' : '';
 
   return (
     <div className={`tools ${expansion}-tools`}>

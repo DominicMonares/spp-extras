@@ -5,7 +5,7 @@
 .wotlk-xpac-nav {
   display: flex;
   flex-direction: column-reverse;
-  height: 68px;
+  height: 64px;
 }
 
 .classic-xpac-nav {

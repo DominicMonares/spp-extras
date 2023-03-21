@@ -239,7 +239,7 @@
 }
 
 .classic-rc {
-  margin-left: 0.75px;
+  margin-left: 0.01em;
   background: #2d9f05;
 }
 
@@ -249,11 +249,12 @@
 }
 
 .tbc-lc {
-  margin-left: 0.75px;
+  margin-left: 0.05em;
   background: #f1dd6f;
 }
 
 .tbc-rc {
+  margin-left: -0.05em;
   background: #0282b7;
 }
 
@@ -263,6 +264,7 @@
 }
 
 .wotlk-lc {
+  margin-left: -0.01em;
   background: #2d9f05;
 }
 

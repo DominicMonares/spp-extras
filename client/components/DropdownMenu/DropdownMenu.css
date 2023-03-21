@@ -114,16 +114,16 @@
 
 .dd-main-button-hovering {
   width: 236px;
-  height: 60px;
-  margin-bottom: -10px;
+  height: 57px;
+  /* margin-bottom: -10px; */
 }
 
 .mb {
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
 }
 
 .mb-sm {
-  margin-bottom: 5px;
+  /* margin-bottom: 5px; */
 }
 
 .dd-main-button-content,
@@ -136,7 +136,7 @@
 }
 
 .dd-main-button-content-hovering {
-  margin-bottom: 3px;
+  /* margin-bottom: 3px; */
 }
 
 .dd-main-arrow,
@@ -153,13 +153,13 @@
 }
 
 .dd-main-arrow {
-  width: 18px;
-  height: 18px;
+  width: 21px;
+  height: 21px;
 }
 
 .dd-main-arrow-hovering {
-  width: 20px;
-  height: 20px;
+  width: 22.5px;
+  height: 22.5px;
 }
 
 .c12, .c12-hovering,

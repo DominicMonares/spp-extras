@@ -11,9 +11,9 @@ const Tools = () => {
 
   return (
     <div className={`tools ${expansion}-tools tc${size}`}>
-      <div className={`tools-label${size}`}>
+      <div className={`tools-header${size}`}>
         <img src={label} />
-        <div className="tools-label-text">Tools</div>
+        <div className="tools-header-text">Tools</div>
       </div>
       <ul className="tool-list">
         <Tool tool="questTracker" name="Quest Tracker" />

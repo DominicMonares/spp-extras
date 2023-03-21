@@ -11,7 +11,6 @@ import {
   raceMenu,
   zoneMenu
 } from '../../utils';
-
 import './Controls.css';
 
 

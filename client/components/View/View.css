@@ -20,14 +20,14 @@
 }
 
 .v {
-  margin-top: 10px;
-  padding-bottom: 10px;
+  margin-top: 7px;
+  /* padding-bottom: 7px; */
 }
 
 .v-sm {
   margin-top: 5px;
   margin-right: 5px;
-  padding-bottom: 5px;
+  /* padding-bottom: 5px; */
 }
 
 
@@ -38,17 +38,18 @@
   max-width: 568px;
 }
 
-.qt-select-label {
+.qt-select-header {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 10px;
-  margin-bottom: 8px;
+  margin-top: 7px;
+  margin-bottom: 7px;
 }
 
 .qt-select-text {
   margin-top: -32px;
+  height: 32px;
   font-family: Friz Quadrata;
   font-size: 20px;
   background: -webkit-linear-gradient(#c88f19 40%, #f7f243 70%);

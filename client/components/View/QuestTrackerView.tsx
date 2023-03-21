@@ -29,7 +29,7 @@ const QuestTrackerView = ({ loading, error, retry }: ViewProps) => {
         <></>
       )}
       {(!loading && !error) && (!characterClass || !race || !zone) ? (
-        <div className="qt-select-label">
+        <div className="qt-select-header">
           <img src={label} />
           <div className="qt-select-text">
             Please select a zone ~or~ class and/or race

@@ -1,6 +1,11 @@
 /* General */
 
 .tools{
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
+  width: 246px;
+  min-width: 246px;
   height: max-content;
   border: 1px solid black;
   border-radius: 15px;
@@ -19,41 +24,16 @@
   background: rgba(25, 118, 174, 0.5);
 }
 
-.tc {
-  margin-left: 7px;
-  margin-right: 7px;
-  margin-top: 7px;
-  width: 252px;
-  min-width: 252px;
-}
-
-.tc-sm {
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-top: 5px;
-  width: 246px;
-  min-width: 246px;
-}
-
 
 /* Tools Header */
 
-.tools-header,
-.tools-header-sm {
+.tools-header {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.tools-header {
-  margin-top: 7px;
-  margin-bottom: 7px;
-}
-
-.tools-header-sm {
   margin-top: 5px;
-  margin-bottom: 4.5px;
+  margin-bottom: 7px;
 }
 
 .tools-header-text {

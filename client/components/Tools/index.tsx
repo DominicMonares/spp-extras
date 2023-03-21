@@ -10,8 +10,8 @@ const Tools = () => {
   const size = smallWindow ? '-sm' : '';
 
   return (
-    <div className={`tools ${expansion}-tools tc${size}`}>
-      <div className={`tools-header${size}`}>
+    <div className={`tools ${expansion}-tools`}>
+      <div className="tools-header">
         <img src={label} />
         <div className="tools-header-text">Tools</div>
       </div>

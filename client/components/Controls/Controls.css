@@ -4,8 +4,8 @@
   margin-left: 5px;
   margin-right: 5px;
   margin-top: 5px;
-  width: 252px;
-  min-width: 252px;
+  width: 246px;
+  min-width: 246px;
   height: max-content;
   border: 1px solid black;
   border-radius: 15px;
@@ -52,26 +52,12 @@
 }
 
 
-/* Controls */
+/* Control Labels */
 
-.control-label,
-.control-label-sm {
+.control-label {
   font-family: MORPHEUS;
   font-size: 24px;
   text-align: center;
-}
-
-.control-label {
-  /* margin-bottom: 7px; */
-}
-
-.control-label-sm {
-  /* margin-bottom: 1px; */
-}
-
-.control {
-  /* margin-top: 5px;
-  margin-bottom: 5px; */
 }
 
 
@@ -99,31 +85,18 @@
   margin-bottom: 7px;
 }
 
-.filter-zone {
+.qt-zone-label {
   margin-bottom: 2.5px;
 }
 
-.filter-zone-sm {
-  margin-top: 6px;
-}
-
-.filter-or {
+.qt-or-label {
   margin-top: -7.5px;
   margin-bottom: 0px;
 }
 
-.filter-or-sm {
-  margin-top: -15px;
-  margin-bottom: 0px;
-}
-
-.filter-additional {
+.qt-additional-label {
   margin-top: -1.5px;
   margin-bottom: 2.5px;
-}
-
-.filter-additional-sm {
-  margin-top: -6px;
 }
 
 

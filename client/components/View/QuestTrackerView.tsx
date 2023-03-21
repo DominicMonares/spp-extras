@@ -13,7 +13,7 @@ const QuestTrackerView = ({ loading, error, retry }: ViewProps) => {
   const expansion = useAppSelector(state => state.expansion.selected);
   const settings = useAppSelector(state => state.questTracker);
   const { zone, characterClass, race } = settings;
-  const smallWindow = useAppSelector(state => state.window.smallWindow);
+  // const smallWindow = useAppSelector(state => state.window.smallWindow);
   const viewQuests = createViewQuests(completedQuests, settings, templateQuests);
 
   return (
@@ -40,12 +40,16 @@ const QuestTrackerView = ({ loading, error, retry }: ViewProps) => {
       )}
       {characterClass || race || zone ? (
         <table className="quest-table">
-          <tr>
-            <th>Quest Name / Wowhead Link</th>
-            <th>ID</th>
-            <th>Status</th>
-          </tr>
-          {Object.values(viewQuests).map((q, i) => <Quest key={i} quest={q} />)}
+          <thead>
+            <tr>
+              <th className="qt-th1">Quest Name / Wowhead Link</th>
+              <th className="qt-th2">ID</th>
+              <th className="qt-th3">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {Object.values(viewQuests).map((q, i) => <Quest key={i} quest={q} />)}
+          </tbody>
         </table>
       ) : (
         <></>

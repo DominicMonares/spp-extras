@@ -57,18 +57,75 @@
   -webkit-text-fill-color: transparent;
 }
 
-.complete {
-  background-color: green;
-}
-
 
 /* Quest Table */
 
 .quest-table {
-  margin-left: 24px;
-  margin-right: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+  margin-right: 10px;
   margin-top: 12.5px;
-  width: 100%;
-  max-width: 478px;
   border: black 1px solid;
+  background: rgba(3, 130, 183, 0.7);
+}
+
+table {
+  border-spacing: 0px;
+}
+
+thead, tbody {
+  width: 100%;
+}
+
+thead {
+  font-family: Friz Quadrata;
+  font-size: 19px;
+  border-bottom: black 1px solid;
+}
+
+tbody {
+  font-family: MORPHEUS;
+  font-size: 16px;
+}
+
+tr {
+  display: table;
+  width: 100%;
+}
+
+th, td {
+  text-align: center;
+}
+
+.qt-th1, .qt-td1 {
+  width: 74%;
+}
+
+.qt-th2, .qt-td2 {
+  width: 9%;
+  border-left: black 1px solid;
+  border-right: black 1px solid;
+}
+
+.qt-th3, .qt-td3 {
+  width: 17%;
+}
+
+.classic-qtc {
+  color: #016002;
+}
+
+.classic-qti {
+  color: #8f0018;
+}
+
+.tbc-qtc, .wotlk-qtc {
+  color: #004001;
+}
+
+.tbc-qti,.wotlk-qti  {
+  color: #8f0018;
 }

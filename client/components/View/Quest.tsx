@@ -1,12 +1,17 @@
+import { useAppSelector } from '../../store/hooks';
 import { QuestProps } from '../../types';
 
 
 const Quest = ({ quest }: QuestProps) => {
+  const expansion = useAppSelector(state => state.expansion.selected);
+
   return (
-    <tr className={quest.completed ? 'complete' : 'incomplete'}>
-      <td>{quest.title}</td>
-      <td>{quest.entry}</td>
-      <td>{quest.completed}</td>
+    <tr>
+      <td className="qt-td1">{quest.title}</td>
+      <td className="qt-td2">{quest.entry}</td>
+      <td className={`qt-td3 ${expansion}${quest.completed ? '-qtc' : '-qti'}`}>
+        {quest.completed ? 'Complete' : 'Incomplete'}
+      </td>
     </tr>
   );
 }

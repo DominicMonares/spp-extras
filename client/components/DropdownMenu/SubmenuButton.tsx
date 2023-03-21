@@ -28,7 +28,7 @@ const SubmenuButton = ({
       {!final && !smallWindow ? <img className="dd-sub-arrow" src={arrow} /> : <></>}
       <li
         id={item.id ? item.id.toString() : ''}
-        className={`dd-sub-button-text${hovering} ${longTitle}`}
+        className={`dd-sub-button-text ${longTitle}`}
         value={item.value ? item.value : ''}
       >
         {item.title}

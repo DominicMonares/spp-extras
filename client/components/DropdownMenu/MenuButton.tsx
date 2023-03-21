@@ -18,11 +18,11 @@ const MenuButton = ({ selected, subHovering, title }: MenuButtonProps) => {
 
   return (
     <button
-      className={`dd-main-button${hovering} mb${size}`}
+      className={`dd-main-button${hovering}`}
       onMouseEnter={() => setHovering('-hovering')}
       onMouseLeave={() => setHovering('')}
     >
-      <div className={`dd-main-button-content${hovering}`}>
+      <div className="dd-main-button-content">
         {!smallWindow ? <img className={`dd-main-arrow${hovering}`} src={arrow} /> : <></>}
         <div className={`c${titleLength()}${hovering} c${size}`}>
           {selected() ? selected() : title}

@@ -115,28 +115,14 @@
 .dd-main-button-hovering {
   width: 236.5px;
   height: 57px;
-  /* margin-bottom: -10px; */
 }
 
-.mb {
-  /* margin-bottom: 10px; */
-}
-
-.mb-sm {
-  /* margin-bottom: 5px; */
-}
-
-.dd-main-button-content,
-.dd-main-button-content-hovering {
+.dd-main-button-content {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   transition: margin-bottom 0.1s linear;
-}
-
-.dd-main-button-content-hovering {
-  /* margin-bottom: 3px; */
 }
 
 .dd-main-arrow,
@@ -152,12 +138,14 @@
   transition: width 0.1s linear, height 0.1s linear;
 }
 
-.dd-main-arrow {
+.dd-main-arrow,
+.dd-main-arrow-sm {
   width: 21px;
   height: 21px;
 }
 
-.dd-main-arrow-hovering {
+.dd-main-arrow-hovering,
+.dd-main-arrow-sm-hovering {
   width: 22.5px;
   height: 22.5px;
 }
@@ -314,35 +302,6 @@
   filter: brightness(1.5)
 }
 
-.dd-sub-button-text,
-.dd-sub-button-text-hovering {
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  font-family: Friz Quadrata;
-  font-weight: bold;
-}
-
-.dd-sub-button-text {
-  background: -webkit-linear-gradient(#c88f19 40%, #f7f243 80%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transition: font-size 0.1s linear;
-}
-
-.dd-sub-button-text-hovering {
-  background: -webkit-linear-gradient(#c88f19 40%, #f7f243 80%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transition: font-size 0.1s linear;
-}
-
-.dd-long-sub-text {
-  font-size: 13px;
-}
-
 .dd-sub-arrow,
 .dd-sub-arrow-sm {
   position: absolute;
@@ -359,4 +318,21 @@
   right: 0;
   margin-right: 6px;
   transform: scaleX(-1);
+}
+
+.dd-sub-button-text {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  font-family: Friz Quadrata;
+  font-weight: bold;
+  background: -webkit-linear-gradient(#c88f19 40%, #f7f243 80%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: font-size 0.1s linear;
+}
+
+.dd-long-sub-text {
+  font-size: 13px;
 }

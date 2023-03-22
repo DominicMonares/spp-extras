@@ -34,7 +34,7 @@
   justify-content: center;
   align-items: center;
   margin-top: 5px;
-  margin-bottom: 7px;
+  margin-bottom: 5.5px;
 }
 
 .qt-select-text {
@@ -57,6 +57,7 @@
   align-items: center;
   margin-left: 5px;
   margin-right: 5px;
+  margin-top: 7px;
   margin-bottom: 5px;
   max-height: 632.5px;
   border: black 1px solid;

@@ -100,7 +100,7 @@ const App = () => {
               <Controls />
             </div>
             {!expansion || !tool ? (
-              <></>
+              <View error={error} loading={loading} retry={() => 'ANY QUERY HERE?'} />
             ) : (
               <></>
             )}
@@ -110,7 +110,7 @@ const App = () => {
               <></>
             )}
             {tool === 'accountAchievements' ? (
-              <View error={error} loading={loading} retry={() => 'TEMP'} />
+              <View error={error} loading={loading} retry={() => 'AC ACHIEVEMENTS QUERY HERE'} />
             ) : (
               <></>
             )}
@@ -118,13 +118,18 @@ const App = () => {
         ) : (
           <>
             <Tools />
+            {!expansion || !tool ? (
+              <View error={error} loading={loading} retry={() => 'ANY QUERY HERE?'} />
+            ) : (
+              <></>
+            )}
             {tool === 'questTracker' ? (
               <View error={error} loading={loading} retry={storeQuestsAndCharacters} />
             ) : (
               <></>
             )}
             {tool === 'accountAchievements' ? (
-              <View error={error} loading={loading} retry={() => 'TEMP'} />
+              <View error={error} loading={loading} retry={() => 'AC ACHIEVEMENTS QUERY HERE'} />
             ) : (
               <></>
             )}

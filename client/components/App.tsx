@@ -99,7 +99,7 @@ const App = () => {
               <Tools />
               <Controls />
             </div>
-            {!expansion || !tool ? (
+            {!tool ? (
               <View error={error} loading={loading} retry={() => 'ANY QUERY HERE?'} />
             ) : (
               <></>
@@ -118,7 +118,7 @@ const App = () => {
         ) : (
           <>
             <Tools />
-            {!expansion || !tool ? (
+            {!tool ? (
               <View error={error} loading={loading} retry={() => 'ANY QUERY HERE?'} />
             ) : (
               <></>

@@ -6,7 +6,6 @@ import './View.css';
 
 
 const HomeView = ({ loading, error, retry }: ViewProps) => {
-  const expansion = useAppSelector(state => state.expansion.selected);
   const tool = useAppSelector(state => state.tool.selected);
 
   return (
@@ -21,17 +20,7 @@ const HomeView = ({ loading, error, retry }: ViewProps) => {
       ) : (
         <></>
       )}
-      {!loading && !error && !expansion ? (
-        <div className="qt-select-header">
-          <img src={label} />
-          <div className="qt-select-text">
-            Please select an expansion
-          </div>
-        </div>
-      ) : (
-        <></>
-      )}
-      {!loading && !error && expansion && !tool ? (
+      {!loading && !error && !tool ? (
         <div className="qt-select-header">
           <img src={label} />
           <div className="qt-select-text">

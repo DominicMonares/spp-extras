@@ -15,7 +15,7 @@ const View = ({ error, loading, retry }: ViewProps) => {
       ${expansion}-view 
       ${smallWindow ? 'small-view' : ''}
     `}>
-      {!expansion || !tool ? (
+      {!tool ? (
         <HomeView 
           error={error}
           loading={loading}

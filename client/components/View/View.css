@@ -167,3 +167,13 @@ th, td {
   width: 14px;
   height: 14px;
 }
+
+.qt-quest {
+  margin-left: auto;
+  margin-right: auto;
+  width: max-content;
+}
+
+.qt-quest:hover {
+  cursor: pointer;
+}

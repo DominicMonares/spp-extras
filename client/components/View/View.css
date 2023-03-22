@@ -177,10 +177,3 @@ th, td {
 .qt-quest:hover {
   cursor: pointer;
 }
-
-/* WotLK Database Window */
-
-.db-window {
-  width: 600px;
-  height: 600px;
-}

@@ -150,6 +150,18 @@ th, td {
 
 /* Quest */
 
+.classic-quest:hover {
+  background-color: #b5a237;
+}
+
+.tbc-quest:hover {
+  background-color: #1e6c03;
+}
+
+.wotlk-quest:hover {
+  background-color: #006792;
+}
+
 .qt-complete,
 .qt-incomplete {
   width: 14px;

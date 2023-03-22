@@ -5,8 +5,10 @@ import incomplete from '../../assets/labels/incomplete.png';
 
 
 const Quest = ({ quest }: QuestProps) => {
+  const expansion = useAppSelector(state => state.expansion.selected);
+
   return (
-    <tr>
+    <tr className={`${expansion}-quest`}>
       <td className="qt-td3">
         {quest.completed ? (
           <img className="qt-complete" src={complete} />

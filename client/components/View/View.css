@@ -34,12 +34,12 @@
   justify-content: center;
   align-items: center;
   margin-top: 5px;
-  margin-bottom: 5.5px;
+  margin-bottom: 13.5px;
 }
 
 .qt-select-text {
   margin-top: -32px;
-  height: 32px;
+  height: 24px;
   font-family: Friz Quadrata;
   font-size: 20px;
   background: -webkit-linear-gradient(#c88f19 40%, #f7f243 70%);
@@ -57,7 +57,7 @@
   align-items: center;
   margin-left: 5px;
   margin-right: 5px;
-  margin-top: 7px;
+  margin-top: 15px;
   margin-bottom: 5px;
   max-height: 632.5px;
   border: black 1px solid;

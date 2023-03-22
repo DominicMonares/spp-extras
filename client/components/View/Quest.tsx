@@ -13,7 +13,9 @@ const customStyles = {
     right: 'auto',
     bottom: 'auto',
     marginRight: '-50%',
-    transform: 'translate(-50%, -50%)'
+    transform: 'translate(-50%, -50%)',
+    width: '600px',
+    height: '600px'
   }
 };
 
@@ -40,6 +42,11 @@ const Quest = ({ quest }: QuestProps) => {
         contentLabel="Wowhead"
       >
         <div onClick={closeModal}>WARNING</div>
+        <iframe
+          src={`https://wotlkdb.com/?quest=${quest.entry}`}
+          title="Wowhead"
+        >
+        </iframe>
       </Modal>
       <td className="qt-td3">
         {quest.completed ? (
@@ -55,9 +62,5 @@ const Quest = ({ quest }: QuestProps) => {
     </tr>
   );
 }
-
-{/* <a href={`https://www.wowhead.com/${expansion}/quest=${quest.entry}`} target="_blank">
-{quest.title}
-</a> */}
 
 export default Quest;

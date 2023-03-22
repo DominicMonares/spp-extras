@@ -42,7 +42,7 @@ const QuestTrackerView = ({ loading, error, retry }: ViewProps) => {
         <table className={`qt-table ${expansion}-qt-table`}>
           <thead>
             <tr>
-              <th className="qt-th1">Quest Name / Wowhead Link</th>
+              <th className="qt-th1">Quest Name / Database Link</th>
               <th className="qt-th2">ID</th>
               <th className="qt-th3">Status</th>
             </tr>

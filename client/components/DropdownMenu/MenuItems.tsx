@@ -32,7 +32,8 @@ const MenuItems = ({ dropdownType, items, depthLevel }: MenuItemsProps) => {
   };
 
   const closeDropdown = () => {
-    dropdown && setDropdown(false);
+    setDropdown(false);
+    setSubHovering(false);
   };
 
   const handleSelection = (e: MouseEvent<HTMLInputElement>) => {

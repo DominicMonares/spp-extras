@@ -26,13 +26,6 @@
 }
 
 
-/* Quest View */
-
-.qt-view {
-  /* max-height: 685px; */
-}
-
-
 /* Quest Tracker Header */
 
 .qt-select-header {
@@ -58,10 +51,9 @@
 
 /* Quest Tracker Table */
 
-.quest-table {
+.qt-table {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   margin-left: 5px;
   margin-right: 5px;
@@ -69,6 +61,17 @@
   max-height: 632.5px;
   border: black 1px solid;
   border-radius: 5px;
+}
+
+.classic-qt-table {
+  background: rgba(241, 221, 111, 0.5);
+}
+
+.tbc-qt-table {
+  background: rgba(45, 159, 5, 0.5);
+}
+
+.wotlk-qt-table {
   background: rgba(3, 130, 183, 0.7);
 }
 
@@ -87,8 +90,36 @@ thead {
 }
 
 tbody {
+  direction: rtl;
+  overflow-y: overlay;
+  scrollbar-gutter: auto;
   font-family: MORPHEUS;
   font-size: 16px;
+}
+
+tbody::-webkit-scrollbar {
+  width: 3px;
+  margin-right: -3px;
+}
+
+tbody::-webkit-scrollbar-track {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.classic-tbody::-webkit-scrollbar-thumb {
+  height: 10px;
+  background: #190a07;
+}
+
+.tbc-tbody::-webkit-scrollbar-thumb {
+  height: 10px;
+  background: #0b160e;
+}
+
+.wotlk-tbody::-webkit-scrollbar-thumb {
+  height: 10px;
+  background: #05283c;
 }
 
 tr {

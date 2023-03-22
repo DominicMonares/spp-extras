@@ -8,7 +8,7 @@ const initialState: Expansion = {
 }
 
 export const expansionSlice = createSlice({
-  name: 'expansion',
+  name: 'wotlk',
   initialState,
   reducers: {
     storeExpansion: (state, action: PayloadAction<SelectedExpansion>) => {

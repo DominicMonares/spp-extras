@@ -4,7 +4,7 @@ import { Tool, SelectedTool } from '../../types';
 
 const initialState: Tool = {
   // selected: null
-  selected: 'questTracker' // temp default
+  selected: null // temp default
 }
 
 export const toolSlice = createSlice({

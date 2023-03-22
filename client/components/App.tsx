@@ -93,14 +93,17 @@ const App = () => {
     <div className={`app ${expansion}-container`}>
       <ExpansionNav />
       <div className="lower-app">
-        {!expansion || !tool ? <Home /> : <></>}
-
         {smallWindow ? (
           <>
             <div>
               <Tools />
               <Controls />
             </div>
+            {!expansion || !tool ? (
+              <></>
+            ) : (
+              <></>
+            )}
             {tool === 'questTracker' ? (
               <View error={error} loading={loading} retry={storeQuestsAndCharacters} />
             ) : (

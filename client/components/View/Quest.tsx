@@ -39,12 +39,13 @@ const Quest = ({ quest }: QuestProps) => {
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         style={customStyles}
-        contentLabel="Wowhead"
+        contentLabel="WotLK DB"
       >
         <div onClick={closeModal}>WARNING</div>
         <iframe
+          className="db-window"
           src={`https://wotlkdb.com/?quest=${quest.entry}`}
-          title="Wowhead"
+          title="WotLK DB"
         >
         </iframe>
       </Modal>

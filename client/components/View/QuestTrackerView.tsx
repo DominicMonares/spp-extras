@@ -17,7 +17,7 @@ const QuestTrackerView = ({ loading, error, retry }: ViewProps) => {
   const viewQuests = createViewQuests(completedQuests, settings, templateQuests);
 
   return (
-    <div>
+    <div className="qt-view">
       {loading ? <Loading /> : <></>}
       {error ? (
         <div>

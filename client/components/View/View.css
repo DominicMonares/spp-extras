@@ -4,6 +4,7 @@
   margin-top: 5px;
   width: 100%;
   height: max-content;
+  max-height: 695px;
   border: 1px solid black;
   border-radius: 10px;
 }
@@ -22,6 +23,13 @@
 
 .small-view {
   margin-right: 5px;
+}
+
+
+/* Quest View */
+
+.qt-view {
+  /* max-height: 685px; */
 }
 
 
@@ -58,6 +66,7 @@
   margin-left: 5px;
   margin-right: 5px;
   margin-bottom: 5px;
+  max-height: 632.5px;
   border: black 1px solid;
   border-radius: 5px;
   background: rgba(3, 130, 183, 0.7);

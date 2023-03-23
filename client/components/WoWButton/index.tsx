@@ -3,7 +3,7 @@ import { WoWButtonProps } from '../../types';
 import './WoWButton.css';
 
 
-const WoWButton = ({ active, handleClick }: WoWButtonProps) => {
+const WoWButton = ({ active, handleClick, buttonText }: WoWButtonProps) => {
   const [hovering, setHovering] = useState<string>('');
 
   return (
@@ -22,7 +22,7 @@ const WoWButton = ({ active, handleClick }: WoWButtonProps) => {
         ${hovering ? 'wow-text-hovering' : ''} 
         ${active ? 'wow-text-active' : ''}
       `}>
-        Quest Tracker
+        {buttonText}
       </div>
     </button>
   );

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import BigWoWButton from '../BigWoWButton';
 import WoWButton from '../WoWButton';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { storeTool } from '../../store/slices';
@@ -9,7 +10,6 @@ import './Tools.css';
 const Tool = ({ tool, name }: ToolNavProps) => {
   const dispatch = useAppDispatch();
   const selectedTool = useAppSelector(state => state.tool.selected);
-  const [hovering, setHovering] = useState<string>('');
   const [active, setActive] = useState<string>('');
 
   useEffect(() => {
@@ -24,33 +24,17 @@ const Tool = ({ tool, name }: ToolNavProps) => {
   return (
     <li>
       {tool === 'accountAchievements' ? (
-        <button
-          className={`
-            tool-big-button 
-            ${hovering ? 'tool-big-hovering' : ''} 
-            ${active ? 'tool-big-active' : ''}
-          `}
-          onClick={() => switchTool(tool)}
-          onMouseEnter={() => setHovering('-hovering')}
-          onMouseLeave={() => setHovering('')}
-        >
-          <div className={`
-            tool-big-button-text 
-            ${hovering ? 'tool-big-text-hovering' : ''} 
-            ${active ? 'tool-big-text-active' : ''}
-          `}>
-            {name.split(' ')[0]}
-          </div>
-          <div className={`
-            tool-big-button-text-bottom
-            ${hovering ? 'tool-big-text-hovering-bottom' : ''} 
-            ${active ? 'tool-big-text-active-bottom' : ''}
-          `}>
-            {name.split(' ')[1]}
-          </div>
-        </button>
+        <BigWoWButton 
+          active={active} 
+          handleClick={() => switchTool(tool)}
+          buttonText={name}
+        />
       ) : (
-        <WoWButton active={active} handleClick={() => switchTool(tool)} />
+        <WoWButton 
+          active={active} 
+          handleClick={() => switchTool(tool)}
+          buttonText='Quest Tracker'
+        />
       )}
     </li>
   );

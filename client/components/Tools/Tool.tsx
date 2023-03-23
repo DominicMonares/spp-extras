@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import WoWButton from '../WoWButton';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { storeTool } from '../../store/slices';
 import { ToolNavProps, SelectedTool } from '../../types';
@@ -49,24 +50,7 @@ const Tool = ({ tool, name }: ToolNavProps) => {
           </div>
         </button>
       ) : (
-        <button
-          className={`
-            tool-button 
-            ${hovering ? 'tool-hovering' : ''} 
-            ${active ? 'tool-active' : ''}
-          `}
-          onClick={() => switchTool(tool)}
-          onMouseEnter={() => setHovering('-hovering')}
-          onMouseLeave={() => setHovering('')}
-        >
-          <div className={`
-            tool-button-text 
-            ${hovering ? 'tool-text-hovering' : ''} 
-            ${active ? 'tool-text-active' : ''}
-          `}>
-            Quest Tracker
-          </div>
-        </button>
+        <WoWButton active={active} handleClick={() => switchTool(tool)} />
       )}
     </li>
   );

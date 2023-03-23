@@ -1,0 +1,68 @@
+/* Container */
+
+.wow-button,
+.big-wow-button {
+  background-repeat: no-repeat;
+  background-size: 100%;
+  border-radius: 5px;
+  transition: width 0.1s linear, height 0.1s linear;
+}
+
+.wow-button {
+  width: 224px;
+  height: 54px;
+  background-image: url("../../assets/buttons/button.png");
+}
+
+.wow-active,
+.wow-hovering {
+  width: 236.5px;
+  height: 57px;
+}
+
+.big-wow-button {
+  width: 224px;
+  height: 74px;
+  background-image: url("../../assets/buttons/big-button.png");
+}
+
+.big-wow-active,
+.big-wow-hovering {
+  width: 236.5px;
+  height: 78px;
+}
+
+
+/* Text */
+
+.wow-button-text,
+.big-wow-button-text,
+.big-wow-button-text-bottom {
+  display: flex;
+  justify-content: center;
+  font-family: Friz Quadrata;
+  background: -webkit-linear-gradient(#c88f19 40%, #f7f243 80%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: font-size 0.1s linear, margin-top 0.1s linear, margin-bottom 0.1s linear;
+}
+
+.wow-button-text,
+.big-wow-button-text,
+.big-wow-button-text-bottom {
+  font-size: 26px;
+}
+
+.big-wow-button-text-bottom {
+  margin-top: -5px;
+}
+
+.wow-text-active,
+.wow-text-hovering,
+.big-wow-text-active,
+.big-wow-text-hovering,
+.big-wow-text-active-bottom,
+.big-wow-text-hovering-bottom {
+  font-size: 28px;
+}

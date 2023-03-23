@@ -1,6 +1,7 @@
 import QuestTrackerControls from './QuestTrackerControls';
 import { useAppSelector } from '../../store/hooks';
 import label from '../../assets/labels/small-label.png';
+import './Controls.css';
 
 
 const Controls = () => {
@@ -13,6 +14,11 @@ const Controls = () => {
         <img src={label} />
         <div className="controls-header-text">Controls</div>
       </div>
+      {!tool ? (
+        <div className="control-label home-ctrl-label">No tool selected</div>
+      ) : (
+        <></>
+      )}
       {tool === 'questTracker' ? (
         <QuestTrackerControls />
       ) : (

@@ -102,13 +102,18 @@ export interface RaceSetting {
   value: CharacterQuestRace;
 }
 
+export type SortSetting = 'name' | 'id' | 'status' | '';
+
+export type SortViewQuests = (
+  viewQuests: ViewQuests,
+  sortSetting: SortSetting
+) => ViewQuests
+
 export interface ViewQuest extends TemplateQuest {
   completed: boolean;
 }
 
-export interface ViewQuests {
-  [key: string]: ViewQuest;
-}
+export type ViewQuests = ViewQuest[];
 
 export interface ViewSubzone {
   subzoneId: number;

@@ -89,6 +89,10 @@ thead {
   border-bottom: black 1px solid;
 }
 
+thead:hover {
+  cursor: pointer;
+}
+
 tbody {
   direction: rtl;
   overflow-y: overlay;

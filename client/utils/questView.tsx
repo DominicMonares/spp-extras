@@ -5,6 +5,7 @@ import {
   QuestConditions,
   QuestFlags,
   QuestRaces,
+  SortViewQuests,
   ViewQuests,
   ViewSubzone,
   ViewZones
@@ -39,7 +40,7 @@ export const filterTemplateQuests: FilterQuests = (settings, templateQuests) => 
   const zones = zoneRef as ViewZones;
 
   // Add template quests that meet conditions to render object
-  const quests: ViewQuests = {};
+  const quests: ViewQuests = [];
 
   // Add template quests that meet conditions to render object
   const template = { ...templateQuests[faction], ...templateQuests['both'] };
@@ -102,10 +103,86 @@ export const filterTemplateQuests: FilterQuests = (settings, templateQuests) => 
       if (conditionSetting && !conditionMet) conditionsMet = false;
     }
 
-    if (conditionsMet) quests[q] = { ...quest, completed: false };
+    if (conditionsMet) quests.push({ ...quest, completed: false });
   }
 
   return quests;
+}
+
+export const sortTitle = (a: string, b: string) => {
+  if (a > b) {
+    return 1;
+  } else if (a < b) {
+    return -1;
+  } else {
+    return 0;
+  }
+}
+
+export const sortViewQuests: SortViewQuests = (viewQuests, sortSetting) => {
+  return viewQuests.sort((a, b) => {
+    if (sortSetting === 'name') {
+      return sortTitle(a.title, b.title);
+    } else if (sortSetting === 'id') {
+      if (a.entry > b.entry) {
+        return 1;
+      } else if (a.entry < b.entry) {
+        return -1;
+      } else {
+        return 0;
+      }
+    } else if (sortSetting === 'status') {
+      if (!a.completed && b.completed) {
+        return 1;
+      } else if (a.completed && !b.completed) {
+        return -1;
+      } else if ((a.completed && b.completed) || (!a.completed && !b.completed)) {
+        return sortTitle(a.title, b.title);
+      } else {
+        return 0;
+      }
+    } else {
+      return 0;
+    }
+  });
+}
+
+export const reverseSortTitle = (a: string, b: string) => {
+  if (a < b) {
+    return 1;
+  } else if (a > b) {
+    return -1;
+  } else {
+    return 0;
+  }
+}
+
+export const reverseSortViewQuests: SortViewQuests = (viewQuests, sortSetting) => {
+  return viewQuests.sort((a, b) => {
+    if (sortSetting === 'name') {
+      return reverseSortTitle(a.title, b.title);
+    } else if (sortSetting === 'id') {
+      if (a.entry < b.entry) {
+        return 1;
+      } else if (a.entry > b.entry) {
+        return -1;
+      } else {
+        return 0;
+      }
+    } else if (sortSetting === 'status') {
+      if (a.completed && !b.completed) {
+        return 1;
+      } else if (!a.completed && b.completed) {
+        return -1;
+      } else if ((a.completed && b.completed) || (!a.completed && !b.completed)) {
+        return reverseSortTitle(a.title, b.title);
+      } else {
+        return 0;
+      }
+    } else {
+      return 0;
+    }
+  });
 }
 
 export const markTemplateQuests: MarkTemplateQuests = (

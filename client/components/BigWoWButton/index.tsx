@@ -3,7 +3,7 @@ import { WoWButtonProps } from '../../types';
 import './BigWoWButton.css';
 
 
-const WoWButton = ({ active, handleClick, buttonText }: WoWButtonProps) => {
+const BigWoWButton = ({ active, handleClick, buttonText }: WoWButtonProps) => {
   const [hovering, setHovering] = useState<string>('');
 
   return (
@@ -35,4 +35,4 @@ const WoWButton = ({ active, handleClick, buttonText }: WoWButtonProps) => {
   );
 }
 
-export default WoWButton;
+export default BigWoWButton;

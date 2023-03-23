@@ -1,5 +1,5 @@
 export interface WoWButtonProps {
-  active: string;
+  active?: string;
   handleClick: () => void;
   buttonText: string;
 }

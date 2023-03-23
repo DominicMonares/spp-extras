@@ -3,8 +3,19 @@ import Modal from 'react-modal';
 import Tabs from './Tabs';
 import WoWButton from '../WoWButton';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { storeExpansion, storeTool } from '../../store/slices';
-import { SelectedExpansion } from '../../types';
+import { 
+  storeCharacters,
+  storeCompletedQuests,
+  storeExpansion, 
+  storeQuestTrackerCharacter, 
+  storeQuestTrackerClass,
+  storeQuestTrackerRace,
+  storeQuestTrackerType,
+  storeQuestTrackerZone,
+  storeTemplateQuests,
+  storeTool
+ } from '../../store/slices';
+import { ExpansionProps, SelectedExpansion } from '../../types';
 import './ExpansionNav.css';
 
 
@@ -29,7 +40,7 @@ const customStyles = {
 
 Modal.setAppElement('#root');
 
-const ExpansionNav = () => {
+const ExpansionNav = ({ updateStore }: ExpansionProps) => {
   const dispatch = useAppDispatch();
   const expansion = useAppSelector(state => state.expansion.selected);
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -55,8 +66,17 @@ const ExpansionNav = () => {
   }
 
   const switchExpansion = () => {
+    dispatch(storeCharacters({ alliance: {}, horde: {} }))
     dispatch(storeExpansion(nextExpansion));
+    dispatch(storeCompletedQuests({ alliance: {}, horde: {} }));
+    dispatch(storeTemplateQuests({ alliance: {}, horde: {}, both: {} }));
+    dispatch(storeQuestTrackerCharacter({ character: { id: 0 } }));
+    dispatch(storeQuestTrackerClass({ characterClass: { id: 0 } }));
+    dispatch(storeQuestTrackerRace({ race: { id: 0 } }));
+    dispatch(storeQuestTrackerType({ type: 'all quest types' }));
+    dispatch(storeQuestTrackerZone({ zone: 'All Zones' }));
     dispatch(storeTool(null));
+    updateStore(nextExpansion);
     closeModal();
   }
 

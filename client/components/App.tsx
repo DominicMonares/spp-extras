@@ -17,7 +17,7 @@ import {
   fetchTemplateQuests
 } from '../apiCalls';
 import { getFaction, windowIsSmall } from '../utils';
-import { Character, Characters } from '../types';
+import { Character, Characters, SelectedExpansion } from '../types';
 import './App.css';
 
 
@@ -39,8 +39,8 @@ const App = () => {
     return () => window.removeEventListener('resize', handleWidthChange);
   }, []);
 
-  const getCharacters = async () => {
-    const newCharacters = await fetchCharacters(expansion).catch(err => setError(err.message));
+  const getCharacters = async (xpac: SelectedExpansion) => {
+    const newCharacters = await fetchCharacters(xpac).catch(err => setError(err.message));
     if (newCharacters) {
       dispatch(storeCharacters(newCharacters));
       return newCharacters;
@@ -49,13 +49,13 @@ const App = () => {
     }
   }
 
-  const getCompletedQuests = async (chars: Characters) => {
+  const getCompletedQuests = async (chars: Characters, xpac: SelectedExpansion) => {
     const allianceCharacters = Object.values(chars.alliance);
     const allianceParameters = allianceCharacters.map((c: Character) => [c.guid, getFaction(c.race)]);
     const hordeCharacters = Object.values(chars.horde);
     const hordeParameters = hordeCharacters.map((c: Character) => [c.guid, getFaction(c.race)]);
     const characterParameters = allianceParameters.concat(hordeParameters).flat().join(',');
-    const newCompletedQuests = await fetchCompletedQuests(expansion, characterParameters)
+    const newCompletedQuests = await fetchCompletedQuests(xpac, characterParameters)
       .catch(err => setError(err));
     if (newCompletedQuests) {
       dispatch(storeCompletedQuests(newCompletedQuests));
@@ -65,8 +65,8 @@ const App = () => {
     }
   }
 
-  const getTemplateQuests = async () => {
-    const newTemplateQuests = await fetchTemplateQuests(expansion).catch(err => setError(err));
+  const getTemplateQuests = async (xpac: SelectedExpansion) => {
+    const newTemplateQuests = await fetchTemplateQuests(xpac).catch(err => setError(err));
     if (newTemplateQuests) {
       dispatch(storeTemplateQuests(newTemplateQuests))
       return newTemplateQuests;
@@ -75,14 +75,15 @@ const App = () => {
     }
   }
 
-  const storeQuestsAndCharacters = async () => {
+  const storeQuestsAndCharacters = async (xpac?: SelectedExpansion) => {
+    if (!xpac) xpac = expansion;
     setLoading(true);
     setError('');
-    const chars = await getCharacters();
+    const chars = await getCharacters(xpac);
     if (!chars) return setLoading(false);
-    const completed = await getCompletedQuests(chars);
+    const completed = await getCompletedQuests(chars, xpac);
     if (!completed) return setLoading(false);
-    const template = await getTemplateQuests();
+    const template = await getTemplateQuests(xpac);
     if (!template) return setLoading(false);
     setLoading(false);
     setError('');
@@ -90,7 +91,7 @@ const App = () => {
 
   return (
     <div className={`app ${expansion}-container`}>
-      <ExpansionNav />
+      <ExpansionNav updateStore={storeQuestsAndCharacters} />
       <div className="lower-app">
         {smallWindow ? (
           <>

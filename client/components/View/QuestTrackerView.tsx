@@ -13,7 +13,6 @@ const QuestTrackerView = ({ loading, error, retry }: ViewProps) => {
   const expansion = useAppSelector(state => state.expansion.selected);
   const settings = useAppSelector(state => state.questTracker);
   const { zone, characterClass, race } = settings;
-  // const smallWindow = useAppSelector(state => state.window.smallWindow);
   const viewQuests = createViewQuests(completedQuests, settings, templateQuests);
 
   return (
@@ -28,7 +27,7 @@ const QuestTrackerView = ({ loading, error, retry }: ViewProps) => {
       ) : (
         <></>
       )}
-      {(!loading && !error) && (!characterClass || !race || !zone) ? (
+      {!loading && !error && !characterClass && !race && !zone ? (
         <div className="qt-select-header">
           <img src={label} />
           <div className="qt-select-text">
@@ -42,7 +41,7 @@ const QuestTrackerView = ({ loading, error, retry }: ViewProps) => {
         <table className={`qt-table ${expansion}-qt-table`}>
           <thead>
             <tr>
-              <th className="qt-th1">Quest Name / Database Link</th>
+              <th className="qt-th1">Quest Name</th>
               <th className="qt-th2">ID</th>
               <th className="qt-th3">Status</th>
             </tr>

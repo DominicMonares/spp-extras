@@ -272,3 +272,31 @@
 .wotlk-frc {
   background: #05283c;
 }
+
+
+/* Modal */
+
+.ReactModal__Overlay {
+  z-index: 1000;
+}
+
+.xpac-warning {
+  width: 100%;
+  font-family: Friz Quadrata;
+  font-size: 25px;
+  background: -webkit-linear-gradient(#c88f19 40%, #f7f243 80%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: font-size 0.1s linear;
+  text-align: center;
+}
+
+.xpac-warning-buttons {
+  display: flex;
+  justify-content: space-around;
+  /* position: absolute; */
+  margin-top: 20px;
+  /* width: 50%; */
+  /* overflow: auto; */
+}

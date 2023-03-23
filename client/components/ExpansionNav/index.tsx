@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Modal from 'react-modal';
 import Tabs from './Tabs';
+import WoWButton from '../WoWButton';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { storeExpansion, storeTool } from '../../store/slices';
 import { SelectedExpansion } from '../../types';
@@ -15,7 +16,14 @@ const customStyles = {
     right: 'auto',
     bottom: 'auto',
     marginRight: '-50%',
-    transform: 'translate(-50%, -50%)'
+    transform: 'translate(-50%, -50%)',
+    width: '600px',
+    height: '182px',
+    background: 'rgba(0, 0, 0, 0.7)',
+    border: 'black 1px solid'
+  },
+  overlay: {
+    background: 'rgba(0, 0, 0, 0.5)'
   }
 };
 
@@ -60,10 +68,12 @@ const ExpansionNav = () => {
         style={customStyles}
         contentLabel="Expansion Warning"
       >
-        <div>WARNING</div>
-        Switching expansions will unload all current data.
-        <button onClick={closeModal}>Cancel</button>
-        <button onClick={switchExpansion}>Continue</button>
+        <div className="xpac-warning">WARNING</div>
+        <div className="xpac-warning">Switching expansions will unload all current data</div>
+        <div className="xpac-warning-buttons">
+          <WoWButton handleClick={closeModal} buttonText="Cancel" />
+          <WoWButton handleClick={switchExpansion} buttonText="Continue" />
+        </div>
       </Modal>
       <div className="nav-underline"></div>
       <Tabs openModal={openExpansionModal} />

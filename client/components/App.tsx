@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 // import AccountWideAchievements from './AccountWideAchievements';
 import Controls from './Controls';
 import ExpansionNav from './ExpansionNav';
-import Home from './Home';
 import Tools from './Tools';
 import View from './View';
 import { useAppDispatch, useAppSelector } from '../store/hooks';

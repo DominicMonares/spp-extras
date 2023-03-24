@@ -83,7 +83,7 @@
 }
 
 .qt-filters {
-  margin-top: 48.5px;
+  margin-top: 59px;
 }
 
 .qt-additional-filters {
@@ -116,7 +116,7 @@
 
 .qt-alliance-1,
 .qt-alliance-1-anim-1 {
-  margin-right: 48px;
+  margin-right: 47px;
   z-index: 2;
 }
 
@@ -145,8 +145,8 @@
 
 .qt-horde-1,
 .qt-horde-1-anim-1 {
-  margin-top: -48px;
-  margin-left: 48px;
+  margin-top: -47px;
+  margin-left: 47px;
   z-index: 1;
 }
 
@@ -155,7 +155,7 @@
     margin-top: -24px;
   }
   100% {
-    margin-top: -48px;
+    margin-top: -47px;
   }
 }
 
@@ -166,8 +166,8 @@
 
 .qt-alliance-2,
 .qt-alliance-2-anim-2 {
-  margin-top: -48px;
-  margin-right: 48px;
+  margin-top: -47px;
+  margin-right: 47px;
   z-index: 1;
 }
 
@@ -176,7 +176,7 @@
     margin-top: 0px;
   }
   100% {
-    margin-top: -48px;
+    margin-top: -47px;
   }
 }
 
@@ -187,7 +187,7 @@
 
 .qt-horde-2,
 .qt-horde-2-anim-2 {
-  margin-left: 48px;
+  margin-left: 47px;
   z-index: 2;
 }
 
@@ -196,11 +196,11 @@
     z-index: 1;
   }
   50% {
-    margin-bottom: 48px;
+    margin-bottom: 47px;
     z-index: 1;
   }
   51% {
-    margin-bottom: 48px;
+    margin-bottom: 47px;
     z-index: 2;
   }
   100% {

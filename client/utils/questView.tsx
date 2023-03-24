@@ -50,27 +50,26 @@ export const filterTemplateQuests: FilterQuests = (settings, templateQuests) => 
     const questRace = quest.requiredraces;
     const entry = quest.entry;
     
+    const raceClassMatch = () => {
+      let completeMatch = true;
+      const classesMatch = characterClass?.value === questClass;
+      const currentRaceIds = questRaces[questRace]['raceIds'];
+      const racesMatch = currentRaceIds.includes(race?.id) && currentRaceIds.length <= 3;
+      if (characterClass && !classesMatch) completeMatch = false;
+      if (race && !racesMatch) completeMatch = false;
+      if ((race && !characterClass) && (quest.requiredclasses)) completeMatch = false;
+      if ((race && classesMatch) && (!racesMatch || !classesMatch)) completeMatch = false;
+      return completeMatch;
+    }
+
     const conditions: QuestConditions = {
       characterClass: {
         setting: characterClass,
-        conditionMet: () => {
-          let completeMatch = true;
-          const classesMatch = characterClass?.value === questClass;
-          const racesMatch = questRaces[questRace]['raceIds'][0] === race?.id;
-          if (!classesMatch) completeMatch = false;
-          if (race && !racesMatch) completeMatch = false;
-          return completeMatch;
-        }
+        conditionMet: raceClassMatch
       },
       race: {
         setting: race,
-        conditionMet: () => {
-          if (!characterClass && !quest.requiredclasses && race) {
-            return questRaces[questRace]['raceIds'][0] === race?.id;
-          } else if (characterClass && race) {
-            return questRaces[questRace]['raceIds'].includes(race?.id);
-          }
-        }
+        conditionMet: raceClassMatch
       },
       type: {
         setting: type,

@@ -1,4 +1,5 @@
 import { app, BrowserWindow } from 'electron';
+import Store from 'electron-store';
 import { spawn, ChildProcessWithoutNullStreams } from 'child_process';
 import kill from 'tree-kill';
 
@@ -9,6 +10,17 @@ import kill from 'tree-kill';
 declare const MAIN_WINDOW_WEBPACK_ENTRY: string;
 declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string;
 let DJANGO_CHILD_PROCESS: ChildProcessWithoutNullStreams = null;
+
+// Used to persist user settings
+const store = new Store();
+
+// IPC listener
+ipcMain.on('electron-store-get', async (event, val) => {
+  event.returnValue = store.get(val);
+});
+ipcMain.on('electron-store-set', async (event, key, val) => {
+  store.set(key, val);
+});
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {

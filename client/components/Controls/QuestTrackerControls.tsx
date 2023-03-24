@@ -33,9 +33,9 @@ const QuestTrackerControls = () => {
           menu={classMenu(expansion, faction, characterClass)}
         />
         <DropdownMenu dropdownType="race" menu={raceMenu(expansion, faction, race)} />
-        <WoWButton 
-          handleClick={() => dispatch(storeQuestTrackerAll({ all: true }))} 
-          buttonText="All Quests" 
+        <WoWButton
+          handleClick={() => dispatch(storeQuestTrackerAll({ all: true }))}
+          buttonText="All Quests"
         />
       </div>
       <div className="qt-additional-filters">
@@ -45,6 +45,15 @@ const QuestTrackerControls = () => {
           menu={characterMenu(character, characters, faction)}
         />
         <DropdownMenu dropdownType="type" menu={questTypeMenu(expansion, type)} />
+        <button
+          onClick={() => {
+            // window.electron.store.set('foo', 'bar');
+            // or
+            // console.log(window.electron.store.get('foo'));
+          }}
+        >
+          Click Me!
+        </button>
       </div>
     </>
   );

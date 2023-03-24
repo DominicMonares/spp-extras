@@ -30,6 +30,7 @@ export interface ClassSetting {
 }
 
 export type CreateViewQuests = (
+  all: boolean,
   completedQuests: CompletedQuests | Record<string,never>,
   settings: QuestTrackerSettings,
   templateQuests: TemplateQuests | Record<string,never>
@@ -88,6 +89,7 @@ export interface QuestProps {
 }
 
 export interface QuestTrackerSettings {
+  all?: boolean;
   character?: CharacterSetting | Record<string,never> | undefined;
   characterClass?: ClassSetting | Record<string,never> | undefined;
   faction?: Faction;

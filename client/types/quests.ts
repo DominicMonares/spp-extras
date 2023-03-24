@@ -60,11 +60,6 @@ export interface Quests {
   [key: string]: Quest;
 }
 
-export interface QuestSliceInitState {
-  completedQuests: CompletedQuests | Record<string,never>;
-  templateQuests: TemplateQuests | Record<string,never>;
-}
-
 export type QuestType = 'regular' | 'daily' | 'weekly' | 'monthly';
 
 export interface TemplateFactionQuests {

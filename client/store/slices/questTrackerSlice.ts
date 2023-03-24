@@ -9,6 +9,7 @@ import {
 
 
 const initialState: QuestTrackerSettings = {
+  all: false,
   faction: 'alliance'
 };
 
@@ -16,6 +17,15 @@ export const questTrackerSlice = createSlice({
   name: 'questTracker',
   initialState,
   reducers: {
+    storeQuestTrackerAll: (state, action: PayloadAction<QuestTrackerSettings>) => {
+      state.all = action.payload.all;
+      if (state.character) delete state.character;
+      if (state.characterClass) delete state.characterClass;
+      if (state.race) delete state.race;
+      if (state.characterClass) delete state.characterClass;
+      if (state.type) delete state.type;
+      if (state.zone) delete state.zone;
+    },
     storeQuestTrackerCharacter: (state, action: PayloadAction<QuestTrackerSettings>) => {
       if (!state.character) state.character = {} as CharacterSetting;
       if (action.payload.character.id === 0) {
@@ -26,6 +36,7 @@ export const questTrackerSlice = createSlice({
         state.character.value = action.payload.character.value;
       }
 
+      if (state.all) delete state.all;
       if (state.race) delete state.race;
       if (state.characterClass) delete state.characterClass;
     },
@@ -39,10 +50,12 @@ export const questTrackerSlice = createSlice({
         state.characterClass.value = action.payload.characterClass.value;
       }
       
+      if (state.all) delete state.all;
       if (state.zone) delete state.zone;
     },
     storeQuestTrackerFaction: (state, action: PayloadAction<QuestTrackerSettings>) => {
       state.faction = action.payload.faction;
+      if (state.all) delete state.all;
       if (state.characterClass) delete state.characterClass;
       if (state.race) delete state.race;
       if (state.character) delete state.character;
@@ -57,6 +70,7 @@ export const questTrackerSlice = createSlice({
         state.race.value = action.payload.race.value;
       }
 
+      if (state.all) delete state.all;
       if (state.zone) delete state.zone;
     },
     storeQuestTrackerType: (state, action: PayloadAction<QuestTrackerSettings>) => {
@@ -65,6 +79,8 @@ export const questTrackerSlice = createSlice({
       } else {
         state.type = action.payload.type.toLowerCase() as QuestType;
       }
+
+      if (state.all) delete state.all;
     },
     storeQuestTrackerZone: (state, action: PayloadAction<QuestTrackerSettings>) => {
       if (action.payload.zone === 'All Zones') {
@@ -73,6 +89,7 @@ export const questTrackerSlice = createSlice({
         state.zone = action.payload.zone;
       }
 
+      if (state.all) delete state.all;
       if (state.characterClass) delete state.characterClass;
       if (state.race) delete state.race;
     }
@@ -80,6 +97,7 @@ export const questTrackerSlice = createSlice({
 });
 
 export const {
+  storeQuestTrackerAll,
   storeQuestTrackerCharacter,
   storeQuestTrackerClass,
   storeQuestTrackerFaction,

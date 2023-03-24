@@ -37,6 +37,7 @@ export type CreateViewQuests = (
 ) => ViewQuests;
 
 export type FilterQuests = (
+  all: boolean,
   settings: QuestTrackerSettings,
   templateQuests: TemplateQuests | Record<string,never>
 ) => ViewQuests;
@@ -86,6 +87,11 @@ export interface QuestConditions {
 
 export interface QuestProps {
   quest: ViewQuest;
+}
+
+export interface QuestSliceInitState {
+  completedQuests: CompletedQuests | Record<string,never>;
+  templateQuests: TemplateQuests | Record<string,never>;
 }
 
 export interface QuestTrackerSettings {

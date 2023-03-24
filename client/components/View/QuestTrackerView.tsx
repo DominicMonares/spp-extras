@@ -13,12 +13,12 @@ const QuestTrackerView = ({ loading, error, retry }: ViewProps) => {
   const { completedQuests, templateQuests } = quests;
   const expansion = useAppSelector(state => state.expansion.selected);
   const settings = useAppSelector(state => state.questTracker);
-  const { zone, characterClass, race } = settings;
+  const { all, characterClass, race, zone } = settings;
   const [sort, setSort] = useState<SortSetting>('');
   const [sortNameReverse, setSortNameReverse] = useState<boolean>(true);
   const [sortIDReverse, setSortIDReverse] = useState<boolean>(true);
   const [sortStatusReverse, setStatusReverse] = useState<boolean>(true);
-  const viewQuests = createViewQuests(completedQuests, settings, templateQuests);
+  const viewQuests = createViewQuests(all, completedQuests, settings, templateQuests);
 
   const setSortedQuests = (sortSetting: SortSetting) => {
     setSort(sortSetting);
@@ -77,13 +77,13 @@ const QuestTrackerView = ({ loading, error, retry }: ViewProps) => {
         <div className="qt-select-header">
           <img src={label} />
           <div className="qt-select-text">
-            Please select a zone ~or~ class and/or race
+            Please select quest filters
           </div>
         </div>
       ) : (
         <></>
       )}
-      {characterClass || race || zone ? (
+      {all || characterClass || race || zone ? (
         <table className={`qt-table ${expansion}-qt-table`}>
           <thead>
             <tr>

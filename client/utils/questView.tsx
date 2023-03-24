@@ -15,9 +15,9 @@ import repeatQuestFlags from '../../data/repeatQuestFlags.json';
 import zoneRef from '../../data/zoneRef.json';
 
 
-export const createViewQuests: CreateViewQuests = (completedQuests, settings, templateQuests) => {
+export const createViewQuests: CreateViewQuests = (all, completedQuests, settings, templateQuests) => {
   const { faction, type, character } = settings;
-  const filteredTemplateQuests = filterTemplateQuests(settings, templateQuests);
+  const filteredTemplateQuests = filterTemplateQuests(all, settings, templateQuests);
 
   // Mark completed quests, check both factions so neutral quests are marked
   if (character && character.id) {
@@ -33,7 +33,7 @@ export const createViewQuests: CreateViewQuests = (completedQuests, settings, te
   return filteredTemplateQuests;
 }
 
-export const filterTemplateQuests: FilterQuests = (settings, templateQuests) => {
+export const filterTemplateQuests: FilterQuests = (all, settings, templateQuests) => {
   const { faction, type, zone, characterClass, race } = settings;
   const questFlags = repeatQuestFlags as QuestFlags;
   const questRaces = _questRaces as QuestRaces;
@@ -96,10 +96,12 @@ export const filterTemplateQuests: FilterQuests = (settings, templateQuests) => 
     };
 
     let conditionsMet = true;
-    for (const c in conditions) {
-      const conditionSetting = conditions[c]['setting'];
-      const conditionMet = conditions[c]['conditionMet']();
-      if (conditionSetting && !conditionMet) conditionsMet = false;
+    if (!all) {
+      for (const c in conditions) {
+        const conditionSetting = conditions[c]['setting'];
+        const conditionMet = conditions[c]['conditionMet']();
+        if (conditionSetting && !conditionMet) conditionsMet = false;
+      }
     }
 
     if (conditionsMet) quests.push({ ...quest, completed: false });

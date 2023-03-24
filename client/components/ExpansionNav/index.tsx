@@ -31,7 +31,7 @@ const customStyles = {
     width: '600px',
     height: '182px',
     background: 'rgba(0, 0, 0, 0.7)',
-    border: 'black 1px solid'
+    border: 'black 2px solid'
   },
   overlay: {
     background: 'rgba(0, 0, 0, 0.5)'

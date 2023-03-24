@@ -28,13 +28,11 @@ const QuestTrackerControls = () => {
       </div>
       <div className="qt-filters">
         <DropdownMenu dropdownType="zone" menu={zoneMenu(expansion, zone)} />
-        <div className="control-label qt-or-label">~ or ~</div>
         <DropdownMenu
           dropdownType="class"
           menu={classMenu(expansion, faction, characterClass)}
         />
         <DropdownMenu dropdownType="race" menu={raceMenu(expansion, faction, race)} />
-        <div className="control-label qt-or-label">~ or ~</div>
         <WoWButton 
           handleClick={() => dispatch(storeQuestTrackerAll({ all: true }))} 
           buttonText="All Quests" 

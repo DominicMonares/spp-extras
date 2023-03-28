@@ -26,16 +26,10 @@ const App = () => {
   const dispatch = useAppDispatch();
   const tool = useAppSelector(state => state.tool.selected);
   const expansion = useAppSelector(state => state.expansion.selected);
+  const faction = useAppSelector(state => state.faction.selected);
   const smallWindow = useAppSelector(state => state.window.smallWindow);
-  // const [installed, setInstalled] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>('');
-
-  // useEffect(() => {
-  //   window.electron.installed()
-  //     .then((res: string[]) => !res[0] && !res[1] ? setInstalled(false) : null)
-  //     .catch((err: any) => setError(err.message)); // TEMP ANY
-  // }, []);
 
   useEffect(() => {
     storeQuestsAndCharacters();
@@ -99,7 +93,7 @@ const App = () => {
 
   return (
     <div className={`app ${expansion}-container`}>
-      {expansion ? (
+      {!expansion || !faction ? (
         <>
           <ExpansionNav updateStore={storeQuestsAndCharacters} />
           <div className="lower-app">

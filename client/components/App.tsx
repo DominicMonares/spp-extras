@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 // import AccountWideAchievements from './AccountWideAchievements';
 import Controls from './Controls';
 import ExpansionNav from './ExpansionNav';
+import Preferences from './Preferences';
 import Tools from './Tools';
 import View from './View';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
@@ -26,8 +27,15 @@ const App = () => {
   const tool = useAppSelector(state => state.tool.selected);
   const expansion = useAppSelector(state => state.expansion.selected);
   const smallWindow = useAppSelector(state => state.window.smallWindow);
+  // const [installed, setInstalled] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>('');
+
+  // useEffect(() => {
+  //   window.electron.installed()
+  //     .then((res: string[]) => !res[0] && !res[1] ? setInstalled(false) : null)
+  //     .catch((err: any) => setError(err.message)); // TEMP ANY
+  // }, []);
 
   useEffect(() => {
     storeQuestsAndCharacters();
@@ -91,52 +99,82 @@ const App = () => {
 
   return (
     <div className={`app ${expansion}-container`}>
-      <ExpansionNav updateStore={storeQuestsAndCharacters} />
-      <div className="lower-app">
-        {smallWindow ? (
-          <>
-            <div>
-              <Tools />
-              <Controls />
-            </div>
-            {!tool ? (
-              <View error={error} loading={loading} retry={() => 'ANY QUERY HERE?'} />
+      {!expansion ? (
+        <>
+          <ExpansionNav updateStore={storeQuestsAndCharacters} />
+          <div className="lower-app">
+            {smallWindow ? (
+              <>
+                <div>
+                  <Tools />
+                  <Controls />
+                </div>
+                {!tool ? (
+                  <View 
+                    error={error} 
+                    loading={loading} 
+                    retry={() => 'ANY QUERY HERE?'} 
+                  />
+                ) : (
+                  <></>
+                )}
+                {tool === 'questTracker' ? (
+                  <View 
+                    error={error} 
+                    loading={loading} 
+                    retry={storeQuestsAndCharacters} 
+                  />
+                ) : (
+                  <></>
+                )}
+                {tool === 'accountAchievements' ? (
+                  <View 
+                    error={error} 
+                    loading={loading} 
+                    retry={() => 'AC ACHIEVEMENTS QUERY HERE'} 
+                  />
+                ) : (
+                  <></>
+                )}
+              </>
             ) : (
-              <></>
+              <>
+                <Tools />
+                {!tool ? (
+                  <View 
+                    error={error} 
+                    loading={loading} 
+                    retry={() => 'ANY QUERY HERE?'} 
+                  />
+                ) : (
+                  <></>
+                )}
+                {tool === 'questTracker' ? (
+                  <View 
+                    error={error} 
+                    loading={loading} 
+                    retry={storeQuestsAndCharacters} 
+                  />
+                ) : (
+                  <></>
+                )}
+                {tool === 'accountAchievements' ? (
+                  <View 
+                    error={error} 
+                    loading={loading} 
+                    retry={() => 'AC ACHIEVEMENTS QUERY HERE'} 
+                  />
+                ) : (
+                  <></>
+                )}
+                <Controls />
+              </>
             )}
-            {tool === 'questTracker' ? (
-              <View error={error} loading={loading} retry={storeQuestsAndCharacters} />
-            ) : (
-              <></>
-            )}
-            {tool === 'accountAchievements' ? (
-              <View error={error} loading={loading} retry={() => 'AC ACHIEVEMENTS QUERY HERE'} />
-            ) : (
-              <></>
-            )}
-          </>
-        ) : (
-          <>
-            <Tools />
-            {!tool ? (
-              <View error={error} loading={loading} retry={() => 'ANY QUERY HERE?'} />
-            ) : (
-              <></>
-            )}
-            {tool === 'questTracker' ? (
-              <View error={error} loading={loading} retry={storeQuestsAndCharacters} />
-            ) : (
-              <></>
-            )}
-            {tool === 'accountAchievements' ? (
-              <View error={error} loading={loading} retry={() => 'AC ACHIEVEMENTS QUERY HERE'} />
-            ) : (
-              <></>
-            )}
-            <Controls />
-          </>
-        )}
-      </div>
+          </div>
+        </>
+      ) : (
+        <Preferences />
+      )}
     </div >
   );
 

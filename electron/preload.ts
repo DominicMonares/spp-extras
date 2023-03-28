@@ -3,6 +3,9 @@ import { Expansion, Faction } from '../client/types';
 
 
 contextBridge.exposeInMainWorld('electron', {
+  installed: async () => {
+    return ipcRenderer.invoke('install');
+  },
   getExpansion: async () => {
     return ipcRenderer.invoke('get:expansion');
   },

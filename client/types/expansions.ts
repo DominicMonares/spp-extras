@@ -6,7 +6,7 @@ export interface ExpansionProps {
   updateStore: (xpac: SelectedExpansion) => void;
 }
 
-export type SelectedExpansion = 'classic' | 'tbc' | 'wotlk' | null;
+export type SelectedExpansion = 'classic' | 'tbc' | 'wotlk' | '';
 
 export interface TabProps extends TabsProps {
   active: string;

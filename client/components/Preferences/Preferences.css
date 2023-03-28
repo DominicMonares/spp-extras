@@ -15,8 +15,9 @@
 
 .preferences-body {
   width: 752px;
-  border-radius: 15px;
   background-color: rgba(0, 0, 0, 0.7);
+  border: black 2px solid;
+  border-radius: 15px;
 }
 
 .preferences-text-body {
@@ -45,6 +46,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 22px;
 }
 
 .preferences-alliance,
@@ -69,4 +71,26 @@
 .preferences-horde:hover,
 .preferences-horde-active {
   transform-origin: left;
+}
+
+.preferences-expansions {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: top;
+  margin-bottom: 22px;
+}
+
+.preferences-vanilla {
+  width: 200px;
+  height: 79px;
+}
+
+.preferences-tbc {
+  width: 200px;
+  height: 90px;
+}
+
+.preferences-wotlk {
+  width: 200px;
+  height: 96px;
 }

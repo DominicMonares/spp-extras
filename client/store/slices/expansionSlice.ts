@@ -2,12 +2,8 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Expansion, ExpansionSliceState } from '../../types';
 
 
-const defaultSelected = () => {
-  return window.electron.getExpansion();
-}
-
 const initialState: ExpansionSliceState = {
-  selected: defaultSelected()
+  selected: ''
 }
 
 export const expansionSlice = createSlice({

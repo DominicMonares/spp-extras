@@ -2,12 +2,8 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Faction, FactionSliceState } from '../../types/factions';
 
 
-const defaultSelected = () => {
-  return window.electron.getFaction();
-}
-
 const initialState: FactionSliceState = {
-  selected: defaultSelected()
+  selected: ''
 }
 
 export const factionSlice = createSlice({

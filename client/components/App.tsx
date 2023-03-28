@@ -9,6 +9,8 @@ import { useAppDispatch, useAppSelector } from '../store/hooks';
 import {
   storeCharacters,
   storeCompletedQuests,
+  storeExpansion,
+  storeFaction,
   storeTemplateQuests,
   storeWindowWidth
 } from '../store/slices';
@@ -28,8 +30,21 @@ const App = () => {
   const expansion = useAppSelector(state => state.expansion.selected);
   const faction = useAppSelector(state => state.faction.selected);
   const smallWindow = useAppSelector(state => state.window.smallWindow);
+  const [installed, setInstalled] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>('');
+
+  useEffect(() => {
+    const checkPreferences = async () => {
+      const savedExpansion = await window.electron.getExpansion();
+      if (savedExpansion) dispatch(storeExpansion(savedExpansion));
+      const savedFaction = await window.electron.getFaction();
+      if (savedFaction) dispatch(storeFaction(savedFaction));
+      if (savedExpansion || savedFaction) setInstalled(true);
+    }
+
+    checkPreferences();
+  }, [])
 
   useEffect(() => {
     if (expansion && faction) storeQuestsAndCharacters();
@@ -93,7 +108,7 @@ const App = () => {
 
   return (
     <div className={`app ${expansion || 'all'}-container`}>
-      {!expansion || !faction ? (
+      {installed ? (
         <>
           <ExpansionNav updateStore={storeQuestsAndCharacters} />
           <div className="lower-app">

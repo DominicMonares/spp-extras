@@ -1,3 +1,4 @@
+import { Faction } from "./factions";
 import { 
   CharacterSetting, 
   ClassSetting, 
@@ -24,8 +25,6 @@ export interface Characters {
 export interface CharactersInitSlice {
   characters: Characters;
 }
-
-export type Faction = 'alliance' | 'horde';
 
 export interface FactionCharacters {
   [key: string]: Character;

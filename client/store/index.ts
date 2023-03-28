@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import characterReducer from './slices/characterSlice';
 import expansionReducer from './slices/expansionSlice';
+import factionReducer from './slices/factionSlice';
 import questReducer from './slices/questSlice';
 import questTrackerReducer from './slices/questTrackerSlice';
 import toolReducer from './slices/toolSlice';
@@ -11,6 +12,7 @@ export const store = configureStore({
   reducer: {
     characters: characterReducer,
     expansion: expansionReducer,
+    faction: factionReducer,
     quests: questReducer,
     tool: toolReducer,
     questTracker: questTrackerReducer,

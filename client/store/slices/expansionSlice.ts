@@ -1,22 +1,20 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Expansion, SelectedExpansion } from '../../types';
+import { Expansion, ExpansionSliceState } from '../../types';
 
 
-// const defaultSelected = async () => {
-//   const await window.electron.installed()
-  
-// }
+const defaultSelected = () => {
+  return window.electron.installed();
+}
 
-const initialState: Expansion = {
-  // selected: null
-  selected: 'classic' // temp default
+const initialState: ExpansionSliceState = {
+  selected: defaultSelected()
 }
 
 export const expansionSlice = createSlice({
-  name: 'wotlk',
+  name: 'expansion',
   initialState,
   reducers: {
-    storeExpansion: (state, action: PayloadAction<SelectedExpansion>) => {
+    storeExpansion: (state, action: PayloadAction<Expansion>) => {
       state.selected = action.payload;
     }
   }

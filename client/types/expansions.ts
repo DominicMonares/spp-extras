@@ -1,18 +1,18 @@
-export interface Expansion {
-  selected: SelectedExpansion;
+export interface ExpansionSliceState {
+  selected: Expansion;
 }
 
 export interface ExpansionProps {
-  updateStore: (xpac: SelectedExpansion) => void;
+  updateStore: (xpac: Expansion) => void;
 }
 
-export type SelectedExpansion = 'classic' | 'tbc' | 'wotlk' | '';
+export type Expansion = 'classic' | 'tbc' | 'wotlk' | '';
 
 export interface TabProps extends TabsProps {
   active: string;
-  expansion: SelectedExpansion;
+  expansion: Expansion;
 }
 
 export interface TabsProps {
-  openModal: (xpac: SelectedExpansion) => void;
+  openModal: (xpac: Expansion) => void;
 }

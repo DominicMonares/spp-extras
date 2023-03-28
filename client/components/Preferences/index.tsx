@@ -1,6 +1,9 @@
+import './Preferences.css';
+
+
 const Preferences = () => {
   return (
-    <div>
+    <div className="preferences">
       <button
         onClick={() => {
           window.electron.setExpansion('classic')

@@ -6,12 +6,6 @@ import { Expansion, Faction } from '../client/types';
 
 
 // Handle user setting store
-ipcMain.handle('installed', async () => {
-  const expansion = store.get('expansion');
-  const faction = store.get('faction');
-  return ([expansion, faction]);
-});
-
 ipcMain.handle('get:expansion', async () => {
   return store.get('expansion');
 });

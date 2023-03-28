@@ -45,15 +45,6 @@ const QuestTrackerControls = () => {
           menu={characterMenu(character, characters, faction)}
         />
         <DropdownMenu dropdownType="type" menu={questTypeMenu(expansion, type)} />
-        <button
-          onClick={() => {
-            // window.electron.store.set('foo', 'bar');
-            // or
-            // console.log(window.electron.store.get('foo'));
-          }}
-        >
-          Click Me!
-        </button>
       </div>
     </>
   );

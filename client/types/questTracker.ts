@@ -1,11 +1,11 @@
 import { 
   CharacterClass, 
   Characters,
-  Faction, 
   Race
 } from './characters';
 import { Menu } from './dropdown';
 import { SelectedExpansion } from './expansions';
+import { Faction } from './factions';
 import {
   CharacterQuestClass,
   CharacterQuestRace,
@@ -98,7 +98,6 @@ export interface QuestTrackerSettings {
   all?: boolean;
   character?: CharacterSetting | Record<string,never> | undefined;
   characterClass?: ClassSetting | Record<string,never> | undefined;
-  faction?: Faction;
   race?: RaceSetting | Record<string,never> | undefined;
   type?: QuestType | undefined;
   zone?: string | undefined;

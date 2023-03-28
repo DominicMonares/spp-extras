@@ -9,8 +9,7 @@ import {
 
 
 const initialState: QuestTrackerSettings = {
-  all: false,
-  faction: 'alliance'
+  all: false
 };
 
 export const questTrackerSlice = createSlice({
@@ -53,13 +52,6 @@ export const questTrackerSlice = createSlice({
       if (state.all) delete state.all;
       if (state.zone) delete state.zone;
     },
-    storeQuestTrackerFaction: (state, action: PayloadAction<QuestTrackerSettings>) => {
-      state.faction = action.payload.faction;
-      if (state.all) delete state.all;
-      if (state.characterClass) delete state.characterClass;
-      if (state.race) delete state.race;
-      if (state.character) delete state.character;
-    },
     storeQuestTrackerRace: (state, action: PayloadAction<QuestTrackerSettings>) => {
       if (!state.race) state.race = {} as RaceSetting;
       if (action.payload.race.id as number === 0) {
@@ -100,7 +92,6 @@ export const {
   storeQuestTrackerAll,
   storeQuestTrackerCharacter,
   storeQuestTrackerClass,
-  storeQuestTrackerFaction,
   storeQuestTrackerRace,
   storeQuestTrackerType,
   storeQuestTrackerZone

@@ -99,7 +99,7 @@ const App = () => {
 
   return (
     <div className={`app ${expansion}-container`}>
-      {!expansion ? (
+      {expansion ? (
         <>
           <ExpansionNav updateStore={storeQuestsAndCharacters} />
           <div className="lower-app">

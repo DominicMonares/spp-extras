@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { storeQuestTrackerFaction } from '../../store/slices';
+import { storeFaction } from '../../store/slices';
 import alliance from '../../assets/buttons/alliance.png';
 import horde from '../../assets/buttons/horde.png';
 import { Faction } from "../../types";
@@ -8,7 +8,7 @@ import { Faction } from "../../types";
 
 const FactionSelect = () => {
   const dispatch = useAppDispatch();
-  const faction = useAppSelector(state => state.questTracker.faction);
+  const faction = useAppSelector(state => state.faction.selected);
   const [animation, setAnimation] = useState<string>('');
 
   const selectFaction = (selectedFaction: Faction) => {
@@ -16,10 +16,10 @@ const FactionSelect = () => {
     const hordeSelected = selectedFaction === 'horde' && faction !== 'horde';
     if (allianceSelected) {
       setAnimation('-anim-1');
-      dispatch(storeQuestTrackerFaction({ faction: selectedFaction }));
+      dispatch(storeFaction(selectedFaction));
     } else if (hordeSelected) {
       setAnimation('-anim-2');
-      dispatch(storeQuestTrackerFaction({ faction: selectedFaction }));
+      dispatch(storeFaction(selectedFaction));
     }
   }
 

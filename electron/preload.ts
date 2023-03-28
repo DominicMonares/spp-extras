@@ -1,13 +1,18 @@
-import { contextBridge, ipcRenderer } from 'electron'
+import { contextBridge, ipcRenderer } from 'electron';
+import { Expansion, Faction } from '../client/types';
 
 
 contextBridge.exposeInMainWorld('electron', {
-  store: {
-    get(key: string) {
-      return ipcRenderer.sendSync('electron-store-get', key);
-    },
-    set(property, val) { // TEMP ANY
-      ipcRenderer.send('electron-store-set', property, val);
-    },
+  getExpansion: async () => {
+    return ipcRenderer.invoke('get:expansion');
   },
-});
+  setExpansion: async (expansion: Expansion) => {
+    return ipcRenderer.invoke('set:expansion', expansion);
+  },
+  getFaction: async () => {
+    return ipcRenderer.invoke('get:faction');
+  },
+  setFaction: async (faction: Faction) => {
+    return ipcRenderer.invoke('set:faction', faction);
+  }
+})

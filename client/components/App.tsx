@@ -18,7 +18,7 @@ import {
   fetchTemplateQuests
 } from '../apiCalls';
 import { getFaction, windowIsSmall } from '../utils';
-import { Character, Characters, SelectedExpansion } from '../types';
+import { Character, Characters, Expansion } from '../types';
 import './App.css';
 
 
@@ -32,7 +32,7 @@ const App = () => {
   const [error, setError] = useState<string>('');
 
   useEffect(() => {
-    storeQuestsAndCharacters();
+    if (expansion && faction) storeQuestsAndCharacters();
   }, []);
 
   useEffect(() => {
@@ -41,7 +41,7 @@ const App = () => {
     return () => window.removeEventListener('resize', handleWidthChange);
   }, []);
 
-  const getCharacters = async (xpac: SelectedExpansion) => {
+  const getCharacters = async (xpac: Expansion) => {
     const newCharacters = await fetchCharacters(xpac).catch(err => setError(err.message));
     if (newCharacters) {
       dispatch(storeCharacters(newCharacters));
@@ -51,7 +51,7 @@ const App = () => {
     }
   }
 
-  const getCompletedQuests = async (chars: Characters, xpac: SelectedExpansion) => {
+  const getCompletedQuests = async (chars: Characters, xpac: Expansion) => {
     const allianceCharacters = Object.values(chars.alliance);
     const allianceParameters = allianceCharacters.map((c: Character) => [c.guid, getFaction(c.race)]);
     const hordeCharacters = Object.values(chars.horde);
@@ -67,7 +67,7 @@ const App = () => {
     }
   }
 
-  const getTemplateQuests = async (xpac: SelectedExpansion) => {
+  const getTemplateQuests = async (xpac: Expansion) => {
     const newTemplateQuests = await fetchTemplateQuests(xpac).catch(err => setError(err));
     if (newTemplateQuests) {
       dispatch(storeTemplateQuests(newTemplateQuests))
@@ -77,7 +77,7 @@ const App = () => {
     }
   }
 
-  const storeQuestsAndCharacters = async (xpac?: SelectedExpansion) => {
+  const storeQuestsAndCharacters = async (xpac?: Expansion) => {
     if (!xpac) xpac = expansion;
     setLoading(true);
     setError('');

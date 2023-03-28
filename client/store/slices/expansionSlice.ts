@@ -3,7 +3,7 @@ import { Expansion, ExpansionSliceState } from '../../types';
 
 
 const defaultSelected = () => {
-  return window.electron.installed();
+  return window.electron.getExpansion();
 }
 
 const initialState: ExpansionSliceState = {

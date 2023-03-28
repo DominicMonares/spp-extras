@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Faction, FactionSliceState } from '../../types/factions';
-import { Expansion, SelectedExpansion } from '../../types';
 
 
 const initialState: FactionSliceState = {

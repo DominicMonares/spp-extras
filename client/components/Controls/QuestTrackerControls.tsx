@@ -17,8 +17,9 @@ const QuestTrackerControls = () => {
   const dispatch = useAppDispatch();
   const characters = useAppSelector(state => state.characters)
   const expansion = useAppSelector(state => state.expansion.selected);
+  const faction = useAppSelector(state => state.faction.selected);
   const settings = useAppSelector(state => state.questTracker);
-  const { character, characterClass, faction, race, type, zone } = settings;
+  const { character, characterClass, race, type, zone } = settings;
 
   return (
     <>

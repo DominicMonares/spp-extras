@@ -15,7 +15,7 @@ import {
   storeTemplateQuests,
   storeTool
  } from '../../store/slices';
-import { ExpansionProps, SelectedExpansion } from '../../types';
+import { Expansion, ExpansionProps } from '../../types';
 import './ExpansionNav.css';
 
 
@@ -44,7 +44,7 @@ const ExpansionNav = ({ updateStore }: ExpansionProps) => {
   const dispatch = useAppDispatch();
   const expansion = useAppSelector(state => state.expansion.selected);
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [nextExpansion, setNextExpansion] = useState<SelectedExpansion>(null);
+  const [nextExpansion, setNextExpansion] = useState<Expansion>(null);
 
   const openModal = () => {
     setModalIsOpen(true);
@@ -54,7 +54,7 @@ const ExpansionNav = ({ updateStore }: ExpansionProps) => {
     setModalIsOpen(false);
   }
 
-  const openExpansionModal = (xpac: SelectedExpansion) => {
+  const openExpansionModal = (xpac: Expansion) => {
     if (expansion === xpac) {
       return;
     } else if (expansion) {

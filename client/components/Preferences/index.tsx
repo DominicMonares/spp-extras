@@ -12,20 +12,20 @@ const Preferences = () => {
   return (
     <div className="preferences">
       <img className="main-logo" src={mainLogo} />
-      <div className="preferences-body">
-        <div className="preferences-text-body">
+      <div className="prefs-body">
+        <div className="prefs-text-body">
           {!expansion || !faction ? (
-            <div className="preferences-text welcome">Welcome to SPP Extras!</div>
+            <div className="pref-text welcome">Welcome to SPP Extras!</div>
           ) : (
             <></>
           )}
-          <div className="preferences-text">
+          <div className="pref-text">
             Please select your preferred faction and expansion.
           </div>
-          <div className="preferences-text">
+          <div className="pref-text">
             These will be selected every time you open the app.
           </div>
-          <div className="preferences-text">
+          <div className="pref-text">
             You can change your preferences any time from the Tools menu.
           </div>
         </div>

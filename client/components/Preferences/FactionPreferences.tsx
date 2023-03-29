@@ -19,14 +19,14 @@ const FactionPreferences = () => {
   }
 
   return (
-    <div className="preferences-factions">
+    <div className="faction-preferences">
       <img
-        className={`preferences-alliance${allianceActive}`}
+        className={`alliance-pref${allianceActive}`}
         src={alliance}
         onClick={handleAlliance}
       />
       <img
-        className={`preferences-horde${hordeActive}`}
+        className={`horde-pref${hordeActive}`}
         src={horde}
         onClick={handleHorde}
       />

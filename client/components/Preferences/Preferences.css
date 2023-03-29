@@ -1,3 +1,5 @@
+/* Main Preferences */
+
 .preferences {
   display: flex;
   flex-direction: column;
@@ -13,14 +15,14 @@
   height: 283px;
 }
 
-.preferences-body {
+.prefs-body {
   width: 752px;
   background-color: rgba(0, 0, 0, 0.7);
   border: black 2px solid;
   border-radius: 15px;
 }
 
-.preferences-text-body {
+.prefs-text-body {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -28,7 +30,7 @@
   margin-bottom: 26px;
 }
 
-.preferences-text {
+.pref-text {
   font-family: Friz Quadrata;
   font-size: 24px;
   background: -webkit-linear-gradient(#c88f19 40%, #f7f243 70%);
@@ -42,55 +44,80 @@
   margin-bottom: 14px;
 }
 
-.preferences-factions {
+
+/* Faction Preferences */
+
+.faction-preferences {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 22px;
 }
 
-.preferences-alliance,
-.preferences-horde {
+.alliance-pref,
+.horde-pref {
   transform: scale(1, 1);
   transition-duration: 100ms;
 }
 
-.preferences-alliance:hover,
-.preferences-alliance-active,
-.preferences-horde:hover,
-.preferences-horde-active {
+.alliance-pref:hover,
+.alliance-pref-active,
+.horde-pref:hover,
+.horde-pref-active {
   transform: scale(1.1, 1.1);
   transition-duration: 100ms;
 }
 
-.preferences-alliance:hover,
-.preferences-alliance-active {
+.alliance-pref:hover,
+.alliance-pref-active {
   transform-origin: right;
 }
 
-.preferences-horde:hover,
-.preferences-horde-active {
+.horde-pref:hover,
+.horde-pref-active {
   transform-origin: left;
 }
 
-.preferences-expansions {
+
+/* Expansion Preferences */
+
+.expansion-preferences {
   display: flex;
   justify-content: space-evenly;
   align-items: top;
   margin-bottom: 22px;
 }
 
-.preferences-vanilla {
+.vanilla-pref-container {
+
+}
+
+.vanilla-pref {
   width: 200px;
   height: 79px;
 }
 
-.preferences-tbc {
+.tbc-pref {
   width: 200px;
   height: 90px;
 }
 
-.preferences-wotlk {
+.wotlk-pref {
+  width: 200px;
+  height: 96px;
+}
+
+.vanilla-pref-glow {
+  width: 200px;
+  height: 79px;
+}
+
+.preferences-tbc-glow {
+  width: 200px;
+  height: 90px;
+}
+
+.preferences-wotlk-glow {
   width: 200px;
   height: 96px;
 }

@@ -100,8 +100,11 @@ const App = () => {
     setLoading(true);
     setError('');
     const chars = await getCharacters(xpac);
-    await getCompletedQuests(chars, xpac);
-    await getTemplateQuests(xpac);
+    if (!chars) return setLoading(false);
+    const completedQuests = await getCompletedQuests(chars, xpac);
+    if (!completedQuests) return setLoading(false);
+    const templateQuests = await getTemplateQuests(xpac);
+    if (!templateQuests) return setLoading(false);
     setLoading(false);
     setError('');
   }

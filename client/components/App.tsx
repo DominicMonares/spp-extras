@@ -119,29 +119,17 @@ const App = () => {
                   <Controls />
                 </div>
                 {!tool ? (
-                  <View 
-                    error={error} 
-                    loading={loading} 
-                    retry={() => 'ANY QUERY HERE?'} 
-                  />
+                  <View error={error} loading={loading} retry={getAllData} />
                 ) : (
                   <></>
                 )}
                 {tool === 'questTracker' ? (
-                  <View 
-                    error={error} 
-                    loading={loading} 
-                    retry={getAllData} 
-                  />
+                  <View error={error} loading={loading} retry={getAllData} />
                 ) : (
                   <></>
                 )}
                 {tool === 'accountAchievements' ? (
-                  <View 
-                    error={error} 
-                    loading={loading} 
-                    retry={() => 'AC ACHIEVEMENTS QUERY HERE'} 
-                  />
+                  <View error={error} loading={loading} retry={getAllData} />
                 ) : (
                   <></>
                 )}
@@ -150,29 +138,17 @@ const App = () => {
               <>
                 <Tools />
                 {!tool ? (
-                  <View 
-                    error={error} 
-                    loading={loading} 
-                    retry={() => 'ANY QUERY HERE?'} 
-                  />
+                  <View error={error} loading={loading} retry={getAllData} />
                 ) : (
                   <></>
                 )}
                 {tool === 'questTracker' ? (
-                  <View 
-                    error={error} 
-                    loading={loading} 
-                    retry={getAllData} 
-                  />
+                  <View error={error} loading={loading} retry={getAllData} />
                 ) : (
                   <></>
                 )}
                 {tool === 'accountAchievements' ? (
-                  <View 
-                    error={error} 
-                    loading={loading} 
-                    retry={() => 'AC ACHIEVEMENTS QUERY HERE'} 
-                  />
+                  <View error={error} loading={loading} retry={getAllData} />
                 ) : (
                   <></>
                 )}

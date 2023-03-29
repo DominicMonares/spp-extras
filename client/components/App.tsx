@@ -182,7 +182,7 @@ const App = () => {
           </div>
         </>
       ) : (
-        <Preferences />
+        <Preferences setInstalled={setInstalled} />
       )}
     </div >
   );

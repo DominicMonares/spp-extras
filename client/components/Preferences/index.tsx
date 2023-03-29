@@ -1,17 +1,31 @@
 import { useState } from 'react';
 import ExpansionPreferences from './ExpansionPreferences';
 import FactionPreferences from './FactionPreferences';
-import { useAppSelector } from '../../store/hooks';
+import WoWButton from '../WoWButton';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import mainLogo from '../../assets/logos/main.png';
 import './Preferences.css';
 import { Expansion, Faction, PreferencesProps } from '../../types';
+import { storeExpansion, storeFaction } from '../../store/slices';
 
 
 const Preferences = ({ setInstalled }: PreferencesProps) => {
+  const dispatch = useAppDispatch();
   const expansion = useAppSelector(state => state.expansion.selected);
   const faction = useAppSelector(state => state.faction.selected);
   const [selectedExpansion, setSelectedExpansion] = useState<Expansion>('');
   const [selectedFaction, setSelectedFaction] = useState<Faction>('');
+  const [noSelections, setNoSelections] = useState<boolean>(false);
+
+  const save = async () => {
+    if (!selectedExpansion || !selectedFaction) return setNoSelections(true);
+    setNoSelections(false);
+    await window.electron.setExpansion(selectedExpansion);
+    await window.electron.setFaction(selectedFaction);
+    dispatch(storeExpansion(selectedExpansion));
+    dispatch(storeFaction(selectedFaction));
+    setInstalled(true);
+  }
 
   return (
     <div className="preferences">
@@ -35,6 +49,16 @@ const Preferences = ({ setInstalled }: PreferencesProps) => {
         </div>
         <ExpansionPreferences setSelectedExpansion={setSelectedExpansion} />
         <FactionPreferences setSelectedFaction={setSelectedFaction} />
+        <div className="save-container">
+          <WoWButton handleClick={save} buttonText="Save and Begin" />
+          {noSelections ? (
+            <div className="pref-text pref-text-save">
+              Please select both an expansion and a faction to continue
+            </div>
+          ) : (
+            <></>
+          )}
+        </div>
       </div>
     </div>
   );

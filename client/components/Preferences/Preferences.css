@@ -17,6 +17,7 @@
 
 .prefs-body {
   width: 752px;
+  height: 442px;
   background-color: rgba(0, 0, 0, 0.7);
   border: black 2px solid;
   border-radius: 15px;
@@ -84,7 +85,6 @@
 .expansion-preferences {
   display: flex;
   align-items: top;
-  margin-top: 66.5px;
   margin-bottom: 22px;
 }
 
@@ -137,4 +137,21 @@
 
 .pref-glow-active {
   opacity: 1;
+}
+
+
+/* Save */
+
+.save-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2px;
+  margin-bottom: 22px;
+}
+
+.pref-text-save {
+  margin-top: 2px;
+  font-size: 14px;
 }

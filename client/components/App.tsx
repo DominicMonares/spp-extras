@@ -40,14 +40,17 @@ const App = () => {
       if (savedExpansion) dispatch(storeExpansion(savedExpansion));
       const savedFaction = await window.electron.getFaction();
       if (savedFaction) dispatch(storeFaction(savedFaction));
-      if (savedExpansion || savedFaction) setInstalled(true);
+      if (savedExpansion || savedFaction) {
+        setInstalled(true);
+        getAllData(savedExpansion);
+      }
     }
 
     checkPreferences();
-  }, [])
+  }, [installed])
 
   useEffect(() => {
-    if (expansion && faction) storeQuestsAndCharacters();
+    if (expansion && faction) getAllData();
   }, []);
 
   useEffect(() => {
@@ -92,16 +95,13 @@ const App = () => {
     }
   }
 
-  const storeQuestsAndCharacters = async (xpac?: Expansion) => {
+  const getAllData = async (xpac?: Expansion) => {
     if (!xpac) xpac = expansion;
     setLoading(true);
     setError('');
     const chars = await getCharacters(xpac);
-    if (!chars) return setLoading(false);
-    const completed = await getCompletedQuests(chars, xpac);
-    if (!completed) return setLoading(false);
-    const template = await getTemplateQuests(xpac);
-    if (!template) return setLoading(false);
+    await getCompletedQuests(chars, xpac);
+    await getTemplateQuests(xpac);
     setLoading(false);
     setError('');
   }
@@ -110,7 +110,7 @@ const App = () => {
     <div className={`app ${expansion || 'all'}-container`}>
       {installed ? (
         <>
-          <ExpansionNav updateStore={storeQuestsAndCharacters} />
+          <ExpansionNav updateStore={getAllData} />
           <div className="lower-app">
             {smallWindow ? (
               <>
@@ -131,7 +131,7 @@ const App = () => {
                   <View 
                     error={error} 
                     loading={loading} 
-                    retry={storeQuestsAndCharacters} 
+                    retry={getAllData} 
                   />
                 ) : (
                   <></>
@@ -162,7 +162,7 @@ const App = () => {
                   <View 
                     error={error} 
                     loading={loading} 
-                    retry={storeQuestsAndCharacters} 
+                    retry={getAllData} 
                   />
                 ) : (
                   <></>

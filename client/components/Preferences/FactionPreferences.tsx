@@ -1,22 +1,24 @@
 import { useState } from 'react';
 import alliance from '../../assets/buttons/alliance.png';
 import horde from '../../assets/buttons/horde.png';
-import { PreferencesProps } from '../../types';
+import { FactionPreferencesProps } from '../../types';
 import './Preferences.css';
 
 
-const FactionPreferences = ({ setInstalled }: PreferencesProps) => {
+const FactionPreferences = ({ setSelectedFaction }: FactionPreferencesProps) => {
   const [allianceActive, setAllianceActive] = useState<string>('');
   const [hordeActive, setHordeActive] = useState<string>('');
 
   const handleAlliance = () => {
     setAllianceActive('-active');
     setHordeActive('');
+    setSelectedFaction('alliance');
   }
 
   const handleHorde = () => {
     setAllianceActive('');
     setHordeActive('-active');
+    setSelectedFaction('horde');
   }
 
   return (

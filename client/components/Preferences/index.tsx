@@ -1,14 +1,17 @@
+import { useState } from 'react';
 import ExpansionPreferences from './ExpansionPreferences';
 import FactionPreferences from './FactionPreferences';
 import { useAppSelector } from '../../store/hooks';
 import mainLogo from '../../assets/logos/main.png';
 import './Preferences.css';
-import { PreferencesProps } from '../../types';
+import { Expansion, Faction, PreferencesProps } from '../../types';
 
 
 const Preferences = ({ setInstalled }: PreferencesProps) => {
   const expansion = useAppSelector(state => state.expansion.selected);
   const faction = useAppSelector(state => state.faction.selected);
+  const [selectedExpansion, setSelectedExpansion] = useState<Expansion>('');
+  const [selectedFaction, setSelectedFaction] = useState<Faction>('');
 
   return (
     <div className="preferences">
@@ -30,8 +33,8 @@ const Preferences = ({ setInstalled }: PreferencesProps) => {
             You can change your preferences any time from the Tools menu.
           </div>
         </div>
-        <FactionPreferences setInstalled={setInstalled} />
-        <ExpansionPreferences setInstalled={setInstalled} />
+        <ExpansionPreferences setSelectedExpansion={setSelectedExpansion} />
+        <FactionPreferences setSelectedFaction={setSelectedFaction} />
       </div>
     </div>
   );

@@ -2,11 +2,11 @@ import { useState } from 'react';
 import vanillaLogo from '../../assets/logos/vanilla.png';
 import tbcLogo from '../../assets/logos/tbc.png';
 import wotlkLogo from '../../assets/logos/wotlk.png';
-import { PreferencesProps } from '../../types';
 import './Preferences.css';
+import { ExpansionPreferencesProps } from '../../types';
 
 
-const ExpansionPreferences = ({ setInstalled }: PreferencesProps) => {
+const ExpansionPreferences = ({ setSelectedExpansion }: ExpansionPreferencesProps) => {
   const [vanillaActive, setVanillaActive] = useState<boolean>(false);
   const [tbcActive, setTbcActive] = useState<boolean>(false);
   const [wotlkActive, setWotlkActive] = useState<boolean>(false);
@@ -18,18 +18,21 @@ const ExpansionPreferences = ({ setInstalled }: PreferencesProps) => {
     setVanillaActive(true);
     setTbcActive(false);
     setWotlkActive(false);
+    setSelectedExpansion('classic');
   }
 
   const handleTbc = () => {
     setVanillaActive(false);
     setTbcActive(true);
     setWotlkActive(false);
+    setSelectedExpansion('tbc');
   }
 
   const handleWotlk = () => {
     setVanillaActive(false);
     setTbcActive(false);
     setWotlkActive(true);
+    setSelectedExpansion('wotlk');
   }
 
   return (

@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import alliance from '../../assets/buttons/alliance.png';
 import horde from '../../assets/buttons/horde.png';
+import { PreferencesProps } from '../../types';
 import './Preferences.css';
 
 
-const FactionPreferences = () => {
+const FactionPreferences = ({ setInstalled }: PreferencesProps) => {
   const [allianceActive, setAllianceActive] = useState<string>('');
   const [hordeActive, setHordeActive] = useState<string>('');
 

@@ -2,10 +2,11 @@ import { useState } from 'react';
 import vanillaLogo from '../../assets/logos/vanilla.png';
 import tbcLogo from '../../assets/logos/tbc.png';
 import wotlkLogo from '../../assets/logos/wotlk.png';
+import { PreferencesProps } from '../../types';
 import './Preferences.css';
 
 
-const ExpansionPreferences = () => {
+const ExpansionPreferences = ({ setInstalled }: PreferencesProps) => {
   const [vanillaActive, setVanillaActive] = useState<boolean>(false);
   const [tbcActive, setTbcActive] = useState<boolean>(false);
   const [wotlkActive, setWotlkActive] = useState<boolean>(false);

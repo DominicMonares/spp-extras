@@ -3,9 +3,10 @@ import FactionPreferences from './FactionPreferences';
 import { useAppSelector } from '../../store/hooks';
 import mainLogo from '../../assets/logos/main.png';
 import './Preferences.css';
+import { PreferencesProps } from '../../types';
 
 
-const Preferences = () => {
+const Preferences = ({ setInstalled }: PreferencesProps) => {
   const expansion = useAppSelector(state => state.expansion.selected);
   const faction = useAppSelector(state => state.faction.selected);
 
@@ -29,8 +30,8 @@ const Preferences = () => {
             You can change your preferences any time from the Tools menu.
           </div>
         </div>
-        <FactionPreferences />
-        <ExpansionPreferences />
+        <FactionPreferences setInstalled={setInstalled} />
+        <ExpansionPreferences setInstalled={setInstalled} />
       </div>
     </div>
   );

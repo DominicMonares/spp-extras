@@ -24,6 +24,7 @@ python -m virtualenv spp_extras_env   |   api:env
 
 ACTIVATE VE
 .\spp_extras_env\Scripts\activate
+. spp_extras_env/bin/activate FOR MAC ONLY
 
 
 ============ ALL BELOW MUST BE DONE FROM ACTIVATED VE ============

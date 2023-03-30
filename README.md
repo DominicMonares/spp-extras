@@ -53,5 +53,103 @@ spp_extras_api.exe runserver --settings=spp_extras.settings.prod --noreload
 
 ============ ALL ABOVE MUST BE DONE FROM ACTIVATED VE ============
 
-
 pytest tests/api/test_suites.py
+
+
+============ CSS Hierarchy ============
+DISPLAY
+display
+flex-direction
+justify-content
+align-items
+direction
+overflow-x
+overflow-y
+border
+border-left
+border-right
+border-top
+border-bottom
+border-radius
+border-top-left-radius
+border-top-right-radius
+border-bottom-left-radius
+border-bottom-right-radius
+scrollbar-gutter
+
+POSITION
+left
+right
+top
+bottom
+margin-left
+margin-right
+margin-top
+margin-bottom
+padding-left
+padding-right
+padding-top
+padding-bottom
+z-index
+
+SIZE
+width
+min-width
+max-width
+height
+min-height
+max-height
+
+BACKGROUND
+background
+background-color
+background-img
+background-repeat
+background-clip
+
+TEXT
+text-align
+font-family
+font-size
+font-weight
+color
+
+ANIMATIONS
+transform
+transform-origin
+transition
+
+
+============ Import Hierarchy ============
+REACT
+useEffect, useState
+components
+
+REDUX
+useAppDispatch, useAppSelector
+store functions.
+
+API CALLS
+api call functions
+
+UTILS
+util functions
+
+IMAGES
+image imports
+
+DATA
+JSON data imports
+
+TYPES
+type imports
+
+CSS
+CSS import
+
+============ State/Store Hierarchy ============
+dispatch
+redux store
+react state
+other vars
+

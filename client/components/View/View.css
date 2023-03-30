@@ -26,6 +26,28 @@
 }
 
 
+/* Error View */
+
+.error-view-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.error-text {
+  font-family: MORPHEUS;
+  font-size: 19px;
+}
+
+.error-db-text {
+  margin-bottom: 10px;
+  font-family: MORPHEUS;
+  font-size: 19px;
+}
+
+
 /* Quest Tracker Header */
 
 .qt-select-header {

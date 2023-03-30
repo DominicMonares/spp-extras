@@ -153,3 +153,19 @@ redux store
 react state
 other vars
 
+
+CLEANUP PLAN
+CSS hierarchy
+Class names
+Import hierarchy
+State/Store hierarchy
+Variable names
+
+REFACTOR PLAN
+Hover and active
+Make separate components for small and large headers
+
+TODO
+Make unique pointers to match in game ones
+
+CREATE COMMENTS FOR EVERYTHING ONCE CLEANED UP AND REFACTORED

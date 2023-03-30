@@ -40,7 +40,7 @@ const App = () => {
       if (savedExpansion) dispatch(storeExpansion(savedExpansion));
       const savedFaction = await window.electron.getFaction();
       if (savedFaction) dispatch(storeFaction(savedFaction));
-      if (savedExpansion || savedFaction) {
+      if (savedExpansion && savedFaction) {
         setInstalled(true);
         getAllData(savedExpansion);
       }
@@ -118,7 +118,7 @@ const App = () => {
             {smallWindow ? (
               <>
                 <div>
-                  <Tools />
+                  <Tools setInstalled={setInstalled} />
                   <Controls />
                 </div>
                 {!tool ? (
@@ -139,7 +139,7 @@ const App = () => {
               </>
             ) : (
               <>
-                <Tools />
+                <Tools setInstalled={setInstalled} />ß
                 {!tool ? (
                   <View error={error} loading={loading} retry={getAllData} />
                 ) : (

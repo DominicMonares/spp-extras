@@ -1,11 +1,19 @@
 import { useAppSelector } from '../../store/hooks';
 import Tool from './Tool';
+import WoWButton from '../WoWButton';
 import label from '../../assets/labels/small-label.png';
+import { ToolsProps } from '../../types';
 import './Tools.css';
 
 
-const Tools = () => {
+const Tools = ({ setInstalled }: ToolsProps) => {
   const expansion = useAppSelector(state => state.expansion.selected);
+
+  const handlePreferences = async () => {
+    await window.electron.setExpansion('');
+    await window.electron.setFaction('');
+    setInstalled(false);
+  }
 
   return (
     <div className={`tools ${expansion}-tools`}>
@@ -20,6 +28,7 @@ const Tools = () => {
         ) : (
           <></>
         )}
+        <WoWButton handleClick={handlePreferences} buttonText="Preferences" />
       </ul>
     </div>
   );

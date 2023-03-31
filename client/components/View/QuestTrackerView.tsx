@@ -1,14 +1,12 @@
 import { useState } from 'react';
 import { useAppSelector } from '../../store/hooks';
-import Loading from '../Loading';
-import MainBigHeader from '../MainBigHeader';
 import Quest from './Quest';
 import { createViewQuests, reverseSortViewQuests, sortViewQuests } from '../../utils';
-import { SortSetting, ViewProps } from '../../types';
+import { SortSetting } from '../../types';
 import './View.css';
 
 
-const QuestTrackerView = ({ loading, error, retry }: ViewProps) => {
+const QuestTrackerView = () => {
   const quests = useAppSelector(state => state.quests);
   const { completedQuests, templateQuests } = quests;
   const expansion = useAppSelector(state => state.expansion.selected);
@@ -63,21 +61,6 @@ const QuestTrackerView = ({ loading, error, retry }: ViewProps) => {
 
   return (
     <div>
-      {loading ? <Loading /> : <></>}
-      {error ? (
-        <div>
-          <div>ERROR: {JSON.stringify(error)}</div>
-          <div>Please ensure the database is still running.</div>
-          <div onClick={retry}>Retry connection</div>
-        </div>
-      ) : (
-        <></>
-      )}
-      {!loading && !error && !characterClass && !race && !zone ? (
-        <MainBigHeader headerText="Please select quest filters" />
-      ) : (
-        <></>
-      )}
       {all || characterClass || race || zone ? (
         <table className={`qt-table ${expansion}-qt-table`}>
           <thead>

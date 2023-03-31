@@ -1,5 +1,6 @@
 import HomeView from "./HomeView";
 import ErrorView from './ErrorView';
+import LoadingView from './LoadingView';
 import QuestTrackerView from "./QuestTrackerView";
 import { useAppSelector } from '../../store/hooks';
 import { ViewProps } from '../../types';
@@ -16,25 +17,11 @@ const View = ({ error, loading, retry }: ViewProps) => {
       ${expansion}-view
       ${smallWindow ? 'small-view' : ''}
     `}>
-      {error ? (
-        <ErrorView loading={loading} error={error} retry={retry} />
-      ) : (
-        <></>
-      )}
-      {!tool ? (
-        <HomeView
-          error={error}
-          loading={loading}
-        />
-      ) : (
-        <></>
-      )}
-      {tool === 'questTracker' ? (
-        <QuestTrackerView
-          error={error}
-          loading={loading}
-          retry={retry}
-        />
+      {loading && !error ? <LoadingView /> : <></>}
+      {error ? <ErrorView error={error} retry={retry} /> : <></>}
+      {!tool && !loading && !error ? <HomeView /> : <></>}
+      {tool === 'questTracker' && !loading && !error ? (
+        <QuestTrackerView />
       ) : (
         <></>
       )}

@@ -2,12 +2,12 @@ import MainBigHeader from '../MainBigHeader';
 import './View.css';
 
 
-const HomeView = () => {
+const LoadingView = () => {
   return (
     <div>
-      <MainBigHeader headerText="Please select a tool" />
+      <MainBigHeader headerText="Loading..." />
     </div>
   );
 }
 
-export default HomeView;
+export default LoadingView;

@@ -1,18 +1,13 @@
 import { ViewProps } from "../../types";
 import MainButton from "../MainButton";
-import label from '../../assets/headers/main-big-header.png';
 import './View.css';
+import MainBigHeader from "../MainBigHeader";
 
 
 const ErrorView = ({ error, retry }: ViewProps) => {
   return (
     <div className="error-view">
-      <div className="qt-select-header">
-        <img src={label} />
-        <div className="qt-select-text">
-          ERROR
-        </div>
-      </div>
+      <MainBigHeader headerText="ERROR" />
       <div className="error-view-body">
         <div className="error-text">{JSON.stringify(error)}</div>
         <div className="error-db-text">

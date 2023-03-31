@@ -1,0 +1,19 @@
+.main-big-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 13.5px;
+}
+
+.main-big-header-text {
+  margin-top: -32px;
+  height: 24px;
+  font-family: Friz Quadrata;
+  font-size: 20px;
+  background: -webkit-linear-gradient(#c88f19 40%, #f7f243 70%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

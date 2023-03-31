@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useAppSelector } from '../../store/hooks';
 import Loading from '../Loading';
+import MainBigHeader from '../MainBigHeader';
 import Quest from './Quest';
 import { createViewQuests, reverseSortViewQuests, sortViewQuests } from '../../utils';
 import { SortSetting, ViewProps } from '../../types';
-import label from '../../assets/headers/main-big-header.png';
 import './View.css';
 
 
@@ -74,12 +74,7 @@ const QuestTrackerView = ({ loading, error, retry }: ViewProps) => {
         <></>
       )}
       {!loading && !error && !characterClass && !race && !zone ? (
-        <div className="qt-select-header">
-          <img src={label} />
-          <div className="qt-select-text">
-            Please select quest filters
-          </div>
-        </div>
+        <MainBigHeader headerText="Please select quest filters" />
       ) : (
         <></>
       )}

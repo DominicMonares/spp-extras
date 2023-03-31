@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { TabProps } from "../../types";
-import vanillaTab from '../../assets/labels/vanilla.png';
-import tbcTab from '../../assets/labels/tbc.png';
-import wotlkTab from '../../assets/labels/wotlk.png';
+import vanillaTab from '../../assets/tabs/vanilla.png';
+import tbcTab from '../../assets/tabs/tbc.png';
+import wotlkTab from '../../assets/tabs/wotlk.png';
 import './ExpansionNav.css';
 
 const Tab = ({ active, expansion, openModal }: TabProps) => {
@@ -19,7 +19,7 @@ const Tab = ({ active, expansion, openModal }: TabProps) => {
   }
 
   return (
-    <button 
+    <button
       className={`${expansion}-tab${hovering}${active} ${expansion}-gradient`}
       onClick={() => openModal(expansion)}
       onMouseEnter={() => setHovering('-hovering')}

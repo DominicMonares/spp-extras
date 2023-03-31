@@ -1,6 +1,6 @@
 import { ViewProps } from "../../types";
 import MainButton from "../MainButton";
-import label from '../../assets/labels/long-label.png';
+import label from '../../assets/headers/main-big-header.png';
 import './View.css';
 
 

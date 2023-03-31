@@ -4,7 +4,7 @@ import Loading from '../Loading';
 import Quest from './Quest';
 import { createViewQuests, reverseSortViewQuests, sortViewQuests } from '../../utils';
 import { SortSetting, ViewProps } from '../../types';
-import label from '../../assets/labels/long-label.png';
+import label from '../../assets/headers/main-big-header.png';
 import './View.css';
 
 

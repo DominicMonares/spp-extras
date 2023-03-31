@@ -1,6 +1,6 @@
 import QuestTrackerControls from './QuestTrackerControls';
 import { useAppSelector } from '../../store/hooks';
-import label from '../../assets/labels/small-label.png';
+import label from '../../assets/headers/main-header.png';
 import './Controls.css';
 
 

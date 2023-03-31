@@ -1,7 +1,7 @@
 import { useAppSelector } from '../../store/hooks';
 import Tool from './Tool';
 import MainButton from '../MainButton';
-import label from '../../assets/labels/small-label.png';
+import label from '../../assets/headers/main-header.png';
 import { ToolsProps } from '../../types';
 import './Tools.css';
 

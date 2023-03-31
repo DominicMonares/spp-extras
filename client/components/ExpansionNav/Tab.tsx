@@ -20,12 +20,21 @@ const Tab = ({ active, expansion, openModal }: TabProps) => {
 
   return (
     <button
-      className={`${expansion}-tab${hovering}${active} ${expansion}-gradient`}
+      className={`
+        ${expansion}-tab
+        ${active ? `${expansion}-tab-active` : ''}
+        ${expansion}-gradient
+      `}
       onClick={() => openModal(expansion)}
       onMouseEnter={() => setHovering('-hovering')}
       onMouseLeave={() => setHovering('')}
     >
-      <img className={`${expansion}-label${hovering}${active}`} src={tabImg()} />
+      <img
+        className={`
+          ${expansion}-label${hovering}${active}
+        `}
+        src={tabImg()}
+      />
     </button>
   );
 }

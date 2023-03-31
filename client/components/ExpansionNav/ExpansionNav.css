@@ -46,17 +46,8 @@
 }
 
 .classic-tab,
-.classic-tab-active,
-.classic-tab-hovering,
-.classic-tab-hovering-active,
 .tbc-tab,
-.tbc-tab-active,
-.tbc-tab-hovering,
-.tbc-tab-hovering-active,
-.wotlk-tab,
-.wotlk-tab-active,
-.wotlk-tab-hovering,
-.wotlk-tab-hovering-active  {
+.wotlk-tab {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,50 +59,35 @@
 }
 
 .classic-tab-active,
-.classic-tab-hovering-active,
 .tbc-tab-active,
-.tbc-tab-hovering-active,
-.wotlk-tab-active,
-.wotlk-tab-hovering-active {
+.wotlk-tab-active {
   z-index: 2;
 }
 
-.classic-tab,
-.classic-tab-active,
-.classic-tab-hovering,
-.classic-tab-hovering-active {
+.classic-tab {
   margin-right: -1px;
 }
 
-.tbc-tab,
-.tbc-tab-active,
-.tbc-tab-hovering,
-.tbc-tab-hovering-active {
+.tbc-tab {
   z-index: 1;
 }
 
-.wotlk-tab,
-.wotlk-tab-active,
-.wotlk-tab-hovering,
-.wotlk-tab-hovering-active {
+.wotlk-tab {
   margin-left: -1px;
 }
 
 
-/* Labels */
+/* Tab Labels */
 
 .classic-label,
+.classic-label:hover,
 .classic-label-active,
-.classic-label-hovering,
-.classic-label-hovering-active,
 .tbc-label,
+.tbc-label:hover,
 .tbc-label-active,
-.tbc-label-hovering,
-.tbc-label-hovering-active,
 .wotlk-label,
-.wotlk-label-active,
-.wotlk-label-hovering,
-.wotlk-label-hovering-active {
+.wotlk-label:hover,
+.wotlk-label-active {
   transition: width 0.1s linear, height 0.1s linear;
 }
 
@@ -120,9 +96,8 @@
   height: 30px;
 }
 
-.classic-label-active,
-.classic-label-hovering,
-.classic-label-hovering-active {
+.classic-label:hover,
+.classic-label-active {
   width: 150px;
   height: 39px;
 }
@@ -132,9 +107,8 @@
   height: 30px;
 }
 
-.tbc-label-active,
-.tbc-label-hovering,
-.tbc-label-hovering-active {
+.tbc-label:hover,
+.tbc-label-active {
   width: 64px;
   height: 39px;
 }
@@ -144,9 +118,8 @@
   height: 30px;
 }
 
-.wotlk-label-active,
-.wotlk-label-hovering,
-.wotlk-label-hovering-active {
+.wotlk-label:hover,
+.wotlk-label-active {
   width: 122px;
   height: 39px;
 }
@@ -295,8 +268,5 @@
 .xpac-warning-buttons {
   display: flex;
   justify-content: space-around;
-  /* position: absolute; */
   margin-top: 20px;
-  /* width: 50%; */
-  /* overflow: auto; */
 }

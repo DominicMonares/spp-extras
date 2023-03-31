@@ -1,13 +1,13 @@
 import Tab from './Tab';
 import { useAppSelector } from '../../store/hooks';
-import { TabsProps, SelectedExpansion} from "../../types";
+import { Expansion, TabsProps } from "../../types";
 import './ExpansionNav.css';
 
 
 const Tabs = ({ openModal }: TabsProps) => {
   const expansion = useAppSelector(state => state.expansion.selected);
 
-  const expansionActive = (xpac: SelectedExpansion) => xpac === expansion ? '-active' : '';
+  const expansionActive = (xpac: Expansion) => xpac === expansion ? '-active' : '';
   const expansions = {
     classic: expansionActive('classic'),
     tbc: expansionActive('tbc'),

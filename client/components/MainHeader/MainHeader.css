@@ -1,0 +1,24 @@
+.main-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 7px;
+}
+
+.main-header-text {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  height: 40px;
+  margin-top: -40px;
+  font-family: Friz Quadrata;
+  font-size: 24px;
+  background: -webkit-linear-gradient(#c88f19 40%, #f7f243 70%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

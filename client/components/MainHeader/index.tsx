@@ -1,5 +1,14 @@
-// const MainHeader = () => {
+import header from '../../assets/headers/main-header.png';
+import './MainHeader.css';
 
-// }
 
-// export default MainHeader;
+const MainHeader = ({ headerText }) => {
+  return (
+    <div className="main-header">
+      <img src={header} />
+      <div className="main-header-text">{headerText}</div>
+    </div>
+  );
+}
+
+export default MainHeader;

@@ -1,6 +1,6 @@
+import MainHeader from '../MainHeader';
 import QuestTrackerControls from './QuestTrackerControls';
 import { useAppSelector } from '../../store/hooks';
-import label from '../../assets/headers/main-header.png';
 import './Controls.css';
 
 
@@ -10,10 +10,7 @@ const Controls = () => {
 
   return (
     <div className={`controls ${expansion}-controls`}>
-      <div className="controls-header">
-        <img src={label} />
-        <div className="controls-header-text">Controls</div>
-      </div>
+      <MainHeader headerText="Controls" />
       {!tool ? (
         <div className="control-label home-ctrl-label">No tool selected</div>
       ) : (

@@ -1,7 +1,7 @@
 import { useAppSelector } from '../../store/hooks';
 import Tool from './Tool';
 import MainButton from '../MainButton';
-import label from '../../assets/headers/main-header.png';
+import MainHeader from '../MainHeader';
 import { ToolsProps } from '../../types';
 import './Tools.css';
 
@@ -17,10 +17,7 @@ const Tools = ({ setInstalled }: ToolsProps) => {
 
   return (
     <div className={`tools ${expansion}-tools`}>
-      <div className="tools-header">
-        <img src={label} />
-        <div className="tools-header-text">Tools</div>
-      </div>
+      <MainHeader headerText="Tools" />
       <ul className="tool-list">
         <Tool tool="questTracker" name="Quest Tracker" />
         {expansion === 'wotlk' ? (

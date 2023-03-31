@@ -163,7 +163,6 @@ Variable names
 
 REFACTOR PLAN
 Hover and active
-Make separate components for small and large headers
 
 TODO
 Make unique pointers to match in game ones

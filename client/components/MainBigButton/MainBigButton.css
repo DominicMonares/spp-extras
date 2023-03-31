@@ -23,6 +23,7 @@
 .main-big-button-text-bottom {
   display: flex;
   justify-content: center;
+  margin-top: 7px;
   font-family: Friz Quadrata;
   font-size: 26px;
   background: -webkit-linear-gradient(#c88f19 40%, #f7f243 80%);

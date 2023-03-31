@@ -1,5 +1,5 @@
 import { ViewProps } from "../../types";
-import WoWButton from "../WoWButton";
+import MainButton from "../MainButton";
 import label from '../../assets/labels/long-label.png';
 import './View.css';
 
@@ -18,7 +18,7 @@ const ErrorView = ({ error, retry }: ViewProps) => {
         <div className="error-db-text">
           Please ensure the database is still running.
         </div>
-        <WoWButton handleClick={retry} buttonText={'Retry'} />
+        <MainButton handleClick={retry} buttonText={'Retry'} />
       </div>
     </div>
   );

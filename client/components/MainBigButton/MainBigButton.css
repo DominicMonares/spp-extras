@@ -1,6 +1,6 @@
 /* Container */
 
-.big-wow-button {
+.main-big-button {
   width: 224px;
   height: 74px;
   background-image: url("../../assets/buttons/big-button.png");
@@ -10,8 +10,8 @@
   transition: width 0.1s linear, height 0.1s linear;
 }
 
-.big-wow-active,
-.big-wow-hovering {
+.main-big-active,
+.main-big-hovering {
   width: 236.5px;
   height: 78px;
 }
@@ -19,8 +19,8 @@
 
 /* Text */
 
-.big-wow-button-text,
-.big-wow-button-text-bottom {
+.main-big-button-text,
+.main-big-button-text-bottom {
   display: flex;
   justify-content: center;
   font-family: Friz Quadrata;
@@ -32,13 +32,13 @@
   transition: font-size 0.1s linear, margin-top 0.1s linear, margin-bottom 0.1s linear;
 }
 
-.big-wow-button-text-bottom {
+.main-big-button-text-bottom {
   margin-top: -5px;
 }
 
-.big-wow-text-active,
-.big-wow-text-hovering,
-.big-wow-text-active-bottom,
-.big-wow-text-hovering-bottom {
+.main-big-text-active,
+.main-big-text-hovering,
+.main-big-text-active-bottom,
+.main-big-text-hovering-bottom {
   font-size: 28px;
 }

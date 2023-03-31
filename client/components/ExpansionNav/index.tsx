@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import Modal from 'react-modal';
 import Tabs from './Tabs';
-import WoWButton from '../WoWButton';
+import MainButton from '../MainButton';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { 
+import {
   storeCharacters,
   storeCompletedQuests,
-  storeExpansion, 
-  storeQuestTrackerCharacter, 
+  storeExpansion,
+  storeQuestTrackerCharacter,
   storeQuestTrackerClass,
   storeQuestTrackerRace,
   storeQuestTrackerType,
@@ -91,8 +91,8 @@ const ExpansionNav = ({ updateStore }: ExpansionProps) => {
         <div className="xpac-warning">WARNING</div>
         <div className="xpac-warning">Switching expansions will unload all current data</div>
         <div className="xpac-warning-buttons">
-          <WoWButton handleClick={closeModal} buttonText="Cancel" />
-          <WoWButton handleClick={switchExpansion} buttonText="Continue" />
+          <MainButton handleClick={closeModal} buttonText="Cancel" />
+          <MainButton handleClick={switchExpansion} buttonText="Continue" />
         </div>
       </Modal>
       <div className="nav-underline"></div>

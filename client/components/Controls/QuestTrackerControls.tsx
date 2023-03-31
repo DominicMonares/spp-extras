@@ -1,6 +1,6 @@
 import DropdownMenu from '../DropdownMenu';
 import FactionSelect from './FactionSelect';
-import WoWButton from '../WoWButton';
+import MainButton from '../MainButton';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import {
   characterMenu,
@@ -34,7 +34,7 @@ const QuestTrackerControls = () => {
           menu={classMenu(expansion, faction, characterClass)}
         />
         <DropdownMenu dropdownType="race" menu={raceMenu(expansion, faction, race)} />
-        <WoWButton
+        <MainButton
           handleClick={() => dispatch(storeQuestTrackerAll({ all: true }))}
           buttonText="All Quests"
         />

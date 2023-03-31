@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import ExpansionPreferences from './ExpansionPreferences';
 import FactionPreferences from './FactionPreferences';
-import WoWButton from '../WoWButton';
+import MainButton from '../MainButton';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import mainLogo from '../../assets/logos/main.png';
 import './Preferences.css';
@@ -50,7 +50,7 @@ const Preferences = ({ setInstalled }: PreferencesProps) => {
         <ExpansionPreferences setSelectedExpansion={setSelectedExpansion} />
         <FactionPreferences setSelectedFaction={setSelectedFaction} />
         <div className="save-container">
-          <WoWButton handleClick={save} buttonText="Save and Begin" />
+          <MainButton handleClick={save} buttonText="Save and Begin" />
           {noSelections ? (
             <div className="pref-text pref-text-save">
               Please select both an expansion and a faction to continue

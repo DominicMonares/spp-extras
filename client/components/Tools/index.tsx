@@ -1,6 +1,6 @@
 import { useAppSelector } from '../../store/hooks';
 import Tool from './Tool';
-import WoWButton from '../WoWButton';
+import MainButton from '../MainButton';
 import label from '../../assets/labels/small-label.png';
 import { ToolsProps } from '../../types';
 import './Tools.css';
@@ -28,7 +28,7 @@ const Tools = ({ setInstalled }: ToolsProps) => {
         ) : (
           <></>
         )}
-        <WoWButton handleClick={handlePreferences} buttonText="Preferences" />
+        <MainButton handleClick={handlePreferences} buttonText="Preferences" />
       </ul>
     </div>
   );

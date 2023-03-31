@@ -1,6 +1,6 @@
 /* Container */
 
-.wow-button {
+.main-button {
   width: 224px;
   height: 54px;
   background-image: url("../../assets/buttons/button.png");
@@ -10,8 +10,8 @@
   transition: width 0.1s linear, height 0.1s linear;
 }
 
-.wow-active,
-.wow-hovering {
+.main-active,
+.main-hovering {
   width: 236.5px;
   height: 57px;
 }
@@ -19,7 +19,7 @@
 
 /* Text */
 
-.wow-button-text {
+.main-button-text {
   display: flex;
   justify-content: center;
   font-family: Friz Quadrata;
@@ -31,7 +31,7 @@
   transition: font-size 0.1s linear, margin-top 0.1s linear, margin-bottom 0.1s linear;
 }
 
-.wow-text-active,
-.wow-text-hovering {
+.main-text-active,
+.main-text-hovering {
   font-size: 27.5px;
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import BigWoWButton from '../BigWoWButton';
-import WoWButton from '../WoWButton';
+import MainBigButton from '../MainBigButton';
+import MainButton from '../MainButton';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { storeTool } from '../../store/slices';
 import { ToolNavProps, SelectedTool } from '../../types';
@@ -24,14 +24,14 @@ const Tool = ({ tool, name }: ToolNavProps) => {
   return (
     <li>
       {tool === 'accountAchievements' ? (
-        <BigWoWButton 
-          active={active} 
+        <MainBigButton
+          active={active}
           handleClick={() => switchTool(tool)}
           buttonText={name}
         />
       ) : (
-        <WoWButton 
-          active={active} 
+        <MainButton
+          active={active}
           handleClick={() => switchTool(tool)}
           buttonText='Quest Tracker'
         />

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import MainBigHeader from '../MainBigHeader';
 import Quest from './Quest';
 import { useAppSelector } from '../../store/hooks';
 import { createViewQuests, reverseSortViewQuests, sortViewQuests } from '../../utils';
@@ -78,7 +79,7 @@ const QuestTrackerView = () => {
           </tbody>
         </table>
       ) : (
-        <></>
+        <MainBigHeader headerText="Please select a zone ~or~ race and/or class" />
       )}
     </div>
   );

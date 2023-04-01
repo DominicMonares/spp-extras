@@ -173,16 +173,7 @@ other vars
 
 
 CLEANUP PLAN
-CSS hierarchy
-Class names
-Import hierarchy
+Comments
 State/Store hierarchy
 Variable names
 
-REFACTOR PLAN
-Hover and active
-
-TODO
-Make unique pointers to match in game ones
-
-CREATE COMMENTS FOR EVERYTHING ONCE CLEANED UP AND REFACTORED

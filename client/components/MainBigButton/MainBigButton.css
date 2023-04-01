@@ -1,6 +1,6 @@
 /* Container */
 
-.main-big-button {
+.main-big-btn {
   width: 224px;
   height: 74px;
   border-radius: 5px;
@@ -10,8 +10,8 @@
   transition: width 0.1s linear, height 0.1s linear;
 }
 
-.main-big-button:hover,
-.main-big-button-active {
+.main-big-btn:hover,
+.main-big-btn-active {
   width: 236.5px;
   height: 78px;
 }
@@ -19,8 +19,8 @@
 
 /* Text */
 
-.main-big-button-text,
-.main-big-button-text-bottom {
+.main-big-btn-text,
+.main-big-btn-text-bottom {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,13 +33,13 @@
   transition: font-size 0.1s linear, margin-top 0.1s linear, margin-bottom 0.1s linear;
 }
 
-.main-big-button-text-bottom {
+.main-big-btn-text-bottom {
   margin-top: -5px;
 }
 
-.main-big-button:hover > .main-big-button-text,
-.main-big-button-text-active,
-.main-big-button:hover > .main-big-button-text-bottom,
-.main-big-button-text-bottom-active {
+.main-big-btn:hover > .main-big-btn-text,
+.main-big-btn-text-active,
+.main-big-btn:hover > .main-big-btn-text-bottom,
+.main-big-btn-text-bottom-active {
   font-size: 28px;
 }

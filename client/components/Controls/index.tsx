@@ -12,7 +12,7 @@ const Controls = () => {
     <div className={`controls ${expansion}-controls`}>
       <MainHeader headerText="Controls" />
       {!tool ? (
-        <div className="control-label home-ctrl-label">No tool selected</div>
+        <div className="ctrl-label home-ctrl-label">No tool selected</div>
       ) : (
         <></>
       )}

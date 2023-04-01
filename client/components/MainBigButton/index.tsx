@@ -6,20 +6,20 @@ const MainBigButton = ({ active, handleClick, buttonText }: MainButtonProps) => 
   return (
     <button
       className={`
-        main-big-button
-        ${active ? 'main-big-button-active' : ''}
+        main-big-btn
+        ${active ? 'main-big-btn-active' : ''}
       `}
       onClick={handleClick}
     >
       <div className={`
-        main-big-button-text
+        main-big-btn-text
         ${active ? 'main-big-text-active' : ''}
       `}>
         {buttonText.split(' ')[0]}
       </div>
       <div className={`
-        main-big-button-text-bottom
-        ${active ? 'main-big-button-text-bottom-active' : ''}
+        main-big-btn-text-bottom
+        ${active ? 'main-big-btn-text-bottom-active' : ''}
       `}>
         {buttonText.split(' ')[1]}
       </div>

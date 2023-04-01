@@ -6,14 +6,14 @@ const MainButton = ({ active, handleClick, buttonText }: MainButtonProps) => {
   return (
     <button
       className={`
-        main-button
-        ${active ? 'main-button-active' : ''}
+        main-btn
+        ${active ? 'main-btn-active' : ''}
       `}
       onClick={handleClick}
     >
       <div className={`
-        main-button-text
-        ${active ? 'main-text-active' : ''}
+        main-btn-text
+        ${active ? 'main-btn-text-active' : ''}
       `}>
         {buttonText}
       </div>

@@ -24,7 +24,7 @@ const QuestTrackerControls = () => {
   return (
     <>
       <div className="qt-faction">
-        <div className="control-label">Primary Filters</div>
+        <div className="ctrl-label">Primary Filters</div>
         <FactionSelect />
       </div>
       <div className="qt-filters">
@@ -40,7 +40,7 @@ const QuestTrackerControls = () => {
         />
       </div>
       <div className="qt-additional-filters">
-        <div className="control-label qt-additional-label">Secondary Filters:</div>
+        <div className="ctrl-label qt-additional-label">Secondary Filters:</div>
         <DropdownMenu
           dropdownType="character"
           menu={characterMenu(character, characters, faction)}

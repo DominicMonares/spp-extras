@@ -9,17 +9,17 @@
 }
 
 .all-container {
-  background-image: url("../assets/background/all.jpg");
+  background-image: url("../assets/backgrounds/all.jpg");
 }
 
 .classic-container {
-  background-image: url("../assets/background/vanilla.jpg");
+  background-image: url("../assets/backgrounds/vanilla.jpg");
 }
 
 .tbc-container {
-  background-image: url("../assets/background/tbc.jpg");
+  background-image: url("../assets/backgrounds/tbc.jpg");
 }
 
 .wotlk-container {
-  background-image: url("../assets/background/wotlk.jpg");
+  background-image: url("../assets/backgrounds/wotlk.jpg");
 }

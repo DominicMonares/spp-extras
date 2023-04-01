@@ -139,7 +139,7 @@ const App = () => {
               </>
             ) : (
               <>
-                <Tools setInstalled={setInstalled} />ß
+                <Tools setInstalled={setInstalled} />
                 {!tool ? (
                   <View error={error} loading={loading} retry={getAllData} />
                 ) : (

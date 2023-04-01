@@ -6,6 +6,8 @@ import './DropdownMenu.css';
 
 const DropdownMenu = ({ depthLevel, dropdown, dropdownType, menu }: DropdownProps) => {
   const smallWindow = useAppSelector(state => state.window.smallWindow);
+
+  // Create class names depending on different factors
   depthLevel === undefined ? depthLevel = 0 : depthLevel = depthLevel + 1;
   const level = depthLevel ? `-l${depthLevel}` : '';
   const size = smallWindow ? '-sm' : '';

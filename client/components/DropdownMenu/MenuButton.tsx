@@ -7,10 +7,12 @@ import './DropdownMenu.css';
 
 const MenuButton = ({ selected, subHovering, title }: MenuButtonProps) => {
   const smallWindow = useAppSelector(state => state.window.smallWindow);
-  const [hovering, setHovering] = useState<string>('');
+
+  // Need to use hovering class name to track nested sub-button hovering
+  const [active, setActive] = useState<string>('');
 
   // Keep main button hovering if hovering over sub-buttons
-  useEffect(() => subHovering ? setHovering('-hovering') : setHovering(''));
+  useEffect(() => subHovering ? setActive('-active') : setActive(''));
   
   // Font size depends on title length
   const titleLength = () => {
@@ -20,16 +22,16 @@ const MenuButton = ({ selected, subHovering, title }: MenuButtonProps) => {
 
   return (
     <button
-      className={`dd-main-button${hovering}`}
-      onMouseEnter={() => setHovering('-hovering')}
-      onMouseLeave={() => setHovering('')}
+      className={`dd-main-button${active}`}
+      onMouseEnter={() => setActive('-active')}
+      onMouseLeave={() => setActive('')}
     >
       <div className="dd-main-button-content">
-        {!smallWindow ? <img className={`dd-main-arrow${hovering}`} src={arrow} /> : <></>}
-        <div className={`c${titleLength()}${hovering} c${smallWindow ? '-sm' : ''}`}>
+        {!smallWindow ? <img className={`dd-main-arrow${active}`} src={arrow} /> : <></>}
+        <div className={`c${titleLength()}${active} c${smallWindow ? '-sm' : ''}`}>
           {selected() ? selected() : title}
         </div>
-        {smallWindow ? <img className={`dd-main-arrow-sm${hovering}`} src={arrow} /> : <></>}
+        {smallWindow ? <img className={`dd-main-arrow-sm${active}`} src={arrow} /> : <></>}
       </div>
     </button>
   );

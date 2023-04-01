@@ -99,7 +99,7 @@
 /* Main Menu Button */
 
 .dd-main-button,
-.dd-main-button-hovering {
+.dd-main-button-active {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -115,7 +115,7 @@
   height: 54px;
 }
 
-.dd-main-button-hovering {
+.dd-main-button-active {
   width: 236.5px;
   height: 57px;
 }
@@ -129,13 +129,13 @@
 }
 
 .dd-main-arrow,
-.dd-main-arrow-hovering {
+.dd-main-arrow-active {
   margin-left: 20px;
   transition: width 0.1s linear, height 0.1s linear;
 }
 
 .dd-main-arrow-sm,
-.dd-main-arrow-sm-hovering {
+.dd-main-arrow-sm-active {
   margin-right: 20px;
   transform: scaleX(-1);
   transition: width 0.1s linear, height 0.1s linear;
@@ -147,25 +147,25 @@
   height: 21px;
 }
 
-.dd-main-arrow-hovering,
-.dd-main-arrow-sm-hovering {
+.dd-main-arrow-active,
+.dd-main-arrow-sm-active {
   width: 22.5px;
   height: 22.5px;
 }
 
-.c12, .c12-hovering,
-.c13, .c13-hovering,
-.c14, .c14-hovering,
-.c15, .c15-hovering,
-.c16, .c16-hovering,
-.c17, .c17-hovering,
-.c18, .c18-hovering,
-.c19, .c19-hovering,
-.c20, .c20-hovering,
-.c21, .c21-hovering,
-.c22, .c22-hovering,
-.c25, .c25-hovering,
-.c26, .c26-hovering {
+.c12, .c12-active,
+.c13, .c13-active,
+.c14, .c14-active,
+.c15, .c15-active,
+.c16, .c16-active,
+.c17, .c17-active,
+.c18, .c18-active,
+.c19, .c19-active,
+.c20, .c20-active,
+.c21, .c21-active,
+.c22, .c22-active,
+.c25, .c25-active,
+.c26, .c26-active {
   width: 100%;
   margin-right: 20px;
   background: -webkit-linear-gradient(#c88f19 40%, #f7f243 80%);
@@ -186,7 +186,7 @@
   font-size: 25px;
 }
 
-.c12-hovering {
+.c12-active {
   font-size: 26.5px;
 }
 
@@ -194,7 +194,7 @@
   font-size: 23.5px;
 }
 
-.c13-hovering {
+.c13-active {
   font-size: 25.5px;
 }
 
@@ -202,7 +202,7 @@
   font-size: 21.5px;
 }
 
-.c14-hovering {
+.c14-active {
   font-size: 23px;
 }
 
@@ -210,7 +210,7 @@
   font-size: 20px;
 }
 
-.c15-hovering {
+.c15-active {
   font-size: 21.5px;
 }
 
@@ -218,7 +218,7 @@
   font-size: 18.5px;
 }
 
-.c16-hovering {
+.c16-active {
   font-size: 20px;
 }
 
@@ -226,7 +226,7 @@
   font-size: 18px;
 }
 
-.c17-hovering {
+.c17-active {
   font-size: 19px;
 }
 
@@ -234,7 +234,7 @@
   font-size: 18px;
 }
 
-.c18-hovering {
+.c18-active {
   font-size: 19px;
 }
 
@@ -242,7 +242,7 @@
   font-size: 17.5px;
 }
 
-.c19-hovering {
+.c19-active {
   font-size: 18.5px;
 }
 
@@ -250,7 +250,7 @@
   font-size: 16.5px;
 }
 
-.c20-hovering {
+.c20-active {
   font-size: 17.5px;
 }
 
@@ -258,7 +258,7 @@
   font-size: 17px;
 }
 
-.c21-hovering {
+.c21-active {
   font-size: 18px;
 }
 
@@ -266,7 +266,7 @@
   font-size: 15px;
 }
 
-.c22-hovering {
+.c22-active {
   font-size: 16px;
 }
 
@@ -274,7 +274,7 @@
   font-size: 14px;
 }
 
-.c25-hovering {
+.c25-active {
   font-size: 15px;
 }
 
@@ -282,7 +282,7 @@
   font-size: 12.5px;
 }
 
-.c26-hovering {
+.c26-active {
   font-size: 13.5px;
 }
 

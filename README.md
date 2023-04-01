@@ -65,19 +65,10 @@ align-items
 direction
 overflow-x
 overflow-y
-border
-border-left
-border-right
-border-top
-border-bottom
-border-radius
-border-top-left-radius
-border-top-right-radius
-border-bottom-left-radius
-border-bottom-right-radius
-scrollbar-gutter
+list-style-type
 
 POSITION
+position
 left
 right
 top
@@ -100,12 +91,33 @@ height
 min-height
 max-height
 
+BORDER
+box-sizing
+border
+border-left
+border-right
+border-top
+border-bottom
+border-radius
+border-top-left-radius
+border-top-right-radius
+border-bottom-left-radius
+border-bottom-right-radius
+scrollbar-gutter
+scroll-snap-type
+scroll-snap-align
+
 BACKGROUND
 background
 background-color
 background-img
+background-size
 background-repeat
 background-clip
+-webkit-background-clip
+-webkit-text-fill-color
+filter
+opacity
 
 TEXT
 text-align
@@ -118,6 +130,12 @@ ANIMATIONS
 transform
 transform-origin
 transition
+transition-duration
+animation-name
+animation-duration
+
+CURSOR
+cursor
 
 
 ============ Import Hierarchy ============

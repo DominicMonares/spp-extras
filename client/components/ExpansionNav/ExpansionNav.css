@@ -53,9 +53,9 @@
   align-items: center;
   width: calc(100% / 3);
   height: 48px;
+  border: 1px solid black;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  border: 1px solid black;
 }
 
 .classic-tab-active,
@@ -137,8 +137,8 @@
 .right-buffer {
   display: flex;
   flex-direction: column-reverse;
-  width: 20px;
   z-index: 3;
+  width: 20px;
 }
 
 .classic-lb {
@@ -180,10 +180,10 @@
 }
 
 .curve {
-  width: 20px;
-  height: 10px;
   margin-bottom: -10px;
   z-index: 4;
+  width: 20px;
+  height: 10px;
   border-bottom: 1px solid black;
 }
 
@@ -249,14 +249,14 @@
 
 .xpac-warning {
   width: 100%;
-  font-family: Friz Quadrata;
-  font-size: 25px;
   background: -webkit-linear-gradient(#c88f19 40%, #f7f243 80%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  transition: font-size 0.1s linear;
   text-align: center;
+  font-family: Friz Quadrata;
+  font-size: 25px;
+  transition: font-size 0.1s linear;
 }
 
 .xpac-warning-buttons {

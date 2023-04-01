@@ -62,12 +62,12 @@
 .qt-select-text {
   margin-top: -32px;
   height: 24px;
-  font-family: Friz Quadrata;
-  font-size: 20px;
   background: -webkit-linear-gradient(#c88f19 40%, #f7f243 70%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-family: Friz Quadrata;
+  font-size: 20px;
 }
 
 
@@ -106,9 +106,9 @@ thead, tbody {
 }
 
 thead {
+  border-bottom: black 1px solid;
   font-family: Friz Quadrata;
   font-size: 19px;
-  border-bottom: black 1px solid;
 }
 
 thead:hover {

@@ -27,9 +27,9 @@
 /* Control Labels */
 
 .control-label {
+  text-align: center;
   font-family: MORPHEUS;
   font-size: 24px;
-  text-align: center;
 }
 
 .home-ctrl-label {
@@ -78,8 +78,8 @@
 
 .qt-horde-1,
 .qt-horde-1-anim-1 {
-  margin-top: -47px;
   margin-left: 47px;
+  margin-top: -47px;
   z-index: 1;
 }
 
@@ -99,8 +99,8 @@
 
 .qt-alliance-2,
 .qt-alliance-2-anim-2 {
-  margin-top: -47px;
   margin-right: 47px;
+  margin-top: -47px;
   z-index: 1;
 }
 

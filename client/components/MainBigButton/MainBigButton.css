@@ -3,10 +3,10 @@
 .main-big-button {
   width: 224px;
   height: 74px;
-  background-image: url("../../assets/buttons/main-big-button.png");
-  background-repeat: no-repeat;
-  background-size: 100%;
   border-radius: 5px;
+  background-image: url("../../assets/buttons/main-big-button.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
   transition: width 0.1s linear, height 0.1s linear;
 }
 
@@ -24,12 +24,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: Friz Quadrata;
-  font-size: 26px;
   background: -webkit-linear-gradient(#c88f19 40%, #f7f243 80%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-family: Friz Quadrata;
+  font-size: 26px;
   transition: font-size 0.1s linear, margin-top 0.1s linear, margin-bottom 0.1s linear;
 }
 

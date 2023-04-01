@@ -5,8 +5,8 @@
 .dropdown-l3 {
   display: none;
   position: absolute;
-  top: 0;
   right: 174px;
+  top: 0;
 }
 
 .dropdown-sm-l1,
@@ -22,8 +22,8 @@
 }
 
 .dropdown-sm-l1 {
-  bottom: 0;
   left: 236px;
+  bottom: 0;
 }
 
 .dd-zone {
@@ -41,8 +41,8 @@
 
 .dropdown-l3,
 .dropdown-sm-l3 {
-  z-index: 2;
   overflow-y: scroll;
+  z-index: 2;
   scroll-snap-type: y mandatory;
 }
 
@@ -52,8 +52,8 @@
 }
 
 .dropdown-sm-l3{
-  top: 0;
   direction: ltr;
+  top: 0;
   height: 180px;
 }
 
@@ -68,9 +68,9 @@
 
 .dd-scroll::-webkit-scrollbar-thumb {
   height: 10px;
-  background: -webkit-linear-gradient(#c88f19 40%, #f7f243 70%);
   border: #11151b 1px solid;
   border-radius: 10px;
+  background: -webkit-linear-gradient(#c88f19 40%, #f7f243 70%);
 }
 
 .dd-scroll::-webkit-scrollbar-thumb:hover {
@@ -89,11 +89,10 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  font-size: 
-  14px;
-  border: none;
-  cursor: pointer;
   width: 100%;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
 }
 
 
@@ -104,10 +103,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-image: url("../../assets/buttons/main-button.png");
   border-radius: 5px;
+  background-image: url("../../assets/buttons/main-button.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
   transition: width 0.1s linear, height 0.1s linear;
 }
 
@@ -167,15 +166,15 @@
 .c22, .c22-hovering,
 .c25, .c25-hovering,
 .c26, .c26-hovering {
-  margin-right: 20px;
   width: 100%;
-  font-family: Friz Quadrata;
+  margin-right: 20px;
   background: -webkit-linear-gradient(#c88f19 40%, #f7f243 80%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  transition: font-size 0.1s linear;
   text-align: center;
+  font-family: Friz Quadrata;
+  transition: font-size 0.1s linear;
 }
 
 .c-sm {
@@ -298,8 +297,8 @@
   position: relative;
   width: 174px;
   height: 30px;
-  background-image: url("../../assets/buttons/sub-button.png");
   scroll-snap-align: start;
+  background-image: url("../../assets/buttons/sub-button.png");
 }
 
 .dd-sub-button-hovering {
@@ -328,12 +327,12 @@
   display: flex;
   justify-content: center;
   position: absolute;
-  font-family: Friz Quadrata;
-  font-weight: bold;
   background: -webkit-linear-gradient(#c88f19 40%, #f7f243 80%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-family: Friz Quadrata;
+  font-weight: bold;
   transition: font-size 0.1s linear;
 }
 

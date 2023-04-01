@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useAppSelector } from '../../store/hooks';
 import Quest from './Quest';
+import { useAppSelector } from '../../store/hooks';
 import { createViewQuests, reverseSortViewQuests, sortViewQuests } from '../../utils';
 import { SortSetting } from '../../types';
 import './View.css';

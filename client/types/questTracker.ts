@@ -4,7 +4,7 @@ import {
   Race
 } from './characters';
 import { Menu } from './dropdown';
-import { SelectedExpansion } from './expansions';
+import { Expansion } from './expansions';
 import { Faction } from './factions';
 import {
   CharacterQuestClass,
@@ -49,24 +49,24 @@ export type FilteredCharacterMenu = (
 ) => Menu;
 
 export type FilteredClassMenu = (
-  expansion: SelectedExpansion,
+  expansion: Expansion,
   faction: Faction,
   characterClass: ClassSetting | Record<string,never> | undefined
 ) => Menu;
 
 export type FilteredQuestTypeMenu = (
-  expansion: SelectedExpansion,
+  expansion: Expansion,
   type: QuestType | Record<string,never> | undefined
 ) => Menu;
 
 export type FilteredRaceMenu = (
-  expansion: SelectedExpansion,
+  expansion: Expansion,
   faction: Faction,
   race: RaceSetting | Record<string,never> | undefined
 ) => Menu;
 
 export type FilteredZoneMenu = (
-  expansion: SelectedExpansion,
+  expansion: Expansion,
   zone: string | Record<string,never> | undefined
 ) => Menu;
 

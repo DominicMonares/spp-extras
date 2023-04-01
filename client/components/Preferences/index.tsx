@@ -3,10 +3,10 @@ import ExpansionPreferences from './ExpansionPreferences';
 import FactionPreferences from './FactionPreferences';
 import MainButton from '../MainButton';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import mainLogo from '../../assets/logos/main.png';
-import './Preferences.css';
-import { Expansion, Faction, PreferencesProps } from '../../types';
 import { storeExpansion, storeFaction } from '../../store/slices';
+import mainLogo from '../../assets/logos/main.png';
+import { Expansion, Faction, PreferencesProps } from '../../types';
+import './Preferences.css';
 
 
 const Preferences = ({ setInstalled }: PreferencesProps) => {

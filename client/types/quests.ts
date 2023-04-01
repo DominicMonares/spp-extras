@@ -1,4 +1,4 @@
-import { Faction } from './characters';
+import { Faction } from './factions';
 
 
 export interface CharacterQuests {

@@ -1,3 +1,7 @@
+import _classMenu from '../../data/classMenu.json';
+import _questTypeMenu from '../../data/questTypeMenu.json';
+import _raceMenu from '../../data/raceMenu.json';
+import _zoneMenu from '../../data/zoneMenu.json';
 import {
   FilteredCharacterMenu,
   FilteredClassMenu,
@@ -5,10 +9,6 @@ import {
   FilteredRaceMenu,
   FilteredZoneMenu,
 } from "../types";
-import _classMenu from '../../data/classMenu.json';
-import _questTypeMenu from '../../data/questTypeMenu.json';
-import _raceMenu from '../../data/raceMenu.json';
-import _zoneMenu from '../../data/zoneMenu.json';
 
 
 export const characterMenu: FilteredCharacterMenu = (character, characters, faction) => {

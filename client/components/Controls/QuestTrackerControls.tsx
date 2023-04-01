@@ -2,6 +2,7 @@ import DropdownMenu from '../DropdownMenu';
 import FactionSelect from './FactionSelect';
 import MainButton from '../MainButton';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { storeQuestTrackerAll } from '../../store/slices';
 import {
   characterMenu,
   classMenu,
@@ -10,7 +11,6 @@ import {
   zoneMenu
 } from '../../utils';
 import './Controls.css';
-import { storeQuestTrackerAll } from '../../store/slices';
 
 
 const QuestTrackerControls = () => {

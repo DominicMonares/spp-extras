@@ -1,3 +1,5 @@
+import _classMenu from '../../data/classMenu.json';
+import _raceMenu from '../../data/raceMenu.json';
 import { 
   ClassSetting,
   GetClass,
@@ -5,8 +7,6 @@ import {
   Race, 
   RaceSetting 
 } from '../types';
-import _classMenu from '../../data/classMenu.json';
-import _raceMenu from '../../data/raceMenu.json';
 
 
 export const getClass: GetClass = (character) => {

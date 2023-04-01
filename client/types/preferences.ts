@@ -1,6 +1,7 @@
 import { Expansion } from "./expansions";
 import { Faction } from "./factions";
 
+
 export interface ExpansionPreferencesProps {
   setSelectedExpansion: React.Dispatch<React.SetStateAction<Expansion>>;
 }

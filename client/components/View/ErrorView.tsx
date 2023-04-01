@@ -1,7 +1,7 @@
 import { ViewProps } from "../../types";
 import MainButton from "../MainButton";
-import './View.css';
 import MainBigHeader from "../MainBigHeader";
+import './View.css';
 
 
 const ErrorView = ({ error, retry }: ViewProps) => {

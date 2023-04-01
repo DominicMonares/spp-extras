@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Modal from 'react-modal';
-import Tabs from './Tabs';
 import MainButton from '../MainButton';
+import Tabs from './Tabs';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import {
   storeCharacters,

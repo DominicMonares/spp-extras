@@ -1,7 +1,7 @@
 import { useAppSelector } from '../../store/hooks';
-import Tool from './Tool';
 import MainButton from '../MainButton';
 import MainHeader from '../MainHeader';
+import Tool from './Tool';
 import { ToolsProps } from '../../types';
 import './Tools.css';
 

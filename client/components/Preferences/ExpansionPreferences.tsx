@@ -2,8 +2,8 @@ import { useState } from 'react';
 import vanillaLogo from '../../assets/logos/vanilla.png';
 import tbcLogo from '../../assets/logos/tbc.png';
 import wotlkLogo from '../../assets/logos/wotlk.png';
-import './Preferences.css';
 import { ExpansionPreferencesProps } from '../../types';
+import './Preferences.css';
 
 
 const ExpansionPreferences = ({ setSelectedExpansion }: ExpansionPreferencesProps) => {

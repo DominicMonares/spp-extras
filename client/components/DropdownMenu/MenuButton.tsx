@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useAppSelector } from '../../store/hooks';
-import { MenuButtonProps } from '../../types';
 import arrow from '../../assets/buttons/arrow.png';
+import { MenuButtonProps } from '../../types';
 import './DropdownMenu.css';
 
 

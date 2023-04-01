@@ -1,7 +1,7 @@
 import { useAppSelector } from '../../store/hooks';
-import { QuestProps } from '../../types';
 import complete from '../../assets/status/complete.png';
 import incomplete from '../../assets/status/incomplete.png';
+import { QuestProps } from '../../types';
 
 
 const Quest = ({ quest }: QuestProps) => {

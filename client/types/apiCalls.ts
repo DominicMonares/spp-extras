@@ -1,17 +1,17 @@
 import { Characters } from "./characters";
-import { SelectedExpansion } from "./expansions";
+import { Expansion } from "./expansions";
 import { CompletedQuests, TemplateQuests } from "./quests";
 
 
 export type FetchCharacters = (
-  expansion: SelectedExpansion
+  expansion: Expansion
 ) => Promise<Characters>;
 
 export type FetchCompQuests = (
-  expansion: SelectedExpansion,
+  expansion: Expansion,
   characters: string
 ) => Promise<CompletedQuests>;
 
 export type FetchTemplateQuests = (
-  expansion: SelectedExpansion
+  expansion: Expansion
 ) => Promise<TemplateQuests>;

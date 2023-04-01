@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { storeFaction } from '../../store/slices';
+import { storeFaction, storeQuestTrackerCharacter, storeQuestTrackerClass, storeQuestTrackerRace } from '../../store/slices';
 import alliance from '../../assets/buttons/alliance.png';
 import horde from '../../assets/buttons/horde.png';
 import { Faction } from "../../types";
@@ -9,7 +9,14 @@ import { Faction } from "../../types";
 const FactionSelect = () => {
   const dispatch = useAppDispatch();
   const faction = useAppSelector(state => state.faction.selected);
+  const settings = useAppSelector(state => state.questTracker);
   const [animation, setAnimation] = useState<string>('');
+
+  const clearSettings = () => {
+    dispatch(storeQuestTrackerCharacter({ character: { id: 0, name: '', value: '' } }));
+    dispatch(storeQuestTrackerClass({ characterClass: { id: 0, name: '', value: '' } }));
+    dispatch(storeQuestTrackerRace({ race: { id: 0, name: '', value: '' } }));
+  }
 
   const selectFaction = (selectedFaction: Faction) => {
     const allianceSelected = selectedFaction === 'alliance' && faction !== 'alliance';
@@ -17,9 +24,11 @@ const FactionSelect = () => {
     if (allianceSelected) {
       setAnimation('-anim-1');
       dispatch(storeFaction(selectedFaction));
+      if (!settings.zone) clearSettings();
     } else if (hordeSelected) {
       setAnimation('-anim-2');
       dispatch(storeFaction(selectedFaction));
+      if (!settings.zone) clearSettings();
     }
   }
 

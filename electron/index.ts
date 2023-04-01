@@ -140,14 +140,14 @@ const spawnDjango = () => {
   }
 
   return spawn(
-    `cd api && spp_extras_api.exe runserver --settings=spp_extras.settings.prod --noreload`,
+    `cd api && spp_extras_api.exe runserver 80 --settings=spp_extras.settings.prod --noreload`,
     { shell: true }
   );
 }
 
 const isDevelopmentEnv = () => {
   console.log(`NODE_ENV=${process.env.NODE_ENV}`)
-  return process.env.NODE_ENV == 'development'
+  return process.env.NODE_ENV === 'development'
 }
 
 const openDevTools = (mainWindow: BrowserWindow) => {

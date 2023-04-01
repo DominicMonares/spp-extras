@@ -30,7 +30,7 @@ const App = () => {
   const expansion = useAppSelector(state => state.expansion.selected);
   const faction = useAppSelector(state => state.faction.selected);
   const smallWindow = useAppSelector(state => state.window.smallWindow);
-  const [installed, setInstalled] = useState<boolean>(true);
+  const [installed, setInstalled] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>('');
 

@@ -79,7 +79,7 @@ const QuestTrackerView = () => {
           </tbody>
         </table>
       ) : (
-        <MainBigHeader headerText="Please select a zone ~or~ race and/or class" />
+        <MainBigHeader headerText="Please select your filters" />
       )}
     </div>
   );

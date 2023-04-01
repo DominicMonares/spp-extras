@@ -1,17 +1,18 @@
-import { useState } from 'react';
+import { useAppSelector } from '../../store/hooks';
 import { TabProps } from "../../types";
 import vanillaTab from '../../assets/tabs/vanilla.png';
 import tbcTab from '../../assets/tabs/tbc.png';
 import wotlkTab from '../../assets/tabs/wotlk.png';
 import './ExpansionNav.css';
 
-const Tab = ({ active, expansion, openModal }: TabProps) => {
-  const [hovering, setHovering] = useState<string>('');
+
+const Tab = ({ bufferHover, openModal, xpac }: TabProps) => {
+  const expansion = useAppSelector(state => state.expansion.selected);
 
   const tabImg = () => {
-    if (expansion === 'classic') {
+    if (xpac === 'classic') {
       return vanillaTab;
-    } else if (expansion === 'tbc') {
+    } else if (xpac === 'tbc') {
       return tbcTab;
     } else {
       return wotlkTab;
@@ -21,17 +22,16 @@ const Tab = ({ active, expansion, openModal }: TabProps) => {
   return (
     <button
       className={`
-        ${expansion}-tab
-        ${active ? `${expansion}-tab-active` : ''}
-        ${expansion}-gradient
+        ${xpac}-tab
+        ${expansion === xpac ? `${xpac}-tab-active` : ''}
+        ${xpac}-gradient
       `}
-      onClick={() => openModal(expansion)}
-      onMouseEnter={() => setHovering('-hovering')}
-      onMouseLeave={() => setHovering('')}
+      onClick={() => openModal(xpac)}
     >
       <img
         className={`
-          ${expansion}-label${hovering}${active}
+          ${xpac}-label
+          ${expansion === xpac || bufferHover ? `${xpac}-label-active` : ''}
         `}
         src={tabImg()}
       />

@@ -9,8 +9,8 @@ export interface ExpansionProps {
 export type Expansion = 'classic' | 'tbc' | 'wotlk' | '';
 
 export interface TabProps extends TabsProps {
-  active: string;
-  expansion: Expansion;
+  bufferHover: boolean;
+  xpac: Expansion;
 }
 
 export interface TabsProps {

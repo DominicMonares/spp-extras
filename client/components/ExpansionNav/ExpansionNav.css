@@ -80,14 +80,8 @@
 /* Tab Labels */
 
 .classic-label,
-.classic-label:hover,
-.classic-label-active,
 .tbc-label,
-.tbc-label:hover,
-.tbc-label-active,
-.wotlk-label,
-.wotlk-label:hover,
-.wotlk-label-active {
+.wotlk-label {
   transition: width 0.1s linear, height 0.1s linear;
 }
 
@@ -96,7 +90,7 @@
   height: 30px;
 }
 
-.classic-label:hover,
+.classic-tab:hover > .classic-label,
 .classic-label-active {
   width: 150px;
   height: 39px;
@@ -107,7 +101,7 @@
   height: 30px;
 }
 
-.tbc-label:hover,
+.tbc-tab:hover > .tbc-label,
 .tbc-label-active {
   width: 64px;
   height: 39px;
@@ -118,7 +112,7 @@
   height: 30px;
 }
 
-.wotlk-label:hover,
+.wotlk-tab:hover > .wotlk-label,
 .wotlk-label-active {
   width: 122px;
   height: 39px;

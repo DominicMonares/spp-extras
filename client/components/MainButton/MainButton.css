@@ -10,8 +10,8 @@
   transition: width 0.1s linear, height 0.1s linear;
 }
 
-.main-active,
-.main-hovering {
+.main-button:hover,
+.main-button-active {
   width: 236.5px;
   height: 57px;
 }
@@ -32,7 +32,7 @@
   transition: font-size 0.1s linear, margin-top 0.1s linear, margin-bottom 0.1s linear;
 }
 
-.main-text-active,
-.main-text-hovering {
+.main-button:hover > .main-button-text,
+.main-button-text-active {
   font-size: 27.5px;
 }

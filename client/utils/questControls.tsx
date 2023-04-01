@@ -3,6 +3,7 @@ import _questTypeMenu from '../../data/questTypeMenu.json';
 import _raceMenu from '../../data/raceMenu.json';
 import _zoneMenu from '../../data/zoneMenu.json';
 import {
+  Character,
   FilteredCharacterMenu,
   FilteredClassMenu,
   FilteredQuestTypeMenu,
@@ -12,7 +13,7 @@ import {
 
 
 export const characterMenu: FilteredCharacterMenu = (character, characters, faction) => {
-  const submenu = Object.values(characters[faction]).map(c => {
+  const submenu = Object.values(characters[faction]).map((c: Character) => {
     const value = { characterClass: c.class_field, race: c.race };
     return { title: c.name, id: c.guid, value: JSON.stringify(value) };
   });

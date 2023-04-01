@@ -16,12 +16,12 @@ import zoneRef from '../../data/zoneRef.json';
 
 
 export const createViewQuests: CreateViewQuests = (all, completedQuests, settings, templateQuests) => {
-  const { faction, type, character } = settings;
+  const { type, character } = settings;
   const filteredTemplateQuests = filterTemplateQuests(all, settings, templateQuests);
 
   // Mark completed quests, check both factions so neutral quests are marked
   if (character && character.id) {
-    const characterQuests = completedQuests[faction][character.id];
+    const characterQuests = completedQuests[settings.faction][character.id];
     markTemplateQuests(characterQuests, filteredTemplateQuests, type);
   } else {
     const allCompletedQuests = { ...completedQuests['alliance'], ...completedQuests['horde'] };

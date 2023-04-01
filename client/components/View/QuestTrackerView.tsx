@@ -10,13 +10,16 @@ const QuestTrackerView = () => {
   const quests = useAppSelector(state => state.quests);
   const { completedQuests, templateQuests } = quests;
   const expansion = useAppSelector(state => state.expansion.selected);
+  const faction = useAppSelector(state => state.faction.selected);
   const settings = useAppSelector(state => state.questTracker);
   const { all, characterClass, race, zone } = settings;
   const [sort, setSort] = useState<SortSetting>('');
   const [sortNameReverse, setSortNameReverse] = useState<boolean>(true);
   const [sortIDReverse, setSortIDReverse] = useState<boolean>(true);
   const [sortStatusReverse, setStatusReverse] = useState<boolean>(true);
-  const viewQuests = createViewQuests(all, completedQuests, settings, templateQuests);
+  
+  const fullSettings = { ...settings, faction: faction };
+  const viewQuests = createViewQuests(all, completedQuests, fullSettings, templateQuests);
 
   const setSortedQuests = (sortSetting: SortSetting) => {
     setSort(sortSetting);

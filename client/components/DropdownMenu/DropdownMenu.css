@@ -106,7 +106,7 @@
   align-items: center;
   background-repeat: no-repeat;
   background-size: 100%;
-  background-image: url("../../assets/buttons/button.png");
+  background-image: url("../../assets/buttons/main-button.png");
   border-radius: 5px;
   transition: width 0.1s linear, height 0.1s linear;
 }

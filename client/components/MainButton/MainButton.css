@@ -22,9 +22,9 @@
 .main-button-text {
   display: flex;
   justify-content: center;
+  align-items: center;
   font-family: Friz Quadrata;
   font-size: 26px;
-  margin-top: 7px;
   background: -webkit-linear-gradient(#c88f19 40%, #f7f243 80%);
   background-clip: text;
   -webkit-background-clip: text;

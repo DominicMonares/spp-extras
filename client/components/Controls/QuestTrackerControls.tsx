@@ -24,7 +24,7 @@ const QuestTrackerControls = () => {
   return (
     <>
       <div className="qt-faction">
-        <div className="control-label">{'Primary Filters'}</div>
+        <div className="control-label">Primary Filters</div>
         <FactionSelect />
       </div>
       <div className="qt-filters">

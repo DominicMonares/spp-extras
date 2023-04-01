@@ -24,34 +24,6 @@
 }
 
 
-/* Header */
-
-.controls-header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 5px;
-  margin-bottom: 7px;
-}
-
-.controls-header-text {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  position: relative;
-  z-index: 1;
-  height: 40px;
-  margin-top: -40px;
-  font-family: Friz Quadrata;
-  font-size: 24px;
-  background: -webkit-linear-gradient(#c88f19 40%, #f7f243 70%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-
 /* Control Labels */
 
 .control-label {
@@ -63,40 +35,6 @@
 .home-ctrl-label {
   margin-top: -8.5px;
   margin-bottom: 5px;
-}
-
-
-/* Quest Tracker */
-
-.qt-faction,
-.qt-filters,
-.qt-additional-filters {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.qt-faction {
-  position: relative;
-  margin-top: -8.5px;
-}
-
-.qt-filters {
-  margin-top: 50.37px;
-}
-
-.qt-additional-filters {
-  margin-bottom: 5px;
-}
-
-.qt-zone-label {
-  margin-bottom: 2.5px;
-}
-
-.qt-additional-label {
-  margin-top: -1.5px;
-  margin-bottom: 3px;
 }
 
 
@@ -207,4 +145,34 @@
 .qt-horde-2-anim-2 {
   animation-name: qt-horde-2-animation;
   animation-duration: 0.5s;
+}
+
+
+/* Quest Tracker */
+
+.qt-faction,
+.qt-filters,
+.qt-additional-filters {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.qt-faction {
+  position: relative;
+  margin-top: -8.5px;
+}
+
+.qt-filters {
+  margin-top: 50.37px;
+}
+
+.qt-additional-filters {
+  margin-bottom: 5px;
+}
+
+.qt-additional-label {
+  margin-top: -1.5px;
+  margin-bottom: 3px;
 }

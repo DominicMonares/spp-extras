@@ -10,6 +10,7 @@ body,
 #root {
   height: 1080px;
   max-height: 1080px;
+  cursor: url('assets/cursors/gauntlet.cur'), auto;
 }
 
 html::-webkit-scrollbar {

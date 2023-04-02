@@ -12,16 +12,24 @@ const QuestTrackerView = () => {
   const { completedQuests, templateQuests } = quests;
   const expansion = useAppSelector(state => state.expansion.selected);
   const faction = useAppSelector(state => state.faction.selected);
+
+  // Determine how to filter view quests
   const settings = useAppSelector(state => state.questTracker);
   const { all, characterClass, race, zone } = settings;
+
+  // Track which column is currently being sorted
   const [sort, setSort] = useState<SortSetting>('');
+
+  // Track different sort types - allow ascending and descending sort
   const [sortNameReverse, setSortNameReverse] = useState<boolean>(true);
   const [sortIDReverse, setSortIDReverse] = useState<boolean>(true);
   const [sortStatusReverse, setStatusReverse] = useState<boolean>(true);
   
+  // Add faction to settings and create view quests
   const fullSettings = { ...settings, faction: faction };
   const viewQuests = createViewQuests(all, completedQuests, fullSettings, templateQuests);
 
+  // Ensure only one sort filter is active at a time
   const setSortedQuests = (sortSetting: SortSetting) => {
     setSort(sortSetting);
     if (sortSetting === 'name') {
@@ -39,6 +47,7 @@ const QuestTrackerView = () => {
     }
   }
 
+  // Create sorted view quests
   const sortedViewQuests = () => {
     if (sort === 'name') {
       if (sortNameReverse) {
@@ -59,6 +68,7 @@ const QuestTrackerView = () => {
         return sortViewQuests(viewQuests, sort);
       }
     } else {
+      // Change nothing if no setting provided
       return viewQuests;
     }
   }

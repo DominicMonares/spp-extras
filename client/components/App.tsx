@@ -30,17 +30,21 @@ const App = () => {
   const expansion = useAppSelector(state => state.expansion.selected);
   const faction = useAppSelector(state => state.faction.selected);
   const smallWindow = useAppSelector(state => state.window.smallWindow);
-  const [installed, setInstalled] = useState<boolean>(false);
-  const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(true);
+
+  // Track whether user has completed initial setup or not
+  const [installed, setInstalled] = useState<boolean>(false);
 
   useEffect(() => {
+    // Transfer data from electron store to redux store if it exists
     const checkPreferences = async () => {
       const savedExpansion = await window.electron.getExpansion();
       if (savedExpansion) dispatch(storeExpansion(savedExpansion));
       const savedFaction = await window.electron.getFaction();
       if (savedFaction) dispatch(storeFaction(savedFaction));
       if (savedExpansion && savedFaction) {
+        // Close preferences and fetch data once settings have been transferred/confirmed
         setInstalled(true);
         getAllData(savedExpansion);
       }
@@ -54,11 +58,13 @@ const App = () => {
   }, []);
 
   useEffect(() => {
+    // Track window size and change class names accordingly
     const handleWidthChange = () => dispatch(storeWindowWidth(windowIsSmall()));
     window.addEventListener('resize', handleWidthChange);
     return () => window.removeEventListener('resize', handleWidthChange);
   }, []);
 
+  // Fetch all characters from DB then add to redux store
   const getCharacters = async (xpac: Expansion) => {
     const newCharacters = await fetchCharacters(xpac).catch(err => setError(err.message));
     if (newCharacters) {
@@ -69,14 +75,19 @@ const App = () => {
     }
   }
 
+  // Fetch all completed quests using character data then add to redux store
   const getCompletedQuests = async (chars: Characters, xpac: Expansion) => {
-    const allianceCharacters = Object.values(chars.alliance);
-    const allianceParameters = allianceCharacters.map((c: Character) => [c.guid, getFaction(c.race)]);
-    const hordeCharacters = Object.values(chars.horde);
-    const hordeParameters = hordeCharacters.map((c: Character) => [c.guid, getFaction(c.race)]);
-    const characterParameters = allianceParameters.concat(hordeParameters).flat().join(',');
-    const newCompletedQuests = await fetchCompletedQuests(xpac, characterParameters)
+    // Create query parameters using character data from both factions
+    const allianceChars = Object.values(chars.alliance);
+    const allianceParams = allianceChars.map((c: Character) => [c.guid, getFaction(c.race)]);
+    const hordeChars = Object.values(chars.horde);
+    const hordeParams = hordeChars.map((c: Character) => [c.guid, getFaction(c.race)]);
+    const characterParams = allianceParams.concat(hordeParams).flat().join(',');
+
+    // Fetch completed quests using newly created query parameters
+    const newCompletedQuests = await fetchCompletedQuests(xpac, characterParams)
       .catch(err => setError(err));
+
     if (newCompletedQuests) {
       dispatch(storeCompletedQuests(newCompletedQuests));
       return newCompletedQuests;
@@ -85,6 +96,7 @@ const App = () => {
     }
   }
 
+  // Fetch all template quests from DB
   const getTemplateQuests = async (xpac: Expansion) => {
     const newTemplateQuests = await fetchTemplateQuests(xpac).catch(err => setError(err));
     if (newTemplateQuests) {
@@ -95,8 +107,9 @@ const App = () => {
     }
   }
 
+  // Fetch all data used in SPP-Extras from DB
   const getAllData = async (xpac?: Expansion) => {
-    if (!xpac) xpac = expansion;
+    if (!xpac) xpac = expansion; // Used when switching expansions
     setLoading(true);
     setError('');
     const chars = await getCharacters(xpac);

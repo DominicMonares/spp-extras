@@ -177,8 +177,6 @@ export const reverseSortViewQuests: SortViewQuests = (viewQuests, sortSetting) =
         return -1;
       } else if ((a.completed && b.completed) || (!a.completed && !b.completed)) {
         return reverseSortTitle(a.title, b.title);
-      } else {
-        return 0;
       }
     } else {
       return 0;

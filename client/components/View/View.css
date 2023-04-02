@@ -4,7 +4,6 @@
   margin-top: 5px;
   width: 100%;
   height: max-content;
-  max-height: 695px;
   border: 1px solid black;
   border-radius: 10px;
 }
@@ -81,7 +80,7 @@
   margin-right: 5px;
   margin-top: 5px;
   margin-bottom: 5px;
-  max-height: 632.5px;
+  max-height: 675px;
   border: black 1px solid;
 }
 

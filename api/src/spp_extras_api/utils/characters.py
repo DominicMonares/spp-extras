@@ -7,6 +7,7 @@ def get_account_id(account):
     return account['id']
 
 
+# Combine all characters into one object sorted by faction
 def all_characters(accounts, characters):
     player_accounts = {}
     chars = {'alliance': {}, 'horde': {}}

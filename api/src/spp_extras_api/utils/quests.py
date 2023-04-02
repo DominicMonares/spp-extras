@@ -1,3 +1,4 @@
+# Combine all completed quests into one object sorted by faction
 def all_completed_quests(chars, regular, daily, weekly, monthly):
     all = {
         'alliance': {},
@@ -43,6 +44,7 @@ def all_completed_quests(chars, regular, daily, weekly, monthly):
     return all
 
 
+# Combine all template quests into one object sorted by faction
 def all_template_quests(quests):
     all = {
         'alliance': {},

@@ -5,25 +5,24 @@ import { SubmenuButtonProps } from '../../types';
 import './DropdownMenu.css';
 
 
-const SubmenuButton = ({
-  final,
-  handleSelection,
-  subHovering,
-  item
-}: SubmenuButtonProps) => {
+const SubmenuButton = ({ handleSelection, final, item, subHovering }: SubmenuButtonProps) => {
   const smallWindow = useAppSelector(state => state.window.smallWindow);
-  const [hovering, setHovering] = useState<string>('');
-  useEffect(() => subHovering ? setHovering('-hovering') : setHovering(''));
+  const [active, setActive] = useState<string>('');
+
+  // Keep parent sub-menu buttons hovering when children are hovering
+  useEffect(() => subHovering ? setActive('-active') : setActive(''));
+
+  // Need to lower font size for longer zone names
   const longTitle = item.title.length > 25 ? 'dd-long-sub-text' : '';
 
   return (
     <button
       id={item.id ? item.id.toString() : ''}
-      className={`dd-sub-button${hovering}`}
+      className={`dd-sub-button${active}`}
       value={item.value ? item.value : ''}
       onClick={final ? handleSelection : () => null}
-      onMouseEnter={() => setHovering('-hovering')}
-      onMouseLeave={() => setHovering('')}
+      onMouseEnter={() => setActive('-active')}
+      onMouseLeave={() => setActive('')}
     >
       {!final && !smallWindow ? <img className="dd-sub-arrow" src={arrow} /> : <></>}
       <li

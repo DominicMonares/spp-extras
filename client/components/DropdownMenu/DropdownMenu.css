@@ -290,7 +290,7 @@
 /* Sub Menu Button */
 
 .dd-sub-button,
-.dd-sub-button-hovering {
+.dd-sub-button-active {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -301,7 +301,7 @@
   background-image: url("../../assets/buttons/sub-button.png");
 }
 
-.dd-sub-button-hovering {
+.dd-sub-button-active {
   filter: brightness(1.5)
 }
 

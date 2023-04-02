@@ -1,7 +1,7 @@
 {
   "noCharacterMenu": [
     {
-      "title": "All Characters",
+      "title": "Characters",
       "submenu": [
         {
           "title": "Drak",
@@ -18,7 +18,7 @@
   ],
   "currentCharacterMenu": [
     {
-      "title": "All Characters",
+      "title": "Characters",
       "submenu": [
         {
           "title": "All Characters",

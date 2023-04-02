@@ -204,9 +204,18 @@ export const markTemplateQuests: MarkTemplateQuests = (
 
   const typeQuests = type ? characterQuests[type] : allCharacterQuests;
   for (const q in typeQuests) {
+    let completedQuestIndex: number;
     const quest = typeQuests[q];
-    if (filteredTemplateQuests[quest.quest]) {
-      filteredTemplateQuests[quest.quest]['completed'] = true;
+
+    const questCompleted = filteredTemplateQuests.some(((q, i) => {
+      // quest.quest is essentially quest.entry - named so b/c of DB schema
+      const match = q.entry === quest.quest;
+      if (match) completedQuestIndex = i;
+      return match;
+    }))
+
+    if (questCompleted) {
+      filteredTemplateQuests[completedQuestIndex]['completed'] = true;
     }
   }
 

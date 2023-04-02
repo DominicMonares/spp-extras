@@ -174,9 +174,6 @@ other vars
 
 CLEANUP PLAN
 Comments
-State/Store hierarchy
-Variable names
-Remove default nulls for expansion, other store objects
 
 TODO
 Util for removing dev quests and exclamation marks

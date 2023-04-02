@@ -194,6 +194,7 @@ export const markTemplateQuests: MarkTemplateQuests = (
   filteredTemplateQuests,
   type
 ) => {
+  // Consolidate all quests into one object
   const allCharacterQuests = {
     ...characterQuests.regular,
     ...characterQuests.daily,
@@ -212,8 +213,16 @@ export const markTemplateQuests: MarkTemplateQuests = (
   return filteredTemplateQuests;
 }
 
-export const createViewQuests: CreateViewQuests = (all, completedQuests, settings, templateQuests) => {
+// Create list of quests to be displayed
+export const createViewQuests: CreateViewQuests = (
+  all, 
+  completedQuests, 
+  settings, 
+  templateQuests
+) => {
   const { character, type } = settings;
+
+  // Create list of quests filtered using quest tracker settings
   const filteredTemplateQuests = filterTemplateQuests(all, settings, templateQuests);
 
   // Mark completed quests, check both factions so neutral quests are marked

@@ -27,9 +27,9 @@ export interface ClassSetting {
 
 export type CreateViewQuests = (
   all: boolean,
-  completedQuests: CompletedQuests | Record<string,never>,
+  completedQuests: CompletedQuests,
   settings: QuestTrackerSettings,
-  templateQuests: TemplateQuests | Record<string,never>
+  templateQuests: TemplateQuests
 ) => ViewQuests;
 
 export type FilterQuests = (
@@ -73,7 +73,7 @@ export type MarkTemplateQuests = (
 ) => ViewQuests;
 
 export interface QuestCondition {
-  setting: Faction | QuestType | string | ClassSetting | RaceSetting | CharacterSetting;
+  setting: CharacterSetting | ClassSetting | Faction | QuestType | RaceSetting | string;
   conditionMet: () => boolean;
 }
 

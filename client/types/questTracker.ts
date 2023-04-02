@@ -39,7 +39,7 @@ export type FilterQuests = (
 ) => ViewQuests;
 
 export type FilteredCharacterMenu = (
-  chararcter: CharacterSetting,
+  chararcter: CharacterSetting | undefined,
   characters: Characters,
   faction: Faction
 ) => Menu;
@@ -47,23 +47,23 @@ export type FilteredCharacterMenu = (
 export type FilteredClassMenu = (
   expansion: Expansion,
   faction: Faction,
-  characterClass: ClassSetting
+  characterClass: ClassSetting | undefined
 ) => Menu;
 
 export type FilteredQuestTypeMenu = (
   expansion: Expansion,
-  type: QuestType
+  type: QuestType | undefined
 ) => Menu;
 
 export type FilteredRaceMenu = (
   expansion: Expansion,
   faction: Faction,
-  race: RaceSetting
+  race: RaceSetting | undefined
 ) => Menu;
 
 export type FilteredZoneMenu = (
   expansion: Expansion,
-  zone: string
+  zone: string | undefined
 ) => Menu;
 
 export type MarkTemplateQuests = (

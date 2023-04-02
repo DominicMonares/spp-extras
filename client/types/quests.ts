@@ -1,6 +1,11 @@
 import { Faction } from './factions';
 
 
+export interface AllQuests {
+  completedQuests: CompletedQuests | Record<string,never>;
+  templateQuests: TemplateQuests | Record<string,never>;
+}
+
 export interface CharacterQuests {
   regular: Quests;
   daily?: Quests;
@@ -81,4 +86,3 @@ export interface TemplateQuests {
   horde: TemplateFactionQuests | Record<string,never>;
   both: TemplateFactionQuests | Record<string,never>;
 }
-

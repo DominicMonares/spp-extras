@@ -1,12 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { 
-  CompletedQuests,
-  QuestSliceInitState,
-  TemplateQuests
-} from '../../types';
+import { CompletedQuests, AllQuests, TemplateQuests } from '../../types';
 
 
-const initialState: QuestSliceInitState = {
+const initialState: AllQuests = {
   completedQuests: {},
   templateQuests: {}
 };

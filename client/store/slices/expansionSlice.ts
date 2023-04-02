@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Expansion, ExpansionSliceState } from '../../types';
+import { Expansion, ReduxInitialExpansion } from '../../types';
 
 
-const initialState: ExpansionSliceState = {
+const initialState: ReduxInitialExpansion = {
   selected: ''
 }
 

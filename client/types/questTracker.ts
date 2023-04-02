@@ -1,8 +1,4 @@
-import { 
-  CharacterClass, 
-  Characters,
-  Race
-} from './characters';
+import { CharacterClass, Characters, Race } from './characters';
 import { Menu } from './dropdown';
 import { Expansion } from './expansions';
 import { Faction } from './factions';
@@ -43,7 +39,7 @@ export type FilterQuests = (
 ) => ViewQuests;
 
 export type FilteredCharacterMenu = (
-  chararcter: CharacterSetting | Record<string,never> | undefined,
+  chararcter: CharacterSetting,
   characters: Characters,
   faction: Faction
 ) => Menu;
@@ -51,23 +47,23 @@ export type FilteredCharacterMenu = (
 export type FilteredClassMenu = (
   expansion: Expansion,
   faction: Faction,
-  characterClass: ClassSetting | Record<string,never> | undefined
+  characterClass: ClassSetting
 ) => Menu;
 
 export type FilteredQuestTypeMenu = (
   expansion: Expansion,
-  type: QuestType | Record<string,never> | undefined
+  type: QuestType
 ) => Menu;
 
 export type FilteredRaceMenu = (
   expansion: Expansion,
   faction: Faction,
-  race: RaceSetting | Record<string,never> | undefined
+  race: RaceSetting
 ) => Menu;
 
 export type FilteredZoneMenu = (
   expansion: Expansion,
-  zone: string | Record<string,never> | undefined
+  zone: string
 ) => Menu;
 
 export type MarkTemplateQuests = (
@@ -77,7 +73,7 @@ export type MarkTemplateQuests = (
 ) => ViewQuests;
 
 export interface QuestCondition {
-  setting: Faction | QuestType | string | ClassSetting | RaceSetting | CharacterSetting | undefined | Record<string,never>;
+  setting: Faction | QuestType | string | ClassSetting | RaceSetting | CharacterSetting;
   conditionMet: () => boolean;
 }
 
@@ -89,19 +85,14 @@ export interface QuestProps {
   quest: ViewQuest;
 }
 
-export interface QuestSliceInitState {
-  completedQuests: CompletedQuests | Record<string,never>;
-  templateQuests: TemplateQuests | Record<string,never>;
-}
-
 export interface QuestTrackerSettings {
   all?: boolean;
-  character?: CharacterSetting | Record<string,never> | undefined;
-  characterClass?: ClassSetting | Record<string,never> | undefined;
+  character?: CharacterSetting;
+  characterClass?: ClassSetting;
   faction?: Faction;
-  race?: RaceSetting | Record<string,never> | undefined;
-  type?: QuestType | undefined;
-  zone?: string | undefined;
+  race?: RaceSetting;
+  type?: QuestType;
+  zone?: string;
 }
 
 export interface RaceSetting { 

@@ -1,5 +1,5 @@
 export type Faction = 'alliance' | 'horde' | '';
 
-export interface FactionSliceState {
+export interface ReduxInitialFaction {
   selected: Faction;
 }

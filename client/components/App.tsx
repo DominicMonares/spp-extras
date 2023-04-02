@@ -19,7 +19,7 @@ import {
   fetchCompletedQuests,
   fetchTemplateQuests
 } from '../apiCalls';
-import { getFaction, windowIsSmall } from '../utils';
+import { checkFaction, windowIsSmall } from '../utils';
 import { Character, Characters, Expansion } from '../types';
 import './App.css';
 
@@ -79,9 +79,9 @@ const App = () => {
   const getCompletedQuests = async (chars: Characters, xpac: Expansion) => {
     // Create query parameters using character data from both factions
     const allianceChars = Object.values(chars.alliance);
-    const allianceParams = allianceChars.map((c: Character) => [c.guid, getFaction(c.race)]);
+    const allianceParams = allianceChars.map((c: Character) => [c.guid, checkFaction(c.race)]);
     const hordeChars = Object.values(chars.horde);
-    const hordeParams = hordeChars.map((c: Character) => [c.guid, getFaction(c.race)]);
+    const hordeParams = hordeChars.map((c: Character) => [c.guid, checkFaction(c.race)]);
     const characterParams = allianceParams.concat(hordeParams).flat().join(',');
 
     // Fetch completed quests using newly created query parameters

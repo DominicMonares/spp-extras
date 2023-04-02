@@ -156,20 +156,10 @@ const createWindows = async () => {
   if (isDevelopmentEnv()) openDevTools(mainWindow);
 };
 
-
-
-
-
-
-
-
-
 app.on('ready', createWindows);
 
 app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit();
-  }
+  if (process.platform !== 'darwin') app.quit();
 });
 
 app.on('before-quit', () => {

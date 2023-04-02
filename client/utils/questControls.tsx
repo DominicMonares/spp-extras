@@ -9,15 +9,18 @@ import {
   FilteredQuestTypeMenu,
   FilteredRaceMenu,
   FilteredZoneMenu,
+  RaceSetting,
 } from "../types";
 
 
+// Create character menu from player character data
 export const characterMenu: FilteredCharacterMenu = (character, characters, faction) => {
   const submenu = Object.values(characters[faction]).map((c: Character) => {
     const value = { characterClass: c.class_field, race: c.race };
     return { title: c.name, id: c.guid, value: JSON.stringify(value) };
   });
 
+  // Create reset option if a character is selected
   if (character) {
     submenu.unshift({
       title: 'All Characters',
@@ -32,10 +35,12 @@ export const characterMenu: FilteredCharacterMenu = (character, characters, fact
   }];
 }
 
+// Create class menu based on expansion and faction data
 export const classMenu: FilteredClassMenu = (expansion, faction, characterClass) => {
   return [{
     title: _classMenu[0]['title'],
     submenu: _classMenu[0]['submenu'].filter(c => {
+      // Do not include Alliance Shamans or Horde Paladins when Vanilla selected
       const onAlliance = faction === 'alliance';
       const onHorde = faction === 'horde';
       const paladin = c.id === 2;
@@ -44,6 +49,7 @@ export const classMenu: FilteredClassMenu = (expansion, faction, characterClass)
       const noHordeMatch = onHorde && paladin;
       if (expansion === 'classic' && (noAllianceMatch || noHordeMatch)) return false;
 
+      // Do not include Death Knights if WotLK not selected
       const deathKnight = c.id === 6;
       if (expansion !== 'wotlk' && deathKnight) return false;
 
@@ -54,11 +60,13 @@ export const classMenu: FilteredClassMenu = (expansion, faction, characterClass)
   }];
 }
 
+// Create race menu using expansion and faction data
 export const raceMenu: FilteredRaceMenu = (expansion, faction, race) => {
   const raceMenuFaction = _raceMenu[faction][0];
   return [{
     title: raceMenuFaction.title,
-    submenu: raceMenuFaction.submenu.filter(r => {
+    submenu: raceMenuFaction.submenu.filter((r: RaceSetting) => {
+      // Do not include Blood Elves or Draenei when Vanilla selected
       const nonVanillaRace = r.id === 10 || r.id === 11;
       if (expansion === 'classic' && nonVanillaRace) return false;
 
@@ -69,10 +77,12 @@ export const raceMenu: FilteredRaceMenu = (expansion, faction, race) => {
   }];
 }
 
+// Create quest type menu using expansion data
 export const questTypeMenu: FilteredQuestTypeMenu = (expansion, type) => {
   return [{
     title: _questTypeMenu[0]['title'],
     submenu: _questTypeMenu[0]['submenu'].filter(t => {
+      // Do not include daily or monthly quests if Vanilla not selected
       const nonVanillaType = t.title === 'Daily' || t.title === 'Monthly';
       if (nonVanillaType && expansion === 'classic') return false;
 
@@ -83,6 +93,7 @@ export const questTypeMenu: FilteredQuestTypeMenu = (expansion, type) => {
   }];
 }
 
+// Create zone menu using expansion data
 export const zoneMenu: FilteredZoneMenu = (expansion, zone) => {
   const menu = [{
     title: _zoneMenu[0]['title'],
@@ -93,6 +104,7 @@ export const zoneMenu: FilteredZoneMenu = (expansion, zone) => {
           return {
             title: c.title,
             submenu: c.submenu.filter(z => {
+              // Do not include new Eastern Kingdoms or Kalimdor zones if Vanilla selected
               const eversong = z.title === 'Eversong Woods';
               const ghostlands = z.title === 'Ghostlands';
               const isle = z.title === 'Isle of Quel\'Danas';
@@ -109,7 +121,11 @@ export const zoneMenu: FilteredZoneMenu = (expansion, zone) => {
         }).filter(f => {
           const onOutland = f.title === 'Outland';
           const onNorthrend = f.title === 'Northrend';
+
+          // Do not include Outland or Northrend if Vanilla selected
           if (expansion === 'classic' && (onOutland || onNorthrend)) return false;
+          
+          // Do not include Northrend if TBC selected
           if (expansion === 'tbc' && onNorthrend) return false;
           return true;
         })

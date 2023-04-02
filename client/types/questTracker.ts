@@ -8,9 +8,9 @@ import {
   CharacterQuests,
   CompletedQuests,
   QuestType,
-  TemplateQuest,
   TemplateQuests
 } from './quests';
+import { ViewQuest, ViewQuests } from './view';
 
 
 export interface CharacterSetting {
@@ -102,26 +102,3 @@ export interface RaceSetting {
 }
 
 export type SortSetting = 'name' | 'id' | 'status' | '';
-
-export type SortViewQuests = (
-  viewQuests: ViewQuests,
-  sortSetting: SortSetting
-) => ViewQuests
-
-export interface ViewQuest extends TemplateQuest {
-  completed: boolean;
-}
-
-export type ViewQuests = ViewQuest[];
-
-export interface ViewSubzone {
-  subzoneId: number;
-  subzone: string;
-}
-
-export type ViewZone = ViewSubzone[];
-
-export interface ViewZones {
-  [key: string]: ViewZone;
-}
-

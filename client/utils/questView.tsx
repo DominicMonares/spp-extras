@@ -114,6 +114,7 @@ export const sortTitle = (a: string, b: string) => {
   }
 }
 
+// Used for ascending column sort
 export const sortViewQuests: SortViewQuests = (viewQuests, sortSetting) => {
   return viewQuests.sort((a, b) => {
     if (sortSetting === 'name') {
@@ -155,11 +156,14 @@ export const reverseSortTitle = (a: string, b: string) => {
   }
 }
 
+// Used for descending column sort
 export const reverseSortViewQuests: SortViewQuests = (viewQuests, sortSetting) => {
   return viewQuests.sort((a, b) => {
     if (sortSetting === 'name') {
+      // Sort by alphabetical order
       return reverseSortTitle(a.title, b.title);
     } else if (sortSetting === 'id') {
+      // Sort by numerical order
       if (a.entry < b.entry) {
         return 1;
       } else if (a.entry > b.entry) {
@@ -168,6 +172,7 @@ export const reverseSortViewQuests: SortViewQuests = (viewQuests, sortSetting) =
         return 0;
       }
     } else if (sortSetting === 'status') {
+      // Sort by completed status
       if (a.completed && !b.completed) {
         return 1;
       } else if (!a.completed && b.completed) {
@@ -183,6 +188,7 @@ export const reverseSortViewQuests: SortViewQuests = (viewQuests, sortSetting) =
   });
 }
 
+// Mark sorted template quests as complete or incomplete
 export const markTemplateQuests: MarkTemplateQuests = (
   characterQuests,
   filteredTemplateQuests,

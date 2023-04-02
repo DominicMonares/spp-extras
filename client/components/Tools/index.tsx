@@ -10,6 +10,7 @@ const Tools = ({ setInstalled }: ToolsProps) => {
   const expansion = useAppSelector(state => state.expansion.selected);
 
   const handlePreferences = async () => {
+    // Clear electron store when preference menu is opened after initial setup
     await window.electron.setExpansion('');
     await window.electron.setFaction('');
     setInstalled(false);

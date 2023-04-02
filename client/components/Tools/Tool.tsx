@@ -9,6 +9,8 @@ import './Tools.css';
 
 const Tool = ({ tool, name }: ToolNavProps) => {
   const dispatch = useAppDispatch();
+
+  // Keep currently selected tool active
   const selectedTool = useAppSelector(state => state.tool.selected);
   const [active, setActive] = useState<string>('');
 

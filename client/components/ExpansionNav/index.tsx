@@ -69,6 +69,7 @@ const ExpansionNav = ({ getAllData }: ExpansionProps) => {
   }
 
   const switchExpansion = () => {
+    // Clear all stores that rely on expansion specific data
     dispatch(storeCharacters({ alliance: {}, horde: {} }))
     dispatch(storeExpansion(nextExpansion));
     dispatch(storeCompletedQuests({ alliance: {}, horde: {} }));
@@ -79,7 +80,9 @@ const ExpansionNav = ({ getAllData }: ExpansionProps) => {
     dispatch(storeQuestTrackerRace({ race: { id: 0 } }));
     dispatch(storeQuestTrackerType({ type: 'all quest types' }));
     dispatch(storeQuestTrackerZone({ zone: 'All Zones' }));
-    dispatch(storeTool(null));
+    dispatch(storeTool(''));
+
+    // Re-fetch all data for new expansion
     getAllData(nextExpansion);
     closeModal();
   }

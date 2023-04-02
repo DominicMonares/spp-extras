@@ -3,8 +3,7 @@ import { Tool, SelectedTool } from '../../types';
 
 
 const initialState: Tool = {
-  // selected: null
-  selected: null // temp default
+  selected: ''
 }
 
 export const toolSlice = createSlice({

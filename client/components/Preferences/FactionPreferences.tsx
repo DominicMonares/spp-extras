@@ -6,6 +6,7 @@ import './Preferences.css';
 
 
 const FactionPreferences = ({ setSelectedFaction }: FactionPreferencesProps) => {
+  // Keep currently selected faction active
   const [allianceActive, setAllianceActive] = useState<string>('');
   const [hordeActive, setHordeActive] = useState<string>('');
 

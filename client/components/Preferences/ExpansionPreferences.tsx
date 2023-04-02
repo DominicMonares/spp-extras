@@ -7,9 +7,12 @@ import './Preferences.css';
 
 
 const ExpansionPreferences = ({ setSelectedExpansion }: ExpansionPreferencesProps) => {
+  // Keep currently selected expansion active
   const [vanillaActive, setVanillaActive] = useState<boolean>(false);
   const [tbcActive, setTbcActive] = useState<boolean>(false);
   const [wotlkActive, setWotlkActive] = useState<boolean>(false);
+
+  // Keep hovering expansion active
   const [vanillaHovering, setVanillaHovering] = useState<boolean>(false);
   const [tbcHovering, setTbcHovering] = useState<boolean>(false);
   const [wotlkHovering, setWotlkHovering] = useState<boolean>(false);

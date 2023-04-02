@@ -13,15 +13,23 @@ const Preferences = ({ setInstalled }: PreferencesProps) => {
   const dispatch = useAppDispatch();
   const expansion = useAppSelector(state => state.expansion.selected);
   const faction = useAppSelector(state => state.faction.selected);
+
+  // Track selected preferences
   const [selectedExpansion, setSelectedExpansion] = useState<Expansion>('');
   const [selectedFaction, setSelectedFaction] = useState<Faction>('');
+
+  // Prevent save button from being pressed when no expansion and/or faction selected
   const [noSelections, setNoSelections] = useState<boolean>(false);
 
   const save = async () => {
     if (!selectedExpansion || !selectedFaction) return setNoSelections(true);
     setNoSelections(false);
+
+    // Send selected preferences to electron store so they persist
     await window.electron.setExpansion(selectedExpansion);
     await window.electron.setFaction(selectedFaction);
+
+    // Send selected preferences to redux store for current session
     dispatch(storeExpansion(selectedExpansion));
     dispatch(storeFaction(selectedFaction));
     setInstalled(true);

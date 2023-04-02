@@ -3,7 +3,7 @@ export interface ExpansionSliceState {
 }
 
 export interface ExpansionProps {
-  updateStore: (xpac: Expansion) => void;
+  getAllData: (xpac: Expansion) => void;
 }
 
 export type Expansion = 'classic' | 'tbc' | 'wotlk' | '';

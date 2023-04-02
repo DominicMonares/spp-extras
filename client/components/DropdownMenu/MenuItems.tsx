@@ -18,7 +18,11 @@ const MenuItems = ({ dropdownType, items, depthLevel }: MenuItemsProps) => {
   const dispatch = useAppDispatch();
   const settings = useAppSelector(state => state.questTracker);
   const { character, characterClass, race, type, zone } = settings;
+
+  // Determine whether a menu/submenu should be rendered or not
   const [dropdown, setDropdown] = useState<boolean>(false);
+
+  // Track nested hovering - keeps parent elements hovering when children are hovering
   const [subHovering, setSubHovering] = useState<boolean>(false);
 
   const onMouseEnter = () => {
@@ -36,6 +40,8 @@ const MenuItems = ({ dropdownType, items, depthLevel }: MenuItemsProps) => {
     setSubHovering(false);
   };
 
+  // Update quest tracker settings depending on the dropdown menu selection
+  // Multiple selections can be made at once
   const handleSelection = (e: MouseEvent<HTMLInputElement>) => {
     const target = e.target as HTMLInputElement;
     const title = target.innerText;
@@ -75,10 +81,12 @@ const MenuItems = ({ dropdownType, items, depthLevel }: MenuItemsProps) => {
     setDropdown(!dropdown);
   }
 
+  // Returns selected option to be displayed inside of the main button
   const selected = () => {
     if (dropdownType === 'character' && character) {
       return character.name;
     } else if (dropdownType === 'type' && type) {
+      // Capitalize first letter of quest type
       return type[0].toUpperCase().concat(type.substring(1));
     } else if (dropdownType === 'zone' && zone) {
       return zone;

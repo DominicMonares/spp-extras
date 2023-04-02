@@ -113,7 +113,7 @@ const App = () => {
     <div className={`app ${expansion || 'all'}-container`}>
       {installed ? (
         <>
-          <ExpansionNav updateStore={getAllData} />
+          <ExpansionNav getAllData={getAllData} />
           <div className="lower-app">
             {smallWindow ? (
               <>

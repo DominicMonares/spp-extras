@@ -7,6 +7,7 @@ import {
   storeCharacters,
   storeCompletedQuests,
   storeExpansion,
+  storeQuestTrackerAll,
   storeQuestTrackerCharacter,
   storeQuestTrackerClass,
   storeQuestTrackerRace,
@@ -19,8 +20,8 @@ import { Expansion, ExpansionProps } from '../../types';
 import './ExpansionNav.css';
 
 
-// Modal Styling
-const customStyles = {
+// Modal styling must be passed down to Modal component via props
+const modalStyles = {
   content: {
     top: '50%',
     left: '50%',
@@ -38,12 +39,15 @@ const customStyles = {
   }
 };
 
+// Attach modal component to root div
 Modal.setAppElement('#root');
 
-const ExpansionNav = ({ updateStore }: ExpansionProps) => {
+const ExpansionNav = ({ getAllData }: ExpansionProps) => {
   const dispatch = useAppDispatch();
   const expansion = useAppSelector(state => state.expansion.selected);
   const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  // Tracks the newly selected expansion
   const [nextExpansion, setNextExpansion] = useState<Expansion>(null);
 
   const openModal = () => {
@@ -57,11 +61,10 @@ const ExpansionNav = ({ updateStore }: ExpansionProps) => {
   const openExpansionModal = (xpac: Expansion) => {
     if (expansion === xpac) {
       return;
-    } else if (expansion) {
+    } else {
+      // Confirm selection through modal before dispatching
       setNextExpansion(xpac);
       openModal();
-    } else {
-      dispatch(storeExpansion(xpac));
     }
   }
 
@@ -70,13 +73,14 @@ const ExpansionNav = ({ updateStore }: ExpansionProps) => {
     dispatch(storeExpansion(nextExpansion));
     dispatch(storeCompletedQuests({ alliance: {}, horde: {} }));
     dispatch(storeTemplateQuests({ alliance: {}, horde: {}, both: {} }));
+    dispatch(storeQuestTrackerAll(false));
     dispatch(storeQuestTrackerCharacter({ character: { id: 0 } }));
     dispatch(storeQuestTrackerClass({ characterClass: { id: 0 } }));
     dispatch(storeQuestTrackerRace({ race: { id: 0 } }));
     dispatch(storeQuestTrackerType({ type: 'all quest types' }));
     dispatch(storeQuestTrackerZone({ zone: 'All Zones' }));
     dispatch(storeTool(null));
-    updateStore(nextExpansion);
+    getAllData(nextExpansion);
     closeModal();
   }
 
@@ -85,7 +89,7 @@ const ExpansionNav = ({ updateStore }: ExpansionProps) => {
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-        style={customStyles}
+        style={modalStyles}
         contentLabel="Expansion Warning"
       >
         <div className="xpac-warning">WARNING</div>

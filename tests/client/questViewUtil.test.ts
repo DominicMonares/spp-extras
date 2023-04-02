@@ -1,4 +1,4 @@
-import { createViewQuests } from '../../client/utils';
+import { createViewQuests, reverseSortViewQuests, sortViewQuests } from '../../client/utils';
 import { QuestTrackerSettings } from '../../client/types';
 import completedQuests from '../samples/completedQuests.json';
 import sampleCharacterSettings from '../samples/characterSettings.json';
@@ -19,18 +19,21 @@ describe('createViewQuests', () => {
     newFilteredQuests[1]['completed'] = true;
     const result = createViewQuests(false, completedQuests, noCharacterSetting, templateQuests);
     expect(result).toStrictEqual(newFilteredQuests);
+    newFilteredQuests[1]['completed'] = false;
   });
 
 
   it('should return all specific character marked, filtered template quests', () => {
     const allTypesSetting = { faction: 'horde', character: orcCharacter } as QuestTrackerSettings;
     const newFilteredQuests = filteredTemplateQuests.slice();
-    newFilteredQuests[1]['completed'] = false;
     newFilteredQuests[2]['completed'] = false;
     newFilteredQuests[3]['completed'] = false;
     newFilteredQuests[4]['completed'] = false;
     const result = createViewQuests(false, completedQuests, allTypesSetting, templateQuests);
     expect(result).toStrictEqual(newFilteredQuests);
+    newFilteredQuests[2]['completed'] = true;
+    newFilteredQuests[3]['completed'] = true;
+    newFilteredQuests[4]['completed'] = true;
   });
 
 
@@ -38,11 +41,9 @@ describe('createViewQuests', () => {
     const regularTypesSetting = { faction: 'horde', type: 'regular' } as QuestTrackerSettings;
     const newFilteredQuests = filteredTemplateQuests.slice(0, 5);
     newFilteredQuests[1]['completed'] = true;
-    newFilteredQuests[2]['completed'] = true;
-    newFilteredQuests[3]['completed'] = true;
-    newFilteredQuests[4]['completed'] = true;
     const result = createViewQuests(false, completedQuests, regularTypesSetting, templateQuests);
     expect(result).toStrictEqual(Object.values(newFilteredQuests));
+    newFilteredQuests[1]['completed'] = false;
   });
 
 
@@ -102,5 +103,73 @@ describe('createViewQuests', () => {
     newFilteredQuests[0]['completed'] = true;
     const result = createViewQuests(false, completedQuests, zoneSetting, templateQuests);
     expect(result).toStrictEqual(newFilteredQuests);
+    newFilteredQuests[0]['completed'] = false;
+  });
+});
+
+
+describe('sortViewQuests', () => {
+  it('should sort in alphabetic order when name selected', () => {
+    const quests = filteredTemplateQuests.slice(0, 4);
+    const expected = [quests[0], quests[0], quests[2], quests[3], quests[1]];
+    expect(sortViewQuests([quests[0], ...quests], 'name')).toStrictEqual(expected);
+  });
+
+
+  it('should sort in numeric order when id selected', () => {
+    const quests = filteredTemplateQuests.slice(0, 4);
+    const shuffled = [quests[0], quests[2], quests[3], quests[1], quests[0]];
+    const expected = [quests[0], ...quests];
+    expect(sortViewQuests(shuffled, 'id')).toStrictEqual(expected);
+  });
+
+
+  it('should sort in completed order when status selected', () => {
+    const quests = filteredTemplateQuests.slice(0, 4);
+    quests[0]['completed'] = false;
+    const expected = [quests[2], quests[3], quests[0], quests[1]];
+    expect(sortViewQuests(quests, 'status')).toStrictEqual(expected);
+    expect(sortViewQuests(expected, 'status')).toStrictEqual(expected);
+    expect(sortViewQuests(expected.reverse(), 'status')).toStrictEqual(expected);
+    quests[0]['completed'] = true;
+  });
+
+
+  it('should return unsorted list when no sort setting provided', () => {
+    expect(sortViewQuests(filteredTemplateQuests, '')).toStrictEqual(filteredTemplateQuests);
+  });
+});
+
+
+describe('reverseSortViewQuests', () => {
+  it('should sort in reverse alphabetic order when name selected', () => {
+    const quests = filteredTemplateQuests.slice(0, 4);
+    const expected = [quests[1], quests[3], quests[2], quests[0], quests[0]];
+    expect(reverseSortViewQuests([...quests, quests[0]], 'name')).toStrictEqual(expected);
+  });
+
+
+  it('should sort in reverse numeric order when id selected', () => {
+    const quests = filteredTemplateQuests.slice(0, 4);
+    const shuffled = [quests[0], quests[2], quests[3], quests[1], quests[0]];
+    const expected = [...quests.reverse(), quests[3]]; // was 0, figure out
+    console.log('FDSAFASDFSF ', shuffled, expected)
+    expect(reverseSortViewQuests(shuffled, 'id')).toStrictEqual(expected);
+  });
+
+
+  it('should sort in reverse completed order when status selected', () => {
+    const quests = filteredTemplateQuests.slice(0, 4);
+    quests[0]['completed'] = false;
+    const expected = [quests[1], quests[0], quests[3], quests[2]];
+    expect(reverseSortViewQuests(quests, 'status')).toStrictEqual(expected);
+    expect(reverseSortViewQuests(expected, 'status')).toStrictEqual(expected);
+    expect(reverseSortViewQuests(expected.reverse(), 'status')).toStrictEqual(expected);
+    quests[0]['completed'] = true;
+  });
+
+  
+  it('should return unsorted list when no sort setting provided', () => {
+    expect(reverseSortViewQuests(filteredTemplateQuests, '')).toStrictEqual(filteredTemplateQuests);
   });
 });

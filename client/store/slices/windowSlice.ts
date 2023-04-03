@@ -4,7 +4,7 @@ import { windowIsSmall } from '../../utils';
 
 interface Window { smallWindow: boolean }
 const initialState: Window = {
-  smallWindow: windowIsSmall()
+  smallWindow: windowIsSmall(window.innerWidth)
 }
 
 export const windowSlice = createSlice({

@@ -59,7 +59,7 @@ const App = () => {
 
   useEffect(() => {
     // Track window size and change class names accordingly
-    const handleWidthChange = () => dispatch(storeWindowWidth(windowIsSmall()));
+    const handleWidthChange = () => dispatch(storeWindowWidth(windowIsSmall(window.innerWidth)));
     window.addEventListener('resize', handleWidthChange);
     return () => window.removeEventListener('resize', handleWidthChange);
   }, []);

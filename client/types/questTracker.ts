@@ -27,9 +27,9 @@ export interface ClassSetting {
 
 export type CreateViewQuests = (
   all: boolean,
-  completedQuests: CompletedQuests,
+  completedQuests: CompletedQuests | Record<string,never>,
   settings: QuestTrackerSettings,
-  templateQuests: TemplateQuests
+  templateQuests: TemplateQuests | Record<string,never>
 ) => ViewQuests;
 
 export type FilterQuests = (

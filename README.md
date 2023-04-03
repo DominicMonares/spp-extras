@@ -172,9 +172,8 @@ react state
 other vars
 
 
-CLEANUP PLAN
-Comments
-
 TODO
-Util for removing dev quests and exclamation marks
-Refactor/add tests
+splash screen styling
+python quit async issue
+
+collapsable menus in small window?

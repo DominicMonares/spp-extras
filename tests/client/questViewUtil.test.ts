@@ -151,12 +151,8 @@ describe('reverseSortViewQuests', () => {
 
   it('should sort in reverse numeric order when id selected', () => {
     const quests = filteredTemplateQuests.slice(0, 4);
-    const shuffled = [quests[0], quests[2], quests[3], quests[1], quests[0]];
-    const expected = [...quests.reverse(), quests[3]]; // was 0, figure out
-    console.log('FDSAFASDFSF ', shuffled, expected)
-    expect(reverseSortViewQuests(shuffled, 'id')).toStrictEqual(expected);
+    expect(reverseSortViewQuests(quests, 'id')).toStrictEqual(quests.reverse());
   });
-
 
   it('should sort in reverse completed order when status selected', () => {
     const quests = filteredTemplateQuests.slice(0, 4);

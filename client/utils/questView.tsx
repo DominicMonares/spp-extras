@@ -166,8 +166,6 @@ export const reverseSortViewQuests: SortViewQuests = (viewQuests, sortSetting) =
         return 1;
       } else if (a.entry > b.entry) {
         return -1;
-      } else {
-        return 0;
       }
     } else if (sortSetting === 'status') {
       // Sort by completed status

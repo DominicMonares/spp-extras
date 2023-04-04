@@ -152,7 +152,7 @@ class QuestViewSet(viewsets.ViewSet):
         except Exception as e:
             return Response(
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR, 
-                data={'message': f'Server error: {e.message}'}
+                data={'message': f'Server error: {e["message"]}'}
             )
         except:
             return Response(

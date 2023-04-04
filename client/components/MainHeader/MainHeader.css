@@ -10,7 +10,7 @@
   justify-content: center;
   align-items: center;
   margin-top: 5px;
-  margin-bottom: 7px;
+  margin-bottom: 5px;
 }
 
 .main-header-text {
@@ -32,8 +32,8 @@
   display: flex;
   justify-content: right;
   align-items: center;
-  margin-top: -35px;
-  margin-bottom: 35px;
+  margin-top: -33px;
+  margin-bottom: 17px;
 }
 
 .collapsed,

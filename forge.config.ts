@@ -14,7 +14,8 @@ const config: ForgeConfig = {
   packagerConfig: {
     afterExtract: [
       copyApiFolder
-    ]
+    ],
+    icon: './client/assets/spp-extras.ico'
   },
   rebuildConfig: {},
   makers: [

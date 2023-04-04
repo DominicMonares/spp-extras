@@ -117,6 +117,8 @@ const createWindows = async () => {
     },
   });
 
+  mainWindow.removeMenu();
+
   // Create the splash window
   const splash = new BrowserWindow({
     width: 500,

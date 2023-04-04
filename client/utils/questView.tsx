@@ -10,11 +10,13 @@ import {
   ViewSubzone,
   ViewZones
 } from "../types";
+import devQuestKeywords from '../../data/devQuestKeywords.json';
 import _questRaces from '../../data/questRaces.json';
 import repeatQuestFlags from '../../data/repeatQuestFlags.json';
 import zoneRef from '../../data/zoneRef.json';
 
 
+// Decide which quests to display
 export const filterTemplateQuests: FilterQuests = (all, settings, templateQuests) => {
   const { characterClass, faction, race, type, zone } = settings;
 
@@ -96,6 +98,9 @@ export const filterTemplateQuests: FilterQuests = (all, settings, templateQuests
         if (conditionSetting && !conditionMet) conditionsMet = false;
       }
     }
+
+    // Remove unused/dev quests
+    if (devQuestKeywords.some((k: string) => quest.title.includes(k))) conditionsMet = false;
 
     // Add quest to viewQuests if conditions are met
     if (conditionsMet) viewQuests.push({ ...quest, completed: false });

@@ -50,16 +50,18 @@
   <img id="splash-logo" src="../client/assets/logos/main.png" />
   <div id="loading-container">
     <img src="../client/assets/headers/main-header.png" />
-    <div id="loading-text">Loading...</div>
+    <div id="loading-text">Loading</div>
     <script>
       setInterval(() => {
         let loadingText = document.getElementById('loading-text').innerText;
-        if (loadingText === 'Loading...') {
+        if (loadingText === 'Loading') {
           document.getElementById('loading-text').innerText = 'Loading.';
         } else if (loadingText === 'Loading.') {
           document.getElementById('loading-text').innerText = 'Loading..';
+        } else if (loadingText === 'Loading..') {
+          document.getElementById('loading-text').innerText = 'Loading...';
         } else {
-          document.getElementById('loading-text').innerText = 'Loading...'
+          document.getElementById('loading-text').innerText = 'Loading'
         }
       }, 500)
     </script>

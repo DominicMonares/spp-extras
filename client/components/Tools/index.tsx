@@ -19,7 +19,7 @@ const Tools = ({ setInstalled }: ToolsProps) => {
   }
 
   return (
-    <div className={`tools ${expansion}-tools`}>
+    <div className={`tools ${expansion}-tools ${collapsed ? 'collapsed-menu' : ''}`}>
       <MainHeader collapsed={collapsed} headerText="Tools" setCollapsed={setCollapsed} />
       <ul className="tool-list">
         <Tool tool="questTracker" name="Quest Tracker" />

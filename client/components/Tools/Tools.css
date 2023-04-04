@@ -23,6 +23,11 @@
   background: rgba(25, 118, 174, 0.7);
 }
 
+.collapsed-menu {
+  overflow: hidden;
+  height: 52px;
+}
+
 
 /* Tools List */
 

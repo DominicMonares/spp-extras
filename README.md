@@ -175,5 +175,6 @@ other vars
 TODO
 algo for NYI and other quests
 electron app icons for window and taskbar
+remove unnecessary spaces below headers
 
 collapsable menus in small window?

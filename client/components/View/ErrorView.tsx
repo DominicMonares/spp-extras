@@ -7,7 +7,7 @@ import './View.css';
 const ErrorView = ({ error }: ViewProps) => {
   return (
     <div className="error-view">
-      <MainBigHeader headerText="ERROR" />
+      <MainBigHeader headerText="Error" />
       <div className="error-view-body">
         <div className="error-text">{JSON.stringify(error)}</div>
         <div className="error-db-text">

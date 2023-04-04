@@ -24,22 +24,6 @@
 }
 
 
-/* Tools Header */
-
-.tools-header {
-  display: flex;
-  flex-direction: row;
-}
-
-.collapsed {
-  transform: rotate(90deg);
-}
-
-.expanded {
-  transform: rotate(-90deg);
-}
-
-
 /* Tools List */
 
 .tool-list {

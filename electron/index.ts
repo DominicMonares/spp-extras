@@ -110,6 +110,7 @@ const createWindows = async () => {
     maxHeight: 1094,
     minWidth: 794,
     show: false,
+    icon:'../client/assets',
     webPreferences: {
       preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
       nodeIntegration: true,

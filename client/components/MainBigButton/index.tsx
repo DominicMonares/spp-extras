@@ -13,7 +13,7 @@ const MainBigButton = ({ active, handleClick, buttonText }: MainButtonProps) => 
     >
       <div className={`
         main-big-btn-text
-        ${active ? 'main-big-text-active' : ''}
+        ${active ? 'main-big-btn-text-active' : ''}
       `}>
         {buttonText.split(' ')[0]}
       </div>

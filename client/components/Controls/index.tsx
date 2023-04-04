@@ -11,7 +11,7 @@ const Controls = () => {
   const [collapsed, setCollapsed] = useState<boolean>(false);
 
   return (
-    <div className={`controls ${expansion}-controls`}>
+    <div className={`controls ${expansion}-controls ${collapsed ? 'collapsed-menu' : ''}`}>
       <MainHeader collapsed={collapsed} headerText="Controls" setCollapsed={setCollapsed} />
       {!tool ? (
         <div className="ctrl-label home-ctrl-label">No tool selected</div>

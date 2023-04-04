@@ -6,7 +6,6 @@
   margin-top: 5px;
   width: 249.5px;
   min-width: 249.5px;
-  height: max-content;
   border: 1px solid black;
   border-radius: 10px;
 }
@@ -25,7 +24,7 @@
 
 .collapsed-menu {
   overflow: hidden;
-  height: 52px;
+  height: 52.5px;
 }
 
 

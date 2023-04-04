@@ -6,7 +6,6 @@
   margin-top: 5px;
   width: 249.5px;
   min-width: 249.5px;
-  height: max-content;
   border: 1px solid black;
   border-radius: 10px;
 }
@@ -21,6 +20,11 @@
 
 .wotlk-controls {
   background: rgba(25, 118, 174, 0.7);
+}
+
+.collapsed-menu {
+  overflow: hidden;
+  height: 52.5px;
 }
 
 

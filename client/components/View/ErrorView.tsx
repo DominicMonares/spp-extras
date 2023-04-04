@@ -4,7 +4,7 @@ import MainBigHeader from "../MainBigHeader";
 import './View.css';
 
 
-const ErrorView = ({ error, retry }: ViewProps) => {
+const ErrorView = ({ error }: ViewProps) => {
   return (
     <div className="error-view">
       <MainBigHeader headerText="ERROR" />
@@ -13,7 +13,7 @@ const ErrorView = ({ error, retry }: ViewProps) => {
         <div className="error-db-text">
           Please ensure the database is still running.
         </div>
-        <MainButton handleClick={retry} buttonText={'Retry'} />
+        <MainButton handleClick={location.reload} buttonText={'Retry'} />
       </div>
     </div>
   );

@@ -10,7 +10,6 @@ export type SortViewQuests = (
 export interface ViewProps {
   error?: string;
   loading?: boolean;
-  retry?: () => void;
 }
 
 export interface ViewQuest extends TemplateQuest {

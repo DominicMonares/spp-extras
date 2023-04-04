@@ -135,17 +135,17 @@ const App = () => {
                   <Controls />
                 </div>
                 {!tool ? (
-                  <View error={error} loading={loading} retry={getAllData} />
+                  <View error={error} loading={loading} />
                 ) : (
                   <></>
                 )}
                 {tool === 'questTracker' ? (
-                  <View error={error} loading={loading} retry={getAllData} />
+                  <View error={error} loading={loading} />
                 ) : (
                   <></>
                 )}
                 {tool === 'accountAchievements' ? (
-                  <View error={error} loading={loading} retry={getAllData} />
+                  <View error={error} loading={loading} />
                 ) : (
                   <></>
                 )}
@@ -154,17 +154,17 @@ const App = () => {
               <>
                 <Tools setInstalled={setInstalled} />
                 {!tool ? (
-                  <View error={error} loading={loading} retry={getAllData} />
+                  <View error={error} loading={loading} />
                 ) : (
                   <></>
                 )}
                 {tool === 'questTracker' ? (
-                  <View error={error} loading={loading} retry={getAllData} />
+                  <View error={error} loading={loading} />
                 ) : (
                   <></>
                 )}
                 {tool === 'accountAchievements' ? (
-                  <View error={error} loading={loading} retry={getAllData} />
+                  <View error={error} loading={loading} />
                 ) : (
                   <></>
                 )}

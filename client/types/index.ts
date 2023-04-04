@@ -4,6 +4,7 @@ export * from './characters';
 export * from './dropdown';
 export * from './expansions';
 export * from './factions';
+export * from './headers';
 export * from './preferences';
 export * from './quests';
 export * from './questTracker';

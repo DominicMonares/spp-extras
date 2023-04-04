@@ -28,27 +28,15 @@
 
 .tools-header {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 5px;
-  margin-bottom: 7px;
+  flex-direction: row;
 }
 
-.tools-header-text {
-  display: flex;
-  align-items: center;
-  position: relative;
-  z-index: 1;
-  margin-top: -40px;
-  height: 40px;
-  background: -webkit-linear-gradient(#c88f19 40%, #f7f243 70%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-align: center;
-  font-family: Friz Quadrata;
-  font-size: 24px;
+.collapsed {
+  transform: rotate(90deg);
+}
+
+.expanded {
+  transform: rotate(-90deg);
 }
 
 

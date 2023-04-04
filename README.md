@@ -173,7 +173,7 @@ other vars
 
 
 TODO
-splash screen styling
-python quit async issue
+algo for NYI and other quests
+electron app icons for window and taskbar
 
 collapsable menus in small window?

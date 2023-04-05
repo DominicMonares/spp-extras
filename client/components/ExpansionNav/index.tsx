@@ -70,9 +70,9 @@ const ExpansionNav = ({ getAllData }: ExpansionProps) => {
 
   const switchExpansion = () => {
     // Clear all stores that rely on expansion specific data
-    dispatch(storeCharacters({ alliance: {}, horde: {} }))
+    dispatch(storeCharacters({}))
     dispatch(storeExpansion(nextExpansion));
-    dispatch(storeCompletedQuests({ alliance: {}, horde: {} }));
+    dispatch(storeCompletedQuests({}));
     dispatch(storeTemplateQuests({ alliance: {}, horde: {}, both: {} }));
     dispatch(storeQuestTrackerAll(false));
     dispatch(storeQuestTrackerCharacter({ character: { id: 0 } }));

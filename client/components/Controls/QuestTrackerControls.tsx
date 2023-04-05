@@ -6,29 +6,17 @@ import { storeQuestTrackerAll } from '../../store/slices';
 import {
   characterMenu,
   classMenu,
+  createPlayerCharacters,
   questTypeMenu,
   raceMenu,
   zoneMenu
 } from '../../utils';
 import './Controls.css';
-import { Account } from '../../types';
 
 
 const QuestTrackerControls = () => {
   const dispatch = useAppDispatch();
-  const characters = useAppSelector(state => {
-    const playerCharacters = { alliance: {}, horde: {} };
-    Object.values(state.characters.all).forEach((a: Account) => {
-      if (!a.username.includes('RNDBOT')) {
-        const allianceChars = a.characters.alliance;
-        const hordeChars = a.characters.horde;
-        playerCharacters.alliance = { ...playerCharacters.alliance, ...allianceChars };
-        playerCharacters.horde = { ...playerCharacters.horde, ...hordeChars };
-      }
-    });
-
-    return playerCharacters;
-  })
+  const characters = useAppSelector(state => createPlayerCharacters(state.characters.all));
   const expansion = useAppSelector(state => state.expansion.selected);
   const faction = useAppSelector(state => state.faction.selected);
   const settings = useAppSelector(state => state.questTracker);

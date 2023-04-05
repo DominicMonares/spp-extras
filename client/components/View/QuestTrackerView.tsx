@@ -2,16 +2,26 @@ import { useState } from 'react';
 import MainBigHeader from '../MainBigHeader';
 import Quest from './Quest';
 import { useAppSelector } from '../../store/hooks';
-import { createViewQuests, reverseSortViewQuests, sortViewQuests } from '../../utils';
+import { 
+  createPlayerCharacters, 
+  createViewQuests, 
+  reverseSortViewQuests, 
+  sortViewQuests 
+} from '../../utils';
 import { SortSetting } from '../../types';
 import './View.css';
+import { createPlayerQuests } from '../../utils/quests';
 
 
 const QuestTrackerView = () => {
-  const quests = useAppSelector(state => state.quests);
-  const { completedQuests, templateQuests } = quests;
   const expansion = useAppSelector(state => state.expansion.selected);
   const faction = useAppSelector(state => state.faction.selected);
+
+  // Separate completed player quests from bot quests
+  const characters = useAppSelector(state => createPlayerCharacters(state.characters.all));
+  const quests = useAppSelector(state => state.quests);
+  const { completedQuests, templateQuests } = quests;
+  const playerQuests = createPlayerQuests(characters, completedQuests);
 
   // Determine how to filter view quests
   const settings = useAppSelector(state => state.questTracker);
@@ -27,7 +37,7 @@ const QuestTrackerView = () => {
   
   // Add faction to settings and create view quests
   const fullSettings = { ...settings, faction: faction };
-  const viewQuests = createViewQuests(all, completedQuests, fullSettings, templateQuests);
+  const viewQuests = createViewQuests(all, playerQuests, fullSettings, templateQuests);
 
   // Ensure only one sort filter is active at a time
   const setSortedQuests = (sortSetting: SortSetting) => {

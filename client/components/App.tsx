@@ -14,11 +14,7 @@ import {
   storeTemplateQuests,
   storeWindowWidth
 } from '../store/slices';
-import {
-  fetchCharacters,
-  fetchCompletedQuests,
-  fetchTemplateQuests
-} from '../apiCalls';
+import { fetchAllData } from '../apiCalls';
 import { checkFaction, windowIsSmall } from '../utils';
 import { Character, Characters, Expansion } from '../types';
 import './App.css';

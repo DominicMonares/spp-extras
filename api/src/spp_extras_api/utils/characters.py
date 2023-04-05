@@ -9,15 +9,17 @@ def get_account_id(account):
 
 # Combine all characters into one object sorted by faction
 def all_characters(accounts, characters):
-    player_accounts = {}
-    chars = {'alliance': {}, 'horde': {}}
+    all = {}
 
     for account in accounts:
-        player_accounts[account['id']] = account['username']
+        all[account['id']] = {
+            'username': account['username'],
+            'characters': {'alliance': {}, 'horde': {}}
+        }
 
     for char in characters:
-        account_name = player_accounts[char['account']]
-        char['account_name'] = account_name
-        chars[check_faction(char['race'])][str(char['guid'])] = char
+        account_num = char['account']
+        faction = check_faction(char['race'])
+        all[account_num][faction][str(char['guid'])] = char
 
-    return chars
+    return all

@@ -4,129 +4,102 @@ from rest_framework.response import Response
 from django.db.utils import OperationalError
 from spp_extras_api.models.classiccharacters import\
     ClassicCharacterQueststatus,\
-    ClassicCharacterQueststatusWeekly
+    ClassicCharacterQueststatusWeekly,\
+    ClassicCharacters
 from spp_extras_api.models.classicmangos import ClassicQuestTemplate
+from spp_extras_api.models.classicrealmd import ClassicAccount
 from spp_extras_api.models.tbccharacters import\
     TbcCharacterQueststatus,\
     TbcCharacterQueststatusDaily,\
+    TbcCharacterQueststatusMonthly,\
     TbcCharacterQueststatusWeekly,\
-    TbcCharacterQueststatusMonthly
+    TbcCharacters
 from spp_extras_api.models.tbcmangos import TbcQuestTemplate
-from spp_extras_api.models.wotlkcharacters import\
+from spp_extras_api.models.tbcrealmd import TbcAccount
+from spp_extras_api.models.wotlkcharacters import \
     WotlkCharacterQueststatus,\
     WotlkCharacterQueststatusDaily,\
+    WotlkCharacterQueststatusMonthly,\
     WotlkCharacterQueststatusWeekly,\
-    WotlkCharacterQueststatusMonthly
+    WotlkCharacters
 from spp_extras_api.models.wotlkmangos import WotlkQuestTemplate
+from spp_extras_api.models.wotlkrealmd import WotlkAccount
+from spp_extras_api.utils.data import organize_data
 from spp_extras_api.utils.quests import all_completed_quests, all_template_quests
 
 
-class QuestViewSet(viewsets.ViewSet):
+class DataViewSet(viewsets.ViewSet):
     @action(methods=['GET'], detail=False)
-    # Get completed quests from all characters
-    def completed(self, request):
+    def all(self, request):
         expansion = request.GET.get('expansion')
-        characters = request.GET.get('characters').split(',')
+        account_model = {}
+        characters_model = {}
         regular_quest_model = {}
         daily_quest_model = {}
         weekly_quest_model = {}
         monthly_quest_model = {}
+        quest_template_model = {}
 
         if expansion == 'classic':
+            account_model = ClassicAccount
+            characters_model = ClassicCharacters
             regular_quest_model = ClassicCharacterQueststatus
             weekly_quest_model = ClassicCharacterQueststatusWeekly
+            quest_template_model = ClassicQuestTemplate
         elif expansion == 'tbc':
+            account_model = TbcAccount
+            characters_model = TbcCharacters
             regular_quest_model = TbcCharacterQueststatus
             daily_quest_model = TbcCharacterQueststatusDaily
             weekly_quest_model = TbcCharacterQueststatusWeekly
             monthly_quest_model = TbcCharacterQueststatusMonthly
+            quest_template_model = TbcQuestTemplate
         elif expansion == 'wotlk':
+            account_model = WotlkAccount
+            characters_model = WotlkCharacters
             regular_quest_model = WotlkCharacterQueststatus
             daily_quest_model = WotlkCharacterQueststatusDaily
             weekly_quest_model = WotlkCharacterQueststatusWeekly
             monthly_quest_model = WotlkCharacterQueststatusMonthly
+            quest_template_model = WotlkQuestTemplate
 
         try:
-            # Split and organize char guid and faction based on string sent from client
-            # 'guid, faction, guid, faction, ...'
-            chars = {}
-            for i, c in enumerate(characters):
-                if i % 2 == 1:
-                    continue
-                chars[c] = characters[int(i) + 1]
+            # Fetch all account data
+            accounts = account_model.objects\
+                .using(f'{expansion}realmd')\
+                .values('id', 'username')
 
-            charIds = chars.keys()
+            # Fetch all  character data
+            characters = characters_model.objects\
+                .using(f'{expansion}characters')\
+                .values('guid', 'account', 'name', 'race', 'class_field')
 
-            # Fetch all completed quest data for all quest types
+            # Fetch all completed regular quest data
             completed_regular = regular_quest_model.objects\
                 .using(f'{expansion}characters')\
-                .filter(guid__in=charIds, status=1)\
                 .values()
 
+            # Fetch all completed daily quest data
             completed_daily = []
             if expansion == 'tbc' or expansion == 'wotlk':
                 completed_daily = daily_quest_model.objects\
                     .using(f'{expansion}characters')\
-                    .filter(guid__in=charIds)\
                     .values()
 
+            # Fetch all completed weekly quest data
             completed_weekly = weekly_quest_model.objects\
                 .using(f'{expansion}characters')\
-                .filter(guid__in=charIds)\
                 .values()
 
+            # Fetch all completed monthly quest data
             completed_monthly = []
             if expansion == 'tbc' or expansion == 'wotlk':
                 completed_monthly = monthly_quest_model.objects\
                     .using(f'{expansion}characters')\
-                    .filter(guid__in=charIds)\
                     .values()
 
-            # Organize quest data by faction and character and send to client
-            all_completed = all_completed_quests(
-                chars,
-                completed_regular,
-                completed_daily,
-                completed_weekly,
-                completed_monthly
-            )
-
-            return Response(
-                status=status.HTTP_200_OK,
-                data=all_completed
-            )
-        except OperationalError:
-            return Response(
-                status=status.HTTP_500_INTERNAL_SERVER_ERROR, 
-                data={'message': 'Failed to retrieve completed quests data...'}
-            )
-        except Exception as e:
-            return Response(
-                status=status.HTTP_500_INTERNAL_SERVER_ERROR, 
-                data={'message': f'Server error: {e.message}'}
-            )
-        except:
-            return Response(
-                status=status.HTTP_500_INTERNAL_SERVER_ERROR, 
-                data={'message': 'Something weird happened!'}
-            )
-
-    @action(methods=['GET'], detail=False)
-    # Get all quests from world database
-    def all(self, request):
-        expansion = request.GET.get('expansion')
-        quest_template_model = {}
-
-        if expansion == 'classic':
-            quest_template_model = ClassicQuestTemplate
-        elif expansion == 'tbc':
-            quest_template_model = TbcQuestTemplate
-        elif expansion == 'wotlk':
-            quest_template_model = WotlkQuestTemplate
-
-        try:
             # Fetch template quests
-            quests = quest_template_model.objects\
+            template_quests = quest_template_model.objects\
                 .using(f'{expansion}mangos')\
                 .all()\
                 .values(
@@ -139,23 +112,34 @@ class QuestViewSet(viewsets.ViewSet):
                     'questflags'
                 )
 
-            # Send response with template quest data, filtered by faction
+            # Organize all fetched data
+            all_data = organize_data(
+                accounts,
+                characters,
+                completed_regular,
+                completed_daily,
+                completed_weekly,
+                completed_monthly,
+                template_quests
+            )
+
+            # Send response with character and account data, filtered by faction
             return Response(
                 status=status.HTTP_200_OK,
-                data=all_template_quests(quests)
+                data=all_data
             )
         except OperationalError:
             return Response(
-                status=status.HTTP_500_INTERNAL_SERVER_ERROR, 
-                data={'message': 'Failed to retrieve template quest data...'}
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                data={'message': 'Failed to retrieve account and character data...'}
             )
         except Exception as e:
             return Response(
-                status=status.HTTP_500_INTERNAL_SERVER_ERROR, 
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR,
                 data={'message': f'Server error: {e["message"]}'}
             )
         except:
             return Response(
-                status=status.HTTP_500_INTERNAL_SERVER_ERROR, 
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR,
                 data={'message': 'Something weird happened!'}
             )

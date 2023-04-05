@@ -1,11 +1,11 @@
-import { Characters } from "./characters";
+import { Accounts } from "./characters";
 import { Expansion } from "./expansions";
 import { CompletedQuests, TemplateQuests } from "./quests";
 
 
 export type FetchCharacters = (
   expansion: Expansion
-) => Promise<Characters>;
+) => Promise<Accounts>;
 
 export type FetchCompQuests = (
   expansion: Expansion,

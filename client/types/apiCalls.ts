@@ -3,15 +3,12 @@ import { Expansion } from "./expansions";
 import { CompletedQuests, TemplateQuests } from "./quests";
 
 
-export type FetchCharacters = (
+export type FetchAllData = (
   expansion: Expansion
-) => Promise<Accounts>;
+) => Promise<FetchAllDataResponse>;
 
-export type FetchCompQuests = (
-  expansion: Expansion,
-  characters: string
-) => Promise<CompletedQuests>;
-
-export type FetchTemplateQuests = (
-  expansion: Expansion
-) => Promise<TemplateQuests>;
+export interface FetchAllDataResponse {
+  characters: Accounts;
+  completed_quests: CompletedQuests;
+  template_quests: TemplateQuests;
+}

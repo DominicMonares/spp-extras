@@ -18,11 +18,6 @@ export type CharacterQuestClass = 1 | 2 | 4 | 8 | 16 | 32 | 64 | 128 | 256 | 102
 export type CharacterQuestRace = 1 | 2 | 4 | 8 | 16 | 32 | 64 | 128 | 512 | 1024;
 
 export interface CompletedQuests {
-  alliance: FactionQuests;
-  horde: FactionQuests;
-}
-
-export interface FactionQuests {
   [key: string]: CharacterQuests;
 }
 

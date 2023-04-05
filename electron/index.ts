@@ -1,9 +1,7 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
 import { spawn, ChildProcessWithoutNullStreams } from 'child_process';
 import kill from 'tree-kill';
-import path from 'path';
 import store from './store'
-import icon from '../client/assets/spp-extras.ico';
 import { Expansion, Faction } from '../client/types';
 
 
@@ -112,19 +110,12 @@ const createWindows = async () => {
     maxHeight: 1094,
     minWidth: 794,
     show: false,
-    icon: 'spp-extras.ico',
     webPreferences: {
       preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
       nodeIntegration: true,
       contextIsolation: true
     }
   });
-
-  // mainWindow.removeMenu();
-  // mainWindow.setOverlayIcon(
-  //   path.join(__dirname, 'client/assets/icons/icon-32.png') as any, 
-  //   'SPP Extras Icon'
-  // );
 
   // Create the splash window
   const splash = new BrowserWindow({

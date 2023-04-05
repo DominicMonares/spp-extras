@@ -2,8 +2,8 @@
 def all_completed_quests(characters, regular, daily, weekly, monthly):
     all = {}
     
-    for c in characters:
-        all[c.guid] = {
+    for char in characters:
+        all[char['guid']] = {
             'regular': {},
             'daily': {},
             'weekly': {},
@@ -11,8 +11,8 @@ def all_completed_quests(characters, regular, daily, weekly, monthly):
         }
 
     def add_quest(quest, type):
-        guid = str(quest['guid'])
-        questId = str(quest['quest'])
+        guid = quest['guid']
+        questId = quest['quest']
 
         if type == 'regular':
             all[guid]['regular'][questId] = quest
@@ -54,7 +54,7 @@ def all_template_quests(quests):
 
     for quest in quests:
         required_races = quest['requiredraces']
-        entry = str(quest['entry'])
+        entry = quest['entry']
         if required_races in alliance:
             all['alliance'][entry] = quest
         elif required_races in horde:

@@ -20,6 +20,6 @@ def all_characters(accounts, characters):
     for char in characters:
         account_num = char['account']
         faction = check_faction(char['race'])
-        all[account_num][faction][str(char['guid'])] = char
+        all[account_num]['characters'][faction][char['guid']] = char
 
     return all

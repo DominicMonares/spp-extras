@@ -122,7 +122,7 @@ class DataViewSet(viewsets.ViewSet):
                     completed_weekly,
                     completed_monthly
                 ),
-                'template_quests': {all_template_quests(template_quests)}
+                'template_quests': all_template_quests(template_quests)
             }
 
             # Send response with character and account data, filtered by faction

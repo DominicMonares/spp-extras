@@ -3,7 +3,7 @@ def all_completed_quests(characters, regular, daily, weekly, monthly):
     all = {}
     
     for char in characters:
-        all[char['guid']] = {
+        all[str(char['guid'])] = {
             'regular': {},
             'daily': {},
             'weekly': {},
@@ -11,8 +11,8 @@ def all_completed_quests(characters, regular, daily, weekly, monthly):
         }
 
     def add_quest(quest, type):
-        guid = quest['guid']
-        questId = quest['quest']
+        guid = str(quest['guid'])
+        questId = str(quest['quest'])
 
         if type == 'regular':
             all[guid]['regular'][questId] = quest

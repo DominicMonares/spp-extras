@@ -1,14 +1,5 @@
 {
-  "alliance": {
-    "4503": {
-      "guid": 4503,
-      "account": 501,
-      "name": "Bub",
-      "race": 1,
-      "class_field": 1
-    }
-  },
-  "horde": {
+  "500": {
     "4501": {
       "guid": 4501,
       "account": 500,
@@ -22,6 +13,15 @@
       "name": "Gaz",
       "race": 8,
       "class_field": 7
+    }
+  },
+  "501": {
+    "4503": {
+      "guid": 4503,
+      "account": 501,
+      "name": "Bub",
+      "race": 1,
+      "class_field": 1
     }
   }
 }

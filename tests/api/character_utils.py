@@ -27,9 +27,8 @@ class TestAllCharacters(TestCase):
     def test_no_characters(self):
         accounts = []
         characters = []
-        expected = {'alliance': {}, 'horde': {}}
         result = all_characters(accounts, characters)
-        self.assertDictEqual(result, expected)
+        self.assertDictEqual(result, {})
 
 
 class TestCheckFaction(TestCase):

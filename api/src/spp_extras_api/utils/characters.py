@@ -12,14 +12,14 @@ def all_characters(accounts, characters):
     all = {}
 
     for account in accounts:
-        all[account['id']] = {
+        all[str(account['id'])] = {
             'username': account['username'],
             'characters': {'alliance': {}, 'horde': {}}
         }
 
     for char in characters:
-        account_num = char['account']
+        account_num = str(char['account'])
         faction = check_faction(char['race'])
-        all[account_num]['characters'][faction][char['guid']] = char
+        all[account_num]['characters'][faction][str(char['guid'])] = char
 
     return all

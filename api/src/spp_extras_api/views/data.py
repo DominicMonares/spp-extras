@@ -24,7 +24,7 @@ from spp_extras_api.models.wotlkcharacters import \
     WotlkCharacters
 from spp_extras_api.models.wotlkmangos import WotlkQuestTemplate
 from spp_extras_api.models.wotlkrealmd import WotlkAccount
-from spp_extras_api.utils.data import organize_data
+from spp_extras_api.utils.characters import all_characters
 from spp_extras_api.utils.quests import all_completed_quests, all_template_quests
 
 
@@ -113,15 +113,17 @@ class DataViewSet(viewsets.ViewSet):
                 )
 
             # Organize all fetched data
-            all_data = organize_data(
-                accounts,
-                characters,
-                completed_regular,
-                completed_daily,
-                completed_weekly,
-                completed_monthly,
-                template_quests
-            )
+            all_data = {
+                'characters': all_characters(accounts, characters),
+                'completed_quests': all_completed_quests(
+                    characters,
+                    completed_regular,
+                    completed_daily,
+                    completed_weekly,
+                    completed_monthly
+                ),
+                'template_quests': {all_template_quests(template_quests)}
+            }
 
             # Send response with character and account data, filtered by faction
             return Response(
@@ -131,7 +133,7 @@ class DataViewSet(viewsets.ViewSet):
         except OperationalError:
             return Response(
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR,
-                data={'message': 'Failed to retrieve account and character data...'}
+                data={'message': 'Failed to retrieve data...'}
             )
         except Exception as e:
             return Response(

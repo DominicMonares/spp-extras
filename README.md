@@ -173,8 +173,5 @@ other vars
 
 
 TODO
-algo for NYI and other quests
+implement way to save db like SPP menu
 electron app icons for window and taskbar
-remove unnecessary spaces below headers
-
-collapsable menus in small window?

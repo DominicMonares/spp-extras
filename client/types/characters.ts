@@ -1,3 +1,12 @@
+export interface Account {
+  name: string;
+  characters: Characters;
+}
+
+export interface Accounts {
+  [key: number]: Account;
+}
+
 export interface Character {
   guid: number;
   account: number;

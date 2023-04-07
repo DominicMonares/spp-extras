@@ -3,7 +3,9 @@ from from_root import from_root
 from unittest import TestCase
 from api.src.spp_extras_api.utils.characters import all_characters, check_faction, get_account_id
 with open(from_root('tests/samples/characters.json'), 'r') as json_file:
-    sample_characters = json.load(json_file)
+    characters = json.load(json_file)
+with open(from_root('tests/samples/rawCharacters.json'), 'r') as json_file:
+    raw_characters = json.load(json_file)
 
 
 class TestAllCharacters(TestCase):
@@ -14,21 +16,12 @@ class TestAllCharacters(TestCase):
             {'id': 501, 'username': 'ACCOUNT2'}
         ]
 
-        characters = [
-            {'guid': 1001, 'account': 500, 'name': 'Gaz', 'race': 8, 'class_field': 7},
-            {'guid': 4501, 'account': 500, 'name': 'Drak', 'race': 2, 'class_field': 3},
-            {'guid': 79411, 'account': 500, 'name': 'Harley', 'race': 8, 'class_field': 7},
-            {'guid': 5263, 'account': 501, 'name': 'Bub', 'race': 1, 'class_field': 1}
-        ]
-
-        result = all_characters(accounts, characters)
-        self.assertDictEqual(result, sample_characters)
+        result = all_characters(accounts, raw_characters)
+        self.assertDictEqual(result, characters)
 
     """Should return empty characters dict if no characters provided"""
     def test_no_characters(self):
-        accounts = []
-        characters = []
-        result = all_characters(accounts, characters)
+        result = all_characters([], [])
         self.assertDictEqual(result, {})
 
 

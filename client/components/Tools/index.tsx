@@ -22,13 +22,15 @@ const Tools = ({ setInstalled }: ToolsProps) => {
     <div className={`tools ${expansion}-tools ${collapsed ? 'collapsed-menu' : ''}`}>
       <MainHeader collapsed={collapsed} headerText="Tools" setCollapsed={setCollapsed} />
       <ul className="tool-list">
-        <Tool tool="questTracker" name="Quest Tracker" />
         {expansion === 'wotlk' ? (
           <Tool tool="accountAchievements" name={'Account-wide Achievements'} />
         ) : (
           <></>
         )}
-        <MainButton handleClick={handlePreferences} buttonText="Preferences" />
+        <Tool tool="questTracker" name="Quest Tracker" />
+        <div className="tool-prefs">
+          <MainButton handleClick={handlePreferences} buttonText="Preferences" />
+        </div>
       </ul>
     </div>
   );

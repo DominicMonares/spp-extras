@@ -22,7 +22,7 @@ import sampleClasses from '../samples/classes.json';
 import sampleRaces from '../samples/races.json';
 
 
-const sampleCharacters = _sampleCharacters as Characters;
+const sampleCharacters = _sampleCharacters[500]['characters'] as Characters;
 const { currentCharacterMenu, noCharacterMenu } = sampleCharacterMenus;
 const { orcCharacter } = sampleCharacterSettings;
 const { paladin } = sampleClasses;

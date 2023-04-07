@@ -1,6 +1,6 @@
 import { createViewQuests, reverseSortViewQuests, sortViewQuests } from '../../client/utils';
 import { QuestTrackerSettings } from '../../client/types';
-import completedQuests from '../samples/completedQuests.json';
+import playerQuests from '../samples/playerQuests.json';
 import sampleCharacterSettings from '../samples/characterSettings.json';
 import sampleClasses from '../samples/classes.json';
 import filteredTemplateQuests from '../samples/filteredTemplateQuests.json';
@@ -17,7 +17,7 @@ describe('createViewQuests', () => {
     const noCharacterSetting = { faction: 'horde' } as QuestTrackerSettings;
     const newFilteredQuests = filteredTemplateQuests.slice();
     newFilteredQuests[1]['completed'] = true;
-    const result = createViewQuests(false, completedQuests, noCharacterSetting, templateQuests);
+    const result = createViewQuests(false, playerQuests, noCharacterSetting, templateQuests);
     expect(result).toStrictEqual(newFilteredQuests);
     newFilteredQuests[1]['completed'] = false;
   });
@@ -29,7 +29,7 @@ describe('createViewQuests', () => {
     newFilteredQuests[2]['completed'] = false;
     newFilteredQuests[3]['completed'] = false;
     newFilteredQuests[4]['completed'] = false;
-    const result = createViewQuests(false, completedQuests, allTypesSetting, templateQuests);
+    const result = createViewQuests(false, playerQuests, allTypesSetting, templateQuests);
     expect(result).toStrictEqual(newFilteredQuests);
     newFilteredQuests[2]['completed'] = true;
     newFilteredQuests[3]['completed'] = true;
@@ -41,7 +41,7 @@ describe('createViewQuests', () => {
     const regularTypesSetting = { faction: 'horde', type: 'regular' } as QuestTrackerSettings;
     const newFilteredQuests = filteredTemplateQuests.slice(0, 5);
     newFilteredQuests[1]['completed'] = true;
-    const result = createViewQuests(false, completedQuests, regularTypesSetting, templateQuests);
+    const result = createViewQuests(false, playerQuests, regularTypesSetting, templateQuests);
     expect(result).toStrictEqual(Object.values(newFilteredQuests));
     newFilteredQuests[1]['completed'] = false;
   });
@@ -54,14 +54,14 @@ describe('createViewQuests', () => {
       type: 'monthly'
     } as QuestTrackerSettings;
 
-    const result = createViewQuests(false, completedQuests, monthlyTypesSetting, templateQuests);
+    const result = createViewQuests(false, playerQuests, monthlyTypesSetting, templateQuests);
     expect(result).toStrictEqual(filteredTemplateQuests.slice(5, 6));
   });
 
 
   it('should return all shaman marked, filtered template quests', () => {
     const shamanSetting = { faction: 'horde', characterClass: shaman } as QuestTrackerSettings;
-    const result = createViewQuests(false, completedQuests, shamanSetting, templateQuests);
+    const result = createViewQuests(false, playerQuests, shamanSetting, templateQuests);
     expect(result).toStrictEqual(filteredTemplateQuests.slice(2, 3));
   });
 
@@ -73,7 +73,7 @@ describe('createViewQuests', () => {
       race: bloodElf
     } as QuestTrackerSettings;
 
-    const result = createViewQuests(false, completedQuests, raceClassMatchSetting, templateQuests);
+    const result = createViewQuests(false, playerQuests, raceClassMatchSetting, templateQuests);
     expect(result).toStrictEqual(filteredTemplateQuests.slice(4, 5));
   });
 
@@ -85,14 +85,14 @@ describe('createViewQuests', () => {
       race: orc
     } as QuestTrackerSettings;
 
-    const result = createViewQuests(false, completedQuests, raceClassMismatchSetting, templateQuests);
+    const result = createViewQuests(false, playerQuests, raceClassMismatchSetting, templateQuests);
     expect(result).toStrictEqual([]);
   });
 
 
   it('should return all classless blood elf marked, filtered template quests', () => {
     const noClassSetting = { faction: 'horde', race: bloodElf } as QuestTrackerSettings;
-    const result = createViewQuests(false, completedQuests, noClassSetting, templateQuests);
+    const result = createViewQuests(false, playerQuests, noClassSetting, templateQuests);
     expect(result).toStrictEqual(filteredTemplateQuests.slice(3, 5));
   });
 
@@ -101,7 +101,7 @@ describe('createViewQuests', () => {
     const zoneSetting = { faction: 'horde', zone: 'Ashenvale' } as QuestTrackerSettings;
     const newFilteredQuests = filteredTemplateQuests.slice(1, 2);
     newFilteredQuests[0]['completed'] = true;
-    const result = createViewQuests(false, completedQuests, zoneSetting, templateQuests);
+    const result = createViewQuests(false, playerQuests, zoneSetting, templateQuests);
     expect(result).toStrictEqual(newFilteredQuests);
     newFilteredQuests[0]['completed'] = false;
   });

@@ -1,3 +1,4 @@
+import AccounAchievementsView from './AccountAchievementsView';
 import ErrorView from './ErrorView';
 import HomeView from "./HomeView";
 import LoadingView from './LoadingView';
@@ -20,6 +21,11 @@ const View = ({ error, getAllData, loading }: ViewProps) => {
       {loading && !error ? <LoadingView /> : <></>}
       {error ? <ErrorView error={error} getAllData={getAllData} /> : <></>}
       {!tool && !loading && !error ? <HomeView /> : <></>}
+      {tool === 'accountAchievements' && !loading && !error ? (
+        <AccounAchievementsView />
+      ) : (
+        <></>
+      )}
       {tool === 'questTracker' && !loading && !error ? (
         <QuestTrackerView />
       ) : (

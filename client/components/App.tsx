@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-// import AccountWideAchievements from './AccountWideAchievements';
 import Controls from './Controls';
 import ExpansionNav from './ExpansionNav';
 import Preferences from './Preferences';
@@ -14,19 +13,14 @@ import {
   storeTemplateQuests,
   storeWindowWidth
 } from '../store/slices';
-import {
-  fetchCharacters,
-  fetchCompletedQuests,
-  fetchTemplateQuests
-} from '../apiCalls';
-import { checkFaction, windowIsSmall } from '../utils';
-import { Character, Characters, Expansion } from '../types';
+import { fetchAllData } from '../apiCalls';
+import { windowIsSmall } from '../utils';
+import { Expansion } from '../types';
 import './App.css';
 
 
 const App = () => {
   const dispatch = useAppDispatch();
-  const tool = useAppSelector(state => state.tool.selected);
   const expansion = useAppSelector(state => state.expansion.selected);
   const faction = useAppSelector(state => state.faction.selected);
   const smallWindow = useAppSelector(state => state.window.smallWindow);
@@ -46,7 +40,7 @@ const App = () => {
       if (savedExpansion && savedFaction) {
         // Close preferences and fetch data once settings have been transferred/confirmed
         setInstalled(true);
-        getAllData(savedExpansion);
+        getAllData(null, savedExpansion);
       }
     }
 
@@ -64,60 +58,22 @@ const App = () => {
     return () => window.removeEventListener('resize', handleWidthChange);
   }, []);
 
-  // Fetch all characters from DB then add to redux store
-  const getCharacters = async (xpac: Expansion) => {
-    const newCharacters = await fetchCharacters(xpac).catch(err => setError(err.message));
-    if (newCharacters) {
-      dispatch(storeCharacters(newCharacters));
-      return newCharacters;
-    } else {
-      return;
-    }
-  }
-
-  // Fetch all completed quests using character data then add to redux store
-  const getCompletedQuests = async (chars: Characters, xpac: Expansion) => {
-    // Create query parameters using character data from both factions
-    const allianceChars = Object.values(chars.alliance);
-    const allianceParams = allianceChars.map((c: Character) => [c.guid, checkFaction(c.race)]);
-    const hordeChars = Object.values(chars.horde);
-    const hordeParams = hordeChars.map((c: Character) => [c.guid, checkFaction(c.race)]);
-    const characterParams = allianceParams.concat(hordeParams).flat().join(',');
-
-    // Fetch completed quests using newly created query parameters
-    const newCompletedQuests = await fetchCompletedQuests(xpac, characterParams)
-      .catch(err => setError(err));
-
-    if (newCompletedQuests) {
-      dispatch(storeCompletedQuests(newCompletedQuests));
-      return newCompletedQuests;
-    } else {
-      return;
-    }
-  }
-
-  // Fetch all template quests from DB
-  const getTemplateQuests = async (xpac: Expansion) => {
-    const newTemplateQuests = await fetchTemplateQuests(xpac).catch(err => setError(err));
-    if (newTemplateQuests) {
-      dispatch(storeTemplateQuests(newTemplateQuests))
-      return newTemplateQuests;
-    } else {
-      return;
-    }
-  }
-
-  // Fetch all data used in SPP-Extras from DB
-  const getAllData = async (xpac?: Expansion) => {
+  // Fetch all data used in SPP Extras from DB
+  const getAllData = async (e?: any, xpac?: Expansion) => {
     if (!xpac) xpac = expansion; // Used when switching expansions
     setLoading(true);
     setError('');
-    const chars = await getCharacters(xpac);
-    if (!chars) return setLoading(false);
-    const completedQuests = await getCompletedQuests(chars, xpac);
-    if (!completedQuests) return setLoading(false);
-    const templateQuests = await getTemplateQuests(xpac);
-    if (!templateQuests) return setLoading(false);
+
+    const allData = await fetchAllData(xpac).catch(err => setError(err.message));
+    if (allData) {
+      dispatch(storeCharacters(allData.characters));
+      dispatch(storeCompletedQuests(allData.completed_quests));
+      dispatch(storeTemplateQuests(allData.template_quests));
+    } else {
+      setLoading(false);
+      return;
+    }
+
     setLoading(false);
     setError('');
   }
@@ -134,40 +90,12 @@ const App = () => {
                   <Tools setInstalled={setInstalled} />
                   <Controls />
                 </div>
-                {!tool ? (
-                  <View error={error} loading={loading} />
-                ) : (
-                  <></>
-                )}
-                {tool === 'questTracker' ? (
-                  <View error={error} loading={loading} />
-                ) : (
-                  <></>
-                )}
-                {tool === 'accountAchievements' ? (
-                  <View error={error} loading={loading} />
-                ) : (
-                  <></>
-                )}
+                <View error={error} getAllData={getAllData} loading={loading} />
               </>
             ) : (
               <>
                 <Tools setInstalled={setInstalled} />
-                {!tool ? (
-                  <View error={error} loading={loading} />
-                ) : (
-                  <></>
-                )}
-                {tool === 'questTracker' ? (
-                  <View error={error} loading={loading} />
-                ) : (
-                  <></>
-                )}
-                {tool === 'accountAchievements' ? (
-                  <View error={error} loading={loading} />
-                ) : (
-                  <></>
-                )}
+                <View error={error} getAllData={getAllData} loading={loading} />
                 <Controls />
               </>
             )}

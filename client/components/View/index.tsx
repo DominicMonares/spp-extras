@@ -1,3 +1,4 @@
+import AccounAchievementsView from './AccountAchievementsView';
 import ErrorView from './ErrorView';
 import HomeView from "./HomeView";
 import LoadingView from './LoadingView';
@@ -6,7 +7,7 @@ import { useAppSelector } from '../../store/hooks';
 import { ViewProps } from '../../types';
 import './View.css';
 
-const View = ({ error, loading, retry }: ViewProps) => {
+const View = ({ error, getAllData, loading }: ViewProps) => {
   const expansion = useAppSelector(state => state.expansion.selected);
   const smallWindow = useAppSelector(state => state.window.smallWindow);
   const tool = useAppSelector(state => state.tool.selected);
@@ -18,8 +19,13 @@ const View = ({ error, loading, retry }: ViewProps) => {
       ${smallWindow ? 'small-view' : ''}
     `}>
       {loading && !error ? <LoadingView /> : <></>}
-      {error ? <ErrorView error={error} retry={retry} /> : <></>}
+      {error ? <ErrorView error={error} getAllData={getAllData} /> : <></>}
       {!tool && !loading && !error ? <HomeView /> : <></>}
+      {tool === 'accountAchievements' && !loading && !error ? (
+        <AccounAchievementsView />
+      ) : (
+        <></>
+      )}
       {tool === 'questTracker' && !loading && !error ? (
         <QuestTrackerView />
       ) : (

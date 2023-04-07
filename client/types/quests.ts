@@ -1,3 +1,4 @@
+import { Characters } from './characters';
 import { Faction } from './factions';
 
 
@@ -18,12 +19,17 @@ export type CharacterQuestClass = 1 | 2 | 4 | 8 | 16 | 32 | 64 | 128 | 256 | 102
 export type CharacterQuestRace = 1 | 2 | 4 | 8 | 16 | 32 | 64 | 128 | 512 | 1024;
 
 export interface CompletedQuests {
-  alliance: FactionQuests;
-  horde: FactionQuests;
+  [key: string]: CharacterQuests;
 }
 
-export interface FactionQuests {
-  [key: string]: CharacterQuests;
+export type CreatePlayerQuests = (
+  characters: Characters,
+  completedQuests: CompletedQuests 
+) => PlayerQuests;
+
+export interface PlayerQuests {
+  alliance: CompletedQuests;
+  horde: CompletedQuests;
 }
 
 export interface Quest {

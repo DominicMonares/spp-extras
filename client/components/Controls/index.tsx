@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import AccountAchievementsControls from './AccountAchievementsControls';
 import MainHeader from '../MainHeader';
 import QuestTrackerControls from './QuestTrackerControls';
 import { useAppSelector } from '../../store/hooks';
@@ -15,6 +16,11 @@ const Controls = () => {
       <MainHeader collapsed={collapsed} headerText="Controls" setCollapsed={setCollapsed} />
       {!tool ? (
         <div className="ctrl-label home-ctrl-label">No tool selected</div>
+      ) : (
+        <></>
+      )}
+      {tool === 'accountAchievements' ? (
+        <AccountAchievementsControls />
       ) : (
         <></>
       )}

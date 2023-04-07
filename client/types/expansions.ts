@@ -1,5 +1,5 @@
 export interface ExpansionProps {
-  getAllData: (xpac: Expansion) => void;
+  getAllData: (e: any, xpac: Expansion) => void;
 }
 
 export type Expansion = 'classic' | 'tbc' | 'wotlk' | '';

@@ -4,4 +4,5 @@ export * from './factionSlice';
 export * from './questSlice';
 export * from './questTrackerSlice';
 export * from './toolSlice';
+export * from './websocketSlice';
 export * from './windowSlice';

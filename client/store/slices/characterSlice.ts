@@ -1,19 +1,17 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Characters } from '../../types';
+import { Accounts, ReduxInitialCharacters } from '../../types';
 
 
-const initialState: Characters = {
-  alliance: {},
-  horde: {}
+const initialState: ReduxInitialCharacters = {
+  all: {}
 };
 
 export const characterSlice = createSlice({
   name: 'characters',
   initialState,
   reducers: {
-    storeCharacters: (state, action: PayloadAction<Characters>) => {
-      state.alliance = action.payload.alliance;
-      state.horde = action.payload.horde;
+    storeCharacters: (state, action: PayloadAction<Accounts>) => {
+      state.all = action.payload;
     }
   }
 });

@@ -6,6 +6,7 @@ import { storeQuestTrackerAll } from '../../store/slices';
 import {
   characterMenu,
   classMenu,
+  createPlayerCharacters,
   questTypeMenu,
   raceMenu,
   zoneMenu
@@ -15,7 +16,7 @@ import './Controls.css';
 
 const QuestTrackerControls = () => {
   const dispatch = useAppDispatch();
-  const characters = useAppSelector(state => state.characters)
+  const characters = useAppSelector(state => createPlayerCharacters(state.characters.all));
   const expansion = useAppSelector(state => state.expansion.selected);
   const faction = useAppSelector(state => state.faction.selected);
   const settings = useAppSelector(state => state.questTracker);

@@ -1,31 +1,27 @@
-# Combine all completed quests into one object sorted by faction
-def all_completed_quests(chars, regular, daily, weekly, monthly):
-    all = {
-        'alliance': {},
-        'horde': {}
-    }
+# Combine all completed quests into one object sorted by character
+def all_completed_quests(characters, regular, daily, weekly, monthly):
+    all = {}
+    
+    for char in characters:
+        all[str(char['guid'])] = {
+            'regular': {},
+            'daily': {},
+            'weekly': {},
+            'monthly': {}
+        }
 
     def add_quest(quest, type):
         guid = str(quest['guid'])
         questId = str(quest['quest'])
-        faction = chars[guid]
-
-        if guid not in all[faction]:
-            all[faction][guid] = {
-                'regular': {},
-                'daily': {},
-                'weekly': {},
-                'monthly': {}
-            }
 
         if type == 'regular':
-            all[faction][guid]['regular'][questId] = quest
+            all[guid]['regular'][questId] = quest
         elif type == 'daily' and daily:
-            all[faction][guid]['daily'][questId] = quest
+            all[guid]['daily'][questId] = quest
         elif type == 'weekly':
-            all[faction][guid]['weekly'][questId] = quest
+            all[guid]['weekly'][questId] = quest
         elif type == 'monthly' and monthly:
-            all[faction][guid]['monthly'][questId] = quest
+            all[guid]['monthly'][questId] = quest
 
     for q in regular:
         add_quest(q, 'regular')
@@ -60,7 +56,7 @@ def all_template_quests(quests):
         required_races = quest['requiredraces']
         entry = str(quest['entry'])
         if required_races in alliance:
-            all['alliance'][entry] = quest
+            all['alliance'][(entry)] = quest
         elif required_races in horde:
             all['horde'][entry] = quest
         elif required_races in both:

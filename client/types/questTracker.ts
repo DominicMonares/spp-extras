@@ -6,7 +6,7 @@ import {
   CharacterQuestClass,
   CharacterQuestRace,
   CharacterQuests,
-  CompletedQuests,
+  PlayerQuests,
   QuestType,
   TemplateQuests
 } from './quests';
@@ -27,7 +27,7 @@ export interface ClassSetting {
 
 export type CreateViewQuests = (
   all: boolean,
-  completedQuests: CompletedQuests | Record<string,never>,
+  completedQuests: PlayerQuests | Record<string,never>,
   settings: QuestTrackerSettings,
   templateQuests: TemplateQuests | Record<string,never>
 ) => ViewQuests;

@@ -9,6 +9,7 @@ export type SortViewQuests = (
 
 export interface ViewProps {
   error?: string;
+  getAllData?: () => void;
   loading?: boolean;
 }
 

@@ -22,7 +22,6 @@ import './App.css';
 
 const App = () => {
   const dispatch = useAppDispatch();
-  const tool = useAppSelector(state => state.tool.selected);
   const expansion = useAppSelector(state => state.expansion.selected);
   const faction = useAppSelector(state => state.faction.selected);
   const smallWindow = useAppSelector(state => state.window.smallWindow);
@@ -72,7 +71,8 @@ const App = () => {
       dispatch(storeCompletedQuests(allData.completed_quests));
       dispatch(storeTemplateQuests(allData.template_quests));
     } else {
-      return setLoading(false);
+      setLoading(false);
+      return;
     }
 
     setLoading(false);
@@ -91,40 +91,12 @@ const App = () => {
                   <Tools setInstalled={setInstalled} />
                   <Controls />
                 </div>
-                {!tool ? (
-                  <View error={error} loading={loading} />
-                ) : (
-                  <></>
-                )}
-                {tool === 'questTracker' ? (
-                  <View error={error} loading={loading} />
-                ) : (
-                  <></>
-                )}
-                {tool === 'accountAchievements' ? (
-                  <View error={error} loading={loading} />
-                ) : (
-                  <></>
-                )}
+                <View error={error} loading={loading} />
               </>
             ) : (
               <>
                 <Tools setInstalled={setInstalled} />
-                {!tool ? (
-                  <View error={error} loading={loading} />
-                ) : (
-                  <></>
-                )}
-                {tool === 'questTracker' ? (
-                  <View error={error} loading={loading} />
-                ) : (
-                  <></>
-                )}
-                {tool === 'accountAchievements' ? (
-                  <View error={error} loading={loading} />
-                ) : (
-                  <></>
-                )}
+                <View error={error} loading={loading} />
                 <Controls />
               </>
             )}

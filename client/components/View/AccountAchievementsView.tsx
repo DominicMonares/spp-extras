@@ -7,7 +7,7 @@ const AccountAchievementsView = () => {
 
   return (
     <div>
-      {!messages.length ? (
+      {messages.length ? (
         <ol>
           {messages.map((m: string) => {
             return <li>{m}</li>

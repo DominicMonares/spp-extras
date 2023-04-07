@@ -61,7 +61,6 @@ const App = () => {
 
   // Fetch all data used in SPP Extras from DB
   const getAllData = async (e?: any, xpac?: Expansion) => {
-    console.log('XPAC ', xpac)
     if (!xpac) xpac = expansion; // Used when switching expansions
     setLoading(true);
     setError('');

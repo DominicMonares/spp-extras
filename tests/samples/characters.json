@@ -1,27 +1,39 @@
 {
   "500": {
-    "4501": {
-      "guid": 4501,
-      "account": 500,
-      "name": "Drak",
-      "race": 2,
-      "class_field": 3
-    },
-    "4502": {
-      "guid": 4502,
-      "account": 500,
-      "name": "Gaz",
-      "race": 8,
-      "class_field": 7
+    "username": "ACCOUNT1",
+    "characters": {
+      "alliance": {},
+      "horde": {
+        "4501": {
+          "guid": 4501,
+          "account": 500,
+          "name": "Drak",
+          "race": 2,
+          "class_field": 3
+        },
+        "4502": {
+          "guid": 4502,
+          "account": 500,
+          "name": "Gaz",
+          "race": 8,
+          "class_field": 7
+        }
+      }
     }
   },
   "501": {
-    "4503": {
-      "guid": 4503,
-      "account": 501,
-      "name": "Bub",
-      "race": 1,
-      "class_field": 1
+    "username": "ACCOUNT2",
+    "characters": {
+      "alliance": {
+        "4503": {
+          "guid": 4503,
+          "account": 501,
+          "name": "Bub",
+          "race": 1,
+          "class_field": 1
+        }
+      },
+      "horde": {}
     }
   }
 }

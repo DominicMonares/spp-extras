@@ -29,6 +29,7 @@ class TestAllCompletedQuests(TestCase):
         }
 
         result = all_completed_quests(characters, regular, daily, weekly, monthly)
+        print(f'GHETTO IN HERE FLASHIN{result}')
         self.assertDictEqual(result, completed_quests)
 
 

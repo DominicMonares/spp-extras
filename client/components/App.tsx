@@ -41,7 +41,7 @@ const App = () => {
       if (savedExpansion && savedFaction) {
         // Close preferences and fetch data once settings have been transferred/confirmed
         setInstalled(true);
-        getAllData(savedExpansion);
+        getAllData(null, savedExpansion);
       }
     }
 
@@ -60,7 +60,8 @@ const App = () => {
   }, []);
 
   // Fetch all data used in SPP Extras from DB
-  const getAllData = async (xpac?: Expansion) => {
+  const getAllData = async (e?: any, xpac?: Expansion) => {
+    console.log('XPAC ', xpac)
     if (!xpac) xpac = expansion; // Used when switching expansions
     setLoading(true);
     setError('');
@@ -91,12 +92,12 @@ const App = () => {
                   <Tools setInstalled={setInstalled} />
                   <Controls />
                 </div>
-                <View error={error} loading={loading} />
+                <View error={error} getAllData={getAllData} loading={loading} />
               </>
             ) : (
               <>
                 <Tools setInstalled={setInstalled} />
-                <View error={error} loading={loading} />
+                <View error={error} getAllData={getAllData} loading={loading} />
                 <Controls />
               </>
             )}

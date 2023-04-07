@@ -6,7 +6,7 @@ import { useAppSelector } from '../../store/hooks';
 import { ViewProps } from '../../types';
 import './View.css';
 
-const View = ({ error, loading }: ViewProps) => {
+const View = ({ error, getAllData, loading }: ViewProps) => {
   const expansion = useAppSelector(state => state.expansion.selected);
   const smallWindow = useAppSelector(state => state.window.smallWindow);
   const tool = useAppSelector(state => state.tool.selected);
@@ -18,7 +18,7 @@ const View = ({ error, loading }: ViewProps) => {
       ${smallWindow ? 'small-view' : ''}
     `}>
       {loading && !error ? <LoadingView /> : <></>}
-      {error ? <ErrorView error={error} /> : <></>}
+      {error ? <ErrorView error={error} getAllData={getAllData} /> : <></>}
       {!tool && !loading && !error ? <HomeView /> : <></>}
       {tool === 'questTracker' && !loading && !error ? (
         <QuestTrackerView />

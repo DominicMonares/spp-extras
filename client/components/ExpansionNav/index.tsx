@@ -83,7 +83,7 @@ const ExpansionNav = ({ getAllData }: ExpansionProps) => {
     dispatch(storeTool(''));
 
     // Re-fetch all data for new expansion
-    getAllData(nextExpansion);
+    getAllData(null, nextExpansion);
     closeModal();
   }
 

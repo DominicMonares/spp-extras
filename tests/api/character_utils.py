@@ -15,9 +15,10 @@ class TestAllCharacters(TestCase):
         ]
 
         characters = [
+            {'guid': 1001, 'account': 500, 'name': 'Gaz', 'race': 8, 'class_field': 7},
             {'guid': 4501, 'account': 500, 'name': 'Drak', 'race': 2, 'class_field': 3},
-            {'guid': 4502, 'account': 500, 'name': 'Gaz', 'race': 8, 'class_field': 7},
-            {'guid': 4503, 'account': 501, 'name': 'Bub', 'race': 1, 'class_field': 1}
+            {'guid': 79411, 'account': 500, 'name': 'Harley', 'race': 8, 'class_field': 7},
+            {'guid': 5263, 'account': 501, 'name': 'Bub', 'race': 1, 'class_field': 1}
         ]
 
         result = all_characters(accounts, characters)

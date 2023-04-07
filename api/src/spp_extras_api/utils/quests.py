@@ -3,7 +3,7 @@ def all_completed_quests(characters, regular, daily, weekly, monthly):
     all = {}
     
     for char in characters:
-        all[char] = {
+        all[str(char['guid'])] = {
             'regular': {},
             'daily': {},
             'weekly': {},

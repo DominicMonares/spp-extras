@@ -4,6 +4,13 @@
     "characters": {
       "alliance": {},
       "horde": {
+        "1001": {
+          "guid": 1001,
+          "account": 500,
+          "name": "Gaz",
+          "race": 8,
+          "class_field": 7
+        },
         "4501": {
           "guid": 4501,
           "account": 500,
@@ -11,10 +18,10 @@
           "race": 2,
           "class_field": 3
         },
-        "4502": {
-          "guid": 4502,
+        "79411": {
+          "guid": 79411,
           "account": 500,
-          "name": "Gaz",
+          "name": "Harley",
           "race": 8,
           "class_field": 7
         }
@@ -25,8 +32,8 @@
     "username": "ACCOUNT2",
     "characters": {
       "alliance": {
-        "4503": {
-          "guid": 4503,
+        "5263": {
+          "guid": 5263,
           "account": 501,
           "name": "Bub",
           "race": 1,

@@ -66,7 +66,7 @@ const App = () => {
     setLoading(true);
     setError('');
 
-    const allData = await fetchAllData(xpac).catch(err => setError(err));
+    const allData = await fetchAllData(xpac).catch(err => setError(err.message));
     if (allData) {
       dispatch(storeCharacters(allData.characters));
       dispatch(storeCompletedQuests(allData.completed_quests));

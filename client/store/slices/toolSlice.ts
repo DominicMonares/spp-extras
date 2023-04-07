@@ -3,7 +3,7 @@ import { Tool, SelectedTool } from '../../types';
 
 
 const initialState: Tool = {
-  selected: ''
+  selected: 'accountAchievements' // TEMP DEFAULT
 }
 
 export const toolSlice = createSlice({

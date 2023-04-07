@@ -29,7 +29,6 @@ class TestAllCompletedQuests(TestCase):
         }
 
         result = all_completed_quests(characters, regular, daily, weekly, monthly)
-        print(f'GHETTO IN HERE FLASHIN{result}')
         self.assertDictEqual(result, completed_quests)
 
 
@@ -37,4 +36,6 @@ class TestAllTemplateQuests(TestCase):
     """Should return dict with template quests sorted by faction"""
     def test_all_template(self):
         result = all_template_quests(raw_template_quests)
+        print(f'GHETTO IN HERE FLASHIN {result}')
+        print(f'OOO THEM BOYS STAY NASTY {template_quests}')
         self.assertDictEqual(result, template_quests)

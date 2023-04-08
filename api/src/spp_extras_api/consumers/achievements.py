@@ -1,5 +1,12 @@
 import json
 from channels.generic.websocket import WebsocketConsumer
+from spp_extras_api.models.wotlkcharacters import \
+    WotlkCharacterQueststatus,\
+    WotlkCharacterQueststatusDaily,\
+    WotlkCharacters
+from spp_extras_api.models.wotlkrealmd import WotlkAccount
+from spp_extras_api.utils.characters import all_characters
+from spp_extras_api.utils.quests import all_completed_quests
 
 
 class AccountWideAchievementsConsumer(WebsocketConsumer):

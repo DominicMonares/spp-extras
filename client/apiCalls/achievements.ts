@@ -1,9 +1,9 @@
 import { port, wsUrl } from '../config';
 
 
-const gameSocket = new WebSocket(`${wsUrl}:${port}/ws/achievements/account_wide/`);
+const gameSocket = new WebSocket(`${wsUrl}:${port}/ws/account_wide/achievements/`);
 
-const connect = () => {
+const connect = (dispatchMessage) => {
   gameSocket.onopen = () => {
     console.log('WebSocket connection created!');
   }
@@ -15,12 +15,13 @@ const connect = () => {
   gameSocket.onmessage = (e: any) => { // TEMP ANY
     const data = JSON.parse(e.data);
     const message = data.message;
+    dispatchMessage(message);
     console.log('FINAL MESSAGE ', message);
   }
 }
 
-export const fetchAchievements: any = async () => { // TEMP ANY
-  connect();
+export const fetchAchievements: any = async (dispatchMessage) => { // TEMP ANY
+  connect(dispatchMessage);
   gameSocket.send(JSON.stringify({
     'message': 'WEBSOCKET TEST!!!!!'
   }));

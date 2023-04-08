@@ -30,7 +30,7 @@
   -webkit-text-fill-color: transparent;
   font-family: Friz Quadrata;
   font-size: 26px;
-  transition: font-size 0.1s linear, margin-top 0.1s linear, margin-bottom 0.1s linear;
+  transition: font-size 0.1s linear, margin-top 0.1s linear;
 }
 
 .main-big-btn-text-bottom {

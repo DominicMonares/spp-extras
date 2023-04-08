@@ -1,7 +1,7 @@
 import json
 from from_root import from_root
 from unittest import TestCase
-from api.src.spp_extras_api.utils.characters import all_characters, check_faction, get_account_id
+from api.src.spp_extras_api.utils.characters import all_characters, check_faction
 with open(from_root('tests/samples/characters.json'), 'r') as json_file:
     characters = json.load(json_file)
 with open(from_root('tests/samples/rawCharacters.json'), 'r') as json_file:
@@ -33,10 +33,3 @@ class TestCheckFaction(TestCase):
     """Should return 'horde' if Horde ID provided"""
     def test_horde(self):
         self.assertEqual(check_faction(5), 'horde')
-
-
-class TestGetAccountIds(TestCase):
-    """Should return account id if account provided"""
-    def test_account_id(self):
-        account = {'id': 4501, 'username': 'ACCOUNT1'}
-        self.assertEqual(get_account_id(account), 4501)

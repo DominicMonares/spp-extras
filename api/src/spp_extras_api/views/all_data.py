@@ -24,6 +24,9 @@ from spp_extras_api.models.wotlkcharacters import \
     WotlkCharacters
 from spp_extras_api.models.wotlkmangos import WotlkQuestTemplate
 from spp_extras_api.models.wotlkrealmd import WotlkAccount
+from spp_extras_api.queries.characters import get_all_character_data
+# from spp_extras_api.queries.mangos import get_all_character_data
+from spp_extras_api.queries.realmd import get_all_account_data
 from spp_extras_api.utils.characters import all_characters
 from spp_extras_api.utils.quests import all_completed_quests, all_template_quests
 
@@ -65,16 +68,10 @@ class DataViewSet(viewsets.ViewSet):
 
         try:
             # Fetch all account data
-            accounts = account_model.objects\
-                .using(f'{expansion}realmd')\
-                .all()\
-                .values('id', 'username')
+            accounts = get_all_account_data(expansion, account_model)
 
             # Fetch all  character data
-            characters = characters_model.objects\
-                .using(f'{expansion}characters')\
-                .all()\
-                .values('guid', 'account', 'name', 'race', 'class_field')
+            characters = get_all_character_data(expansion, characters_model)
 
             # Fetch all completed regular quest data
             completed_regular = regular_quest_model.objects\

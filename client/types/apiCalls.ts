@@ -12,3 +12,7 @@ export interface FetchAllDataResponse {
   completed_quests: CompletedQuests;
   template_quests: TemplateQuests;
 }
+
+export type WebSocketMessage = (
+  dispatchMessage: (message: string) => void
+) => void;

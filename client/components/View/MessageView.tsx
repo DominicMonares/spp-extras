@@ -2,15 +2,15 @@ import MainBigHeader from '../MainBigHeader';
 import { useAppSelector } from '../../store/hooks';
 
 
-const AccountAchievementsView = () => {
+const MessageView = () => {
   const messages = useAppSelector(state => state.websocket.messages);
 
   return (
     <div>
       {messages.length ? (
-        <ol>
-          {messages.map((m: string) => {
-            return <li>{m}</li>
+        <ol className="">
+          {messages.map((m: string, i) => {
+            return <li key={i}>{m}</li>
           })}
         </ol>
       ) : (
@@ -20,4 +20,4 @@ const AccountAchievementsView = () => {
   );
 }
 
-export default AccountAchievementsView;
+export default MessageView;

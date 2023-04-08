@@ -1,6 +1,6 @@
 from django.urls import include, path
 from rest_framework import routers
-from .views.data import DataViewSet
+from .views.all_data import DataViewSet
 
 
 router = routers.DefaultRouter()

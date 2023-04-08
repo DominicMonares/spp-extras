@@ -67,16 +67,19 @@ class DataViewSet(viewsets.ViewSet):
             # Fetch all account data
             accounts = account_model.objects\
                 .using(f'{expansion}realmd')\
+                .all()\
                 .values('id', 'username')
 
             # Fetch all  character data
             characters = characters_model.objects\
                 .using(f'{expansion}characters')\
+                .all()\
                 .values('guid', 'account', 'name', 'race', 'class_field')
 
             # Fetch all completed regular quest data
             completed_regular = regular_quest_model.objects\
                 .using(f'{expansion}characters')\
+                .all()\
                 .filter(status__exact=1)\
                 .values()
 
@@ -85,11 +88,13 @@ class DataViewSet(viewsets.ViewSet):
             if expansion == 'tbc' or expansion == 'wotlk':
                 completed_daily = daily_quest_model.objects\
                     .using(f'{expansion}characters')\
+                    .all()\
                     .values()
 
             # Fetch all completed weekly quest data
             completed_weekly = weekly_quest_model.objects\
                 .using(f'{expansion}characters')\
+                .all()\
                 .values()
 
             # Fetch all completed monthly quest data
@@ -97,6 +102,7 @@ class DataViewSet(viewsets.ViewSet):
             if expansion == 'tbc' or expansion == 'wotlk':
                 completed_monthly = monthly_quest_model.objects\
                     .using(f'{expansion}characters')\
+                    .all()\
                     .values()
 
             # Fetch template quests

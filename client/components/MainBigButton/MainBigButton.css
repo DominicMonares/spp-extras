@@ -29,7 +29,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: Friz Quadrata;
-  font-size: 26px;
+  font-size: 25px;
   transition: font-size 0.1s linear, margin-top 0.1s linear;
 }
 
@@ -41,5 +41,5 @@
 .main-big-btn-text-active,
 .main-big-btn:hover > .main-big-btn-text-bottom,
 .main-big-btn-text-bottom-active {
-  font-size: 28px;
+  font-size: 26.5px;
 }

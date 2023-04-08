@@ -1,4 +1,4 @@
-def get_all_account_data(expansion, model):
+def sel_all_account_data(expansion, model):
     return model.objects\
         .using(f'{expansion}realmd')\
         .all()\

@@ -43,6 +43,44 @@
 }
 
 
+/* Account-wide */
+
+.aw-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.aw-button-container {
+  margin-bottom: 5px;
+}
+
+
+/* Account-wide Modal */
+
+.ReactModal__Overlay {
+  z-index: 1000;
+}
+
+.aw-warning {
+  width: 100%;
+  background: -webkit-linear-gradient(#c88f19 40%, #f7f243 80%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  font-family: Friz Quadrata;
+  font-size: 25px;
+  transition: font-size 0.1s linear;
+}
+
+.aw-warning-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+
 /* FactionSelect */
 
 .faction-select {
@@ -180,42 +218,4 @@
 .qt-additional-label {
   margin-top: -1.5px;
   margin-bottom: 3px;
-}
-
-
-/* Account-wide */
-
-.aw-controls {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.aw-button-container {
-  margin-bottom: 5px;
-}
-
-
-/* Modal */
-
-.ReactModal__Overlay {
-  z-index: 1000;
-}
-
-.aw-warning {
-  width: 100%;
-  background: -webkit-linear-gradient(#c88f19 40%, #f7f243 80%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-align: center;
-  font-family: Friz Quadrata;
-  font-size: 25px;
-  transition: font-size 0.1s linear;
-}
-
-.aw-warning-buttons {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
 }

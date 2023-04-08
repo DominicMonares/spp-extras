@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import MainButton from '../MainButton';
 import { useAppDispatch } from '../../store/hooks';
 import { storeMessages } from '../../store/slices';
+import { shareAchievements } from '../../apiCalls';
 import './Controls.css';
 
 
@@ -40,8 +41,12 @@ const AccountAchievementsControls = () => {
     setModalIsOpen(false);
   }
 
-  const shareAchievements = () => {
-    // NYI
+  const runShareAchievements = () => {
+    shareAchievements((message: string) => {
+      dispatch(storeMessages(message));
+    });
+
+    setModalIsOpen(false);
   }
 
   return (
@@ -58,7 +63,7 @@ const AccountAchievementsControls = () => {
         <div className="aw-warning">the SPP Classics launcher before proceeding.</div>
         <div className="aw-warning-buttons">
           <MainButton handleClick={closeModal} buttonText="Cancel" />
-          <MainButton handleClick={shareAchievements} buttonText="Continue" />
+          <MainButton handleClick={runShareAchievements} buttonText="Continue" />
         </div>
       </Modal>
       <div className="aw-button-container">

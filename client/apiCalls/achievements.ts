@@ -1,9 +1,10 @@
 import { port, wsUrl } from '../config';
+import { WebSocketMessage } from '../types';
 
 
 const gameSocket = new WebSocket(`${wsUrl}:${port}/ws/account_wide/achievements/`);
 
-const connect = (dispatchMessage) => {
+const connect: WebSocketMessage = (dispatchMessage) => {
   gameSocket.onopen = () => {
     console.log('WebSocket connection created!');
   }
@@ -12,17 +13,16 @@ const connect = (dispatchMessage) => {
     console.log('WebSocket connection closed!');
   }
 
-  gameSocket.onmessage = (e: any) => { // TEMP ANY
+  gameSocket.onmessage = e => {
     const data = JSON.parse(e.data);
     const message = data.message;
     dispatchMessage(message);
-    console.log('FINAL MESSAGE ', message);
   }
 }
 
-export const fetchAchievements: any = async (dispatchMessage) => { // TEMP ANY
+export const shareAchievements: WebSocketMessage = async (dispatchMessage) => {
   connect(dispatchMessage);
   gameSocket.send(JSON.stringify({
-    'message': 'WEBSOCKET TEST!!!!!'
+    'message': 'Run account-wide achievements'
   }));
 }

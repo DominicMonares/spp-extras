@@ -77,6 +77,7 @@ class DataViewSet(viewsets.ViewSet):
             # Fetch all completed regular quest data
             completed_regular = regular_quest_model.objects\
                 .using(f'{expansion}characters')\
+                .filter(status__exact=1)\
                 .values()
 
             # Fetch all completed daily quest data

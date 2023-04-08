@@ -45,13 +45,13 @@
 
 /* Account-wide */
 
-.aw-controls {
+.msg-controls {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.aw-button-container {
+.msg-button-container {
   margin-bottom: 5px;
 }
 
@@ -62,7 +62,7 @@
   z-index: 1000;
 }
 
-.aw-warning {
+.msg-warning {
   width: 100%;
   background: -webkit-linear-gradient(#c88f19 40%, #f7f243 80%);
   background-clip: text;
@@ -74,7 +74,7 @@
   transition: font-size 0.1s linear;
 }
 
-.aw-warning-buttons {
+.msg-warning-buttons {
   display: flex;
   justify-content: space-around;
   margin-top: 20px;

@@ -41,8 +41,11 @@ const AccountAchievementsControls = () => {
     setModalIsOpen(false);
   }
 
+  // Clear all current websocket message data then open new connection
   const runShareAchievements = () => {
+    dispatch(storeMessages('del'));
     shareAchievements((message: string) => {
+      // Display each message sent from server as they come in
       dispatch(storeMessages(message));
     });
 
@@ -50,23 +53,23 @@ const AccountAchievementsControls = () => {
   }
 
   return (
-    <div className="aw-controls">
+    <div className="msg-controls">
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         style={modalStyles}
         contentLabel="Expansion Warning"
       >
-        <div className="aw-warning">WARNING</div>
-        <div className="aw-warning">Sharing achievements is irreversible.</div>
-        <div className="aw-warning">Please make a backup of your database through</div>
-        <div className="aw-warning">the SPP Classics launcher before proceeding.</div>
-        <div className="aw-warning-buttons">
+        <div className="msg-warning">WARNING</div>
+        <div className="msg-warning">Sharing achievements is irreversible.</div>
+        <div className="msg-warning">Please make a backup of your database through</div>
+        <div className="msg-warning">the SPP Classics launcher before proceeding.</div>
+        <div className="msg-warning-buttons">
           <MainButton handleClick={closeModal} buttonText="Cancel" />
           <MainButton handleClick={runShareAchievements} buttonText="Continue" />
         </div>
       </Modal>
-      <div className="aw-button-container">
+      <div className="msg-button-container">
         <MainButton handleClick={openModal} buttonText="Start" />
       </div>
     </div>

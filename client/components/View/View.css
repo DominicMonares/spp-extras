@@ -1,4 +1,4 @@
-/* Container */
+/* Containers */
 
 .view {
   margin-top: 5px;
@@ -24,6 +24,41 @@
   margin-right: 5px;
 }
 
+.messages,
+.qt-table {
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  max-height: 88.5vh;
+  border: black 1px solid;
+}
+
+.messages {
+  padding-left: 2px;
+}
+
+.qt-table {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.classic-messages,
+.classic-qt-table {
+  background: rgba(241, 221, 111, 0.5);
+}
+
+.tbc-messages,
+.tbc-qt-table {
+  background: rgba(45, 159, 5, 0.5);
+}
+
+.wotlk-messages,
+.wotlk-qt-table {
+  background: rgba(3, 130, 183, 0.8);
+}
+
 
 /* Error View */
 
@@ -45,6 +80,11 @@
   font-family: MORPHEUS;
   font-size: 19px;
 }
+
+
+/* Message View */
+
+
 
 
 /* Quest Tracker Header */
@@ -71,30 +111,6 @@
 
 
 /* Quest Tracker Table */
-
-.qt-table {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  max-height: 88.5vh;
-  border: black 1px solid;
-}
-
-.classic-qt-table {
-  background: rgba(241, 221, 111, 0.5);
-}
-
-.tbc-qt-table {
-  background: rgba(45, 159, 5, 0.5);
-}
-
-.wotlk-qt-table {
-  background: rgba(3, 130, 183, 0.8);
-}
 
 table {
   border-spacing: 0px;

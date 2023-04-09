@@ -11,7 +11,8 @@ import {
   ViewZones
 } from "../types";
 import devQuestKeywords from '../../data/devQuestKeywords.json';
-import _questRaces from '../../data/questRaces.json';
+import questRaceIDs from '../../data/questRaceIDs.json';
+import questRaceClassZeros from '../../data/questRaceClassZeros.json';
 import repeatQuestFlags from '../../data/repeatQuestFlags.json';
 import zoneRef from '../../data/zoneRef.json';
 
@@ -26,7 +27,7 @@ export const filterTemplateQuests: FilterQuests = (all, settings, templateQuests
 
   // Required quest races can come in a variety of combinations
   // i.e. Alliance, Horde, Orc, Troll-Tauren, All, etc.
-  const questRaces = _questRaces as QuestRaces;
+  const questRaces = questRaceIDs as QuestRaces;
 
   // Some zones have multiple subzone IDs
   const zones = zoneRef as ViewZones;
@@ -50,6 +51,14 @@ export const filterTemplateQuests: FilterQuests = (all, settings, templateQuests
           const classesMatch = characterClass?.value === questClass;
           if (characterClass && !classesMatch) completeMatch = false;
           return completeMatch;
+        }
+      },
+      faction: {
+        setting: faction,
+        conditionMet: () => {
+          // Some required race and class IDs are both 0, yet are faction specific
+          const questFaction = questRaceClassZeros[entry];
+          return questFaction === faction || questFaction === 'both'
         }
       },
       race: {

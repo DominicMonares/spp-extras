@@ -3,7 +3,7 @@ from spp_extras_api.models.tbcrealmd import TbcAccount
 from spp_extras_api.models.wotlkrealmd import WotlkAccount
 
 
-# Change model depending on expansion
+# Change models depending on expansion
 
 def account_model(expansion):
     if expansion == 'classic':
@@ -14,7 +14,7 @@ def account_model(expansion):
         return WotlkAccount
 
 
-# Account Queries
+########## Account Queries ##########
 
 def sel_all_account_data(expansion):
     return account_model(expansion).objects\

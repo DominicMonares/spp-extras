@@ -14,7 +14,7 @@ def account_model(expansion):
         return WotlkAccount
 
 
-# Queries
+# Account Queries
 
 def sel_all_account_data(expansion):
     return account_model(expansion).objects\

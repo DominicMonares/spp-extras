@@ -14,7 +14,7 @@ def quest_template_model(expansion):
         return WotlkQuestTemplate
 
 
-# Queries
+# Quest Queries
 
 def sel_all_template_quests(expansion):
     return quest_template_model(expansion).objects\

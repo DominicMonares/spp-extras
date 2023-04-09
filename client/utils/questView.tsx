@@ -58,7 +58,8 @@ export const filterTemplateQuests: FilterQuests = (all, settings, templateQuests
         conditionMet: () => {
           // Some required race and class IDs are both 0, yet are faction specific
           const questFaction = questRaceClassZeros[entry];
-          return questFaction === faction || questFaction === 'both'
+          if (!questFaction) return true;
+          return questFaction === faction || questFaction === 'both';
         }
       },
       race: {

@@ -3,22 +3,21 @@ from spp_extras_api.models.tbcmangos import TbcQuestTemplate
 from spp_extras_api.models.wotlkmangos import WotlkQuestTemplate
 
 
-quest_template_model = WotlkQuestTemplate
-
-
 # Change models depending on expansion
-def set_models(expansion):
-    if expansion == 'classic':
-        quest_template_model = ClassicQuestTemplate
-    elif expansion == 'tbc':
-        quest_template_model = TbcQuestTemplate
-    else:
-        quest_template_model = WotlkQuestTemplate
 
+def quest_template_model(expansion):
+    if expansion == 'classic':
+        return ClassicQuestTemplate
+    elif expansion == 'tbc':
+        return TbcQuestTemplate
+    else:
+        return WotlkQuestTemplate
+
+
+# Queries
 
 def sel_all_template_quests(expansion):
-    set_models(expansion)
-    return quest_template_model.objects\
+    return quest_template_model(expansion).objects\
         .using(f'{expansion}mangos')\
         .all()\
         .values(

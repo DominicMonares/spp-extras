@@ -16,44 +16,56 @@ from spp_extras_api.models.wotlkcharacters import\
     WotlkCharacters
 
 
-characters_model = WotlkCharacters
-regular_quest_model = WotlkCharacterQueststatus
-daily_quest_model = WotlkCharacterQueststatusDaily
-weekly_quest_model = WotlkCharacterQueststatusWeekly
-monthly_quest_model = WotlkCharacterQueststatusMonthly
-
-
 # Change models depending on expansion
-def set_models(expansion):
-    if expansion == 'classic':
-        characters_model = ClassicCharacters
-        regular_quest_model = ClassicCharacterQueststatus
-        weekly_quest_model = ClassicCharacterQueststatusWeekly
-    elif expansion == 'tbc':
-        characters_model = TbcCharacters
-        regular_quest_model = TbcCharacterQueststatus
-        daily_quest_model = TbcCharacterQueststatusDaily
-        weekly_quest_model = TbcCharacterQueststatusWeekly
-        monthly_quest_model = TbcCharacterQueststatusMonthly
-    else:
-        characters_model = WotlkCharacters
-        regular_quest_model = WotlkCharacterQueststatus
-        daily_quest_model = WotlkCharacterQueststatusDaily
-        weekly_quest_model = WotlkCharacterQueststatusWeekly
-        monthly_quest_model = WotlkCharacterQueststatusMonthly
 
+def characters_model(expansion):
+    if expansion == 'classic':
+        return ClassicCharacters
+    elif expansion == 'tbc':
+        return TbcCharacters
+    else:
+        return WotlkCharacters
+
+def regular_quest_model(expansion):
+    if expansion == 'classic':
+        return ClassicCharacterQueststatus
+    elif expansion == 'tbc':
+        return TbcCharacterQueststatus
+    else:
+        return WotlkCharacterQueststatus
+
+def daily_quest_model(expansion):
+    if expansion == 'tbc':
+        return TbcCharacterQueststatusDaily
+    else:
+        return WotlkCharacterQueststatusDaily
+
+def weekly_quest_model(expansion):
+    if expansion == 'classic':
+        return ClassicCharacterQueststatusWeekly
+    elif expansion == 'tbc':
+        return TbcCharacterQueststatusWeekly
+    else:
+        return WotlkCharacterQueststatusWeekly
+
+def monthly_quest_model(expansion):
+    if expansion == 'tbc':
+        return TbcCharacterQueststatusMonthly
+    else:
+        return WotlkCharacterQueststatusMonthly
+
+
+# Queries
 
 def sel_all_char_data(expansion):
-    set_models(expansion)
-    return characters_model.objects\
+    return characters_model(expansion).objects\
         .using(f'{expansion}characters')\
         .all()\
         .values('guid', 'account', 'name', 'race', 'class_field')
 
 
 def sel_all_completed_reg_quests(expansion):
-    set_models(expansion)
-    return regular_quest_model.objects\
+    return regular_quest_model(expansion).objects\
         .using(f'{expansion}characters')\
         .all()\
         .filter(status__exact=1)\
@@ -61,24 +73,21 @@ def sel_all_completed_reg_quests(expansion):
 
 
 def sel_all_completed_daily_quests(expansion):
-    set_models(expansion)
-    return daily_quest_model.objects\
+    return daily_quest_model(expansion).objects\
         .using(f'{expansion}characters')\
         .all()\
         .values()
 
 
 def sel_all_completed_weekly_quests(expansion):
-    set_models(expansion)
-    return weekly_quest_model.objects\
+    return weekly_quest_model(expansion).objects\
         .using(f'{expansion}characters')\
         .all()\
         .values()
 
 
 def sel_all_completed_monthly_quests(expansion):
-    set_models(expansion)
-    return monthly_quest_model.objects\
+    return monthly_quest_model(expansion).objects\
         .using(f'{expansion}characters')\
         .all()\
         .values()

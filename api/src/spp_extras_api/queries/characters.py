@@ -187,7 +187,7 @@ def sel_all_mail_items():
     return WotlkMailItems.objects\
         .using('wotlkcharacters')\
         .all()\
-        .values()
+        .values('item_template', 'receiver')
 
 
 def ins_reward_items(items): # NEEDS REFACTORING
@@ -202,7 +202,7 @@ def sel_all_char_spells():
     return WotlkCharacterSpell.objects\
         .using('wotlkcharacters')\
         .all()\
-        .values()
+        .values('guid', 'spell')
 
 
 def ins_char_spells(spells): # NEEDS REFACTORING
@@ -215,7 +215,7 @@ def sel_all_char_skills():
     return WotlkCharacterSkills.objects\
         .using('wotlkcharacters')\
         .all()\
-        .values()
+        .values('guid', 'skill', 'values')
 
 
 ########## Quest Queries ##########

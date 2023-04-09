@@ -2,28 +2,6 @@ from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from django.db.utils import OperationalError
-from spp_extras_api.models.classiccharacters import\
-    ClassicCharacterQueststatus,\
-    ClassicCharacterQueststatusWeekly,\
-    ClassicCharacters
-from spp_extras_api.models.classicmangos import ClassicQuestTemplate
-from spp_extras_api.models.classicrealmd import ClassicAccount
-from spp_extras_api.models.tbccharacters import\
-    TbcCharacterQueststatus,\
-    TbcCharacterQueststatusDaily,\
-    TbcCharacterQueststatusMonthly,\
-    TbcCharacterQueststatusWeekly,\
-    TbcCharacters
-from spp_extras_api.models.tbcmangos import TbcQuestTemplate
-from spp_extras_api.models.tbcrealmd import TbcAccount
-from spp_extras_api.models.wotlkcharacters import\
-    WotlkCharacterQueststatus,\
-    WotlkCharacterQueststatusDaily,\
-    WotlkCharacterQueststatusMonthly,\
-    WotlkCharacterQueststatusWeekly,\
-    WotlkCharacters
-from spp_extras_api.models.wotlkmangos import WotlkQuestTemplate
-from spp_extras_api.models.wotlkrealmd import WotlkAccount
 from spp_extras_api.queries.characters import\
     sel_all_char_data,\
     sel_all_completed_daily_quests,\
@@ -40,69 +18,39 @@ class DataViewSet(viewsets.ViewSet):
     @action(methods=['GET'], detail=False)
     def all(self, request):
         expansion = request.GET.get('expansion')
-        account_model = {}
-        characters_model = {}
-        regular_quest_model = {}
-        daily_quest_model = {}
-        weekly_quest_model = {}
-        monthly_quest_model = {}
-        quest_template_model = {}
-
-        if expansion == 'classic':
-            account_model = ClassicAccount
-            characters_model = ClassicCharacters
-            regular_quest_model = ClassicCharacterQueststatus
-            weekly_quest_model = ClassicCharacterQueststatusWeekly
-            quest_template_model = ClassicQuestTemplate
-        elif expansion == 'tbc':
-            account_model = TbcAccount
-            characters_model = TbcCharacters
-            regular_quest_model = TbcCharacterQueststatus
-            daily_quest_model = TbcCharacterQueststatusDaily
-            weekly_quest_model = TbcCharacterQueststatusWeekly
-            monthly_quest_model = TbcCharacterQueststatusMonthly
-            quest_template_model = TbcQuestTemplate
-        elif expansion == 'wotlk':
-            account_model = WotlkAccount
-            characters_model = WotlkCharacters
-            regular_quest_model = WotlkCharacterQueststatus
-            daily_quest_model = WotlkCharacterQueststatusDaily
-            weekly_quest_model = WotlkCharacterQueststatusWeekly
-            monthly_quest_model = WotlkCharacterQueststatusMonthly
-            quest_template_model = WotlkQuestTemplate
 
         try:
             # Fetch all account and character data
-            accounts = sel_all_account_data(expansion, account_model)
-            characters = sel_all_char_data(expansion, characters_model)
+            accounts = sel_all_account_data(expansion)
+            characters = sel_all_char_data(expansion)
 
             # Fetch all completed regular quest data
             completed_regular = sel_all_completed_reg_quests(
-                expansion, regular_quest_model
+                expansion
             )
 
             # Fetch all completed daily quest data
             completed_daily = []
             if expansion == 'tbc' or expansion == 'wotlk':
                 completed_daily = sel_all_completed_daily_quests(
-                    expansion, daily_quest_model
+                    expansion
                 )
 
             # Fetch all completed weekly quest data
             completed_weekly = sel_all_completed_weekly_quests(
-                expansion, weekly_quest_model
+                expansion
             )
 
             # Fetch all completed monthly quest data
             completed_monthly = []
             if expansion == 'tbc' or expansion == 'wotlk':
                 completed_monthly = sel_all_completed_monthly_quests(
-                    expansion, monthly_quest_model
+                    expansion
                 )
 
             # Fetch template quests
             template_quests = sel_all_template_quests(
-                expansion, quest_template_model
+                expansion
             )
 
             # Organize all fetched data

@@ -44,11 +44,24 @@ def sel_cut_title():
         .count()
 
 
-def ins_cut_titles(): # NEEDS REFACTORING
+def ins_cut_titles():
+    cut_title_params = []
+    for t in cut_titles:
+        cut_title_params.append(WotlkAchievementReward(
+            entry = t['achievement'],
+            gender = 2,
+            title_a = t['title_A'],
+            title_h = t['title_H'],
+            item = 0,
+            sender = 0,
+            subject = None,
+            text = None
+        ))
+
     WotlkAchievementReward.objects\
         .using('wotlkmangos')\
-        .bulk_create(cut_titles, ignore_conflicts=True)
-    
+        .bulk_create(cut_title_params, ignore_conflicts=True)
+
 
 # Item Queries
 

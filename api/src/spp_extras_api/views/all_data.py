@@ -27,9 +27,10 @@ from spp_extras_api.models.wotlkrealmd import WotlkAccount
 from spp_extras_api.queries.characters import\
     sel_all_char_data,\
     sel_all_completed_daily_quests,\
+    sel_all_completed_monthly_quests,\
     sel_all_completed_reg_quests,\
     sel_all_completed_weekly_quests
-# from spp_extras_api.queries.mangos import sel_all_char_data
+from spp_extras_api.queries.mangos import sel_all_template_quests
 from spp_extras_api.queries.realmd import sel_all_account_data
 from spp_extras_api.utils.characters import all_characters
 from spp_extras_api.utils.quests import all_completed_quests, all_template_quests
@@ -71,44 +72,38 @@ class DataViewSet(viewsets.ViewSet):
             quest_template_model = WotlkQuestTemplate
 
         try:
-            # Fetch all account data
+            # Fetch all account and character data
             accounts = sel_all_account_data(expansion, account_model)
-
-            # Fetch all  character data
             characters = sel_all_char_data(expansion, characters_model)
 
             # Fetch all completed regular quest data
-            completed_regular = sel_all_completed_reg_quests(expansion, regular_quest_model)
+            completed_regular = sel_all_completed_reg_quests(
+                expansion, regular_quest_model
+            )
 
             # Fetch all completed daily quest data
             completed_daily = []
             if expansion == 'tbc' or expansion == 'wotlk':
-                completed_daily = sel_all_completed_daily_quests(expansion, daily_quest_model)
+                completed_daily = sel_all_completed_daily_quests(
+                    expansion, daily_quest_model
+                )
 
             # Fetch all completed weekly quest data
-            completed_weekly = sel_all_completed_weekly_quests(expansion, weekly_quest_model)
+            completed_weekly = sel_all_completed_weekly_quests(
+                expansion, weekly_quest_model
+            )
 
             # Fetch all completed monthly quest data
             completed_monthly = []
             if expansion == 'tbc' or expansion == 'wotlk':
-                completed_monthly = monthly_quest_model.objects\
-                    .using(f'{expansion}characters')\
-                    .all()\
-                    .values()
+                completed_monthly = sel_all_completed_monthly_quests(
+                    expansion, monthly_quest_model
+                )
 
             # Fetch template quests
-            template_quests = quest_template_model.objects\
-                .using(f'{expansion}mangos')\
-                .all()\
-                .values(
-                    'entry',
-                    'zoneorsort',
-                    'type',
-                    'requiredclasses',
-                    'requiredraces',
-                    'title',
-                    'questflags'
-                )
+            template_quests = sel_all_template_quests(
+                expansion, quest_template_model
+            )
 
             # Organize all fetched data
             all_data = {

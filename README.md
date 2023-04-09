@@ -38,10 +38,10 @@ python src/manage.py runserver --settings=spp_extras.settings.dev   |   run from
 
 
 CREATE MODELS
-python src/manage.py inspectdb --database=characters > src/spp_extras_api/characters.py
+python src/manage.py inspectdb --database=wotlkcharacters > src/spp_extras_api/characters.py
 
 MIGRATE AFTER CHANGING MODELS
-python src/manage.py migrate --database=wotlkmangos --fake spp_extras_api
+python src/manage.py migrate --database=wotlkcharacters --fake spp_extras_api
 
 
 PACKAGE

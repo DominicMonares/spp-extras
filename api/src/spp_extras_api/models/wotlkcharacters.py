@@ -111,6 +111,18 @@ class WotlkCharacterReputation(models.Model):
         unique_together = (('guid', 'faction'),)
 
 
+class WotlkCharacterSkills(models.Model):
+    guid = models.PositiveIntegerField(primary_key=True)
+    skill = models.PositiveIntegerField()
+    value = models.PositiveIntegerField()
+    max = models.PositiveIntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'character_skills'
+        unique_together = (('guid', 'skill'),)
+
+
 class WotlkCharacterSpell(models.Model):
     guid = models.PositiveIntegerField(primary_key=True)
     spell = models.PositiveIntegerField()

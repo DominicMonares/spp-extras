@@ -16,7 +16,7 @@ from spp_extras_api.models.tbccharacters import\
     TbcCharacters
 from spp_extras_api.models.tbcmangos import TbcQuestTemplate
 from spp_extras_api.models.tbcrealmd import TbcAccount
-from spp_extras_api.models.wotlkcharacters import \
+from spp_extras_api.models.wotlkcharacters import\
     WotlkCharacterQueststatus,\
     WotlkCharacterQueststatusDaily,\
     WotlkCharacterQueststatusMonthly,\
@@ -24,9 +24,13 @@ from spp_extras_api.models.wotlkcharacters import \
     WotlkCharacters
 from spp_extras_api.models.wotlkmangos import WotlkQuestTemplate
 from spp_extras_api.models.wotlkrealmd import WotlkAccount
-from spp_extras_api.queries.characters import get_all_character_data
-# from spp_extras_api.queries.mangos import get_all_character_data
-from spp_extras_api.queries.realmd import get_all_account_data
+from spp_extras_api.queries.characters import\
+    sel_all_char_data,\
+    sel_all_completed_daily_quests,\
+    sel_all_completed_reg_quests,\
+    sel_all_completed_weekly_quests
+# from spp_extras_api.queries.mangos import sel_all_char_data
+from spp_extras_api.queries.realmd import sel_all_account_data
 from spp_extras_api.utils.characters import all_characters
 from spp_extras_api.utils.quests import all_completed_quests, all_template_quests
 
@@ -68,31 +72,21 @@ class DataViewSet(viewsets.ViewSet):
 
         try:
             # Fetch all account data
-            accounts = get_all_account_data(expansion, account_model)
+            accounts = sel_all_account_data(expansion, account_model)
 
             # Fetch all  character data
-            characters = get_all_character_data(expansion, characters_model)
+            characters = sel_all_char_data(expansion, characters_model)
 
             # Fetch all completed regular quest data
-            completed_regular = regular_quest_model.objects\
-                .using(f'{expansion}characters')\
-                .all()\
-                .filter(status__exact=1)\
-                .values()
+            completed_regular = sel_all_completed_reg_quests(expansion, regular_quest_model)
 
             # Fetch all completed daily quest data
             completed_daily = []
             if expansion == 'tbc' or expansion == 'wotlk':
-                completed_daily = daily_quest_model.objects\
-                    .using(f'{expansion}characters')\
-                    .all()\
-                    .values()
+                completed_daily = sel_all_completed_daily_quests(expansion, daily_quest_model)
 
             # Fetch all completed weekly quest data
-            completed_weekly = weekly_quest_model.objects\
-                .using(f'{expansion}characters')\
-                .all()\
-                .values()
+            completed_weekly = sel_all_completed_weekly_quests(expansion, weekly_quest_model)
 
             # Fetch all completed monthly quest data
             completed_monthly = []

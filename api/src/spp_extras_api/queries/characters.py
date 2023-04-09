@@ -61,7 +61,16 @@ def sel_all_char_data(expansion):
     return characters_model(expansion).objects\
         .using(f'{expansion}characters')\
         .all()\
-        .values('guid', 'account', 'name', 'race', 'class_field')
+        .values(
+            'guid', 
+            'account', 
+            'name', 
+            'race', 
+            'gender', 
+            'class_field', 
+            'totalkills', 
+            'knowntitles'
+        )
 
 
 def sel_all_completed_reg_quests(expansion):

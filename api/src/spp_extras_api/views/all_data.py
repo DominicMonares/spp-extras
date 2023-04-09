@@ -25,33 +25,23 @@ class DataViewSet(viewsets.ViewSet):
             characters = sel_all_char_data(expansion)
 
             # Fetch all completed regular quest data
-            completed_regular = sel_all_completed_reg_quests(
-                expansion
-            )
+            completed_regular = sel_all_completed_reg_quests(expansion)
 
             # Fetch all completed daily quest data
             completed_daily = []
             if expansion == 'tbc' or expansion == 'wotlk':
-                completed_daily = sel_all_completed_daily_quests(
-                    expansion
-                )
+                completed_daily = sel_all_completed_daily_quests(expansion)
 
             # Fetch all completed weekly quest data
-            completed_weekly = sel_all_completed_weekly_quests(
-                expansion
-            )
+            completed_weekly = sel_all_completed_weekly_quests(expansion)
 
             # Fetch all completed monthly quest data
             completed_monthly = []
             if expansion == 'tbc' or expansion == 'wotlk':
-                completed_monthly = sel_all_completed_monthly_quests(
-                    expansion
-                )
+                completed_monthly = sel_all_completed_monthly_quests(expansion)
 
             # Fetch template quests
-            template_quests = sel_all_template_quests(
-                expansion
-            )
+            template_quests = sel_all_template_quests(expansion)
 
             # Organize all fetched data
             all_data = {

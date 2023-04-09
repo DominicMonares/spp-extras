@@ -33,20 +33,20 @@ def sel_all_achievement_rewards():
         .values()
 
 
-# Cut Content Queries
+# Cut Title Queries
 
 def sel_cut_title():
     # Look for 'the Supreme' title to verify
     return WotlkAchievementReward.objects\
-        .using('wotlkcharacters')\
+        .using('wotlkmangos')\
         .all()\
         .filter(entry__exact=457)\
-        .values()
+        .count()
 
 
 def ins_cut_titles(): # NEEDS REFACTORING
     WotlkAchievementReward.objects\
-        .using('wotlkcharacters')\
+        .using('wotlkmangos')\
         .bulk_create(cut_titles, ignore_conflicts=True)
     
 
@@ -54,7 +54,7 @@ def ins_cut_titles(): # NEEDS REFACTORING
 
 def sel_item_charges(items): # NEEDS REFACTORING
     return WotlkItemTemplate.objects\
-        .using('wotlkcharacters')\
+        .using('wotlkmangos')\
         .values()
 
 
@@ -62,7 +62,7 @@ def sel_item_charges(items): # NEEDS REFACTORING
 
 def sel_known_template_spells(known_spells): # NEEDS REFACTORING
     return WotlkSpellTemplate.objects\
-        .using('wotlkcharacters')\
+        .using('wotlkmangos')\
         .values()
 
 

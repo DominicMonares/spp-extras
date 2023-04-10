@@ -13,6 +13,8 @@ from spp_extras_api.queries.mangos import\
     sel_all_template_quests,\
     sel_cut_title
 from spp_extras_api.queries.realmd import sel_all_account_data
+from spp_extras_api.utils.characters import all_characters
+from spp_extras_api.utils.quests import all_completed_quests, all_template_quests
 
 
 class AccountWideAchievementsConsumer(WebsocketConsumer):
@@ -29,11 +31,9 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
     # We're just looking for a signal to start from the client
     def receive(self, text_data):
         def send_msg(msg): self.send(json.dumps({'message': msg}))
-        # fetch all data needed from db
-        # run transfer credit
-        # run transfer progress
-        # run transfer pets and mounts
 
+        ########## Fetch/create all data needed for transfers ##########
+        
         # Create CharacterAchievementSharedProgress table if it doesn't exist
         try:
             send_msg('Looking for shared achievement progress table...')
@@ -76,10 +76,12 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
             send_msg(f'Error: {e}')
             return
 
+        ##### Characters #####
+
         # Fetch all account data
         try:
             send_msg('Fetching account data...')
-            accounts = sel_all_account_data('wotlk')
+            account_data = sel_all_account_data('wotlk')
             send_msg('Account data successfully fetched!')
         except Exception as e:
             send_msg('Failed to fetch account data!')
@@ -89,50 +91,22 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
         # Fetch all character data
         try:
             send_msg('Fetching character data...')
-            characters = sel_all_char_data('wotlk')
+            character_data = sel_all_char_data('wotlk')
             send_msg('Character data successfully fetched!')
         except Exception as e:
             send_msg('Failed to fetch character data!')
             send_msg(f'Error: {e}')
             return
+        
+        ##### Achievements #####
 
-        # Fetch all character achievement data
+        # Fetch all achievement credit data
         try:
             send_msg('Fetching character achievement data...')
             achievements = sel_all_char_achievements()
             send_msg('Character achievement data successfully fetched!')
         except Exception as e:
             send_msg('Failed to fetch character achievement data!')
-            send_msg(f'Error: {e}')
-            return
-
-        # Fetch all completed regular quest data
-        try:
-            send_msg('Fetching completed regular quest data...')
-            completed_regular = sel_all_completed_reg_quests('wotlk')
-            send_msg('Completed regular quest data successfully fetched!')
-        except Exception as e:
-            send_msg('Failed to fetch completed regular quest data!')
-            send_msg(f'Error: {e}')
-            return
-
-        # Fetch all completed daily quest data
-        try:
-            send_msg('Fetching completed daily quest data...')
-            completed_daily = sel_all_completed_daily_quests('wotlk')
-            send_msg('Completed daily quest data successfully fetched!')
-        except Exception as e:
-            send_msg('Failed to fetch completed daily quest data!')
-            send_msg(f'Error: {e}')
-            return
-
-        # Fetch template quests
-        try:
-            send_msg('Fetching template quest data...')
-            template_quests = sel_all_template_quests('wotlk')
-            send_msg('Template quest data successfully fetched!')
-        except Exception as e:
-            send_msg('Failed to fetch template quest data!')
             send_msg(f'Error: {e}')
             return
 
@@ -145,3 +119,58 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
             send_msg('Failed to fetch shared achievement progress data!')
             send_msg(f'Error: {e}')
             return
+        
+        ##### Quests #####
+        
+        # Fetch all completed regular quest data
+        try:
+            send_msg('Fetching completed regular quest data...')
+            completed_regular_data = sel_all_completed_reg_quests('wotlk')
+            send_msg('Completed regular quest data successfully fetched!')
+        except Exception as e:
+            send_msg('Failed to fetch completed regular quest data!')
+            send_msg(f'Error: {e}')
+            return
+
+        # Fetch all completed daily quest data
+        try:
+            send_msg('Fetching completed daily quest data...')
+            completed_daily_data = sel_all_completed_daily_quests('wotlk')
+            send_msg('Completed daily quest data successfully fetched!')
+        except Exception as e:
+            send_msg('Failed to fetch completed daily quest data!')
+            send_msg(f'Error: {e}')
+            return
+
+        # Fetch template quests
+        try:
+            send_msg('Fetching template quest data...')
+            template_quest_data = sel_all_template_quests('wotlk')
+            send_msg('Template quest data successfully fetched!')
+        except Exception as e:
+            send_msg('Failed to fetch template quest data!')
+            send_msg(f'Error: {e}')
+            return
+
+        ########## Format fetched data ##########
+
+        # Combine character and account data
+        characters = all_characters(account_data, character_data)
+
+        # Weekly and monthly quests not tracked for any achievements (AFAIK)
+        completed_quests = all_completed_quests(
+            characters,
+            completed_regular_data,
+            completed_daily_data,
+            [],
+            []
+        )
+        
+        template_quests = all_template_quests(template_quest_data)
+
+
+        ########## Run transfers ##########
+
+    
+
+

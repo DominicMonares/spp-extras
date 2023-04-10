@@ -47,7 +47,6 @@ class DataViewSet(viewsets.ViewSet):
             all_data = {
                 'characters': all_characters(accounts, characters),
                 'completed_quests': all_completed_quests(
-                    characters,
                     completed_regular,
                     completed_daily,
                     completed_weekly,

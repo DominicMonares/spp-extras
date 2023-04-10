@@ -3,6 +3,7 @@ from channels.generic.websocket import WebsocketConsumer
 from spp_extras_api.queries.characters import\
     char_achievement_shared_prog_exists,\
     create_char_achievement_shared_prog,\
+    format_achievement_credit,\
     sel_all_char_achievements,\
     sel_all_char_data,\
     sel_all_completed_daily_quests,\
@@ -103,14 +104,24 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
 
         # Fetch all achievement credit data
         try:
-            send_msg('Fetching character achievement data...')
+            send_msg('Fetching achievement credit data...')
             achievement_credit_data = sel_all_char_achievements()
-            send_msg('Character achievement data successfully fetched!')
+            send_msg('Achievement credit data successfully fetched!')
         except Exception as e:
-            send_msg('Failed to fetch character achievement data!')
+            send_msg('Failed to fetch achievement credit data!')
             send_msg(f'Error: {e}')
             return
-
+        
+        # Fetch all achievement progress data
+        try:
+            send_msg('Fetching achievement progress data...')
+            achievement_progress_data = format_achievement_credit()
+            send_msg('Achievement progress data successfully fetched!')
+        except Exception as e:
+            send_msg('Failed to fetch achievement progress data!')
+            send_msg(f'Error: {e}')
+            return
+            
         # Fetch all shared achievements progress
         try:
             send_msg('Fetching all shared achievement progress data...')

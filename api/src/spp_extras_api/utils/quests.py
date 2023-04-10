@@ -1,5 +1,5 @@
 # Combine all completed quests into one object sorted by character
-def all_completed_quests(regular, daily, weekly, monthly):
+def format_completed_quests(regular, daily, weekly, monthly):
     all = {}
     def add_quest(quest, type):
         guid = str(quest['guid'])
@@ -39,7 +39,7 @@ def all_completed_quests(regular, daily, weekly, monthly):
 
 
 # Combine all template quests into one object sorted by faction
-def all_template_quests(quests):
+def format_template_quests(quests):
     all = {
         'alliance': {},
         'horde': {},

@@ -10,8 +10,10 @@ from spp_extras_api.queries.characters import\
     sel_all_completed_weekly_quests
 from spp_extras_api.queries.mangos import sel_all_template_quests
 from spp_extras_api.queries.realmd import sel_all_account_data
-from spp_extras_api.utils.characters import all_characters
-from spp_extras_api.utils.quests import all_completed_quests, all_template_quests
+from spp_extras_api.utils.characters import format_characters
+from spp_extras_api.utils.quests import\
+    format_completed_quests,\
+    format_template_quests
 
 
 class DataViewSet(viewsets.ViewSet):
@@ -45,14 +47,14 @@ class DataViewSet(viewsets.ViewSet):
 
             # Organize all fetched data
             all_data = {
-                'characters': all_characters(accounts, characters),
-                'completed_quests': all_completed_quests(
+                'characters': format_characters(accounts, characters),
+                'completed_quests': format_completed_quests(
                     completed_regular,
                     completed_daily,
                     completed_weekly,
                     completed_monthly
                 ),
-                'template_quests': all_template_quests(template_quests)
+                'template_quests': format_template_quests(template_quests)
             }
 
             # Send response with character and account data, filtered by faction

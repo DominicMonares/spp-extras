@@ -4,7 +4,7 @@ def check_faction(faction):
 
 
 # Combine all characters into one object sorted by faction
-def all_characters(accounts, characters):
+def format_characters(accounts, characters):
     all = {}
     for account in accounts:
         all[str(account['id'])] = {

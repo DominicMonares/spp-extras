@@ -2,7 +2,9 @@ import json
 from from_root import from_root
 from operator import itemgetter
 from unittest import TestCase
-from api.src.spp_extras_api.utils.quests import all_completed_quests, all_template_quests
+from api.src.spp_extras_api.utils.quests import\
+    format_completed_quests,\
+    format_template_quests
 with open(from_root('tests/samples/completedQuests.json'), 'r') as json_file:
     completed_quests = json.load(json_file)
 with open(from_root('tests/samples/rawCompletedQuests.json'), 'r') as json_file:
@@ -22,7 +24,7 @@ class TestAllCompletedQuests(TestCase):
     """Should return dict with completed quests sorted by faction and character"""
 
     def test_all_completed(self):
-        result = all_completed_quests(regular, daily, weekly, monthly)
+        result = format_completed_quests(regular, daily, weekly, monthly)
         self.assertDictEqual(result, completed_quests)
 
 
@@ -30,5 +32,5 @@ class TestAllTemplateQuests(TestCase):
     """Should return dict with template quests sorted by faction"""
 
     def test_all_template(self):
-        result = all_template_quests(raw_template_quests)
+        result = format_template_quests(raw_template_quests)
         self.assertDictEqual(result, template_quests)

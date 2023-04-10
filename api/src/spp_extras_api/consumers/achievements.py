@@ -6,6 +6,7 @@ from spp_extras_api.queries.characters import\
     sel_all_achievement_prog,\
     sel_all_char_achievements,\
     sel_all_char_data,\
+    sel_all_char_rep,\
     sel_all_completed_daily_quests,\
     sel_all_completed_reg_quests,\
     sel_all_char_achievement_shared_prog
@@ -15,8 +16,10 @@ from spp_extras_api.queries.mangos import\
     sel_cut_title
 from spp_extras_api.queries.realmd import sel_all_account_data
 from spp_extras_api.utils.achievements import\
+    combine_char_data,\
     format_achievement_credit,\
-    format_achievement_prog
+    format_achievement_prog,\
+    format_achievement_shared_prog
 from spp_extras_api.utils.characters import format_characters, check_faction
 from spp_extras_api.utils.quests import format_completed_quests, format_template_quests
 
@@ -102,7 +105,7 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
             send_msg(f'Error: {e}')
             return
         
-        ##### Achievements #####
+        ##### Achievement Credit & Progress #####
 
         # Fetch all achievement credit data
         try:
@@ -127,7 +130,7 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
         # Fetch all shared achievements progress
         try:
             send_msg('Fetching all shared achievement progress data...')
-            achievement_shared_prof_data = sel_all_char_achievement_shared_prog()
+            achievement_shared_prog_data = sel_all_char_achievement_shared_prog()
             send_msg('Shared achievement progress data successfully fetched!')
         except Exception as e:
             send_msg('Failed to fetch shared achievement progress data!')
@@ -165,12 +168,23 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
             send_msg('Failed to fetch template quest data!')
             send_msg(f'Error: {e}')
             return
+        
+        # Fetch character reputations
+        try:
+            send_msg('Fetching character reputation data...')
+            char_rep_data = sel_all_char_rep('wotlk')
+            send_msg('Character reputation data successfully fetched!')
+        except Exception as e:
+            send_msg('Failed to fetch character reputation data!')
+            send_msg(f'Error: {e}')
+            return
 
         ########## Format fetched data ##########
 
-        all_char_data = format_characters(account_data, character_data)
+        characters = format_characters(account_data, character_data)
         achievement_credit = format_achievement_credit(achievement_credit_data)
         achievement_prog = format_achievement_prog(achievement_prog_data)
+        achievement_shared_prog = format_achievement_shared_prog(achievement_shared_prog_data)
         completed_quests = format_completed_quests(
             character_data,
             completed_regular_data,
@@ -184,13 +198,13 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
         del completed_quests['monthly']
 
         # Combine all character data
-        for acct in all_char_data:
-            for char in all_char_data[acct]:
-                char_data = all_char_data[acct][char]
-                faction = check_faction(char_data['requiredraces'])
-                all_char_data[acct][char][faction]['achievement_prog'] = achievement_prog[char]
-                all_char_data[acct][char][faction]['achievement_credit'] = achievement_credit[char]
-                all_char_data[acct][char][faction]['quests'] = completed_quests[char]
+        combine_char_data(
+            characters, 
+            achievement_credit, 
+            achievement_prog, 
+            achievement_shared_prog,
+            completed_quests
+        )
 
         template_quests = format_template_quests(template_quest_data)
 

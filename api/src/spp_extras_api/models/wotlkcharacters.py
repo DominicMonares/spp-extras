@@ -25,8 +25,9 @@ class WotlkCharacterAchievementProgress(models.Model):
 
 
 class WotlkCharacterAchievementSharedProgress(models.Model):
-    achievement = models.IntegerField(primary_key=True)
-    progress = models.IntegerField(blank=True, null=True)
+    account = models.PositiveIntegerField(primary_key=True)
+    achievement = models.PositiveIntegerField()
+    progress = models.PositiveIntegerField(blank=True, null=True)
 
     class Meta:
         managed = False

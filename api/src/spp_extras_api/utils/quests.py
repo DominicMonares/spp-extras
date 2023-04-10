@@ -1,7 +1,6 @@
 # Combine all completed quests into one object sorted by character
 def all_completed_quests(regular, daily, weekly, monthly):
     all = {}
-
     def add_quest(quest, type):
         guid = str(quest['guid'])
         questId = str(quest['quest'])

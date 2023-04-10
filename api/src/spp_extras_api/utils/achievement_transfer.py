@@ -1,4 +1,4 @@
-def transfer_credit():
+def transfer_credit(characters):
     return
 
 

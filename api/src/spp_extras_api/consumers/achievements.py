@@ -3,7 +3,7 @@ from channels.generic.websocket import WebsocketConsumer
 from spp_extras_api.queries.characters import\
     char_achievement_shared_prog_exists,\
     create_char_achievement_shared_prog,\
-    format_achievement_credit,\
+    sel_all_achievement_prog,\
     sel_all_char_achievements,\
     sel_all_char_data,\
     sel_all_completed_daily_quests,\
@@ -14,7 +14,9 @@ from spp_extras_api.queries.mangos import\
     sel_all_template_quests,\
     sel_cut_title
 from spp_extras_api.queries.realmd import sel_all_account_data
-from spp_extras_api.utils.achievements import format_completed_achievements
+from spp_extras_api.utils.achievements import\
+    format_achievement_credit,\
+    format_achievement_prog
 from spp_extras_api.utils.characters import format_characters, check_faction
 from spp_extras_api.utils.quests import format_completed_quests, format_template_quests
 
@@ -115,7 +117,7 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
         # Fetch all achievement progress data
         try:
             send_msg('Fetching achievement progress data...')
-            achievement_progress_data = format_achievement_credit()
+            achievement_prog_data = sel_all_achievement_prog()
             send_msg('Achievement progress data successfully fetched!')
         except Exception as e:
             send_msg('Failed to fetch achievement progress data!')
@@ -167,7 +169,8 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
         ########## Format fetched data ##########
 
         all_char_data = format_characters(account_data, character_data)
-        achievements = format_completed_achievements(achievement_credit_data)
+        achievement_credit = format_achievement_credit(achievement_credit_data)
+        achievement_prog = format_achievement_prog(achievement_prog_data)
         completed_quests = format_completed_quests(
             character_data,
             completed_regular_data,
@@ -185,16 +188,10 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
             for char in all_char_data[acct]:
                 char_data = all_char_data[acct][char]
                 faction = check_faction(char_data['requiredraces'])
-                all_char_data[acct][char][faction]['achievements'] = achievements[char]
+                all_char_data[acct][char][faction]['achievement_prog'] = achievement_prog[char]
+                all_char_data[acct][char][faction]['achievement_credit'] = achievement_credit[char]
                 all_char_data[acct][char][faction]['quests'] = completed_quests[char]
-
 
         template_quests = format_template_quests(template_quest_data)
 
-
-
         ########## Run transfers ##########
-
-    
-
-

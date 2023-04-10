@@ -186,12 +186,12 @@ def ins_reward_item_instances(instances): # NEEDS REFACTORING
         .bulk_create(instances)
 
 
-def sel_all_mail_ids():
+def sel_last_mail_id():
     return WotlkMail.objects\
         .using('wotlkcharacters')\
         .all()\
-        .reverse()\
-        .values('id')
+        .values('id')\
+        .last()
 
 
 def ins_reward_mail(mail): # NEEDS REFACTORING

@@ -9,7 +9,8 @@ from spp_extras_api.queries.characters import\
     sel_all_char_rep,\
     sel_all_completed_daily_quests,\
     sel_all_completed_reg_quests,\
-    sel_all_char_achievement_shared_prog
+    sel_all_char_achievement_shared_prog,\
+    sel_last_mail_id
 from spp_extras_api.queries.mangos import\
     ins_cut_titles,\
     sel_all_template_quests,\
@@ -136,6 +137,7 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
             send_msg('Failed to fetch shared achievement progress data!')
             send_msg(f'Error: {e}')
             return
+            
         
         ##### Quests #####
         
@@ -178,9 +180,22 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
             send_msg('Failed to fetch character reputation data!')
             send_msg(f'Error: {e}')
             return
+        
+        ##### Achievement Item Rewards #####
+
+        # Fetch last mail ID
+        try:
+            send_msg('Fetching mail ID data...')
+            char_rep_data = sel_last_mail_id()
+            send_msg('Mail ID data successfully fetched!')
+        except Exception as e:
+            send_msg('Failed to fetch mail ID data!')
+            send_msg(f'Error: {e}')
+            return
 
         ########## Format fetched data ##########
 
+        send_msg('Formatting fetched data...')
         characters = format_characters(account_data, character_data)
         achievement_credit = format_achievement_credit(achievement_credit_data)
         achievement_prog = format_achievement_prog(achievement_prog_data)
@@ -197,8 +212,8 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
         del completed_quests['weekly']
         del completed_quests['monthly']
 
-        # Combine all character data
-        combine_char_data(
+        # Combine all formatted character data
+        all_char_data = combine_char_data(
             characters, 
             achievement_credit, 
             achievement_prog, 
@@ -207,5 +222,6 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
         )
 
         template_quests = format_template_quests(template_quest_data)
+        send_msg('Fetched data successfully formatted!')
 
         ########## Run transfers ##########

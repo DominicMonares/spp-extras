@@ -2,12 +2,14 @@ from django.db import connections
 from spp_extras_api.models.classiccharacters import\
     ClassicCharacterQueststatus,\
     ClassicCharacterQueststatusWeekly,\
+    ClassicCharacterReputation,\
     ClassicCharacters
 from spp_extras_api.models.tbccharacters import\
     TbcCharacterQueststatus,\
     TbcCharacterQueststatusDaily,\
     TbcCharacterQueststatusMonthly,\
     TbcCharacterQueststatusWeekly,\
+    TbcCharacterReputation,\
     TbcCharacters
 from spp_extras_api.models.wotlkcharacters import\
     WotlkCharacterAchievement,\
@@ -17,6 +19,7 @@ from spp_extras_api.models.wotlkcharacters import\
     WotlkCharacterQueststatusDaily,\
     WotlkCharacterQueststatusMonthly,\
     WotlkCharacterQueststatusWeekly,\
+    WotlkCharacterReputation,\
     WotlkCharacters,\
     WotlkCharacterSkills,\
     WotlkCharacterSpell,\
@@ -34,6 +37,16 @@ def characters_model(expansion):
         return TbcCharacters
     else:
         return WotlkCharacters
+    
+
+def character_rep_model(expansion):
+    if expansion == 'classic':
+        return ClassicCharacterReputation
+    elif expansion == 'tbc':
+        return TbcCharacterReputation
+    else:
+        return WotlkCharacterReputation
+
 
 def regular_quest_model(expansion):
     if expansion == 'classic':
@@ -43,11 +56,13 @@ def regular_quest_model(expansion):
     else:
         return WotlkCharacterQueststatus
 
+
 def daily_quest_model(expansion):
     if expansion == 'tbc':
         return TbcCharacterQueststatusDaily
     else:
         return WotlkCharacterQueststatusDaily
+
 
 def weekly_quest_model(expansion):
     if expansion == 'classic':
@@ -56,6 +71,7 @@ def weekly_quest_model(expansion):
         return TbcCharacterQueststatusWeekly
     else:
         return WotlkCharacterQueststatusWeekly
+
 
 def monthly_quest_model(expansion):
     if expansion == 'tbc':
@@ -80,6 +96,13 @@ def sel_all_char_data(expansion):
             'totalkills', 
             'knowntitles'
         )
+
+
+def sel_all_char_rep(expansion):
+    return character_rep_model(expansion).objects\
+        .using(f'{expansion}characters')\
+        .all()\
+        .values('guid', 'faction', 'standing')
 
 
 ########## Achievement Queries ##########

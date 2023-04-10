@@ -98,13 +98,6 @@ def sel_all_char_data(expansion):
         )
 
 
-def sel_all_char_rep(expansion):
-    return character_rep_model(expansion).objects\
-        .using(f'{expansion}characters')\
-        .all()\
-        .values('guid', 'faction', 'standing')
-
-
 ########## Achievement Queries ##########
 
 # Achievement Credit Queries
@@ -271,3 +264,12 @@ def sel_all_completed_monthly_quests(expansion):
         .using(f'{expansion}characters')\
         .all()\
         .values()
+
+
+########## Reputation Queries ##########
+
+def sel_all_char_rep(expansion):
+    return character_rep_model(expansion).objects\
+        .using(f'{expansion}characters')\
+        .all()\
+        .values('guid', 'faction', 'standing')

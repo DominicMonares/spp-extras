@@ -1,4 +1,4 @@
-# Combine all completed quests into one object sorted by character
+# Organize completed quests by character
 def format_completed_quests(regular, daily, weekly, monthly):
     all = {}
     def add_quest(quest, type):
@@ -38,7 +38,7 @@ def format_completed_quests(regular, daily, weekly, monthly):
     return all
 
 
-# Combine all template quests into one object sorted by faction
+# Organize template quests by faction
 def format_template_quests(quests):
     all = {
         'alliance': {},

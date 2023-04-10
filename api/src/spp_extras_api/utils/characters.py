@@ -3,7 +3,7 @@ def check_faction(faction):
     return 'alliance' if faction in alliance else 'horde'
 
 
-# Combine all characters into one object sorted by faction
+# Organize characters by accoutn
 def format_characters(accounts, characters):
     all = {}
     for account in accounts:

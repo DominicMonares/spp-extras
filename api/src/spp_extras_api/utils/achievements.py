@@ -15,7 +15,7 @@ def format_achievement_credit(achievements):
     return all
 
 
-# Organize achievement proress by character
+# Organize achievement progress by character
 def format_achievement_prog(achievements):
     all = {}
     for a in achievements:

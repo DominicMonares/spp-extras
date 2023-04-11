@@ -174,5 +174,8 @@ other vars
 
 
 TODO
-implement way to save db like SPP menu
-electron app icons for window and taskbar
+Account-wide Achievements
+Account-wide Reputation
+
+TEST
+mail reward items for multiple characters and multiple rewards at once

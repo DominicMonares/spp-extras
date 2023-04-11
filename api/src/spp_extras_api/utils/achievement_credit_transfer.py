@@ -1,5 +1,7 @@
 import json
 from from_root import from_root
+from spp_extras_api.models.wotlkcharacters import\
+    WotlkCharacterAchievement
 from spp_extras_api.utils.characters import check_faction
 with open(from_root('data/factionAchievements.json'), 'r') as json_file:
     faction_achievements = json.load(json_file)
@@ -13,6 +15,9 @@ def create_credit_args(char_data):
         'mail_args': [],
         'mail_item_args': []
     }
+
+    ####### TODO: Create return item for rewards to add and to which characters
+    ####### so we can split reward logic from credit logic
 
     # Iterate through all accounts and characters to check achievements
     for acct_id in char_data:
@@ -40,20 +45,20 @@ def create_credit_args(char_data):
                 else:
                     faction_match = True
 
-                # If achievement is valid, transfer credit and rewards
-                # if not existing_ach and faction_match:
+                # Run transfers if achievement is valid
+                if not existing_ach and faction_match:
+                    # Transfer achievement credit
+                    ach_date = credit[ach_id]
+                    args['credit_args'].append(WotlkCharacterAchievement(
+                        guid = char_id,
+                        achievement = ach_id,
+                        date = ach_date
+                    ))
 
+
+                    # Transfer reward titles
+
+                    # Transfer reward items
+                    
 
     return args
-
-
-# def create_progress_args():
-#     return
-
-
-# def create_title_reward_args():
-#     return
-
-
-# def create_mail_reward_args():
-#     return

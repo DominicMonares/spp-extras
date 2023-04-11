@@ -17,13 +17,16 @@ from spp_extras_api.queries.mangos import\
     ins_cut_titles,\
     sel_all_achievement_rewards,\
     sel_all_template_quests,\
-    sel_cut_title
+    sel_cut_title,\
+    sel_rew_item_cd
 from spp_extras_api.queries.realmd import sel_all_account_data
 from spp_extras_api.utils.achievements import\
     combine_char_data,\
     format_achievement_credit,\
     format_achievement_prog,\
-    format_achievement_shared_prog
+    format_achievement_rewards,\
+    format_achievement_shared_prog,\
+    format_mail_item_data
 from spp_extras_api.utils.characters import format_characters, check_faction
 from spp_extras_api.utils.quests import format_completed_quests, format_template_quests
 
@@ -146,10 +149,20 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
         # Fetch achievement reward template data
         try:
             send_msg('Fetching achievement reward data...')
-            achievement_reward_data = sel_all_achievement_rewards()
+            achievement_rew_data = sel_all_achievement_rewards()
             send_msg('Achievement reward data successfully fetched!')
         except Exception as e:
             send_msg('Failed to fetch achievement reward data!')
+            send_msg(f'Error: {e}')
+            return
+        
+        # Fetch achievement reward item cooldown data
+        try:
+            send_msg('Fetching achievement reward item cooldown data...')
+            rew_item_cd_data = sel_rew_item_cd()
+            send_msg('Achievement reward item cooldown data successfully fetched!')
+        except Exception as e:
+            send_msg('Failed to fetch achievement reward item cooldown data!')
             send_msg(f'Error: {e}')
             return
 
@@ -253,6 +266,8 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
             completed_quests
         )
 
+        achievement_rewards = format_achievement_rewards(achievement_rew_data)
+        mail_items = format_mail_item_data(mail_item_data)
         template_quests = format_template_quests(template_quest_data)
         send_msg('Fetched data successfully formatted!')
 

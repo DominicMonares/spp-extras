@@ -1,6 +1,3 @@
-from spp_extras_api.utils.characters import check_faction
-
-
 # Organize achievement credit by character
 def format_achievement_credit(achievements):
     all = {}

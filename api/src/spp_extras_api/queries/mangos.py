@@ -65,10 +65,11 @@ def ins_cut_titles():
 
 # Item Queries
 
-def sel_item_charges(items): # NEEDS REFACTORING
+def sel_achievement_rew_itm_cd(items):
     return WotlkItemTemplate.objects\
         .using('wotlkmangos')\
-        .values()
+        .filter(entry__in=items)\
+        .values('entry', 'spell_charges_1')
 
 
 # Pet & Mount Queries

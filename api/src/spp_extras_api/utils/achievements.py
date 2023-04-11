@@ -59,40 +59,49 @@ def combine_char_data(
 
     # Iterate through all accounts and characters to add data
     for acct_id in all_char_data:
+        # Combine characters - no need for faction separation here
+        alliance_chars = all_char_data[acct_id]['characters']['alliance']
+        horde_chars = all_char_data[acct_id]['characters']['horde']
+        merged_chars = alliance_chars.update(horde_chars)
+        all_char_data[acct_id]['characters'] = merged_chars
         chars = all_char_data[acct_id]['characters']
+
         credit = {}
         shared_progress = achievement_shared_prog[acct_id]
         quests = { 'regular': {}, 'daily': {} }
-        for faction in chars:
-            for char_id in chars[faction]:
-                # Add to account-wide achievement credit
-                for achievement_id in achievement_credit[char_id]:
-                    achievement = credit[achievement_id]
-                    existing_date = achievement['date']
-                    incoming_date = achievement_credit[char_id][achievement_id]['date']
-                    older_entry = existing_date > incoming_date
+        for char_id in chars:
+            # Add to account-wide achievement credit
+            for achievement_id in achievement_credit[char_id]:
+                achievement = credit[achievement_id]
+                existing_date = achievement['date']
+                incoming_date = achievement_credit[char_id][achievement_id]['date']
+                older_entry = existing_date > incoming_date
 
-                    # Use oldest completion date if achievement already exists
-                    if not achievement or older_entry:
-                        achievement = achievement_credit[char_id][achievement_id]
-                        credit[achievement_id] = achievement
+                # Use oldest completion date if achievement already exists
+                if not achievement or older_entry:
+                    achievement = achievement_credit[char_id][achievement_id]
+                    credit[achievement_id] = achievement
 
-                # Add to account-wide quest credit
-                for quest_id in completed_quests[char_id]['regular']:
-                    quest = completed_quests[char_id]['regular'][quest_id]
-                    if not quests['regular'][quest_id]:
-                        quests['regular'][quest_id] = quest
+            # Add to account-wide quest credit
+            for quest_id in completed_quests[char_id]['regular']:
+                quest = completed_quests[char_id]['regular'][quest_id]
+                if not quests['regular'][quest_id]:
+                    quests['regular'][quest_id] = quest
 
-                for quest_id in completed_quests[char_id]['daily']:
-                    quest = completed_quests[char_id]['daily'][quest_id]
-                    if not quests['daily'][quest_id]:
-                        quests['daily'][quest_id] = quest
+            for quest_id in completed_quests[char_id]['daily']:
+                quest = completed_quests[char_id]['daily'][quest_id]
+                if not quests['daily'][quest_id]:
+                    quests['daily'][quest_id] = quest
                 
-                # Add all data to individual characters
-                progress = achievement_prog[char_id]
-                all_char_data[acct_id]['characters'][faction][char_id]['progress'] = progress
+            # Add data for each character
+            char_credit = achievement_credit[char_id]
+            all_char_data[acct_id]['characters'][char_id]['credit'] = char_credit
+            char_progress = achievement_prog[char_id]
+            all_char_data[acct_id]['characters'][char_id]['progress'] = char_progress
+            char_quests = completed_quests[char_id]
+            all_char_data[acct_id]['characters'][char_id]['quests'] = char_quests
 
-        # Add all data to accounts
+        # Add data for each account
         all_char_data[acct_id]['credit'] = credit
         all_char_data[acct_id]['shared_progress'] = shared_progress
         all_char_data[acct_id]['quests'] = quests

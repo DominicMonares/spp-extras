@@ -9,8 +9,8 @@ def format_achievement_credit(achievements):
         if guid not in all:
             all[str(guid)] = {}
             
-        achievement_id = a['achievement']
-        all[guid][achievement_id] = a['date']
+        ach_id = a['achievement']
+        all[guid][ach_id] = a['date']
     
     return all
 
@@ -71,16 +71,16 @@ def combine_char_data(
         quests = { 'regular': {}, 'daily': {} }
         for char_id in chars:
             # Add to account-wide achievement credit
-            for achievement_id in achievement_credit[char_id]:
-                achievement = credit[achievement_id]
+            for ach_id in achievement_credit[char_id]:
+                achievement = credit[ach_id]
                 existing_date = achievement['date']
-                incoming_date = achievement_credit[char_id][achievement_id]['date']
+                incoming_date = achievement_credit[char_id][ach_id]['date']
                 older_entry = existing_date > incoming_date
 
                 # Use oldest completion date if achievement already exists
                 if not achievement or older_entry:
-                    achievement = achievement_credit[char_id][achievement_id]
-                    credit[achievement_id] = achievement
+                    achievement = achievement_credit[char_id][ach_id]
+                    credit[ach_id] = achievement
 
             # Add to account-wide quest credit
             for quest_id in completed_quests[char_id]['regular']:

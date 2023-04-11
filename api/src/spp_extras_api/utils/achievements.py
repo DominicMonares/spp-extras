@@ -60,22 +60,22 @@ def combine_char_data(
     # Iterate through all accounts and characters to add data
     for acct_id in all_char_data:
         chars = all_char_data[acct_id]['characters']
-        credit = { 'alliance': {}, 'horde': {} }
+        credit = {}
         shared_progress = achievement_shared_prog[acct_id]
         quests = { 'regular': {}, 'daily': {} }
         for faction in chars:
             for char_id in chars[faction]:
                 # Add to account-wide achievement credit
                 for achievement_id in achievement_credit[char_id]:
-                    achievement = credit[faction][achievement_id]
+                    achievement = credit[achievement_id]
                     existing_date = achievement['date']
                     incoming_date = achievement_credit[char_id][achievement_id]['date']
                     older_entry = existing_date > incoming_date
 
-                    # Use oldest completion date
+                    # Use oldest completion date if achievement already exists
                     if not achievement or older_entry:
                         achievement = achievement_credit[char_id][achievement_id]
-                        credit[faction][achievement_id] = achievement
+                        credit[achievement_id] = achievement
 
                 # Add to account-wide quest credit
                 for quest_id in completed_quests[char_id]['regular']:

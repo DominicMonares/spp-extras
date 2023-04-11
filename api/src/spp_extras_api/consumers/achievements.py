@@ -11,9 +11,11 @@ from spp_extras_api.queries.characters import\
     sel_all_completed_reg_quests,\
     sel_all_char_achievement_shared_prog,\
     sel_all_mail_items,\
+    sel_last_item_inst_id,\
     sel_last_mail_id
 from spp_extras_api.queries.mangos import\
     ins_cut_titles,\
+    sel_all_achievement_rewards,\
     sel_all_template_quests,\
     sel_cut_title
 from spp_extras_api.queries.realmd import sel_all_account_data
@@ -138,7 +140,49 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
             send_msg('Failed to fetch shared achievement progress data!')
             send_msg(f'Error: {e}')
             return
-            
+
+        ##### Achievement Item Rewards #####
+
+        # Fetch achievement reward template data
+        try:
+            send_msg('Fetching achievement reward data...')
+            achievement_reward_data = sel_all_achievement_rewards()
+            send_msg('Achievement reward data successfully fetched!')
+        except Exception as e:
+            send_msg('Failed to fetch achievement reward data!')
+            send_msg(f'Error: {e}')
+            return
+
+        # Fetch last item instance ID
+        try:
+            send_msg('Fetching last item instance ID data...')
+            last_item_inst_id = sel_last_item_inst_id()
+            send_msg('Last item instance ID data successfully fetched!')
+        except Exception as e:
+            send_msg('Failed to fetch last item instance ID data!')
+            send_msg(f'Error: {e}')
+            return
+
+        # Fetch last mail ID
+        try:
+            send_msg('Fetching last mail ID data...')
+            last_mail_id = sel_last_mail_id()
+            send_msg('Last mail ID data successfully fetched!')
+        except Exception as e:
+            send_msg('Failed to fetch last mail ID data!')
+            send_msg(f'Error: {e}')
+            return
+        
+        # Fetch mail item data
+        try:
+            send_msg('Fetching mail item data...')
+            mail_item_data = sel_all_mail_items()
+            send_msg('Mail item data successfully fetched!')
+        except Exception as e:
+            send_msg('Failed to fetch mail item data!')
+            send_msg(f'Error: {e}')
+            return
+        
         ##### Quests #####
         
         # Fetch all completed regular quest data
@@ -181,28 +225,6 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
             send_msg(f'Error: {e}')
             return
         
-        ##### Achievement Item Rewards #####
-
-        # Fetch last mail ID
-        try:
-            send_msg('Fetching mail ID data...')
-            last_mail_id = sel_last_mail_id()
-            send_msg('Mail ID data successfully fetched!')
-        except Exception as e:
-            send_msg('Failed to fetch mail ID data!')
-            send_msg(f'Error: {e}')
-            return
-        
-        # Fetch mail item data
-        try:
-            send_msg('Fetching mail item data...')
-            last_mail_id = sel_all_mail_items()
-            send_msg('Mail item data successfully fetched!')
-        except Exception as e:
-            send_msg('Failed to fetch mail item data!')
-            send_msg(f'Error: {e}')
-            return
-
         ########## Format fetched data ##########
 
         send_msg('Formatting fetched data...')
@@ -237,5 +259,5 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
         ########## Run transfers ##########
 
         # Run progress transfer and add any new achievements in all_char_data
-        
+
         # Run credit transfer which runs reward transfers

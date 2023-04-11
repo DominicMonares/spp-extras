@@ -104,3 +104,30 @@ def combine_char_data(
         all_char_data[acct_id]['quests'] = quests
 
     return all_char_data
+
+
+# Organize achievement rewards by achievement
+def format_achievement_rewards(achievements):
+    all = {}
+    for a in achievements:
+        # Store in arrays b/c of Matron/Patron duplicate
+        if not all[a['entry']]:
+            all[a['entry']] = [a]
+        else:
+            all[a['entry']].append(a)
+
+    return all
+
+
+# Organize mail items by character
+def format_mail_item_data(mail):
+    all = {}
+    for m in mail:
+        char = mail[m['receiver']]
+        if char not in all:
+            all[char] = {}
+            
+        mail_id = mail[m['mail_id']]
+        all[char][mail_id] = m
+    
+    return all

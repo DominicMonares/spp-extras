@@ -1,920 +1,558 @@
-[
-  {
-    "id": 121,
+{
+  "121": {
     "name": "Twilight Vanquisher",
-    "achievement": 2054,
     "inGameOrder": 89
   },
-  {
-    "id": 129,
+  "129": {
     "name": "Champion of the Frozen Wastes",
-    "achievement": 1658,
     "inGameOrder": 97
   },
-  {
-    "id": 140,
+  "140": {
     "name": "of the Nightfall",
-    "achievement": 2051,
     "inGameOrder": 107
   },
-  {
-    "id": 141,
+  "141": {
     "name": "the Immortal",
-    "achievement": 2186,
     "inGameOrder": 108
   },
-  {
-    "id": 142,
+  "142": {
     "name": "the Undying",
-    "achievement": 2187,
     "inGameOrder": 109
   },
-  {
-    "id": 143,
+  "143": {
     "name": "Jenkins",
-    "achievement": 2188,
     "inGameOrder": 110
   },
-  {
-    "id": 160,
+  "160": {
     "name": "Conqueror of Ulduar",
-    "achievement": 2904,
     "inGameOrder": 126
   },
-  {
-    "id": 161,
+  "161": {
     "name": "Champion of Ulduar",
-    "achievement": 2903,
     "inGameOrder": 127
   },
-  {
-    "id": 164,
+  "164": {
     "name": "Starcaller",
-    "achievement": 3036,
     "inGameOrder": 129
   },
-  {
-    "id": 165,
+  "165": {
     "name": "the Astral Walker",
-    "achievement": 3037,
     "inGameOrder": 130
   },
-  {
-    "id": 166,
+  "166": {
     "name": "Herald of the Titans",
-    "achievement": 3316,
     "inGameOrder": 131
   },
-  {
-    "id": 172,
+  "172": {
     "name": "the Patient",
-    "achievement": 4477,
     "inGameOrder": 137
   },
-  {
-    "id": 173,
+  "173": {
     "name": "the Light of Dawn",
-    "achievement": 4584,
     "inGameOrder": 138
   },
-  {
-    "id": 174,
+  "174": {
     "name": "Bane of the Fallen King",
-    "achievement": 4583,
     "inGameOrder": 139
   },
-  {
-    "id": 175,
+  "175": {
     "name": "the Kingslayer",
-    "achievement": 4530,
     "inGameOrder": 140
   },
-  {
-    "id": 175,
-    "name": "the Kingslayer",
-    "achievement": 4597,
-    "inGameOrder": 140
-  },
-  {
-    "id": 176,
+  "176": {
     "name": "of the Ashen Verdict",
-    "achievement": 4598,
     "inGameOrder": 141
   },
-  {
-    "id": 78,
+  "78": {
     "name": "the Explorer",
-    "achievement": 46,
     "inGameOrder": 47
   },
-  {
-    "id": 1,
+  "1": {
     "name": "Private",
-    "achievement": 442,
     "inGameOrder": 1
   },
-  {
-    "id": 2,
+  "2": {
     "name": "Corporal",
-    "achievement": 470,
     "inGameOrder": 2
   },
-  {
-    "id": 3,
+  "3": {
     "name": "Sergeant",
-    "achievement": 471,
     "inGameOrder": 3
   },
-  {
-    "id": 4,
+  "4": {
     "name": "Master Sergeant",
-    "achievement": 441,
     "inGameOrder": 4
   },
-  {
-    "id": 5,
+  "5": {
     "name": "Sergeant Major",
-    "achievement": 440,
     "inGameOrder": 5
   },
-  {
-    "id": 6,
+  "6": {
     "name": "Knight",
-    "achievement": 439,
     "inGameOrder": 6
   },
-  {
-    "id": 7,
+  "7": {
     "name": "Knight-Lieutenant",
-    "achievement": 472,
     "inGameOrder": 7
   },
-  {
-    "id": 8,
+  "8": {
     "name": "Knight-Captain",
-    "achievement": 438,
     "inGameOrder": 8
   },
-  {
-    "id": 9,
+  "9": {
     "name": "Knight-Champion",
-    "achievement": 437,
     "inGameOrder": 9
   },
-  {
-    "id": 10,
+  "10": {
     "name": "Lieutenant Commander",
-    "achievement": 436,
     "inGameOrder": 10
   },
-  {
-    "id": 11,
+  "11": {
     "name": "Commander",
-    "achievement": 435,
     "inGameOrder": 11
   },
-  {
-    "id": 12,
+  "12": {
     "name": "Marshal",
-    "achievement": 473,
     "inGameOrder": 12
   },
-  {
-    "id": 13,
+  "13": {
     "name": "Field Marshal",
-    "achievement": 434,
     "inGameOrder": 13
   },
-  {
-    "id": 14,
+  "14": {
     "name": "Grand Marshal",
-    "achievement": 433,
     "inGameOrder": 14
   },
-  {
-    "id": 15,
+  "15": {
     "name": "Scout",
-    "achievement": 454,
     "inGameOrder": 15
   },
-  {
-    "id": 16,
+  "16": {
     "name": "Grunt",
-    "achievement": 468,
     "inGameOrder": 16
   },
-  {
-    "id": 17,
+  "17": {
     "name": "Sergeant",
-    "achievement": 453,
     "inGameOrder": 17
   },
-  {
-    "id": 18,
+  "18": {
     "name": "Senior Sergeant",
-    "achievement": 450,
     "inGameOrder": 18
   },
-  {
-    "id": 19,
+  "19": {
     "name": "First Sergeant",
-    "achievement": 452,
     "inGameOrder": 19
   },
-  {
-    "id": 20,
+  "20": {
     "name": "Stone Guard",
-    "achievement": 451,
     "inGameOrder": 20
   },
-  {
-    "id": 21,
+  "21": {
     "name": "Blood Guard",
-    "achievement": 449,
     "inGameOrder": 21
   },
-  {
-    "id": 22,
+  "22": {
     "name": "Legionnaire",
-    "achievement": 469,
     "inGameOrder": 22
   },
-  {
-    "id": 23,
+  "23": {
     "name": "Centurion",
-    "achievement": 448,
     "inGameOrder": 23
   },
-  {
-    "id": 24,
+  "24": {
     "name": "Champion",
-    "achievement": 447,
     "inGameOrder": 24
   },
-  {
-    "id": 25,
+  "25": {
     "name": "Lieutenant General",
-    "achievement": 444,
     "inGameOrder": 25
   },
-  {
-    "id": 26,
+  "26": {
     "name": "General",
-    "achievement": 446,
     "inGameOrder": 26
   },
-  {
-    "id": 27,
+  "27": {
     "name": "Warlord",
-    "achievement": 445,
     "inGameOrder": 27
   },
-  {
-    "id": 28,
+  "28": {
     "name": "High Warlord",
-    "achievement": 443,
     "inGameOrder": 28
   },
-  {
-    "id": 42,
+  "42": {
     "name": "Gladiator",
-    "achievement": 2091,
     "inGameOrder": 29
   },
-  {
-    "id": 43,
+  "43": {
     "name": "Duelist",
-    "achievement": 2092,
     "inGameOrder": 30
   },
-  {
-    "id": 44,
+  "44": {
     "name": "Rival",
-    "achievement": 2093,
     "inGameOrder": 31
   },
-  {
-    "id": 45,
+  "45": {
     "name": "Challenger",
-    "achievement": 2090,
     "inGameOrder": 32
   },
-  {
-    "id": 46,
+  "46": {
     "name": "Scarab Lord",
-    "achievement": 416,
     "inGameOrder": 33
   },
-  {
-    "id": 53,
+  "53": {
     "name": "Champion of the Naaru",
-    "achievement": 432,
     "inGameOrder": 36
   },
-  {
-    "id": 62,
+  "62": {
     "name": "Merciless Gladiator",
-    "achievement": 418,
     "inGameOrder": 37
   },
-  {
-    "id": 64,
+  "64": {
     "name": "Hand of A'dal",
-    "achievement": 432,
     "inGameOrder": 39
   },
-  {
-    "id": 71,
+  "71": {
     "name": "Vengeful Gladiator",
-    "achievement": 419,
     "inGameOrder": 40
   },
-  {
-    "id": 80,
+  "80": {
     "name": "Brutal Gladiator",
-    "achievement": 420,
     "inGameOrder": 49
   },
-  {
-    "id": 85,
+  "85": {
     "name": "the Supreme",
-    "achievement": 457,
     "inGameOrder": 53
   },
-  {
-    "id": 86,
+  "86": {
     "name": "of the Ten Storms",
-    "achievement": 467,
     "inGameOrder": 54
   },
-  {
-    "id": 87,
+  "87": {
     "name": "of the Emerald Dream",
-    "achievement": 466,
     "inGameOrder": 55
   },
-  {
-    "id": 89,
+  "89": {
     "name": "Prophet",
-    "achievement": 464,
     "inGameOrder": 57
   },
-  {
-    "id": 90,
+  "90": {
     "name": "the Malefic",
-    "achievement": 463,
     "inGameOrder": 58
   },
-  {
-    "id": 91,
+  "91": {
     "name": "Stalker",
-    "achievement": 462,
     "inGameOrder": 59
   },
-  {
-    "id": 92,
+  "92": {
     "name": "of the Ebon Blade",
-    "achievement": 461,
     "inGameOrder": 60
   },
-  {
-    "id": 93,
+  "93": {
     "name": "Archmage",
-    "achievement": 460,
     "inGameOrder": 61
   },
-  {
-    "id": 94,
+  "94": {
     "name": "Warbringer",
-    "achievement": 459,
     "inGameOrder": 62
   },
-  {
-    "id": 95,
+  "95": {
     "name": "Assassin",
-    "achievement": 458,
     "inGameOrder": 63
   },
-  {
-    "id": 96,
+  "96": {
     "name": "Grand Master Alchemist",
-    "achievement": 1415,
     "inGameOrder": 64
   },
-  {
-    "id": 97,
+  "97": {
     "name": "Grand Master Blacksmith",
-    "achievement": 1414,
     "inGameOrder": 65
   },
-  {
-    "id": 98,
+  "98": {
     "name": "Iron Chef",
-    "achievement": 1416,
     "inGameOrder": 66
   },
-  {
-    "id": 99,
+  "99": {
     "name": "Grand Master Enchanter",
-    "achievement": 1417,
     "inGameOrder": 67
   },
-  {
-    "id": 100,
+  "100": {
     "name": "Grand Master Engineer",
-    "achievement": 1418,
     "inGameOrder": 68
   },
-  {
-    "id": 101,
+  "101": {
     "name": "Doctor",
-    "achievement": 1419,
     "inGameOrder": 69
   },
-  {
-    "id": 102,
+  "102": {
     "name": "Grand Master Angler",
-    "achievement": 1420,
     "inGameOrder": 70
   },
-  {
-    "id": 103,
+  "103": {
     "name": "Grand Master Herbalist",
-    "achievement": 1421,
     "inGameOrder": 71
   },
-  {
-    "id": 104,
+  "104": {
     "name": "Grand Master Scribe",
-    "achievement": 1422,
     "inGameOrder": 72
   },
-  {
-    "id": 105,
+  "105": {
     "name": "Grand Master Jewelcrafter",
-    "achievement": 1423,
     "inGameOrder": 73
   },
-  {
-    "id": 106,
+  "106": {
     "name": "Grand Master Leatherworker",
-    "achievement": 1424,
     "inGameOrder": 74
   },
-  {
-    "id": 107,
+  "107": {
     "name": "Grand Master Miner",
-    "achievement": 1425,
     "inGameOrder": 75
   },
-  {
-    "id": 108,
+  "108": {
     "name": "Grand Master Skinner",
-    "achievement": 1426,
     "inGameOrder": 76
   },
-  {
-    "id": 109,
+  "109": {
     "name": "Grand Master Tailor",
-    "achievement": 1427,
     "inGameOrder": 77
   },
-  {
-    "id": 110,
+  "110": {
     "name": "of Quel'Thalas",
-    "achievement": 1405,
     "inGameOrder": 78
   },
-  {
-    "id": 111,
+  "111": {
     "name": "of Argus",
-    "achievement": 1406,
     "inGameOrder": 79
   },
-  {
-    "id": 112,
+  "112": {
     "name": "of Khaz Modan",
-    "achievement": 1407,
     "inGameOrder": 80
   },
-  {
-    "id": 113,
+  "113": {
     "name": "of Gnomeregan",
-    "achievement": 1404,
     "inGameOrder": 81
   },
-  {
-    "id": 114,
+  "114": {
     "name": "the Lion Hearted",
-    "achievement": 1408,
     "inGameOrder": 82
   },
-  {
-    "id": 115,
+  "115": {
     "name": "Champion of Elune",
-    "achievement": 1409,
     "inGameOrder": 83
   },
-  {
-    "id": 116,
+  "116": {
     "name": "Hero of Orgrimmar",
-    "achievement": 1410,
     "inGameOrder": 84
   },
-  {
-    "id": 117,
+  "117": {
     "name": "Plainsrunner",
-    "achievement": 1411,
     "inGameOrder": 85
   },
-  {
-    "id": 118,
+  "118": {
     "name": "of the Darkspear",
-    "achievement": 1412,
     "inGameOrder": 86
   },
-  {
-    "id": 119,
+  "119": {
     "name": "the Forsaken",
-    "achievement": 1413,
     "inGameOrder": 87
   },
-  {
-    "id": 120,
+  "120": {
     "name": "the Magic Seeker",
-    "achievement": 1400,
     "inGameOrder": 88
   },
-  {
-    "id": 122,
+  "122": {
     "name": "Conqueror of Naxxramas",
-    "achievement": 1402,
     "inGameOrder": 90
   },
-  {
-    "id": 123,
+  "123": {
     "name": "Hero of Northrend",
-    "achievement": 1463,
     "inGameOrder": 91
   },
-  {
-    "id": 128,
+  "128": {
     "name": "the Flawless Victor",
-    "achievement": 408,
     "inGameOrder": 96
   },
-  {
-    "id": 139,
+  "139": {
     "name": "Obsidian Slayer",
-    "achievement": 456,
     "inGameOrder": 106
   },
-  {
-    "id": 144,
+  "144": {
     "name": "Bloodsail Admiral",
-    "achievement": 871,
     "inGameOrder": 111
   },
-  {
-    "id": 145,
+  "145": {
     "name": "the Insane",
-    "achievement": 2336,
     "inGameOrder": 112
   },
-  {
-    "id": 157,
+  "157": {
     "name": "Deadly Gladiator",
-    "achievement": 3336,
     "inGameOrder": 56
   },
-  {
-    "id": 158,
+  "158": {
     "name": "Death's Demise",
-    "achievement": 3117,
     "inGameOrder": 124
   },
-  {
-    "id": 159,
+  "159": {
     "name": "the Celestial Defender",
-    "achievement": 3259,
     "inGameOrder": 125
   },
-  {
-    "id": 169,
+  "169": {
     "name": "Relentless Gladiator",
-    "achievement": 3758,
     "inGameOrder": 134
   },
-  {
-    "id": 170,
+  "170": {
     "name": "Grand Crusader",
-    "achievement": 465,
     "inGameOrder": 135
   },
-  {
-    "id": 177,
+  "177": {
     "name": "Wrathful Gladiator",
-    "achievement": 4599,
     "inGameOrder": 142
   },
-  {
-    "id": 83,
+  "83": {
     "name": "Salty",
-    "achievement": 1516,
     "inGameOrder": 51
   },
-  {
-    "id": 84,
+  "84": {
     "name": "Chef",
-    "achievement": 1563,
     "inGameOrder": 52
   },
-  {
-    "id": 84,
-    "name": "Chef",
-    "achievement": 1784,
-    "inGameOrder": 52
-  },
-  {
-    "id": 47,
+  "47": {
     "name": "Conqueror",
-    "achievement": 714,
     "inGameOrder": 34
   },
-  {
-    "id": 48,
+  "48": {
     "name": "Justicar",
-    "achievement": 907,
     "inGameOrder": 35
   },
-  {
-    "id": 72,
+  "72": {
     "name": "Battlemaster",
-    "achievement": 230,
     "inGameOrder": 41
   },
-  {
-    "id": 72,
-    "name": "Battlemaster",
-    "achievement": 1175,
-    "inGameOrder": 41
-  },
-  {
-    "id": 82,
+  "82": {
     "name": "Arena Master",
-    "achievement": 1174,
     "inGameOrder": 50
   },
-  {
-    "id": 126,
+  "126": {
     "name": "of the Alliance",
-    "achievement": 870,
     "inGameOrder": 94
   },
-  {
-    "id": 127,
+  "127": {
     "name": "of the Horde",
-    "achievement": 870,
     "inGameOrder": 95
   },
-  {
-    "id": 81,
+  "81": {
     "name": "the Seeker",
-    "achievement": 978,
     "inGameOrder": 42
   },
-  {
-    "id": 125,
+  "125": {
     "name": "Loremaster",
-    "achievement": 1681,
     "inGameOrder": 93
   },
-  {
-    "id": 125,
-    "name": "Loremaster",
-    "achievement": 1682,
-    "inGameOrder": 93
-  },
-  {
-    "id": 77,
+  "77": {
     "name": "the Exalted ",
-    "achievement": 1015,
     "inGameOrder": 46
   },
-  {
-    "id": 79,
+  "79": {
     "name": "the Diplomat",
-    "achievement": 942,
     "inGameOrder": 48
   },
-  {
-    "id": 79,
-    "name": "the Diplomat",
-    "achievement": 943,
-    "inGameOrder": 48
-  },
-  {
-    "id": 130,
+  "130": {
     "name": "Ambassador",
-    "achievement": 762,
     "inGameOrder": 98
   },
-  {
-    "id": 130,
-    "name": "Ambassador",
-    "achievement": 948,
-    "inGameOrder": 98
-  },
-  {
-    "id": 131,
+  "131": {
     "name": "the Argent Champion",
-    "achievement": 945,
     "inGameOrder": 99
   },
-  {
-    "id": 132,
+  "132": {
     "name": "Guardian of Cenarius",
-    "achievement": 953,
     "inGameOrder": 100
   },
-  {
-    "id": 171,
+  "171": {
     "name": "the Argent Defender",
-    "achievement": 4080,
     "inGameOrder": 136
   },
-  {
-    "id": 74,
+  "74": {
     "name": "Elder",
-    "achievement": 913,
     "inGameOrder": 43
   },
-  {
-    "id": 75,
+  "75": {
     "name": "Flame Warden",
-    "achievement": 1038,
     "inGameOrder": 44
   },
-  {
-    "id": 76,
+  "76": {
     "name": "Flame Keeper",
-    "achievement": 1039,
     "inGameOrder": 45
   },
-  {
-    "id": 113,
-    "name": "of Gnomeregan",
-    "achievement": 2762,
-    "inGameOrder": 81
-  },
-  {
-    "id": 124,
+  "124": {
     "name": "the Hallowed",
-    "achievement": 1656,
     "inGameOrder": 92
   },
-  {
-    "id": 124,
-    "name": "the Hallowed",
-    "achievement": 1657,
-    "inGameOrder": 92
-  },
-  {
-    "id": 133,
+  "133": {
     "name": "Brewmaster",
-    "achievement": 1683,
     "inGameOrder": 101
   },
-  {
-    "id": 133,
-    "name": "Brewmaster",
-    "achievement": 1684,
-    "inGameOrder": 101
-  },
-  {
-    "id": 134,
+  "134": {
     "name": "Merrymaker",
-    "achievement": 1691,
     "inGameOrder": 102
   },
-  {
-    "id": 134,
-    "name": "Merrymaker",
-    "achievement": 1692,
-    "inGameOrder": 102
-  },
-  {
-    "id": 135,
+  "135": {
     "name": "the Love Fool",
-    "achievement": 1693,
     "inGameOrder": 103
   },
-  {
-    "id": 135,
-    "name": "the Love Fool",
-    "achievement": 1707,
-    "inGameOrder": 103
-  },
-  {
-    "id": 138,
+  "138": {
     "name": "Patron",
-    "achievement": 1793,
     "inGameOrder": 105
   },
-  {
-    "id": 137,
+  "137": {
     "name": "Matron",
-    "achievement": 1793,
     "inGameOrder": 104
   },
-  {
-    "id": 146,
+  "146": {
     "name": "of the Exodar",
-    "achievement": 2761,
     "inGameOrder": 113
   },
-  {
-    "id": 147,
+  "147": {
     "name": "of Darnassus",
-    "achievement": 2760,
     "inGameOrder": 114
   },
-  {
-    "id": 148,
+  "148": {
     "name": "of Ironforge",
-    "achievement": 2763,
     "inGameOrder": 115
   },
-  {
-    "id": 149,
+  "149": {
     "name": "of Stormwind",
-    "achievement": 2764,
     "inGameOrder": 116
   },
-  {
-    "id": 150,
+  "150": {
     "name": "of Orgrimmar",
-    "achievement": 2765,
     "inGameOrder": 117
   },
-  {
-    "id": 151,
+  "151": {
     "name": "of Sen'jin",
-    "achievement": 2766,
     "inGameOrder": 118
   },
-  {
-    "id": 152,
+  "152": {
     "name": "of Silvermoon",
-    "achievement": 2767,
     "inGameOrder": 119
   },
-  {
-    "id": 153,
+  "153": {
     "name": "of Thunder Bluff",
-    "achievement": 2768,
     "inGameOrder": 120
   },
-  {
-    "id": 154,
+  "154": {
     "name": "of the Undercity",
-    "achievement": 2769,
     "inGameOrder": 121
   },
-  {
-    "id": 155,
+  "155": {
     "name": "the Noble",
-    "achievement": 2797,
     "inGameOrder": 122
   },
-  {
-    "id": 155,
-    "name": "the Noble",
-    "achievement": 2798,
-    "inGameOrder": 122
-  },
-  {
-    "id": 156,
+  "156": {
     "name": "Crusader",
-    "achievement": 2816,
     "inGameOrder": 123
   },
-  {
-    "id": 156,
-    "name": "Crusader",
-    "achievement": 2817,
-    "inGameOrder": 123
-  },
-  {
-    "id": 168,
+  "168": {
     "name": "the Pilgrim",
-    "achievement": 3478,
-    "inGameOrder": 133
-  },
-  {
-    "id": 168,
-    "name": "the Pilgrim",
-    "achievement": 3656,
     "inGameOrder": 133
   }
-]
+}

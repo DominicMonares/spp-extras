@@ -118,6 +118,13 @@ def format_achievement_rewards(achievements):
 
     return all
 
+# Organize reward item charges by item
+def format_rew_item_charges(items):
+    all = {}
+    for i in items:
+        all[i['entry']] = i['spell_charges_1']
+
+    return all
 
 # Organize mail items by character
 def format_mail_item_data(mail):

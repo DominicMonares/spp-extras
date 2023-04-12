@@ -8,7 +8,9 @@ with open(from_root('data/factionAchievements.json'), 'r') as json_file:
 
 
 # Create query arguments for achievement credit and rewards
-def create_credit_args(char_data):
+def create_credit_args(create_cred_data):
+    all_char_data = create_cred_data['all_char_data']
+
     args = {
         'credit_args': [],
         'title_args': [],
@@ -16,13 +18,10 @@ def create_credit_args(char_data):
         'mail_item_args': []
     }
 
-    ####### TODO: Create return item for rewards to add and to which characters
-    ####### so we can split reward logic from credit logic
-
     # Iterate through all accounts and characters to check achievements
-    for acct_id in char_data:
-        chars = char_data[acct_id]['characters']
-        credit = char_data[acct_id]['credit']
+    for acct_id in all_char_data:
+        chars = all_char_data[acct_id]['characters']
+        credit = all_char_data[acct_id]['credit']
         for char_id in chars:
             char = chars[char_id]
             faction = check_faction(char['race'])
@@ -54,7 +53,6 @@ def create_credit_args(char_data):
                         achievement = ach_id,
                         date = ach_date
                     ))
-
 
                     # Transfer reward titles
 

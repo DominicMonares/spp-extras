@@ -65,7 +65,7 @@ def ins_cut_titles():
 
 # Item Queries
 
-def sel_rew_item_cd(items):
+def sel_rew_item_charges(items):
     return WotlkItemTemplate.objects\
         .using('wotlkmangos')\
         .filter(entry__in=items)\

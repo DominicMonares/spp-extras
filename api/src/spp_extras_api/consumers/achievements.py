@@ -18,7 +18,7 @@ from spp_extras_api.queries.mangos import\
     sel_all_achievement_rewards,\
     sel_all_template_quests,\
     sel_cut_title,\
-    sel_rew_item_cd
+    sel_rew_item_charges
 from spp_extras_api.queries.realmd import sel_all_account_data
 from spp_extras_api.utils.achievements import\
     combine_char_data,\
@@ -26,7 +26,9 @@ from spp_extras_api.utils.achievements import\
     format_achievement_prog,\
     format_achievement_rewards,\
     format_achievement_shared_prog,\
+    format_rew_item_charges,\
     format_mail_item_data
+from spp_extras_api.utils.achievement_credit_transfer import create_credit_args
 from spp_extras_api.utils.characters import format_characters, check_faction
 from spp_extras_api.utils.quests import format_completed_quests, format_template_quests
 
@@ -156,13 +158,16 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
             send_msg(f'Error: {e}')
             return
         
-        # Fetch achievement reward item cooldown data
+        # Fetch achievement reward item charge data
         try:
-            send_msg('Fetching achievement reward item cooldown data...')
-            rew_item_cd_data = sel_rew_item_cd()
-            send_msg('Achievement reward item cooldown data successfully fetched!')
+            send_msg('Fetching achievement reward item charge data...')
+            # Use achievement reward item IDs in query
+            def rew_item_id(i): return i['item']
+            rew_item_ids = map(rew_item_id, achievement_rew_data)
+            rew_item_charge_data = sel_rew_item_charges(rew_item_ids)
+            send_msg('Achievement reward item charge data successfully fetched!')
         except Exception as e:
-            send_msg('Failed to fetch achievement reward item cooldown data!')
+            send_msg('Failed to fetch achievement reward item charge data!')
             send_msg(f'Error: {e}')
             return
 
@@ -267,17 +272,32 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
         )
 
         achievement_rewards = format_achievement_rewards(achievement_rew_data)
+        item_charges = format_rew_item_charges(rew_item_charge_data)
         mail_items = format_mail_item_data(mail_item_data)
         template_quests = format_template_quests(template_quest_data)
         send_msg('Fetched data successfully formatted!')
 
-        ########## Run transfers and create db queries ##########
+        ########## Run transfers and create db query arguments ##########
+
+        # Create data to be used in create_credit_args
 
         # Run progress transfer and add any new achievements in all_char_data
         send_msg('Sharing achievement progress between characters...')
         send_msg('Achievement progress successfully shared between characters!')
 
         # Run credit transfer which runs reward transfers
+        credit_arg_data = {
+            'ach_rewards': achievement_rewards,
+            'all_char_data': all_char_data,
+            'item_charges': item_charges,
+            'last_item_id': last_item_inst_id,
+            'last_mail_id': last_mail_id,
+            'mail_items': mail_items,
+            'template_quests': template_quests
+        }
+
         send_msg('Sharing achievement credit and rewards between characters...')
+        credit_args = create_credit_args(credit_arg_data)
         send_msg('Achievement credit and rewards successfully shared between characters!')
-        
+
+        ########## Run queries to save new data ##########

@@ -2,224 +2,224 @@
   {
     "name": "the Supreme",
     "achievement": 457,
-    "title_A": 85,
-    "title_H": 85
+    "alliance": 85,
+    "horde": 85
   },
   {
     "name": "of the Ten Storms",
     "achievement": 467,
-    "title_A": 86,
-    "title_H": 86
+    "alliance": 86,
+    "horde": 86
   },
   {
     "name": "of the Emerald Dream",
     "achievement": 466,
-    "title_A": 87,
-    "title_H": 87
+    "alliance": 87,
+    "horde": 87
   },
   {
     "name": "Prophet",
     "achievement": 464,
-    "title_A": 89,
-    "title_H": 89
+    "alliance": 89,
+    "horde": 89
   },
   {
     "name": "the Malefic",
     "achievement": 463,
-    "title_A": 90,
-    "title_H": 90
+    "alliance": 90,
+    "horde": 90
   },
   {
     "name": "Stalker",
     "achievement": 462,
-    "title_A": 91,
-    "title_H": 91
+    "alliance": 91,
+    "horde": 91
   },
   {
     "name": "of the Ebon Blade",
     "achievement": 461,
-    "title_A": 92,
-    "title_H": 92
+    "alliance": 92,
+    "horde": 92
   },
   {
     "name": "Archmage",
     "achievement": 460,
-    "title_A": 93,
-    "title_H": 93
+    "alliance": 93,
+    "horde": 93
   },
   {
     "name": "Warbringer",
     "achievement": 459,
-    "title_A": 94,
-    "title_H": 94
+    "alliance": 94,
+    "horde": 94
   },
   {
     "name": "Assassin",
     "achievement": 458,
-    "title_A": 95,
-    "title_H": 95
+    "alliance": 95,
+    "horde": 95
   },
   {
     "name": "Grand Master Alchemist",
     "achievement": 1415,
-    "title_A": 96,
-    "title_H": 96
+    "alliance": 96,
+    "horde": 96
   },
   {
     "name": "Grand Master Blacksmith",
     "achievement": 1414,
-    "title_A": 97,
-    "title_H": 97
+    "alliance": 97,
+    "horde": 97
   },
   {
     "name": "Iron Chef",
     "achievement": 1416,
-    "title_A": 98,
-    "title_H": 98
+    "alliance": 98,
+    "horde": 98
   },
   {
     "name": "Grand Master Enchanter",
     "achievement": 1417,
-    "title_A": 99,
-    "title_H": 99
+    "alliance": 99,
+    "horde": 99
   },
   {
     "name": "Grand Master Engineer",
     "achievement": 1418,
-    "title_A": 100,
-    "title_H": 100
+    "alliance": 100,
+    "horde": 100
   },
   {
     "name": "Doctor",
     "achievement": 1419,
-    "title_A": 101,
-    "title_H": 101
+    "alliance": 101,
+    "horde": 101
   },
   {
     "name": "Grand Master Angler",
     "achievement": 1420,
-    "title_A": 102,
-    "title_H": 102
+    "alliance": 102,
+    "horde": 102
   },
   {
     "name": "Grand Master Herbalist",
     "achievement": 1421,
-    "title_A": 103,
-    "title_H": 103
+    "alliance": 103,
+    "horde": 103
   },
   {
     "name": "Grand Master Scribe",
     "achievement": 1422,
-    "title_A": 104,
-    "title_H": 104
+    "alliance": 104,
+    "horde": 104
   },
   {
     "name": "Grand Master Jewelcrafter",
     "achievement": 1423,
-    "title_A": 105,
-    "title_H": 105
+    "alliance": 105,
+    "horde": 105
   },
   {
     "name": "Grand Master Leatherworker",
     "achievement": 1424,
-    "title_A": 106,
-    "title_H": 106
+    "alliance": 106,
+    "horde": 106
   },
   {
     "name": "Grand Master Miner",
     "achievement": 1425,
-    "title_A": 107,
-    "title_H": 107
+    "alliance": 107,
+    "horde": 107
   },
   {
     "name": "Grand Master Skinner",
     "achievement": 1426,
-    "title_A": 108,
-    "title_H": 108
+    "alliance": 108,
+    "horde": 108
   },
   {
     "name": "Grand Master Tailor",
     "achievement": 1427,
-    "title_A": 109,
-    "title_H": 109
+    "alliance": 109,
+    "horde": 109
   },
   {
     "name": "of Quel'Thalas",
     "achievement": 1405,
-    "title_A": 0,
-    "title_H": 110
+    "alliance": 0,
+    "horde": 110
   },
   {
     "name": "of Argus",
     "achievement": 1406,
-    "title_A": 111,
-    "title_H": 0
+    "alliance": 111,
+    "horde": 0
   },
   {
     "name": "of Khaz Modan",
     "achievement": 1407,
-    "title_A": 112,
-    "title_H": 0
+    "alliance": 112,
+    "horde": 0
   },
   {
     "name": "of Gnomeregan",
     "achievement": 1404,
-    "title_A": 113,
-    "title_H": 0
+    "alliance": 113,
+    "horde": 0
   },
   {
     "name": "the Lion Hearted",
     "achievement": 1408,
-    "title_A": 114,
-    "title_H": 0
+    "alliance": 114,
+    "horde": 0
   },
   {
     "name": "Champion of Elune",
     "achievement": 1409,
-    "title_A": 115,
-    "title_H": 0
+    "alliance": 115,
+    "horde": 0
   },
   {
     "name": "Hero of Orgrimmar",
     "achievement": 1410,
-    "title_A": 0,
-    "title_H": 116
+    "alliance": 0,
+    "horde": 116
   },
   {
     "name": "Plainsrunner",
     "achievement": 1411,
-    "title_A": 0,
-    "title_H": 117
+    "alliance": 0,
+    "horde": 117
   },
   {
     "name": "of the Darkspear",
     "achievement": 1412,
-    "title_A": 0,
-    "title_H": 118
+    "alliance": 0,
+    "horde": 118
   },
   {
     "name": "the Forsaken",
     "achievement": 1413,
-    "title_A": 0,
-    "title_H": 119
+    "alliance": 0,
+    "horde": 119
   },
   {
     "name": "Hero of Northrend",
     "achievement": 1463,
-    "title_A": 123,
-    "title_H": 123
+    "alliance": 123,
+    "horde": 123
   },
   {
     "name": "the Flawless Victor",
     "achievement": 408,
-    "title_A": 128,
-    "title_H": 128
+    "alliance": 128,
+    "horde": 128
   },
   {
     "name": "Grand Crusader",
     "achievement": 465,
-    "title_A": 170,
-    "title_H": 170
+    "alliance": 170,
+    "horde": 170
   },
 
 
@@ -227,247 +227,247 @@
   {
     "name": "Private",
     "achievement": 442,
-    "title_A": 1,
-    "title_H": 0
+    "alliance": 1,
+    "horde": 0
   },
   {
     "name": "Corporal",
     "achievement": 470,
-    "title_A": 2,
-    "title_H": 0
+    "alliance": 2,
+    "horde": 0
   },
   {
     "name": "Sergeant",
     "achievement": 471,
-    "title_A": 3,
-    "title_H": 0
+    "alliance": 3,
+    "horde": 0
   },
   {
     "name": "Master Sergeant",
     "achievement": 441,
-    "title_A": 4,
-    "title_H": 0
+    "alliance": 4,
+    "horde": 0
   },
   {
     "name": "Sergeant Major",
     "achievement": 440,
-    "title_A": 5,
-    "title_H": 0
+    "alliance": 5,
+    "horde": 0
   },
   {
     "name": "Knight",
     "achievement": 439,
-    "title_A": 6,
-    "title_H": 0
+    "alliance": 6,
+    "horde": 0
   },
   {
     "name": "Knight-Lieutenant",
     "achievement": 472,
-    "title_A": 7,
-    "title_H": 0
+    "alliance": 7,
+    "horde": 0
   },
   {
     "name": "Knight-Captain",
     "achievement": 438,
-    "title_A": 8,
-    "title_H": 0
+    "alliance": 8,
+    "horde": 0
   },
   {
     "name": "Knight-Champion",
     "achievement": 437,
-    "title_A": 9,
-    "title_H": 0
+    "alliance": 9,
+    "horde": 0
   },
   {
     "name": "Lieutenant Commander",
     "achievement": 436,
-    "title_A": 10,
-    "title_H": 0
+    "alliance": 10,
+    "horde": 0
   },
   {
     "name": "Commander",
     "achievement": 435,
-    "title_A": 11,
-    "title_H": 0
+    "alliance": 11,
+    "horde": 0
   },
   {
     "name": "Marshal",
     "achievement": 473,
-    "title_A": 12,
-    "title_H": 0
+    "alliance": 12,
+    "horde": 0
   },
   {
     "name": "Field Marshal",
     "achievement": 434,
-    "title_A": 13,
-    "title_H": 0
+    "alliance": 13,
+    "horde": 0
   },
   {
     "name": "Grand Marshal",
     "achievement": 433,
-    "title_A": 14,
-    "title_H": 0
+    "alliance": 14,
+    "horde": 0
   },
   {
     "name": "Scout",
     "achievement": 454,
-    "title_A": 0,
-    "title_H": 15
+    "alliance": 0,
+    "horde": 15
   },
   {
     "name": "Grunt",
     "achievement": 468,
-    "title_A": 0,
-    "title_H": 16
+    "alliance": 0,
+    "horde": 16
   },
   {
     "name": "Sergeant",
     "achievement": 453,
-    "title_A": 0,
-    "title_H": 17
+    "alliance": 0,
+    "horde": 17
   },
   {
     "name": "Senior Sergeant",
     "achievement": 450,
-    "title_A": 0,
-    "title_H": 18
+    "alliance": 0,
+    "horde": 18
   },
   {
     "name": "First Sergeant",
     "achievement": 452,
-    "title_A": 0,
-    "title_H": 19
+    "alliance": 0,
+    "horde": 19
   },
   {
     "name": "Stone Guard",
     "achievement": 451,
-    "title_A": 0,
-    "title_H": 20
+    "alliance": 0,
+    "horde": 20
   },
   {
     "name": "Blood Guard",
     "achievement": 449,
-    "title_A": 0,
-    "title_H": 21
+    "alliance": 0,
+    "horde": 21
   },
   {
     "name": "Legionnaire",
     "achievement": 469,
-    "title_A": 0,
-    "title_H": 22
+    "alliance": 0,
+    "horde": 22
   },
   {
     "name": "Centurion",
     "achievement": 448,
-    "title_A": 0,
-    "title_H": 23
+    "alliance": 0,
+    "horde": 23
   },
   {
     "name": "Champion",
     "achievement": 447,
-    "title_A": 0,
-    "title_H": 24
+    "alliance": 0,
+    "horde": 24
   },
   {
     "name": "Lieutenant General",
     "achievement": 444,
-    "title_A": 0,
-    "title_H": 25
+    "alliance": 0,
+    "horde": 25
   },
   {
     "name": "General",
     "achievement": 446,
-    "title_A": 0,
-    "title_H": 26
+    "alliance": 0,
+    "horde": 26
   },
   {
     "name": "Warlord",
     "achievement": 445,
-    "title_A": 0,
-    "title_H": 27
+    "alliance": 0,
+    "horde": 27
   },
   {
     "name": "High Warlord",
     "achievement": 443,
-    "title_A": 0,
-    "title_H": 28
+    "alliance": 0,
+    "horde": 28
   },
   {
     "name": "Gladiator",
     "achievement": 2091,
-    "title_A": 42,
-    "title_H": 42
+    "alliance": 42,
+    "horde": 42
   },
   {
     "name": "Duelist",
     "achievement": 2092,
-    "title_A": 43,
-    "title_H": 43
+    "alliance": 43,
+    "horde": 43
   },
   {
     "name": "Rival",
     "achievement": 2093,
-    "title_A": 44,
-    "title_H": 44
+    "alliance": 44,
+    "horde": 44
   },
   {
     "name": "Challenger",
     "achievement": 2090,
-    "title_A": 45,
-    "title_H": 45
+    "alliance": 45,
+    "horde": 45
   },
   {
     "name": "Scarab Lord",
     "achievement": 416,
-    "title_A": 46,
-    "title_H": 46
+    "alliance": 46,
+    "horde": 46
   },
   {
     "name": "Champion of the Naaru",
     "achievement": 432,
-    "title_A": 53,
-    "title_H": 53
+    "alliance": 53,
+    "horde": 53
   },
   {
     "name": "Merciless Gladiator",
     "achievement": 418,
-    "title_A": 62,
-    "title_H": 62
+    "alliance": 62,
+    "horde": 62
   },
   {
     "name": "Hand of A'dal",
     "achievement": 432,
-    "title_A": 64,
-    "title_H": 64
+    "alliance": 64,
+    "horde": 64
   },
   {
     "name": "Vengeful Gladiator",
     "achievement": 419,
-    "title_A": 71,
-    "title_H": 71
+    "alliance": 71,
+    "horde": 71
   },
   {
     "name": "Brutal Gladiator",
     "achievement": 420,
-    "title_A": 80,
-    "title_H": 80
+    "alliance": 80,
+    "horde": 80
   },
   {
     "name": "Deadly Gladiator",
     "achievement": 3336,
-    "title_A": 157,
-    "title_H": 157
+    "alliance": 157,
+    "horde": 157
   },
   {
     "name": "Relentless Gladiator",
     "achievement": 3758,
-    "title_A": 169,
-    "title_H": 169
+    "alliance": 169,
+    "horde": 169
   },
   {
     "name": "Wrathful Gladiator",
     "achievement": 4599,
-    "title_A": 177,
-    "title_H": 177
+    "alliance": 177,
+    "horde": 177
   }
 ]

@@ -271,8 +271,13 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
         template_quests = format_template_quests(template_quest_data)
         send_msg('Fetched data successfully formatted!')
 
-        ########## Run transfers ##########
+        ########## Run transfers and create db queries ##########
 
         # Run progress transfer and add any new achievements in all_char_data
+        send_msg('Sharing achievement progress between characters...')
+        send_msg('Achievement progress successfully shared between characters!')
 
         # Run credit transfer which runs reward transfers
+        send_msg('Sharing achievement credit and rewards between characters...')
+        send_msg('Achievement credit and rewards successfully shared between characters!')
+        

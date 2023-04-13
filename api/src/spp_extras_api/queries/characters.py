@@ -180,7 +180,7 @@ def sel_last_item_inst_id():
         .last()
 
 
-def ins_reward_item_instances(instances): # NEEDS REFACTORING
+def ins_reward_item_instances(instances):
     WotlkItemInstance.objects\
         .using('wotlkcharacters')\
         .bulk_create(instances)

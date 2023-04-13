@@ -44,7 +44,7 @@ def create_credit_args(create_cred_data):
 
                 # Compare account credit to char credit to see if char has achievement
                 for ach_id in credit:
-                    existing_ach = ach_id not in char_credit
+                    existing_ach = ach_id in char_credit
 
                     # Check to see if achievement is faction specific and matches char faction
                     faction_match = False

@@ -109,7 +109,7 @@ def sel_all_char_achievements():
         .values()
 
 
-def ins_char_achievements(achievements): # NEEDS REFACTORING
+def ins_char_achievements(achievements):
     WotlkCharacterAchievement.objects\
         .using('wotlkcharacters')\
         .bulk_create(achievements, ignore_conflicts=True)

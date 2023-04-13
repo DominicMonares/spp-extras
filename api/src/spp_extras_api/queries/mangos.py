@@ -69,7 +69,7 @@ def sel_rew_item_charges(items):
     return WotlkItemTemplate.objects\
         .using('wotlkmangos')\
         .filter(entry__in=items)\
-        .values('entry', 'spell_charges_1')
+        .values('entry', 'spellcharges_1')
 
 
 # Pet & Mount Queries

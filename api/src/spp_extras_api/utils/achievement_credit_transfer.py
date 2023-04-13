@@ -3,7 +3,6 @@ import json
 from from_root import from_root
 from spp_extras_api.models.wotlkcharacters import\
     WotlkCharacterAchievement,\
-    WotlkCharacters,\
     WotlkItemInstance,\
     WotlkMail,\
     WotlkMailItems

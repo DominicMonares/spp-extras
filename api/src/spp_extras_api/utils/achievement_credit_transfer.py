@@ -21,12 +21,12 @@ def create_credit_args(create_cred_data):
     item_charges = create_cred_data['item_charges']
     # Client appears to overwrite database item IDs if they already exist
     # Add 10000 to last ids to prevent client from overwriting for a while
-    last_item_id = create_cred_data['last_item_id'] + 10000
+    last_item_inst_id = create_cred_data['last_item_inst_id'] + 10000
     last_mail_id = create_cred_data['last_mail_id'] + 10000
 
     args = {
         'credit_args': [],
-        'item_args': [],
+        'item_inst_args': [],
         'mail_args': [],
         'mail_item_args': [],
         'title_args': []
@@ -114,13 +114,13 @@ def create_credit_args(create_cred_data):
                             if item:
                                 args['mail_item_args'].append(WotlkMailItems(
                                     mail_id = last_mail_id,
-                                    item_guid = last_item_id,
+                                    item_guid = last_item_inst_id,
                                     item_template = item,
                                     receiver = char_id
                                 ))
 
-                                args['item_args'].append(WotlkItemInstance(
-                                    guid = last_item_id,
+                                args['item_inst_args'].append(WotlkItemInstance(
+                                    guid = last_item_inst_id,
                                     owner_guid = char_id,
                                     itementry = item,
                                     creatorguid = 0,
@@ -137,7 +137,7 @@ def create_credit_args(create_cred_data):
                                 ))
 
                         # Increment mail reward IDs once item added
-                        last_item_id += 1
+                        last_item_inst_id += 1
                         last_mail_id += 1
 
         # Transfer known titles once all achievement rewards given

@@ -3,6 +3,7 @@ from channels.generic.websocket import WebsocketConsumer
 from spp_extras_api.queries.characters import\
     char_achievement_shared_prog_exists,\
     create_char_achievement_shared_prog,\
+    ins_char_achievements,\
     sel_all_achievement_prog,\
     sel_all_char_achievements,\
     sel_all_char_data,\
@@ -287,17 +288,33 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
 
         # Run credit transfer which runs reward transfers
         credit_arg_data = {
-            'ach_rewards': achievement_rewards,
             'all_char_data': all_char_data,
+            'ach_rewards': achievement_rewards,
             'item_charges': item_charges,
-            'last_item_id': last_item_inst_id,
-            'last_mail_id': last_mail_id,
-            'mail_items': mail_items,
-            'template_quests': template_quests
+            'last_item_inst_id': last_item_inst_id,
+            'last_mail_id': last_mail_id
         }
 
         send_msg('Sharing achievement credit and rewards between characters...')
-        credit_args = create_credit_args(credit_arg_data)
+        ach_credit_args = create_credit_args(credit_arg_data)
+        credit_args = ach_credit_args['credit_args']
+        item_inst_args = ach_credit_args['item_inst_args']
+        mail_args = ach_credit_args['mail_args']
+        mail_item_args = ach_credit_args['mail_item_args']
+        title_args = ach_credit_args['title_args']
         send_msg('Achievement credit and rewards successfully shared between characters!')
 
         ########## Run queries to save new data ##########
+
+        # Save new progress
+
+        # Save new credit
+        if credit_args:
+            try:
+                send_msg('Saving new achievement credit data...')
+                ins_char_achievements(credit_args)
+                send_msg('New achievement credit data successfully saved!')
+            except Exception as e:
+                send_msg('Failed to save new achievement credit data!')
+                send_msg(f'Error: {e}')
+                return

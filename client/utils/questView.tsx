@@ -205,10 +205,10 @@ export const markTemplateQuests: MarkTemplateQuests = (
 ) => {
   // Consolidate all quests into one object
   const allCharacterQuests = {
-    ...characterQuests.regular,
-    ...characterQuests.daily,
-    ...characterQuests.weekly,
-    ...characterQuests.monthly
+    ...characterQuests?.regular,
+    ...characterQuests?.daily,
+    ...characterQuests?.weekly,
+    ...characterQuests?.monthly
   }
 
   const typeQuests = type ? characterQuests[type] : allCharacterQuests;

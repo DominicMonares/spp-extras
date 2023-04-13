@@ -164,10 +164,14 @@ def ins_char_achievement_shared_prog(achievements): # NEEDS REFACTORING
 
 # Achievement Reward Title Queries
 
-def upd_reward_titles(titles): # NEEDS REFACTORING
-    WotlkCharacters.objects\
-        .using('wotlkcharacters')\
-        .bulk_update(titles, [])
+def upd_reward_titles(titles):
+    for t in titles:
+        record = WotlkCharacters.objects\
+            .using('wotlkcharacters')\
+            .get(guid=t)
+
+        record['knowntitles'] = titles[t]
+        record.save()
 
 
 # Achievement Reward Item Queries
@@ -207,7 +211,7 @@ def sel_all_mail_items():
         .values('item_template', 'receiver')
 
 
-def ins_reward_items(items): # NEEDS REFACTORING
+def ins_reward_mail_items(items):
     WotlkMailItems.objects\
         .using('wotlkcharacters')\
         .bulk_create(items)

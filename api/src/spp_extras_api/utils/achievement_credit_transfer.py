@@ -52,6 +52,10 @@ def create_credit_args(create_cred_data):
                         faction_ach = faction_achievements[ach_id]
                         if faction_ach['faction'] == faction:
                             faction_match = True
+                        elif faction_ach['alt']:
+                            # Achievement has opposing faction equivalent
+                            ach_id = faction_ach['alt']
+                            faction_match = True
                         else:
                             faction_match = False
                     else:

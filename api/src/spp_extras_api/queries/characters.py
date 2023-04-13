@@ -194,7 +194,7 @@ def sel_last_mail_id():
         .last()
 
 
-def ins_reward_mail(mail): # NEEDS REFACTORING
+def ins_reward_mail(mail):
     WotlkMail.objects\
         .using('wotlkcharacters')\
         .bulk_create(mail)

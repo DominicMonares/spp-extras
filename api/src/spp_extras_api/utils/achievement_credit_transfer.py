@@ -29,7 +29,7 @@ def create_credit_args(create_cred_data):
         'item_inst_args': [],
         'mail_args': [],
         'mail_item_args': [],
-        'title_args': []
+        'title_args': {}
     }
 
     # Iterate through all accounts and characters to check achievements
@@ -141,8 +141,6 @@ def create_credit_args(create_cred_data):
                         last_mail_id += 1
 
         # Transfer known titles once all achievement rewards given
-        args['title_args'].append({
-            char_id: char['knowntitles']
-        })
+        args['title_args'][char_id] = char['knowntitles']
 
     return args

@@ -4,6 +4,9 @@ from spp_extras_api.queries.characters import\
     char_achievement_shared_prog_exists,\
     create_char_achievement_shared_prog,\
     ins_char_achievements,\
+    ins_reward_item_instances,\
+    ins_reward_mail,\
+    ins_reward_mail_items,\
     sel_all_achievement_prog,\
     sel_all_char_achievements,\
     sel_all_char_data,\
@@ -13,7 +16,8 @@ from spp_extras_api.queries.characters import\
     sel_all_char_achievement_shared_prog,\
     sel_all_mail_items,\
     sel_last_item_inst_id,\
-    sel_last_mail_id
+    sel_last_mail_id,\
+    upd_reward_titles
 from spp_extras_api.queries.mangos import\
     ins_cut_titles,\
     sel_all_achievement_rewards,\
@@ -309,12 +313,56 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
         # Save new progress
 
         # Save new credit
-        if credit_args:
+        if len(credit_args):
             try:
                 send_msg('Saving new achievement credit data...')
                 ins_char_achievements(credit_args)
                 send_msg('New achievement credit data successfully saved!')
             except Exception as e:
                 send_msg('Failed to save new achievement credit data!')
+                send_msg(f'Error: {e}')
+                return
+            
+        # Save new item instances
+        if len(item_inst_args):
+            try:
+                send_msg('Saving new item instance data...')
+                ins_reward_item_instances(item_inst_args)
+                send_msg('New item instance data successfully saved!')
+            except Exception as e:
+                send_msg('Failed to save new item instance data!')
+                send_msg(f'Error: {e}')
+                return
+            
+        # Save new mail
+        if len(mail_args):
+            try:
+                send_msg('Saving new mail data...')
+                ins_reward_mail(mail_args)
+                send_msg('New mail data successfully saved!')
+            except Exception as e:
+                send_msg('Failed to save new mail data!')
+                send_msg(f'Error: {e}')
+                return
+
+        # Save new mail items
+        if len(mail_item_args):
+            try:
+                send_msg('Saving new mail item data...')
+                ins_reward_mail_items(mail_item_args)
+                send_msg('New mail item data successfully saved!')
+            except Exception as e:
+                send_msg('Failed to save new mail item data!')
+                send_msg(f'Error: {e}')
+                return
+
+        # Save new titles
+        if len(title_args):
+            try:
+                send_msg('Saving new title data...')
+                upd_reward_titles(title_args)
+                send_msg('New title data successfully saved!')
+            except Exception as e:
+                send_msg('Failed to save new title data!')
                 send_msg(f'Error: {e}')
                 return

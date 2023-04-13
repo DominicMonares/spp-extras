@@ -36,111 +36,112 @@ def create_credit_args(create_cred_data):
     for acct_id in all_char_data:
         chars = all_char_data[acct_id]['characters']
         credit = all_char_data[acct_id]['credit']
-        for char_id in chars:
-            char = chars[char_id]
-            char_credit = char['credit']
-            faction = check_faction(char['race'])
+        if chars is not None:
+            for char_id in chars:
+                char = chars[char_id]
+                char_credit = char['credit']
+                faction = check_faction(char['race'])
 
-            # Compare account credit to char credit to see if char has achievement
-            for ach_id in credit:
-                existing_ach = char_credit[ach_id]
+                # Compare account credit to char credit to see if char has achievement
+                for ach_id in credit:
+                    existing_ach = ach_id not in char_credit
 
-                # Check to see if achievement is faction specific and matches char faction
-                faction_match = False
-                faction_ach = faction_achievements[ach_id]
-                if faction_ach: 
-                    if faction_ach['faction'] == faction:
-                        faction_match = True
+                    # Check to see if achievement is faction specific and matches char faction
+                    faction_match = False
+                    if ach_id in faction_achievements: 
+                        faction_ach = faction_achievements[ach_id]
+                        if faction_ach['faction'] == faction:
+                            faction_match = True
+                        else:
+                            faction_match = False
                     else:
-                        faction_match = False
-                else:
-                    faction_match = True
+                        faction_match = True
 
-                # Run transfers if achievement is valid
-                if not existing_ach and faction_match:
-                    # Transfer achievement credit
-                    ach_date = credit[ach_id]
-                    args['credit_args'].append(WotlkCharacterAchievement(
-                        guid = char_id,
-                        achievement = ach_id,
-                        date = ach_date
-                    ))
+                    # Run transfers if achievement is valid
+                    if not existing_ach and faction_match:
+                        # Transfer achievement credit
+                        ach_date = credit[ach_id]
+                        args['credit_args'].append(WotlkCharacterAchievement(
+                            guid = char_id,
+                            achievement = ach_id,
+                            date = ach_date
+                        ))
 
-                    # Transfer reward(s) if achievement has reward(s)
-                    if ach_rewards[ach_id]:
-                        reward_list = ach_rewards[ach_id]
-                        reward = reward_list[0]
-                        if len(reward_list) > 1: # Handle Matron/Patron
-                            reward = reward_list[char['gender']]
+                        # Transfer reward(s) if achievement has reward(s)
+                        if ach_id in ach_rewards:
+                            reward_list = ach_rewards[ach_id]
+                            reward = reward_list[0]
+                            if len(reward_list) > 1: # Handle Matron/Patron
+                                reward = reward_list[char['gender']]
 
-                        # Transfer title if achievement rewards one
-                        title_id = reward['title_A']
-                        if faction == 'horde': title_id = reward['title_H']
-                        if title_id:
-                            in_game_order = titles[title_id]['inGameOrder']
-                            def toNum(n): return int(n)
-                            known_titles = map(toNum, char['knowntitles'].split(' '))
-                            # Remove empty string created by trailing space
-                            known_titles.pop() 
+                            # Transfer title if achievement rewards one
+                            title_id = reward['title_a']
+                            if faction == 'horde': title_id = reward['title_h']
+                            if title_id:
+                                known_titles = char['knowntitles'].split(' ')
+                                # Remove empty string created by trailing space
+                                known_titles.pop() 
 
-                            # Update known titles
-                            title_index = int(str(in_game_order / 32)[0])
-                            bit = 2 ** (in_game_order % 32)
-                            known_titles[title_index] += bit
-                            char['knowntitles'] = ' '.join(known_titles) + ' '
+                                # Update known titles
+                                in_game_order = titles[str(title_id)]['inGameOrder']
+                                title_index = int(str(in_game_order / 32)[0])
+                                title_val = int(known_titles[title_index])
+                                bit = 2 ** (in_game_order % 32)
+                                known_titles[title_index] = str(title_val + bit)
+                                char['knowntitles'] = ' '.join(known_titles) + ' '
 
-                        # Transfer mail item if achievement rewards one
-                        new_date = datetime.datetime.now().strftime('%s')
-                        sender = reward['sender']
-                        if sender:
-                            args['mail_args'].append(WotlkMail(
-                                id = last_mail_id,
-                                messagetype = 3,
-                                stationery = 41,
-                                mailtemplateid = 0,
-                                sender = sender,
-                                receiver = char_id,
-                                subject = reward['subject'],
-                                body = reward['text'],
-                                has_items = 1,
-                                expire_time = new_date + 7776000, # 7776000 = 90 days
-                                deliver_time = new_date,
-                                money = 0,
-                                cod = 0,
-                                checked = 0
-                            ))
-
-                            item = reward['item']
-                            if item:
-                                args['mail_item_args'].append(WotlkMailItems(
-                                    mail_id = last_mail_id,
-                                    item_guid = last_item_inst_id,
-                                    item_template = item,
-                                    receiver = char_id
+                            # Transfer mail item if achievement rewards one
+                            new_date = int(datetime.datetime.now().strftime('%S'))
+                            sender = reward['sender']
+                            if sender:
+                                args['mail_args'].append(WotlkMail(
+                                    id = last_mail_id,
+                                    messagetype = 3,
+                                    stationery = 41,
+                                    mailtemplateid = 0,
+                                    sender = sender,
+                                    receiver = char_id,
+                                    subject = reward['subject'],
+                                    body = reward['text'],
+                                    has_items = 1,
+                                    expire_time = new_date + 7776000, # 7776000 = 90 days
+                                    deliver_time = new_date,
+                                    money = 0,
+                                    cod = 0,
+                                    checked = 0
                                 ))
 
-                                args['item_inst_args'].append(WotlkItemInstance(
-                                    guid = last_item_inst_id,
-                                    owner_guid = char_id,
-                                    itementry = item,
-                                    creatorguid = 0,
-                                    giftcreatorguid = 0,
-                                    count = 1,
-                                    duration = 0,
-                                    charges = f'{item_charges[item]} 0 0 0 0',
-                                    flags = 0, #36
-                                    enchantments = 36 * '0 ',
-                                    randompropertyid = 0,
-                                    durability = 0,
-                                    playedtime = 0,
-                                    text = '',
-                                ))
+                                item = reward['item']
+                                if item:
+                                    args['mail_item_args'].append(WotlkMailItems(
+                                        mail_id = last_mail_id,
+                                        item_guid = last_item_inst_id,
+                                        item_template = item,
+                                        receiver = char_id
+                                    ))
 
-                        # Increment mail reward IDs once item added
-                        last_item_inst_id += 1
-                        last_mail_id += 1
+                                    args['item_inst_args'].append(WotlkItemInstance(
+                                        guid = last_item_inst_id,
+                                        owner_guid = char_id,
+                                        itementry = item,
+                                        creatorguid = 0,
+                                        giftcreatorguid = 0,
+                                        count = 1,
+                                        duration = 0,
+                                        charges = f'{item_charges[str(item)]} 0 0 0 0',
+                                        flags = 0, #36
+                                        enchantments = 36 * '0 ',
+                                        randompropertyid = 0,
+                                        durability = 0,
+                                        playedtime = 0,
+                                        text = '',
+                                    ))
 
-        # Transfer known titles once all achievement rewards given
-        args['title_args'][char_id] = char['knowntitles']
+                            # Increment mail reward IDs once item added
+                            last_item_inst_id += 1
+                            last_mail_id += 1
+
+                # Transfer known titles once all achievement rewards given
+                args['title_args'][char_id] = char['knowntitles']
 
     return args

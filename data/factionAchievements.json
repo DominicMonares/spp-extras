@@ -2,1261 +2,1261 @@
   "4296": {
     "name": "Trial of the Champion",
     "faction": "alliance",
-    "oppFactionAchievement": 3778
+    "alt": 3778
   },
   "3778": {
     "name": "Trial of the Champion",
     "faction": "horde",
-    "oppFactionAchievement": 4296
+    "alt": 4296
   },
   "4298": {
     "name": "Heroic: Trial of the Champion",
     "faction": "alliance",
-    "oppFactionAchievement": 4297
+    "alt": 4297
   },
   "4297": {
     "name": "Heroic: Trial of the Champion",
     "faction": "horde",
-    "oppFactionAchievement": 4298
+    "alt": 4298
   },
   "4156": {
     "name": "A Tribute to Immortality",
     "faction": "alliance",
-    "oppFactionAchievement": 4079
+    "alt": 4079
   },
   "4079": {
     "name": "A Tribute to Immortality",
     "faction": "horde",
-    "oppFactionAchievement": 4156
+    "alt": 4156
   },
   "4784": {
     "name": "Emblematic",
     "faction": "alliance",
-    "oppFactionAchievement": 4785
+    "alt": 4785
   },
   "4785": {
     "name": "Emblematic",
     "faction": "horde",
-    "oppFactionAchievement": 4784
+    "alt": 4784
   },
   "3356": {
     "name": "Winterspring Frostsaber",
     "faction": "alliance",
-    "oppFactionAchievement": 3357
+    "alt": 3357
   },
   "3357": {
     "name": "Venomhide Ravasaur",
     "faction": "horde",
-    "oppFactionAchievement": 3356
+    "alt": 3356
   },
   "442": {
     "name": "Private",
     "faction": "alliance",
-    "oppFactionAchievement": 454
+    "alt": 454
   },
   "454": {
     "name": "Scout",
     "faction": "horde",
-    "oppFactionAchievement": 442
+    "alt": 442
   },
   "470": {
     "name": "Corporal",
     "faction": "alliance",
-    "oppFactionAchievement": 468
+    "alt": 468
   },
   "468": {
     "name": "Grunt",
     "faction": "horde",
-    "oppFactionAchievement": 470
+    "alt": 470
   },
   "471": {
     "name": "Sergeant",
     "faction": "alliance",
-    "oppFactionAchievement": 453
+    "alt": 453
   },
   "453": {
     "name": "Sergeant",
     "faction": "horde",
-    "oppFactionAchievement": 471
+    "alt": 471
   },
   "441": {
     "name": "Master Sergeant",
     "faction": "alliance",
-    "oppFactionAchievement": 450
+    "alt": 450
   },
   "450": {
     "name": "Senior Sergeant",
     "faction": "horde",
-    "oppFactionAchievement": 441
+    "alt": 441
   },
   "440": {
     "name": "Sergeant Major",
     "faction": "alliance",
-    "oppFactionAchievement": 452
+    "alt": 452
   },
   "452": {
     "name": "First Sergeant",
     "faction": "horde",
-    "oppFactionAchievement": 440
+    "alt": 440
   },
   "439": {
     "name": "Knight",
     "faction": "alliance",
-    "oppFactionAchievement": 451
+    "alt": 451
   },
   "451": {
     "name": "Stone Guard",
     "faction": "horde",
-    "oppFactionAchievement": 439
+    "alt": 439
   },
   "472": {
     "name": "Knight-Lieutenant",
     "faction": "alliance",
-    "oppFactionAchievement": 449
+    "alt": 449
   },
   "449": {
     "name": "Blood Guard",
     "faction": "horde",
-    "oppFactionAchievement": 472
+    "alt": 472
   },
   "438": {
     "name": "Knight-Captain",
     "faction": "alliance",
-    "oppFactionAchievement": 469
+    "alt": 469
   },
   "469": {
     "name": "Legionnaire",
     "faction": "horde",
-    "oppFactionAchievement": 438
+    "alt": 438
   },
   "437": {
     "name": "Knight-Champion",
     "faction": "alliance",
-    "oppFactionAchievement": 448
+    "alt": 448
   },
   "448": {
     "name": "Centurion",
     "faction": "horde",
-    "oppFactionAchievement": 437
+    "alt": 437
   },
   "436": {
     "name": "Lieutenant Commander",
     "faction": "alliance",
-    "oppFactionAchievement": 447
+    "alt": 447
   },
   "447": {
     "name": "Champion",
     "faction": "horde",
-    "oppFactionAchievement": 436
+    "alt": 436
   },
   "435": {
     "name": "Commander",
     "faction": "alliance",
-    "oppFactionAchievement": 444
+    "alt": 444
   },
   "444": {
     "name": "Lieutenant General",
     "faction": "horde",
-    "oppFactionAchievement": 435
+    "alt": 435
   },
   "473": {
     "name": "Marshal",
     "faction": "alliance",
-    "oppFactionAchievement": 446
+    "alt": 446
   },
   "446": {
     "name": "General",
     "faction": "horde",
-    "oppFactionAchievement": 473
+    "alt": 473
   },
   "434": {
     "name": "Field Marshal",
     "faction": "alliance",
-    "oppFactionAchievement": 445
+    "alt": 445
   },
   "445": {
     "name": "Warlord",
     "faction": "horde",
-    "oppFactionAchievement": 434
+    "alt": 434
   },
   "433": {
     "name": "Grand Marshal",
     "faction": "alliance",
-    "oppFactionAchievement": 443
+    "alt": 443
   },
   "443": {
     "name": "High Warlord",
     "faction": "horde",
-    "oppFactionAchievement": 433
+    "alt": 433
   },
   "1406": {
     "name": "Realm First! Level 80 Draenei",
     "faction": "alliance",
-    "oppFactionAchievement": null
+    "alt": null
   },
   "1405": {
     "name": "Realm First! Level 80 Blood Elf",
     "faction": "horde",
-    "oppFactionAchievement": null
+    "alt": null
   },
   "1407": {
     "name": "Realm First! Level 80 Dwarf",
     "faction": "alliance",
-    "oppFactionAchievement": null
+    "alt": null
   },
   "1413": {
     "name": "Realm First! Level 80 Forsaken",
     "faction": "horde",
-    "oppFactionAchievement": null
+    "alt": null
   },
   "1404": {
     "name": "Realm First! Level 80 Gnome",
     "faction": "alliance",
-    "oppFactionAchievement": null
+    "alt": null
   },
   "1412": {
     "name": "Realm First! Level 80 Troll",
     "faction": "horde",
-    "oppFactionAchievement": null
+    "alt": null
   },
   "1408": {
     "name": "Realm First! Level 80 Human",
     "faction": "alliance",
-    "oppFactionAchievement": null
+    "alt": null
   },
   "1410": {
     "name": "Realm First! Level 80 Orc",
     "faction": "horde",
-    "oppFactionAchievement": null
+    "alt": null
   },
   "1409": {
     "name": "Realm First! Level 80 Night Elf",
     "faction": "alliance",
-    "oppFactionAchievement": null
+    "alt": null
   },
   "1411": {
     "name": "Realm First! Level 80 Tauren",
     "faction": "horde",
-    "oppFactionAchievement": null
+    "alt": null
   },
   "4786": {
     "name": "Operation: Gnomeregan",
     "faction": "alliance",
-    "oppFactionAchievement": 4790
+    "alt": 4790
   },
   "4790": {
     "name": "Zalazane's Fall",
     "faction": "horde",
-    "oppFactionAchievement": 4786
+    "alt": 4786
   },
   "2536": {
     "name": "Mountain o' Mounts",
     "faction": "alliance",
-    "oppFactionAchievement": 2537
+    "alt": 2537
   },
   "2537": {
     "name": "Mountain o' Mounts",
     "faction": "horde",
-    "oppFactionAchievement": 2536
+    "alt": 2536
   },
   "1563": {
     "name": "Hail to the Chef",
     "faction": "alliance",
-    "oppFactionAchievement": 1784
+    "alt": 1784
   },
   "1784": {
     "name": "Hail to the Chef",
     "faction": "horde",
-    "oppFactionAchievement": 1563
+    "alt": 1563
   },
   "1782": {
     "name": "Our Daily Bread",
     "faction": "alliance",
-    "oppFactionAchievement": 1783
+    "alt": 1783
   },
   "1783": {
     "name": "Our Daily Bread",
     "faction": "horde",
-    "oppFactionAchievement": 1782
+    "alt": 1782
   },
   "230": {
     "name": "Battlemaster",
     "faction": "alliance",
-    "oppFactionAchievement": 1175
+    "alt": 1175
   },
   "1175": {
     "name": "Battlemaster",
     "faction": "horde",
-    "oppFactionAchievement": 230
+    "alt": 230
   },
   "610": {
     "name": "Death to the Warchief!",
     "faction": "alliance",
-    "oppFactionAchievement": 615
+    "alt": 615
   },
   "615": {
     "name": "Storming Stormwind",
     "faction": "horde",
-    "oppFactionAchievement": 610
+    "alt": 610
   },
   "611": {
     "name": "Bleeding Bloodhoof",
     "faction": "alliance",
-    "oppFactionAchievement": 616
+    "alt": 616
   },
   "616": {
     "name": "Death to the King!",
     "faction": "horde",
-    "oppFactionAchievement": 611
+    "alt": 611
   },
   "612": {
     "name": "Downing the Dark Lady",
     "faction": "alliance",
-    "oppFactionAchievement": 617
+    "alt": 617
   },
   "617": {
     "name": "Immortal No More",
     "faction": "horde",
-    "oppFactionAchievement": 612
+    "alt": 612
   },
   "613": {
     "name": "Killed in Quel'Thalas",
     "faction": "alliance",
-    "oppFactionAchievement": 618
+    "alt": 618
   },
   "618": {
     "name": "Putting Out the Light",
     "faction": "horde",
-    "oppFactionAchievement": 613
+    "alt": 613
   },
   "908": {
     "name": "Call to Arms!",
     "faction": "alliance",
-    "oppFactionAchievement": 909
+    "alt": 909
   },
   "909": {
     "name": "Call to Arms!",
     "faction": "horde",
-    "oppFactionAchievement": 908
+    "alt": 908
   },
   "388": {
     "name": "City Defender",
     "faction": "alliance",
-    "oppFactionAchievement": 1006
+    "alt": 1006
   },
   "1006": {
     "name": "City Defender",
     "faction": "horde",
-    "oppFactionAchievement": 388
+    "alt": 388
   },
   "614": {
     "name": "For The Alliance!",
     "faction": "alliance",
-    "oppFactionAchievement": 619
+    "alt": 619
   },
   "619": {
     "name": "For The Horde!",
     "faction": "horde",
-    "oppFactionAchievement": 614
+    "alt": 614
   },
   "701": {
     "name": "Freedom of the Alliance",
     "faction": "alliance",
-    "oppFactionAchievement": 700
+    "alt": 700
   },
   "700": {
     "name": "Freedom of the Horde",
     "faction": "horde",
-    "oppFactionAchievement": 701
+    "alt": 701
   },
   "2016": {
     "name": "Grizzled Veteran",
     "faction": "alliance",
-    "oppFactionAchievement": 2017
+    "alt": 2017
   },
   "2017": {
     "name": "Grizzled Veteran",
     "faction": "horde",
-    "oppFactionAchievement": 2016
+    "alt": 2016
   },
   "246": {
     "name": "Know Thy Enemy",
     "faction": "alliance",
-    "oppFactionAchievement": 1005
+    "alt": 1005
   },
   "1005": {
     "name": "Know Thy Enemy",
     "faction": "horde",
-    "oppFactionAchievement": 246
+    "alt": 246
   },
   "907": {
     "name": "The Justicar",
     "faction": "alliance",
-    "oppFactionAchievement": 714
+    "alt": 714
   },
   "714": {
     "name": "The Conqueror",
     "faction": "horde",
-    "oppFactionAchievement": 907
+    "alt": 907
   },
   "604": {
     "name": "Wrath of the Alliance",
     "faction": "alliance",
-    "oppFactionAchievement": 603
+    "alt": 603
   },
   "603": {
     "name": "Wrath of the Horde",
     "faction": "horde",
-    "oppFactionAchievement": 604
+    "alt": 604
   },
   "225": {
     "name": "Everything Counts",
     "faction": "alliance",
-    "oppFactionAchievement": 1164
+    "alt": 1164
   },
   "1164": {
     "name": "Everything Counts",
     "faction": "horde",
-    "oppFactionAchievement": 225
+    "alt": 225
   },
   "1151": {
     "name": "Loyal Defender",
     "faction": "alliance",
-    "oppFactionAchievement": 224
+    "alt": 224
   },
   "224": {
     "name": "Loyal Defender",
     "faction": "horde",
-    "oppFactionAchievement": 1151
+    "alt": 1151
   },
   "220": {
     "name": "Stormpike Perfection",
     "faction": "alliance",
-    "oppFactionAchievement": 873
+    "alt": 873
   },
   "873": {
     "name": "Frostwolf Perfection",
     "faction": "horde",
-    "oppFactionAchievement": 220
+    "alt": 220
   },
   "707": {
     "name": "Stormpike Battle Charger",
     "faction": "alliance",
-    "oppFactionAchievement": 706
+    "alt": 706
   },
   "706": {
     "name": "Frostwolf Howler",
     "faction": "horde",
-    "oppFactionAchievement": 707
+    "alt": 707
   },
   "709": {
     "name": "Hero of the Stormpike Guard",
     "faction": "alliance",
-    "oppFactionAchievement": 708
+    "alt": 708
   },
   "708": {
     "name": "Hero of the Frostwolf Clan",
     "faction": "horde",
-    "oppFactionAchievement": 709
+    "alt": 709
   },
   "1167": {
     "name": "Master of Alterac Valley",
     "faction": "alliance",
-    "oppFactionAchievement": 1168
+    "alt": 1168
   },
   "1168": {
     "name": "Master of Alterac Valley",
     "faction": "horde",
-    "oppFactionAchievement": 1167
+    "alt": 1167
   },
   "711": {
     "name": "Knight of Arathor",
     "faction": "alliance",
-    "oppFactionAchievement": 710
+    "alt": 710
   },
   "710": {
     "name": "The Defiler",
     "faction": "horde",
-    "oppFactionAchievement": 711
+    "alt": 711
   },
   "1169": {
     "name": "Master of Arathi Basin",
     "faction": "alliance",
-    "oppFactionAchievement": 1170
+    "alt": 1170
   },
   "1170": {
     "name": "Master of Arathi Basin",
     "faction": "horde",
-    "oppFactionAchievement": 1169
+    "alt": 1169
   },
   "3856": {
     "name": "Demolition Derby",
     "faction": "alliance",
-    "oppFactionAchievement": 4256
+    "alt": 4256
   },
   "4256": {
     "name": "Demolition Derby",
     "faction": "horde",
-    "oppFactionAchievement": 3856
+    "alt": 3856
   },
   "3851": {
     "name": "Mine",
     "faction": "alliance",
-    "oppFactionAchievement": 4177
+    "alt": 4177
   },
   "4177": {
     "name": "Mine",
     "faction": "horde",
-    "oppFactionAchievement": 3851
+    "alt": 3851
   },
   "3857": {
     "name": "Master of Isle of Conquest",
     "faction": "alliance",
-    "oppFactionAchievement": 3957
+    "alt": 3957
   },
   "3957": {
     "name": "Master of Isle of Conquest",
     "faction": "horde",
-    "oppFactionAchievement": 3857
+    "alt": 3857
   },
   "1757": {
     "name": "Defense of the Ancients",
     "faction": "alliance",
-    "oppFactionAchievement": 2200
+    "alt": 2200
   },
   "2200": {
     "name": "Defense of the Ancients",
     "faction": "horde",
-    "oppFactionAchievement": 1757
+    "alt": 1757
   },
   "1762": {
     "name": "Not Even a Scratch",
     "faction": "alliance",
-    "oppFactionAchievement": 2192
+    "alt": 2192
   },
   "2192": {
     "name": "Not Even a Scratch",
     "faction": "horde",
-    "oppFactionAchievement": 1762
+    "alt": 1762
   },
   "2194": {
     "name": "Master of Strand of the Ancients ",
     "faction": "alliance",
-    "oppFactionAchievement": 2195
+    "alt": 2195
   },
   "2195": {
     "name": "Master of Strand of the Ancients ",
     "faction": "horde",
-    "oppFactionAchievement": 2194
+    "alt": 2194
   },
   "203": {
     "name": "Not in My House",
     "faction": "alliance",
-    "oppFactionAchievement": 1251
+    "alt": 1251
   },
   "1251": {
     "name": "Not in My House",
     "faction": "horde",
-    "oppFactionAchievement": 203
+    "alt": 203
   },
   "202": {
     "name": "Quick Cap",
     "faction": "alliance",
-    "oppFactionAchievement": 1502
+    "alt": 1502
   },
   "1502": {
     "name": "Quick Cap",
     "faction": "horde",
-    "oppFactionAchievement": 202
+    "alt": 202
   },
   "713": {
     "name": "Silverwing Sentinel",
     "faction": "alliance",
-    "oppFactionAchievement": 712
+    "alt": 712
   },
   "712": {
     "name": "Warsong Outrider",
     "faction": "horde",
-    "oppFactionAchievement": 713
+    "alt": 713
   },
   "206": {
     "name": "Supreme Defender",
     "faction": "alliance",
-    "oppFactionAchievement": 1252
+    "alt": 1252
   },
   "1252": {
     "name": "Supreme Defender",
     "faction": "horde",
-    "oppFactionAchievement": 206
+    "alt": 206
   },
   "1172": {
     "name": "Master of Warsong Gulch",
     "faction": "alliance",
-    "oppFactionAchievement": 1173
+    "alt": 1173
   },
   "1173": {
     "name": "Master of Warsong Gulch",
     "faction": "horde",
-    "oppFactionAchievement": 1172
+    "alt": 1172
   },
   "1737": {
     "name": "Destruction Derby",
     "faction": "alliance",
-    "oppFactionAchievement": 2476
+    "alt": 2476
   },
   "2476": {
     "name": "Destruction Derby",
     "faction": "horde",
-    "oppFactionAchievement": 1737
+    "alt": 1737
   },
   "1752": {
     "name": "Master of Wintergrasp",
     "faction": "alliance",
-    "oppFactionAchievement": 2776
+    "alt": 2776
   },
   "2776": {
     "name": "Master of Wintergrasp",
     "faction": "horde",
-    "oppFactionAchievement": 1752
+    "alt": 1752
   },
   "1681": {
     "name": "The Loremaster",
     "faction": "alliance",
-    "oppFactionAchievement": 1682
+    "alt": 1682
   },
   "1682": {
     "name": "The Loremaster",
     "faction": "horde",
-    "oppFactionAchievement": 1681
+    "alt": 1681
   },
   "1676": {
     "name": "Loremaster of Eastern Kingdoms",
     "faction": "alliance",
-    "oppFactionAchievement": 1677
+    "alt": 1677
   },
   "1677": {
     "name": "Loremaster of Eastern Kingdoms",
     "faction": "horde",
-    "oppFactionAchievement": 1676
+    "alt": 1676
   },
   "1678": {
     "name": "Loremaster of Kalimdor",
     "faction": "alliance",
-    "oppFactionAchievement": 1680
+    "alt": 1680
   },
   "1680": {
     "name": "Loremaster of Kalimdor",
     "faction": "horde",
-    "oppFactionAchievement": 1678
+    "alt": 1678
   },
   "1192": {
     "name": "Nagrand Slam",
     "faction": "alliance",
-    "oppFactionAchievement": 1273
+    "alt": 1273
   },
   "1273": {
     "name": "Nagrand Slam",
     "faction": "horde",
-    "oppFactionAchievement": 1192
+    "alt": 1192
   },
   "899": {
     "name": "Oh My, Kurenai",
     "faction": "alliance",
-    "oppFactionAchievement": 901
+    "alt": 901
   },
   "901": {
     "name": "Mag'har of Draenor",
     "faction": "horde",
-    "oppFactionAchievement": 899
+    "alt": 899
   },
   "1191": {
     "name": "Terror of Terokkar",
     "faction": "alliance",
-    "oppFactionAchievement": 1272
+    "alt": 1272
   },
   "1272": {
     "name": "Terror of Terokkar",
     "faction": "horde",
-    "oppFactionAchievement": 1191
+    "alt": 1191
   },
   "764": {
     "name": "The Burning Crusader",
     "faction": "alliance",
-    "oppFactionAchievement": 763
+    "alt": 763
   },
   "763": {
     "name": "The Burning Crusader",
     "faction": "horde",
-    "oppFactionAchievement": 764
+    "alt": 764
   },
   "1189": {
     "name": "To Hellfire and Back",
     "faction": "alliance",
-    "oppFactionAchievement": 1271
+    "alt": 1271
   },
   "1271": {
     "name": "To Hellfire and Back",
     "faction": "horde",
-    "oppFactionAchievement": 1189
+    "alt": 1189
   },
   "1262": {
     "name": "Loremaster of Outland",
     "faction": "alliance",
-    "oppFactionAchievement": 1274
+    "alt": 1274
   },
   "1274": {
     "name": "Loremaster of Outland",
     "faction": "horde",
-    "oppFactionAchievement": 1262
+    "alt": 1262
   },
   "37": {
     "name": "Fo' Grizzle My Shizzle",
     "faction": "alliance",
-    "oppFactionAchievement": 1357
+    "alt": 1357
   },
   "1357": {
     "name": "Fo' Grizzle My Shizzle",
     "faction": "horde",
-    "oppFactionAchievement": 37
+    "alt": 37
   },
   "34": {
     "name": "I've Toured the Fjord",
     "faction": "alliance",
-    "oppFactionAchievement": 1356
+    "alt": 1356
   },
   "1356": {
     "name": "I've Toured the Fjord",
     "faction": "horde",
-    "oppFactionAchievement": 34
+    "alt": 34
   },
   "35": {
     "name": "Might of Dragonblight",
     "faction": "alliance",
-    "oppFactionAchievement": 1359
+    "alt": 1359
   },
   "1359": {
     "name": "Might of Dragonblight",
     "faction": "horde",
-    "oppFactionAchievement": 35
+    "alt": 35
   },
   "33": {
     "name": "Nothing Boring About Borean",
     "faction": "alliance",
-    "oppFactionAchievement": 1358
+    "alt": 1358
   },
   "1358": {
     "name": "Nothing Boring About Borean",
     "faction": "horde",
-    "oppFactionAchievement": 33
+    "alt": 33
   },
   "1012": {
     "name": "The Winds of the North",
     "faction": "alliance",
-    "oppFactionAchievement": 1011
+    "alt": 1011
   },
   "1011": {
     "name": "The Winds of the North",
     "faction": "horde",
-    "oppFactionAchievement": 1012
+    "alt": 1012
   },
   "41": {
     "name": "Loremaster of Northrend",
     "faction": "alliance",
-    "oppFactionAchievement": 1360
+    "alt": 1360
   },
   "1360": {
     "name": "Loremaster of Northren",
     "faction": "horde",
-    "oppFactionAchievement": 41
+    "alt": 41
   },
   "948": {
     "name": "Ambassador of the Alliance",
     "faction": "alliance",
-    "oppFactionAchievement": 762
+    "alt": 762
   },
   "762": {
     "name": "Ambassador of the Horde",
     "faction": "horde",
-    "oppFactionAchievement": 948
+    "alt": 948
   },
   "942": {
     "name": "The Diplomat",
     "faction": "alliance",
-    "oppFactionAchievement": 943
+    "alt": 943
   },
   "943": {
     "name": "The Diplomat",
     "faction": "horde",
-    "oppFactionAchievement": 942
+    "alt": 942
   },
   "2144": {
     "name": "What A Long, Strange Trip It's Been",
     "faction": "alliance",
-    "oppFactionAchievement": 2145
+    "alt": 2145
   },
   "2145": {
     "name": "What A Long, Strange Trip It's Been",
     "faction": "horde",
-    "oppFactionAchievement": 2144
+    "alt": 2144
   },
   "3676": {
     "name": "A Silver Confidant",
     "faction": "alliance",
-    "oppFactionAchievement": 3677
+    "alt": 3677
   },
   "3677": {
     "name": "The Sunreavers",
     "faction": "horde",
-    "oppFactionAchievement": 3676
+    "alt": 3676
   },
   "2777": {
     "name": "Champion of Darnassus",
     "faction": "alliance",
-    "oppFactionAchievement": 2786
+    "alt": 2786
   },
   "2786": {
     "name": "Champion of Thunder Bluff",
     "faction": "horde",
-    "oppFactionAchievement": 2777
+    "alt": 2777
   },
   "2779": {
     "name": "Champion of Gnomeregan",
     "faction": "alliance",
-    "oppFactionAchievement": 2784
+    "alt": 2784
   },
   "2784": {
     "name": "Champion of Sen'jin",
     "faction": "horde",
-    "oppFactionAchievement": 2779
+    "alt": 2779
   },
   "2780": {
     "name": "Champion of Ironforge",
     "faction": "alliance",
-    "oppFactionAchievement": 2787
+    "alt": 2787
   },
   "2787": {
     "name": "Champion of Undercity",
     "faction": "horde",
-    "oppFactionAchievement": 2780
+    "alt": 2780
   },
   "2781": {
     "name": "Champion of Stormwind",
     "faction": "alliance",
-    "oppFactionAchievement": 2783
+    "alt": 2783
   },
   "2783": {
     "name": "Champion of Orgrimmar",
     "faction": "horde",
-    "oppFactionAchievement": 2781
+    "alt": 2781
   },
   "2778": {
     "name": "Champion of the Exodar",
     "faction": "alliance",
-    "oppFactionAchievement": 2785
+    "alt": 2785
   },
   "2785": {
     "name": "Champion of Silvermoon City",
     "faction": "horde",
-    "oppFactionAchievement": 2778
+    "alt": 2778
   },
   "2782": {
     "name": "Champion of the Alliance",
     "faction": "alliance",
-    "oppFactionAchievement": 2788
+    "alt": 2788
   },
   "2788": {
     "name": "Champion of the Horde",
     "faction": "horde",
-    "oppFactionAchievement": 2782
+    "alt": 2782
   },
   "2760": {
     "name": "Exalted Champion of Darnassus",
     "faction": "alliance",
-    "oppFactionAchievement": 2768
+    "alt": 2768
   },
   "2768": {
     "name": "Exalted Champion of Thunder Bluff",
     "faction": "horde",
-    "oppFactionAchievement": 2760
+    "alt": 2760
   },
   "2762": {
     "name": "Exalted Champion of Gnomeregan",
     "faction": "alliance",
-    "oppFactionAchievement": 2766
+    "alt": 2766
   },
   "2766": {
     "name": "Exalted Champion of Sen'jin",
     "faction": "horde",
-    "oppFactionAchievement": 2762
+    "alt": 2762
   },
   "2763": {
     "name": "Exalted Champion of Ironforge",
     "faction": "alliance",
-    "oppFactionAchievement": 2769
+    "alt": 2769
   },
   "2769": {
     "name": "Exalted Champion of the Undercity",
     "faction": "horde",
-    "oppFactionAchievement": 2763
+    "alt": 2763
   },
   "2764": {
     "name": "Exalted Champion of Stormwind",
     "faction": "alliance",
-    "oppFactionAchievement": 2765
+    "alt": 2765
   },
   "2765": {
     "name": "Exalted Champion of Orgrimmar",
     "faction": "horde",
-    "oppFactionAchievement": 2764
+    "alt": 2764
   },
   "2761": {
     "name": "Exalted Champion of the Exodar",
     "faction": "alliance",
-    "oppFactionAchievement": 2767
+    "alt": 2767
   },
   "2767": {
     "name": "Exalted Champion of Silvermoon City",
     "faction": "horde",
-    "oppFactionAchievement": 2761
+    "alt": 2761
   },
   "2817": {
     "name": "Exalted Argent Champion of the Alliance",
     "faction": "alliance",
-    "oppFactionAchievement": 2816
+    "alt": 2816
   },
   "2816": {
     "name": "Exalted Argent Champion of the Horde",
     "faction": "horde",
-    "oppFactionAchievement": 2817
+    "alt": 2817
   },
   "1184": {
     "name": "Strange Brew",
     "faction": "alliance",
-    "oppFactionAchievement": 1203
+    "alt": 1203
   },
   "1203": {
     "name": "Strange Brew",
     "faction": "horde",
-    "oppFactionAchievement": 1184
+    "alt": 1184
   },
   "1684": {
     "name": "Brewmaster",
     "faction": "alliance",
-    "oppFactionAchievement": 1683
+    "alt": 1683
   },
   "1683": {
     "name": "Brewmaster",
     "faction": "horde",
-    "oppFactionAchievement": 1684
+    "alt": 1684
   },
   "1040": {
     "name": "Rotten Hallow",
     "faction": "alliance",
-    "oppFactionAchievement": 1041
+    "alt": 1041
   },
   "1041": {
     "name": "Rotten Hallow",
     "faction": "horde",
-    "oppFactionAchievement": 1040
+    "alt": 1040
   },
   "970": {
     "name": "Tricks and Treats of Azeroth",
     "faction": "alliance",
-    "oppFactionAchievement": 971
+    "alt": 971
   },
   "971": {
     "name": "Tricks and Treats of Azeroth",
     "faction": "horde",
-    "oppFactionAchievement": 970
+    "alt": 970
   },
   "966": {
     "name": "Tricks and Treats of Eastern Kingdoms",
     "faction": "alliance",
-    "oppFactionAchievement": 967
+    "alt": 967
   },
   "967": {
     "name": "Tricks and Treats of Eastern Kingdoms",
     "faction": "horde",
-    "oppFactionAchievement": 966
+    "alt": 966
   },
   "963": {
     "name": "Tricks and Treats of Kalimdor",
     "faction": "alliance",
-    "oppFactionAchievement": 965
+    "alt": 965
   },
   "965": {
     "name": "Tricks and Treats of Kalimdor",
     "faction": "horde",
-    "oppFactionAchievement": 963
+    "alt": 963
   },
   "969": {
     "name": "Tricks and Treats of Outland",
     "faction": "alliance",
-    "oppFactionAchievement": 968
+    "alt": 968
   },
   "968": {
     "name": "Tricks and Treats of Outland",
     "faction": "horde",
-    "oppFactionAchievement": 969
+    "alt": 969
   },
   "3846": {
     "name": "Resource Glut",
     "faction": "alliance",
-    "oppFactionAchievement": 4176
+    "alt": 4176
   },
   "4176": {
     "name": "Resource Glut",
     "faction": "horde",
-    "oppFactionAchievement": 3846
+    "alt": 3846
   },
   "1656": {
     "name": "Hallowed Be Thy Name",
     "faction": "alliance",
-    "oppFactionAchievement": 1657
+    "alt": 1657
   },
   "1657": {
     "name": "Hallowed Be Thy Name",
     "faction": "horde",
-    "oppFactionAchievement": 1656
+    "alt": 1656
   },
   "1279": {
     "name": "Flirt With Disaster",
     "faction": "alliance",
-    "oppFactionAchievement": 1280
+    "alt": 1280
   },
   "1280": {
     "name": "Flirt With Disaster",
     "faction": "horde",
-    "oppFactionAchievement": 1279
+    "alt": 1279
   },
   "1697": {
     "name": "Nation of Adoration",
     "faction": "alliance",
-    "oppFactionAchievement": 1698
+    "alt": 1698
   },
   "1698": {
     "name": "Nation of Adoration",
     "faction": "horde",
-    "oppFactionAchievement": 1697
+    "alt": 1697
   },
   "1707": {
     "name": "Fool For Love",
     "faction": "alliance",
-    "oppFactionAchievement": 1693
+    "alt": 1693
   },
   "1693": {
     "name": "Fool For Love",
     "faction": "horde",
-    "oppFactionAchievement": 1707
+    "alt": 1707
   },
   "1035": {
     "name": "Desecration of the Horde",
     "faction": "alliance",
-    "oppFactionAchievement": 1037
+    "alt": 1037
   },
   "1037": {
     "name": "Desecration of the Alliance",
     "faction": "horde",
-    "oppFactionAchievement": 1035
+    "alt": 1035
   },
   "1028": {
     "name": "Extinguishing Eastern Kingdoms",
     "faction": "alliance",
-    "oppFactionAchievement": 1031
+    "alt": 1031
   },
   "1031": {
     "name": "Extinguishing Eastern Kingdoms",
     "faction": "horde",
-    "oppFactionAchievement": 1028
+    "alt": 1028
   },
   "1029": {
     "name": "Extinguishing Kalimdor",
     "faction": "alliance",
-    "oppFactionAchievement": 1032
+    "alt": 1032
   },
   "1032": {
     "name": "Extinguishing Kalimdor",
     "faction": "horde",
-    "oppFactionAchievement": 1029
+    "alt": 1029
   },
   "1030": {
     "name": "Extinguishing Outland",
     "faction": "alliance",
-    "oppFactionAchievement": 1033
+    "alt": 1033
   },
   "1033": {
     "name": "Extinguishing Outland",
     "faction": "horde",
-    "oppFactionAchievement": 1030
+    "alt": 1030
   },
   "1022": {
     "name": "Flame Warden of Eastern Kingdoms",
     "faction": "alliance",
-    "oppFactionAchievement": 1025
+    "alt": 1025
   },
   "1025": {
     "name": "Flame Keeper of Eastern Kingdoms",
     "faction": "horde",
-    "oppFactionAchievement": 1022
+    "alt": 1022
   },
   "1023": {
     "name": "Flame Warden of Kalimdor",
     "faction": "alliance",
-    "oppFactionAchievement": 1026
+    "alt": 1026
   },
   "1026": {
     "name": "Flame Keeper of Kalimdor",
     "faction": "horde",
-    "oppFactionAchievement": 1023
+    "alt": 1023
   },
   "1024": {
     "name": "Flame Warden of Outland",
     "faction": "alliance",
-    "oppFactionAchievement": 1027
+    "alt": 1027
   },
   "1027": {
     "name": "Flame Keeper of Outland",
     "faction": "horde",
-    "oppFactionAchievement": 1024
+    "alt": 1024
   },
   "1034": {
     "name": "The Fires of Azeroth",
     "faction": "alliance",
-    "oppFactionAchievement": 1036
+    "alt": 1036
   },
   "1036": {
     "name": "The Fires of Azeroth",
     "faction": "horde",
-    "oppFactionAchievement": 1034
+    "alt": 1034
   },
   "1038": {
     "name": "The Flame Warden",
     "faction": "alliance",
-    "oppFactionAchievement": 1039
+    "alt": 1039
   },
   "1039": {
     "name": "The Flame Keeper",
     "faction": "horde",
-    "oppFactionAchievement": 1038
+    "alt": 1038
   },
   "2421": {
     "name": "Noble Garden",
     "faction": "alliance",
-    "oppFactionAchievement": 2420
+    "alt": 2420
   },
   "2420": {
     "name": "Noble Garden",
     "faction": "horde",
-    "oppFactionAchievement": 2421
+    "alt": 2421
   },
   "2797": {
     "name": "Noble Gardener",
     "faction": "alliance",
-    "oppFactionAchievement": 2798
+    "alt": 2798
   },
   "2798": {
     "name": "Noble Gardener",
     "faction": "horde",
-    "oppFactionAchievement": 2797
+    "alt": 2797
   },
   "2419": {
     "name": "Spring Fling",
     "faction": "alliance",
-    "oppFactionAchievement": 2497
+    "alt": 2497
   },
   "2497": {
     "name": "Spring Fling",
     "faction": "horde",
-    "oppFactionAchievement": 2419
+    "alt": 2419
   },
   "3576": {
     "name": "Now We're Cookin'",
     "faction": "alliance",
-    "oppFactionAchievement": 3577
+    "alt": 3577
   },
   "3577": {
     "name": "Now We're Cookin'",
     "faction": "horde",
-    "oppFactionAchievement": 3576
+    "alt": 3576
   },
   "3556": {
     "name": "Pilgrim's Paunch",
     "faction": "alliance",
-    "oppFactionAchievement": 3557
+    "alt": 3557
   },
   "3557": {
     "name": "Pilgrim's Paunch",
     "faction": "horde",
-    "oppFactionAchievement": 3556
+    "alt": 3556
   },
   "3580": {
     "name": "Pilgrim's Peril",
     "faction": "alliance",
-    "oppFactionAchievement": 3581
+    "alt": 3581
   },
   "3581": {
     "name": "Pilgrim's Peril",
     "faction": "horde",
-    "oppFactionAchievement": 3580
+    "alt": 3580
   },
   "3596": {
     "name": "Pilgrim's Progress",
     "faction": "alliance",
-    "oppFactionAchievement": 3597
+    "alt": 3597
   },
   "3597": {
     "name": "Pilgrim's Progress",
     "faction": "horde",
-    "oppFactionAchievement": 3596
+    "alt": 3596
   },
   "3478": {
     "name": "Pilgrim",
     "faction": "alliance",
-    "oppFactionAchievement": 3656
+    "alt": 3656
   },
   "3656": {
     "name": "Pilgrim",
     "faction": "horde",
-    "oppFactionAchievement": 3478
+    "alt": 3478
   },
   "4436": {
     "name": "BB King",
     "faction": "alliance",
-    "oppFactionAchievement": 4437
+    "alt": 4437
   },
   "4437": {
     "name": "BB King",
     "faction": "horde",
-    "oppFactionAchievement": 4436
+    "alt": 4436
   },
   "1686": {
     "name": "Bros. Before Ho Ho Ho's",
     "faction": "alliance",
-    "oppFactionAchievement": 1685
+    "alt": 1685
   },
   "1685": {
     "name": "Bros. Before Ho Ho Ho's",
     "faction": "horde",
-    "oppFactionAchievement": 1686
+    "alt": 1686
   },
   "1255": {
     "name": "Scrooge",
     "faction": "alliance",
-    "oppFactionAchievement": 259
+    "alt": 259
   },
   "259": {
     "name": "Scrooge",
     "faction": "horde",
-    "oppFactionAchievement": 1255
+    "alt": 1255
   },
   "1692": {
     "name": "Merrymaker",
     "faction": "alliance",
-    "oppFactionAchievement": 1691
+    "alt": 1691
   },
   "1691": {
     "name": "Merrymaker",
     "faction": "horde",
-    "oppFactionAchievement": 1692
+    "alt": 1692
   }
 }

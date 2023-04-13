@@ -12,8 +12,8 @@ const MessageView = () => {
       {messages.length ? (
         <ol className={`messages ${expansion}-messages`}>
           {messages.map((m: string, i) => {
-            return <li key={i}>{m}</li>
-          })}
+            return <li className="message" key={i}>{m}&lrm;</li>
+          }).reverse()}
         </ol>
       ) : (
         <MainBigHeader headerText="Share achievements between all characters" /> 

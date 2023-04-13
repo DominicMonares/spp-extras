@@ -84,7 +84,37 @@
 
 /* Message View */
 
+.messages {
+  display: flex;
+  flex-direction: column-reverse;
+  direction: rtl;
+  overflow-y: overlay;
+  scrollbar-gutter: auto;
+}
 
+.messages::-webkit-scrollbar {
+  width: 3px;
+}
+
+.classic-messages::-webkit-scrollbar-thumb {
+  height: 10px;
+  background: #86733b;
+}
+
+.tbc-messages::-webkit-scrollbar-thumb {
+  height: 10px;
+  background: #1c550a;
+}
+
+.wotlk-messages::-webkit-scrollbar-thumb {
+  height: 10px;
+  background: #045277;
+}
+
+.message {
+  padding-left: 3px;
+  text-align: left;
+}
 
 
 /* Quest Tracker Header */

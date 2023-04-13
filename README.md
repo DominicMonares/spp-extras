@@ -175,6 +175,7 @@ other vars
 
 TODO
 Account-wide Achievements
+- handle no accounts
 Account-wide Reputation
 
 TEST

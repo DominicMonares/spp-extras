@@ -265,8 +265,7 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
 
             achievement_rewards = format_achievement_rewards(achievement_rew_data)
             item_charges = format_rew_item_charges(rew_item_charge_data)
-            # mail_items = format_mail_item_data(mail_item_data)
-            # template_quests = format_template_quests(template_quest_data)
+            template_quests = format_template_quests(template_quest_data)
             send_msg('Fetched data successfully formatted!')
         except Exception as e:
             send_msg('Failed to format fetched data!')
@@ -279,7 +278,7 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
 
         # Run progress transfer and add any new achievements in all_char_data
         send_msg('Sharing achievement progress between characters...')
-        ach_prog_args = create_prog_args(all_char_data)
+        ach_prog_args = create_prog_args(all_char_data, template_quest_data)
         send_msg('Achievement progress successfully shared between characters!')
 
         # Run credit transfer which runs reward transfers

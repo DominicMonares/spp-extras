@@ -2,11 +2,11 @@
 def format_achievement_credit(achievements):
     all = {}
     for a in achievements:
-        guid = achievements[a['guid']]
+        guid = str(a['guid'])
         if guid not in all:
-            all[str(guid)] = {}
+            all[guid] = {}
             
-        ach_id = a['achievement']
+        ach_id = str(a['achievement'])
         all[guid][ach_id] = a['date']
     
     return all
@@ -16,11 +16,11 @@ def format_achievement_credit(achievements):
 def format_achievement_prog(achievements):
     all = {}
     for a in achievements:
-        guid = achievements[a['guid']]
+        guid = str(a['guid'])
         if guid not in all:
-            all[str(guid)] = {}
+            all[guid] = {}
 
-        criteria = a['criteria']
+        criteria = str(a['criteria'])
         all[guid][criteria] = {
             'counter': a['counter'],
             'date': a['date']
@@ -33,12 +33,12 @@ def format_achievement_prog(achievements):
 def format_achievement_shared_prog(achievements):
     all = {}
     for a in achievements:
-        account = achievements[a['account']]
+        account = str(a['account'])
         if account not in all:
-            all[str(account)] = {}
+            all[account] = {}
 
-        achievement = a['achievement']
-        all[account][achievement] = a['progress']
+        ach_id = str(a['achievement'])
+        all[account][ach_id] = a['progress']
 
     return all
 
@@ -111,10 +111,11 @@ def format_achievement_rewards(achievements):
     all = {}
     for a in achievements:
         # Store in arrays b/c of Matron/Patron duplicate
-        if not all[a['entry']]:
-            all[a['entry']] = [a]
+        entry = str(a['entry'])
+        if entry not in all:
+            all[entry] = [a]
         else:
-            all[a['entry']].append(a)
+            all[entry].append(a)
 
     return all
 
@@ -122,7 +123,8 @@ def format_achievement_rewards(achievements):
 def format_rew_item_charges(items):
     all = {}
     for i in items:
-        all[i['entry']] = i['spell_charges_1']
+        entry = str(i['entry'])
+        all[entry] = i['spellcharges_1']
 
     return all
 
@@ -130,11 +132,11 @@ def format_rew_item_charges(items):
 def format_mail_item_data(mail):
     all = {}
     for m in mail:
-        char = mail[m['receiver']]
+        char = str(m['receiver'])
         if char not in all:
             all[char] = {}
-            
-        mail_id = mail[m['mail_id']]
+
+        mail_id = str(m['mail_id'])
         all[char][mail_id] = m
     
     return all

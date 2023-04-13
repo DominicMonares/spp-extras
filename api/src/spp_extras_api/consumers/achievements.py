@@ -179,7 +179,7 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
         # Fetch last item instance ID
         try:
             send_msg('Fetching last item instance ID data...')
-            last_item_inst_id = sel_last_item_inst_id()
+            last_item_inst_id = sel_last_item_inst_id()['guid']
             send_msg('Last item instance ID data successfully fetched!')
         except Exception as e:
             send_msg('Failed to fetch last item instance ID data!')
@@ -189,7 +189,7 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
         # Fetch last mail ID
         try:
             send_msg('Fetching last mail ID data...')
-            last_mail_id = sel_last_mail_id()
+            last_mail_id = sel_last_mail_id()['id']
             send_msg('Last mail ID data successfully fetched!')
         except Exception as e:
             send_msg('Failed to fetch last mail ID data!')
@@ -251,36 +251,37 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
         ########## Format fetched data ##########
 
         send_msg('Formatting fetched data...')
-        characters = format_characters(account_data, character_data)
-        achievement_credit = format_achievement_credit(achievement_credit_data)
-        achievement_prog = format_achievement_prog(achievement_prog_data)
-        achievement_shared_prog = format_achievement_shared_prog(achievement_shared_prog_data)
-        completed_quests = format_completed_quests(
-            character_data,
-            completed_regular_data,
-            completed_daily_data,
-            [],
-            []
-        )
+        try:
+            characters = format_characters(account_data, character_data)
+            achievement_credit = format_achievement_credit(achievement_credit_data)
+            achievement_prog = format_achievement_prog(achievement_prog_data)
+            achievement_shared_prog = format_achievement_shared_prog(achievement_shared_prog_data)
+            # Weekly and monthly quests not tracked for any achievements (AFAIK)
+            completed_quests = format_completed_quests(
+                completed_regular_data,
+                completed_daily_data,
+                [],
+                []
+            )
 
-        # Weekly and monthly quests not tracked for any achievements (AFAIK)
-        del completed_quests['weekly']
-        del completed_quests['monthly']
+            # Combine all formatted character data
+            all_char_data = combine_char_data(
+                characters, 
+                achievement_credit, 
+                achievement_prog, 
+                achievement_shared_prog,
+                completed_quests
+            )
 
-        # Combine all formatted character data
-        all_char_data = combine_char_data(
-            characters, 
-            achievement_credit, 
-            achievement_prog, 
-            achievement_shared_prog,
-            completed_quests
-        )
-
-        achievement_rewards = format_achievement_rewards(achievement_rew_data)
-        item_charges = format_rew_item_charges(rew_item_charge_data)
-        mail_items = format_mail_item_data(mail_item_data)
-        template_quests = format_template_quests(template_quest_data)
-        send_msg('Fetched data successfully formatted!')
+            achievement_rewards = format_achievement_rewards(achievement_rew_data)
+            item_charges = format_rew_item_charges(rew_item_charge_data)
+            # mail_items = format_mail_item_data(mail_item_data)
+            # template_quests = format_template_quests(template_quest_data)
+            send_msg('Fetched data successfully formatted!')
+        except Exception as e:
+            send_msg('Failed to format fetched data!')
+            send_msg(f'Error: {e}')
+            return
 
         ########## Run transfers and create db query arguments ##########
 

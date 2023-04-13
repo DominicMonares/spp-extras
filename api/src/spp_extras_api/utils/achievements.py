@@ -95,7 +95,7 @@ def combine_char_data(
                 
                     char_quests = completed_quests[char_id]
                     all_char_data[acct_id]['characters'][char_id]['quests'] = char_quests
-                    
+
                 # Add data for each character
                 char_credit = achievement_credit[char_id]
                 all_char_data[acct_id]['characters'][char_id]['credit'] = char_credit
@@ -123,6 +123,7 @@ def format_achievement_rewards(achievements):
 
     return all
 
+
 # Organize reward item charges by item
 def format_rew_item_charges(items):
     all = {}
@@ -130,17 +131,4 @@ def format_rew_item_charges(items):
         entry = str(i['entry'])
         all[entry] = i['spellcharges_1']
 
-    return all
-
-# Organize mail items by character
-def format_mail_item_data(mail):
-    all = {}
-    for m in mail:
-        char = str(m['receiver'])
-        if char not in all:
-            all[char] = {}
-
-        mail_id = str(m['mail_id'])
-        all[char][mail_id] = m
-    
     return all

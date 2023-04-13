@@ -31,9 +31,9 @@ from spp_extras_api.utils.achievements import\
     format_achievement_prog,\
     format_achievement_rewards,\
     format_achievement_shared_prog,\
-    format_rew_item_charges,\
-    format_mail_item_data
+    format_rew_item_charges
 from spp_extras_api.utils.achievement_credit_transfer import create_credit_args
+from spp_extras_api.utils.achievement_prog_transfer import create_prog_args
 from spp_extras_api.utils.characters import format_characters, check_faction
 from spp_extras_api.utils.quests import format_completed_quests, format_template_quests
 
@@ -196,16 +196,6 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
             send_msg(f'Error: {e}')
             return
         
-        # Fetch mail item data
-        try:
-            send_msg('Fetching mail item data...')
-            mail_item_data = sel_all_mail_items()
-            send_msg('Mail item data successfully fetched!')
-        except Exception as e:
-            send_msg('Failed to fetch mail item data!')
-            send_msg(f'Error: {e}')
-            return
-        
         ##### Quests #####
         
         # Fetch all completed regular quest data
@@ -289,6 +279,7 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
 
         # Run progress transfer and add any new achievements in all_char_data
         send_msg('Sharing achievement progress between characters...')
+        ach_prog_args = create_prog_args(all_char_data)
         send_msg('Achievement progress successfully shared between characters!')
 
         # Run credit transfer which runs reward transfers

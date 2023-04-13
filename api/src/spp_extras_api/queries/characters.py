@@ -204,13 +204,6 @@ def ins_reward_mail(mail):
         .bulk_create(mail)
 
 
-def sel_all_mail_items():
-    return WotlkMailItems.objects\
-        .using('wotlkcharacters')\
-        .all()\
-        .values('item_template', 'receiver')
-
-
 def ins_reward_mail_items(items):
     WotlkMailItems.objects\
         .using('wotlkcharacters')\

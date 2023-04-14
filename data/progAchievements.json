@@ -227,28 +227,28 @@
       "threshold": 1000
     }
   },
-  "lmaEK": {
+  "lmEKA": {
     "7884": {
       "name": "Loremaster of Eastern Kingdoms - Alliance",
       "achievement": "1676",
       "threshold": 700
     }
   },
-  "lmaK": {
+  "lmKA": {
     "7894": {
       "name": "Loremaster of Kalimdor - Alliance",
       "achievement": "1678",
       "threshold": 700
     }
   },
-  "lmhEK": {
+  "lmEKH": {
     "7890": {
       "name": "Loremaster of Eastern Kingdoms - Horde",
       "achievement": "1677",
       "threshold": 550
     }
   },
-  "lmhK": {
+  "lmKH": {
     "7896": {
       "name": "Loremaster of Kalimdor - Horde",
       "achievement": "1680",

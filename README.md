@@ -205,3 +205,6 @@ Account-wide Achievements
     - faction achievements
     - mail reward items for multiple characters and multiple rewards at once
 
+  GENERAL
+   - starting prod build without database running - websocket
+

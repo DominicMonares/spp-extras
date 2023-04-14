@@ -280,7 +280,7 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
 
         # Run progress transfer and add any new achievements in all_char_data
         send_msg('Sharing achievement progress between characters...')
-        ach_prog_args = create_prog_args(all_char_data, template_quest_data)
+        ach_prog_args = create_prog_args(all_char_data, template_quests)
         send_msg('Achievement progress successfully shared between characters!')
 
         # Run credit transfer which runs reward transfers

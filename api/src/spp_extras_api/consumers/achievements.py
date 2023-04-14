@@ -53,6 +53,27 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
 
         ########## Fetch/create all data needed for transfers ##########
         
+        # Restore cut titles if they don't exist in db
+        try:
+            send_msg('Looking for cut titles...')
+            cut_titles_exist = sel_cut_title()
+            if cut_titles_exist:
+                send_msg('Cut titles found!')
+            else:
+                send_msg('Cut titles not found!')
+                send_msg('Adding cut titles to the database...')
+                try:
+                    ins_cut_titles()
+                    send_msg('Cut titles successfully added to the database!')
+                except Exception as e:
+                    send_msg('Failed to add cut titles to database!')
+                    send_msg(f'Error: {e}')
+                    return
+        except Exception as e:
+            send_msg('Failed to find cut titles!')
+            send_msg(f'Error: {e}')
+            return
+
         # Create CharacterAchievementSharedProgress table if it doesn't exist
         try:
             send_msg('Looking for shared achievement progress table...')
@@ -74,26 +95,6 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
             send_msg(f'Error: {e}')
             return
 
-        # Restore cut titles if they don't exist in db
-        try:
-            send_msg('Looking for cut titles...')
-            cut_titles_exist = sel_cut_title()
-            if cut_titles_exist:
-                send_msg('Cut titles found!')
-            else:
-                send_msg('Cut titles not found!')
-                send_msg('Adding cut titles to the database...')
-                try:
-                    ins_cut_titles()
-                    send_msg('Cut titles successfully added to the database!')
-                except Exception as e:
-                    send_msg('Failed to add cut titles to database!')
-                    send_msg(f'Error: {e}')
-                    return
-        except Exception as e:
-            send_msg('Failed to find cut titles!')
-            send_msg(f'Error: {e}')
-            return
 
         ##### Characters #####
 

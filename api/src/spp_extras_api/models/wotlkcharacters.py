@@ -33,6 +33,7 @@ class WotlkCharacterAchievementSharedProgress(models.Model):
     class Meta:
         managed = False
         db_table = 'character_achievement_shared_progress'
+        unique_together = (('account', 'criteria'),)
 
 
 class WotlkCharacterInventory(models.Model):

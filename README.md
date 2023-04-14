@@ -177,6 +177,7 @@ TODO
 Account-wide Achievements
 - handle no accounts
 - combine char accounts before running
+- double check if async is needed or not
 Account-wide Reputation
 
 TEST

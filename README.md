@@ -181,4 +181,27 @@ Account-wide Achievements
 Account-wide Reputation
 
 TEST
-mail reward items for multiple characters and multiple rewards at once
+Account-wide Achievements
+  PROGRESS
+    Test on one char, then again on another
+    Test progress and completed achieves when threshold met
+    Multiple tests each for:
+    - gold
+    - emblems
+    - dedicated (arena)
+    - arathi basin
+    - alterac valley
+    - eye of the storm
+    - strand of the ancients
+    - warsong gulch
+    - honorable kills
+    - bread winner
+    - dailies
+    - loremaster alliance
+    - loremaster horde
+    - quests
+
+  CREDIT
+    - faction achievements
+    - mail reward items for multiple characters and multiple rewards at once
+

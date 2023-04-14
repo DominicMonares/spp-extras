@@ -15,7 +15,7 @@ with open(from_root('data/titles.json'), 'r') as json_file:
 
 # Create query arguments for achievement credit and rewards
 def create_credit_args(create_cred_data):
-    all_char_data = create_cred_data['all_char_data']
+    all_chars = create_cred_data['all_chars']
     ach_rewards = create_cred_data['ach_rewards']
     item_charges = create_cred_data['item_charges']
     # Client appears to overwrite database item IDs if they already exist
@@ -32,9 +32,9 @@ def create_credit_args(create_cred_data):
     }
 
     # Iterate through all accounts and characters to check achievements
-    for acct_id in all_char_data:
-        chars = all_char_data[acct_id]['characters']
-        credit = all_char_data[acct_id]['credit']
+    for acct_id in all_chars:
+        chars = all_chars[acct_id]['characters']
+        credit = all_chars[acct_id]['credit']
         if chars is not None:
             for char_id in chars:
                 char = chars[char_id]

@@ -9,7 +9,7 @@ from spp_extras_api.queries.characters import\
     ins_reward_mail_items,\
     sel_all_achievement_prog,\
     sel_all_char_achievements,\
-    sel_all_char_data,\
+    sel_all_chars,\
     sel_all_char_rep,\
     sel_all_completed_daily_quests,\
     sel_all_completed_reg_quests,\
@@ -111,7 +111,7 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
         # Fetch all character data
         try:
             send_msg('Fetching character data...')
-            character_data = sel_all_char_data('wotlk')
+            character_data = sel_all_chars('wotlk')
             send_msg('Character data successfully fetched!')
         except Exception as e:
             send_msg('Failed to fetch character data!')
@@ -258,7 +258,7 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
             )
 
             # Combine all formatted character data
-            all_char_data = combine_char_data(
+            all_chars = combine_char_data(
                 characters, 
                 achievement_credit, 
                 achievement_char_prog, 
@@ -279,14 +279,14 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
 
         # Create data to be used in create_credit_args
 
-        # Run progress transfer and add any new achievements in all_char_data
+        # Run progress transfer and add any new achievements in all_chars
         send_msg('Sharing achievement progress between characters...')
-        ach_prog_args = create_prog_args(all_char_data, template_quests)
+        ach_prog_args = create_prog_args(all_chars, template_quests)
         send_msg('Achievement progress successfully shared between characters!')
 
         # Run credit transfer which runs reward transfers
         credit_arg_data = {
-            'all_char_data': all_char_data,
+            'all_chars': all_chars,
             'ach_rewards': achievement_rewards,
             'item_charges': item_charges,
             'last_item_inst_id': last_item_inst_id,

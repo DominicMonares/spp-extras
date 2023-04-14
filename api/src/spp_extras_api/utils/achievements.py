@@ -37,8 +37,11 @@ def format_achievement_shared_prog(achievements):
         if account not in all:
             all[account] = {}
 
-        ach_id = str(a['achievement'])
-        all[account][ach_id] = a['progress']
+        criteria = str(a['criteria'])
+        all[account][criteria] = {
+            'counter': a['counter'],
+            'date': a['date']
+        }
 
     return all
 

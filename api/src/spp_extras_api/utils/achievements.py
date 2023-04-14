@@ -45,7 +45,7 @@ def combine_char_data(
 
     # Iterate through all accounts and characters to add data
     for acct_id in all_char_data:
-        # Combine characters - no need for faction separation here
+        # Combine characters
         alliance_chars = all_char_data[acct_id]['characters']['alliance']
         horde_chars = all_char_data[acct_id]['characters']['horde']
         merged_chars = {**alliance_chars, **horde_chars}

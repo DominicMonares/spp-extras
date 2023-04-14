@@ -135,7 +135,7 @@ def ins_achievement_prog(achievements):
             .using('wotlkcharacters')\
             .update_or_create(
                 guid=ach['guid'],
-                criteria=ach['critera'],
+                criteria=ach['criteria'],
                 defaults={
                     'guid': ach['guid'],
                     'criteria': ach['criteria'],

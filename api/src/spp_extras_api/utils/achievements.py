@@ -13,7 +13,7 @@ def format_achievement_credit(achievements):
 
 
 # Organize achievement progress by character
-def format_achievement_prog(achievements):
+def format_achievement_char_prog(achievements):
     all = {}
     for a in achievements:
         guid = str(a['guid'])

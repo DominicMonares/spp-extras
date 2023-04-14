@@ -27,7 +27,7 @@ from spp_extras_api.queries.realmd import sel_all_account_data
 from spp_extras_api.utils.achievements import\
     combine_char_data,\
     format_achievement_credit,\
-    format_achievement_prog,\
+    format_achievement_char_prog,\
     format_achievement_rewards,\
     format_achievement_shared_prog,\
     format_rew_item_charges
@@ -133,7 +133,7 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
         # Fetch all achievement progress data
         try:
             send_msg('Fetching achievement progress data...')
-            achievement_prog_data = sel_all_achievement_prog()
+            achievement_char_prog_data = sel_all_achievement_prog()
             send_msg('Achievement progress data successfully fetched!')
         except Exception as e:
             send_msg('Failed to fetch achievement progress data!')
@@ -243,7 +243,7 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
         try:
             characters = format_characters(account_data, character_data)
             achievement_credit = format_achievement_credit(achievement_credit_data)
-            achievement_prog = format_achievement_prog(achievement_prog_data)
+            achievement_char_prog = format_achievement_char_prog(achievement_char_prog_data)
             achievement_shared_prog = format_achievement_shared_prog(achievement_shared_prog_data)
             # Weekly and monthly quests not tracked for any achievements (AFAIK)
             completed_quests = format_completed_quests(
@@ -257,7 +257,7 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
             all_char_data = combine_char_data(
                 characters, 
                 achievement_credit, 
-                achievement_prog, 
+                achievement_char_prog, 
                 achievement_shared_prog,
                 completed_quests
             )

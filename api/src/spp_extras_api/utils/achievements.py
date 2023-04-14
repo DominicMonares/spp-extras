@@ -12,14 +12,17 @@ def format_achievement_credit(achievements):
     return all
 
 
-# Organize achievement progress by character
-def format_achievement_prog(achievements):
+# Organize achievement progress by character or account
+def format_achievement_prog(type, achievements):
     all = {}
     for a in achievements:
         guid = str(a['guid'])
+        if (type == 'shared'): guid = str(a['account'])
         if guid not in all:
             all[guid] = {}
 
+        # Criteria is separate from achievement ID
+        # See progAchievements.json for corresponding achievement IDs
         criteria = str(a['criteria'])
         all[guid][criteria] = {
             'counter': a['counter'],
@@ -29,25 +32,11 @@ def format_achievement_prog(achievements):
     return all
 
 
-# Organize achievement shared progress by account
-def format_achievement_shared_prog(achievements):
-    all = {}
-    for a in achievements:
-        account = str(a['account'])
-        if account not in all:
-            all[account] = {}
-
-        ach_id = str(a['achievement'])
-        all[account][ach_id] = a['progress']
-
-    return all
-
-
 # Organize all quest, achievement, and other character related data by character
 def combine_char_data(
     characters, 
     achievement_credit,
-    achievement_prog,
+    achievement_char_prog,
     achievement_shared_prog,
     completed_quests
 ):
@@ -99,7 +88,7 @@ def combine_char_data(
                 # Add data for each character
                 char_credit = achievement_credit[char_id]
                 all_char_data[acct_id]['characters'][char_id]['credit'] = char_credit
-                char_progress = achievement_prog[char_id]
+                char_progress = achievement_char_prog[char_id]
                 all_char_data[acct_id]['characters'][char_id]['progress'] = char_progress
 
         # Add data for each account

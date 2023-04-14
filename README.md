@@ -176,6 +176,7 @@ other vars
 TODO
 Account-wide Achievements
 - handle no accounts
+- combine char accounts before running
 Account-wide Reputation
 
 TEST

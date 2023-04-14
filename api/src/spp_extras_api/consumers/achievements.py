@@ -14,7 +14,6 @@ from spp_extras_api.queries.characters import\
     sel_all_completed_daily_quests,\
     sel_all_completed_reg_quests,\
     sel_all_char_achievement_shared_prog,\
-    sel_all_mail_items,\
     sel_last_item_inst_id,\
     sel_last_mail_id,\
     upd_reward_titles

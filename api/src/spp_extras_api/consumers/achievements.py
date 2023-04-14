@@ -3,6 +3,8 @@ from channels.generic.websocket import WebsocketConsumer
 from spp_extras_api.queries.characters import\
     char_achievement_shared_prog_exists,\
     create_char_achievement_shared_prog,\
+    ins_achievement_prog,\
+    ins_char_achievement_shared_prog,\
     ins_char_achievements,\
     ins_reward_item_instances,\
     ins_reward_mail,\
@@ -277,11 +279,12 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
 
         ########## Run transfers and create db query arguments ##########
 
-        # Create data to be used in create_credit_args
-
         # Run progress transfer and add any new achievements in all_chars
         send_msg('Sharing achievement progress between characters...')
-        ach_prog_args = create_prog_args(all_chars, template_quests)
+        ach_prog_args = create_prog_args(all_chars, achievement_char_prog, template_quests)
+        all_chars = ach_prog_args['new_chars']
+        char_prog_args = ach_prog_args['char_prog_args']
+        shared_prog_args = ach_prog_args['shared_prog_args']
         send_msg('Achievement progress successfully shared between characters!')
 
         # Run credit transfer which runs reward transfers
@@ -304,7 +307,27 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
 
         ########## Run queries to save new data ##########
 
-        # Save new progress
+        # Save new character achievement progress
+        if len(char_prog_args):
+            try:
+                send_msg('Saving new achievement progress data...')
+                ins_achievement_prog(char_prog_args)
+                send_msg('New achievement progress data successfully saved!')
+            except Exception as e:
+                send_msg('Failed to save new achievement progress data!')
+                send_msg(f'Error: {e}')
+                return
+            
+        # Save new shared achievement progress
+        if len(shared_prog_args):
+            try:
+                send_msg('Saving new achievement progress data...')
+                ins_char_achievement_shared_prog(shared_prog_args)
+                send_msg('New achievement progress data successfully saved!')
+            except Exception as e:
+                send_msg('Failed to save new achievement progress data!')
+                send_msg(f'Error: {e}')
+                return
 
         # Save new credit
         if len(credit_args):

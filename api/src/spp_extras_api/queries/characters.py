@@ -129,10 +129,21 @@ def sel_all_achievement_prog():
         .all()\
         .values()
 
-def ins_achievement_prog(progress): # NEEDS REFACTORING
-    WotlkCharacterAchievementProgress.objects\
-        .using('wotlkcharacters')\
-        .update_or_create(progress)
+def ins_achievement_prog(achievements):
+    for ach in achievements:
+        WotlkCharacterAchievementProgress.objects\
+            .using('wotlkcharacters')\
+            .update_or_create(
+                guid=ach['guid'],
+                criteria=ach['critera'],
+                defaults={
+                    'guid': ach['guid'],
+                    'criteria': ach['criteria'],
+                    'counter': ach['counter'],
+                    'date': ach['date']
+                }
+            )
+        
 
 
 # Achievement Shared Progress Queries
@@ -153,13 +164,23 @@ def sel_all_char_achievement_shared_prog():
     return WotlkCharacterAchievementSharedProgress.objects\
         .using('wotlkcharacters')\
         .all()\
-        .values('account', 'achievement', 'progress')
+        .values('account', 'criteria', 'counter')
 
 
-def ins_char_achievement_shared_prog(achievements): # NEEDS REFACTORING
-    WotlkCharacterAchievementSharedProgress.objects\
-        .using('wotlkcharacters')\
-        .update_or_create(achievements)
+def ins_char_achievement_shared_prog(achievements):
+    for ach in achievements:
+        WotlkCharacterAchievementSharedProgress.objects\
+            .using('wotlkcharacters')\
+            .update_or_create(
+                account=ach['account'],
+                criteria=ach['criteria'],
+                defaults={
+                    'acount': ach['acount'],
+                    'criteria': ach['criteria'],
+                    'counter': ach['counter'],
+                    'date': ach['date']
+                }
+            )
 
 
 # Achievement Reward Title Queries

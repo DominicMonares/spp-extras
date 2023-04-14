@@ -309,14 +309,14 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
 
         # Save new character achievement progress
         if len(char_prog_args):
-            try:
+            # try:
                 send_msg('Saving new achievement progress data...')
                 ins_achievement_prog(char_prog_args)
                 send_msg('New achievement progress data successfully saved!')
-            except Exception as e:
-                send_msg('Failed to save new achievement progress data!')
-                send_msg(f'Error: {e}')
-                return
+            # except Exception as e:
+            #     send_msg('Failed to save new achievement progress data!')
+            #     send_msg(f'Error: {e}')
+            #     return
             
         # Save new shared achievement progress
         if len(shared_prog_args):

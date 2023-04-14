@@ -134,8 +134,8 @@ def ins_achievement_prog(achievements):
         WotlkCharacterAchievementProgress.objects\
             .using('wotlkcharacters')\
             .update_or_create(
-                guid=ach['guid'],
-                criteria=ach['criteria'],
+                # guid=ach['guid'],
+                # criteria=ach['criteria'],
                 defaults={
                     'guid': ach['guid'],
                     'criteria': ach['criteria'],
@@ -172,10 +172,10 @@ def ins_char_achievement_shared_prog(achievements):
         WotlkCharacterAchievementSharedProgress.objects\
             .using('wotlkcharacters')\
             .update_or_create(
-                account=ach['account'],
-                criteria=ach['criteria'],
+                # account=ach['account'],
+                # criteria=ach['criteria'],
                 defaults={
-                    'acount': ach['acount'],
+                    'account': ach['account'],
                     'criteria': ach['criteria'],
                     'counter': ach['counter'],
                     'date': ach['date']

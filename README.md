@@ -206,6 +206,7 @@ Account-wide Achievements
     - mail reward items for multiple characters and multiple rewards at once
 
   GENERAL
-   - starting prod build without database running - websocket
-   - final styling cleanup - navbar expansion margins
-
+    - starting prod build without database running - websocket
+    - final styling cleanup - navbar expansion margins
+    - window size
+    - prod icons

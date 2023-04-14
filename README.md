@@ -207,4 +207,5 @@ Account-wide Achievements
 
   GENERAL
    - starting prod build without database running - websocket
+   - final styling cleanup - navbar expansion margins
 

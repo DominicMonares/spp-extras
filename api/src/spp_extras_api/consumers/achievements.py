@@ -54,7 +54,6 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
 
         ########## Fetch/create all data needed for transfers ##########
         
-        
         # Create CharacterAchievementSharedProgress table if it doesn't exist
         try:
             send_msg('Looking for shared achievement progress table...')
@@ -75,7 +74,6 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
             send_msg('Failed to find the shared achievement progress table!')
             send_msg(f'Error: {e}')
             return
-
 
         # Restore cut titles if they don't exist in db
         try:
@@ -142,15 +140,15 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
             send_msg(f'Error: {e}')
             return
             
-        # # Fetch all shared achievement progress data
-        # try:
-        #     send_msg('Fetching all shared achievement progress data...')
-        #     achievement_shared_prog_data = sel_all_char_achievement_shared_prog()
-        #     send_msg('Shared achievement progress data successfully fetched!')
-        # except Exception as e:
-        #     send_msg('Failed to fetch shared achievement progress data!')
-        #     send_msg(f'Error: {e}')
-        #     return
+        # Fetch all shared achievement progress data
+        try:
+            send_msg('Fetching all shared achievement progress data...')
+            achievement_shared_prog_data = sel_all_char_achievement_shared_prog()
+            send_msg('Shared achievement progress data successfully fetched!')
+        except Exception as e:
+            send_msg('Failed to fetch shared achievement progress data!')
+            send_msg(f'Error: {e}')
+            return
 
         ##### Achievement Item Rewards #####
 
@@ -246,7 +244,7 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
             characters = format_characters(account_data, character_data)
             achievement_credit = format_achievement_credit(achievement_credit_data)
             achievement_prog = format_achievement_prog(achievement_prog_data)
-            # achievement_shared_prog = format_achievement_shared_prog(achievement_shared_prog_data)
+            achievement_shared_prog = format_achievement_shared_prog(achievement_shared_prog_data)
             # Weekly and monthly quests not tracked for any achievements (AFAIK)
             completed_quests = format_completed_quests(
                 completed_regular_data,
@@ -260,7 +258,7 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
                 characters, 
                 achievement_credit, 
                 achievement_prog, 
-                # achievement_shared_prog,
+                achievement_shared_prog,
                 completed_quests
             )
 

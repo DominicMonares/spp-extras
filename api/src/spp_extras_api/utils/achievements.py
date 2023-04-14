@@ -47,7 +47,7 @@ def format_achievement_shared_prog(achievements):
 def combine_char_data(
     characters, 
     achievement_credit,
-    achievement_prog,
+    achievement_char_prog,
     achievement_shared_prog,
     completed_quests
 ):
@@ -99,7 +99,7 @@ def combine_char_data(
                 # Add data for each character
                 char_credit = achievement_credit[char_id]
                 all_char_data[acct_id]['characters'][char_id]['credit'] = char_credit
-                char_progress = achievement_prog[char_id]
+                char_progress = achievement_char_prog[char_id]
                 all_char_data[acct_id]['characters'][char_id]['progress'] = char_progress
 
         # Add data for each account

@@ -12,37 +12,23 @@ def format_achievement_credit(achievements):
     return all
 
 
-# Organize achievement progress by character
-def format_achievement_char_prog(achievements):
+# Organize achievement progress by character or account
+def format_achievement_prog(type, achievements):
     all = {}
     for a in achievements:
         guid = str(a['guid'])
+        if (type == 'shared'): guid = str(a['account'])
         if guid not in all:
             all[guid] = {}
 
+        # Criteria is separate from achievement ID
+        # See progAchievements.json for corresponding achievement IDs
         criteria = str(a['criteria'])
         all[guid][criteria] = {
             'counter': a['counter'],
             'date': a['date']
         }
     
-    return all
-
-
-# Organize achievement shared progress by account
-def format_achievement_shared_prog(achievements):
-    all = {}
-    for a in achievements:
-        account = str(a['account'])
-        if account not in all:
-            all[account] = {}
-
-        criteria = str(a['criteria'])
-        all[account][criteria] = {
-            'counter': a['counter'],
-            'date': a['date']
-        }
-
     return all
 
 

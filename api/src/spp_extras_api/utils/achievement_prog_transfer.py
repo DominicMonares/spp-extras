@@ -17,13 +17,29 @@ def create_prog_args(all_char_data, template_quest_data):
     }
 
     # Organize all char progress by shared prog achievement
-    for chain in prog_achievements:
-        if chain == 'bg' or chain == 'lmA' or chain == 'lmH':
-            for sub in prog_achievements[chain]:
-                return
-        else:
-            
+    all_prog = {}
 
+    # iterate through all chars
+    # see which prog achievements exist and add them to new dict
+    # go through each achievement with char progress
+        # subtract shared prog value from each char prog
+            # if no shared prog value, set as zero
+        # add each of those numbers to find out how many new values there are
+        # set new char prog and shared prog
 
     for acct_id in all_char_data:
+        acct = all_char_data[acct_id]
+        chars = acct['characters']
+        all_char_prog = acct['achievement_char_prog']
+        all_shared_prog = acct['achievement_shared_prog']
+        completed_quests = acct['completed_quests']
+
+        # Find existing shared achievement progress for each char
+        for char_id in all_char_prog:
+            char_prog = all_char_prog[char_id]
+            for criteria_id in char_prog:
+                return
+            
+        # Make sure you don't add loremaster achievements to wrong faction!
+
         return

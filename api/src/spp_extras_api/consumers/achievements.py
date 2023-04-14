@@ -27,9 +27,8 @@ from spp_extras_api.queries.realmd import sel_all_account_data
 from spp_extras_api.utils.achievements import\
     combine_char_data,\
     format_achievement_credit,\
-    format_achievement_char_prog,\
+    format_achievement_prog,\
     format_achievement_rewards,\
-    format_achievement_shared_prog,\
     format_rew_item_charges
 from spp_extras_api.utils.achievement_credit_transfer import create_credit_args
 from spp_extras_api.utils.achievement_prog_transfer import create_prog_args
@@ -243,8 +242,12 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
         try:
             characters = format_characters(account_data, character_data)
             achievement_credit = format_achievement_credit(achievement_credit_data)
-            achievement_char_prog = format_achievement_char_prog(achievement_char_prog_data)
-            achievement_shared_prog = format_achievement_shared_prog(achievement_shared_prog_data)
+            achievement_char_prog = format_achievement_prog('char', achievement_char_prog_data)
+            achievement_shared_prog = format_achievement_prog(
+                'shared', 
+                achievement_shared_prog_data
+            )
+            
             # Weekly and monthly quests not tracked for any achievements (AFAIK)
             completed_quests = format_completed_quests(
                 completed_regular_data,

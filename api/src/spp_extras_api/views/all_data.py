@@ -3,7 +3,7 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from django.db.utils import OperationalError
 from spp_extras_api.queries.characters import\
-    sel_all_char_data,\
+    sel_all_chars,\
     sel_all_completed_daily_quests,\
     sel_all_completed_monthly_quests,\
     sel_all_completed_reg_quests,\
@@ -24,7 +24,7 @@ class DataViewSet(viewsets.ViewSet):
         try:
             # Fetch all account and character data
             accounts = sel_all_account_data(expansion)
-            characters = sel_all_char_data(expansion)
+            characters = sel_all_chars(expansion)
 
             # Fetch all completed regular quest data
             completed_regular = sel_all_completed_reg_quests(expansion)

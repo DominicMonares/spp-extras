@@ -82,7 +82,7 @@ def monthly_quest_model(expansion):
 
 ########## Character Queries ##########
 
-def sel_all_char_data(expansion):
+def sel_all_chars(expansion):
     return characters_model(expansion).objects\
         .using(f'{expansion}characters')\
         .all()\

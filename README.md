@@ -210,3 +210,4 @@ Account-wide Achievements
     - final styling cleanup - navbar expansion margins
     - window size
     - prod icons
+    - clear websocket messages when switching tools

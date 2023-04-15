@@ -242,40 +242,40 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
         ########## Format fetched data ##########
 
         send_msg('Formatting fetched data...')
-        # try:
-        characters = format_characters(account_data, character_data)
-        achievement_credit = format_achievement_credit(achievement_credit_data)
-        achievement_char_prog = format_achievement_prog('char', achievement_char_prog_data)
-        achievement_shared_prog = format_achievement_prog(
-            'shared', 
-            achievement_shared_prog_data
-        )
-        
-        # Weekly and monthly quests not tracked for any achievements (AFAIK)
-        completed_quests = format_completed_quests(
-            completed_regular_data,
-            completed_daily_data,
-            [],
-            []
-        )
+        try:
+            characters = format_characters(account_data, character_data)
+            achievement_credit = format_achievement_credit(achievement_credit_data)
+            achievement_char_prog = format_achievement_prog('char', achievement_char_prog_data)
+            achievement_shared_prog = format_achievement_prog(
+                'shared', 
+                achievement_shared_prog_data
+            )
+            
+            # Weekly and monthly quests not tracked for any achievements (AFAIK)
+            completed_quests = format_completed_quests(
+                completed_regular_data,
+                completed_daily_data,
+                [],
+                []
+            )
 
-        # Combine all formatted character data
-        all_chars = combine_char_data(
-            characters, 
-            achievement_credit, 
-            achievement_char_prog, 
-            achievement_shared_prog,
-            completed_quests
-        )
+            # Combine all formatted character data
+            all_chars = combine_char_data(
+                characters, 
+                achievement_credit, 
+                achievement_char_prog, 
+                achievement_shared_prog,
+                completed_quests
+            )
 
-        achievement_rewards = format_achievement_rewards(achievement_rew_data)
-        item_charges = format_rew_item_charges(rew_item_charge_data)
-        template_quests = format_template_quests(template_quest_data)
-        send_msg('Fetched data successfully formatted!')
-        # except Exception as e:
-        #     send_msg('Failed to format fetched data!')
-        #     send_msg(f'Error: {e}')
-        #     return
+            achievement_rewards = format_achievement_rewards(achievement_rew_data)
+            item_charges = format_rew_item_charges(rew_item_charge_data)
+            template_quests = format_template_quests(template_quest_data)
+            send_msg('Fetched data successfully formatted!')
+        except Exception as e:
+            send_msg('Failed to format fetched data!')
+            send_msg(f'Error: {e}')
+            return
 
         ########## Run transfers and create db query arguments ##########
 

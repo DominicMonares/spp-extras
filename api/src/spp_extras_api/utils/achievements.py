@@ -25,8 +25,6 @@ def format_achievement_prog(type, achievements):
         if guid not in all:
             all[guid] = {}
 
-        print(f'FDSAFDSAFASGAD {a}')
-
         # Criteria is separate from achievement ID
         # See progAchievements.json for corresponding achievement IDs
         criteria = str(a['criteria'])

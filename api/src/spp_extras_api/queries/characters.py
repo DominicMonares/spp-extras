@@ -136,47 +136,47 @@ def ins_achievement_prog(achievements):
         counter = ach['counter']
         date = ach['date']
 
-        try:
-            item = WotlkCharacterAchievementProgress.objects\
-                .using('wotlkcharacters')\
-                .get(
-                    guid=guid, 
-                    criteria=criteria
-                )
-        except WotlkCharacterAchievementProgress.DoesNotExist:
-            WotlkCharacterAchievementProgress.objects\
-                .using('wotlkcharacters')\
-                .create(
-                    guid=guid, 
-                    criteria=criteria, 
-                    counter=counter, 
-                    date=date
-                )
-        else:
-            item = WotlkCharacterAchievementProgress.objects\
-                .using('wotlkcharacters')\
-                .filter(
-                    guid=guid,
-                    criteria=criteria,
-                )\
-                .update(
-                    counter=counter,
-                    date=date
-                )
+        # try:
+        #     item = WotlkCharacterAchievementProgress.objects\
+        #         .using('wotlkcharacters')\
+        #         .get(
+        #             guid=guid, 
+        #             criteria=criteria
+        #         )
+        # except WotlkCharacterAchievementProgress.DoesNotExist:
+        #     WotlkCharacterAchievementProgress.objects\
+        #         .using('wotlkcharacters')\
+        #         .create(
+        #             guid=guid, 
+        #             criteria=criteria, 
+        #             counter=counter, 
+        #             date=date
+        #         )
+        # else:
+        #     item = WotlkCharacterAchievementProgress.objects\
+        #         .using('wotlkcharacters')\
+        #         .filter(
+        #             guid=guid,
+        #             criteria=criteria,
+        #         )\
+        #         .update(
+        #             counter=counter,
+        #             date=date
+        #         )
 
 
-        # WotlkCharacterAchievementProgress.objects\
-        #     .using('wotlkcharacters')\
-        #     .update_or_create(
-        #         guid=guid,
-        #         criteria=criteria,
-        #         defaults={
-        #             # 'guid': ach['guid']
-        #             # 'criteria': ach['criteria'],
-        #             'counter': counter,
-        #             'date': date
-        #         }
-        #     )
+        WotlkCharacterAchievementProgress.objects\
+            .using('wotlkcharacters')\
+            .update_or_create(
+                guid=guid,
+                criteria=criteria,
+                defaults={
+                    # 'guid': ach['guid']
+                    # 'criteria': ach['criteria'],
+                    'counter': counter,
+                    'date': date
+                }
+            )
 
 
 # Achievement Shared Progress Queries

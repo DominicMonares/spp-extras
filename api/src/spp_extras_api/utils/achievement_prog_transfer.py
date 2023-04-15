@@ -96,8 +96,8 @@ def create_prog_args(all_chars, template_quests):
     for acct_id in all_chars:
         acct = all_chars[acct_id]
         chars = acct['characters']
-        all_credit = acct['credit']
-        all_shared_prog = acct['shared_progress']
+        credit = acct['credit']
+        shared_progress = acct['shared_progress']
         completed_quests = acct['quests']['regular']
 
         # Organize all char progress by shared prog achievement
@@ -126,61 +126,40 @@ def create_prog_args(all_chars, template_quests):
 
             if top_gold in char_prog:
                 add_to_top_prog(top_gold, gold)
-
             if top_emblems in char_prog:
                 add_to_top_prog(top_emblems, emblems)
-
-            # NYI
             # if top_lfm in char_prog:
             #     add_to_top_prog(top_lfm, lfm)
-
             if top_dedicated in char_prog:
                 add_to_top_prog(top_dedicated, dedicated)
-
             if top_ab in char_prog:
                 add_to_top_prog(top_ab, ab)
-
             if top_av in char_prog:
                 add_to_top_prog(top_av, av)
-
             if top_eots in char_prog:
                 add_to_top_prog(top_eots, eots)
-
-            # NYI
             # if top_ioc in char_prog:
             #     add_to_top_prog(top_ioc, ioc)
-
             if top_sota in char_prog:
                 add_to_top_prog(top_sota, sota)
-
-            # NYI
             # if top_wg in char_prog:
             #     add_to_top_prog(top_sota, wg)
-
             if top_wsg in char_prog:
                 add_to_top_prog(top_wsg, wsg)
-
             if top_honorable_kills in char_prog:
                 add_to_top_prog(top_honorable_kills, honorable_kills)
-
             if top_bread in char_prog:
                 add_to_top_prog(top_bread, bread)
-
             if top_daily in char_prog:
                 add_to_top_prog(top_daily, daily)
-
             if top_lm_ek_a in char_prog:
                 add_to_top_prog(top_lm_ek_a, lm_ek_a)
-
             if top_lm_k_a in char_prog:
                 add_to_top_prog(top_lm_k_a, lm_k_a)
-
             if top_lm_ek_h in char_prog:
                 add_to_top_prog(top_lm_ek_h, lm_ek_h)
-
             if top_lm_k_h in char_prog:
                 add_to_top_prog(top_lm_k_h, lm_k_h)
-
             if top_quests in char_prog:
                 add_to_top_prog(top_quests, quests)
 
@@ -195,14 +174,14 @@ def create_prog_args(all_chars, template_quests):
                 new_progress = 0
 
                 # Re-assign previous count and date if shared progress already exists
-                acct_shared_exists = acct_id in all_shared_prog
+                acct_shared_exists = len(shared_progress) > 0
                 acct_shared_criteria_exists = False
                 if acct_shared_exists: 
-                    criteria_exists = criteria_id in all_shared_prog[acct_id]
+                    criteria_exists = criteria_id in shared_progress
                     acct_shared_criteria_exists = criteria_exists
                 
                 if acct_shared_criteria_exists:
-                    shared_criteria = all_shared_prog[acct_id][criteria_id]
+                    shared_criteria = shared_progress[criteria_id]
                     previous_count = shared_criteria['counter']
                     date = shared_criteria['date']
                 
@@ -216,7 +195,7 @@ def create_prog_args(all_chars, template_quests):
                     # Add to new progress count
                     char_prog_count = top_criteria_prog['counter']
                     count = char_prog_count - previous_count
-                    if count > 0:
+                    if count >= 0:
                         new_progress += count
                     else:
                         new_progress += char_prog_count
@@ -259,8 +238,8 @@ def create_prog_args(all_chars, template_quests):
 
                     # Check to see if new achievement is earned
                     # Add new achievement to all credit
-                    if counter == threshold and ach_id not in all_credit:
-                        all_credit[ach_id] = date
+                    if counter == threshold and ach_id not in credit:
+                        credit[ach_id] = date
 
                     # Create arguments for char progress
                     # Make sure you don't add loremaster achievements to wrong faction!

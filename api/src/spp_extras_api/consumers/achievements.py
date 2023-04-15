@@ -244,8 +244,6 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
         send_msg('Formatting fetched data...')
         try:
             characters = format_characters(account_data, character_data)
-            # Combine player accounts
-
             achievement_credit = format_achievement_credit(achievement_credit_data)
             achievement_char_prog = format_achievement_prog('char', achievement_char_prog_data)
             achievement_shared_prog = format_achievement_prog(

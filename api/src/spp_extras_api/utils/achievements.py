@@ -66,7 +66,6 @@ def combine_char_data(
             for char_id in chars:
                 # Ensure char matches account
                 char = chars[char_id]
-                act = char['account']
                 if not char['account'] == int(acct_id):
                     continue
 

@@ -63,11 +63,11 @@ def create_credit_args(create_cred_data):
                     # Run transfers if achievement is valid
                     if not existing_ach and faction_match:
                         # Transfer achievement credit
-                        ach_date = credit[ach_id]
+                        date = credit[ach_id]
                         args['credit_args'].append(WotlkCharacterAchievement(
                             guid = char_id,
                             achievement = ach_id,
-                            date = ach_date
+                            date = date
                         ))
 
                         # Transfer reward(s) if achievement has reward(s)

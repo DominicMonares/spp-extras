@@ -64,33 +64,42 @@ def combine_char_data(
         quests = { 'regular': {}, 'daily': {} }
         if chars is not None:
             for char_id in chars:
+                # Ensure char matches account
+                char = chars[char_id]
+                act = char['account']
+                if not char['account'] == int(acct_id):
+                    continue
+
                 # Add to account-wide achievement credit
-                for ach_id in achievement_credit[char_id]:
-                    incoming_date = achievement_credit[char_id][ach_id]
-                    existing_date = incoming_date
-                    if ach_id in credit: existing_date = credit[ach_id]
-                    # Use oldest completion date if achievement already exists
-                    older_entry = existing_date > incoming_date
-                    if ach_id not in credit or older_entry:
-                        credit[ach_id] = incoming_date
+                if char_id in achievement_credit:
+                    for ach_id in achievement_credit[char_id]:
+                        incoming_date = achievement_credit[char_id][ach_id]
+                        existing_date = incoming_date
+                        if ach_id in credit: existing_date = credit[ach_id]
+                        # Use oldest completion date if achievement already exists
+                        older_entry = existing_date > incoming_date
+                        if ach_id not in credit or older_entry:
+                            credit[ach_id] = incoming_date
+
+                        # Add data for each character
+                        char_credit = achievement_credit[char_id]
 
                 # Add to account-wide quest credit
                 if char_id in completed_quests:
                     for quest_id in completed_quests[char_id]['regular']:
                         quest = completed_quests[char_id]['regular'][quest_id]
-                        if not quests['regular'][quest_id]:
+                        if quest_id not in quests['regular']:
                             quests['regular'][quest_id] = quest
 
                     for quest_id in completed_quests[char_id]['daily']:
                         quest = completed_quests[char_id]['daily'][quest_id]
-                        if not quests['daily'][quest_id]:
+                        if quest_id not in quests['daily']:
                             quests['daily'][quest_id] = quest
                 
                     char_quests = completed_quests[char_id]
                     all_char_data[acct_id]['characters'][char_id]['quests'] = char_quests
 
                 # Add data for each character
-                char_credit = achievement_credit[char_id]
                 all_char_data[acct_id]['characters'][char_id]['credit'] = char_credit
                 char_progress = achievement_char_prog[char_id]
                 all_char_data[acct_id]['characters'][char_id]['progress'] = char_progress

@@ -137,7 +137,7 @@ def ins_achievement_prog(achievements):
         date = ach['date']
 
         try:
-            item = WotlkCharacterAchievementProgress.objects\
+            prog = WotlkCharacterAchievementProgress.objects\
                 .using('wotlkcharacters')\
                 .get(
                     guid=guid, 
@@ -153,7 +153,7 @@ def ins_achievement_prog(achievements):
                     date=date
                 )
         else:
-            item = WotlkCharacterAchievementProgress.objects\
+            prog = WotlkCharacterAchievementProgress.objects\
                 .using('wotlkcharacters')\
                 .filter(
                     guid=guid,
@@ -202,18 +202,52 @@ def sel_all_char_achievement_shared_prog():
 
 def ins_char_achievement_shared_prog(achievements):
     for ach in achievements:
-        WotlkCharacterAchievementSharedProgress.objects\
-            .using('wotlkcharacters')\
-            .update_or_create(
-                account=ach['account'],
-                criteria=int(ach['criteria']),
-                defaults={
-                    # 'account': ach['account'],
-                    # 'criteria': ach['criteria'],
-                    'counter': ach['counter'],
-                    'date': ach['date']
-                }
-            )
+        account = ach['account']
+        criteria = ach['criteria']
+        counter = ach['counter']
+        date = ach['date']
+
+        try:
+            prog = WotlkCharacterAchievementSharedProgress.objects\
+                .using('wotlkcharacters')\
+                .get(
+                    account=account, 
+                    criteria=criteria
+                )
+        except WotlkCharacterAchievementSharedProgress.DoesNotExist:
+            WotlkCharacterAchievementSharedProgress.objects\
+                .using('wotlkcharacters')\
+                .create(
+                    account=account, 
+                    criteria=criteria, 
+                    counter=counter, 
+                    date=date
+                )
+        else:
+            prog = WotlkCharacterAchievementSharedProgress.objects\
+                .using('wotlkcharacters')\
+                .filter(
+                    account=account,
+                    criteria=criteria,
+                )\
+                .update(
+                    counter=counter,
+                    date=date
+                )
+
+    # for ach in achievements:
+    #     WotlkCharacterAchievementSharedProgress.objects\
+    #         .using('wotlkcharacters')\
+    #         .update_or_create(
+    #             account=ach['account'],
+    #             criteria=int(ach['criteria']),
+    #             defaults={
+    #                 # 'account': ach['account'],
+    #                 # 'criteria': ach['criteria'],
+    #                 'counter': ach['counter'],
+    #                 'date': ach['date']
+    #             }
+    #         )
 
 
 # Achievement Reward Title Queries

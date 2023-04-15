@@ -244,6 +244,8 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
         send_msg('Formatting fetched data...')
         try:
             characters = format_characters(account_data, character_data)
+            # Combine player accounts
+
             achievement_credit = format_achievement_credit(achievement_credit_data)
             achievement_char_prog = format_achievement_prog('char', achievement_char_prog_data)
             achievement_shared_prog = format_achievement_prog(
@@ -281,7 +283,7 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
 
         # Run progress transfer and add any new achievements in all_chars
         send_msg('Transferring achievement progress between characters...')
-        ach_prog_args = create_prog_args(all_chars, achievement_char_prog, template_quests)
+        ach_prog_args = create_prog_args(all_chars, template_quests)
         all_chars = ach_prog_args['new_chars']
         char_prog_args = ach_prog_args['char_prog_args']
         shared_prog_args = ach_prog_args['shared_prog_args']
@@ -321,24 +323,24 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
         # Save new shared achievement progress
         if len(shared_prog_args):
             try:
-                send_msg('Saving new achievement progress data...')
+                send_msg('Saving new achievement shared progress data...')
                 ins_char_achievement_shared_prog(shared_prog_args)
-                send_msg('New achievement progress data successfully saved!')
+                send_msg('New achievement shared progress data successfully saved!')
             except Exception as e:
-                send_msg('Failed to save new achievement progress data!')
+                send_msg('Failed to save new achievement shared progress data!')
                 send_msg(f'Error: {e}')
                 return
 
         # Save new credit
         if len(credit_args):
-            try:
+            # try:
                 send_msg('Saving new achievement credit data...')
                 ins_char_achievements(credit_args)
                 send_msg('New achievement credit data successfully saved!')
-            except Exception as e:
-                send_msg('Failed to save new achievement credit data!')
-                send_msg(f'Error: {e}')
-                return
+            # except Exception as e:
+            #     send_msg('Failed to save new achievement credit data!')
+            #     send_msg(f'Error: {e}')
+            #     return
             
         # Save new item instances
         if len(item_inst_args):

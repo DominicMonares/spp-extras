@@ -12,13 +12,19 @@ def loremaster(completed_quests, template_quests, faction):
     kalimdor_count = 0
 
     for quest_id in completed_quests:
-        template_quest = all_template_quests[quest_id]
-        zoneorsort = str(template_quest['zoneorsort'])
-        if zoneorsort in zone_continents:
-            continent = zone_continents[zoneorsort]
-            if continent == 0:
-                eastern_kingdoms_count += 1
-            else:
-                kalimdor_count += 1
+        if quest_id in all_template_quests:
+            template_quest = all_template_quests[quest_id]
+            zoneorsort = str(template_quest['zoneorsort'])
+            if zoneorsort in zone_continents:
+                continent = zone_continents[zoneorsort]
+                if continent == 0:
+                    eastern_kingdoms_count += 1
+                else:
+                    kalimdor_count += 1
 
     return [eastern_kingdoms_count, kalimdor_count]
+
+def is_loremaster(criteria_id):
+    is_loremaster_alliance = criteria_id == 7884 or criteria_id == 7894
+    is_loremaster_horde = criteria_id == 7890 or criteria_id == 7896
+    return is_loremaster_alliance or is_loremaster_horde

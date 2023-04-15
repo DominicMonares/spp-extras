@@ -1,6 +1,6 @@
 import json
 from from_root import from_root
-from spp_extras_api.utils.loremaster import loremaster
+from spp_extras_api.utils.loremaster import is_loremaster, loremaster
 with open(from_root('data/factionAchievements.json'), 'r') as json_file:
     faction_achievements = json.load(json_file)
 with open(from_root('data/progAchievements.json'), 'r') as json_file:
@@ -86,7 +86,7 @@ quests = prog_achievements['quests']
 top_quests = '2239'
 
 
-def create_prog_args(all_chars, all_char_prog, template_quests):
+def create_prog_args(all_chars, template_quests):
     args = {
         'char_prog_args': [],
         'shared_prog_args': [],
@@ -120,8 +120,9 @@ def create_prog_args(all_chars, all_char_prog, template_quests):
                 })
 
         # Add existing progress for each char to top_prog
-        for char_id in all_char_prog:
-            char_prog = all_char_prog[char_id]
+        for char_id in chars:
+            char = chars[char_id]
+            char_prog = char['progress']
 
             if top_gold in char_prog:
                 add_to_top_prog(top_gold, gold)
@@ -189,10 +190,7 @@ def create_prog_args(all_chars, all_char_prog, template_quests):
             date = top_prog[criteria_id]['progress'][0]['date']
 
             # Loremaster progress calculated separately from the rest
-            is_loremaster_alliance = criteria_id == 7884 or criteria_id == 7894
-            is_loremaster_horde = criteria_id == 7890 or criteria_id == 7896
-            is_loremaster = is_loremaster_alliance or is_loremaster_horde
-            if not is_loremaster: 
+            if not is_loremaster(criteria_id): 
                 previous_count = 0
                 new_progress = 0
 
@@ -242,17 +240,18 @@ def create_prog_args(all_chars, all_char_prog, template_quests):
                     threshold = ach['threshold']
                     counter = new_count
 
-                    # Use loremaster specific counter if on loremaster achievement
-                    loremaster_a = loremaster(completed_quests, template_quests, 'alliance')
-                    loremaster_h = loremaster(completed_quests, template_quests, 'horde')
-                    if ach_id == 1676:
-                        counter = loremaster_a[0]
-                    elif ach_id == 1678:
-                        counter = loremaster_a[1]
-                    elif ach_id == 1677:
-                        counter = loremaster_h[0]
-                    elif ach_id == 1680:
-                        counter = loremaster_h[1]
+                    # Use Loremaster specific counter if on loremaster achievement
+                    if is_loremaster(top_id):
+                        loremaster_a = loremaster(completed_quests, template_quests, 'alliance')
+                        loremaster_h = loremaster(completed_quests, template_quests, 'horde')
+                        if ach_id == 1676:
+                            counter = loremaster_a[0]
+                        elif ach_id == 1678:
+                            counter = loremaster_a[1]
+                        elif ach_id == 1677:
+                            counter = loremaster_h[0]
+                        elif ach_id == 1680:
+                            counter = loremaster_h[1]
 
                     # Ensure progress counter doesn't exceed threshold
                     if counter > threshold: 
@@ -261,11 +260,7 @@ def create_prog_args(all_chars, all_char_prog, template_quests):
                     # Check to see if new achievement is earned
                     # Add new achievement to all credit
                     if counter == threshold and ach_id not in all_credit:
-                        all_credit[ach_id] = {
-                            'guid': 0,
-                            'achievement': ach_id,
-                            'date': date
-                        }
+                        all_credit[ach_id] = date
 
                     # Create arguments for char progress
                     # Make sure you don't add loremaster achievements to wrong faction!

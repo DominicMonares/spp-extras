@@ -244,6 +244,25 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
         send_msg('Formatting fetched data...')
         try:
             characters = format_characters(account_data, character_data)
+            # Combine player accounts
+            merged_chars = characters
+            merged_chars['username'] = 'player_accts'
+            merged_chars['player_accts'] = [] # Track player accounts
+            for acct_id in characters:
+                acct = characters[acct_id]
+                if 'RNDBOT' not in acct['username']:
+                    merged_chars['player_accts'].append(acct_id)
+                    chars = acct['characters']
+                    alliance_chars = merged_chars['characters']['alliance']
+                    horde_chars = merged_chars['characters']['horde']
+                    new_alliance_chars = {**alliance_chars, **chars['alliance']}
+                    new_horde_chars = {**horde_chars, **chars['horde']}
+                    merged_chars['characters']['alliance'] = new_alliance_chars
+                    merged_chars['characters']['horde'] = new_horde_chars
+
+            # update all account id references to work with player account array
+            # Remove unmerged player accounts from main char store
+
             achievement_credit = format_achievement_credit(achievement_credit_data)
             achievement_char_prog = format_achievement_prog('char', achievement_char_prog_data)
             achievement_shared_prog = format_achievement_prog(

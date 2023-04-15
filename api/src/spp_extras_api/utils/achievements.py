@@ -16,10 +16,16 @@ def format_achievement_credit(achievements):
 def format_achievement_prog(type, achievements):
     all = {}
     for a in achievements:
-        guid = str(a['guid'])
-        if (type == 'shared'): guid = str(a['account'])
+        guid = ''
+        if type == 'char':
+            guid = str(a['guid'])
+        else:
+            guid = str(a['account'])
+
         if guid not in all:
             all[guid] = {}
+
+        print(f'FDSAFDSAFASGAD {a}')
 
         # Criteria is separate from achievement ID
         # See progAchievements.json for corresponding achievement IDs

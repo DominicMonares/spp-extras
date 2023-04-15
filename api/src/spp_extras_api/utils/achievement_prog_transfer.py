@@ -229,7 +229,7 @@ def create_prog_args(all_chars, all_char_prog, template_quests):
                 # Transfer shared achievement progress
                 args['shared_prog_args'].append({
                     'account': acct_id,
-                    'criteria': criteria_id,
+                    'criteria': int(criteria_id),
                     'counter': new_count,
                     'date': date
                 })
@@ -272,7 +272,7 @@ def create_prog_args(all_chars, all_char_prog, template_quests):
                     for char_id in chars:
                         args['char_prog_args'].append({
                             'guid': char_id,
-                            'criteria': top_id,
+                            'criteria': int(top_id),
                             'counter': counter,
                             'date': date
                         })

@@ -16,19 +16,19 @@ def format_achievement_credit(achievements):
 def format_achievement_prog(type, achievements):
     all = {}
     for a in achievements:
-        guid = ''
+        guid_or_acct = ''
         if type == 'char':
-            guid = str(a['guid'])
+            guid_or_acct = str(a['guid'])
         else:
-            guid = str(a['account'])
+            guid_or_acct = str(a['account'])
 
-        if guid not in all:
-            all[guid] = {}
+        if guid_or_acct not in all:
+            all[guid_or_acct] = {}
 
         # Criteria is separate from achievement ID
         # See progAchievements.json for corresponding achievement IDs
         criteria = str(a['criteria'])
-        all[guid][criteria] = {
+        all[guid_or_acct][criteria] = {
             'counter': a['counter'],
             'date': a['date']
         }

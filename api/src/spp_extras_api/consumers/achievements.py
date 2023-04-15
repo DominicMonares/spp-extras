@@ -333,14 +333,14 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
 
         # Save new credit
         if len(credit_args):
-            # try:
+            try:
                 send_msg('Saving new achievement credit data...')
                 ins_char_achievements(credit_args)
                 send_msg('New achievement credit data successfully saved!')
-            # except Exception as e:
-            #     send_msg('Failed to save new achievement credit data!')
-            #     send_msg(f'Error: {e}')
-            #     return
+            except Exception as e:
+                send_msg('Failed to save new achievement credit data!')
+                send_msg(f'Error: {e}')
+                return
             
         # Save new item instances
         if len(item_inst_args):

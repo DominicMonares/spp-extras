@@ -242,59 +242,68 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
         ########## Format fetched data ##########
 
         send_msg('Formatting fetched data...')
-        try:
-            characters = format_characters(account_data, character_data)
-            # Combine player accounts
-            merged_chars = characters
-            merged_chars['username'] = 'player_accts'
-            merged_chars['player_accts'] = [] # Track player accounts
-            for acct_id in characters:
-                acct = characters[acct_id]
-                if 'RNDBOT' not in acct['username']:
-                    merged_chars['player_accts'].append(acct_id)
-                    chars = acct['characters']
-                    alliance_chars = merged_chars['characters']['alliance']
-                    horde_chars = merged_chars['characters']['horde']
-                    new_alliance_chars = {**alliance_chars, **chars['alliance']}
-                    new_horde_chars = {**horde_chars, **chars['horde']}
-                    merged_chars['characters']['alliance'] = new_alliance_chars
-                    merged_chars['characters']['horde'] = new_horde_chars
+        # try:
+        characters = format_characters(account_data, character_data)
+        # Combine player accounts
+        merged_acct = {
+            'username': 'player_accts',
+            'player_accts': [],
+            'characters': {'alliance': {}, 'horde': {}}
+        }
 
-            # update all account id references to work with player account array
-            # Remove unmerged player accounts from main char store
+        player_accts = []
+        for acct_id in characters:
+            acct = characters[acct_id]
+            if 'RNDBOT' not in acct['username']:
+                player_accts.append(acct_id)
+                chars = acct['characters']
+                alliance_chars = merged_acct['characters']['alliance']
+                horde_chars = merged_acct['characters']['horde']
+                new_alliance_chars = {**alliance_chars, **chars['alliance']}
+                new_horde_chars = {**horde_chars, **chars['horde']}
+                merged_acct['characters']['alliance'] = new_alliance_chars
+                merged_acct['characters']['horde'] = new_horde_chars
 
-            achievement_credit = format_achievement_credit(achievement_credit_data)
-            achievement_char_prog = format_achievement_prog('char', achievement_char_prog_data)
-            achievement_shared_prog = format_achievement_prog(
-                'shared', 
-                achievement_shared_prog_data
-            )
-            
-            # Weekly and monthly quests not tracked for any achievements (AFAIK)
-            completed_quests = format_completed_quests(
-                completed_regular_data,
-                completed_daily_data,
-                [],
-                []
-            )
+        # Add merged account to characters dict
+        merged_acct['player_accts'] = player_accts
+        characters['0'] = merged_acct
 
-            # Combine all formatted character data
-            all_chars = combine_char_data(
-                characters, 
-                achievement_credit, 
-                achievement_char_prog, 
-                achievement_shared_prog,
-                completed_quests
-            )
+        # Remove individual player accounts from main store
+        for plyr_acct in player_accts:
+            characters.pop(plyr_acct)
 
-            achievement_rewards = format_achievement_rewards(achievement_rew_data)
-            item_charges = format_rew_item_charges(rew_item_charge_data)
-            template_quests = format_template_quests(template_quest_data)
-            send_msg('Fetched data successfully formatted!')
-        except Exception as e:
-            send_msg('Failed to format fetched data!')
-            send_msg(f'Error: {e}')
-            return
+        achievement_credit = format_achievement_credit(achievement_credit_data)
+        achievement_char_prog = format_achievement_prog('char', achievement_char_prog_data)
+        achievement_shared_prog = format_achievement_prog(
+            'shared', 
+            achievement_shared_prog_data
+        )
+        
+        # Weekly and monthly quests not tracked for any achievements (AFAIK)
+        completed_quests = format_completed_quests(
+            completed_regular_data,
+            completed_daily_data,
+            [],
+            []
+        )
+
+        # Combine all formatted character data
+        all_chars = combine_char_data(
+            characters, 
+            achievement_credit, 
+            achievement_char_prog, 
+            achievement_shared_prog,
+            completed_quests
+        )
+
+        achievement_rewards = format_achievement_rewards(achievement_rew_data)
+        item_charges = format_rew_item_charges(rew_item_charge_data)
+        template_quests = format_template_quests(template_quest_data)
+        send_msg('Fetched data successfully formatted!')
+        # except Exception as e:
+        #     send_msg('Failed to format fetched data!')
+        #     send_msg(f'Error: {e}')
+        #     return
 
         ########## Run transfers and create db query arguments ##########
 

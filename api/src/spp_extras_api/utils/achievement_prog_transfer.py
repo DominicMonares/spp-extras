@@ -96,6 +96,8 @@ def create_prog_args(all_chars, template_quests):
     for acct_id in all_chars:
         acct = all_chars[acct_id]
         chars = acct['characters']
+        if acct_id == 0:
+            print(f'AASADFASA {chars}')
         credit = acct['credit']
         shared_progress = acct['shared_progress']
         completed_quests = acct['quests']['regular']
@@ -123,7 +125,6 @@ def create_prog_args(all_chars, template_quests):
         for char_id in chars:
             char = chars[char_id]
             char_prog = char['progress']
-
             if top_gold in char_prog:
                 add_to_top_prog(top_gold, gold)
             if top_emblems in char_prog:
@@ -204,12 +205,21 @@ def create_prog_args(all_chars, template_quests):
                 new_count = previous_count + new_progress
 
                 # Transfer shared achievement progress
-                args['shared_prog_args'].append({
-                    'account': acct_id,
-                    'criteria': int(criteria_id),
-                    'counter': new_count,
-                    'date': date
-                })
+                if 'player_accts' in acct:
+                    for plyr_acct in acct['player_accts']:
+                        args['shared_prog_args'].append({
+                            'account': int(plyr_acct),
+                            'criteria': int(criteria_id),
+                            'counter': new_count,
+                            'date': date
+                        })
+                else:
+                    args['shared_prog_args'].append({
+                        'account': acct_id,
+                        'criteria': int(criteria_id),
+                        'counter': new_count,
+                        'date': date
+                    })
 
             # Transfer character achievement progress and credit
             def transfer_prog_n_credit(top_id, chain):

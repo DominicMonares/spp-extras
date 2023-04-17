@@ -186,8 +186,8 @@ Account-wide Achievements
     Test on one char, then again on another
     Test progress and completed achieves when threshold met
     Multiple tests each for:
-    - gold
-    - emblems
+    - gold - x
+    - emblems - x
     - dedicated (arena)
     - arathi basin
     - alterac valley

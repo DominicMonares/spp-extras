@@ -15,7 +15,7 @@ top_gold = '3511'
 
 # {X} Dungeon & Raid Emblems
 emblems = prog_achievements['emblems']
-top_emblems = '12421'
+top_emblems = '12506'
 
 # # Looking for {X} - NYI
 # lfm = prog_achievements['lfm']

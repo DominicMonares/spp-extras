@@ -44,6 +44,7 @@ def create_credit_args(create_cred_data):
                 # Compare account credit to char credit to see if char has achievement
                 for ach_id in credit:
                     existing_ach = ach_id in char_credit
+                    date = credit[ach_id]
 
                     # Check to see if achievement is faction specific and matches char faction
                     faction_match = False
@@ -53,7 +54,7 @@ def create_credit_args(create_cred_data):
                             faction_match = True
                         elif faction_ach['alt']:
                             # Achievement has opposing faction equivalent
-                            ach_id = faction_ach['alt']
+                            ach_id = str(faction_ach['alt'])
                             faction_match = True
                         else:
                             faction_match = False
@@ -63,7 +64,6 @@ def create_credit_args(create_cred_data):
                     # Run transfers if achievement is valid
                     if not existing_ach and faction_match:
                         # Transfer achievement credit
-                        date = credit[ach_id]
                         args['credit_args'].append(WotlkCharacterAchievement(
                             guid = char_id,
                             achievement = ach_id,

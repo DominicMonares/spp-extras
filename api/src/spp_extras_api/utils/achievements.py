@@ -74,6 +74,7 @@ def combine_char_data(
                 valid_bot_char = acct_id != '0' and char['account'] == int(acct_id)
                 if valid_player_char or valid_bot_char:
                     # Add to account-wide achievement credit
+                    all_char_data[acct_id]['characters'][char_id]['credit'] = []
                     if char_id in achievement_credit:
                         for ach_id in achievement_credit[char_id]:
                             incoming_date = achievement_credit[char_id][ach_id]
@@ -86,9 +87,11 @@ def combine_char_data(
 
                             # Add data for each character
                             char_credit = achievement_credit[char_id]
+                            all_char_data[acct_id]['characters'][char_id]['credit'] = char_credit
 
                     # Add to account-wide quest credit
                     if char_id in completed_quests:
+                        all_char_data[acct_id]['characters'][char_id]['quests'] = {}
                         for quest_id in completed_quests[char_id]['regular']:
                             quest = completed_quests[char_id]['regular'][quest_id]
                             if quest_id not in quests['regular']:
@@ -103,7 +106,6 @@ def combine_char_data(
                         all_char_data[acct_id]['characters'][char_id]['quests'] = char_quests
 
                     # Add data for each character
-                    all_char_data[acct_id]['characters'][char_id]['credit'] = char_credit
                     char_progress = {}
                     if char_id in achievement_char_prog:
                         char_progress = achievement_char_prog[char_id]

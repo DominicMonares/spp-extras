@@ -263,7 +263,7 @@ def create_prog_args(all_chars, template_quests):
             elif criteria_id == top_av:
                 transfer_prog_n_credit(top_av, av)
             elif criteria_id == top_eots:
-                transfer_prog_n_credit(top_eots, emblems)
+                transfer_prog_n_credit(top_eots, eots)
             # elif criteria_id == top_ioc:
             #     transfer_prog_n_credit(top_ioc, ioc)
             elif criteria_id == top_sota:

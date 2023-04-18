@@ -189,12 +189,12 @@ Account-wide Achievements
     - gold - x
     - emblems - x
     - dedicated (arena)
-    - arathi basin
-    - alterac valley
-    - eye of the storm
+    - arathi basin - x
+    - alterac valley - x
+    - eye of the storm - x
     - strand of the ancients
-    - warsong gulch
-    - honorable kills
+    - warsong gulch - x
+    - honorable kills - x - STILL REQUIRES HK SHARE
     - bread winner
     - dailies
     - loremaster alliance

@@ -222,6 +222,8 @@ def create_prog_args(all_chars, template_quests):
                     if is_loremaster(top_id):
                         loremaster_a = loremaster(completed_quests, template_quests, 'alliance')
                         loremaster_h = loremaster(completed_quests, template_quests, 'horde')
+                        if acct_id == '0':
+                            print(f'PLEASE MASDFMASDFMASD {loremaster_a} ASDF {loremaster_h}')
                         if ach_id == 1676:
                             counter = loremaster_a[0]
                         elif ach_id == 1678:

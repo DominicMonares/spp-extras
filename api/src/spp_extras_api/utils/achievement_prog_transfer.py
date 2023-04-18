@@ -30,7 +30,7 @@ ab = prog_achievements['ab']
 top_ab = '176'
 
 # Alterac Valley Veteran
-av = prog_achievements['dedicated']
+av = prog_achievements['av']
 top_av = '225'
 
 # Eye of the Storm Veteran

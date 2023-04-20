@@ -67,19 +67,19 @@ top_daily = '2236'
 
 # Loremaster of Eastern Kingdoms - Alliance
 lm_ek_a = prog_achievements['lmEKA']
-top_lm_ek_a = '7884'
+top_lm_ek_a = '5929'
 
 # Loremaster of Kalimdor - Alliance"
 lm_k_a = prog_achievements['lmKA']
-top_lm_k_a = '7894'
+top_lm_k_a = '6010'
 
 # Loremaster of Eastern Kingdoms - Horde
 lm_ek_h = prog_achievements['lmEKH']
-top_lm_ek_h = '7890'
+top_lm_ek_h = '5987'
 
 # Loremaster of Kalimdor - Horde
 lm_k_h = prog_achievements['lmKH']
-top_lm_k_h = '7896'
+top_lm_k_h = '6129'
 
 # {X} Quests Completed
 quests = prog_achievements['quests']
@@ -222,8 +222,6 @@ def create_prog_args(all_chars, template_quests):
                     if is_loremaster(top_id):
                         loremaster_a = loremaster(completed_quests, template_quests, 'alliance')
                         loremaster_h = loremaster(completed_quests, template_quests, 'horde')
-                        if acct_id == '0':
-                            print(f'PLEASE MASDFMASDFMASD {loremaster_a} ASDF {loremaster_h}')
                         if ach_id == 1676:
                             counter = loremaster_a[0]
                         elif ach_id == 1678:

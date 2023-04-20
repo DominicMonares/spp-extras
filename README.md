@@ -179,6 +179,7 @@ Account-wide Achievements
 - combine char accounts before running
 - double check if async is needed or not
 Account-wide Reputation
+Account-wide HKs
 
 TEST
 Account-wide Achievements
@@ -192,18 +193,21 @@ Account-wide Achievements
     - arathi basin - x
     - alterac valley - x
     - eye of the storm - x
-    - strand of the ancients
+    - strand of the ancients - X - bg too unstable to test
     - warsong gulch - x
     - honorable kills - x - STILL REQUIRES HK SHARE
-    - bread winner
+    - bread winner - x
     - dailies
-    - loremaster alliance
-    - loremaster horde
-    - quests
+    - loremaster alliance - x - COUNTER STILL DOESN'T WORK
+    - loremaster horde - x - COUNTER STILL DOESN'T WORK
+    - quests - x - COUNTER STILL DOESN'T WORK
 
   CREDIT
     - faction achievements
     - mail reward items for multiple characters and multiple rewards at once
+
+  PROGRESS
+    - Check if transferring pet and mount spells count toward achievements
 
   GENERAL
     - starting prod build without database running - websocket

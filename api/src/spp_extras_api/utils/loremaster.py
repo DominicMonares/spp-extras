@@ -24,6 +24,7 @@ def loremaster(completed_quests, template_quests, faction):
 
     return [eastern_kingdoms_count, kalimdor_count]
 
+
 def is_loremaster(criteria_id):
     is_loremaster_alliance = criteria_id == '5929' or criteria_id == '6010'
     is_loremaster_horde = criteria_id == '5987' or criteria_id == '6129'

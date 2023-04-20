@@ -1,89 +1,14 @@
 import json
 from from_root import from_root
-from spp_extras_api.utils.loremaster import is_loremaster, loremaster
+from spp_extras_api.utils.loremaster import loremaster
 with open(from_root('data/factionAchievements.json'), 'r') as json_file:
     faction_achievements = json.load(json_file)
-with open(from_root('data/progAchievements.json'), 'r') as json_file:
-    prog_achievements = json.load(json_file)
+with open(from_root('data/loremasterAchCriteria.json'), 'r') as json_file:
+    loremaster_ach_criteria = json.load(json_file)
+with open(from_root('data/sharedAchCriteria.json'), 'r') as json_file:
+    shared_ach_criteria = json.load(json_file)
 with open(from_root('data/zoneContinents.json'), 'r') as json_file:
     zone_continents = json.load(json_file)
-
-
-# Got My Mind On My Money
-gold = prog_achievements['gold']
-top_gold = '3511'
-
-# {X} Dungeon & Raid Emblems
-emblems = prog_achievements['emblems']
-top_emblems = '12506'
-
-# Looking for {X} - NYI
-lfm = prog_achievements['lfm']
-top_lfm = '13031'
-
-# {X} Dedicated
-dedicated = prog_achievements['dedicated']
-top_dedicated = '1830'
-
-# Arathi Basin Veteran
-ab = prog_achievements['ab']
-top_ab = '176'
-
-# Alterac Valley Veteran
-av = prog_achievements['av']
-top_av = '225'
-
-# Eye of the Storm Veteran
-eots = prog_achievements['eots']
-top_eots = '223'
-
-# Isle of Conquest Veteran
-ioc = prog_achievements['ioc']
-top_ioc = '11419'
-
-# Strand of the Ancients Veteran
-sota = prog_achievements['sota']
-top_sota = '4502'
-
-# Wintergrasp Veteran
-wg = prog_achievements['wg']
-top_wg = '7365'
-
-# Warsong Gulch Veteran
-wsg = prog_achievements['wsg']
-top_wsg = '221'
-
-# {X} Honorable Kills
-honorable_kills = prog_achievements['honorableKills']
-top_honorable_kills = '6790'
-
-# The Bread Winner
-bread = prog_achievements['bread']
-top_bread = '3513'
-
-# {X} Daily Quests Completed
-daily = prog_achievements['daily']
-top_daily = '2236'
-
-# Loremaster of Eastern Kingdoms - Alliance
-lm_ek_a = prog_achievements['lmEKA']
-top_lm_ek_a = '5929'
-
-# Loremaster of Kalimdor - Alliance"
-lm_k_a = prog_achievements['lmKA']
-top_lm_k_a = '6010'
-
-# Loremaster of Eastern Kingdoms - Horde
-lm_ek_h = prog_achievements['lmEKH']
-top_lm_ek_h = '5987'
-
-# Loremaster of Kalimdor - Horde
-lm_k_h = prog_achievements['lmKH']
-top_lm_k_h = '6129'
-
-# {X} Quests Completed
-quests = prog_achievements['quests']
-top_quests = '2239'
 
 
 def create_prog_args(all_chars, template_quests):
@@ -100,89 +25,33 @@ def create_prog_args(all_chars, template_quests):
         shared_progress = acct['shared_progress']
         completed_quests = acct['quests']['regular']
 
-        # Organize all char progress by shared prog achievement
-        # Uses highest level in achievement chain
-        # Only a handful of achievements are selected for sharing
-        # See progAchievements.json for all selected achievements
-        top_prog = {}
+        # Organize all character achievement progress by criteria
+        new_shared_prog = {}
 
-        def add_to_top_prog(top_id, chain):
-            if top_id not in top_prog:
-                top_prog[top_id] = chain[top_id]
-                top_prog[top_id]['progress'] = [{
-                    'counter': char_prog[top_id]['counter'],
-                    'date': char_prog[top_id]['date']
-                }]
+        def add_to_shared_prog(criteria_id, ach_prog):
+            if criteria_id not in new_shared_prog:
+                new_shared_prog[criteria_id] = [ach_prog]
             else:
-                top_prog[top_id]['progress'].append({
-                    'counter': char_prog[top_id]['counter'],
-                    'date': char_prog[top_id]['date']
-                })
+                new_shared_prog[criteria_id].append(ach_prog)
 
-        # Add existing progress for each char to top_prog
+        # Add existing progress for each char to new_shared_prog
         for char_id in chars:
             char = chars[char_id]
             char_prog = char['progress']
-            if top_gold in char_prog:
-                add_to_top_prog(top_gold, gold)
-            if top_emblems in char_prog:
-                add_to_top_prog(top_emblems, emblems)
-            if top_lfm in char_prog:
-                add_to_top_prog(top_lfm, lfm)
-            if top_dedicated in char_prog:
-                add_to_top_prog(top_dedicated, dedicated)
-            if top_ab in char_prog:
-                add_to_top_prog(top_ab, ab)
-            if top_av in char_prog:
-                add_to_top_prog(top_av, av)
-            if top_eots in char_prog:
-                add_to_top_prog(top_eots, eots)
-            if top_ioc in char_prog:
-                add_to_top_prog(top_ioc, ioc)
-            if top_sota in char_prog:
-                add_to_top_prog(top_sota, sota)
-            if top_wg in char_prog:
-                add_to_top_prog(top_wg, wg)
-            if top_wsg in char_prog:
-                add_to_top_prog(top_wsg, wsg)
-            if top_honorable_kills in char_prog:
-                add_to_top_prog(top_honorable_kills, honorable_kills)
-            if top_bread in char_prog:
-                add_to_top_prog(top_bread, bread)
-            if top_daily in char_prog:
-                add_to_top_prog(top_daily, daily)
-            if top_lm_ek_a in char_prog:
-                add_to_top_prog(top_lm_ek_a, lm_ek_a)
-                # Add opposite faction version if it doesn't exist
-                if top_lm_ek_h not in top_prog:
-                    top_prog[top_lm_ek_h] = []
-            if top_lm_k_a in char_prog:
-                add_to_top_prog(top_lm_k_a, lm_k_a)
-                # Add opposite faction version if it doesn't exist
-                if top_lm_k_h not in top_prog:
-                    top_prog[top_lm_k_h] = []
-            if top_lm_ek_h in char_prog:
-                add_to_top_prog(top_lm_ek_h, lm_ek_h)
-                # Add opposite faction version if it doesn't exist
-                if top_lm_ek_a not in top_prog:
-                    top_prog[top_lm_ek_a] = []
-            if top_lm_k_h in char_prog:
-                add_to_top_prog(top_lm_k_h, lm_k_h)
-                # Add opposite faction version if it doesn't exist
-                if top_lm_k_a not in top_prog:
-                    top_prog[top_lm_k_a] = []
-            if top_quests in char_prog:
-                add_to_top_prog(top_quests, quests)
+            for criteria_id in char_prog:
+                if criteria_id in shared_ach_criteria:
+                    ach_prog = char_prog[criteria_id]
+                    add_to_shared_prog(criteria_id, ach_prog)
 
-        # Run transfers for all criteria
-        for criteria_id in top_prog:
-            top_criteria = top_prog[criteria_id]
-            if not len(top_criteria): continue
-            date = top_criteria['progress'][0]['date']
+        # Run transfers for all shared progress
+        for criteria_id in new_shared_prog:
+            ach_prog = new_shared_prog[criteria_id]
+            # if not len(ach_prog): continue
+            date = ach_prog[0]['date']
             new_count = 0
 
             # Loremaster progress calculated separately from the rest
-            if not is_loremaster(criteria_id): 
+            if criteria_id not in loremaster_ach_criteria: 
                 previous_count = 0
                 new_progress = 0
 
@@ -199,14 +68,14 @@ def create_prog_args(all_chars, template_quests):
                     date = shared_criteria['date']
                 
                 # Calculate new count using previous count
-                for top_criteria_prog in top_prog[criteria_id]['progress']:
+                for char_ach_prog in ach_prog:
                     # Use most recent date for progress
-                    char_prog_date = top_criteria_prog['date']
+                    char_prog_date = char_ach_prog['date']
                     if char_prog_date > date: 
                         date = char_prog_date
                     
                     # Add to new progress count
-                    char_prog_count = top_criteria_prog['counter']
+                    char_prog_count = char_ach_prog['counter']
                     count = char_prog_count - previous_count
                     if count >= 0:
                         new_progress += count
@@ -224,86 +93,27 @@ def create_prog_args(all_chars, template_quests):
                     'date': date
                 })
 
-            # Transfer character achievement progress and credit
-            def transfer_prog_n_credit(top_id, chain):
-                for top_id in chain:
-                    ach = chain[top_id]
-                    ach_id = ach['achievement']
-                    threshold = ach['threshold']
-                    counter = new_count
-                    
-                    if acct_id == '0':
-                        print(f'WHYYYY {completed_quests}')
-                    # Use Loremaster specific counter if on loremaster achievement
-                    if is_loremaster(top_id):
-                        loremaster_a = loremaster(completed_quests, template_quests, 'alliance')
-                        loremaster_h = loremaster(completed_quests, template_quests, 'horde')
-                        if ach_id == 1676:
-                            counter = loremaster_a[0]
-                        elif ach_id == 1678:
-                            counter = loremaster_a[1]
-                        elif ach_id == 1677:
-                            counter = loremaster_h[0]
-                        elif ach_id == 1680:
-                            counter = loremaster_h[1]
+            # Ensure progress counter doesn't exceed threshold
+            threshold = shared_ach_criteria[criteria_id]['threshold']
+            if new_count > threshold: 
+                new_count = threshold
 
-                    # Ensure progress counter doesn't exceed threshold
-                    if counter > threshold: 
-                        counter = threshold
+            # Check to see if new achievement is earned
+            # Add new achievement to all credit
+            ach_id = shared_ach_criteria[criteria_id]['achievement']
+            if new_count == threshold and ach_id not in credit:
+                credit[ach_id] = date
 
-                    # Check to see if new achievement is earned
-                    # Add new achievement to all credit
-                    if counter == threshold and ach_id not in credit:
-                        credit[ach_id] = date
+            # Transfer individual character progress
+            # Make sure you don't add loremaster achievements to wrong faction!
+            for char_id in chars:
+                args['char_prog_args'].append({
+                    'guid': char_id,
+                    'criteria': int(criteria_id),
+                    'counter': new_count,
+                    'date': date
+                })
 
-                    # Create arguments for char progress
-                    # Make sure you don't add loremaster achievements to wrong faction!
-                    for char_id in chars:
-                        args['char_prog_args'].append({
-                            'guid': char_id,
-                            'criteria': int(top_id),
-                            'counter': counter,
-                            'date': date
-                        })
-
-            if criteria_id == top_gold:
-                transfer_prog_n_credit(top_gold, gold)
-            elif criteria_id == top_emblems:
-                transfer_prog_n_credit(top_emblems, emblems)
-            elif criteria_id == top_lfm:
-                transfer_prog_n_credit(top_lfm, lfm)
-            elif criteria_id == top_dedicated:
-                transfer_prog_n_credit(top_dedicated, dedicated)
-            elif criteria_id == top_ab:
-                transfer_prog_n_credit(top_ab, ab)
-            elif criteria_id == top_av:
-                transfer_prog_n_credit(top_av, av)
-            elif criteria_id == top_eots:
-                transfer_prog_n_credit(top_eots, eots)
-            elif criteria_id == top_ioc:
-                transfer_prog_n_credit(top_ioc, ioc)
-            elif criteria_id == top_sota:
-                transfer_prog_n_credit(top_sota, sota)
-            elif criteria_id == top_wg:
-                transfer_prog_n_credit(top_wg, wg)
-            elif criteria_id == top_wsg:
-                transfer_prog_n_credit(top_wsg, wsg)
-            elif criteria_id == top_honorable_kills:
-                transfer_prog_n_credit(top_honorable_kills, honorable_kills)
-            elif criteria_id == top_bread:
-                transfer_prog_n_credit(top_bread, bread)
-            elif criteria_id == top_daily:
-                transfer_prog_n_credit(top_daily, daily)
-            elif criteria_id == top_lm_ek_a:
-                transfer_prog_n_credit(top_lm_ek_a, lm_ek_a)
-            elif criteria_id == top_lm_k_a:
-                transfer_prog_n_credit(top_lm_k_a, lm_k_a)
-            elif criteria_id == top_lm_ek_h:
-                transfer_prog_n_credit(top_lm_ek_h, lm_ek_h)
-            elif criteria_id == top_lm_k_h:
-                transfer_prog_n_credit(top_lm_k_h, lm_k_h)
-            elif criteria_id == top_quests:
-                transfer_prog_n_credit(top_quests, quests)
 
     # MAY NOT NEED DAILIES IN CHAR OBJ
 

@@ -17,9 +17,9 @@ top_gold = '3511'
 emblems = prog_achievements['emblems']
 top_emblems = '12506'
 
-# # Looking for {X} - NYI
-# lfm = prog_achievements['lfm']
-# top_lfm = 'NYI'
+# Looking for {X} - NYI
+lfm = prog_achievements['lfm']
+top_lfm = '13031'
 
 # {X} Dedicated
 dedicated = prog_achievements['dedicated']
@@ -37,17 +37,17 @@ top_av = '225'
 eots = prog_achievements['eots']
 top_eots = '223'
 
-# # Isle of Conquest Veteran
-# ioc = prog_achievements['ioc']
-# top_ioc = 'NYI'
+# Isle of Conquest Veteran
+ioc = prog_achievements['ioc']
+top_ioc = '11419'
 
 # Strand of the Ancients Veteran
 sota = prog_achievements['sota']
 top_sota = '4502'
 
-# # Wintergrasp Veteran
-# wg = prog_achievements['wg']
-# top_wg = 'NYI'
+# Wintergrasp Veteran
+wg = prog_achievements['wg']
+top_wg = '7365'
 
 # Warsong Gulch Veteran
 wsg = prog_achievements['wsg']
@@ -127,8 +127,8 @@ def create_prog_args(all_chars, template_quests):
                 add_to_top_prog(top_gold, gold)
             if top_emblems in char_prog:
                 add_to_top_prog(top_emblems, emblems)
-            # if top_lfm in char_prog:
-            #     add_to_top_prog(top_lfm, lfm)
+            if top_lfm in char_prog:
+                add_to_top_prog(top_lfm, lfm)
             if top_dedicated in char_prog:
                 add_to_top_prog(top_dedicated, dedicated)
             if top_ab in char_prog:
@@ -137,12 +137,12 @@ def create_prog_args(all_chars, template_quests):
                 add_to_top_prog(top_av, av)
             if top_eots in char_prog:
                 add_to_top_prog(top_eots, eots)
-            # if top_ioc in char_prog:
-            #     add_to_top_prog(top_ioc, ioc)
+            if top_ioc in char_prog:
+                add_to_top_prog(top_ioc, ioc)
             if top_sota in char_prog:
                 add_to_top_prog(top_sota, sota)
-            # if top_wg in char_prog:
-            #     add_to_top_prog(top_sota, wg)
+            if top_wg in char_prog:
+                add_to_top_prog(top_wg, wg)
             if top_wsg in char_prog:
                 add_to_top_prog(top_wsg, wsg)
             if top_honorable_kills in char_prog:
@@ -270,8 +270,8 @@ def create_prog_args(all_chars, template_quests):
                 transfer_prog_n_credit(top_gold, gold)
             elif criteria_id == top_emblems:
                 transfer_prog_n_credit(top_emblems, emblems)
-            # elif criteria_id == top_lfm:
-            #     transfer_prog_n_credit(top_lfm, lfm)
+            elif criteria_id == top_lfm:
+                transfer_prog_n_credit(top_lfm, lfm)
             elif criteria_id == top_dedicated:
                 transfer_prog_n_credit(top_dedicated, dedicated)
             elif criteria_id == top_ab:
@@ -280,12 +280,12 @@ def create_prog_args(all_chars, template_quests):
                 transfer_prog_n_credit(top_av, av)
             elif criteria_id == top_eots:
                 transfer_prog_n_credit(top_eots, eots)
-            # elif criteria_id == top_ioc:
-            #     transfer_prog_n_credit(top_ioc, ioc)
+            elif criteria_id == top_ioc:
+                transfer_prog_n_credit(top_ioc, ioc)
             elif criteria_id == top_sota:
                 transfer_prog_n_credit(top_sota, sota)
-            # elif criteria_id == top_wg:
-            #     transfer_prog_n_credit(top_wg, wg)
+            elif criteria_id == top_wg:
+                transfer_prog_n_credit(top_wg, wg)
             elif criteria_id == top_wsg:
                 transfer_prog_n_credit(top_wsg, wsg)
             elif criteria_id == top_honorable_kills:

@@ -69,17 +69,17 @@
     }
   },
   "lfm": {
-    "LFMoreNYI": {
+    "13029": {
       "name": "Looking For More",
       "achievement": 4476,
       "threshold": 10
     },
-    "LFManyNYI": {
+    "13030": {
       "name": "Looking For Many",
       "achievement": 4477,
       "threshold": 50
     },
-    "LFMultNYI": {
+    "13031": {
       "name": "Looking For Multitudes",
       "achievement": 4478,
       "threshold": 100
@@ -124,7 +124,7 @@
     }
   },
   "ioc": {
-    "NYI": {
+    "11419": {
       "name": "Isle of Conquest Veteran",
       "achievement": 3777,
       "threshold": 100
@@ -138,7 +138,7 @@
     }
   },
   "wg": {
-    "NYI": {
+    "7365": {
       "name": "Wintergrasp Veteran",
       "achievement": 1718,
       "threshold": 100

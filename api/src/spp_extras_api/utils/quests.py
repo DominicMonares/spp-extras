@@ -1,3 +1,8 @@
+import json
+from from_root import from_root
+with open(from_root('data/questRaceZeros.json'), 'r') as json_file:
+    quest_race_zeros = json.load(json_file)
+
 # Organize completed quests by character
 def format_completed_quests(regular, daily, weekly, monthly):
     all = {}
@@ -53,8 +58,16 @@ def format_template_quests(quests):
     for quest in quests:
         required_races = quest['requiredraces']
         entry = str(quest['entry'])
+
+        # Some quests with requiredraces of 0 are faction specific
+        if entry in quest_race_zeros:
+            quest_faction = quest_race_zeros[entry]
+            all[quest_faction][entry] = quest
+            continue
+
+        # Add other quests based on requiredraces
         if required_races in alliance:
-            all['alliance'][(entry)] = quest
+            all['alliance'][entry] = quest
         elif required_races in horde:
             all['horde'][entry] = quest
         elif required_races in both:

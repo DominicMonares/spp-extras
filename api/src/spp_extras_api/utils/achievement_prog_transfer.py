@@ -153,19 +153,33 @@ def create_prog_args(all_chars, template_quests):
                 add_to_top_prog(top_daily, daily)
             if top_lm_ek_a in char_prog:
                 add_to_top_prog(top_lm_ek_a, lm_ek_a)
+                # Add opposite faction version if it doesn't exist
+                if top_lm_ek_h not in top_prog:
+                    top_prog[top_lm_ek_h] = []
             if top_lm_k_a in char_prog:
                 add_to_top_prog(top_lm_k_a, lm_k_a)
+                # Add opposite faction version if it doesn't exist
+                if top_lm_k_h not in top_prog:
+                    top_prog[top_lm_k_h] = []
             if top_lm_ek_h in char_prog:
                 add_to_top_prog(top_lm_ek_h, lm_ek_h)
+                # Add opposite faction version if it doesn't exist
+                if top_lm_ek_a not in top_prog:
+                    top_prog[top_lm_ek_a] = []
             if top_lm_k_h in char_prog:
                 add_to_top_prog(top_lm_k_h, lm_k_h)
+                # Add opposite faction version if it doesn't exist
+                if top_lm_k_a not in top_prog:
+                    top_prog[top_lm_k_a] = []
             if top_quests in char_prog:
                 add_to_top_prog(top_quests, quests)
 
         # Run transfers for all criteria
         for criteria_id in top_prog:
+            top_criteria = top_prog[criteria_id]
+            if not len(top_criteria): continue
+            date = top_criteria['progress'][0]['date']
             new_count = 0
-            date = top_prog[criteria_id]['progress'][0]['date']
 
             # Loremaster progress calculated separately from the rest
             if not is_loremaster(criteria_id): 
@@ -217,7 +231,9 @@ def create_prog_args(all_chars, template_quests):
                     ach_id = ach['achievement']
                     threshold = ach['threshold']
                     counter = new_count
-
+                    
+                    if acct_id == '0':
+                        print(f'WHYYYY {completed_quests}')
                     # Use Loremaster specific counter if on loremaster achievement
                     if is_loremaster(top_id):
                         loremaster_a = loremaster(completed_quests, template_quests, 'alliance')

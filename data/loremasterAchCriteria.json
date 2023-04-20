@@ -918,5 +918,180 @@
     "achievement": 1680,
     "description": "Rut'theran Village",
     "threshold": 685
+  },
+  "7884": {
+    "achievement": 1676,
+    "description": "Northshire Valley",
+    "threshold": 700
+  },
+  "7885": {
+    "achievement": 1676,
+    "description": "Coldridge Valley",
+    "threshold": 700
+  },
+  "7886": {
+    "achievement": 1676,
+    "description": "Deathknell",
+    "threshold": 700
+  },
+  "7887": {
+    "achievement": 1676,
+    "description": "Sunstrider Isle",
+    "threshold": 700
+  },
+  "7888": {
+    "achievement": 1677,
+    "description": "Northshire Valley",
+    "threshold": 550
+  },
+  "7889": {
+    "achievement": 1677,
+    "description": "Coldridge Valley",
+    "threshold": 550
+  },
+  "7890": {
+    "achievement": 1677,
+    "description": "Deathknell",
+    "threshold": 550
+  },
+  "7891": {
+    "achievement": 1677,
+    "description": "Sunstrider Isle",
+    "threshold": 550
+  },
+  "7892": {
+    "achievement": 1678,
+    "description": "Valley of Trials",
+    "threshold": 700
+  },
+  "7893": {
+    "achievement": 1678,
+    "description": "Red Cloud Mesa",
+    "threshold": 700
+  },
+  "7894": {
+    "achievement": 1678,
+    "description": "Shadowglen",
+    "threshold": 700
+  },
+  "7895": {
+    "achievement": 1678,
+    "description": "Crash Site",
+    "threshold": 700
+  },
+  "7896": {
+    "achievement": 1680,
+    "description": "Valley of Trials",
+    "threshold": 685
+  },
+  "7897": {
+    "achievement": 1680,
+    "description": "Red Cloud Mesa",
+    "threshold": 685
+  },
+  "7898": {
+    "achievement": 1680,
+    "description": "Shadowglen",
+    "threshold": 685
+  },
+  "7899": {
+    "achievement": 1680,
+    "description": "Crash Site",
+    "threshold": 685
+  },
+  "8098": {
+    "achievement": 1678,
+    "description": "Ammen Vale",
+    "threshold": 700
+  },
+  "8099": {
+    "achievement": 1680,
+    "description": "Ammen Vale",
+    "threshold": 685
+  },
+  "9080": {
+    "achievement": 1677,
+    "description": "Silverpine Forest",
+    "threshold": 550
+  },
+  "9081": {
+    "achievement": 1676,
+    "description": "Silverpine Forest",
+    "threshold": 700
+  },
+  "9219": {
+    "achievement": 1678,
+    "description": "Darnassus",
+    "threshold": 700
+  },
+  "9220": {
+    "achievement": 1678,
+    "description": "Exodar",
+    "threshold": 700
+  },
+  "9221": {
+    "achievement": 1680,
+    "description": "Darnassus",
+    "threshold": 685
+  },
+  "9222": {
+    "achievement": 1680,
+    "description": "Exodar",
+    "threshold": 685
+  },
+  "9238": {
+    "achievement": 1676,
+    "description": "Shadowfang Keep",
+    "threshold": 700
+  },
+  "9239": {
+    "achievement": 1677,
+    "description": "Shadowfang Keep",
+    "threshold": 550
+  },
+  "9240": {
+    "achievement": 1676,
+    "description": "Zul'Aman",
+    "threshold": 700
+  },
+  "9241": {
+    "achievement": 1677,
+    "description": "Zul'Aman",
+    "threshold": 550
+  },
+  "9242": {
+    "achievement": 1678,
+    "description": "Caverns of Time",
+    "threshold": 700
+  },
+  "9243": {
+    "achievement": 1680,
+    "description": "Caverns of Time",
+    "threshold": 685
+  },
+  "9398": {
+    "achievement": 1676,
+    "description": "Gnomeregan",
+    "threshold": 700
+  },
+  "9422": {
+    "achievement": 1676,
+    "description": "Zul'Gurub",
+    "threshold": 700
+  },
+  "9423": {
+    "achievement": 1677,
+    "description": "Zul'Gurub",
+    "threshold": 550
+  },
+  "9424": {
+    "achievement": 1676,
+    "description": "Gnomeregan",
+    "threshold": 700
+  },
+  "9425": {
+    "achievement": 1677,
+    "description": "Gnomeregan",
+    "threshold": 550
   }
 }

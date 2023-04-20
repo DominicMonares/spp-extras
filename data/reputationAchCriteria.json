@@ -1,0 +1,42 @@
+{
+  "978": {
+    "achievement": 523,
+    "description": "5 reputations to exalted",
+    "threshold": 5
+  },
+  "979": {
+    "achievement": 524,
+    "description": "10 reputations to exalted",
+    "threshold": 10
+  },
+  "980": {
+    "achievement": 521,
+    "description": "15 reputations to exalted",
+    "threshold": 15
+  },
+  "981": {
+    "achievement": 520,
+    "description": "20 reputations to exalted",
+    "threshold": 20
+  },
+  "984": {
+    "achievement": 519,
+    "description": "25 reputations to exalted",
+    "threshold": 25
+  },
+  "985": {
+    "achievement": 518,
+    "description": "30 reputations to exalted",
+    "threshold": 30
+  },
+  "2428": {
+    "achievement": 1014,
+    "description": "35 reputations to exalted",
+    "threshold": 35
+  },
+  "2429": {
+    "achievement": 1015,
+    "description": "40 reputations to exalted",
+    "threshold": 40
+  }
+}

@@ -77,8 +77,8 @@ def combine_char_data(
                     all_char_data[acct_id]['characters'][char_id]['credit'] = []
                     if char_id in achievement_credit:
                         for ach_id in achievement_credit[char_id]:
-                            incoming_date = achievement_credit[char_id][ach_id]
                             existing_date = incoming_date
+                            incoming_date = achievement_credit[char_id][ach_id]
                             if ach_id in credit: existing_date = credit[ach_id]
                             # Use oldest completion date if achievement already exists
                             older_entry = existing_date > incoming_date
@@ -92,11 +92,21 @@ def combine_char_data(
                     # Add to account-wide quest credit
                     if char_id in completed_quests:
                         all_char_data[acct_id]['characters'][char_id]['quests'] = {}
+                        
+                        # Regular quests
                         for quest_id in completed_quests[char_id]['regular']:
                             quest = completed_quests[char_id]['regular'][quest_id]
-                            if quest_id not in quests['regular']:
+                            quest_exists = quest_id in quests['regular']
+                            if not quest_exists:
                                 quests['regular'][quest_id] = quest
+                            else:
+                                existing_date = quests['regular'][quest_id]['timer']
+                                incoming_date = quest['timer']
+                                # Use more recent date for Loremaster progress
+                                if incoming_date > existing_date:
+                                    quests['regular'][quest_id] = quest
 
+                        # Daily quests - MAY NOT BE NEEDED
                         for quest_id in completed_quests[char_id]['daily']:
                             quest = completed_quests[char_id]['daily'][quest_id]
                             if quest_id not in quests['daily']:

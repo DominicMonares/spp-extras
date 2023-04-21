@@ -398,5 +398,130 @@
     "achievement": 4478,
     "description": "Looking For Multitudes",
     "threshold": 100
+  },
+  "5903": {
+    "achievement": 1676,
+    "description": "Badlands",
+    "threshold": 700
+  },
+  "5910": {
+    "achievement": 1676,
+    "description": "Dun Algaz",
+    "threshold": 700
+  },
+  "9398": {
+    "achievement": 1676,
+    "description": "Gnomeregan",
+    "threshold": 700
+  },
+  "9424": {
+    "achievement": 1676,
+    "description": "Gnomeregan",
+    "threshold": 700
+  },
+  "5927": {
+    "achievement": 1676,
+    "description": "Plaguelands: The Scarlet Enclave",
+    "threshold": 700
+  },
+  "5928": {
+    "achievement": 1676,
+    "description": "Quel'thalas",
+    "threshold": 700
+  },
+  "5940": {
+    "achievement": 1676,
+    "description": "Thandol Span",
+    "threshold": 700
+  },
+  "5944": {
+    "achievement": 1676,
+    "description": "The Temple of Atal'Hakkar",
+    "threshold": 700
+  },
+  "9422": {
+    "achievement": 1676,
+    "description": "Zul'Gurub",
+    "threshold": 700
+  },
+  "7895": {
+    "achievement": 1678,
+    "description": "Crash Site",
+    "threshold": 700
+  },
+  "6017": {
+    "achievement": 1678,
+    "description": "Gates of Ahn'Qiraj",
+    "threshold": 700
+  },
+  "6021": {
+    "achievement": 1678,
+    "description": "Onyxia's Lair",
+    "threshold": 700
+  },
+  "6030": {
+    "achievement": 1678,
+    "description": "Southfury River",
+    "threshold": 700
+  },
+  "5955": {
+    "achievement": 1677,
+    "description": "Badlands",
+    "threshold": 550
+  },
+  "5962": {
+    "achievement": 1677,
+    "description": "Dun Algaz",
+    "threshold": 550
+  },
+  "9425": {
+    "achievement": 1677,
+    "description": "Gnomeregan",
+    "threshold": 550
+  },
+  "5979": {
+    "achievement": 1677,
+    "description": "Plaguelands: The Scarlet Enclave",
+    "threshold": 550
+  },
+  "5980": {
+    "achievement": 1677,
+    "description": "Quel'thalas",
+    "threshold": 550
+  },
+  "5992": {
+    "achievement": 1677,
+    "description": "Thandol Span",
+    "threshold": 550
+  },
+  "5996": {
+    "achievement": 1677,
+    "description": "The Temple of Atal'Hakkar",
+    "threshold": 550
+  },
+  "9423": {
+    "achievement": 1677,
+    "description": "Zul'Gurub",
+    "threshold": 550
+  },
+  "7899": {
+    "achievement": 1680,
+    "description": "Crash Site",
+    "threshold": 685
+  },
+  "6112": {
+    "achievement": 1680,
+    "description": "Gates of Ahn'Qiraj",
+    "threshold": 685
+  },
+  "6116": {
+    "achievement": 1680,
+    "description": "Onyxia's Lair",
+    "threshold": 685
+  },
+  "6125": {
+    "achievement": 1680,
+    "description": "Southfury River",
+    "threshold": 685
   }
 }

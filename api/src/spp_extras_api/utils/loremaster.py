@@ -99,8 +99,8 @@ def loremaster(completed_quests, template_quests, loremaster_prog):
     }
 
     all_progress = {
-        loremaster_prog: new_loremaster_prog,
-        all_criteria: all_criteria
+        'main_prog': new_loremaster_prog,
+        'sub_prog': all_criteria
     }
     
     return all_progress

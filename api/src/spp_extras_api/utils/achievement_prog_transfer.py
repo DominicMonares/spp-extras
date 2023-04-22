@@ -14,12 +14,20 @@ with open(from_root('data/zoneContinents.json'), 'r') as json_file:
     zone_continents = json.load(json_file)
 
 
-def create_prog_args(all_chars, template_quests):
+def transfer_ach_prog(all_chars, template_quests):
     args = {
         'char_prog_args': [],
         'shared_prog_args': [],
         'new_chars': all_chars
     }
+
+    def create_char_prog_args(guid, criteria, counter, date):
+        args['char_prog_args'].append({
+            'guid': guid,
+            'criteria': int(criteria),
+            'counter': counter,
+            'date': date
+        })
 
     for acct_id in all_chars:
         acct = all_chars[acct_id]
@@ -28,19 +36,19 @@ def create_prog_args(all_chars, template_quests):
         shared_progress = acct['shared_progress']
         completed_quests = acct['quests']['regular']
         loremaster_prog = {
-            '1676': { # Alliance Eastern Kingdoms
+            '1676': {  # Alliance Eastern Kingdoms
                 'count': 0,
                 'date': 0000000000
-            }, 
-            '1678': { # Alliance Kalimdor
+            },
+            '1678': {  # Alliance Kalimdor
                 'count': 0,
                 'date': 0000000000
-            }, 
-            '1677': { # Horde Eastern Kingdoms
+            },
+            '1677': {  # Horde Eastern Kingdoms
                 'count': 0,
                 'date': 0000000000
-            }, 
-            '1680': { # Horde Kalimdor
+            },
+            '1680': {  # Horde Kalimdor
                 'count': 0,
                 'date': 0000000000
             }
@@ -54,14 +62,6 @@ def create_prog_args(all_chars, template_quests):
                 new_shared_prog[criteria_id] = [ach_prog]
             else:
                 new_shared_prog[criteria_id].append(ach_prog)
-
-        def create_char_prog_args(guid, criteria, counter, date):
-            args['char_prog_args'].append({
-                'guid': guid,
-                'criteria': int(criteria),
-                'counter': counter,
-                'date': date
-            })
 
         # Add existing progress for each char to new_shared_prog
         for char_id in chars:
@@ -83,22 +83,22 @@ def create_prog_args(all_chars, template_quests):
             # Re-assign previous count and date if shared progress already exists
             acct_shared_exists = len(shared_progress) > 0
             acct_shared_criteria_exists = False
-            if acct_shared_exists: 
+            if acct_shared_exists:
                 criteria_exists = criteria_id in shared_progress
                 acct_shared_criteria_exists = criteria_exists
-            
+
             if acct_shared_criteria_exists:
                 shared_criteria = shared_progress[criteria_id]
                 previous_count = shared_criteria['counter']
                 date = shared_criteria['date']
-            
+
             # Calculate new count using previous count
             for char_ach_prog in ach_prog:
                 # Use most recent date for progress
                 char_prog_date = char_ach_prog['date']
-                if char_prog_date > date: 
+                if char_prog_date > date:
                     date = char_prog_date
-                
+
                 # Add to new progress count
                 char_prog_count = char_ach_prog['counter']
                 count = char_prog_count - previous_count
@@ -106,7 +106,7 @@ def create_prog_args(all_chars, template_quests):
                     new_progress += count
                 else:
                     new_progress += char_prog_count
-            
+
             # Create final count sum
             new_count = previous_count + new_progress
 
@@ -125,7 +125,7 @@ def create_prog_args(all_chars, template_quests):
 
             # Ensure progress counter doesn't exceed threshold
             threshold = shared_ach_criteria[criteria_id]['threshold']
-            if new_count > threshold: 
+            if new_count > threshold:
                 new_count = threshold
 
             # Check to see if new achievement is earned
@@ -139,7 +139,8 @@ def create_prog_args(all_chars, template_quests):
                 create_char_prog_args(char_id, criteria_id, new_count, date)
 
         # Run transfers for Loremaster progress
-        all_loremaster_prog = loremaster(completed_quests, template_quests, loremaster_prog)
+        all_loremaster_prog = loremaster(
+            completed_quests, template_quests, loremaster_prog)
         main_lm_prog = all_loremaster_prog['main_prog']
         sub_lm_prog = all_loremaster_prog['sub_prog']
         alliance_lm_prog = sub_lm_prog['alliance']
@@ -194,7 +195,7 @@ def create_prog_args(all_chars, template_quests):
 
             # Ensure progress counter doesn't exceed threshold
             threshold = criteria['threshold']
-            if completed_quest_count > threshold: 
+            if completed_quest_count > threshold:
                 completed_quest_count = threshold
 
             # Check to see if new achievement is earned
@@ -205,7 +206,8 @@ def create_prog_args(all_chars, template_quests):
 
             # Transfer individual character progress
             for char_id in chars:
-                create_char_prog_args(char_id, criteria_id, completed_quest_count, date)
+                create_char_prog_args(
+                    char_id, criteria_id, completed_quest_count, date)
 
         # Add new credit to account
         args['new_chars'][acct_id]['credit'] = credit

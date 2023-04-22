@@ -152,3 +152,22 @@ def format_rew_item_charges(items):
         all[entry] = i['spellcharges_1']
 
     return all
+
+
+# Check to see if achievement is faction specific and matches char faction
+def faction_spef_char_match(ach_id, faction, faction_achievements):
+    faction_match = False
+    if ach_id in faction_achievements:
+        faction_ach = faction_achievements[ach_id]
+        if faction_ach['faction'] == faction:
+            faction_match = True
+        elif faction_ach['alt']:
+            # Achievement has opposing faction equivalent
+            ach_id = str(faction_ach['alt'])
+            faction_match = True
+        else:
+            faction_match = False
+    else:
+        faction_match = True
+    
+    return faction_match

@@ -1,5 +1,6 @@
 import datetime
 import json
+import time
 from from_root import from_root
 from spp_extras_api.models.wotlkcharacters import\
     WotlkCharacterAchievement,\
@@ -94,7 +95,8 @@ def create_credit_args(create_cred_data):
                                 char['knowntitles'] = ' '.join(known_titles) + ' '
 
                             # Transfer mail item if achievement rewards one
-                            new_date = int(datetime.datetime.now().strftime('%S'))
+                            now = datetime.datetime.now()
+                            new_date = time.mktime(now.timetuple())
                             sender = reward['sender']
                             if sender:
                                 args['mail_args'].append(WotlkMail(

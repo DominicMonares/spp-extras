@@ -1,0 +1,42 @@
+{
+  "73": {
+    "achievement": 32,
+    "description": "Complete 2000 quests",
+    "threshold": 2000
+  },
+  "230": {
+    "achievement": 503,
+    "description": "Complete 50 quests",
+    "threshold": 50
+  },
+  "231": {
+    "achievement": 504,
+    "description": "Complete 100 quests",
+    "threshold": 100
+  },
+  "232": {
+    "achievement": 505,
+    "description": "Complete 250 quests",
+    "threshold": 250
+  },
+  "233": {
+    "achievement": 506,
+    "description": "Complete 500 quests",
+    "threshold": 500
+  },
+  "234": {
+    "achievement": 507,
+    "description": "Complete 1000 quests",
+    "threshold": 1000
+  },
+  "236": {
+    "achievement": 508,
+    "description": "Complete 1500 quests",
+    "threshold": 1500
+  },
+  "2239": {
+    "achievement": 978,
+    "description": "Complete 3000 quests",
+    "threshold": 3000
+  }
+}

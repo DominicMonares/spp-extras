@@ -2,11 +2,12 @@ import json
 from from_root import from_root
 from spp_extras_api.models.classicmangos import ClassicQuestTemplate
 from spp_extras_api.models.tbcmangos import TbcQuestTemplate
-from spp_extras_api.models.wotlkmangos import\
-    WotlkAchievementReward,\
-    WotlkItemTemplate,\
-    WotlkQuestTemplate,\
+from spp_extras_api.models.wotlkmangos import (
+    WotlkAchievementReward,
+    WotlkItemTemplate,
+    WotlkQuestTemplate,
     WotlkSpellTemplate
+)
 with open(from_root('data/cutTitles.json'), 'r') as json_file:
     cut_titles = json.load(json_file)
 

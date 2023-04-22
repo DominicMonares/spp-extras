@@ -26,7 +26,7 @@ def quest_template_model(expansion):
 
 # All Rewards Query
 
-def sel_all_achievement_rewards():
+def sel_all_ach_rewards():
     return WotlkAchievementReward.objects\
         .using('wotlkmangos')\
         .all()\

@@ -102,14 +102,14 @@ def sel_all_chars(expansion):
 
 # Achievement Credit Queries
 
-def sel_all_char_achievements():
+def sel_all_char_achs():
     return WotlkCharacterAchievement.objects\
         .using('wotlkcharacters')\
         .all()\
         .values()
 
 
-def ins_char_achievements(achievements):
+def ins_char_achs(achievements):
     WotlkCharacterAchievement.objects\
         .using('wotlkcharacters')\
         .bulk_create(achievements, ignore_conflicts=True)
@@ -123,13 +123,13 @@ def ins_char_honor_kills(chars): # NEEDS REFACTORING
 
 # Achievement Progress Queries
 
-def sel_all_achievement_prog():
+def sel_all_ach_prog():
     return WotlkCharacterAchievementProgress.objects\
         .using('wotlkcharacters')\
         .all()\
         .values()
 
-def ins_achievement_prog(achievements):
+def ins_ach_prog(achievements):
     for ach in achievements:
         guid = ach['guid']
         criteria = ach['criteria']
@@ -165,42 +165,28 @@ def ins_achievement_prog(achievements):
                 )
 
 
-        # WotlkCharacterAchievementProgress.objects\
-        #     .using('wotlkcharacters')\
-        #     .update_or_create(
-        #         guid=ach['guid'],
-        #         criteria=ach['criteria'],
-        #         defaults={
-        #             # 'guid': ach['guid']
-        #             # 'criteria': ach['criteria'],
-        #             'counter': ach['counter'],
-        #             'date': ach['date']
-        #         }
-        #     )
-
-
 # Achievement Shared Progress Queries
 
-def char_achievement_shared_prog_exists():
+def char_ach_shared_prog_exists():
     wotlk_char_connection = connections['wotlkcharacters']
     cursor = wotlk_char_connection.cursor()
     tables = wotlk_char_connection.introspection.table_names(cursor)
     if 'character_achievement_shared_progress' in tables: return True
 
 
-def create_char_achievement_shared_prog():
+def create_char_ach_shared_prog():
     with connections['wotlkcharacters'].schema_editor() as schema_editor:
         schema_editor.create_model(WotlkCharacterAchievementSharedProgress)
 
 
-def sel_all_char_achievement_shared_prog():
+def sel_all_char_ach_shared_prog():
     return WotlkCharacterAchievementSharedProgress.objects\
         .using('wotlkcharacters')\
         .all()\
         .values()
 
 
-def ins_char_achievement_shared_prog(achievements):
+def ins_char_ach_shared_prog(achievements):
     for ach in achievements:
         account = ach['account']
         criteria = ach['criteria']
@@ -235,20 +221,6 @@ def ins_char_achievement_shared_prog(achievements):
                     date=date
                 )
 
-    # for ach in achievements:
-    #     WotlkCharacterAchievementSharedProgress.objects\
-    #         .using('wotlkcharacters')\
-    #         .update_or_create(
-    #             account=ach['account'],
-    #             criteria=int(ach['criteria']),
-    #             defaults={
-    #                 # 'account': ach['account'],
-    #                 # 'criteria': ach['criteria'],
-    #                 'counter': ach['counter'],
-    #                 'date': ach['date']
-    #             }
-    #         )
-
 
 # Achievement Reward Title Queries
 
@@ -257,7 +229,6 @@ def upd_reward_titles(titles):
         record = WotlkCharacters.objects\
             .using('wotlkcharacters')\
             .get(guid=t)
-
         record.knowntitles = titles[t]
         record.save()
 

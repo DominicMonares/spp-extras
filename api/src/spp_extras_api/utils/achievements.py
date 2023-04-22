@@ -1,5 +1,5 @@
 # Organize achievement credit by character
-def format_achievement_credit(achievements):
+def format_ach_credit(achievements):
     all = {}
     for a in achievements:
         guid = str(a['guid'])
@@ -13,7 +13,7 @@ def format_achievement_credit(achievements):
 
 
 # Organize achievement progress by character or account
-def format_achievement_prog(type, achievements):
+def format_ach_prog(type, achievements):
     all = {}
     for a in achievements:
         guid_or_acct = ''
@@ -131,7 +131,7 @@ def combine_char_data(
 
 
 # Organize achievement rewards by achievement
-def format_achievement_rewards(achievements):
+def format_ach_rewards(achievements):
     all = {}
     for a in achievements:
         # Store in arrays b/c of Matron/Patron duplicate

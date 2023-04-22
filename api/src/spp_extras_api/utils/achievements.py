@@ -77,8 +77,8 @@ def combine_char_data(
                     all_char_data[acct_id]['characters'][char_id]['credit'] = []
                     if char_id in achievement_credit:
                         for ach_id in achievement_credit[char_id]:
-                            existing_date = incoming_date
                             incoming_date = achievement_credit[char_id][ach_id]
+                            existing_date = incoming_date
                             if ach_id in credit: existing_date = credit[ach_id]
                             # Use oldest completion date if achievement already exists
                             older_entry = existing_date > incoming_date

@@ -205,6 +205,9 @@ Account-wide Achievements
   CREDIT
     - faction achievements
     - mail reward items for multiple characters and multiple rewards at once
+    - see if earning ek/k loremaster through sharing prog, if loremaster ol/northrend are
+      already earned, does the main loremaster achievement need to be transferred or will
+      it trigger on login? 
 
   PROGRESS
     - Check if transferring pet and mount spells count toward achievements

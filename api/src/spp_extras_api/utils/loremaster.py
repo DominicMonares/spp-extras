@@ -33,7 +33,7 @@ def loremaster(completed_quests, template_quests, loremaster_prog):
     all_criteria = {'alliance': {}, 'horde': {}}
     
     for quest_id in completed_quests:
-        date = completed_quests[quest_id]
+        date = completed_quests[quest_id]['timer']
         if quest_id in all_alliance_template_quests:
             template_quest = all_alliance_template_quests[quest_id]
             zone_id = str(template_quest['zoneorsort'])
@@ -53,7 +53,6 @@ def loremaster(completed_quests, template_quests, loremaster_prog):
                 if existing_date < date:
                     all_criteria['alliance'][criteria_id]['date'] = date
                 
-
             # Add to main counters 
             if ach_id == 1676:
                 alliance_ek_count += 1

@@ -1,6 +1,7 @@
 import json
 from from_root import from_root
-from spp_extras_api.utils.loremaster import loremaster, misc_lm_criteria
+from spp_extras_api.utils.characters import check_faction
+from spp_extras_api.utils.loremaster import loremaster, loremaster_earned, misc_lm_criteria
 with open(from_root('data/factionAchievements.json'), 'r') as json_file:
     faction_achievements = json.load(json_file)
 with open(from_root('data/loremasterAchCriteria.json'), 'r') as json_file:
@@ -24,20 +25,20 @@ def create_prog_args(all_chars, template_quests):
         credit = acct['credit']
         shared_progress = acct['shared_progress']
         completed_quests = acct['quests']['regular']
-        loremaster_count = {
-            'alliance_ek': {
+        loremaster_prog = {
+            '1676': { # Alliance Eastern Kingdoms
                 'count': 0,
                 'date': 0000000000
             }, 
-            'alliance_k': {
+            '1678': { # Alliance Kalimdor
                 'count': 0,
                 'date': 0000000000
             }, 
-            'horde_ek': {
+            '1677': { # Horde Eastern Kingdoms
                 'count': 0,
                 'date': 0000000000
             }, 
-            'horde_k': {
+            '1680': { # Horde Kalimdor
                 'count': 0,
                 'date': 0000000000
             }
@@ -107,10 +108,10 @@ def create_prog_args(all_chars, template_quests):
             # Create final count sum
             new_count = previous_count + new_progress
 
-            # Add misc Loremaster criteria to loremaster_count if it exists
+            # Add misc Loremaster criteria to loremaster_prog if it exists
             misc_lm_crit = misc_lm_criteria(criteria_id)
             if misc_lm_crit:
-                loremaster_count[misc_lm_crit] += 1
+                loremaster_prog[misc_lm_crit] += 1
 
             # Transfer shared achievement progress
             args['shared_prog_args'].append({
@@ -136,12 +137,54 @@ def create_prog_args(all_chars, template_quests):
                 create_char_prog_args(char_id, criteria_id, new_count, date)
 
         # Run transfers for Loremaster progress
-        loremaster_count = loremaster(completed_quests, template_quests, loremaster_count)
-        for char_id in chars:
-            create_char_prog_args(char_id, criteria_id, new_count, date)
-        
+        all_loremaster_prog = loremaster(completed_quests, template_quests, loremaster_prog)
+        main_lm_prog = all_loremaster_prog['main_prog']
+        sub_lm_prog = all_loremaster_prog['sub_prog']
+        alliance_lm_prog = sub_lm_prog['alliance']
+        horde_lm_prog = sub_lm_prog['horde']
 
+        # Add credit for Loremaster achievements if they exceed threshold
+        alliance_ek = main_lm_prog['1676']
+        alliance_ek_count = alliance_ek['count']
+        alliance_ek_date = alliance_ek['date']
+        if loremaster_earned(1676, alliance_ek_count):
+            credit['1676'] = alliance_ek_date
+
+        alliance_k = main_lm_prog['1678']
+        alliance_k_count = alliance_k['count']
+        alliance_k_date = alliance_k['date']
+        if loremaster_earned(1678, alliance_k_count):
+            credit['1678'] = alliance_k_date
+
+        horde_ek = main_lm_prog['1677']
+        horde_ek_count = horde_ek['count']
+        horde_ek_date = horde_ek['date']
+        if loremaster_earned(1677, horde_ek_count):
+            credit['1677'] = horde_ek_date
+
+        horde_k = main_lm_prog['1680']
+        horde_k_count = horde_k['count']
+        horde_k_date = horde_k['date']
+        if loremaster_earned(1680, horde_k_count):
+            credit['1680'] = horde_k_date
+
+        # Transfer individual character progress
+        for char_id in chars:
+            char = chars[char_id]
+            faction = check_faction(char['race'])
+            if faction == 'alliance':
+                for criteria_id in alliance_lm_prog:
+                    count = alliance_lm_prog[criteria_id]['count']
+                    date = alliance_lm_prog[criteria_id]['date']
+                    create_char_prog_args(char_id, criteria_id, count, date)
+            elif faction == 'horde':
+                for criteria_id in horde_lm_prog:
+                    count = horde_lm_prog[criteria_id]['count']
+                    date = horde_lm_prog[criteria_id]['date']
+                    create_char_prog_args(char_id, criteria_id, count, date)
+
+        # Add new credit to account
+        args['new_chars'][acct_id]['credit'] = credit
 
     # MAY NOT NEED DAILIES IN CHAR OBJ
-
     return args

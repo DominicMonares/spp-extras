@@ -37,59 +37,62 @@ def loremaster(completed_quests, template_quests, loremaster_prog):
         if quest_id in all_alliance_template_quests:
             template_quest = all_alliance_template_quests[quest_id]
             zone_id = str(template_quest['zoneorsort'])
-            zone_criteria = lm_criteria['alliance'][zone_id]
-            criteria_id = str(zone_criteria['criteria'])
-            ach_id = zone_criteria['achievement']
+            if zone_id in lm_criteria['alliance']:
+                zone_criteria = lm_criteria['alliance'][zone_id]
+                criteria_id = str(zone_criteria['criteria'])
+                ach_id = zone_criteria['achievement']
 
-            # Add counter for criteria if it doesn't exist
-            if criteria_id not in all_criteria['alliance']:
-                all_criteria['alliance'][criteria_id] = {
-                    'count': 1,
-                    'date': date
-                }
-            else:
-                all_criteria['alliance'][criteria_id]['count'] += 1
-                existing_date = all_criteria['alliance'][criteria_id]['date']
-                if existing_date < date:
-                    all_criteria['alliance'][criteria_id]['date'] = date
-                
-            # Add to main counters 
-            if ach_id == 1676:
-                alliance_ek_count += 1
-                if alliance_ek_date < date:
-                    alliance_ek_date = date
-            elif ach_id == 1678:
-                alliance_k_count += 1
-                if alliance_k_date < date:
-                    alliance_k_date = date
+                # Add counter for criteria if it doesn't exist
+                if criteria_id not in all_criteria['alliance']:
+                    all_criteria['alliance'][criteria_id] = {
+                        'count': 1,
+                        'date': date
+                    }
+                else:
+                    all_criteria['alliance'][criteria_id]['count'] += 1
+                    existing_date = all_criteria['alliance'][criteria_id]['date']
+                    if existing_date < date:
+                        all_criteria['alliance'][criteria_id]['date'] = date
+                    
+                # Add to main counters 
+                if ach_id == 1676:
+                    alliance_ek_count += 1
+                    if alliance_ek_date < date:
+                        alliance_ek_date = date
+                elif ach_id == 1678:
+                    alliance_k_count += 1
+                    if alliance_k_date < date:
+                        alliance_k_date = date
 
         if quest_id in all_horde_template_quests:
             template_quest = all_horde_template_quests[quest_id]
             zone_id = str(template_quest['zoneorsort'])
-            zone_criteria = lm_criteria['horde'][zone_id]
-            criteria_id = str(zone_criteria['criteria'])
+            if zone_id in lm_criteria['horde']:
+                zone_criteria = lm_criteria['horde'][zone_id]
+                criteria_id = str(zone_criteria['criteria'])
+                ach_id = zone_criteria['achievement']
 
-            # Add counter for criteria if it doesn't exist
-            if criteria_id not in all_criteria['horde']:
-                all_criteria['horde'][criteria_id] = {
-                    'count': 1,
-                    'date': date
-                }
-            else:
-                all_criteria['horde'][criteria_id]['count'] += 1
-                existing_date = all_criteria['horde'][criteria_id]['date']
-                if existing_date < date:
-                    all_criteria['horde'][criteria_id]['date'] = date
+                # Add counter for criteria if it doesn't exist
+                if criteria_id not in all_criteria['horde']:
+                    all_criteria['horde'][criteria_id] = {
+                        'count': 1,
+                        'date': date
+                    }
+                else:
+                    all_criteria['horde'][criteria_id]['count'] += 1
+                    existing_date = all_criteria['horde'][criteria_id]['date']
+                    if existing_date < date:
+                        all_criteria['horde'][criteria_id]['date'] = date
 
-            # Add to main counters
-            if ach_id == 1677:
-                horde_ek_count += 1
-                if horde_ek_date < date:
-                    horde_ek_date = date
-            elif ach_id == 1680:
-                horde_k_count += 1
-                if horde_k_date < date:
-                    horde_k_date = date
+                # Add to main counters
+                if ach_id == 1677:
+                    horde_ek_count += 1
+                    if horde_ek_date < date:
+                        horde_ek_date = date
+                elif ach_id == 1680:
+                    horde_k_count += 1
+                    if horde_k_date < date:
+                        horde_k_date = date
 
     new_loremaster_prog = {
         '1676': {

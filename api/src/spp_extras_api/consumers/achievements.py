@@ -310,23 +310,23 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
             return
 
         # Run credit transfer which runs reward transfers
-        # try:
-        send_msg(
-            'Transferring achievement credit and rewards between characters...')
-        ach_credit_args = transfer_ach_credit(
-            all_chars, ach_rewards, item_charges, last_item_inst_id, last_mail_id)
-        credit_args = ach_credit_args['credit_args']
-        item_inst_args = ach_credit_args['item_inst_args']
-        mail_args = ach_credit_args['mail_args']
-        mail_item_args = ach_credit_args['mail_item_args']
-        title_args = ach_credit_args['title_args']
-        send_msg(
-            'Achievement credit and rewards successfully transferred between characters!')
-        # except Exception as e:
-        #     send_msg(
-        #         'Failed to transfer achievement credit and rewards between characters!')
-        #     send_msg(f'Error: {e}')
-        #     return
+        try:
+            send_msg(
+                'Transferring achievement credit and rewards between characters...')
+            ach_credit_args = transfer_ach_credit(
+                all_chars, ach_rewards, item_charges, last_item_inst_id, last_mail_id)
+            credit_args = ach_credit_args['credit_args']
+            item_inst_args = ach_credit_args['item_inst_args']
+            mail_args = ach_credit_args['mail_args']
+            mail_item_args = ach_credit_args['mail_item_args']
+            title_args = ach_credit_args['title_args']
+            send_msg(
+                'Achievement credit and rewards successfully transferred between characters!')
+        except Exception as e:
+            send_msg(
+                'Failed to transfer achievement credit and rewards between characters!')
+            send_msg(f'Error: {e}')
+            return
 
         # ----------------------------------------------------------------
         # Run queries to save new data

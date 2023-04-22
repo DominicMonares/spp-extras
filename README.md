@@ -224,4 +224,11 @@ Loremaster quest note:
     - Alliance is 614 and Horde is 8551
     - This doesn't seem to be the case for all though - further testing needed
 
-COMPLETED QUESTS ACHIEVEMENT MIGHT HAVE SEPARATE CRITERIA FOR FACTIONS
+
+
+Note for all account-wide:
+  Deleting a character will remove most of their progress from your account-wide prog
+  If you want to delete a character to make space, but want to keep their account-wide prog,
+  I recommend creating a second account and moving that char to the second account using an
+  editor like HeidiSQL
+    - get account id from wotlkrealmd > account and change the character's account in wotlkcharacters > characters

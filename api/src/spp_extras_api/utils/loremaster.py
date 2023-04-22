@@ -1,5 +1,7 @@
 import json
 from from_root import from_root
+with open(from_root('data/loremasterAchCriteria.json'), 'r') as json_file:
+    lm_criteria = json.load(json_file)
 with open(from_root('data/zoneContinents.json'), 'r') as json_file:
     zone_continents = json.load(json_file)
 
@@ -27,31 +29,81 @@ def loremaster(completed_quests, template_quests, loremaster_prog):
     horde_k_count = horde_k['count']
     horde_k_date = horde_k['date']
 
-    # Track criteria counts for each faction/zone
-    all_criteria = {}
+    # Track criteria counts and dates for each faction/zone
+    all_criteria = {'alliance': {}, 'horde': {}}
     
     for quest_id in completed_quests:
+        date = completed_quests[quest_id]
         if quest_id in all_alliance_template_quests:
-            
+            template_quest = all_alliance_template_quests[quest_id]
+            zone_id = str(template_quest['zoneorsort'])
+            zone_criteria = lm_criteria['alliance'][zone_id]
+            criteria_id = str(zone_criteria['criteria'])
+            ach_id = zone_criteria['achievement']
+
+            # Add counter for criteria if it doesn't exist
+            if criteria_id not in all_criteria['alliance']:
+                all_criteria['alliance'][criteria_id] = 1
+            else:
+                all_criteria['alliance'][criteria_id] += 1
+
+            # Add to main counters 
+            if ach_id == 1676:
+                alliance_ek_count += 1
+                if alliance_ek_date < date:
+                    alliance_ek_date = date
+            elif ach_id == 1678:
+                alliance_k_count += 1
+                if alliance_k_date < date:
+                    alliance_k_date = date
 
         if quest_id in all_horde_template_quests:
+            template_quest = all_horde_template_quests[quest_id]
+            zone_id = str(template_quest['zoneorsort'])
+            zone_criteria = lm_criteria['horde'][zone_id]
+            criteria_id = str(zone_criteria['criteria'])
 
+            # Add counter for criteria if it doesn't exist
+            if criteria_id not in all_criteria['horde']:
+                all_criteria['horde'][criteria_id] = 1
+            else:
+                all_criteria['horde'][criteria_id] += 1
 
+            # Add to main counters
+            if ach_id == 1677:
+                horde_ek_count += 1
+                if horde_ek_date < date:
+                    horde_ek_date = date
+            elif ach_id == 1680:
+                horde_k_count += 1
+                if horde_k_date < date:
+                    horde_k_date = date
 
-    # for quest_id in completed_quests:
-    #     if quest_id in all_template_quests:
-    #         template_quest = all_template_quests[quest_id]
-    #         zoneorsort = str(template_quest['zoneorsort'])
-    #         if zoneorsort in zone_continents:
-    #             continent = zone_continents[zoneorsort]
-    #             if continent == 0:
-    #                 eastern_kingdoms_count += 1
-    #             else:
-    #                 kalimdor_count += 1
+    new_loremaster_prog = {
+        'alliance_ek': {
+            'count': alliance_ek_count,
+            'date': alliance_ek_date
+        },
+        'alliance_k': {
+            'count': alliance_k_count,
+            'date': alliance_k_date
+        },
+        'horde_ek': {
+            'count': horde_ek_count,
+            'date': horde_ek_date
+        },
+        'horde_k': {
+            'count':horde_k_count,
+            'date': horde_k_date
+        }
+    }
 
-    # return [eastern_kingdoms_count, kalimdor_count]
-
-    # Return list of criteria to add for each char AND totals for each achievement
+    all_progress = {
+        loremaster_prog: new_loremaster_prog,
+        all_criteria: all_criteria
+    }
+    
+    return all_progress
 
 
 # Some criteria for Loremaster achievements don't have matching zonerefs or have duplicates

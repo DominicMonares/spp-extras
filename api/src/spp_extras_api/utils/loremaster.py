@@ -16,16 +16,16 @@ def loremaster(completed_quests, template_quests, loremaster_prog):
 
     # Track highest counts and most recent dates for main Loremaster quests
     # Use counts from misc Loremaster criteria as a starting point
-    alliance_ek = loremaster_prog['alliance_ek']
+    alliance_ek = loremaster_prog['1676']
     alliance_ek_count = alliance_ek['count']
     alliance_ek_date = alliance_ek['date']
-    alliance_k = loremaster_prog['alliance_k']
+    alliance_k = loremaster_prog['1678']
     alliance_k_count = alliance_k['count']
     alliance_k_date = alliance_k['date']
-    horde_ek = loremaster_prog['horde_ek']
+    horde_ek = loremaster_prog['1677']
     horde_ek_count = horde_ek['count']
     horde_ek_date = horde_ek['date']
-    horde_k = loremaster_prog['horde_k']
+    horde_k = loremaster_prog['1680']
     horde_k_count = horde_k['count']
     horde_k_date = horde_k['date']
 
@@ -43,9 +43,16 @@ def loremaster(completed_quests, template_quests, loremaster_prog):
 
             # Add counter for criteria if it doesn't exist
             if criteria_id not in all_criteria['alliance']:
-                all_criteria['alliance'][criteria_id] = 1
+                all_criteria['alliance'][criteria_id] = {
+                    'count': 1,
+                    'date': date
+                }
             else:
-                all_criteria['alliance'][criteria_id] += 1
+                all_criteria['alliance'][criteria_id]['count'] += 1
+                existing_date = all_criteria['alliance'][criteria_id]['date']
+                if existing_date < date:
+                    all_criteria['alliance'][criteria_id]['date'] = date
+                
 
             # Add to main counters 
             if ach_id == 1676:
@@ -65,9 +72,15 @@ def loremaster(completed_quests, template_quests, loremaster_prog):
 
             # Add counter for criteria if it doesn't exist
             if criteria_id not in all_criteria['horde']:
-                all_criteria['horde'][criteria_id] = 1
+                all_criteria['horde'][criteria_id] = {
+                    'count': 1,
+                    'date': date
+                }
             else:
-                all_criteria['horde'][criteria_id] += 1
+                all_criteria['horde'][criteria_id]['count'] += 1
+                existing_date = all_criteria['horde'][criteria_id]['date']
+                if existing_date < date:
+                    all_criteria['horde'][criteria_id]['date'] = date
 
             # Add to main counters
             if ach_id == 1677:
@@ -80,19 +93,19 @@ def loremaster(completed_quests, template_quests, loremaster_prog):
                     horde_k_date = date
 
     new_loremaster_prog = {
-        'alliance_ek': {
+        '1676': {
             'count': alliance_ek_count,
             'date': alliance_ek_date
         },
-        'alliance_k': {
+        '1678': {
             'count': alliance_k_count,
             'date': alliance_k_date
         },
-        'horde_ek': {
+        '1677': {
             'count': horde_ek_count,
             'date': horde_ek_date
         },
-        'horde_k': {
+        '1680': {
             'count':horde_k_count,
             'date': horde_k_date
         }
@@ -126,3 +139,21 @@ def misc_lm_criteria(criteria_id):
         return 'horde_ek'
     elif criteria_id in horde_k:
         return 'horde_k'
+
+
+# See if Loremaster achievement is earned after sharing progress
+def loremaster_earned(ach_id, count):
+    # Alliance Eastern Kingdoms
+    if ach_id == 1676 and count >= 700:
+        return True
+    # Alliance Kalimdor
+    elif ach_id == 1678 and count >= 700:
+        return True
+    # Horde Eastern Kingdoms
+    elif ach_id == 1677 and count >= 550:
+        return True
+    # Horde Kalimdor
+    elif ach_id == 1680 and count >= 685:
+        return True
+    else:
+        return False

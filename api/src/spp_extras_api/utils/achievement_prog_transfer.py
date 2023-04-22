@@ -186,12 +186,11 @@ def create_prog_args(all_chars, template_quests):
                     create_char_prog_args(char_id, criteria_id, count, date)
 
         # Use length of credit for Complete {X} Quests achievement chain
-        completed_quest_count = len(credit)
+        completed_quest_count = len(completed_quests)
         for criteria_id in completed_quest_ach_criteria:
             criteria = completed_quest_ach_criteria[criteria_id]
             now = datetime.datetime.now()
             date = time.mktime(now.timetuple())
-
 
             # Ensure progress counter doesn't exceed threshold
             threshold = criteria['threshold']

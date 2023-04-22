@@ -308,30 +308,40 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
         ########## Run transfers and create db query arguments ##########
 
         # Run progress transfer and add any new achievements in all_chars
-        send_msg('Transferring achievement progress between characters...')
-        ach_prog_args = create_prog_args(all_chars, template_quests)
-        all_chars = ach_prog_args['new_chars']
-        char_prog_args = ach_prog_args['char_prog_args']
-        shared_prog_args = ach_prog_args['shared_prog_args']
-        send_msg('Achievement progress successfully transferred between characters!')
+        try:
+            send_msg('Transferring achievement progress between characters...')
+            ach_prog_args = create_prog_args(all_chars, template_quests)
+            all_chars = ach_prog_args['new_chars']
+            char_prog_args = ach_prog_args['char_prog_args']
+            shared_prog_args = ach_prog_args['shared_prog_args']
+            send_msg('Achievement progress successfully transferred between characters!')
+        except Exception as e:
+            send_msg('Failed to transfer achievement progress between characters!')
+            send_msg(f'Error: {e}')
+            return
 
         # Run credit transfer which runs reward transfers
-        credit_arg_data = {
-            'all_chars': all_chars,
-            'ach_rewards': achievement_rewards,
-            'item_charges': item_charges,
-            'last_item_inst_id': last_item_inst_id,
-            'last_mail_id': last_mail_id
-        }
+        try:
+            send_msg('Transferring achievement credit and rewards between characters...')
+            credit_arg_data = {
+                'all_chars': all_chars,
+                'ach_rewards': achievement_rewards,
+                'item_charges': item_charges,
+                'last_item_inst_id': last_item_inst_id,
+                'last_mail_id': last_mail_id
+            }
 
-        send_msg('Transferring achievement credit and rewards between characters...')
-        ach_credit_args = create_credit_args(credit_arg_data)
-        credit_args = ach_credit_args['credit_args']
-        item_inst_args = ach_credit_args['item_inst_args']
-        mail_args = ach_credit_args['mail_args']
-        mail_item_args = ach_credit_args['mail_item_args']
-        title_args = ach_credit_args['title_args']
-        send_msg('Achievement credit and rewards successfully transferred between characters!')
+            ach_credit_args = create_credit_args(credit_arg_data)
+            credit_args = ach_credit_args['credit_args']
+            item_inst_args = ach_credit_args['item_inst_args']
+            mail_args = ach_credit_args['mail_args']
+            mail_item_args = ach_credit_args['mail_item_args']
+            title_args = ach_credit_args['title_args']
+            send_msg('Achievement credit and rewards successfully transferred between characters!')
+        except Exception as e:
+            send_msg('Failed to transfer achievement credit and rewards between characters!')
+            send_msg(f'Error: {e}')
+            return
 
         ########## Run queries to save new data ##########
 

@@ -22,9 +22,9 @@ def quest_template_model(expansion):
         return WotlkQuestTemplate
 
 
-########## Achievement Reward Queries ##########
-
-# All Rewards Query
+# ----------------------------------------------------------------
+# Achievement Rewards
+# ----------------------------------------------------------------
 
 def sel_all_ach_rewards():
     return WotlkAchievementReward.objects\
@@ -33,7 +33,9 @@ def sel_all_ach_rewards():
         .values()
 
 
-# Cut Title Queries
+# ----------------------------------------------------------------
+# Cut Titles
+# ----------------------------------------------------------------
 
 def sel_cut_title():
     # Look for 'the Supreme' title to verify
@@ -48,22 +50,23 @@ def ins_cut_titles():
     cut_title_params = []
     for t in cut_titles:
         cut_title_params.append(WotlkAchievementReward(
-            entry = t['achievement'],
-            gender = 2,
-            title_a = t['title_A'],
-            title_h = t['title_H'],
-            item = 0,
-            sender = 0,
-            subject = None,
-            text = None
-        ))
+            entry=t['achievement'],
+            gender=2,
+            title_a=t['title_A'],
+            title_h=t['title_H'],
+            item=0,
+            sender=0,
+            subject=None,
+            text=None))
 
     WotlkAchievementReward.objects\
         .using('wotlkmangos')\
         .bulk_create(cut_title_params, ignore_conflicts=True)
 
 
-# Item Queries
+# ----------------------------------------------------------------
+# Items
+# ----------------------------------------------------------------
 
 def sel_rew_item_charges(items):
     return WotlkItemTemplate.objects\
@@ -72,15 +75,19 @@ def sel_rew_item_charges(items):
         .values('entry', 'spellcharges_1')
 
 
-# Pet & Mount Queries
+# ----------------------------------------------------------------
+# Pets & Mounts
+# ----------------------------------------------------------------
 
-def sel_known_template_spells(known_spells): # NEEDS REFACTORING
+def sel_known_template_spells(known_spells):  # NEEDS REFACTORING
     return WotlkSpellTemplate.objects\
         .using('wotlkmangos')\
         .values()
 
 
-########## Quest Queries ##########
+# ----------------------------------------------------------------
+# Quests
+# ----------------------------------------------------------------
 
 def sel_all_template_quests(expansion):
     return quest_template_model(expansion).objects\
@@ -93,5 +100,4 @@ def sel_all_template_quests(expansion):
             'requiredclasses',
             'requiredraces',
             'title',
-            'questflags'
-        )
+            'questflags')

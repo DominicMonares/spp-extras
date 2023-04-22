@@ -1,31 +1,34 @@
 from django.db import connections
-from spp_extras_api.models.classiccharacters import\
-    ClassicCharacterQueststatus,\
-    ClassicCharacterQueststatusWeekly,\
-    ClassicCharacterReputation,\
+from spp_extras_api.models.classiccharacters import (
+    ClassicCharacterQueststatus,
+    ClassicCharacterQueststatusWeekly,
+    ClassicCharacterReputation,
     ClassicCharacters
-from spp_extras_api.models.tbccharacters import\
-    TbcCharacterQueststatus,\
-    TbcCharacterQueststatusDaily,\
-    TbcCharacterQueststatusMonthly,\
-    TbcCharacterQueststatusWeekly,\
-    TbcCharacterReputation,\
+)
+from spp_extras_api.models.tbccharacters import (
+    TbcCharacterQueststatus,
+    TbcCharacterQueststatusDaily,
+    TbcCharacterQueststatusMonthly,
+    TbcCharacterQueststatusWeekly,
+    TbcCharacterReputation,
     TbcCharacters
-from spp_extras_api.models.wotlkcharacters import\
-    WotlkCharacterAchievement,\
-    WotlkCharacterAchievementProgress,\
-    WotlkCharacterAchievementSharedProgress,\
-    WotlkCharacterQueststatus,\
-    WotlkCharacterQueststatusDaily,\
-    WotlkCharacterQueststatusMonthly,\
-    WotlkCharacterQueststatusWeekly,\
-    WotlkCharacterReputation,\
-    WotlkCharacters,\
-    WotlkCharacterSkills,\
-    WotlkCharacterSpell,\
-    WotlkItemInstance,\
-    WotlkMail,\
+)
+from spp_extras_api.models.wotlkcharacters import (
+    WotlkCharacterAchievement,
+    WotlkCharacterAchievementProgress,
+    WotlkCharacterAchievementSharedProgress,
+    WotlkCharacterQueststatus,
+    WotlkCharacterQueststatusDaily,
+    WotlkCharacterQueststatusMonthly,
+    WotlkCharacterQueststatusWeekly,
+    WotlkCharacterReputation,
+    WotlkCharacters,
+    WotlkCharacterSkills,
+    WotlkCharacterSpell,
+    WotlkItemInstance,
+    WotlkMail,
     WotlkMailItems
+)
 
 
 # Change models depending on expansion
@@ -37,7 +40,7 @@ def characters_model(expansion):
         return TbcCharacters
     else:
         return WotlkCharacters
-    
+
 
 def character_rep_model(expansion):
     if expansion == 'classic':
@@ -80,27 +83,28 @@ def monthly_quest_model(expansion):
         return WotlkCharacterQueststatusMonthly
 
 
-########## Character Queries ##########
+# ----------------------------------------------------------------
+# Characters
+# ----------------------------------------------------------------
 
 def sel_all_chars(expansion):
     return characters_model(expansion).objects\
         .using(f'{expansion}characters')\
         .all()\
         .values(
-            'guid', 
-            'account', 
-            'name', 
-            'race', 
-            'gender', 
-            'class_field', 
-            'totalkills', 
-            'knowntitles'
-        )
+            'guid',
+            'account',
+            'name',
+            'race',
+            'gender',
+            'class_field',
+            'totalkills',
+            'knowntitles')
 
 
-########## Achievement Queries ##########
-
-# Achievement Credit Queries
+# ----------------------------------------------------------------
+# Achievement Credit
+# ----------------------------------------------------------------
 
 def sel_all_char_achs():
     return WotlkCharacterAchievement.objects\
@@ -113,15 +117,17 @@ def ins_char_achs(achievements):
     WotlkCharacterAchievement.objects\
         .using('wotlkcharacters')\
         .bulk_create(achievements, ignore_conflicts=True)
-    
 
-def ins_char_honor_kills(chars): # NEEDS REFACTORING
+
+def ins_char_honor_kills(chars):  # NEEDS REFACTORING
     WotlkCharacters.objects\
         .using('wotlkcharacters')\
         .bulk_update(chars, [])
 
 
-# Achievement Progress Queries
+# ----------------------------------------------------------------
+# Achievement Progress
+# ----------------------------------------------------------------
 
 def sel_all_ach_prog():
     return WotlkCharacterAchievementProgress.objects\
@@ -129,49 +135,48 @@ def sel_all_ach_prog():
         .all()\
         .values()
 
+
 def ins_ach_prog(achievements):
     for ach in achievements:
         guid = ach['guid']
         criteria = ach['criteria']
         counter = ach['counter']
         date = ach['date']
-
         try:
             prog = WotlkCharacterAchievementProgress.objects\
                 .using('wotlkcharacters')\
                 .get(
-                    guid=guid, 
-                    criteria=criteria
-                )
+                    guid=guid,
+                    criteria=criteria)
         except WotlkCharacterAchievementProgress.DoesNotExist:
             WotlkCharacterAchievementProgress.objects\
                 .using('wotlkcharacters')\
                 .create(
-                    guid=guid, 
-                    criteria=criteria, 
-                    counter=counter, 
-                    date=date
-                )
+                    guid=guid,
+                    criteria=criteria,
+                    counter=counter,
+                    date=date)
         else:
             prog = WotlkCharacterAchievementProgress.objects\
                 .using('wotlkcharacters')\
                 .filter(
                     guid=guid,
-                    criteria=criteria,
-                )\
+                    criteria=criteria)\
                 .update(
                     counter=counter,
-                    date=date
-                )
+                    date=date)
 
 
-# Achievement Shared Progress Queries
+# ----------------------------------------------------------------
+# Achievement Shared Progress
+# ----------------------------------------------------------------
 
 def char_ach_shared_prog_exists():
     wotlk_char_connection = connections['wotlkcharacters']
     cursor = wotlk_char_connection.cursor()
     tables = wotlk_char_connection.introspection.table_names(cursor)
-    if 'character_achievement_shared_progress' in tables: return True
+    if 'character_achievement_shared_progress' in tables:
+        return True
 
 
 def create_char_ach_shared_prog():
@@ -192,37 +197,34 @@ def ins_char_ach_shared_prog(achievements):
         criteria = ach['criteria']
         counter = ach['counter']
         date = ach['date']
-
         try:
             prog = WotlkCharacterAchievementSharedProgress.objects\
                 .using('wotlkcharacters')\
                 .get(
-                    account=account, 
-                    criteria=criteria
-                )
+                    account=account,
+                    criteria=criteria)
         except WotlkCharacterAchievementSharedProgress.DoesNotExist:
             WotlkCharacterAchievementSharedProgress.objects\
                 .using('wotlkcharacters')\
                 .create(
-                    account=account, 
-                    criteria=criteria, 
-                    counter=counter, 
-                    date=date
-                )
+                    account=account,
+                    criteria=criteria,
+                    counter=counter,
+                    date=date)
         else:
             prog = WotlkCharacterAchievementSharedProgress.objects\
                 .using('wotlkcharacters')\
                 .filter(
                     account=account,
-                    criteria=criteria,
-                )\
+                    criteria=criteria)\
                 .update(
                     counter=counter,
-                    date=date
-                )
+                    date=date)
 
 
-# Achievement Reward Title Queries
+# ----------------------------------------------------------------
+# Achievement Reward Titles
+# ----------------------------------------------------------------
 
 def upd_reward_titles(titles):
     for t in titles:
@@ -233,7 +235,9 @@ def upd_reward_titles(titles):
         record.save()
 
 
-# Achievement Reward Item Queries
+# ----------------------------------------------------------------
+# Achievement Reward Items
+# ----------------------------------------------------------------
 
 def sel_last_item_inst_id():
     return WotlkItemInstance.objects\
@@ -269,7 +273,9 @@ def ins_reward_mail_items(items):
         .bulk_create(items)
 
 
-# Achievement Reward Spell Queries
+# ----------------------------------------------------------------
+# Achievement Reward Spells
+# ----------------------------------------------------------------
 
 def sel_all_char_spells():
     return WotlkCharacterSpell.objects\
@@ -278,7 +284,7 @@ def sel_all_char_spells():
         .values('guid', 'spell')
 
 
-def ins_char_spells(spells): # NEEDS REFACTORING
+def ins_char_spells(spells):  # NEEDS REFACTORING
     WotlkCharacterSpell.objects\
         .using('wotlkcharacters')\
         .bulk_create(spells, ignore_conflicts=True)
@@ -291,7 +297,9 @@ def sel_all_char_skills():
         .values('guid', 'skill', 'values')
 
 
-########## Quest Queries ##########
+# ----------------------------------------------------------------
+# Quests
+# ----------------------------------------------------------------
 
 def sel_all_completed_reg_quests(expansion):
     return regular_quest_model(expansion).objects\
@@ -322,7 +330,9 @@ def sel_all_completed_monthly_quests(expansion):
         .values()
 
 
-########## Reputation Queries ##########
+# ----------------------------------------------------------------
+# Reputation
+# ----------------------------------------------------------------
 
 def sel_all_char_rep(expansion):
     return character_rep_model(expansion).objects\

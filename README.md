@@ -189,7 +189,7 @@ Account-wide Achievements
     Multiple tests each for:
     - gold - x
     - emblems - x
-    - dedicated (arena)
+    - dedicated (arena) - x
     - arathi basin - x
     - alterac valley - x
     - eye of the storm - x

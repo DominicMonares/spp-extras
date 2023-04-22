@@ -197,9 +197,9 @@ Account-wide Achievements
     - warsong gulch - x
     - honorable kills - x - STILL REQUIRES HK SHARE
     - bread winner - x
-    - dailies
-    - loremaster alliance - x - COUNTER STILL DOESN'T WORK
-    - loremaster horde - x - COUNTER STILL DOESN'T WORK
+    - dailies - x
+    - loremaster alliance - x
+    - loremaster horde - x
     - quests - x - COUNTER STILL DOESN'T WORK
 
   CREDIT

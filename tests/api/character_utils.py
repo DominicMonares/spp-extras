@@ -6,8 +6,12 @@ from api.src.spp_extras_api.utils.characters import (
     format_characters,
     format_reputations
 )
+with open(from_root('tests/samples/characterReputations.json'), 'r') as json_file:
+    char_reps = json.load(json_file)
 with open(from_root('tests/samples/characters.json'), 'r') as json_file:
     characters = json.load(json_file)
+with open(from_root('tests/samples/rawCharacterReps.json'), 'r') as json_file:
+    raw_char_reps = json.load(json_file)
 with open(from_root('tests/samples/rawCharacters.json'), 'r') as json_file:
     raw_characters = json.load(json_file)
 
@@ -39,4 +43,8 @@ class TestFormatCharacters(TestCase):
         self.assertDictEqual(result, {})
 
 
-
+class TestFormatReputations(TestCase):
+    """Should return reputations dict sorted by character"""
+    def test_format_reputations(self):
+        result = format_reputations(raw_char_reps)
+        self.assertDictEqual(result, char_reps)

@@ -1,5 +1,9 @@
 from unittest import TestLoader, TestSuite, TextTestRunner
-from .character_utils import TestCheckFaction, TestFormatCharacters
+from .character_utils import (
+    TestCheckFaction, 
+    TestFormatCharacters,
+    TestFormatReputations
+)
 from .quest_utils import TestAllCompletedQuests, TestAllTemplateQuests
 
 
@@ -14,6 +18,8 @@ def suites():
         .loadTestsFromTestCase(TestCheckFaction)
     format_characters_suite = TestLoader()\
         .loadTestsFromTestCase(TestFormatCharacters)
+    format_char_reps_suite = TestLoader()\
+        .loadTestsFromTestCase(TestFormatReputations)
     # Quest Utils
     all_completed_quests_suite = TestLoader()\
         .loadTestsFromTestCase(TestAllCompletedQuests)
@@ -21,8 +27,9 @@ def suites():
         .loadTestsFromTestCase(TestAllTemplateQuests)
     # Top Level Suite
     top_suite = TestSuite([
-        format_characters_suite,
         check_faction_suite,
+        format_characters_suite,
+        format_char_reps_suite,
         all_completed_quests_suite,
         all_template_quests_suite
     ])

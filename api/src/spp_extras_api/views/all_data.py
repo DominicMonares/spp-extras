@@ -2,19 +2,20 @@ from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from django.db.utils import OperationalError
-from spp_extras_api.queries.characters import\
-    sel_all_chars,\
-    sel_all_completed_daily_quests,\
-    sel_all_completed_monthly_quests,\
-    sel_all_completed_reg_quests,\
+from spp_extras_api.queries.characters import (
+    sel_all_chars,
+    sel_all_completed_daily_quests,
+    sel_all_completed_monthly_quests,
+    sel_all_completed_reg_quests,
     sel_all_completed_weekly_quests
+)
 from spp_extras_api.queries.mangos import sel_all_template_quests
 from spp_extras_api.queries.realmd import sel_all_account_data
 from spp_extras_api.utils.characters import format_characters
-from spp_extras_api.utils.quests import\
-    format_completed_quests,\
+from spp_extras_api.utils.quests import (
+    format_completed_quests,
     format_template_quests
-
+)
 
 class DataViewSet(viewsets.ViewSet):
     @action(methods=['GET'], detail=False)

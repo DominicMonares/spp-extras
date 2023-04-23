@@ -1,10 +1,10 @@
 from unittest import TestLoader, TestSuite, TextTestRunner
-from .character_utils import (
+from .characters import (
     TestCheckFaction, 
     TestFormatCharacters,
     TestFormatReputations
 )
-from .quest_utils import TestFormatCompletedQuests, TestFormatTemplateQuests
+from .quests import TestFormatCompletedQuests, TestFormatTemplateQuests
 
 
 # Prevents init constructor warnings

@@ -119,10 +119,6 @@ def transfer_ach_credit(all_chars, ach_rewards, item_charges, last_item_inst_id,
                     create_item_inst_args(
                         last_item_inst_id, char_id, item, item_charges)
 
-            # Increment mail reward IDs once item added
-            last_item_inst_id += 1
-            last_mail_id += 1
-
     # Iterate through all accounts and characters to check achievements
     for acct_id in all_chars:
         chars = all_chars[acct_id]['characters']
@@ -136,7 +132,7 @@ def transfer_ach_credit(all_chars, ach_rewards, item_charges, last_item_inst_id,
                     existing_ach = ach_id in char_credit
                     date = credit[ach_id]
 
-                    # Check to see if achievement is faction specific and matches char faction
+                    # Check to see if achievement is faction specific/matches char faction
                     faction_match = faction_spef_char_match(
                         ach_id, faction, faction_achievements)
 
@@ -144,6 +140,10 @@ def transfer_ach_credit(all_chars, ach_rewards, item_charges, last_item_inst_id,
                     if not existing_ach and faction_match:
                         run_sub_transfers(
                             char_id, ach_id, date, char, last_item_inst_id, last_mail_id)
+
+                    # Increment mail reward IDs once item added
+                    last_item_inst_id += 1
+                    last_mail_id += 1
 
                 # Transfer known titles once all achievement rewards given
                 args['title_args'][char_id] = char['knowntitles']

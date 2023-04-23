@@ -1,14 +1,28 @@
 import json
 from from_root import from_root
 from unittest import TestCase
-from api.src.spp_extras_api.utils.characters import format_characters, check_faction
+from api.src.spp_extras_api.utils.characters import (
+    check_faction,
+    format_characters,
+    format_reputations
+)
 with open(from_root('tests/samples/characters.json'), 'r') as json_file:
     characters = json.load(json_file)
 with open(from_root('tests/samples/rawCharacters.json'), 'r') as json_file:
     raw_characters = json.load(json_file)
 
 
-class TestAllCharacters(TestCase):
+class TestCheckFaction(TestCase):
+    """Should return 'alliance' if Alliance ID provided"""
+    def test_alliance(self):
+        self.assertEqual(check_faction(11), 'alliance')
+
+    """Should return 'horde' if Horde ID provided"""
+    def test_horde(self):
+        self.assertEqual(check_faction(5), 'horde')
+
+
+class TestFormatCharacters(TestCase):
     """Should return characters dict sorted by faction"""
     def test_format_characters(self):
         accounts = [
@@ -25,11 +39,4 @@ class TestAllCharacters(TestCase):
         self.assertDictEqual(result, {})
 
 
-class TestCheckFaction(TestCase):
-    """Should return 'alliance' if Alliance ID provided"""
-    def test_alliance(self):
-        self.assertEqual(check_faction(11), 'alliance')
 
-    """Should return 'horde' if Horde ID provided"""
-    def test_horde(self):
-        self.assertEqual(check_faction(5), 'horde')

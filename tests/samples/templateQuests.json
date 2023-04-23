@@ -1,5 +1,14 @@
 {
   "alliance": {
+    "55": {
+      "entry": 55,
+      "requiredclasses": 0,
+      "requiredraces": 0,
+      "title": "Morbent Fel",
+      "type": 0,
+      "zoneorsort": 10,
+      "questflags": 0
+    },
     "1780": {
       "entry": 1780,
       "requiredclasses": 2,

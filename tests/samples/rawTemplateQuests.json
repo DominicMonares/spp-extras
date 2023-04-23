@@ -18,6 +18,15 @@
     "questflags": 12
   },
   {
+    "entry": 55,
+    "requiredclasses": 0,
+    "requiredraces": 0,
+    "title": "Morbent Fel",
+    "type": 0,
+    "zoneorsort": 10,
+    "questflags": 0
+  },
+  {
     "entry": 1523,
     "requiredclasses": 64,
     "requiredraces": 690,

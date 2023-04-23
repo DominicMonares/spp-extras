@@ -1,8 +1,23 @@
 from unittest import TestLoader, TestSuite, TextTestRunner
+from .ach_credit_transfer import TestTransferAchCredit
+from .ach_prog_transfer import TestTransferAchProg
+from .achievements import (
+    TestFormatAchCredit,
+    TestFormatAchProg,
+    TestCombineCharData,
+    TestFormatAchRewards,
+    TestFormatRewItemCharges,
+    TestFactionSpefCharMatch
+)
 from .characters import (
-    TestCheckFaction, 
+    TestCheckFaction,
     TestFormatCharacters,
     TestFormatReputations
+)
+from .loremaster import (
+    TestLoremaster,
+    TestMiscLmCriteria,
+    TestLoremasterEarned
 )
 from .quests import TestFormatCompletedQuests, TestFormatTemplateQuests
 
@@ -13,6 +28,32 @@ TestSuite.__test__ = False
 
 
 def suites():
+    # Achievement Credit Transfer Utils
+    transfer_ach_credit_suite = TestLoader()\
+        .loadTestsFromTestCase(TestTransferAchCredit)
+    # Achievement Progress Transfer Utils
+    transfer_ach_prog_suite = TestLoader()\
+        .loadTestsFromTestCase(TestTransferAchProg)
+    # General Achievement Utils
+    format_ach_credit_suite = TestLoader()\
+        .loadTestsFromTestCase(TestFormatAchCredit)
+    format_ach_prog_suite = TestLoader()\
+        .loadTestsFromTestCase(TestFormatAchProg)
+    combine_char_data_suite = TestLoader()\
+        .loadTestsFromTestCase(TestCombineCharData)
+    format_ach_rew_suite = TestLoader()\
+        .loadTestsFromTestCase(TestFormatAchRewards)
+    format_rew_item_charges_suite = TestLoader()\
+        .loadTestsFromTestCase(TestFormatRewItemCharges)
+    faction_spef_char_match_suite = TestLoader()\
+        .loadTestsFromTestCase(TestFactionSpefCharMatch)
+    # Loremaster Utils
+    loremaster_suite = TestLoader()\
+        .loadTestsFromTestCase(TestLoremaster)
+    misc_lm_criteria_suite = TestLoader()\
+        .loadTestsFromTestCase(TestMiscLmCriteria)
+    loremaster_earned_suite = TestLoader()\
+        .loadTestsFromTestCase(TestLoremasterEarned)
     # Character Utils
     check_faction_suite = TestLoader()\
         .loadTestsFromTestCase(TestCheckFaction)
@@ -27,6 +68,17 @@ def suites():
         .loadTestsFromTestCase(TestFormatTemplateQuests)
     # Top Level Suite
     top_suite = TestSuite([
+        transfer_ach_credit_suite,
+        transfer_ach_prog_suite,
+        format_ach_credit_suite,
+        format_ach_prog_suite,
+        combine_char_data_suite,
+        format_ach_rew_suite,
+        format_rew_item_charges_suite,
+        faction_spef_char_match_suite,
+        loremaster_suite,
+        misc_lm_criteria_suite,
+        loremaster_earned_suite,
         check_faction_suite,
         format_characters_suite,
         format_char_reps_suite,

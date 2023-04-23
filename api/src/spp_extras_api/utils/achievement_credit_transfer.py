@@ -31,14 +31,13 @@ def transfer_ach_credit(all_chars, ach_rewards, item_charges, last_item_inst_id,
     }
 
     def create_credit_args(char_id, ach_id, date):
-        arg = WotlkCharacterAchievement(
+        args['credit_args'].append(WotlkCharacterAchievement(
             guid=char_id,
             achievement=ach_id,
-            date=date)
-        args['credit_args'].append(arg)
+            date=date))
 
     def create_item_inst_args(last_item_inst_id, char_id, item, item_charges):
-        arg = WotlkItemInstance(
+        args['item_inst_args'].append(WotlkItemInstance(
             guid=last_item_inst_id,
             owner_guid=char_id,
             itementry=item,
@@ -52,11 +51,10 @@ def transfer_ach_credit(all_chars, ach_rewards, item_charges, last_item_inst_id,
             randompropertyid=0,
             durability=0,
             playedtime=0,
-            text='')
-        args['item_inst_args'].append(arg)
+            text=''))
 
     def create_mail_args(last_mail_id, sender, char_id, reward, new_date):
-        arg = WotlkMail(
+        args['mail_args'].append(WotlkMail(
             id=last_mail_id,
             messagetype=3,
             stationery=41,
@@ -70,16 +68,14 @@ def transfer_ach_credit(all_chars, ach_rewards, item_charges, last_item_inst_id,
             deliver_time=new_date,
             money=0,
             cod=0,
-            checked=0)
-        args['mail_args'].append(arg)
+            checked=0))
 
     def create_mail_item_args(last_mail_id, last_item_inst_id, item, char_id):
-        arg = WotlkMailItems(
+        args['mail_item_args'].append(WotlkMailItems(
             mail_id=last_mail_id,
             item_guid=last_item_inst_id,
             item_template=item,
-            receiver=char_id)
-        args['mail_item_args'].append(arg)
+            receiver=char_id))
 
     def run_sub_transfers(char_id, ach_id, date, char, last_item_inst_id, last_mail_id):
         # Transfer achievement credit

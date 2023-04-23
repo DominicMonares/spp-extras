@@ -34,8 +34,8 @@ from spp_extras_api.utils.achievements import (
     format_ach_rewards,
     format_rew_item_charges
 )
-from spp_extras_api.utils.achievement_credit_transfer import transfer_ach_credit
-from spp_extras_api.utils.achievement_prog_transfer import transfer_ach_prog
+from spp_extras_api.utils.ach_credit_transfer import transfer_ach_credit
+from spp_extras_api.utils.ach_prog_transfer import transfer_ach_prog
 from spp_extras_api.utils.characters import format_characters
 from spp_extras_api.utils.quests import format_completed_quests, format_template_quests
 

@@ -69,48 +69,48 @@ def combine_char_data(characters, ach_credit, ach_char_prog, ach_shared_prog, co
             valid_bot_char = acct_id != '0' and valid_bot_acct
 
             # Add to account-wide achievement credit if char is valid
-            if not valid_player_char or not valid_bot_char: continue
-            all_char_data[acct_id]['characters'][char_id]['credit'] = []
-            if char_id in ach_credit:
-                for ach_id in ach_credit[char_id]:
-                    incoming_date = ach_credit[char_id][ach_id]
-                    existing_date = incoming_date
-                    if ach_id in credit:
-                        existing_date = credit[ach_id]
+            if valid_player_char or valid_bot_char:
+                all_char_data[acct_id]['characters'][char_id]['credit'] = []
+                if char_id in ach_credit:
+                    for ach_id in ach_credit[char_id]:
+                        incoming_date = ach_credit[char_id][ach_id]
+                        existing_date = incoming_date
+                        if ach_id in credit:
+                            existing_date = credit[ach_id]
 
-                    # Use oldest completion date if achievement already exists
-                    older_entry = existing_date > incoming_date
-                    if ach_id not in credit or older_entry:
-                        credit[ach_id] = incoming_date
+                        # Use oldest completion date if achievement already exists
+                        older_entry = existing_date > incoming_date
+                        if ach_id not in credit or older_entry:
+                            credit[ach_id] = incoming_date
 
-                    # Add data for each character
-                    char_credit = ach_credit[char_id]
-                    all_char_data[acct_id]['characters'][char_id]['credit'] = char_credit
+                        # Add data for each character
+                        char_credit = ach_credit[char_id]
+                        all_char_data[acct_id]['characters'][char_id]['credit'] = char_credit
 
-            # Add to account-wide quest credit
-            if char_id in completed_quests:
-                all_char_data[acct_id]['characters'][char_id]['quests'] = {}
-                for quest_id in completed_quests[char_id]['regular']:
-                    quest = completed_quests[char_id]['regular'][quest_id]
-                    quest_exists = quest_id in quests
-                    if not quest_exists:
-                        quests[quest_id] = quest
-                    else:
-                        existing_date = quests[quest_id]['timer']
-                        incoming_date = quest['timer']
-
-                        # Use more recent date for Loremaster progress
-                        if incoming_date > existing_date:
+                # Add to account-wide quest credit
+                if char_id in completed_quests:
+                    all_char_data[acct_id]['characters'][char_id]['quests'] = {}
+                    for quest_id in completed_quests[char_id]['regular']:
+                        quest = completed_quests[char_id]['regular'][quest_id]
+                        quest_exists = quest_id in quests
+                        if not quest_exists:
                             quests[quest_id] = quest
+                        else:
+                            existing_date = quests[quest_id]['timer']
+                            incoming_date = quest['timer']
 
-                char_quests = completed_quests[char_id]
-                all_char_data[acct_id]['characters'][char_id]['quests'] = char_quests
+                            # Use more recent date for Loremaster progress
+                            if incoming_date > existing_date:
+                                quests[quest_id] = quest
 
-            # Add data for each character
-            char_progress = {}
-            if char_id in ach_char_prog:
-                char_progress = ach_char_prog[char_id]
-            all_char_data[acct_id]['characters'][char_id]['progress'] = char_progress
+                    char_quests = completed_quests[char_id]
+                    all_char_data[acct_id]['characters'][char_id]['quests'] = char_quests
+
+                # Add data for each character
+                char_progress = {}
+                if char_id in ach_char_prog:
+                    char_progress = ach_char_prog[char_id]
+                all_char_data[acct_id]['characters'][char_id]['progress'] = char_progress
 
         # Add data for each account
         all_char_data[acct_id]['credit'] = credit

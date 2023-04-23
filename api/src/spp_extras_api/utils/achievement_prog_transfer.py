@@ -29,29 +29,29 @@ def transfer_ach_prog(all_chars, template_quests):
             'date': date
         })
 
+    def create_shared_prog_args(acct_id, criteria_id, counter, date):
+        args['shared_prog_args'].append({
+            'account': acct_id,
+            'criteria': int(criteria_id),
+            'counter': counter,
+            'date': date
+        })
+
     for acct_id in all_chars:
         acct = all_chars[acct_id]
         chars = acct['characters']
         credit = acct['credit']
         shared_progress = acct['shared_progress']
-        completed_quests = acct['quests']['regular']
+        completed_quests = acct['quests']
         loremaster_prog = {
-            '1676': {  # Alliance Eastern Kingdoms
-                'count': 0,
-                'date': 0000000000
-            },
-            '1678': {  # Alliance Kalimdor
-                'count': 0,
-                'date': 0000000000
-            },
-            '1677': {  # Horde Eastern Kingdoms
-                'count': 0,
-                'date': 0000000000
-            },
-            '1680': {  # Horde Kalimdor
-                'count': 0,
-                'date': 0000000000
-            }
+            # Alliance Eastern Kingdoms
+            '1676': {'count': 0, 'date': 0000000000},
+            # Alliance Kalimdor
+            '1678': {'count': 0, 'date': 0000000000},
+            # Horde Eastern Kingdoms
+            '1677': {'count': 0, 'date': 0000000000},
+            # Horde Kalimdor
+            '1680': {'count': 0, 'date': 0000000000}
         }
 
         # Organize all character shared achievement progress by criteria
@@ -116,12 +116,7 @@ def transfer_ach_prog(all_chars, template_quests):
                 loremaster_prog[misc_lm_crit] += 1
 
             # Transfer shared achievement progress
-            args['shared_prog_args'].append({
-                'account': acct_id,
-                'criteria': int(criteria_id),
-                'counter': new_count,
-                'date': date
-            })
+            create_shared_prog_args(acct_id, criteria_id, new_count, date)
 
             # Ensure progress counter doesn't exceed threshold
             threshold = shared_ach_criteria[criteria_id]['threshold']

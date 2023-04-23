@@ -102,3 +102,4 @@ NOTES
 
 # Tests
 *.pytest_cache
+.coverage

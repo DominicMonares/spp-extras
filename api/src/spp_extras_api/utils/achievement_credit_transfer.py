@@ -31,13 +31,14 @@ def transfer_ach_credit(all_chars, ach_rewards, item_charges, last_item_inst_id,
     }
 
     def create_credit_args(char_id, ach_id, date):
-        args['credit_args'].append(WotlkCharacterAchievement(
+        arg = WotlkCharacterAchievement(
             guid=char_id,
             achievement=ach_id,
-            date=date))
+            date=date)
+        args['credit_args'].append(arg)
 
     def create_item_inst_args(last_item_inst_id, char_id, item, item_charges):
-        args['item_inst_args'].append(WotlkItemInstance(
+        arg = WotlkItemInstance(
             guid=last_item_inst_id,
             owner_guid=char_id,
             itementry=item,
@@ -51,10 +52,11 @@ def transfer_ach_credit(all_chars, ach_rewards, item_charges, last_item_inst_id,
             randompropertyid=0,
             durability=0,
             playedtime=0,
-            text=''))
+            text='')
+        args['item_inst_args'].append(arg)
 
     def create_mail_args(last_mail_id, sender, char_id, reward, new_date):
-        args['mail_args'].append(WotlkMail(
+        arg = WotlkMail(
             id=last_mail_id,
             messagetype=3,
             stationery=41,
@@ -68,14 +70,16 @@ def transfer_ach_credit(all_chars, ach_rewards, item_charges, last_item_inst_id,
             deliver_time=new_date,
             money=0,
             cod=0,
-            checked=0))
+            checked=0)
+        args['mail_args'].append(arg)
 
     def create_mail_item_args(last_mail_id, last_item_inst_id, item, char_id):
-        args['mail_item_args'].append(WotlkMailItems(
+        arg = WotlkMailItems(
             mail_id=last_mail_id,
             item_guid=last_item_inst_id,
             item_template=item,
-            receiver=char_id))
+            receiver=char_id)
+        args['mail_item_args'].append(arg)
 
     def run_sub_transfers(char_id, ach_id, date, char, last_item_inst_id, last_mail_id):
         # Transfer achievement credit
@@ -110,8 +114,8 @@ def transfer_ach_credit(all_chars, ach_rewards, item_charges, last_item_inst_id,
             new_date = time.mktime(now.timetuple())
             sender = reward['sender']
             if sender:
-                create_mail_args(last_mail_id, sender,
-                                 char_id, reward, new_date)
+                create_mail_args(
+                    last_mail_id, sender, char_id, reward, new_date)
                 item = reward['item']
                 if item:
                     create_mail_item_args(

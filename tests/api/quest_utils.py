@@ -20,7 +20,6 @@ regular, daily, weekly, monthly = itemgetter('regular', 'daily', 'weekly', 'mont
 
 class TestFormatCompletedQuests(TestCase):
     """Should return dict with completed quests sorted by faction and character"""
-
     def test_format_completed(self):
         result = format_completed_quests(regular, daily, weekly, monthly)
         self.assertDictEqual(result, completed_quests)
@@ -28,7 +27,12 @@ class TestFormatCompletedQuests(TestCase):
 
 class TestFormatTemplateQuests(TestCase):
     """Should return dict with template quests sorted by faction"""
-
     def test_format_template(self):
         result = format_template_quests(raw_template_quests)
         self.assertDictEqual(result, template_quests)
+
+    """Should not sort Alliance specific zero quest into Horde quests"""
+    def test_format_template_zeros(self):
+        quests = format_template_quests(raw_template_quests)
+        result = "55" not in quests
+        self.assertEqual(result, True)

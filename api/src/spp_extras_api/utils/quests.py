@@ -28,14 +28,11 @@ def format_completed_quests(regular, daily, weekly, monthly):
 
     for q in regular:
         add_quest(q, 'regular')
-        
     for q in weekly:
         add_quest(q, 'weekly')
-
     if daily:
         for q in daily:
             add_quest(q, 'daily')
-
     if monthly:
         for q in monthly:
             add_quest(q, 'monthly')

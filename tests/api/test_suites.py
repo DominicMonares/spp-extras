@@ -4,7 +4,7 @@ from .character_utils import (
     TestFormatCharacters,
     TestFormatReputations
 )
-from .quest_utils import TestAllCompletedQuests, TestAllTemplateQuests
+from .quest_utils import TestFormatCompletedQuests, TestFormatTemplateQuests
 
 
 # Prevents init constructor warnings
@@ -21,17 +21,17 @@ def suites():
     format_char_reps_suite = TestLoader()\
         .loadTestsFromTestCase(TestFormatReputations)
     # Quest Utils
-    all_completed_quests_suite = TestLoader()\
-        .loadTestsFromTestCase(TestAllCompletedQuests)
-    all_template_quests_suite = TestLoader()\
-        .loadTestsFromTestCase(TestAllTemplateQuests)
+    format_completed_quests_suite = TestLoader()\
+        .loadTestsFromTestCase(TestFormatCompletedQuests)
+    format_template_quests_suite = TestLoader()\
+        .loadTestsFromTestCase(TestFormatTemplateQuests)
     # Top Level Suite
     top_suite = TestSuite([
         check_faction_suite,
         format_characters_suite,
         format_char_reps_suite,
-        all_completed_quests_suite,
-        all_template_quests_suite
+        format_completed_quests_suite,
+        format_template_quests_suite
     ])
 
     return top_suite

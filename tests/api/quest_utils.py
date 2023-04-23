@@ -15,22 +15,20 @@ with open(from_root('tests/samples/templateQuests.json'), 'r') as json_file:
     template_quests = json.load(json_file)
 
 
-regular, daily, weekly, monthly = itemgetter(
-    'regular', 'daily', 'weekly', 'monthly'
-)(raw_completed_quests)
+regular, daily, weekly, monthly = itemgetter('regular', 'daily', 'weekly', 'monthly')(raw_completed_quests)
 
 
-class TestAllCompletedQuests(TestCase):
+class TestFormatCompletedQuests(TestCase):
     """Should return dict with completed quests sorted by faction and character"""
 
-    def test_all_completed(self):
+    def test_format_completed(self):
         result = format_completed_quests(regular, daily, weekly, monthly)
         self.assertDictEqual(result, completed_quests)
 
 
-class TestAllTemplateQuests(TestCase):
+class TestFormatTemplateQuests(TestCase):
     """Should return dict with template quests sorted by faction"""
 
-    def test_all_template(self):
+    def test_format_template(self):
         result = format_template_quests(raw_template_quests)
         self.assertDictEqual(result, template_quests)

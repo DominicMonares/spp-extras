@@ -1,0 +1,42 @@
+{
+  "account": [
+    {
+      "account": 0,
+      "criteria": 307,
+      "counter": 98,
+      "date": 1682152687
+    },
+    {
+      "account": 0,
+      "criteria": 3506,
+      "counter": 500000,
+      "date": 1682152688
+    },
+    {
+      "account": 7,
+      "criteria": 3506,
+      "counter": 500001,
+      "date": 1682152689
+    }
+  ],
+  "character": [
+    {
+      "guid": 4501,
+      "criteria": 307,
+      "counter": 98,
+      "date": 1682152687
+    },
+    {
+      "guid": 4501,
+      "criteria": 3506,
+      "counter": 500000,
+      "date": 1682152688
+    },
+    {
+      "guid": 5263,
+      "criteria": 3506,
+      "counter": 500001,
+      "date": 1682152689
+    }
+  ]
+}

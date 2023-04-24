@@ -9,14 +9,17 @@ from api.src.spp_extras_api.utils.achievements import (
     format_rew_item_charges,
     faction_spef_char_match
 )
-with open(from_root('tests/samples/completedQuests.json'), 'r') as json_file:
-    completed_quests = json.load(json_file)
+with open(from_root('tests/samples/achCredit.json'), 'r') as json_file:
+    ach_credit = json.load(json_file)
+with open(from_root('tests/samples/rawAchCredit.json'), 'r') as json_file:
+    raw_ach_credit = json.load(json_file)
 
 
 class TestFormatAchCredit(TestCase):
-    """PLACEHOLDER"""
+    """Should return achievement credit formatted by character"""
     def test_format_ach_credit(self):
-        self.assertDictEqual({}, {})
+        result = format_ach_credit(raw_ach_credit)
+        self.assertDictEqual(result, ach_credit)
 
 
 class TestFormatAchProg(TestCase):

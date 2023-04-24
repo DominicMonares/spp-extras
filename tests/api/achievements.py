@@ -15,8 +15,14 @@ with open(from_root('tests/samples/achProgress.json'), 'r') as json_file:
     ach_prog = json.load(json_file)
 with open(from_root('tests/samples/achRewards.json'), 'r') as json_file:
     ach_rewards = json.load(json_file)
+with open(from_root('tests/samples/combinedChars.json'), 'r') as json_file:
+    combined_chars = json.load(json_file)
+with open(from_root('tests/samples/completedQuests.json'), 'r') as json_file:
+    completed_quests = json.load(json_file)
 with open(from_root('tests/samples/itemCharges.json'), 'r') as json_file:
     item_charges = json.load(json_file)
+with open(from_root('tests/samples/playerSortedChars.json'), 'r') as json_file:
+    characters = json.load(json_file)
 with open(from_root('tests/samples/rawAchCredit.json'), 'r') as json_file:
     raw_ach_credit = json.load(json_file)
 with open(from_root('tests/samples/rawAchProgress.json'), 'r') as json_file:
@@ -51,9 +57,13 @@ class TestFormatAchProg(TestCase):
 
 
 class TestCombineCharData(TestCase):
-    """PLACEHOLDER"""
+    """Should combine all character data into one main dict"""
     def test_combine_char_data(self):
-        self.assertDictEqual({}, {})
+        acct_prog = ach_prog['account']
+        char_prog = ach_prog['character']
+        result = combine_char_data(
+            characters, ach_credit, char_prog, acct_prog, completed_quests)
+        self.assertDictEqual(result, combined_chars)
 
 
 class TestFormatAchRewards(TestCase):

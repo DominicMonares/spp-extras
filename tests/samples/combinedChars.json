@@ -1,0 +1,404 @@
+{
+  "0": {
+    "username": "player_accts",
+    "player_accts": [
+      "500",
+      "501"
+    ],
+    "characters": {
+      "5263": {
+        "guid": 5263,
+        "account": 501,
+        "name": "Bub",
+        "race": 1,
+        "class_field": 1,
+        "credit": {
+          "6": 1682152718,
+          "604": 1682152714,
+          "1681": 1682152714
+        },
+        "progress": {
+          "3506": {
+            "counter": 500001,
+            "date": 1682152689
+          }
+        },
+        "quests": {
+          "regular": {
+            "1780": {
+              "guid": 5263,
+              "quest": 1780,
+              "status": 1,
+              "rewarded": 1,
+              "explored": 0,
+              "timer": 1675052267,
+              "mobcount1": 0,
+              "mobcount2": 0,
+              "mobcount3": 0,
+              "mobcount4": 0,
+              "itemcount1": 0,
+              "itemcount2": 0,
+              "itemcount3": 0,
+              "itemcount4": 0
+            }
+          },
+          "daily": {},
+          "weekly": {},
+          "monthly": {}
+        }
+      },
+      "1001": {
+        "guid": 1001,
+        "account": 500,
+        "name": "Gaz",
+        "race": 8,
+        "class_field": 7,
+        "credit": {},
+        "progress": {},
+        "quests": {
+          "regular": {
+            "9621": {
+              "guid": 1001,
+              "quest": 9621,
+              "status": 1,
+              "rewarded": 1,
+              "explored": 0,
+              "timer": 1675052267,
+              "mobcount1": 0,
+              "mobcount2": 0,
+              "mobcount3": 0,
+              "mobcount4": 0,
+              "itemcount1": 0,
+              "itemcount2": 0,
+              "itemcount3": 0,
+              "itemcount4": 0
+            },
+            "9678": {
+              "guid": 1001,
+              "quest": 9678,
+              "status": 1,
+              "rewarded": 1,
+              "explored": 0,
+              "timer": 1675052267,
+              "mobcount1": 0,
+              "mobcount2": 0,
+              "mobcount3": 0,
+              "mobcount4": 0,
+              "itemcount1": 0,
+              "itemcount2": 0,
+              "itemcount3": 0,
+              "itemcount4": 0
+            }
+          },
+          "daily": {},
+          "weekly": {},
+          "monthly": {}
+        }
+      },
+      "4501": {
+        "guid": 4501,
+        "account": 500,
+        "name": "Drak",
+        "race": 2,
+        "class_field": 3,
+        "credit": {
+          "6": 1682152714,
+          "1793": 1682152714,
+          "2136": 1682152713
+        },
+        "progress": {
+          "307": {
+            "counter": 98,
+            "date": 1682152687
+          },
+          "3506": {
+            "counter": 500000,
+            "date": 1682152688
+          }
+        },
+        "quests": {
+          "regular": {
+            "8": {
+              "guid": 4501,
+              "quest": 8,
+              "status": 1,
+              "rewarded": 1,
+              "explored": 0,
+              "timer": 1675052267,
+              "mobcount1": 0,
+              "mobcount2": 0,
+              "mobcount3": 0,
+              "mobcount4": 0,
+              "itemcount1": 0,
+              "itemcount2": 0,
+              "itemcount3": 0,
+              "itemcount4": 0
+            }
+          },
+          "daily": {
+            "11389": {
+              "guid": 4501,
+              "quest": 11389
+            }
+          },
+          "weekly": {
+            "24584": {
+              "guid": 4501,
+              "quest": 24584
+            }
+          },
+          "monthly": {
+            "9884": {
+              "guid": 4501,
+              "quest": 9884
+            }
+          }
+        }
+      },
+      "79411": {
+        "guid": 79411,
+        "account": 500,
+        "name": "Harley",
+        "race": 8,
+        "class_field": 7,
+        "credit": {},
+        "progress": {},
+        "quests": {
+          "regular": {
+            "25": {
+              "guid": 79411,
+              "quest": 25,
+              "status": 1,
+              "rewarded": 1,
+              "explored": 0,
+              "timer": 1675052267,
+              "mobcount1": 0,
+              "mobcount2": 0,
+              "mobcount3": 0,
+              "mobcount4": 0,
+              "itemcount1": 0,
+              "itemcount2": 0,
+              "itemcount3": 0,
+              "itemcount4": 0
+            },
+            "1523": {
+              "guid": 79411,
+              "quest": 1523,
+              "status": 1,
+              "rewarded": 1,
+              "explored": 0,
+              "timer": 1675052267,
+              "mobcount1": 0,
+              "mobcount2": 0,
+              "mobcount3": 0,
+              "mobcount4": 0,
+              "itemcount1": 0,
+              "itemcount2": 0,
+              "itemcount3": 0,
+              "itemcount4": 0
+            }
+          },
+          "daily": {},
+          "weekly": {},
+          "monthly": {}
+        }
+      }
+    },
+    "credit": {
+      "6": 1682152714,
+      "604": 1682152714,
+      "1681": 1682152714,
+      "1793": 1682152714,
+      "2136": 1682152713
+    },
+    "shared_progress": {
+      "307": {
+        "counter": 98,
+        "date": 1682152687
+      },
+      "3506": {
+        "counter": 500000,
+        "date": 1682152688
+      }
+    },
+    "quests": {
+      "8": {
+        "guid": 4501,
+        "quest": 8,
+        "status": 1,
+        "rewarded": 1,
+        "explored": 0,
+        "timer": 1675052267,
+        "mobcount1": 0,
+        "mobcount2": 0,
+        "mobcount3": 0,
+        "mobcount4": 0,
+        "itemcount1": 0,
+        "itemcount2": 0,
+        "itemcount3": 0,
+        "itemcount4": 0
+      },
+      "25": {
+        "guid": 79411,
+        "quest": 25,
+        "status": 1,
+        "rewarded": 1,
+        "explored": 0,
+        "timer": 1675052267,
+        "mobcount1": 0,
+        "mobcount2": 0,
+        "mobcount3": 0,
+        "mobcount4": 0,
+        "itemcount1": 0,
+        "itemcount2": 0,
+        "itemcount3": 0,
+        "itemcount4": 0
+      },
+      "1523": {
+        "guid": 79411,
+        "quest": 1523,
+        "status": 1,
+        "rewarded": 1,
+        "explored": 0,
+        "timer": 1675052267,
+        "mobcount1": 0,
+        "mobcount2": 0,
+        "mobcount3": 0,
+        "mobcount4": 0,
+        "itemcount1": 0,
+        "itemcount2": 0,
+        "itemcount3": 0,
+        "itemcount4": 0
+      },
+      "1780": {
+        "guid": 5263,
+        "quest": 1780,
+        "status": 1,
+        "rewarded": 1,
+        "explored": 0,
+        "timer": 1675052267,
+        "mobcount1": 0,
+        "mobcount2": 0,
+        "mobcount3": 0,
+        "mobcount4": 0,
+        "itemcount1": 0,
+        "itemcount2": 0,
+        "itemcount3": 0,
+        "itemcount4": 0
+      },
+      "9621": {
+        "guid": 1001,
+        "quest": 9621,
+        "status": 1,
+        "rewarded": 1,
+        "explored": 0,
+        "timer": 1675052267,
+        "mobcount1": 0,
+        "mobcount2": 0,
+        "mobcount3": 0,
+        "mobcount4": 0,
+        "itemcount1": 0,
+        "itemcount2": 0,
+        "itemcount3": 0,
+        "itemcount4": 0
+      },
+      "9678": {
+        "guid": 1001,
+        "quest": 9678,
+        "status": 1,
+        "rewarded": 1,
+        "explored": 0,
+        "timer": 1675052267,
+        "mobcount1": 0,
+        "mobcount2": 0,
+        "mobcount3": 0,
+        "mobcount4": 0,
+        "itemcount1": 0,
+        "itemcount2": 0,
+        "itemcount3": 0,
+        "itemcount4": 0
+      }
+    }
+  },
+  "502": {
+    "username": "RNDBOT2",
+    "characters": {
+      "6000": {
+        "guid": 6000,
+        "account": 502,
+        "name": "Sneed",
+        "race": 1,
+        "class_field": 1,
+        "credit": {
+          "1428": 1682152714
+        },
+        "progress": {
+          "6819": {
+            "counter": 20,
+            "date": 1682152685
+          }
+        },
+        "quests": {
+          "regular": {
+            "1780": {
+              "guid": 6000,
+              "quest": 1780,
+              "status": 1,
+              "rewarded": 1,
+              "explored": 0,
+              "timer": 1675052261,
+              "mobcount1": 0,
+              "mobcount2": 0,
+              "mobcount3": 0,
+              "mobcount4": 0,
+              "itemcount1": 0,
+              "itemcount2": 0,
+              "itemcount3": 0,
+              "itemcount4": 0
+            }
+          },
+          "daily": {},
+          "weekly": {},
+          "monthly": {}
+        }
+      },
+      "6001": {
+        "guid": 6001,
+        "account": 502,
+        "name": "Feed",
+        "race": 1,
+        "class_field": 1,
+        "credit": {},
+        "progress": {},
+        "quests": {}
+      }
+    },
+    "credit": {
+      "1428": 1682152714
+    },
+    "shared_progress": {
+      "3506": {
+        "counter": 500001,
+        "date": 1682152689
+      }
+    },
+    "quests": {
+      "1780": {
+        "guid": 6000,
+        "quest": 1780,
+        "status": 1,
+        "rewarded": 1,
+        "explored": 0,
+        "timer": 1675052261,
+        "mobcount1": 0,
+        "mobcount2": 0,
+        "mobcount3": 0,
+        "mobcount4": 0,
+        "itemcount1": 0,
+        "itemcount2": 0,
+        "itemcount3": 0,
+        "itemcount4": 0
+      }
+    }
+  }
+}

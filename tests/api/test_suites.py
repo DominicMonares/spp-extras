@@ -7,7 +7,7 @@ from .achievements import (
     TestCombineCharData,
     TestFormatAchRewards,
     TestFormatRewItemCharges,
-    TestFactionSpefCharMatch
+    TestCheckFactionAch
 )
 from .characters import (
     TestCheckFaction,
@@ -45,8 +45,8 @@ def suites():
         .loadTestsFromTestCase(TestFormatAchRewards)
     format_rew_item_charges_suite = TestLoader()\
         .loadTestsFromTestCase(TestFormatRewItemCharges)
-    faction_spef_char_match_suite = TestLoader()\
-        .loadTestsFromTestCase(TestFactionSpefCharMatch)
+    check_faction_ach_suite = TestLoader()\
+        .loadTestsFromTestCase(TestCheckFactionAch)
     # Loremaster Utils
     loremaster_suite = TestLoader()\
         .loadTestsFromTestCase(TestLoremaster)
@@ -75,7 +75,7 @@ def suites():
         combine_char_data_suite,
         format_ach_rew_suite,
         format_rew_item_charges_suite,
-        faction_spef_char_match_suite,
+        check_faction_ach_suite,
         loremaster_suite,
         misc_lm_criteria_suite,
         loremaster_earned_suite,

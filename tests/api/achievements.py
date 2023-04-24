@@ -7,7 +7,7 @@ from api.src.spp_extras_api.utils.achievements import (
     combine_char_data,
     format_ach_rewards,
     format_rew_item_charges,
-    faction_spef_char_match
+    check_faction_ach
 )
 with open(from_root('tests/samples/achCredit.json'), 'r') as json_file:
     ach_credit = json.load(json_file)
@@ -70,7 +70,20 @@ class TestFormatRewItemCharges(TestCase):
         self.assertDictEqual(result, item_charges)
 
 
-class TestFactionSpefCharMatch(TestCase):
-    """PLACEHOLDER"""
-    def test_faction_spef_char_match(self):
-        self.assertDictEqual({}, {})
+class TestCheckFactionAch(TestCase):
+    """Should return true and ach_id if achievement is neutral"""
+    def test_check_faction_ach(self):
+        result = check_faction_ach("2136", 'horde')
+        expected = [True, "2136"]
+        self.assertEqual(result, expected)
+
+    """Should return true and ach_id if achievement and char factions match"""
+    def test_check_faction_ach(self):
+        result = check_faction_ach("1173", 'horde')
+        expected = [True, "1173"]
+        self.assertEqual(result, True)
+
+    """Should return true and alt ach_id if achievement and char factions don't match and alt exists"""
+    def test_check_faction_ach(self):
+        result = check_faction_ach("1173", 'horde')
+        self.assertEqual(result, True)

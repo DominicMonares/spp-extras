@@ -4,12 +4,15 @@ from unittest import TestCase
 from api.src.spp_extras_api.utils.characters import (
     check_faction,
     format_characters,
+    format_players,
     format_reputations
 )
 with open(from_root('tests/samples/characterReputations.json'), 'r') as json_file:
     char_reps = json.load(json_file)
 with open(from_root('tests/samples/characters.json'), 'r') as json_file:
     characters = json.load(json_file)
+with open(from_root('tests/samples/playerSortedChars.json'), 'r') as json_file:
+    player_sorted_chars = json.load(json_file)
 with open(from_root('tests/samples/rawCharacterReps.json'), 'r') as json_file:
     raw_char_reps = json.load(json_file)
 with open(from_root('tests/samples/rawCharacters.json'), 'r') as json_file:
@@ -42,6 +45,13 @@ class TestFormatCharacters(TestCase):
     def test_no_characters(self):
         result = format_characters([], [])
         self.assertDictEqual(result, {})
+
+
+class TestFormatPlayers(TestCase):
+    """Should return all accounts with player accounts combined into one account"""
+    def test_format_players(self):
+        result = format_players(characters)
+        self.assertDictEqual(result, player_sorted_chars)
 
 
 class TestFormatReputations(TestCase):

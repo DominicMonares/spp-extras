@@ -1,0 +1,62 @@
+{
+  "0": {
+    "username": "player_accts",
+    "player_accts": ["500", "501"],
+    "characters": {
+      "alliance": {
+        "5263": {
+          "guid": 5263,
+          "account": 501,
+          "name": "Bub",
+          "race": 1,
+          "class_field": 1
+        }
+      },
+      "horde": {
+        "1001": {
+          "guid": 1001,
+          "account": 500,
+          "name": "Gaz",
+          "race": 8,
+          "class_field": 7
+        },
+        "4501": {
+          "guid": 4501,
+          "account": 500,
+          "name": "Drak",
+          "race": 2,
+          "class_field": 3
+        },
+        "79411": {
+          "guid": 79411,
+          "account": 500,
+          "name": "Harley",
+          "race": 8,
+          "class_field": 7
+        }
+      }
+    }
+  },
+  "502": {
+    "username": "RNDBOT2",
+    "characters": {
+      "alliance": {
+        "6000": {
+          "guid": 6000,
+          "account": 502,
+          "name": "Sneed",
+          "race": 1,
+          "class_field": 1
+        },
+        "6001": {
+          "guid": 6001,
+          "account": 502,
+          "name": "Feed",
+          "race": 1,
+          "class_field": 1
+        }
+      },
+      "horde": {}
+    }
+  }
+}

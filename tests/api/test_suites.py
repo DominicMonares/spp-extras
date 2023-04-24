@@ -12,6 +12,7 @@ from .achievements import (
 from .characters import (
     TestCheckFaction,
     TestFormatCharacters,
+    TestFormatPlayers,
     TestFormatReputations
 )
 from .loremaster import (
@@ -34,7 +35,7 @@ def suites():
     # Achievement Progress Transfer Utils
     transfer_ach_prog_suite = TestLoader()\
         .loadTestsFromTestCase(TestTransferAchProg)
-    # General Achievement Utils
+    # Achievement Utils
     format_ach_credit_suite = TestLoader()\
         .loadTestsFromTestCase(TestFormatAchCredit)
     format_ach_prog_suite = TestLoader()\
@@ -47,6 +48,15 @@ def suites():
         .loadTestsFromTestCase(TestFormatRewItemCharges)
     check_faction_ach_suite = TestLoader()\
         .loadTestsFromTestCase(TestCheckFactionAch)
+    # Character Utils
+    check_faction_suite = TestLoader()\
+        .loadTestsFromTestCase(TestCheckFaction)
+    format_characters_suite = TestLoader()\
+        .loadTestsFromTestCase(TestFormatCharacters)
+    format_players_suite = TestLoader()\
+        .loadTestsFromTestCase(TestFormatPlayers)
+    format_char_reps_suite = TestLoader()\
+        .loadTestsFromTestCase(TestFormatReputations)
     # Loremaster Utils
     loremaster_suite = TestLoader()\
         .loadTestsFromTestCase(TestLoremaster)
@@ -54,13 +64,6 @@ def suites():
         .loadTestsFromTestCase(TestMiscLmCriteria)
     loremaster_earned_suite = TestLoader()\
         .loadTestsFromTestCase(TestLoremasterEarned)
-    # Character Utils
-    check_faction_suite = TestLoader()\
-        .loadTestsFromTestCase(TestCheckFaction)
-    format_characters_suite = TestLoader()\
-        .loadTestsFromTestCase(TestFormatCharacters)
-    format_char_reps_suite = TestLoader()\
-        .loadTestsFromTestCase(TestFormatReputations)
     # Quest Utils
     format_completed_quests_suite = TestLoader()\
         .loadTestsFromTestCase(TestFormatCompletedQuests)
@@ -76,12 +79,13 @@ def suites():
         format_ach_rew_suite,
         format_rew_item_charges_suite,
         check_faction_ach_suite,
+        check_faction_suite,
+        format_characters_suite,
+        format_players_suite,
+        format_char_reps_suite,
         loremaster_suite,
         misc_lm_criteria_suite,
         loremaster_earned_suite,
-        check_faction_suite,
-        format_characters_suite,
-        format_char_reps_suite,
         format_completed_quests_suite,
         format_template_quests_suite
     ])

@@ -36,14 +36,14 @@ class TestFormatAchCredit(TestCase):
 
 class TestFormatAchProg(TestCase):
     """Should return achievement progress organized by account"""
-    def test_format_ach_prog(self):
+    def test_format_ach_prog_acct(self):
         raw_acct_prog = raw_ach_prog['account']
         acct_prog = ach_prog['account']
         result = format_ach_prog('shared', raw_acct_prog)
         self.assertDictEqual(result, acct_prog)
 
     """Should return achievement progress organized by character"""
-    def test_format_ach_prog(self):
+    def test_format_ach_prog_char(self):
         raw_char_prog = raw_ach_prog['character']
         char_prog = ach_prog['character']
         result = format_ach_prog('char', raw_char_prog)
@@ -72,18 +72,25 @@ class TestFormatRewItemCharges(TestCase):
 
 class TestCheckFactionAch(TestCase):
     """Should return true and ach_id if achievement is neutral"""
-    def test_check_faction_ach(self):
+    def test_check_faction_ach_neutral(self):
         result = check_faction_ach("2136", 'horde')
         expected = [True, "2136"]
         self.assertEqual(result, expected)
 
     """Should return true and ach_id if achievement and char factions match"""
-    def test_check_faction_ach(self):
+    def test_check_faction_ach_match(self):
         result = check_faction_ach("1173", 'horde')
         expected = [True, "1173"]
-        self.assertEqual(result, True)
+        self.assertEqual(result, expected)
 
     """Should return true and alt ach_id if achievement and char factions don't match and alt exists"""
-    def test_check_faction_ach(self):
-        result = check_faction_ach("1173", 'horde')
-        self.assertEqual(result, True)
+    def test_check_faction_ach_match_alt(self):
+        result = check_faction_ach("1173", 'alliance')
+        expected = [True, "1172"]
+        self.assertEqual(result, expected)
+
+    """Should return false and ach_id if achievement and char factions don't match and alt doesn't exist"""
+    def test_check_faction_ach_no_match(self):
+        result = check_faction_ach("1173", 'alliance')
+        expected = [True, "1172"]
+        self.assertEqual(result, expected)

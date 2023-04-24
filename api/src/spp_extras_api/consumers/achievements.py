@@ -36,7 +36,7 @@ from spp_extras_api.utils.achievements import (
 )
 from spp_extras_api.utils.ach_credit_transfer import transfer_ach_credit
 from spp_extras_api.utils.ach_prog_transfer import transfer_ach_prog
-from spp_extras_api.utils.characters import format_characters
+from spp_extras_api.utils.characters import format_characters, format_players
 from spp_extras_api.utils.quests import format_completed_quests, format_template_quests
 
 
@@ -236,36 +236,9 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
 
         try:
             send_msg('Formatting fetched data...')
-            characters = format_characters(account_data, character_data)
-            
-            # Combine player accounts
-            player_accts = []
-            merged_acct = {
-                'username': 'player_accts',
-                'player_accts': [],
-                'characters': {'alliance': {}, 'horde': {}}
-            }
-
-            for acct_id in characters:
-                acct = characters[acct_id]
-                if 'RNDBOT' not in acct['username']:
-                    player_accts.append(acct_id)
-                    chars = acct['characters']
-                    alliance_chars = merged_acct['characters']['alliance']
-                    horde_chars = merged_acct['characters']['horde']
-                    new_alliance_chars = {**alliance_chars, **chars['alliance']}
-                    new_horde_chars = {**horde_chars, **chars['horde']}
-                    merged_acct['characters']['alliance'] = new_alliance_chars
-                    merged_acct['characters']['horde'] = new_horde_chars
-
-            # Add merged account to characters dict
-            merged_acct['player_accts'] = player_accts
-            characters['0'] = merged_acct
-
-            # Remove individual player accounts from main store
-            for plyr_acct in player_accts:
-                characters.pop(plyr_acct)
-
+            _characters = format_characters(account_data, character_data)
+            # Combine all player accounts/chars
+            characters = format_players(_characters)
             ach_credit = format_ach_credit(ach_credit_data)
             ach_char_prog = format_ach_prog('char', ach_char_prog_data)
             ach_shared_prog = format_ach_prog('shared', ach_shared_prog_data)

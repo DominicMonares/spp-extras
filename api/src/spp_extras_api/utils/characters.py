@@ -20,6 +20,38 @@ def format_characters(accounts, characters):
     return all
 
 
+# Combine player accounts into a single account separate from bots
+def format_players(characters):
+    player_accts = []
+    merged_acct = {
+        'username': 'player_accts',
+        'player_accts': [],
+        'characters': {'alliance': {}, 'horde': {}}
+    }
+
+    for acct_id in characters:
+        acct = characters[acct_id]
+        if 'RNDBOT' not in acct['username']:
+            player_accts.append(acct_id)
+            chars = acct['characters']
+            alliance_chars = merged_acct['characters']['alliance']
+            horde_chars = merged_acct['characters']['horde']
+            new_alliance_chars = {**alliance_chars, **chars['alliance']}
+            new_horde_chars = {**horde_chars, **chars['horde']}
+            merged_acct['characters']['alliance'] = new_alliance_chars
+            merged_acct['characters']['horde'] = new_horde_chars
+
+    # Add merged account to characters dict
+    merged_acct['player_accts'] = player_accts
+    characters['0'] = merged_acct
+
+    # Remove individual player accounts from main store
+    for plyr_acct in player_accts:
+        characters.pop(plyr_acct)
+
+    return characters
+
+
 # Organize reputation data by character
 def format_reputations(reputations):
     all = {}

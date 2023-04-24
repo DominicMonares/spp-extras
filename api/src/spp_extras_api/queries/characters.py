@@ -188,7 +188,7 @@ def sel_all_char_ach_shared_prog():
     return WotlkCharacterAchievementSharedProgress.objects\
         .using('wotlkcharacters')\
         .all()\
-        .values()
+        .values('account', 'criteria', 'counter', 'date')
 
 
 def ins_char_ach_shared_prog(achievements):

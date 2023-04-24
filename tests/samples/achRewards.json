@@ -1,0 +1,48 @@
+{
+  "1681": [
+    {
+      "entry": 1681,
+      "gender": 2,
+      "title_a": 125,
+      "title_h": 125,
+      "item": 43300,
+      "sender": 7999,
+      "subject": "Greetings from Darnassus",
+      "text": "Your accomplishments have been profound and far-reaching. Azeroth, with all of the recent turmoil, benefits greatly from those who seek to rid the land of evil.\nOnly those who take the time to know our lands understand the sacrifices of the fallen and the valor of our heroes. You are one such hero. Hopefully, you will recant the tales of your adventures for years to come.\nOn behalf of the Alliance, I thank you, Loremaster."
+    }
+  ],
+  "1682": [
+    {
+      "entry": 1682,
+      "gender": 2,
+      "title_a": 125,
+      "title_h": 125,
+      "item": 43300,
+      "sender": 3057,
+      "subject": "",
+      "text": "News of your accomplishments has traveled far. The winds of turmoil howl through our lands. Those who stand to challenge evil are our only hope.\nOnly those who listen to the winds understand the debts our fallen heroes have paid to protect our people. May a hero such as yourself live long to tell the tales of your adventures. For only then will we remember how much we have to be thankful for.\nOur appreciation runs deep, Loremaster.\nFor the Horde!\n--Cairne Bloodhoof"
+    }
+  ],
+  "1793": [
+    {
+      "entry": 1793,
+      "gender": 0,
+      "title_a": 138,
+      "title_h": 138,
+      "item": 0,
+      "sender": 0,
+      "subject": null,
+      "text": null
+    },
+    {
+      "entry": 1793,
+      "gender": 1,
+      "title_a": 137,
+      "title_h": 137,
+      "item": 0,
+      "sender": 0,
+      "subject": null,
+      "text": null
+    }
+  ]
+}

@@ -13,10 +13,14 @@ with open(from_root('tests/samples/achCredit.json'), 'r') as json_file:
     ach_credit = json.load(json_file)
 with open(from_root('tests/samples/achProgress.json'), 'r') as json_file:
     ach_prog = json.load(json_file)
+with open(from_root('tests/samples/achRewards.json'), 'r') as json_file:
+    ach_rewards = json.load(json_file)
 with open(from_root('tests/samples/rawAchCredit.json'), 'r') as json_file:
     raw_ach_credit = json.load(json_file)
 with open(from_root('tests/samples/rawAchProgress.json'), 'r') as json_file:
     raw_ach_prog = json.load(json_file)
+with open(from_root('tests/samples/rawAchRewards.json'), 'r') as json_file:
+    raw_ach_rewards = json.load(json_file)
 
 
 class TestFormatAchCredit(TestCase):
@@ -49,9 +53,10 @@ class TestCombineCharData(TestCase):
 
 
 class TestFormatAchRewards(TestCase):
-    """PLACEHOLDER"""
+    """Should return achievement rewards organized by achievement"""
     def test_format_ach_rew(self):
-        self.assertDictEqual({}, {})
+        result = format_ach_rewards(raw_ach_rewards)
+        self.assertDictEqual(result, ach_rewards)
 
 
 class TestFormatRewItemCharges(TestCase):

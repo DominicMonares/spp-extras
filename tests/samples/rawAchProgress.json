@@ -13,7 +13,7 @@
       "date": 1682152688
     },
     {
-      "account": 7,
+      "account": 502,
       "criteria": 3506,
       "counter": 500001,
       "date": 1682152689
@@ -37,6 +37,12 @@
       "criteria": 3506,
       "counter": 500001,
       "date": 1682152689
+    },
+    {
+      "guid": 6000,
+      "criteria": 6819,
+      "counter": 20,
+      "date": 1682152685
     }
   ]
 }

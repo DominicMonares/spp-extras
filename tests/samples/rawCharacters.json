@@ -33,5 +33,12 @@
     "name": "Sneed",
     "race": 1,
     "class_field": 1
+  },
+  {
+    "guid": 6001,
+    "account": 502,
+    "name": "Feed",
+    "race": 1,
+    "class_field": 1
   }
 ]

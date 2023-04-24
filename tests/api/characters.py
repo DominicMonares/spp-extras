@@ -31,7 +31,8 @@ class TestFormatCharacters(TestCase):
     def test_format_characters(self):
         accounts = [
             {'id': 500, 'username': 'ACCOUNT1'},
-            {'id': 501, 'username': 'ACCOUNT2'}
+            {'id': 501, 'username': 'ACCOUNT2'},
+            {'id': 502, 'username': 'RNDBOT2'}
         ]
 
         result = format_characters(accounts, raw_characters)

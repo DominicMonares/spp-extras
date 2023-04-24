@@ -219,11 +219,14 @@ Account-wide Achievements
     - prod icons
     - clear websocket messages when switching tools
 
+CLIENT
+  - fix json reassignment issue
+  - try to cover remaining lines
+
 Loremaster quest note:
   Some quests like Captain's Chest are neutral but are different quests
     - Alliance is 614 and Horde is 8551
     - This doesn't seem to be the case for all though - further testing needed
-
 
 
 Note for all account-wide:

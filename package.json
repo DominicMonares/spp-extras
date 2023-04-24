@@ -8,7 +8,7 @@
     "api:env": "cd api && python -m virtualenv spp_extras_env",
     "start:dev": "cross-env NODE_ENV=development electron-forge start",
     "test:client": "jest --coverage",
-    "test:api": "pytest --cov=api/src/spp_extras_api/utils tests/api/test_suites.py",
+    "test:api": "pytest --cov-report term-missing --cov=api/src/spp_extras_api/utils tests/api/test_suites.py",
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",

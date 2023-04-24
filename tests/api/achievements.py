@@ -63,6 +63,7 @@ class TestCombineCharData(TestCase):
         char_prog = ach_prog['character']
         result = combine_char_data(
             characters, ach_credit, char_prog, acct_prog, completed_quests)
+        print(f'FFFFFFFF {result}')
         self.assertDictEqual(result, combined_chars)
 
 

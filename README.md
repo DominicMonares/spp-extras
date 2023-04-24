@@ -218,6 +218,7 @@ Account-wide Achievements
     - window size
     - prod icons
     - clear websocket messages when switching tools
+    - object references - x[y][z] = a vs w = a
 
 CLIENT
   - fix json reassignment issue

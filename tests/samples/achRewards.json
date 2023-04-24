@@ -44,5 +44,17 @@
       "subject": null,
       "text": null
     }
+  ],
+  "2136": [
+    {
+      "entry": 2136,
+      "gender": 2,
+      "title_a": 0,
+      "title_h": 0,
+      "item": 44160,
+      "sender": 26917,
+      "subject": "Glory of the Hero",
+      "text": "Champion,\n\nWord has traveled to Wyrmrest Temple\nof the great heroic deeds you have\naccomplished since arriving in\nNorthrend.\n\nYour bravery should not go\nunrecognized. Please accept this gift\non behalf of the Aspects. Together we\nshall rid Azeroth of evil, once and for\neternity.\n\nAlexstrasza the Life-Binder"
+    }
   ]
 }

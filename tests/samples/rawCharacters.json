@@ -26,5 +26,12 @@
     "name": "Bub",
     "race": 1,
     "class_field": 1
+  },
+  {
+    "guid": 6000,
+    "account": 502,
+    "name": "Sneed",
+    "race": 1,
+    "class_field": 1
   }
 ]

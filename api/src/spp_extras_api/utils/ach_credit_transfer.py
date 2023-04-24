@@ -2,7 +2,7 @@ import datetime
 import json
 import time
 from from_root import from_root
-from api.src.spp_extras_api.models.wotlkcharacters import (
+from spp_extras_api.models.wotlkcharacters import (
     WotlkCharacterAchievement,
     WotlkItemInstance,
     WotlkMail,

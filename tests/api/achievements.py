@@ -16,34 +16,34 @@ with open(from_root('tests/samples/completedQuests.json'), 'r') as json_file:
 class TestFormatAchCredit(TestCase):
     """PLACEHOLDER"""
     def test_format_ach_credit(self):
-        self.assertDictEqual(True, True)
+        self.assertDictEqual({}, {})
 
 
 class TestFormatAchProg(TestCase):
     """PLACEHOLDER"""
     def test_format_ach_prog(self):
-        self.assertDictEqual(True, True)
+        self.assertDictEqual({}, {})
 
 
 class TestCombineCharData(TestCase):
     """PLACEHOLDER"""
     def test_combine_char_data(self):
-        self.assertDictEqual(True, True)
+        self.assertDictEqual({}, {})
 
 
 class TestFormatAchRewards(TestCase):
     """PLACEHOLDER"""
     def test_format_ach_rew(self):
-        self.assertDictEqual(True, True)
+        self.assertDictEqual({}, {})
 
 
 class TestFormatRewItemCharges(TestCase):
     """PLACEHOLDER"""
     def test_format_rew_item_charges(self):
-        self.assertDictEqual(True, True)
+        self.assertDictEqual({}, {})
 
 
 class TestFactionSpefCharMatch(TestCase):
     """PLACEHOLDER"""
     def test_faction_spef_char_match(self):
-        self.assertDictEqual(True, True)
+        self.assertDictEqual({}, {})

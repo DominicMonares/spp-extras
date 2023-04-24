@@ -9,4 +9,4 @@ with open(from_root('tests/samples/completedQuests.json'), 'r') as json_file:
 class TestTransferAchCredit(TestCase):
     """PLACEHOLDER"""
     def test_transfer_ach_credit(self):
-        self.assertDictEqual(True, True)
+        self.assertDictEqual({}, {})

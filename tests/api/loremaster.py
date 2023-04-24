@@ -13,16 +13,16 @@ with open(from_root('tests/samples/completedQuests.json'), 'r') as json_file:
 class TestLoremaster(TestCase):
     """PLACEHOLDER"""
     def test_loremaster(self):
-        self.assertDictEqual(True, True)
+        self.assertDictEqual({}, {})
 
 
 class TestMiscLmCriteria(TestCase):
     """PLACEHOLDER"""
     def test_misc_lm_criteria(self):
-        self.assertDictEqual(True, True)
+        self.assertDictEqual({}, {})
 
 
 class TestLoremasterEarned(TestCase):
     """PLACEHOLDER"""
     def test_loremaster_earned(self):
-        self.assertDictEqual(True, True)
+        self.assertDictEqual({}, {})

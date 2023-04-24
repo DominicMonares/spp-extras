@@ -1,3 +1,9 @@
+import json
+from from_root import from_root
+with open(from_root('data/factionAchievements.json'), 'r') as json_file:
+    faction_achievements = json.load(json_file)
+
+
 # Organize achievement credit by character
 def format_ach_credit(achievements):
     all = {}
@@ -145,7 +151,7 @@ def format_rew_item_charges(items):
 
 
 # Check to see if achievement is faction specific and matches char faction
-def faction_spef_char_match(ach_id, faction, faction_achievements):
+def faction_spef_char_match(ach_id, faction):
     faction_match = False
     if ach_id in faction_achievements:
         faction_ach = faction_achievements[ach_id]

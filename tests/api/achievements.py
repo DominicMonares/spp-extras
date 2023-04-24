@@ -15,12 +15,16 @@ with open(from_root('tests/samples/achProgress.json'), 'r') as json_file:
     ach_prog = json.load(json_file)
 with open(from_root('tests/samples/achRewards.json'), 'r') as json_file:
     ach_rewards = json.load(json_file)
+with open(from_root('tests/samples/itemCharges.json'), 'r') as json_file:
+    item_charges = json.load(json_file)
 with open(from_root('tests/samples/rawAchCredit.json'), 'r') as json_file:
     raw_ach_credit = json.load(json_file)
 with open(from_root('tests/samples/rawAchProgress.json'), 'r') as json_file:
     raw_ach_prog = json.load(json_file)
 with open(from_root('tests/samples/rawAchRewards.json'), 'r') as json_file:
     raw_ach_rewards = json.load(json_file)
+with open(from_root('tests/samples/rawItemCharges.json'), 'r') as json_file:
+    raw_item_charges = json.load(json_file)
 
 
 class TestFormatAchCredit(TestCase):
@@ -60,9 +64,10 @@ class TestFormatAchRewards(TestCase):
 
 
 class TestFormatRewItemCharges(TestCase):
-    """PLACEHOLDER"""
+    """Should return item charges for each reward item"""
     def test_format_rew_item_charges(self):
-        self.assertDictEqual({}, {})
+        result = format_rew_item_charges(raw_item_charges)
+        self.assertDictEqual(result, item_charges)
 
 
 class TestFactionSpefCharMatch(TestCase):

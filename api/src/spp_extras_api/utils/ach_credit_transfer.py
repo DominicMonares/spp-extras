@@ -2,14 +2,14 @@ import datetime
 import json
 import time
 from from_root import from_root
-from spp_extras_api.models.wotlkcharacters import (
+from api.src.spp_extras_api.models.wotlkcharacters import (
     WotlkCharacterAchievement,
     WotlkItemInstance,
     WotlkMail,
     WotlkMailItems
 )
-from spp_extras_api.utils.achievements import faction_spef_char_match
-from spp_extras_api.utils.characters import check_faction
+from .achievements import faction_spef_char_match
+from .characters import check_faction
 with open(from_root('data/factionAchievements.json'), 'r') as json_file:
     faction_achievements = json.load(json_file)
 with open(from_root('data/titles.json'), 'r') as json_file:

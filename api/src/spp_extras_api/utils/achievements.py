@@ -151,7 +151,8 @@ def format_rew_item_charges(items):
 
 
 # Check to see if achievement is faction specific and matches char faction
-def faction_spef_char_match(ach_id, faction):
+# Return alt achievement ID if faction doesn't match
+def check_faction_ach(ach_id, faction):
     faction_match = False
     if ach_id in faction_achievements:
         faction_ach = faction_achievements[ach_id]
@@ -166,4 +167,4 @@ def faction_spef_char_match(ach_id, faction):
     else:
         faction_match = True
 
-    return faction_match
+    return [faction_match, ach_id]

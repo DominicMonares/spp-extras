@@ -8,7 +8,7 @@ from spp_extras_api.models.wotlkcharacters import (
     WotlkMail,
     WotlkMailItems
 )
-from .achievements import faction_spef_char_match
+from .achievements import check_faction_ach
 from .characters import check_faction
 with open(from_root('data/titles.json'), 'r') as json_file:
     titles = json.load(json_file)
@@ -131,7 +131,9 @@ def transfer_ach_credit(all_chars, ach_rewards, item_charges, last_item_inst_id,
                     date = credit[ach_id]
 
                     # Check to see if achievement is faction specific/matches char faction
-                    faction_match = faction_spef_char_match(ach_id, faction)
+                    faction_ach = check_faction_ach(ach_id, faction)
+                    faction_match = faction_ach[0]
+                    ach_id = faction_ach[1]
 
                     # Run transfers if achievement is valid
                     if not existing_ach and faction_match:

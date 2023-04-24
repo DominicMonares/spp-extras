@@ -63,7 +63,6 @@ class TestCombineCharData(TestCase):
         char_prog = ach_prog['character']
         result = combine_char_data(
             characters, ach_credit, char_prog, acct_prog, completed_quests)
-        print(f'FFFFFFFF {result}')
         self.assertDictEqual(result, combined_chars)
 
 
@@ -102,6 +101,6 @@ class TestCheckFactionAch(TestCase):
 
     """Should return false and ach_id if achievement and char factions don't match and alt doesn't exist"""
     def test_check_faction_ach_no_match(self):
-        result = check_faction_ach("1173", 'alliance')
-        expected = [True, "1172"]
+        result = check_faction_ach("1405", 'alliance')
+        expected = [False, "1405"]
         self.assertEqual(result, expected)

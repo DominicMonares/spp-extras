@@ -297,14 +297,14 @@
     {
       "guid": "6000",
       "criteria": 6819,
-      "counter": 20,
-      "date": 1682152685
+      "counter": 22,
+      "date": 1682152689
     },
     {
       "guid": "6001",
       "criteria": 6819,
-      "counter": 20,
-      "date": 1682152685
+      "counter": 22,
+      "date": 1682152689
     },
     {
       "guid": "6000",
@@ -419,8 +419,8 @@
     {
       "account": "502",
       "criteria": 6819,
-      "counter": 20,
-      "date": 1682152685
+      "counter": 22,
+      "date": 1682152689
     }
   ],
   "new_chars": {
@@ -776,8 +776,8 @@
           },
           "progress": {
             "6819": {
-              "counter": 20,
-              "date": 1682152685
+              "counter": 2,
+              "date": 1682152689
             }
           },
           "quests": {
@@ -819,9 +819,9 @@
         "1428": 1682152714
       },
       "shared_progress": {
-        "3506": {
-          "counter": 500001,
-          "date": 1682152689
+        "6819": {
+          "counter": 20,
+          "date": 1682152685
         }
       },
       "quests": {

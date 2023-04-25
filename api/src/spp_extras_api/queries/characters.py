@@ -114,9 +114,15 @@ def sel_all_char_achs():
 
 
 def ins_char_achs(achievements):
+    def create_args(a):
+        return WotlkCharacterAchievement(
+            guid=a['guid'],
+            achievement=a['achievement'],
+            date=a['date'])
+    args = map(create_args, achievements)
     WotlkCharacterAchievement.objects\
         .using('wotlkcharacters')\
-        .bulk_create(achievements, ignore_conflicts=True)
+        .bulk_create(args, ignore_conflicts=True)
 
 
 def ins_char_honor_kills(chars):  # NEEDS REFACTORING
@@ -231,7 +237,7 @@ def upd_reward_titles(titles):
         record = WotlkCharacters.objects\
             .using('wotlkcharacters')\
             .get(guid=t)
-        record.knowntitles = titles[t]
+        record.knowntitles = t
         record.save()
 
 
@@ -248,9 +254,26 @@ def sel_last_item_inst_id():
 
 
 def ins_reward_item_instances(instances):
+    def create_args(i):
+        return WotlkItemInstance(
+            guid=i['guid'],
+            owner_guid=i['owner_guid'],
+            itementry=i['itementry'],
+            creatorguid=i['creatorguid'],
+            giftcreatorguid=i['giftcreatorguid'],
+            count=i['count'],
+            duration=i['duration'],
+            charges=i['guichargesd'],
+            flags=i['flags'],
+            enchantments=i['enchantments'],
+            randompropertyid=i['randompropertyid'],
+            durability=i['durability'],
+            playedtime=i['playedtime'],
+            text=i['text'])
+    args = map(create_args, instances)
     WotlkItemInstance.objects\
         .using('wotlkcharacters')\
-        .bulk_create(instances)
+        .bulk_create(args)
 
 
 def sel_last_mail_id():
@@ -262,15 +285,39 @@ def sel_last_mail_id():
 
 
 def ins_reward_mail(mail):
+    def create_args(m):
+        return WotlkMail(
+            id=m['id'],
+            messagetype=m['messagetype'],
+            stationery=m['stationery'],
+            mailtemplateid=m['mailtemplateid'],
+            sender=m['sender'],
+            receiver=m['receiver'],
+            subject=m['subject'],
+            body=m['body'],
+            has_items=m['has_items'],
+            expire_time=m['expire_time'],
+            deliver_time=m['deliver_time'],
+            money=m['money'],
+            cod=m['cod'],
+            checked=m['checked'])
+    args = map(create_args, mail)
     WotlkMail.objects\
         .using('wotlkcharacters')\
-        .bulk_create(mail)
+        .bulk_create(args)
 
 
 def ins_reward_mail_items(items):
+    def create_args(i):
+        return WotlkMailItems(
+            mail_id=i['mail_id'],
+            item_guid=i['item_guid'],
+            item_template=i['item_template'],
+            receiver=i['receiver'])
+    args = map(create_args, items)
     WotlkMailItems.objects\
         .using('wotlkcharacters')\
-        .bulk_create(items)
+        .bulk_create(args)
 
 
 # ----------------------------------------------------------------

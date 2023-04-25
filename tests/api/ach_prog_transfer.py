@@ -14,4 +14,5 @@ class TestTransferAchProg(TestCase):
     """Should return progress arguments and char dict with updated credit"""
     def test_transfer_ach_prog(self):
         result = transfer_ach_prog(all_chars, template_quests)
+        print(f'HELLOOOO {result}')
         self.assertDictEqual(result, expected)

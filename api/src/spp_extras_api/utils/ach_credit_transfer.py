@@ -1,6 +1,6 @@
+import calendar
 import datetime
 import json
-import time
 from from_root import from_root
 from spp_extras_api.models.wotlkcharacters import (
     WotlkCharacterAchievement,
@@ -105,7 +105,7 @@ def transfer_ach_credit(all_chars, ach_rewards, item_charges, last_item_inst_id,
 
             # Transfer mail item if achievement rewards one
             now = datetime.datetime.now()
-            new_date = time.mktime(now.timetuple())
+            new_date = calendar.timegm(now.timetuple())
             sender = reward['sender']
             if sender:
                 create_mail_args(

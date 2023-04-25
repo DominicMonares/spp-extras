@@ -111,9 +111,11 @@ def transfer_ach_prog(all_chars, template_quests):
             new_count = previous_count + new_progress
 
             # Add misc Loremaster criteria to loremaster_prog if it exists
-            misc_lm_crit = misc_lm_criteria(criteria_id)
+            misc_lm_crit = misc_lm_criteria(int(criteria_id))
             if misc_lm_crit:
-                loremaster_prog[misc_lm_crit] += 1
+                loremaster_prog[misc_lm_crit]['count'] += new_count
+                if date > loremaster_prog[misc_lm_crit]['date']:
+                    loremaster_prog[misc_lm_crit]['date'] = date
 
             # Transfer shared achievement progress
             create_shared_prog_args(acct_id, criteria_id, new_count, date)
@@ -170,6 +172,7 @@ def transfer_ach_prog(all_chars, template_quests):
         for char_id in chars:
             char = chars[char_id]
             faction = check_faction(char['race'])
+            print(f'FUCK {char}')
             if faction == 'alliance':
                 for criteria_id in alliance_lm_prog:
                     count = alliance_lm_prog[criteria_id]['count']

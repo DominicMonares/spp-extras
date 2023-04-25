@@ -46,7 +46,6 @@ def loremaster(completed_quests, template_quests, loremaster_prog):
             if existing_date < date:
                 all_criteria[faction][criteria_id]['date'] = date
 
-
     for quest_id in completed_quests:
         date = completed_quests[quest_id]['timer']
 
@@ -118,13 +117,13 @@ def misc_lm_criteria(criteria_id):
     horde_k = [7899, 6112, 6116, 6125]
     
     if criteria_id in alliance_ek:
-        return 'alliance_ek'
+        return '1676'
     elif criteria_id in alliance_k:
-        return 'alliance_k'
+        return '1678'
     elif criteria_id in horde_ek:
-        return 'horde_ek'
+        return '1677'
     elif criteria_id in horde_k:
-        return 'horde_k'
+        return '1680'
 
 
 # See if Loremaster achievement is earned after sharing progress

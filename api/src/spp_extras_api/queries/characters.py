@@ -98,7 +98,6 @@ def sel_all_chars(expansion):
             'race',
             'gender',
             'class_field',
-            'totalkills',
             'knowntitles')
 
 

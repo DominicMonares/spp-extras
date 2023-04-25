@@ -1,5 +1,14 @@
 {
   "alliance": {
+    "37": {
+      "entry": 37,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "Find the Lost Guards",
+      "type": 0,
+      "zoneorsort": 12,
+      "questflags": 8
+    },
     "55": {
       "entry": 55,
       "requiredclasses": 0,

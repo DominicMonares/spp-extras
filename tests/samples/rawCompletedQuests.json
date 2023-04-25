@@ -66,6 +66,22 @@
     },
     {
       "guid": 5263,
+      "quest": 37,
+      "status": 1,
+      "rewarded": 1,
+      "explored": 0,
+      "timer": 1675052264,
+      "mobcount1": 0,
+      "mobcount2": 0,
+      "mobcount3": 0,
+      "mobcount4": 0,
+      "itemcount1": 0,
+      "itemcount2": 0,
+      "itemcount3": 0,
+      "itemcount4": 0
+    },
+    {
+      "guid": 5263,
       "quest": 1780,
       "status": 1,
       "rewarded": 1,

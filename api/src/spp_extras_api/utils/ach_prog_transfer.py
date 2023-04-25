@@ -133,7 +133,16 @@ def transfer_ach_prog(all_chars, template_quests):
 
             # Transfer individual character progress
             for char_id in chars:
-                create_char_prog_args(char_id, criteria_id, new_count, date)
+                char = chars[char_id]
+                faction = check_faction(char['race'])
+                is_lm_a = misc_lm_crit == '1676' or misc_lm_crit == '1678'
+                is_alliance = faction == 'alliance'
+                is_alliance_prog = is_lm_a and is_alliance
+                is_lm_h = misc_lm_crit == '1677' or misc_lm_crit == '1680'
+                is_horde = faction == 'horde'
+                is_horde_prog = is_lm_h and is_horde
+                if not misc_lm_crit or is_alliance_prog or is_horde_prog:
+                    create_char_prog_args(char_id, criteria_id, new_count, date)
 
         # Run transfers for Loremaster progress
         all_loremaster_prog = loremaster(

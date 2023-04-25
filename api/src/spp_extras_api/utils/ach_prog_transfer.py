@@ -197,7 +197,7 @@ def transfer_ach_prog(all_chars, template_quests):
 
             # Check to see if new achievement is earned
             # Add new achievement to all credit
-            ach_id = criteria['achievement']
+            ach_id = str(criteria['achievement'])
             if completed_quest_count == threshold and ach_id not in credit:
                 credit[ach_id] = date
 

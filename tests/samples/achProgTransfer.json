@@ -1,10 +1,28 @@
 {
   "char_prog_args": [
     {
+      "guid": "1001",
+      "criteria": 307,
+      "counter": 98,
+      "date": 1682152687
+    },
+    {
+      "guid": "4501",
+      "criteria": 307,
+      "counter": 98,
+      "date": 1682152687
+    },
+    {
       "guid": "5263",
-      "criteria": 3506,
-      "counter": 1000000,
-      "date": 1682152689
+      "criteria": 307,
+      "counter": 98,
+      "date": 1682152687
+    },
+    {
+      "guid": "79411",
+      "criteria": 307,
+      "counter": 98,
+      "date": 1682152687
     },
     {
       "guid": "1001",
@@ -19,34 +37,16 @@
       "date": 1682152689
     },
     {
-      "guid": "79411",
+      "guid": "5263",
       "criteria": 3506,
       "counter": 1000000,
       "date": 1682152689
     },
     {
-      "guid": "5263",
-      "criteria": 307,
-      "counter": 98,
-      "date": 1682152687
-    },
-    {
-      "guid": "1001",
-      "criteria": 307,
-      "counter": 98,
-      "date": 1682152687
-    },
-    {
-      "guid": "4501",
-      "criteria": 307,
-      "counter": 98,
-      "date": 1682152687
-    },
-    {
       "guid": "79411",
-      "criteria": 307,
-      "counter": 98,
-      "date": 1682152687
+      "criteria": 3506,
+      "counter": 1000000,
+      "date": 1682152689
     },
     {
       "guid": "1001",
@@ -103,12 +103,6 @@
       "date": 1675052267
     },
     {
-      "guid": "5263",
-      "criteria": 73,
-      "counter": 6,
-      "date": 1682294400
-    },
-    {
       "guid": "1001",
       "criteria": 73,
       "counter": 6,
@@ -121,14 +115,14 @@
       "date": 1682294400
     },
     {
-      "guid": "79411",
+      "guid": "5263",
       "criteria": 73,
       "counter": 6,
       "date": 1682294400
     },
     {
-      "guid": "5263",
-      "criteria": 230,
+      "guid": "79411",
+      "criteria": 73,
       "counter": 6,
       "date": 1682294400
     },
@@ -145,18 +139,18 @@
       "date": 1682294400
     },
     {
+      "guid": "5263",
+      "criteria": 230,
+      "counter": 6,
+      "date": 1682294400
+    },
+    {
       "guid": "79411",
       "criteria": 230,
       "counter": 6,
       "date": 1682294400
     },
     {
-      "guid": "5263",
-      "criteria": 231,
-      "counter": 6,
-      "date": 1682294400
-    },
-    {
       "guid": "1001",
       "criteria": 231,
       "counter": 6,
@@ -169,14 +163,14 @@
       "date": 1682294400
     },
     {
-      "guid": "79411",
+      "guid": "5263",
       "criteria": 231,
       "counter": 6,
       "date": 1682294400
     },
     {
-      "guid": "5263",
-      "criteria": 232,
+      "guid": "79411",
+      "criteria": 231,
       "counter": 6,
       "date": 1682294400
     },
@@ -193,18 +187,18 @@
       "date": 1682294400
     },
     {
+      "guid": "5263",
+      "criteria": 232,
+      "counter": 6,
+      "date": 1682294400
+    },
+    {
       "guid": "79411",
       "criteria": 232,
       "counter": 6,
       "date": 1682294400
     },
     {
-      "guid": "5263",
-      "criteria": 233,
-      "counter": 6,
-      "date": 1682294400
-    },
-    {
       "guid": "1001",
       "criteria": 233,
       "counter": 6,
@@ -217,14 +211,14 @@
       "date": 1682294400
     },
     {
-      "guid": "79411",
+      "guid": "5263",
       "criteria": 233,
       "counter": 6,
       "date": 1682294400
     },
     {
-      "guid": "5263",
-      "criteria": 234,
+      "guid": "79411",
+      "criteria": 233,
       "counter": 6,
       "date": 1682294400
     },
@@ -241,14 +235,14 @@
       "date": 1682294400
     },
     {
-      "guid": "79411",
+      "guid": "5263",
       "criteria": 234,
       "counter": 6,
       "date": 1682294400
     },
     {
-      "guid": "5263",
-      "criteria": 236,
+      "guid": "79411",
+      "criteria": 234,
       "counter": 6,
       "date": 1682294400
     },
@@ -265,14 +259,14 @@
       "date": 1682294400
     },
     {
-      "guid": "79411",
+      "guid": "5263",
       "criteria": 236,
       "counter": 6,
       "date": 1682294400
     },
     {
-      "guid": "5263",
-      "criteria": 2239,
+      "guid": "79411",
+      "criteria": 236,
       "counter": 6,
       "date": 1682294400
     },
@@ -284,6 +278,12 @@
     },
     {
       "guid": "4501",
+      "criteria": 2239,
+      "counter": 6,
+      "date": 1682294400
+    },
+    {
+      "guid": "5263",
       "criteria": 2239,
       "counter": 6,
       "date": 1682294400
@@ -406,15 +406,15 @@
   "shared_prog_args": [
     {
       "account": "0",
-      "criteria": 3506,
-      "counter": 1000001,
-      "date": 1682152689
-    },
-    {
-      "account": "0",
       "criteria": 307,
       "counter": 98,
       "date": 1682152687
+    },
+    {
+      "account": "0",
+      "criteria": 3506,
+      "counter": 1000001,
+      "date": 1682152689
     },
     {
       "account": "502",
@@ -431,47 +431,6 @@
         "501"
       ],
       "characters": {
-        "5263": {
-          "guid": 5263,
-          "account": 501,
-          "name": "Bub",
-          "race": 1,
-          "class_field": 1,
-          "credit": {
-            "6": 1682152718,
-            "604": 1682152714,
-            "1681": 1682152714
-          },
-          "progress": {
-            "3506": {
-              "counter": 500001,
-              "date": 1682152689
-            }
-          },
-          "quests": {
-            "regular": {
-              "1780": {
-                "guid": 5263,
-                "quest": 1780,
-                "status": 1,
-                "rewarded": 1,
-                "explored": 0,
-                "timer": 1675052267,
-                "mobcount1": 0,
-                "mobcount2": 0,
-                "mobcount3": 0,
-                "mobcount4": 0,
-                "itemcount1": 0,
-                "itemcount2": 0,
-                "itemcount3": 0,
-                "itemcount4": 0
-              }
-            },
-            "daily": {},
-            "weekly": {},
-            "monthly": {}
-          }
-        },
         "1001": {
           "guid": 1001,
           "account": 500,
@@ -594,6 +553,47 @@
                 "quest": 9884
               }
             }
+          }
+        },
+        "5263": {
+          "guid": 5263,
+          "account": 501,
+          "name": "Bub",
+          "race": 1,
+          "class_field": 1,
+          "credit": {
+            "6": 1682152718,
+            "604": 1682152714,
+            "1681": 1682152714
+          },
+          "progress": {
+            "3506": {
+              "counter": 500001,
+              "date": 1682152689
+            }
+          },
+          "quests": {
+            "regular": {
+              "1780": {
+                "guid": 5263,
+                "quest": 1780,
+                "status": 1,
+                "rewarded": 1,
+                "explored": 0,
+                "timer": 1675052267,
+                "mobcount1": 0,
+                "mobcount2": 0,
+                "mobcount3": 0,
+                "mobcount4": 0,
+                "itemcount1": 0,
+                "itemcount2": 0,
+                "itemcount3": 0,
+                "itemcount4": 0
+              }
+            },
+            "daily": {},
+            "weekly": {},
+            "monthly": {}
           }
         },
         "79411": {

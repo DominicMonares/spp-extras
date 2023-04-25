@@ -168,11 +168,10 @@ def transfer_ach_prog(all_chars, template_quests):
         if loremaster_earned(1680, horde_k_count):
             credit['1680'] = horde_k_date
 
-        # Transfer individual character progress
+        # Transfer Loremaster progress for each character
         for char_id in chars:
             char = chars[char_id]
             faction = check_faction(char['race'])
-            print(f'FUCK {char}')
             if faction == 'alliance':
                 for criteria_id in alliance_lm_prog:
                     count = alliance_lm_prog[criteria_id]['count']

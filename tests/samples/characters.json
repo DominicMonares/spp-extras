@@ -9,7 +9,9 @@
           "account": 500,
           "name": "Gaz",
           "race": 8,
-          "class_field": 7
+          "gender": 1,
+          "class_field": 7,
+          "knowntitles": "0 0 0 0 0 0 "
         },
         "4501": {
           "guid": 4501,

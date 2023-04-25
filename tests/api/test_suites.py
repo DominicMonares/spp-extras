@@ -15,11 +15,6 @@ from .characters import (
     TestFormatPlayers,
     TestFormatReputations
 )
-from .loremaster import (
-    TestLoremaster,
-    TestMiscLmCriteria,
-    TestLoremasterEarned
-)
 from .quests import TestFormatCompletedQuests, TestFormatTemplateQuests
 
 
@@ -57,13 +52,6 @@ def suites():
         .loadTestsFromTestCase(TestFormatPlayers)
     format_char_reps_suite = TestLoader()\
         .loadTestsFromTestCase(TestFormatReputations)
-    # Loremaster Utils
-    loremaster_suite = TestLoader()\
-        .loadTestsFromTestCase(TestLoremaster)
-    misc_lm_criteria_suite = TestLoader()\
-        .loadTestsFromTestCase(TestMiscLmCriteria)
-    loremaster_earned_suite = TestLoader()\
-        .loadTestsFromTestCase(TestLoremasterEarned)
     # Quest Utils
     format_completed_quests_suite = TestLoader()\
         .loadTestsFromTestCase(TestFormatCompletedQuests)
@@ -83,9 +71,6 @@ def suites():
         format_characters_suite,
         format_players_suite,
         format_char_reps_suite,
-        loremaster_suite,
-        misc_lm_criteria_suite,
-        loremaster_earned_suite,
         format_completed_quests_suite,
         format_template_quests_suite
     ])

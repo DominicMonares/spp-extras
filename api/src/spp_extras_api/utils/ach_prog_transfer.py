@@ -1,6 +1,6 @@
+import calendar
 import datetime
 import json
-import time
 from from_root import from_root
 from spp_extras_api.utils.characters import check_faction
 from spp_extras_api.utils.loremaster import loremaster, loremaster_earned, misc_lm_criteria
@@ -125,7 +125,7 @@ def transfer_ach_prog(all_chars, template_quests):
 
             # Check to see if new achievement is earned
             # Add new achievement to all credit
-            ach_id = shared_ach_criteria[criteria_id]['achievement']
+            ach_id = str(shared_ach_criteria[criteria_id]['achievement'])
             if new_count == threshold and ach_id not in credit:
                 credit[ach_id] = date
 
@@ -186,7 +186,7 @@ def transfer_ach_prog(all_chars, template_quests):
         for criteria_id in completed_quest_ach_criteria:
             criteria = completed_quest_ach_criteria[criteria_id]
             now = datetime.datetime.now()
-            date = time.mktime(now.timetuple())
+            date = calendar.timegm(now.timetuple())
 
             # Ensure progress counter doesn't exceed threshold
             threshold = criteria['threshold']

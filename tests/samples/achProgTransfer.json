@@ -1,6 +1,428 @@
 {
-  "char_prog_args": [],
-  "shared_prog_args": [],
+  "char_prog_args": [
+    {
+      "guid": "5263",
+      "criteria": 3506,
+      "counter": 1000000,
+      "date": 1682152689
+    },
+    {
+      "guid": "1001",
+      "criteria": 3506,
+      "counter": 1000000,
+      "date": 1682152689
+    },
+    {
+      "guid": "4501",
+      "criteria": 3506,
+      "counter": 1000000,
+      "date": 1682152689
+    },
+    {
+      "guid": "79411",
+      "criteria": 3506,
+      "counter": 1000000,
+      "date": 1682152689
+    },
+    {
+      "guid": "5263",
+      "criteria": 307,
+      "counter": 98,
+      "date": 1682152687
+    },
+    {
+      "guid": "1001",
+      "criteria": 307,
+      "counter": 98,
+      "date": 1682152687
+    },
+    {
+      "guid": "4501",
+      "criteria": 307,
+      "counter": 98,
+      "date": 1682152687
+    },
+    {
+      "guid": "79411",
+      "criteria": 307,
+      "counter": 98,
+      "date": 1682152687
+    },
+    {
+      "guid": "1001",
+      "criteria": 7890,
+      "counter": 1,
+      "date": 1675052267
+    },
+    {
+      "guid": "1001",
+      "criteria": 6100,
+      "counter": 1,
+      "date": 1675052267
+    },
+    {
+      "guid": "1001",
+      "criteria": 5998,
+      "counter": 1,
+      "date": 1675052267
+    },
+    {
+      "guid": "4501",
+      "criteria": 7890,
+      "counter": 1,
+      "date": 1675052267
+    },
+    {
+      "guid": "4501",
+      "criteria": 6100,
+      "counter": 1,
+      "date": 1675052267
+    },
+    {
+      "guid": "4501",
+      "criteria": 5998,
+      "counter": 1,
+      "date": 1675052267
+    },
+    {
+      "guid": "79411",
+      "criteria": 7890,
+      "counter": 1,
+      "date": 1675052267
+    },
+    {
+      "guid": "79411",
+      "criteria": 6100,
+      "counter": 1,
+      "date": 1675052267
+    },
+    {
+      "guid": "79411",
+      "criteria": 5998,
+      "counter": 1,
+      "date": 1675052267
+    },
+    {
+      "guid": "5263",
+      "criteria": 73,
+      "counter": 6,
+      "date": 1682294400
+    },
+    {
+      "guid": "1001",
+      "criteria": 73,
+      "counter": 6,
+      "date": 1682294400
+    },
+    {
+      "guid": "4501",
+      "criteria": 73,
+      "counter": 6,
+      "date": 1682294400
+    },
+    {
+      "guid": "79411",
+      "criteria": 73,
+      "counter": 6,
+      "date": 1682294400
+    },
+    {
+      "guid": "5263",
+      "criteria": 230,
+      "counter": 6,
+      "date": 1682294400
+    },
+    {
+      "guid": "1001",
+      "criteria": 230,
+      "counter": 6,
+      "date": 1682294400
+    },
+    {
+      "guid": "4501",
+      "criteria": 230,
+      "counter": 6,
+      "date": 1682294400
+    },
+    {
+      "guid": "79411",
+      "criteria": 230,
+      "counter": 6,
+      "date": 1682294400
+    },
+    {
+      "guid": "5263",
+      "criteria": 231,
+      "counter": 6,
+      "date": 1682294400
+    },
+    {
+      "guid": "1001",
+      "criteria": 231,
+      "counter": 6,
+      "date": 1682294400
+    },
+    {
+      "guid": "4501",
+      "criteria": 231,
+      "counter": 6,
+      "date": 1682294400
+    },
+    {
+      "guid": "79411",
+      "criteria": 231,
+      "counter": 6,
+      "date": 1682294400
+    },
+    {
+      "guid": "5263",
+      "criteria": 232,
+      "counter": 6,
+      "date": 1682294400
+    },
+    {
+      "guid": "1001",
+      "criteria": 232,
+      "counter": 6,
+      "date": 1682294400
+    },
+    {
+      "guid": "4501",
+      "criteria": 232,
+      "counter": 6,
+      "date": 1682294400
+    },
+    {
+      "guid": "79411",
+      "criteria": 232,
+      "counter": 6,
+      "date": 1682294400
+    },
+    {
+      "guid": "5263",
+      "criteria": 233,
+      "counter": 6,
+      "date": 1682294400
+    },
+    {
+      "guid": "1001",
+      "criteria": 233,
+      "counter": 6,
+      "date": 1682294400
+    },
+    {
+      "guid": "4501",
+      "criteria": 233,
+      "counter": 6,
+      "date": 1682294400
+    },
+    {
+      "guid": "79411",
+      "criteria": 233,
+      "counter": 6,
+      "date": 1682294400
+    },
+    {
+      "guid": "5263",
+      "criteria": 234,
+      "counter": 6,
+      "date": 1682294400
+    },
+    {
+      "guid": "1001",
+      "criteria": 234,
+      "counter": 6,
+      "date": 1682294400
+    },
+    {
+      "guid": "4501",
+      "criteria": 234,
+      "counter": 6,
+      "date": 1682294400
+    },
+    {
+      "guid": "79411",
+      "criteria": 234,
+      "counter": 6,
+      "date": 1682294400
+    },
+    {
+      "guid": "5263",
+      "criteria": 236,
+      "counter": 6,
+      "date": 1682294400
+    },
+    {
+      "guid": "1001",
+      "criteria": 236,
+      "counter": 6,
+      "date": 1682294400
+    },
+    {
+      "guid": "4501",
+      "criteria": 236,
+      "counter": 6,
+      "date": 1682294400
+    },
+    {
+      "guid": "79411",
+      "criteria": 236,
+      "counter": 6,
+      "date": 1682294400
+    },
+    {
+      "guid": "5263",
+      "criteria": 2239,
+      "counter": 6,
+      "date": 1682294400
+    },
+    {
+      "guid": "1001",
+      "criteria": 2239,
+      "counter": 6,
+      "date": 1682294400
+    },
+    {
+      "guid": "4501",
+      "criteria": 2239,
+      "counter": 6,
+      "date": 1682294400
+    },
+    {
+      "guid": "79411",
+      "criteria": 2239,
+      "counter": 6,
+      "date": 1682294400
+    },
+    {
+      "guid": "6000",
+      "criteria": 6819,
+      "counter": 20,
+      "date": 1682152685
+    },
+    {
+      "guid": "6001",
+      "criteria": 6819,
+      "counter": 20,
+      "date": 1682152685
+    },
+    {
+      "guid": "6000",
+      "criteria": 73,
+      "counter": 1,
+      "date": 1682294400
+    },
+    {
+      "guid": "6001",
+      "criteria": 73,
+      "counter": 1,
+      "date": 1682294400
+    },
+    {
+      "guid": "6000",
+      "criteria": 230,
+      "counter": 1,
+      "date": 1682294400
+    },
+    {
+      "guid": "6001",
+      "criteria": 230,
+      "counter": 1,
+      "date": 1682294400
+    },
+    {
+      "guid": "6000",
+      "criteria": 231,
+      "counter": 1,
+      "date": 1682294400
+    },
+    {
+      "guid": "6001",
+      "criteria": 231,
+      "counter": 1,
+      "date": 1682294400
+    },
+    {
+      "guid": "6000",
+      "criteria": 232,
+      "counter": 1,
+      "date": 1682294400
+    },
+    {
+      "guid": "6001",
+      "criteria": 232,
+      "counter": 1,
+      "date": 1682294400
+    },
+    {
+      "guid": "6000",
+      "criteria": 233,
+      "counter": 1,
+      "date": 1682294400
+    },
+    {
+      "guid": "6001",
+      "criteria": 233,
+      "counter": 1,
+      "date": 1682294400
+    },
+    {
+      "guid": "6000",
+      "criteria": 234,
+      "counter": 1,
+      "date": 1682294400
+    },
+    {
+      "guid": "6001",
+      "criteria": 234,
+      "counter": 1,
+      "date": 1682294400
+    },
+    {
+      "guid": "6000",
+      "criteria": 236,
+      "counter": 1,
+      "date": 1682294400
+    },
+    {
+      "guid": "6001",
+      "criteria": 236,
+      "counter": 1,
+      "date": 1682294400
+    },
+    {
+      "guid": "6000",
+      "criteria": 2239,
+      "counter": 1,
+      "date": 1682294400
+    },
+    {
+      "guid": "6001",
+      "criteria": 2239,
+      "counter": 1,
+      "date": 1682294400
+    }
+  ],
+  "shared_prog_args": [
+    {
+      "account": "0",
+      "criteria": 3506,
+      "counter": 1000001,
+      "date": 1682152689
+    },
+    {
+      "account": "0",
+      "criteria": 307,
+      "counter": 98,
+      "date": 1682152687
+    },
+    {
+      "account": "502",
+      "criteria": 6819,
+      "counter": 20,
+      "date": 1682152685
+    }
+  ],
   "new_chars": {
     "0": {
       "username": "player_accts",
@@ -228,15 +650,16 @@
         "604": 1682152714,
         "1681": 1682152714,
         "1793": 1682152714,
-        "2136": 1682152713
+        "2136": 1682152713,
+        "1176": 1682152689
       },
       "shared_progress": {
         "307": {
           "counter": 98,
           "date": 1682152687
         },
-        "3506": {
-          "counter": 500000,
+        "2232": {
+          "counter": 4,
           "date": 1682152688
         }
       },

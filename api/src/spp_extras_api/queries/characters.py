@@ -236,8 +236,8 @@ def upd_reward_titles(titles):
     for t in titles:
         record = WotlkCharacters.objects\
             .using('wotlkcharacters')\
-            .get(guid=t)
-        record.knowntitles = t
+            .get(guid=t['guid'])
+        record.knowntitles = t['knowntitles']
         record.save()
 
 

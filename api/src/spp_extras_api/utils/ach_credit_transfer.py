@@ -143,6 +143,9 @@ def transfer_ach_credit(all_chars, ach_rewards, item_charges, last_item_inst_id,
                     last_mail_id += 1
 
                 # Transfer known titles once all achievement rewards given
-                args['title_args'].append(char['knowntitles'])
+                args['title_args'].append({
+                    'guid': char_id,
+                    'knowntitles': char['knowntitles']
+                })
 
     return args

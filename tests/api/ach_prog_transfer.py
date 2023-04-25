@@ -16,5 +16,4 @@ class TestTransferAchProg(TestCase):
     @freeze_time("2023-04-24")
     def test_transfer_ach_prog(self):
         result = transfer_ach_prog(all_chars, template_quests)
-        print(f'FDSAFSD {result}')
         self.assertDictEqual(result, expected)

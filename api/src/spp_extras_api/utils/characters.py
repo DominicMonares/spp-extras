@@ -4,7 +4,7 @@ def check_faction(faction):
 
 
 # Organize characters by account
-def format_characters(accounts, characters):
+def format_accts_n_chars(accounts, characters):
     all = {}
     for account in accounts:
         all[str(account['id'])] = {
@@ -21,7 +21,7 @@ def format_characters(accounts, characters):
 
 
 # Combine player accounts into a single account separate from bots
-def format_players(characters):
+def format_player_accts(accounts):
     player_accts = []
     merged_acct = {
         'username': 'player_accts',
@@ -29,8 +29,8 @@ def format_players(characters):
         'characters': {'alliance': {}, 'horde': {}}
     }
 
-    for acct_id in characters:
-        acct = characters[acct_id]
+    for acct_id in accounts:
+        acct = accounts[acct_id]
         if 'RNDBOT' not in acct['username']:
             player_accts.append(acct_id)
             chars = acct['characters']
@@ -43,13 +43,13 @@ def format_players(characters):
 
     # Add merged account to characters dict
     merged_acct['player_accts'] = player_accts
-    characters['0'] = merged_acct
+    accounts['0'] = merged_acct
 
     # Remove individual player accounts from main store
     for plyr_acct in player_accts:
-        characters.pop(plyr_acct)
+        accounts.pop(plyr_acct)
 
-    return characters
+    return accounts
 
 
 # Organize reputation data by character

@@ -14,11 +14,11 @@ with open(from_root('data/zoneContinents.json'), 'r') as json_file:
     zone_continents = json.load(json_file)
 
 
-def transfer_ach_prog(all_chars, template_quests):
+def transfer_ach_prog(accounts, template_quests):
     args = {
         'char_prog_args': [],
         'shared_prog_args': [],
-        'new_chars': all_chars
+        'new_chars': accounts
     }
 
     def create_char_prog_args(guid, criteria, counter, date):
@@ -37,12 +37,12 @@ def transfer_ach_prog(all_chars, template_quests):
             'date': date
         })
 
-    for acct_id in all_chars:
-        acct = all_chars[acct_id]
-        chars = acct['characters']
-        credit = acct['credit']
-        shared_progress = acct['shared_progress']
-        completed_quests = acct['quests']
+    for acct_id in accounts:
+        account = accounts[acct_id]
+        chars = account['characters']
+        credit = account['credit']
+        shared_progress = account['shared_progress']
+        completed_quests = account['quests']
         loremaster_prog = {
             # Alliance Eastern Kingdoms
             '1676': {'count': 0, 'date': 0000000000},

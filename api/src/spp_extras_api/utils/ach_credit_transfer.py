@@ -8,7 +8,7 @@ with open(from_root('data/titles.json'), 'r') as json_file:
     titles = json.load(json_file)
 
 
-def transfer_ach_credit(all_chars, ach_rewards, item_charges, last_item_inst_id, last_mail_id):
+def transfer_ach_credit(accounts, ach_rewards, item_charges, last_item_inst_id, last_mail_id):
     # Item IDs appear to be overwritten as new items are added through the game
     # Add 10000 to last ids to prevent items from being overwritten for a while
     last_item_inst_id += 10000
@@ -116,9 +116,9 @@ def transfer_ach_credit(all_chars, ach_rewards, item_charges, last_item_inst_id,
                         last_item_inst_id, char_id, item, item_charges)
 
     # Iterate through all accounts and characters to check achievements
-    for acct_id in all_chars:
-        chars = all_chars[acct_id]['characters']
-        credit = all_chars[acct_id]['credit']
+    for acct_id in accounts:
+        chars = accounts[acct_id]['characters']
+        credit = accounts[acct_id]['credit']
         if chars is None: continue
         for char_id in chars:
             char = chars[char_id]

@@ -4,7 +4,7 @@ from unittest import TestCase
 from api.src.spp_extras_api.utils.achievements import (
     format_ach_credit,
     format_ach_prog,
-    combine_char_data,
+    combine_acct_data,
     format_ach_rewards,
     format_rew_item_charges,
     check_faction_ach
@@ -15,8 +15,8 @@ with open(from_root('tests/samples/achProgress.json'), 'r') as json_file:
     ach_prog = json.load(json_file)
 with open(from_root('tests/samples/achRewards.json'), 'r') as json_file:
     ach_rewards = json.load(json_file)
-with open(from_root('tests/samples/combinedChars.json'), 'r') as json_file:
-    combined_chars = json.load(json_file)
+with open(from_root('tests/samples/combinedAccounts.json'), 'r') as json_file:
+    combined_accounts = json.load(json_file)
 with open(from_root('tests/samples/completedQuests.json'), 'r') as json_file:
     completed_quests = json.load(json_file)
 with open(from_root('tests/samples/itemCharges.json'), 'r') as json_file:
@@ -31,6 +31,16 @@ with open(from_root('tests/samples/rawAchRewards.json'), 'r') as json_file:
     raw_ach_rewards = json.load(json_file)
 with open(from_root('tests/samples/rawItemCharges.json'), 'r') as json_file:
     raw_item_charges = json.load(json_file)
+
+
+class TestCombineAcctData(TestCase):
+    """Should combine all character data into one main dict"""
+    def test_combine_acct_data(self):
+        acct_prog = ach_prog['account']
+        char_prog = ach_prog['character']
+        result = combine_acct_data(
+            characters, ach_credit, char_prog, acct_prog, completed_quests)
+        self.assertDictEqual(result, combined_accounts)
 
 
 class TestFormatAchCredit(TestCase):
@@ -54,16 +64,6 @@ class TestFormatAchProg(TestCase):
         char_prog = ach_prog['character']
         result = format_ach_prog('char', raw_char_prog)
         self.assertDictEqual(result, char_prog)
-
-
-class TestCombineCharData(TestCase):
-    """Should combine all character data into one main dict"""
-    def test_combine_char_data(self):
-        acct_prog = ach_prog['account']
-        char_prog = ach_prog['character']
-        result = combine_char_data(
-            characters, ach_credit, char_prog, acct_prog, completed_quests)
-        self.assertDictEqual(result, combined_chars)
 
 
 class TestFormatAchRewards(TestCase):

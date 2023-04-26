@@ -3,8 +3,8 @@ from from_root import from_root
 from unittest import TestCase
 from api.src.spp_extras_api.utils.characters import (
     check_faction,
-    format_characters,
-    format_players,
+    format_accts_n_chars,
+    format_player_accts,
     format_reputations
 )
 with open(from_root('tests/samples/characterReputations.json'), 'r') as json_file:
@@ -31,26 +31,26 @@ class TestCheckFaction(TestCase):
 
 class TestFormatCharacters(TestCase):
     """Should return characters dict sorted by faction"""
-    def test_format_characters(self):
+    def test_format_accts_n_chars(self):
         accounts = [
             {'id': 500, 'username': 'ACCOUNT1'},
             {'id': 501, 'username': 'ACCOUNT2'},
             {'id': 502, 'username': 'RNDBOT2'}
         ]
 
-        result = format_characters(accounts, raw_characters)
+        result = format_accts_n_chars(accounts, raw_characters)
         self.assertDictEqual(result, characters)
 
     """Should return empty characters dict if no characters provided"""
     def test_no_characters(self):
-        result = format_characters([], [])
+        result = format_accts_n_chars([], [])
         self.assertDictEqual(result, {})
 
 
 class TestFormatPlayers(TestCase):
     """Should return all accounts with player accounts combined into one account"""
-    def test_format_players(self):
-        result = format_players(characters)
+    def test_format_player_accts(self):
+        result = format_player_accts(characters)
         self.assertDictEqual(result, player_sorted_chars)
 
 

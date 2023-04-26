@@ -28,7 +28,7 @@ from spp_extras_api.queries.mangos import (
 )
 from spp_extras_api.queries.realmd import sel_all_account_data
 from spp_extras_api.utils.achievements import (
-    combine_char_data,
+    combine_acct_data,
     format_ach_credit,
     format_ach_prog,
     format_ach_rewards,
@@ -36,7 +36,7 @@ from spp_extras_api.utils.achievements import (
 )
 from spp_extras_api.utils.ach_credit_transfer import transfer_ach_credit
 from spp_extras_api.utils.ach_prog_transfer import transfer_ach_prog
-from spp_extras_api.utils.characters import format_characters, format_players
+from spp_extras_api.utils.characters import format_accts_n_chars, format_player_accts
 from spp_extras_api.utils.quests import format_completed_quests, format_template_quests
 
 
@@ -236,9 +236,9 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
 
         try:
             send_msg('Formatting fetched data...')
-            _characters = format_characters(account_data, character_data)
+            _characters = format_accts_n_chars(account_data, character_data)
             # Combine all player accounts/chars
-            characters = format_players(_characters)
+            characters = format_player_accts(_characters)
             ach_credit = format_ach_credit(ach_credit_data)
             ach_char_prog = format_ach_prog('char', ach_char_prog_data)
             ach_shared_prog = format_ach_prog('shared', ach_shared_prog_data)
@@ -248,7 +248,7 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
                 completed_regular_data, [], [], [])
 
             # Combine all formatted character data
-            all_chars = combine_char_data(
+            all_chars = combine_acct_data(
                 characters,
                 ach_credit,
                 ach_char_prog,

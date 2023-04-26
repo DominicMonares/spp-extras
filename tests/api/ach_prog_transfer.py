@@ -5,7 +5,7 @@ from unittest import TestCase
 from api.src.spp_extras_api.utils.ach_prog_transfer import transfer_ach_prog
 with open(from_root('tests/samples/achProgTransfer.json'), 'r') as json_file:
     expected = json.load(json_file)
-with open(from_root('tests/samples/combinedChars.json'), 'r') as json_file:
+with open(from_root('tests/samples/combinedAccounts.json'), 'r') as json_file:
     all_chars = json.load(json_file)
 with open(from_root('tests/samples/templateQuests.json'), 'r') as json_file:
     template_quests = json.load(json_file)

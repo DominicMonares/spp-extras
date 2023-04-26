@@ -4,7 +4,7 @@ from .ach_prog_transfer import TestTransferAchProg
 from .achievements import (
     TestFormatAchCredit,
     TestFormatAchProg,
-    TestCombineCharData,
+    TestCombineAcctData,
     TestFormatAchRewards,
     TestFormatRewItemCharges,
     TestCheckFactionAch
@@ -31,12 +31,12 @@ def suites():
     transfer_ach_prog_suite = TestLoader()\
         .loadTestsFromTestCase(TestTransferAchProg)
     # Achievement Utils
+    combine_acct_data_suite = TestLoader()\
+        .loadTestsFromTestCase(TestCombineAcctData)
     format_ach_credit_suite = TestLoader()\
         .loadTestsFromTestCase(TestFormatAchCredit)
     format_ach_prog_suite = TestLoader()\
         .loadTestsFromTestCase(TestFormatAchProg)
-    combine_char_data_suite = TestLoader()\
-        .loadTestsFromTestCase(TestCombineCharData)
     format_ach_rew_suite = TestLoader()\
         .loadTestsFromTestCase(TestFormatAchRewards)
     format_rew_item_charges_suite = TestLoader()\
@@ -61,9 +61,9 @@ def suites():
     top_suite = TestSuite([
         transfer_ach_credit_suite,
         transfer_ach_prog_suite,
+        combine_acct_data_suite,
         format_ach_credit_suite,
         format_ach_prog_suite,
-        combine_char_data_suite,
         format_ach_rew_suite,
         format_rew_item_charges_suite,
         check_faction_ach_suite,

@@ -14,7 +14,6 @@ export interface Character {
   race: Race;
   gender: number;
   class_field: number;
-  totalkills: number;
   knowntitles: string;
 }
 

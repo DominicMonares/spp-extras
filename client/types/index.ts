@@ -1,6 +1,7 @@
 export * from './apiCalls';
 export * from './buttons';
 export * from './characters';
+export * from './checkboxes';
 export * from './dropdown';
 export * from './expansions';
 export * from './factions';

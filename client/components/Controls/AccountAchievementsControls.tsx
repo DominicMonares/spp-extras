@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Checkbox from '../Checkbox';
 import Modal from 'react-modal';
 import MainButton from '../MainButton';
 import { useAppDispatch } from '../../store/hooks';
@@ -31,7 +32,8 @@ Modal.setAppElement('#root');
 
 const AccountAchievementsControls = () => {
   const dispatch = useAppDispatch();
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
+  const [botsActive, setBotsActive] = useState<boolean>(true);
 
   const openModal = () => {
     setModalIsOpen(true);
@@ -69,6 +71,11 @@ const AccountAchievementsControls = () => {
           <MainButton handleClick={runShareAchievements} buttonText="Continue" />
         </div>
       </Modal>
+      <Checkbox 
+        callback={() => setBotsActive(!botsActive)} 
+        isChecked={botsActive} 
+        text="Apply to random bot accounts" 
+      />
       <div className="msg-button-container">
         <MainButton handleClick={openModal} buttonText="Start" />
       </div>

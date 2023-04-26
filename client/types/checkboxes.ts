@@ -1,4 +1,5 @@
 export interface CheckboxProps {
-  callback: React.Dispatch<React.SetStateAction<boolean>>;
+  callback: () => void;
+  isChecked: boolean;
   text: string;
 }

@@ -21,7 +21,7 @@ def format_accts_n_chars(accounts, characters):
 
 
 # Combine player accounts into a single account separate from bots
-def format_player_accts(accounts):
+def format_player_accts(accounts, bots_active):
     player_accts = []
     merged_acct = {
         'username': 'player_accts',
@@ -44,12 +44,16 @@ def format_player_accts(accounts):
     # Add merged account to characters dict
     merged_acct['player_accts'] = player_accts
     accounts['0'] = merged_acct
+    f = accounts['0']
 
     # Remove individual player accounts from main store
     for plyr_acct in player_accts:
         accounts.pop(plyr_acct)
 
-    return accounts
+    if bots_active:
+        return accounts
+    else:
+        return {'0': accounts['0']}
 
 
 # Organize reputation data by character

@@ -18,10 +18,10 @@ const QuestTrackerView = () => {
   const faction = useAppSelector(state => state.faction.selected);
 
   // Separate completed player quests from bot quests
-  const characters = useAppSelector(state => createPlayerCharacters(state.characters.all));
+  const accounts = useAppSelector(state => createPlayerCharacters(state.accounts.all));
   const quests = useAppSelector(state => state.quests);
   const { completedQuests, templateQuests } = quests;
-  const playerQuests = createPlayerQuests(characters, completedQuests);
+  const playerQuests = createPlayerQuests(accounts, completedQuests);
 
   // Determine how to filter view quests
   const settings = useAppSelector(state => state.questTracker);

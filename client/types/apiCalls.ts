@@ -8,7 +8,7 @@ export type FetchAllData = (
 ) => Promise<FetchAllDataResponse>;
 
 export interface FetchAllDataResponse {
-  characters: Accounts;
+  accounts: Accounts;
   completed_quests: CompletedQuests;
   template_quests: TemplateQuests;
 }

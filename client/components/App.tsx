@@ -6,7 +6,7 @@ import Tools from './Tools';
 import View from './View';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import {
-  storeCharacters,
+  storeAccounts,
   storeCompletedQuests,
   storeExpansion,
   storeFaction,
@@ -66,7 +66,7 @@ const App = () => {
 
     const allData = await fetchAllData(xpac).catch(err => setError(err.message));
     if (allData) {
-      dispatch(storeCharacters(allData.characters));
+      dispatch(storeAccounts(allData.accounts));
       dispatch(storeCompletedQuests(allData.completed_quests));
       dispatch(storeTemplateQuests(allData.template_quests));
     } else {

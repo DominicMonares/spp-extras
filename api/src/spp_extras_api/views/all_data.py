@@ -11,7 +11,7 @@ from spp_extras_api.queries.characters import (
 )
 from spp_extras_api.queries.mangos import sel_all_template_quests
 from spp_extras_api.queries.realmd import sel_all_account_data
-from spp_extras_api.utils.characters import format_characters
+from spp_extras_api.utils.characters import format_accts_n_chars
 from spp_extras_api.utils.quests import (
     format_completed_quests,
     format_template_quests
@@ -48,7 +48,7 @@ class DataViewSet(viewsets.ViewSet):
 
             # Organize all fetched data
             all_data = {
-                'characters': format_characters(accounts, characters),
+                'accounts': format_accts_n_chars(accounts, characters),
                 'completed_quests': format_completed_quests(
                     completed_regular,
                     completed_daily,

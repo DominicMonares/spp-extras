@@ -16,7 +16,7 @@ import './Controls.css';
 
 const QuestTrackerControls = () => {
   const dispatch = useAppDispatch();
-  const characters = useAppSelector(state => createPlayerCharacters(state.characters.all));
+  const accounts = useAppSelector(state => createPlayerCharacters(state.accounts.all));
   const expansion = useAppSelector(state => state.expansion.selected);
   const faction = useAppSelector(state => state.faction.selected);
   const settings = useAppSelector(state => state.questTracker);
@@ -44,7 +44,7 @@ const QuestTrackerControls = () => {
         <div className="ctrl-label qt-additional-label">Secondary Filters:</div>
         <DropdownMenu
           dropdownType="character"
-          menu={characterMenu(character, characters, faction)}
+          menu={characterMenu(character, accounts, faction)}
         />
         <DropdownMenu dropdownType="type" menu={questTypeMenu(expansion, type)} />
       </div>

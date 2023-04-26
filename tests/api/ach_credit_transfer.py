@@ -17,6 +17,6 @@ class TestTransferAchCredit(TestCase):
     """Should return all credit and reward arguments"""
     @freeze_time("2023-04-24")
     def test_transfer_ach_credit(self):
-        chars = ach_prog_transfer['new_chars']
-        result = transfer_ach_credit(chars, ach_rewards, item_charges, 1000, 1000)
+        accounts = ach_prog_transfer['new_accounts']
+        result = transfer_ach_credit(accounts, ach_rewards, item_charges, 1000, 1000)
         self.assertDictEqual(result, expected)

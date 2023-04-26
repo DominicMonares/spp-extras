@@ -11,7 +11,7 @@ from spp_extras_api.queries.characters import (
     ins_reward_mail_items,
     sel_all_ach_prog,
     sel_all_char_achs,
-    sel_all_chars,
+    sel_all_acct_data,
     sel_all_char_rep,
     sel_all_completed_reg_quests,
     sel_all_char_ach_shared_prog,
@@ -120,7 +120,7 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
         # Fetch all character data
         try:
             send_msg('Fetching character data...')
-            character_data = sel_all_chars('wotlk')
+            character_data = sel_all_acct_data('wotlk')
             send_msg('Character data successfully fetched!')
         except Exception as e:
             send_msg('Failed to fetch character data!')
@@ -236,9 +236,9 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
 
         try:
             send_msg('Formatting fetched data...')
-            _characters = format_accts_n_chars(account_data, character_data)
+            _accounts = format_accts_n_chars(account_data, character_data)
             # Combine all player accounts/chars
-            characters = format_player_accts(_characters)
+            accounts = format_player_accts(_accounts)
             ach_credit = format_ach_credit(ach_credit_data)
             ach_char_prog = format_ach_prog('char', ach_char_prog_data)
             ach_shared_prog = format_ach_prog('shared', ach_shared_prog_data)
@@ -247,9 +247,9 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
             completed_quests = format_completed_quests(
                 completed_regular_data, [], [], [])
 
-            # Combine all formatted character data
-            all_chars = combine_acct_data(
-                characters,
+            # Combine all formatted account/character data
+            all_acct_data = combine_acct_data(
+                accounts,
                 ach_credit,
                 ach_char_prog,
                 ach_shared_prog,
@@ -268,11 +268,11 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
         # Run transfers and create db query arguments
         # ----------------------------------------------------------------
 
-        # Run progress transfer and add any new achievements in all_chars
+        # Run progress transfer and add any new achievements in all_acct_data
         try:
             send_msg('Transferring achievement progress between characters...')
-            ach_prog_args = transfer_ach_prog(all_chars, template_quests)
-            all_chars = ach_prog_args['new_chars']
+            ach_prog_args = transfer_ach_prog(all_acct_data, template_quests)
+            all_acct_data = ach_prog_args['new_accounts']
             char_prog_args = ach_prog_args['char_prog_args']
             shared_prog_args = ach_prog_args['shared_prog_args']
             send_msg(
@@ -287,7 +287,7 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
             send_msg(
                 'Transferring achievement credit and rewards between characters...')
             ach_credit_args = transfer_ach_credit(
-                all_chars, ach_rewards, item_charges, last_item_inst_id, last_mail_id)
+                all_acct_data, ach_rewards, item_charges, last_item_inst_id, last_mail_id)
             credit_args = ach_credit_args['credit_args']
             item_inst_args = ach_credit_args['item_inst_args']
             mail_args = ach_credit_args['mail_args']

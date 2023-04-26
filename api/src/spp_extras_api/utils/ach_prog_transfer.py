@@ -18,7 +18,7 @@ def transfer_ach_prog(accounts, template_quests):
     args = {
         'char_prog_args': [],
         'shared_prog_args': [],
-        'new_chars': accounts
+        'new_accounts': accounts
     }
 
     def create_char_prog_args(guid, criteria, counter, date):
@@ -216,6 +216,6 @@ def transfer_ach_prog(accounts, template_quests):
                     char_id, criteria_id, completed_quest_count, date)
 
         # Add new credit to account
-        args['new_chars'][acct_id]['credit'] = credit
+        args['new_accounts'][acct_id]['credit'] = credit
 
     return args

@@ -1,8 +1,8 @@
 import json
 from from_root import from_root
-with open(from_root('data/loremasterAchCriteria.json'), 'r') as json_file:
+with open(from_root('data/achievements/loremasterAchCriteria.json'), 'r') as json_file:
     lm_criteria = json.load(json_file)
-with open(from_root('data/zoneContinents.json'), 'r') as json_file:
+with open(from_root('data/zones/zoneContinents.json'), 'r') as json_file:
     zone_continents = json.load(json_file)
 
 

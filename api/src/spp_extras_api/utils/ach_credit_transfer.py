@@ -4,7 +4,7 @@ import json
 from from_root import from_root
 from .achievements import check_faction_ach
 from .characters import check_faction
-with open(from_root('data/titles.json'), 'r') as json_file:
+with open(from_root('data/titles/titles.json'), 'r') as json_file:
     titles = json.load(json_file)
 
 

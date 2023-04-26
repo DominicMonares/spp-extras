@@ -1,5 +1,5 @@
-import _classMenu from '../../data/classMenu.json';
-import _raceMenu from '../../data/raceMenu.json';
+import _classMenu from '../../data/menus/classMenu.json';
+import _raceMenu from '../../data/menus/raceMenu.json';
 import { 
   Account,
   Accounts,

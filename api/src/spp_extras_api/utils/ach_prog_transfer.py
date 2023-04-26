@@ -4,13 +4,13 @@ import json
 from from_root import from_root
 from spp_extras_api.utils.characters import check_faction
 from spp_extras_api.utils.loremaster import loremaster, loremaster_earned, misc_lm_criteria
-with open(from_root('data/completedQuestCriteria.json'), 'r') as json_file:
+with open(from_root('data/achievements/questAchCriteria.json'), 'r') as json_file:
     completed_quest_ach_criteria = json.load(json_file)
-with open(from_root('data/loremasterAchCriteria.json'), 'r') as json_file:
+with open(from_root('data/achievements/loremasterAchCriteria.json'), 'r') as json_file:
     loremaster_ach_criteria = json.load(json_file)
-with open(from_root('data/sharedAchCriteria.json'), 'r') as json_file:
+with open(from_root('data/achievements/sharedAchCriteria.json'), 'r') as json_file:
     shared_ach_criteria = json.load(json_file)
-with open(from_root('data/zoneContinents.json'), 'r') as json_file:
+with open(from_root('data/zones/zoneContinents.json'), 'r') as json_file:
     zone_continents = json.load(json_file)
 
 

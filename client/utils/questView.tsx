@@ -10,10 +10,10 @@ import {
   ViewSubzone,
   ViewZones
 } from "../types";
-import devQuestKeywords from '../../data/devQuestKeywords.json';
-import questRaceIDs from '../../data/questRaceIDs.json';
-import repeatQuestFlags from '../../data/repeatQuestFlags.json';
-import zoneRef from '../../data/zoneRef.json';
+import devQuestKeywords from '../../data/quests/devQuestKeywords.json';
+import questRaceIDs from '../../data/quests/questRaceIDs.json';
+import repeatQuestFlags from '../../data/quests/repeatQuestFlags.json';
+import zoneRef from '../../data/zones/zoneRef.json';
 
 
 // Decide which quests to display

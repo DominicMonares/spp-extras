@@ -11,10 +11,10 @@ import {
   Menu, 
   RaceSetting
 } from '../../client/types';
-import _classMenu from '../../data/classMenu.json';
-import _raceMenu from '../../data/raceMenu.json';
-import _questTypes from '../../data/questTypeMenu.json';
-import _zoneMenu from '../../data/zoneMenu.json';
+import _classMenu from '../../data/menus/classMenu.json';
+import _raceMenu from '../../data//menus/raceMenu.json';
+import _questTypes from '../../data//menus/questTypeMenu.json';
+import _zoneMenu from '../../data//menus/zoneMenu.json';
 import sampleAccounts from '../samples/formattedData/accounts.json';
 import sampleCharacterMenus from '../samples/client/characterMenus.json';
 import sampleCharacterSettings from '../samples/client/characterSettings.json';

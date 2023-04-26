@@ -1,6 +1,6 @@
 import json
 from from_root import from_root
-with open(from_root('data/questRaceZeros.json'), 'r') as json_file:
+with open(from_root('data/quests/questRaceZeros.json'), 'r') as json_file:
     quest_race_zeros = json.load(json_file)
 
 # Organize completed quests by character

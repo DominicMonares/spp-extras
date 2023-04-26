@@ -1,6 +1,6 @@
 import json
 from from_root import from_root
-with open(from_root('data/factionAchievements.json'), 'r') as json_file:
+with open(from_root('data/achievements/factionAchievements.json'), 'r') as json_file:
     faction_achievements = json.load(json_file)
 
 

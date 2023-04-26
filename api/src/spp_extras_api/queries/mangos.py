@@ -8,7 +8,7 @@ from spp_extras_api.models.wotlkmangos import (
     WotlkQuestTemplate,
     WotlkSpellTemplate
 )
-with open(from_root('data/cutTitles.json'), 'r') as json_file:
+with open(from_root('data/titles/cutTitles.json'), 'r') as json_file:
     cut_titles = json.load(json_file)
 
 

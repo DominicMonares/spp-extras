@@ -1,4 +1,5 @@
 import json
+from freezegun import freeze_time
 from from_root import from_root
 from unittest import TestCase
 from api.src.spp_extras_api.utils.ach_credit_transfer import transfer_ach_credit
@@ -14,8 +15,8 @@ with open(from_root('tests/samples/itemCharges.json'), 'r') as json_file:
 
 class TestTransferAchCredit(TestCase):
     """Should return all credit and reward arguments"""
+    @freeze_time("2023-04-24")
     def test_transfer_ach_credit(self):
         chars = ach_prog_transfer['new_chars']
         result = transfer_ach_credit(chars, ach_rewards, item_charges, 1000, 1000)
-        print(f'OIIIIIII {result}')
         self.assertDictEqual(result, expected)

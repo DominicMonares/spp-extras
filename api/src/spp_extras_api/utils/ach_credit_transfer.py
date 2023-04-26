@@ -119,33 +119,44 @@ def transfer_ach_credit(all_chars, ach_rewards, item_charges, last_item_inst_id,
     for acct_id in all_chars:
         chars = all_chars[acct_id]['characters']
         credit = all_chars[acct_id]['credit']
-        if chars is not None:
-            for char_id in chars:
-                char = chars[char_id]
-                char_credit = char['credit']
-                faction = check_faction(char['race'])
-                for ach_id in credit:
-                    existing_ach = ach_id in char_credit
-                    date = credit[ach_id]
+        if chars is None: continue
+        for char_id in chars:
+            char = chars[char_id]
+            char_credit = char['credit']
+            faction = check_faction(char['race'])
+            for ach_id in credit:
+                existing_ach = ach_id in char_credit
+                date = credit[ach_id]
+                item_inst_len = len(args['item_inst_args'])
+                mail_len = len(args['mail_args'])
 
-                    # Check to see if achievement is faction specific/matches char faction
-                    faction_ach = check_faction_ach(ach_id, faction)
-                    faction_match = faction_ach[0]
-                    ach_id = faction_ach[1]
+                # Check to see if achievement is faction specific/matches char faction
+                faction_ach = check_faction_ach(ach_id, faction)
+                faction_match = faction_ach[0]
+                new_ach_id = faction_ach[1]
+                if ach_id != new_ach_id:
+                    if new_ach_id in credit: continue
 
-                    # Run transfers if achievement is valid
-                    if not existing_ach and faction_match:
-                        run_sub_transfers(
-                            char_id, ach_id, date, char, last_item_inst_id, last_mail_id)
+                ach_id = new_ach_id
+                existing_ach = ach_id in char_credit
 
-                    # Increment mail reward IDs once item added
+                # Run transfers if achievement is valid
+                if not existing_ach and faction_match:
+                    run_sub_transfers(
+                        char_id, ach_id, date, char, last_item_inst_id, last_mail_id)
+
+                # Increment mail and item reward IDs for items added
+                new_item_inst_len = len(args['item_inst_args'])
+                new_mail_len = len(args['mail_args'])
+                if new_item_inst_len > item_inst_len:
                     last_item_inst_id += 1
+                if new_mail_len > mail_len:
                     last_mail_id += 1
 
-                # Transfer known titles once all achievement rewards given
-                args['title_args'].append({
-                    'guid': char_id,
-                    'knowntitles': char['knowntitles']
-                })
+            # Transfer known titles once all achievement rewards given
+            args['title_args'].append({
+                'guid': char_id,
+                'knowntitles': char['knowntitles']
+            })
 
     return args

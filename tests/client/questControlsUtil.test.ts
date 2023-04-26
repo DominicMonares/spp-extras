@@ -15,21 +15,21 @@ import _classMenu from '../../data/classMenu.json';
 import _raceMenu from '../../data/raceMenu.json';
 import _questTypes from '../../data/questTypeMenu.json';
 import _zoneMenu from '../../data/zoneMenu.json';
-import _sampleCharacters from '../samples/characters.json';
+import sampleAccounts from '../samples/accounts.json';
 import sampleCharacterMenus from '../samples/characterMenus.json';
 import sampleCharacterSettings from '../samples/characterSettings.json';
 import sampleClasses from '../samples/classes.json';
 import sampleRaces from '../samples/races.json';
 
 
-const sampleCharacters = _sampleCharacters[500]['characters'] as Characters;
+const sampleCharacters = sampleAccounts[500]['characters'] as Characters;
 const { currentCharacterMenu, noCharacterMenu } = sampleCharacterMenus;
 const { orcCharacter } = sampleCharacterSettings;
 const { paladin } = sampleClasses;
 const { orc } = sampleRaces;
 
 describe('characterMenu', () => {
-  it('should create a menu with two characters if no character provided', () => {
+  it('should create a menu with three characters if no character provided', () => {
     const result = characterMenu(undefined, sampleCharacters, 'horde');
     expect(result).toStrictEqual(noCharacterMenu);
   });

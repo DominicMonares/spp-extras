@@ -46,19 +46,19 @@ class TestFormatPlayers(TestCase):
     def test_format_player_accts(self):
         with open(from_root('tests/samples/accounts.json'), 'r') as json_file:
             accounts = json.load(json_file)
-        with open(from_root('tests/samples/playerSortedChars.json'), 'r') as json_file:
-            player_sorted_chars = json.load(json_file)
+        with open(from_root('tests/samples/playerSortedAccounts.json'), 'r') as json_file:
+            player_sorted_accts = json.load(json_file)
         result = format_player_accts(accounts, True)
-        self.assertDictEqual(result, player_sorted_chars)
+        self.assertDictEqual(result, player_sorted_accts)
 
     """Should return all accounts with player accounts combined into one account with random bots unincluded"""
     def test_format_player_accts_no_bots(self):
         with open(from_root('tests/samples/accounts.json'), 'r') as json_file:
             accounts = json.load(json_file)
-        with open(from_root('tests/samples/playerSortedChars.json'), 'r') as json_file:
-            player_sorted_chars = json.load(json_file)
+        with open(from_root('tests/samples/playerSortedAccounts.json'), 'r') as json_file:
+            player_sorted_accts = json.load(json_file)
         result = format_player_accts(accounts, False)
-        expected = {'0': player_sorted_chars['0']}
+        expected = {'0': player_sorted_accts['0']}
         self.assertDictEqual(result, expected)
 
 

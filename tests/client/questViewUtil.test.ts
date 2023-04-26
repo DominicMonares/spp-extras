@@ -1,11 +1,11 @@
 import { createViewQuests, reverseSortViewQuests, sortViewQuests } from '../../client/utils';
 import { QuestTrackerSettings } from '../../client/types';
-import playerQuests from '../samples/playerQuests.json';
-import sampleCharacterSettings from '../samples/characterSettings.json';
-import sampleClasses from '../samples/classes.json';
-import filteredTemplateQuests from '../samples/filteredTemplateQuests.json';
-import sampleRaces from '../samples/races.json';
-import templateQuests from '../samples/templateQuests.json';
+import playerQuests from '../samples/client/playerQuests.json';
+import sampleCharacterSettings from '../samples/client/characterSettings.json';
+import sampleClasses from '../samples/client/classes.json';
+import filteredTemplateQuests from '../samples/client/filteredTemplateQuests.json';
+import sampleRaces from '../samples/client/races.json';
+import templateQuests from '../samples/formattedData/templateQuests.json';
 
 
 const { orcCharacter } = sampleCharacterSettings;

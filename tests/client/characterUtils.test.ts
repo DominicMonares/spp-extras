@@ -1,7 +1,7 @@
 import { checkClass, checkFaction, checkRace } from '../../client/utils';
-import sampleCharacterSettings from '../samples/characterSettings.json';
-import sampleClasses from '../samples/classes.json';
-import sampleRaces from '../samples/races.json';
+import sampleCharacterSettings from '../samples/client/characterSettings.json';
+import sampleClasses from '../samples/client/classes.json';
+import sampleRaces from '../samples/client/races.json';
 
 
 const { 

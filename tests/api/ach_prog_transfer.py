@@ -9,11 +9,11 @@ class TestTransferAchProg(TestCase):
     """Should return progress arguments and char dict with updated credit"""
     @freeze_time("2023-04-24")
     def test_transfer_ach_prog(self):
-        with open(from_root('tests/samples/achProgTransfer.json'), 'r') as json_file:
+        with open(from_root('tests/samples/api/achProgTransfer.json'), 'r') as json_file:
             expected = json.load(json_file)
-        with open(from_root('tests/samples/combinedAccounts.json'), 'r') as json_file:
+        with open(from_root('tests/samples/api/combinedAccounts.json'), 'r') as json_file:
             all_chars = json.load(json_file)
-        with open(from_root('tests/samples/templateQuests.json'), 'r') as json_file:
+        with open(from_root('tests/samples/formattedData/templateQuests.json'), 'r') as json_file:
             template_quests = json.load(json_file)
         result = transfer_ach_prog(all_chars, template_quests)
         self.assertDictEqual(result, expected)

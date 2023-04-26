@@ -15,11 +15,11 @@ import _classMenu from '../../data/classMenu.json';
 import _raceMenu from '../../data/raceMenu.json';
 import _questTypes from '../../data/questTypeMenu.json';
 import _zoneMenu from '../../data/zoneMenu.json';
-import sampleAccounts from '../samples/accounts.json';
-import sampleCharacterMenus from '../samples/characterMenus.json';
-import sampleCharacterSettings from '../samples/characterSettings.json';
-import sampleClasses from '../samples/classes.json';
-import sampleRaces from '../samples/races.json';
+import sampleAccounts from '../samples/formattedData/accounts.json';
+import sampleCharacterMenus from '../samples/client/characterMenus.json';
+import sampleCharacterSettings from '../samples/client/characterSettings.json';
+import sampleClasses from '../samples/client/classes.json';
+import sampleRaces from '../samples/client/races.json';
 
 
 const sampleCharacters = sampleAccounts[500]['characters'] as Characters;

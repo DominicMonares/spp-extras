@@ -10,7 +10,7 @@ from spp_extras_api.queries.characters import (
     sel_all_completed_weekly_quests
 )
 from spp_extras_api.queries.mangos import sel_all_template_quests
-from spp_extras_api.queries.realmd import sel_all_account_data
+from spp_extras_api.queries.realmd import sel_all_accounts
 from spp_extras_api.utils.characters import format_accts_n_chars
 from spp_extras_api.utils.quests import (
     format_completed_quests,
@@ -24,7 +24,7 @@ class DataViewSet(viewsets.ViewSet):
 
         try:
             # Fetch all account and character data
-            accounts = sel_all_account_data(expansion)
+            accounts = sel_all_accounts(expansion)
             characters = sel_all_chars(expansion)
 
             # Fetch all completed regular quest data

@@ -11,7 +11,7 @@ from spp_extras_api.queries.characters import (
     ins_reward_mail_items,
     sel_all_ach_prog,
     sel_all_char_achs,
-    sel_all_acct_data,
+    sel_all_chars,
     sel_all_char_rep,
     sel_all_completed_reg_quests,
     sel_all_char_ach_shared_prog,
@@ -26,7 +26,7 @@ from spp_extras_api.queries.mangos import (
     sel_cut_title,
     sel_rew_item_charges
 )
-from spp_extras_api.queries.realmd import sel_all_account_data
+from spp_extras_api.queries.realmd import sel_all_accounts
 from spp_extras_api.utils.achievements import (
     combine_acct_data,
     format_ach_credit,
@@ -110,7 +110,7 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
         # Fetch all account data
         try:
             send_msg('Fetching account data...')
-            account_data = sel_all_account_data('wotlk')
+            account_data = sel_all_accounts('wotlk')
             send_msg('Account data successfully fetched!')
         except Exception as e:
             send_msg('Failed to fetch account data!')
@@ -120,7 +120,7 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
         # Fetch all character data
         try:
             send_msg('Fetching character data...')
-            character_data = sel_all_acct_data('wotlk')
+            character_data = sel_all_chars('wotlk')
             send_msg('Character data successfully fetched!')
         except Exception as e:
             send_msg('Failed to fetch character data!')

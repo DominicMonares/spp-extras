@@ -18,7 +18,7 @@ def account_model(expansion):
 # Accounts
 # ----------------------------------------------------------------
 
-def sel_all_account_data(expansion):
+def sel_all_accounts(expansion):
     return account_model(expansion).objects\
         .using(f'{expansion}realmd')\
         .all()\

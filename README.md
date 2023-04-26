@@ -203,7 +203,6 @@ Account-wide Achievements
     - quests - x - COUNTER STILL DOESN'T WORK
 
   CREDIT
-    - faction achievements
     - mail reward items for multiple characters and multiple rewards at once
     - see if earning ek/k loremaster through sharing prog, if loremaster ol/northrend are
       already earned, does the main loremaster achievement need to be transferred or will
@@ -218,7 +217,6 @@ Account-wide Achievements
     - window size
     - prod icons
     - clear websocket messages when switching tools
-    - object references - x[y][z] = a vs w = a
 
 CLIENT
   - fix json reassignment issue

@@ -7,6 +7,7 @@ import {
   storeAccounts,
   storeCompletedQuests,
   storeExpansion,
+  storeMessages,
   storeQuestTrackerAll,
   storeQuestTrackerCharacter,
   storeQuestTrackerClass,
@@ -73,6 +74,7 @@ const ExpansionNav = ({ getAllData }: ExpansionProps) => {
     dispatch(storeAccounts({}))
     dispatch(storeExpansion(nextExpansion));
     dispatch(storeCompletedQuests({}));
+    dispatch(storeMessages('del'));
     dispatch(storeTemplateQuests({ alliance: {}, horde: {}, both: {} }));
     dispatch(storeQuestTrackerAll(false));
     dispatch(storeQuestTrackerCharacter({ character: { id: 0 } }));

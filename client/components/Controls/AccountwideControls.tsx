@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Checkbox from '../Checkbox';
 import Modal from 'react-modal';
 import MainButton from '../MainButton';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { storeMessages } from '../../store/slices';
-import { openAchievementSocket } from '../../apiCalls';
+import { openAchievementSocket, openReputationSocket } from '../../apiCalls';
 import './Controls.css';
 
 
@@ -35,6 +35,20 @@ const AccountWideControls = () => {
   const tool = useAppSelector(state => state.tool.selected);
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
   const [botsActive, setBotsActive] = useState<boolean>(true);
+  const [msgTool, setMsgTool] = useState<string>('');
+
+  useEffect(() => {
+    if (tool === 'acctAchievements') {
+      setMsgTool('achievements');
+      setBotsActive(true);
+    } else if (tool === 'acctReps') {
+      setMsgTool('reputations');
+      setBotsActive(true);
+    } else if (tool === 'acctMountsPets') {
+      setMsgTool('mounts and pets');
+      setBotsActive(true);
+    }
+  }, [tool])
 
   const openModal = () => {
     setModalIsOpen(true);
@@ -44,13 +58,20 @@ const AccountWideControls = () => {
     setModalIsOpen(false);
   }
 
-  // Clear all current websocket message data then open new connection
-  const runAccountWideAchievements = () => {
+  // Clear all current websocket message data then open new achievement connection
+  const openSocket = () => {
     dispatch(storeMessages('del'));
-    openAchievementSocket((message: string) => {
-      // Display each message sent from server as they come in
-      dispatch(storeMessages(message));
-    }, botsActive);
+    if (tool === 'acctAchievements') {
+      openAchievementSocket((message: string) => {
+        // Display each message sent from server as they come in
+        dispatch(storeMessages(message));
+      }, botsActive);
+    } else if (tool === 'acctReps') {
+      openReputationSocket((message: string) => {
+        // Display each message sent from server as they come in
+        dispatch(storeMessages(message));
+      }, botsActive);
+    }
 
     setModalIsOpen(false);
   }
@@ -64,12 +85,12 @@ const AccountWideControls = () => {
         contentLabel="Expansion Warning"
       >
         <div className="msg-warning">WARNING</div>
-        <div className="msg-warning">Sharing achievements is irreversible.</div>
+        <div className="msg-warning">Sharing {msgTool} is irreversible.</div>
         <div className="msg-warning">Please make a backup of your database through</div>
         <div className="msg-warning">the SPP Classics launcher before proceeding.</div>
         <div className="msg-warning-buttons">
           <MainButton handleClick={closeModal} buttonText="Cancel" />
-          <MainButton handleClick={runAccountWideAchievements} buttonText="Continue" />
+          <MainButton handleClick={openSocket} buttonText="Continue" />
         </div>
       </Modal>
       <Checkbox 

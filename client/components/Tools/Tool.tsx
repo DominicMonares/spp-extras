@@ -26,7 +26,7 @@ const Tool = ({ tool, name }: ToolNavProps) => {
 
   return (
     <li>
-      {tool === 'accountAchievements' ? (
+      {tool === 'acctAchievements' ? (
         <MainBigButton
           active={active}
           handleClick={() => switchTool(tool)}

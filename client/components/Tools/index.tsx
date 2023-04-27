@@ -23,7 +23,7 @@ const Tools = ({ setInstalled }: ToolsProps) => {
       <MainHeader collapsed={collapsed} headerText="Tools" setCollapsed={setCollapsed} />
       <ul className="tool-list">
         {expansion === 'wotlk' ? (
-          <Tool tool="accountAchievements" name={'Account-wide Achievements'} />
+          <Tool tool="acctAchievements" name={'Account-wide Achievements'} />
         ) : (
           <></>
         )}

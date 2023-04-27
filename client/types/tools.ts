@@ -1,4 +1,4 @@
-export type SelectedTool = 'accountAchievements' | 'questTracker' | 'accountReputations' | 'accountPetsAndMounts' | '';
+export type SelectedTool = 'acctAchievements' | 'questTracker' | 'acctReps' | 'acctMountsPets' | '';
 
 export interface Tool {
   selected: SelectedTool;

@@ -4,7 +4,9 @@ from unittest import TestCase
 from api.src.spp_extras_api.utils.characters import (
     check_faction,
     format_accts_n_chars,
-    format_player_accts,
+    format_player_accts
+)
+from api.src.spp_extras_api.utils.reputations import (
     format_reputations
 )
 

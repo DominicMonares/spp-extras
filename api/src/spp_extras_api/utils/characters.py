@@ -54,17 +54,3 @@ def format_player_accts(accounts, bots_active):
         return accounts
     else:
         return {'0': accounts['0']}
-
-
-# Organize reputation data by character
-def format_reputations(reputations):
-    all = {}
-    for rep in reputations:
-        guid = str(rep['guid'])
-        faction = str(rep['faction'])
-        standing = rep['standing']
-        if guid not in all:
-            all[guid] = {}
-        all[guid][faction] = standing
-
-    return all

@@ -2,7 +2,7 @@ import { port, wsUrl } from '../config';
 import { WebSocketMessage } from '../types';
 
 
-let gameSocket: WebSocket;
+const gameSocket = new WebSocket(`${wsUrl}:${port}/ws/account_wide/achievements/`);
 
 const connect: WebSocketMessage = (dispatchMessage) => {
   gameSocket.onopen = () => {
@@ -20,13 +20,7 @@ const connect: WebSocketMessage = (dispatchMessage) => {
   }
 }
 
-export const runAccountWide: WebSocketMessage = async (dispatchMessage, type, botsActive) => {
-  if (type === 'achievements') {
-    gameSocket = new WebSocket(`${wsUrl}:${port}/ws/account_wide/achievements/`);
-  } else if (type === 'reputations') {
-    gameSocket = new WebSocket(`${wsUrl}:${port}/ws/account_wide/reputations/`);
-  }
-
+export const openAchievementSocket: WebSocketMessage = async (dispatchMessage, botsActive) => {
   connect(dispatchMessage);
   gameSocket.send(JSON.stringify({
     'message': botsActive ? 'bots' : 'player'

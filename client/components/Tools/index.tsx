@@ -27,6 +27,7 @@ const Tools = ({ setInstalled }: ToolsProps) => {
         ) : (
           <></>
         )}
+        <Tool tool="acctAchievements" name={'Account-wide Reputations'} />
         <Tool tool="questTracker" name="Quest Tracker" />
         <div className="tool-prefs">
           <MainButton handleClick={handlePreferences} buttonText="Preferences" />

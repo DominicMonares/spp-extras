@@ -8,6 +8,7 @@ const Checkbox = ({ callback, isChecked, text }: CheckboxProps) => {
   return (
     <div className="checkbox">
       <img 
+        className="checkbox-img"
         src={isChecked ? checked : unchecked} 
         onClick={callback} 
       />

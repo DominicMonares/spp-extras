@@ -88,7 +88,7 @@ const AccountWideControls = () => {
         <div className="msg-warning">Sharing {msgTool} is irreversible.</div>
         <div className="msg-warning">Making a backup of your database through</div>
         <div className="msg-warning">the SPP Classics launcher before proceeding</div>
-        <div className="msg-warning">is highly recommended.</div>
+        <div className="msg-warning">is strongly recommended.</div>
         <div className="msg-warning-buttons">
           <MainButton handleClick={closeModal} buttonText="Cancel" />
           <MainButton handleClick={openSocket} buttonText="Continue" />

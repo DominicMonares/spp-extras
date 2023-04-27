@@ -225,16 +225,6 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
             send_msg(f'Error: {e}')
             return
 
-        # Fetch character reputation data
-        try:
-            send_msg('Fetching character reputation data...')
-            char_rep_data = sel_all_char_rep('wotlk')
-            send_msg('Character reputation data successfully fetched!')
-        except Exception as e:
-            send_msg('Failed to fetch character reputation data!')
-            send_msg(f'Error: {e}')
-            return
-
         # ----------------------------------------------------------------
         # Format fetched data
         # ----------------------------------------------------------------

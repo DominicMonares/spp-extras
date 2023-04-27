@@ -14,5 +14,6 @@ export interface FetchAllDataResponse {
 }
 
 export type WebSocketMessage = (
-  dispatchMessage: (message: string) => void
+  dispatchMessage: (message: string) => void,
+  botsActive?: boolean
 ) => void;

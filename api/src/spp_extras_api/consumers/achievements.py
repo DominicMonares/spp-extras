@@ -50,10 +50,16 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
         pass
 
     # Run all achievement and reward sharing functions when account-wide achievement 
-    # message is received - contents do not matter
-    # We're just looking for a signal to start from the client
+    # message is received
+    # Message contents determine whether to run for players and bots or just players
     def receive(self, text_data):
         def send_msg(msg): self.send(json.dumps({'message': msg}))
+        bots_active = True
+        message_data = json.loads(text_data)
+        message = message_data['message']
+        print(f'ASFDSAFD {message}')
+        if message == 'player':
+            bots_active = False
 
         # ----------------------------------------------------------------
         # Create all new data needed for transfers
@@ -238,7 +244,7 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
             send_msg('Formatting fetched data...')
             _accounts = format_accts_n_chars(account_data, character_data)
             # Combine all player accounts/chars
-            accounts = format_player_accts(_accounts)
+            accounts = format_player_accts(_accounts, bots_active)
             ach_credit = format_ach_credit(ach_credit_data)
             ach_char_prog = format_ach_prog('char', ach_char_prog_data)
             ach_shared_prog = format_ach_prog('shared', ach_shared_prog_data)

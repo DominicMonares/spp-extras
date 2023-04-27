@@ -20,9 +20,9 @@ const connect: WebSocketMessage = (dispatchMessage) => {
   }
 }
 
-export const shareAchievements: WebSocketMessage = async (dispatchMessage) => {
+export const shareAchievements: WebSocketMessage = async (dispatchMessage, botsActive) => {
   connect(dispatchMessage);
   gameSocket.send(JSON.stringify({
-    'message': 'Run account-wide achievements'
+    'message': botsActive ? 'bots' : 'player'
   }));
 }

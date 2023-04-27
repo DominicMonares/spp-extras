@@ -49,7 +49,7 @@ const AccountAchievementsControls = () => {
     shareAchievements((message: string) => {
       // Display each message sent from server as they come in
       dispatch(storeMessages(message));
-    });
+    }, botsActive);
 
     setModalIsOpen(false);
   }

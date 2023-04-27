@@ -57,7 +57,6 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
         bots_active = True
         message_data = json.loads(text_data)
         message = message_data['message']
-        print(f'ASFDSAFD {message}')
         if message == 'player':
             bots_active = False
 

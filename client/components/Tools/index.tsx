@@ -23,11 +23,14 @@ const Tools = ({ setInstalled }: ToolsProps) => {
       <MainHeader collapsed={collapsed} headerText="Tools" setCollapsed={setCollapsed} />
       <ul className="tool-list">
         {expansion === 'wotlk' ? (
-          <Tool tool="acctAchievements" name={'Account-wide Achievements'} />
+          <>
+            <Tool tool="acctAchievements" name={'Account-wide Achievements'} />
+            <Tool tool="acctMountsPets" name={'Account-wide Mounts & Pets'} />
+          </>
         ) : (
           <></>
         )}
-        <Tool tool="acctAchievements" name={'Account-wide Reputations'} />
+        <Tool tool="acctReps" name={'Account-wide Reputations'} />
         <Tool tool="questTracker" name="Quest Tracker" />
         <div className="tool-prefs">
           <MainButton handleClick={handlePreferences} buttonText="Preferences" />

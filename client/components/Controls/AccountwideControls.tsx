@@ -2,9 +2,9 @@ import { useState } from 'react';
 import Checkbox from '../Checkbox';
 import Modal from 'react-modal';
 import MainButton from '../MainButton';
-import { useAppDispatch } from '../../store/hooks';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { storeMessages } from '../../store/slices';
-import { runAccountWide } from '../../apiCalls';
+import { openAchievementSocket } from '../../apiCalls';
 import './Controls.css';
 
 
@@ -30,8 +30,9 @@ const modalStyles = {
 // Attach modal component to root div
 Modal.setAppElement('#root');
 
-const AccountAchievementsControls = () => {
+const AccountWideControls = () => {
   const dispatch = useAppDispatch();
+  const tool = useAppSelector(state => state.tool.selected);
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
   const [botsActive, setBotsActive] = useState<boolean>(true);
 
@@ -44,9 +45,9 @@ const AccountAchievementsControls = () => {
   }
 
   // Clear all current websocket message data then open new connection
-  const runrunAccountWide = () => {
+  const runAccountWideAchievements = () => {
     dispatch(storeMessages('del'));
-    runAccountWide((message: string) => {
+    openAchievementSocket((message: string) => {
       // Display each message sent from server as they come in
       dispatch(storeMessages(message));
     }, botsActive);
@@ -68,7 +69,7 @@ const AccountAchievementsControls = () => {
         <div className="msg-warning">the SPP Classics launcher before proceeding.</div>
         <div className="msg-warning-buttons">
           <MainButton handleClick={closeModal} buttonText="Cancel" />
-          <MainButton handleClick={runrunAccountWide} buttonText="Continue" />
+          <MainButton handleClick={runAccountWideAchievements} buttonText="Continue" />
         </div>
       </Modal>
       <Checkbox 
@@ -83,4 +84,4 @@ const AccountAchievementsControls = () => {
   );
 }
 
-export default AccountAchievementsControls;
+export default AccountWideControls;

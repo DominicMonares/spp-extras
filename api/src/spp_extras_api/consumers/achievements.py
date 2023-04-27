@@ -12,7 +12,6 @@ from spp_extras_api.queries.characters import (
     sel_all_ach_prog,
     sel_all_char_achs,
     sel_all_chars,
-    sel_all_char_rep,
     sel_all_completed_reg_quests,
     sel_all_char_ach_shared_prog,
     sel_last_item_inst_id,

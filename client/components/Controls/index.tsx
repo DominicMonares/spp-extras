@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import AccountAchievementsControls from './AccountAchievementsControls';
+import AccountwideControls from './AccountwideControls';
 import MainHeader from '../MainHeader';
 import QuestTrackerControls from './QuestTrackerControls';
 import { useAppSelector } from '../../store/hooks';
@@ -20,7 +20,7 @@ const Controls = () => {
         <></>
       )}
       {tool === 'accountAchievements' ? (
-        <AccountAchievementsControls />
+        <AccountwideControls />
       ) : (
         <></>
       )}

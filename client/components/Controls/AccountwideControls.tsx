@@ -18,7 +18,7 @@ const modalStyles = {
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
     width: '600px',
-    height: '246px',
+    height: '276px',
     background: 'rgba(0, 0, 0, 0.7)',
     border: 'black 2px solid'
   },
@@ -86,8 +86,9 @@ const AccountWideControls = () => {
       >
         <div className="msg-warning">WARNING</div>
         <div className="msg-warning">Sharing {msgTool} is irreversible.</div>
-        <div className="msg-warning">Please make a backup of your database through</div>
-        <div className="msg-warning">the SPP Classics launcher before proceeding.</div>
+        <div className="msg-warning">Making a backup of your database through</div>
+        <div className="msg-warning">the SPP Classics launcher before proceeding</div>
+        <div className="msg-warning">is highly recommended.</div>
         <div className="msg-warning-buttons">
           <MainButton handleClick={closeModal} buttonText="Cancel" />
           <MainButton handleClick={openSocket} buttonText="Continue" />

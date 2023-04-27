@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import MainBigHeader from '../MainBigHeader';
 import { useAppSelector } from '../../store/hooks';
 import './View.css';
@@ -6,6 +7,18 @@ import './View.css';
 const MessageView = () => {
   const expansion = useAppSelector(state => state.expansion.selected);
   const messages = useAppSelector(state => state.websocket.messages);
+  const tool = useAppSelector(state => state.tool.selected);
+  const [headerTool, setHeaderTool] = useState<string>('');
+
+  useEffect(() => {
+    if (tool === 'acctAchievements') {
+      setHeaderTool('achievements');
+    } else if (tool === 'acctReps') {
+      setHeaderTool('reputations');
+    } else if (tool === 'acctMountsPets') {
+      setHeaderTool('mounts & pets');
+    }
+  })
 
   return (
     <div>
@@ -16,7 +29,7 @@ const MessageView = () => {
           }).reverse()}
         </ol>
       ) : (
-        <MainBigHeader headerText="Share achievements between all characters" /> 
+        <MainBigHeader headerText={`Share ${headerTool} between all characters`} /> 
       )}
     </div>
   );

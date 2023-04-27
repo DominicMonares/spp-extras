@@ -6,11 +6,11 @@ const gameSocket = new WebSocket(`${wsUrl}:${port}/ws/account_wide/achievements/
 
 const connect: WebSocketMessage = (dispatchMessage) => {
   gameSocket.onopen = () => {
-    console.log('WebSocket connection created!');
+    console.log('Achievement WebSocket connection created!');
   }
 
   gameSocket.onclose = () => {
-    console.log('WebSocket connection closed!');
+    console.log('Achievement WebSocket connection closed!');
   }
 
   gameSocket.onmessage = e => {

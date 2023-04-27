@@ -90,6 +90,8 @@
   direction: rtl;
   overflow-y: overlay;
   scrollbar-gutter: auto;
+  font-family: MORPHEUS;
+  font-size: 15px;
 }
 
 .messages::-webkit-scrollbar {

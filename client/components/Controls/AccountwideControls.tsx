@@ -71,13 +71,13 @@ const AccountAchievementsControls = () => {
           <MainButton handleClick={runShareAchievements} buttonText="Continue" />
         </div>
       </Modal>
+      <Checkbox 
+        callback={() => setBotsActive(!botsActive)} 
+        isChecked={botsActive} 
+        text="Apply to bot accounts" 
+      />
+      <MainButton handleClick={openModal} buttonText="Start" />
       <div className="msg-options-container">
-        <Checkbox 
-          callback={() => setBotsActive(!botsActive)} 
-          isChecked={botsActive} 
-          text="Apply to random bot accounts" 
-        />
-        <MainButton handleClick={openModal} buttonText="Start" />
       </div>
     </div>
   );

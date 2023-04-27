@@ -6,12 +6,12 @@ import './Checkbox.css';
 
 const Checkbox = ({ callback, isChecked, text }: CheckboxProps) => {
   return (
-    <div>
+    <div className="checkbox">
       <img 
         src={isChecked ? checked : unchecked} 
         onClick={callback} 
       />
-      <span>{text}</span>
+      <span className="checkbox-text">{text}</span>
     </div>
   );
 }

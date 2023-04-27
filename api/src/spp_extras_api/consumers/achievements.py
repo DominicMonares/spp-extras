@@ -42,11 +42,11 @@ from spp_extras_api.utils.quests import format_completed_quests, format_template
 
 class AccountWideAchievementsConsumer(WebsocketConsumer):
     def connect(self):
-        print('CONNECTED TO WEBSOCKET')
+        print('Connected to achievement WebSocket!')
         self.accept()
 
     def disconnect(self, close_code):
-        print('DISCONNECTED FROM WEBSOCKET')
+        print('Disconnected from achievement WebSocket!')
         pass
 
     # Run all achievement and reward sharing functions when account-wide achievement 

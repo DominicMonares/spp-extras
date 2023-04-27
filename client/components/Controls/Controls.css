@@ -20,7 +20,7 @@
 }
 
 .wotlk-controls {
-  background: rgba(25, 118, 174, 0.7);
+  background: rgba(25, 118, 174, 0.85);
 }
 
 .collapsed-menu {
@@ -47,11 +47,9 @@
 
 .msg-controls {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.msg-options-container {
   margin-bottom: 5px;
 }
 

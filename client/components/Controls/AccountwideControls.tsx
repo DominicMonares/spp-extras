@@ -4,7 +4,7 @@ import Modal from 'react-modal';
 import MainButton from '../MainButton';
 import { useAppDispatch } from '../../store/hooks';
 import { storeMessages } from '../../store/slices';
-import { shareAchievements } from '../../apiCalls';
+import { runAccountWide } from '../../apiCalls';
 import './Controls.css';
 
 
@@ -44,9 +44,9 @@ const AccountAchievementsControls = () => {
   }
 
   // Clear all current websocket message data then open new connection
-  const runShareAchievements = () => {
+  const runrunAccountWide = () => {
     dispatch(storeMessages('del'));
-    shareAchievements((message: string) => {
+    runAccountWide((message: string) => {
       // Display each message sent from server as they come in
       dispatch(storeMessages(message));
     }, botsActive);
@@ -68,7 +68,7 @@ const AccountAchievementsControls = () => {
         <div className="msg-warning">the SPP Classics launcher before proceeding.</div>
         <div className="msg-warning-buttons">
           <MainButton handleClick={closeModal} buttonText="Cancel" />
-          <MainButton handleClick={runShareAchievements} buttonText="Continue" />
+          <MainButton handleClick={runrunAccountWide} buttonText="Continue" />
         </div>
       </Modal>
       <Checkbox 

@@ -1,2 +1,2 @@
-export * from './achievements';
+export * from './accountWide';
 export * from './allData';

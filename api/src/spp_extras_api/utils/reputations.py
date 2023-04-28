@@ -18,6 +18,7 @@ def format_reputations(reputations):
     return all
 
 
+# Share reputation progress between characters
 def transfer_reputations(characters, reputations):
     args = []
     progress = {
@@ -26,6 +27,7 @@ def transfer_reputations(characters, reputations):
         'neutral': {}
     }
 
+    # Add the highest standing for each rep to progress tracker
     for c in reputations:
         char = reputations[c]
         for faction_id in char:
@@ -37,6 +39,7 @@ def transfer_reputations(characters, reputations):
             elif standing > progress[char_faction][faction_id]:
                 progress[char_faction][faction_id] = standing
 
+    # Create arguments for new reputation progress
     for char_faction in characters:
         faction_chars = characters[char_faction]
         for char_id in faction_chars:

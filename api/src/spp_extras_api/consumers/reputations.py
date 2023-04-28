@@ -64,7 +64,7 @@ class AccountWideReputationsConsumer(WebsocketConsumer):
         # Format fetched reputation data
         try:
             send_msg('Formatting fetched data...')
-            reputations = format_reputations(characters, char_rep_data)
+            reputations = format_reputations(char_rep_data)
             send_msg('Fetched data successfully formatted!')
         except Exception as e:
             send_msg('Failed to format fetched data!')
@@ -74,7 +74,7 @@ class AccountWideReputationsConsumer(WebsocketConsumer):
         # Run reputation progress transfer
         try:
             send_msg('Transferring reputation progress between characters...')
-            rep_args = transfer_reputations(reputations)
+            rep_args = transfer_reputations(characters, reputations)
             send_msg(
                 'Reputation progress successfully transferred between characters!')
         except Exception as e:

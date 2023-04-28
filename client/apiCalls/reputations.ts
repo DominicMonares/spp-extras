@@ -20,9 +20,9 @@ const connect: WebSocketMessage = (dispatchMessage) => {
   }
 }
 
-export const openReputationSocket: WebSocketMessage = async (dispatchMessage, botsActive) => {
+export const openReputationSocket: WebSocketMessage = async (dispatchMessage) => {
   connect(dispatchMessage);
   gameSocket.send(JSON.stringify({
-    'message': botsActive ? 'bots' : 'player'
+    'message': 'player'
   }));
 }

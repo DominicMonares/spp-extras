@@ -1,2007 +1,362 @@
-[
-  {
-    "id": 1155,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Sunreavers Conversion"
-  },
-  {
-    "id": 1154,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Silver Covenant Conversion"
-  },
-  {
-    "id": 1145,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Hates Everything"
-  },
-  {
-    "id": 1137,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Wintersaber Conversion"
-  },
-  {
-    "id": 1136,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Tranquillien Conversion"
-  },
-  {
-    "id": 1127,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Orgrimmar (Alex Test)"
-  },
-  {
-    "id": 1126,
-    "charFaction": 690,
-    "Name_Lang_enUS": "The Frostborn"
-  },
-  {
-    "id": 1125,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Hyldsmeet"
-  },
-  {
-    "id": 1124,
-    "charFaction": 1101,
-    "Name_Lang_enUS": "The Sunreavers"
-  },
-  {
-    "id": 1123,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Monster Referee"
-  },
-  {
-    "id": 1122,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Earthen"
-  },
-  {
-    "id": 1121,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Frost Vrykul"
-  },
-  {
-    "id": 1120,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Iron Giants"
-  },
-  {
-    "id": 1119,
-    "charFaction": 0,
-    "Name_Lang_enUS": "The Sons of Hodir"
-  },
-  {
-    "id": 1118,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Classic"
-  },
-  {
-    "id": 1117,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Sholazar Basin"
-  },
-  {
-    "id": 1082,
-    "charFaction": 690,
-    "Name_Lang_enUS": "REUSE"
-  },
-  {
-    "id": 1081,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Object, Force Reaction"
-  },
-  {
-    "id": 1080,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Friendly, Force Reaction"
-  },
-  {
-    "id": 1079,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Murloc, Winterfin"
-  },
-  {
-    "id": 1078,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Fighting Vanity Pet"
-  },
-  {
-    "id": 1077,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Shattered Sun Offensive"
-  },
-  {
-    "id": 1076,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Iron Dwarves"
-  },
-  {
-    "id": 1075,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Holiday - Generic"
-  },
-  {
-    "id": 1074,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Holiday - Water Barrel"
-  },
-  {
-    "id": 1073,
-    "charFaction": 0,
-    "Name_Lang_enUS": "The Kalu\u0027ak"
-  },
-  {
-    "id": 1072,
-    "charFaction": 0,
-    "Name_Lang_enUS": "REUSE"
-  },
-  {
-    "id": 1071,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Craig\u0027s Squirrels"
-  },
-  {
-    "id": 1070,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Ram Racing Trap DND"
-  },
-  {
-    "id": 1069,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Ram Racing Powerup DND"
-  },
-  {
-    "id": 1068,
-    "charFaction": 690,
-    "Name_Lang_enUS": "Explorers\u0027 League"
-  },
-  {
-    "id": 1067,
-    "charFaction": 1101,
-    "Name_Lang_enUS": "The Hand of Vengeance"
-  },
-  {
-    "id": 967,
-    "charFaction": 0,
-    "Name_Lang_enUS": "The Violet Eye"
-  },
-  {
-    "id": 966,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Monster Spar Buddy"
-  },
-  {
-    "id": 965,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Monster Spar"
-  },
-  {
-    "id": 964,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Chess Horde"
-  },
-  {
-    "id": 963,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Chess Alliance"
-  },
-  {
-    "id": 962,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Crazed Owlkin"
-  },
-  {
-    "id": 961,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Stillpine Furbolg"
-  },
-  {
-    "id": 960,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Actor Evil"
-  },
-  {
-    "id": 959,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Actor Good"
-  },
-  {
-    "id": 958,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Fighting Robots"
-  },
-  {
-    "id": 957,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Earth Elemental"
-  },
-  {
-    "id": 956,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Ethereum"
-  },
-  {
-    "id": 955,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Broken"
-  },
-  {
-    "id": 954,
-    "charFaction": 0,
-    "Name_Lang_enUS": "ToWoW - Flag Trigger Horde (DND)"
-  },
-  {
-    "id": 953,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Test Faction 4"
-  },
-  {
-    "id": 952,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Test Faction 3"
-  },
-  {
-    "id": 674,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Beast - Owl"
-  },
-  {
-    "id": 673,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Beast - Hyena"
-  },
-  {
-    "id": 672,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Beast - Crocilisk"
-  },
-  {
-    "id": 209,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Nethergarde"
-  },
-  {
-    "id": 189,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Alliance Generic"
-  },
-  {
-    "id": 169,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Steamwheedle Cartel"
-  },
-  {
-    "id": 168,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Nethergarde Caravan"
-  },
-  {
-    "id": 148,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Ambient"
-  },
-  {
-    "id": 128,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Enemy"
-  },
-  {
-    "id": 111,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Quilboar, Deathshead"
-  },
-  {
-    "id": 110,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Quilboar, Razormane 2"
-  },
-  {
-    "id": 109,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Quilboar, Razorfen"
-  },
-  {
-    "id": 108,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Theramore"
-  },
-  {
-    "id": 94,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Maraudine"
-  },
-  {
-    "id": 93,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Magram Clan Centaur"
-  },
-  {
-    "id": 92,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Gelkis Clan Centaur"
-  },
-  {
-    "id": 91,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Centaur, Galak"
-  },
-  {
-    "id": 90,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Centaur, Kolkar"
-  },
-  {
-    "id": 89,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Makrura"
-  },
-  {
-    "id": 88,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Blackfathom"
-  },
-  {
-    "id": 87,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Bloodsail Buccaneers"
-  },
-  {
-    "id": 86,
-    "charFaction": 0,
-    "Name_Lang_enUS": " Leatherworking - Dragonscale"
-  },
-  {
-    "id": 85,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Quilboar, Bristleback"
-  },
-  {
-    "id": 84,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Quilboar, Razormane"
-  },
-  {
-    "id": 83,
-    "charFaction": 0,
-    "Name_Lang_enUS": " Leatherworking - Elemental"
-  },
-  {
-    "id": 82,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Troll, Witherbark"
-  },
-  {
-    "id": 81,
-    "charFaction": 1101,
-    "Name_Lang_enUS": "Thunder Bluff"
-  },
-  {
-    "id": 80,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Dragonflight, Black"
-  },
-  {
-    "id": 79,
-    "charFaction": 0,
-    "Name_Lang_enUS": "HIllsbrad, Southshore Mayor"
-  },
-  {
-    "id": 78,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Gnoll - Mudsnout"
-  },
-  {
-    "id": 77,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Treasure"
-  },
-  {
-    "id": 76,
-    "charFaction": 1101,
-    "Name_Lang_enUS": "Orgrimmar"
-  },
-  {
-    "id": 75,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Spirit"
-  },
-  {
-    "id": 74,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Elemental"
-  },
-  {
-    "id": 73,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Demon"
-  },
-  {
-    "id": 72,
-    "charFaction": 690,
-    "Name_Lang_enUS": "Stormwind"
-  },
-  {
-    "id": 71,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Hillsbrad Militia"
-  },
-  {
-    "id": 70,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Syndicate"
-  },
-  {
-    "id": 69,
-    "charFaction": 690,
-    "Name_Lang_enUS": "Darnassus"
-  },
-  {
-    "id": 68,
-    "charFaction": 1101,
-    "Name_Lang_enUS": "Undercity"
-  },
-  {
-    "id": 67,
-    "charFaction": 1101,
-    "Name_Lang_enUS": "Horde"
-  },
-  {
-    "id": 66,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Horde Generic"
-  },
-  {
-    "id": 65,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Furbolg"
-  },
-  {
-    "id": 64,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Grell"
-  },
-  {
-    "id": 63,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Darkhowl"
-  },
-  {
-    "id": 62,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Forlorn Spirit"
-  },
-  {
-    "id": 61,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Dalaran"
-  },
-  {
-    "id": 60,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Naga"
-  },
-  {
-    "id": 59,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Thorium Brotherhood"
-  },
-  {
-    "id": 58,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Beast - Gorilla"
-  },
-  {
-    "id": 57,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Gnoll - Rothide"
-  },
-  {
-    "id": 56,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Scarlet Crusade"
-  },
-  {
-    "id": 55,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Leopard"
-  },
-  {
-    "id": 1160,
-    "charFaction": 0,
-    "Name_Lang_enUS": "CTF - Flag - Horde 2"
-  },
-  {
-    "id": 1159,
-    "charFaction": 0,
-    "Name_Lang_enUS": "CTF - Flag - Alliance 2"
-  },
-  {
-    "id": 1156,
-    "charFaction": 0,
-    "Name_Lang_enUS": "The Ashen Verdict"
-  },
-  {
-    "id": 935,
-    "charFaction": 0,
-    "Name_Lang_enUS": "The Sha\u0027tar"
-  },
-  {
-    "id": 1100,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Wrathgate Alliance"
-  },
-  {
-    "id": 1099,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Wrathgate Scourge"
-  },
-  {
-    "id": 1098,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Knights of the Ebon Blade"
-  },
-  {
-    "id": 1097,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Wrath of the Lich King"
-  },
-  {
-    "id": 1096,
-    "charFaction": 0,
-    "Name_Lang_enUS": "REUSE"
-  },
-  {
-    "id": 1095,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Grizzly Hills Trapper"
-  },
-  {
-    "id": 1094,
-    "charFaction": 690,
-    "Name_Lang_enUS": "The Silver Covenant"
-  },
-  {
-    "id": 1093,
-    "charFaction": 0,
-    "Name_Lang_enUS": "REUSE"
-  },
-  {
-    "id": 1092,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Azjol-Nerub"
-  },
-  {
-    "id": 1091,
-    "charFaction": 0,
-    "Name_Lang_enUS": "The Wyrmrest Accord"
-  },
-  {
-    "id": 1090,
-    "charFaction": 690,
-    "Name_Lang_enUS": "Kirin Tor"
-  },
-  {
-    "id": 1089,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Furbolg, Frostpaw"
-  },
-  {
-    "id": 1088,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Furbolg, Redfang"
-  },
-  {
-    "id": 1087,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Holiday Monster"
-  },
-  {
-    "id": 1086,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Poacher"
-  },
-  {
-    "id": 1085,
-    "charFaction": 690,
-    "Name_Lang_enUS": "Warsong Offensive"
-  },
-  {
-    "id": 1066,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Monster, Zone Force Reaction 2"
-  },
-  {
-    "id": 1065,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Monster, Zone Force Reaction 1"
-  },
-  {
-    "id": 1064,
-    "charFaction": 1101,
-    "Name_Lang_enUS": "The Taunka"
-  },
-  {
-    "id": 1063,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Valgarde Combatant"
-  },
-  {
-    "id": 1062,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Vrykul Gladiator"
-  },
-  {
-    "id": 1061,
-    "charFaction": 0,
-    "Name_Lang_enUS": "vrykul"
-  },
-  {
-    "id": 1060,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Test"
-  },
-  {
-    "id": 1059,
-    "charFaction": 0,
-    "Name_Lang_enUS": "CTF - Flag - Alliance"
-  },
-  {
-    "id": 1058,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Vrykul (Ancient Siprit 3)"
-  },
-  {
-    "id": 1057,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Vrykul (Ancient Siprit 2)"
-  },
-  {
-    "id": 1056,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Vrykul (Ancient Spirit 1)"
-  },
-  {
-    "id": 1055,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Tamed Plaguehound"
-  },
-  {
-    "id": 1054,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Spotted Gryphon"
-  },
-  {
-    "id": 1053,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Westguard"
-  },
-  {
-    "id": 1052,
-    "charFaction": 1101,
-    "Name_Lang_enUS": "Horde Expedition"
-  },
-  {
-    "id": 1051,
-    "charFaction": 0,
-    "Name_Lang_enUS": "UNUSED"
-  },
-  {
-    "id": 951,
-    "charFaction": 0,
-    "Name_Lang_enUS": "ToWoW - Flag Trigger Alliance (DND)"
-  },
-  {
-    "id": 950,
-    "charFaction": 0,
-    "Name_Lang_enUS": "ToWoW - Flag"
-  },
-  {
-    "id": 949,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Test Faction 1"
-  },
-  {
-    "id": 948,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Test Faction 2"
-  },
-  {
-    "id": 947,
-    "charFaction": 1101,
-    "Name_Lang_enUS": "Thrallmar"
-  },
-  {
-    "id": 946,
-    "charFaction": 690,
-    "Name_Lang_enUS": "Honor Hold"
-  },
-  {
-    "id": 945,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Sons of Lothar Ghosts"
-  },
-  {
-    "id": 944,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Fel Orc Ghost"
-  },
-  {
-    "id": 943,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Fel Orc"
-  },
-  {
-    "id": 942,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Cenarion Expedition"
-  },
-  {
-    "id": 941,
-    "charFaction": 1101,
-    "Name_Lang_enUS": "The Mag\u0027har"
-  },
-  {
-    "id": 940,
-    "charFaction": 0,
-    "Name_Lang_enUS": "The Sons of Lothar"
-  },
-  {
-    "id": 939,
-    "charFaction": 0,
-    "Name_Lang_enUS": "DEPRECATED"
-  },
-  {
-    "id": 938,
-    "charFaction": 0,
-    "Name_Lang_enUS": "The Omenai"
-  },
-  {
-    "id": 937,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Troll, Forest"
-  },
-  {
-    "id": 936,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Shattrath City"
-  },
-  {
-    "id": 934,
-    "charFaction": 1024,
-    "Name_Lang_enUS": "The Scryers"
-  },
-  {
-    "id": 933,
-    "charFaction": 0,
-    "Name_Lang_enUS": "The Consortium"
-  },
-  {
-    "id": 932,
-    "charFaction": 1024,
-    "Name_Lang_enUS": "The Aldor"
-  },
-  {
-    "id": 931,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Test Faction (not a real faction)"
-  },
-  {
-    "id": 930,
-    "charFaction": 946,
-    "Name_Lang_enUS": "Exodar"
-  },
-  {
-    "id": 929,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Bloodmaul Clan"
-  },
-  {
-    "id": 928,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Scourge Invaders"
-  },
-  {
-    "id": 927,
-    "charFaction": 0,
-    "Name_Lang_enUS": "PLAYER, Draenei"
-  },
-  {
-    "id": 926,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Magister\u0027s Guild"
-  },
-  {
-    "id": 925,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Sunstriders"
-  },
-  {
-    "id": 924,
-    "charFaction": 0,
-    "Name_Lang_enUS": "DEPRECATED"
-  },
-  {
-    "id": 923,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Farstriders"
-  },
-  {
-    "id": 922,
-    "charFaction": 1101,
-    "Name_Lang_enUS": "Tranquillien"
-  },
-  {
-    "id": 921,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Blue"
-  },
-  {
-    "id": 920,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Red"
-  },
-  {
-    "id": 919,
-    "charFaction": 0,
-    "Name_Lang_enUS": "RC Objects"
-  },
-  {
-    "id": 918,
-    "charFaction": 0,
-    "Name_Lang_enUS": "RC Enemies"
-  },
-  {
-    "id": 917,
-    "charFaction": 0,
-    "Name_Lang_enUS": "The Ironforge Brigade"
-  },
-  {
-    "id": 916,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Silithid Attackers"
-  },
-  {
-    "id": 915,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Armies of C\u0027Thun"
-  },
-  {
-    "id": 914,
-    "charFaction": 0,
-    "Name_Lang_enUS": "PLAYER, Blood Elf"
-  },
-  {
-    "id": 912,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Might of Kalimdor"
-  },
-  {
-    "id": 911,
-    "charFaction": 1101,
-    "Name_Lang_enUS": "Silvermoon City"
-  },
-  {
-    "id": 910,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Brood of Nozdormu"
-  },
-  {
-    "id": 909,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Darkmoon Faire"
-  },
-  {
-    "id": 893,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Revantusk Trolls"
-  },
-  {
-    "id": 892,
-    "charFaction": 77,
-    "Name_Lang_enUS": "Horde Forces"
-  },
-  {
-    "id": 891,
-    "charFaction": 178,
-    "Name_Lang_enUS": "Alliance Forces"
-  },
-  {
-    "id": 890,
-    "charFaction": 690,
-    "Name_Lang_enUS": "Silverwing Sentinels"
-  },
-  {
-    "id": 889,
-    "charFaction": 1101,
-    "Name_Lang_enUS": "Warsong Outriders"
-  },
-  {
-    "id": 869,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Jaedenar"
-  },
-  {
-    "id": 849,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Spirit Guide - Horde"
-  },
-  {
-    "id": 829,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Ogre (Captain Kromcrush)"
-  },
-  {
-    "id": 809,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Shen\u0027dralar"
-  },
-  {
-    "id": 790,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Spirit Guide - Alliance"
-  },
-  {
-    "id": 789,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Moro\u0027gai"
-  },
-  {
-    "id": 771,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Gizlock"
-  },
-  {
-    "id": 770,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Gizlock\u0027s Charm"
-  },
-  {
-    "id": 769,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Gizlock\u0027s Dummy"
-  },
-  {
-    "id": 750,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Sulfuron Firelords"
-  },
-  {
-    "id": 749,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Hydraxian Waterlords"
-  },
-  {
-    "id": 730,
-    "charFaction": 690,
-    "Name_Lang_enUS": "Stormpike Guard"
-  },
-  {
-    "id": 729,
-    "charFaction": 1101,
-    "Name_Lang_enUS": "Frostwolf Clan"
-  },
-  {
-    "id": 709,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Battleground Neutral"
-  },
-  {
-    "id": 689,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Dragonflight, Black - Bait"
-  },
-  {
-    "id": 679,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Training Dummy"
-  },
-  {
-    "id": 678,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Beast - Wind Serpent"
-  },
-  {
-    "id": 677,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Beast - Turtle"
-  },
-  {
-    "id": 676,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Beast - Tallstrider"
-  },
-  {
-    "id": 675,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Beast - Scorpid"
-  },
-  {
-    "id": 54,
-    "charFaction": 690,
-    "Name_Lang_enUS": "Gnomeregan Exiles"
-  },
-  {
-    "id": 53,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Gnome - Leper"
-  },
-  {
-    "id": 52,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Orc, Dragonmaw"
-  },
-  {
-    "id": 51,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Gnoll - Mosshide"
-  },
-  {
-    "id": 50,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Dragonflight, Red"
-  },
-  {
-    "id": 49,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Human, Night Watch"
-  },
-  {
-    "id": 48,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Dark Iron Dwarves"
-  },
-  {
-    "id": 47,
-    "charFaction": 690,
-    "Name_Lang_enUS": "Ironforge"
-  },
-  {
-    "id": 46,
-    "charFaction": 0,
-    "Name_Lang_enUS": " Blacksmithing - Armorsmithing"
-  },
-  {
-    "id": 45,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Lost Ones"
-  },
-  {
-    "id": 44,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Dragonflight, Green"
-  },
-  {
-    "id": 43,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Basilisk"
-  },
-  {
-    "id": 42,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Beast - Raptor"
-  },
-  {
-    "id": 41,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Venture Company"
-  },
-  {
-    "id": 40,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Escortee"
-  },
-  {
-    "id": 39,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Kurzen\u0027s Mercenaries"
-  },
-  {
-    "id": 38,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Ogre"
-  },
-  {
-    "id": 37,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Beast - Bear"
-  },
-  {
-    "id": 36,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Victim"
-  },
-  {
-    "id": 35,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Villian"
-  },
-  {
-    "id": 34,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Orc, Blackrock"
-  },
-  {
-    "id": 33,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Troll, Frostmane"
-  },
-  {
-    "id": 32,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Trogg"
-  },
-  {
-    "id": 31,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Friendly"
-  },
-  {
-    "id": 30,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Defias Brotherhood Traitor"
-  },
-  {
-    "id": 29,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Beast - Wolf"
-  },
-  {
-    "id": 28,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Prey"
-  },
-  {
-    "id": 27,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Troll, Skullsplitter"
-  },
-  {
-    "id": 26,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Troll, Bloodscalp"
-  },
-  {
-    "id": 25,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Kobold"
-  },
-  {
-    "id": 24,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Worgen"
-  },
-  {
-    "id": 23,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Beast - Boar"
-  },
-  {
-    "id": 22,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Beast - Spider"
-  },
-  {
-    "id": 21,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Booty Bay"
-  },
-  {
-    "id": 20,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Undead, Scourge"
-  },
-  {
-    "id": 19,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Murloc"
-  },
-  {
-    "id": 18,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Gnoll - Shadowhide"
-  },
-  {
-    "id": 17,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Gnoll - Redridge"
-  },
-  {
-    "id": 16,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Gnoll - Riverpaw"
-  },
-  {
-    "id": 15,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Defias Brotherhood"
-  },
-  {
-    "id": 14,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Monster"
-  },
-  {
-    "id": 9,
-    "charFaction": 0,
-    "Name_Lang_enUS": "PLAYER, Troll"
-  },
-  {
-    "id": 8,
-    "charFaction": 0,
-    "Name_Lang_enUS": "PLAYER, Gnome"
-  },
-  {
-    "id": 7,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Creature"
-  },
-  {
-    "id": 6,
-    "charFaction": 0,
-    "Name_Lang_enUS": "PLAYER, Tauren "
-  },
-  {
-    "id": 5,
-    "charFaction": 0,
-    "Name_Lang_enUS": "PLAYER, Undead"
-  },
-  {
-    "id": 4,
-    "charFaction": 0,
-    "Name_Lang_enUS": "PLAYER, Night Elf"
-  },
-  {
-    "id": 3,
-    "charFaction": 0,
-    "Name_Lang_enUS": "PLAYER, Dwarf"
-  },
-  {
-    "id": 2,
-    "charFaction": 0,
-    "Name_Lang_enUS": "PLAYER, Orc"
-  },
-  {
-    "id": 1,
-    "charFaction": 0,
-    "Name_Lang_enUS": "PLAYER, Human"
-  },
-  {
-    "id": 1031,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Sha\u0027tari Skyguard"
-  },
-  {
-    "id": 1030,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Black Temple Gates - Illidari"
-  },
-  {
-    "id": 1029,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Chess, Friendly to All Chess"
-  },
-  {
-    "id": 1028,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Ravenswood Ancients"
-  },
-  {
-    "id": 1027,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Legion Communicator"
-  },
-  {
-    "id": 1026,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Shadowmoon Shade"
-  },
-  {
-    "id": 1025,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Flayer Hunter"
-  },
-  {
-    "id": 1024,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Rock Flayer"
-  },
-  {
-    "id": 1023,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Azaloth"
-  },
-  {
-    "id": 1022,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Leotheras Demon V"
-  },
-  {
-    "id": 1021,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Leotheras Demon IV"
-  },
-  {
-    "id": 1020,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Leotheras Demon III"
-  },
-  {
-    "id": 1019,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Leotheras Demon II"
-  },
-  {
-    "id": 1018,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Leotheras Demon I"
-  },
-  {
-    "id": 1017,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Treant"
-  },
-  {
-    "id": 1016,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Wyrmcult"
-  },
-  {
-    "id": 1015,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Netherwing"
-  },
-  {
-    "id": 1014,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Spirits of Shadowmoon 2"
-  },
-  {
-    "id": 1013,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Spirits of Shadowmoon 1"
-  },
-  {
-    "id": 1012,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Ashtongue Deathsworn"
-  },
-  {
-    "id": 1011,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Lower City"
-  },
-  {
-    "id": 1010,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Servant of Illidan"
-  },
-  {
-    "id": 1009,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Kirin\u0027Var - Cohlien"
-  },
-  {
-    "id": 1008,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Kirin\u0027Var - Luminrath"
-  },
-  {
-    "id": 1007,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Kirin\u0027Var - Belmara"
-  },
-  {
-    "id": 1006,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Kirin\u0027Var - Dathric"
-  },
-  {
-    "id": 1005,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Friendly, Hidden"
-  },
-  {
-    "id": 1004,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Arcane Annihilator (DNR)"
-  },
-  {
-    "id": 1003,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Protectorate"
-  },
-  {
-    "id": 1002,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Ethereum Sparbuddy"
-  },
-  {
-    "id": 1001,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Bladespire Clan"
-  },
-  {
-    "id": 1000,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Khadgar\u0027s Servant"
-  },
-  {
-    "id": 999,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Mana Creature"
-  },
-  {
-    "id": 998,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Inciter Trigger 5"
-  },
-  {
-    "id": 997,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Inciter Trigger 4"
-  },
-  {
-    "id": 996,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Inciter Trigger 3"
-  },
-  {
-    "id": 995,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Inciter Trigger 2"
-  },
-  {
-    "id": 994,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Inciter Trigger"
-  },
-  {
-    "id": 993,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Dark Portal Attacker, Legion"
-  },
-  {
-    "id": 992,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Dark Portal Defender, Horde"
-  },
-  {
-    "id": 991,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Dark Portal Defender, Alliance"
-  },
-  {
-    "id": 990,
-    "charFaction": 0,
-    "Name_Lang_enUS": "The Scale of the Sands"
-  },
-  {
-    "id": 989,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Keepers of Time"
-  },
-  {
-    "id": 988,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Shadow Council Covert"
-  },
-  {
-    "id": 987,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Caverns of Time - Southshore Guards"
-  },
-  {
-    "id": 986,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Caverns of Time - Durnholde"
-  },
-  {
-    "id": 985,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Caverns of Time - Thrall"
-  },
-  {
-    "id": 1116,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Elemental, Air"
-  },
-  {
-    "id": 1115,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Elemental, Water"
-  },
-  {
-    "id": 1114,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Mount - Taxi - Neutral"
-  },
-  {
-    "id": 1113,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Mount - Taxi - Horde"
-  },
-  {
-    "id": 1112,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Mount - Taxi - Alliance"
-  },
-  {
-    "id": 1111,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Freya"
-  },
-  {
-    "id": 1110,
-    "charFaction": 0,
-    "Name_Lang_enUS": "CoT Scourge"
-  },
-  {
-    "id": 1109,
-    "charFaction": 0,
-    "Name_Lang_enUS": "CoT Stratholme Citizen"
-  },
-  {
-    "id": 1108,
-    "charFaction": 0,
-    "Name_Lang_enUS": "CoT Arthas"
-  },
-  {
-    "id": 1107,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Troll, Drakkari"
-  },
-  {
-    "id": 1106,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Argent Crusade"
-  },
-  {
-    "id": 1105,
-    "charFaction": 0,
-    "Name_Lang_enUS": "The Oracles"
-  },
-  {
-    "id": 1104,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Frenzyheart Tribe"
-  },
-  {
-    "id": 1103,
-    "charFaction": 0,
-    "Name_Lang_enUS": "CTF - Flag - Neutral"
-  },
-  {
-    "id": 1102,
-    "charFaction": 0,
-    "Name_Lang_enUS": "CTF - Flag - Horde"
-  },
-  {
-    "id": 1101,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Wrathgate Horde"
-  },
-  {
-    "id": 1084,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Vrykul, Sea"
-  },
-  {
-    "id": 1083,
-    "charFaction": 0,
-    "Name_Lang_enUS": "REUSE"
-  },
-  {
-    "id": 1050,
-    "charFaction": 690,
-    "Name_Lang_enUS": "Valiance Expedition"
-  },
-  {
-    "id": 1049,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Troll, Amani"
-  },
-  {
-    "id": 1048,
-    "charFaction": 0,
-    "Name_Lang_enUS": "UNUSED"
-  },
-  {
-    "id": 1047,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Tuskarr"
-  },
-  {
-    "id": 1046,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Northsea Pirates"
-  },
-  {
-    "id": 1045,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Vrykul"
-  },
-  {
-    "id": 1044,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Theramore Deserter"
-  },
-  {
-    "id": 1043,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Skunk, Petunia"
-  },
-  {
-    "id": 1042,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Skyguard Enemy"
-  },
-  {
-    "id": 1041,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Frenzy"
-  },
-  {
-    "id": 1040,
-    "charFaction": 0,
-    "Name_Lang_enUS": "REUSE"
-  },
-  {
-    "id": 1039,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Ravager"
-  },
-  {
-    "id": 1038,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Ogri\u0027la"
-  },
-  {
-    "id": 1037,
-    "charFaction": 690,
-    "Name_Lang_enUS": "Alliance Vanguard"
-  },
-  {
-    "id": 1036,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Dragonmaw Enemy"
-  },
-  {
-    "id": 1035,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Skettis Arakkoa"
-  },
-  {
-    "id": 1034,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Skettis Shadowy Arakkoa"
-  },
-  {
-    "id": 1033,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Maiev"
-  },
-  {
-    "id": 1032,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Area 52"
-  },
-  {
-    "id": 984,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Zangarmarsh Banner (Neutral)"
-  },
-  {
-    "id": 983,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Zangarmarsh Banner (Horde)"
-  },
-  {
-    "id": 982,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Zangarmarsh Banner (Alliance)"
-  },
-  {
-    "id": 981,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Arakkoa"
-  },
-  {
-    "id": 980,
-    "charFaction": 0,
-    "Name_Lang_enUS": "The Burning Crusade"
-  },
-  {
-    "id": 979,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Earthen Ring"
-  },
-  {
-    "id": 978,
-    "charFaction": 690,
-    "Name_Lang_enUS": "Kurenai"
-  },
-  {
-    "id": 977,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Hyjal Invaders"
-  },
-  {
-    "id": 976,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Hyjal Defenders"
-  },
-  {
-    "id": 975,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Void Anomaly"
-  },
-  {
-    "id": 974,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Monster, Prey"
-  },
-  {
-    "id": 973,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Monster, Predator"
-  },
-  {
-    "id": 972,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Spore Bat"
-  },
-  {
-    "id": 971,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Fungal Giant"
-  },
-  {
-    "id": 970,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Sporeggar"
-  },
-  {
-    "id": 969,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Hand of Argus"
-  },
-  {
-    "id": 968,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Sunhawks"
-  },
-  {
-    "id": 671,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Beast - Crab"
-  },
-  {
-    "id": 670,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Beast - Cat"
-  },
-  {
-    "id": 669,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Beast - Carrion Bird"
-  },
-  {
-    "id": 649,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Majordomo Executus"
-  },
-  {
-    "id": 630,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Ravasaur Trainers"
-  },
-  {
-    "id": 629,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Shatterspear Trolls"
-  },
-  {
-    "id": 609,
-    "charFaction": 40,
-    "Name_Lang_enUS": "Cenarion Circle"
-  },
-  {
-    "id": 589,
-    "charFaction": 1101,
-    "Name_Lang_enUS": "Wintersaber Trainers"
-  },
-  {
-    "id": 577,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Everlook"
-  },
-  {
-    "id": 576,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Timbermaw Hold"
-  },
-  {
-    "id": 575,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Furbolg, Uncorrupted"
-  },
-  {
-    "id": 574,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Caer Darrow"
-  },
-  {
-    "id": 573,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Southsea Freebooters"
-  },
-  {
-    "id": 572,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Troll, Vilebranch"
-  },
-  {
-    "id": 571,
-    "charFaction": 0,
-    "Name_Lang_enUS": " Blacksmithing - Swordsmithing"
-  },
-  {
-    "id": 570,
-    "charFaction": 0,
-    "Name_Lang_enUS": " Blacksmithing - Axesmithing"
-  },
-  {
-    "id": 569,
-    "charFaction": 0,
-    "Name_Lang_enUS": " Blacksmithing - Hammersmithing"
-  },
-  {
-    "id": 551,
-    "charFaction": 0,
-    "Name_Lang_enUS": " Engineering - Gnome"
-  },
-  {
-    "id": 550,
-    "charFaction": 0,
-    "Name_Lang_enUS": " Engineering - Goblin"
-  },
-  {
-    "id": 549,
-    "charFaction": 0,
-    "Name_Lang_enUS": " Leatherworking - Tribal"
-  },
-  {
-    "id": 532,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Dragonflight, Blue"
-  },
-  {
-    "id": 531,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Dragonflight, Bronze"
-  },
-  {
-    "id": 530,
-    "charFaction": 1101,
-    "Name_Lang_enUS": "Darkspear Trolls"
-  },
-  {
-    "id": 529,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Argent Dawn"
-  },
-  {
-    "id": 511,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Giant"
-  },
-  {
-    "id": 510,
-    "charFaction": 1101,
-    "Name_Lang_enUS": "The Defilers"
-  },
-  {
-    "id": 509,
-    "charFaction": 690,
-    "Name_Lang_enUS": "The League of Arathor"
-  },
-  {
-    "id": 489,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Goblin, Dark Iron Bar Patron"
-  },
-  {
-    "id": 471,
-    "charFaction": 690,
-    "Name_Lang_enUS": "Wildhammer Clan"
-  },
-  {
-    "id": 470,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Ratchet"
-  },
-  {
-    "id": 469,
-    "charFaction": 690,
-    "Name_Lang_enUS": "Alliance"
-  },
-  {
-    "id": 450,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Searing Spider"
-  },
-  {
-    "id": 449,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Shadowsilk Poacher"
-  },
-  {
-    "id": 429,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Burning Blade"
-  },
-  {
-    "id": 409,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Harpy"
-  },
-  {
-    "id": 389,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Gnomeregan Bug"
-  },
-  {
-    "id": 369,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Gadgetzan"
-  },
-  {
-    "id": 349,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Ravenholdt"
-  },
-  {
-    "id": 329,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Taskmaster Fizzule"
-  },
-  {
-    "id": 311,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Titan"
-  },
-  {
-    "id": 310,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Beast - Bat"
-  },
-  {
-    "id": 309,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Scorpid"
-  },
-  {
-    "id": 289,
-    "charFaction": 0,
-    "Name_Lang_enUS": " Blacksmithing - Weaponsmithing"
-  },
-  {
-    "id": 270,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Zandalar Tribe"
-  },
-  {
-    "id": 269,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Silvermoon Remnant"
-  },
-  {
-    "id": 249,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Silithid"
-  },
-  {
-    "id": 229,
-    "charFaction": 0,
-    "Name_Lang_enUS": "Wailing Caverns"
+{
+  "21": {
+    "name": "Booty Bay",
+    "charFaction": 0
+  },
+  "47": {
+    "name": "Ironforge",
+    "charFaction": 690
+  },
+  "54": {
+    "name": "Gnomeregan Exiles",
+    "charFaction": 690
+  },
+  "59": {
+    "name": "Thorium Brotherhood",
+    "charFaction": 0
+  },
+  "67": {
+    "name": "Horde",
+    "charFaction": 1101
+  },
+  "68": {
+    "name": "Undercity",
+    "charFaction": 1101
+  },
+  "69": {
+    "name": "Darnassus",
+    "charFaction": 690
+  },
+  "70": {
+    "name": "Syndicate",
+    "charFaction": 0
+  },
+  "72": {
+    "name": "Stormwind",
+    "charFaction": 690
+  },
+  "76": {
+    "name": "Orgrimmar",
+    "charFaction": 1101
+  },
+  "81": {
+    "name": "Thunder Bluff",
+    "charFaction": 1101
+  },
+  "87": {
+    "name": "Bloodsail Buccaneers",
+    "charFaction": 0
+  },
+  "92": {
+    "name": "Gelkis Clan Centaur",
+    "charFaction": 0
+  },
+  "93": {
+    "name": "Magram Clan Centaur",
+    "charFaction": 0
+  },
+  "169": {
+    "name": "Steamwheedle Cartel",
+    "charFaction": 0
+  },
+  "270": {
+    "name": "Zandalar Tribe",
+    "charFaction": 0
+  },
+  "349": {
+    "name": "Ravenholdt",
+    "charFaction": 0
+  },
+  "369": {
+    "name": "Gadgetzan",
+    "charFaction": 0
+  },
+  "469": {
+    "name": "Alliance",
+    "charFaction": 690
+  },
+  "470": {
+    "name": "Ratchet",
+    "charFaction": 0
+  },
+  "471": {
+    "name": "Wildhammer Clan",
+    "charFaction": 690
+  },
+  "509": {
+    "name": "The League of Arathor",
+    "charFaction": 690
+  },
+  "510": {
+    "name": "The Defilers",
+    "charFaction": 1101
+  },
+  "529": {
+    "name": "Argent Dawn",
+    "charFaction": 0
+  },
+  "530": {
+    "name": "Darkspear Trolls",
+    "charFaction": 1101
+  },
+  "574": {
+    "name": "Caer Darrow",
+    "charFaction": 0
+  },
+  "576": {
+    "name": "Timbermaw Hold",
+    "charFaction": 0
+  },
+  "577": {
+    "name": "Everlook",
+    "charFaction": 0
+  },
+  "589": {
+    "name": "Wintersaber Trainers",
+    "charFaction": 1101
+  },
+  "609": {
+    "name": "Cenarion Circle",
+    "charFaction": 40
+  },
+  "729": {
+    "name": "Frostwolf Clan",
+    "charFaction": 1101
+  },
+  "730": {
+    "name": "Stormpike Guard",
+    "charFaction": 690
+  },
+  "749": {
+    "name": "Hydraxian Waterlords",
+    "charFaction": 0
+  },
+  "809": {
+    "name": "Shen'dralar",
+    "charFaction": 0
+  },
+  "889": {
+    "name": "Warsong Outriders",
+    "charFaction": 1101
+  },
+  "890": {
+    "name": "Silverwing Sentinels",
+    "charFaction": 690
+  },
+  "891": {
+    "name": "Alliance Forces",
+    "charFaction": 178
+  },
+  "892": {
+    "name": "Horde Forces",
+    "charFaction": 77
+  },
+  "909": {
+    "name": "Darkmoon Faire",
+    "charFaction": 0
+  },
+  "910": {
+    "name": "Brood of Nozdormu",
+    "charFaction": 0
+  },
+  "911": {
+    "name": "Silvermoon City",
+    "charFaction": 1101
+  },
+  "922": {
+    "name": "Tranquillien",
+    "charFaction": 1101
+  },
+  "930": {
+    "name": "Exodar",
+    "charFaction": 946
+  },
+  "932": {
+    "name": "The Aldor",
+    "charFaction": 1024
+  },
+  "933": {
+    "name": "The Consortium",
+    "charFaction": 0
+  },
+  "934": {
+    "name": "The Scryers",
+    "charFaction": 1024
+  },
+  "935": {
+    "name": "The Sha'tar",
+    "charFaction": 0
+  },
+  "936": {
+    "name": "Shattrath City",
+    "charFaction": 0
+  },
+  "941": {
+    "name": "The Mag'har",
+    "charFaction": 1101
+  },
+  "942": {
+    "name": "Cenarion Expedition",
+    "charFaction": 0
+  },
+  "946": {
+    "name": "Honor Hold",
+    "charFaction": 690
+  },
+  "947": {
+    "name": "Thrallmar",
+    "charFaction": 1101
+  },
+  "948": {
+    "name": "Test Faction 2",
+    "charFaction": 0
+  },
+  "949": {
+    "name": "Test Faction 1",
+    "charFaction": 0
+  },
+  "952": {
+    "name": "Test Faction 3",
+    "charFaction": 0
+  },
+  "967": {
+    "name": "The Violet Eye",
+    "charFaction": 0
+  },
+  "970": {
+    "name": "Sporeggar",
+    "charFaction": 0
+  },
+  "978": {
+    "name": "Kurenai",
+    "charFaction": 690
+  },
+  "980": {
+    "name": "The Burning Crusade",
+    "charFaction": 0
+  },
+  "989": {
+    "name": "Keepers of Time",
+    "charFaction": 0
+  },
+  "990": {
+    "name": "The Scale of the Sands",
+    "charFaction": 0
+  },
+  "1005": {
+    "name": "Friendly, Hidden",
+    "charFaction": 0
+  },
+  "1011": {
+    "name": "Lower City",
+    "charFaction": 0
+  },
+  "1012": {
+    "name": "Ashtongue Deathsworn",
+    "charFaction": 0
+  },
+  "1015": {
+    "name": "Netherwing",
+    "charFaction": 0
+  },
+  "1031": {
+    "name": "Sha'tari Skyguard",
+    "charFaction": 0
+  },
+  "1037": {
+    "name": "Alliance Vanguard",
+    "charFaction": 690
+  },
+  "1038": {
+    "name": "Ogri'la",
+    "charFaction": 0
+  },
+  "1050": {
+    "name": "Valiance Expedition",
+    "charFaction": 690
+  },
+  "1052": {
+    "name": "Horde Expedition",
+    "charFaction": 1101
+  },
+  "1064": {
+    "name": "The Taunka",
+    "charFaction": 1101
+  },
+  "1067": {
+    "name": "The Hand of Vengeance",
+    "charFaction": 1101
+  },
+  "1068": {
+    "name": "Explorers' League",
+    "charFaction": 690
+  },
+  "1073": {
+    "name": "The Kalu'ak",
+    "charFaction": 0
+  },
+  "1077": {
+    "name": "Shattered Sun Offensive",
+    "charFaction": 0
+  },
+  "1082": {
+    "name": "REUSE",
+    "charFaction": 690
+  },
+  "1085": {
+    "name": "Warsong Offensive",
+    "charFaction": 690
+  },
+  "1090": {
+    "name": "Kirin Tor",
+    "charFaction": 690
+  },
+  "1091": {
+    "name": "The Wyrmrest Accord",
+    "charFaction": 0
+  },
+  "1094": {
+    "name": "The Silver Covenant",
+    "charFaction": 690
+  },
+  "1097": {
+    "name": "Wrath of the Lich King",
+    "charFaction": 0
+  },
+  "1098": {
+    "name": "Knights of the Ebon Blade",
+    "charFaction": 0
+  },
+  "1104": {
+    "name": "Frenzyheart Tribe",
+    "charFaction": 0
+  },
+  "1105": {
+    "name": "The Oracles",
+    "charFaction": 0
+  },
+  "1106": {
+    "name": "Argent Crusade",
+    "charFaction": 0
+  },
+  "1117": {
+    "name": "Sholazar Basin",
+    "charFaction": 0
+  },
+  "1118": {
+    "name": "Classic",
+    "charFaction": 0
+  },
+  "1119": {
+    "name": "The Sons of Hodir",
+    "charFaction": 0
+  },
+  "1124": {
+    "name": "The Sunreavers",
+    "charFaction": 1101
+  },
+  "1126": {
+    "name": "The Frostborn",
+    "charFaction": 690
   }
-]
+}

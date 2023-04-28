@@ -6,9 +6,6 @@ from api.src.spp_extras_api.utils.characters import (
     format_accts_n_chars,
     format_player_accts
 )
-from api.src.spp_extras_api.utils.reputations import (
-    format_reputations
-)
 
 
 class TestCheckFaction(TestCase):
@@ -62,14 +59,3 @@ class TestFormatPlayers(TestCase):
         result = format_player_accts(accounts, False)
         expected = {'0': player_sorted_accts['0']}
         self.assertDictEqual(result, expected)
-
-
-class TestFormatReputations(TestCase):
-    """Should return reputations dict sorted by character"""
-    def test_format_reputations(self):
-        with open(from_root('tests/samples/formattedData/characterReputations.json'), 'r') as json_file:
-            char_reps = json.load(json_file)
-        with open(from_root('tests/samples/rawData/rawCharacterReps.json'), 'r') as json_file:
-            raw_char_reps = json.load(json_file)
-        result = format_reputations(raw_char_reps)
-        self.assertDictEqual(result, char_reps)

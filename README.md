@@ -234,3 +234,6 @@ Note for all account-wide:
   I recommend creating a second account and moving that char to the second account using an
   editor like HeidiSQL
     - get account id from wotlkrealmd > account and change the character's account in wotlkcharacters > characters
+
+Note for account-wide rep:
+  - Progress won't appear in the in-game Reputation tab until a character has discovered the rep

@@ -7,17 +7,12 @@
   {
     "guid": 6,
     "faction": 87,
-    "standing": 1000
+    "standing": 1500
   },
   {
     "guid": 6,
     "faction": 470,
     "standing": 2000
-  },
-  {
-    "guid": 7,
-    "faction": 47,
-    "standing": -3500
   },
   {
     "guid": 7,
@@ -31,13 +26,8 @@
   },
   {
     "guid": 8,
-    "faction": 47,
-    "standing": -3500
-  },
-  {
-    "guid": 8,
     "faction": 87,
-    "standing": 1000
+    "standing": 1500
   },
   {
     "guid": 8,

@@ -47,8 +47,8 @@ def transfer_reputations(characters, reputations):
             for rep_id in merged_progress:
                 standing = merged_progress[rep_id]
                 args.append({
-                    'guid': char_id,
-                    'faction': rep_id,
+                    'guid': int(char_id),
+                    'faction': int(rep_id),
                     'standing': standing
                 })
 

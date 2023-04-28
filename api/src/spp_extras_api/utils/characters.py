@@ -54,3 +54,16 @@ def format_player_accts(accounts, bots_active):
         return accounts
     else:
         return {'0': accounts['0']}
+
+
+# Create array of character IDs for player accounts
+def create_char_ids(account_data, character_data):
+    _accounts = format_accts_n_chars(account_data, character_data)
+    accounts = format_player_accts(_accounts, False)
+    faction_chars = accounts['0']['characters']
+    chars = {**faction_chars['alliance'], **faction_chars['horde']}
+    char_ids = []
+    for c in chars:
+        char_ids.append(int(c))
+    
+    return char_ids

@@ -18,7 +18,7 @@ def format_reputations(reputations):
     return all
 
 
-def transfer_reputations(reputations):
+def transfer_reputations(characters, reputations):
     args = []
     progress = {
         'alliance': {},
@@ -28,11 +28,25 @@ def transfer_reputations(reputations):
 
     for c in reputations:
         char = reputations[c]
-        for r in char:
-            rep = char[r]
-            guid = rep['guid']
-            faction = rep['faction']
-            standing = rep['faction']
+        for faction_id in char:
+            standing = char[faction_id]
+            if faction_id not in rep_template: continue
+            char_faction = rep_template[faction_id]['charFaction']
+            if faction_id not in progress[char_faction]:
+                progress[char_faction][faction_id] = standing
+            elif standing > progress[char_faction][faction_id]:
+                progress[char_faction][faction_id] = standing
 
+    for char_faction in characters:
+        faction_chars = characters[char_faction]
+        for char_id in faction_chars:
+            merged_progress = {**progress[char_faction], **progress['neutral']}
+            for rep_id in merged_progress:
+                standing = merged_progress[rep_id]
+                args.append({
+                    'guid': char_id,
+                    'faction': rep_id,
+                    'standing': standing
+                })
 
     return args

@@ -12,11 +12,21 @@
   {
     "guid": 6,
     "faction": 530,
-    "standing": 6300
+    "standing": 6301
   },
   {
     "guid": 7,
     "faction": 83,
     "standing": 500
+  },
+  {
+    "guid": 7,
+    "faction": 86,
+    "standing": 1000
+  },
+  {
+    "guid": 7,
+    "faction": 530,
+    "standing": 6300
   }
 ]

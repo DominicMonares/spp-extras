@@ -94,11 +94,15 @@ const AccountWideControls = () => {
           <MainButton handleClick={openSocket} buttonText="Continue" />
         </div>
       </Modal>
-      <Checkbox 
-        callback={() => setBotsActive(!botsActive)} 
-        isChecked={botsActive} 
-        text="Apply to bot accounts" 
-      />
+      {tool === 'acctAchievements' ? (
+        <Checkbox 
+          callback={() => setBotsActive(!botsActive)} 
+          isChecked={botsActive} 
+          text="Apply to bot accounts" 
+        />
+      ) : (
+        <></>
+      )}
       <MainButton handleClick={openModal} buttonText="Start" />
       <div className="msg-options-container">
       </div>

@@ -75,7 +75,7 @@ const ExpansionNav = ({ getAllData }: ExpansionProps) => {
     dispatch(storeExpansion(nextExpansion));
     dispatch(storeCompletedQuests({}));
     dispatch(storeMessages('del'));
-    dispatch(storeTemplateQuests({ alliance: {}, horde: {}, both: {} }));
+    dispatch(storeTemplateQuests({ alliance: {}, horde: {}, neutral: {} }));
     dispatch(storeQuestTrackerAll(false));
     dispatch(storeQuestTrackerCharacter({ character: { id: 0 } }));
     dispatch(storeQuestTrackerClass({ characterClass: { id: 0 } }));

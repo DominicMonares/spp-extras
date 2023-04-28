@@ -10,3 +10,18 @@ def format_reputations(reputations):
         all[guid][faction] = standing
 
     return all
+
+
+def transfer_reputations(reputations):
+    args = []
+    progress = {
+        'alliance': {},
+        'horde': {},
+        'neutral': {}
+    }
+
+    for char in reputations:
+        for rep in reputations[char]:
+
+
+    return args

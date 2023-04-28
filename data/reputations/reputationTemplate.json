@@ -1,362 +1,362 @@
 {
   "21": {
     "name": "Booty Bay",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "47": {
     "name": "Ironforge",
-    "charFaction": 690
+    "charFaction": "alliance"
   },
   "54": {
     "name": "Gnomeregan Exiles",
-    "charFaction": 690
+    "charFaction": "alliance"
   },
   "59": {
     "name": "Thorium Brotherhood",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "67": {
     "name": "Horde",
-    "charFaction": 1101
+    "charFaction": "horde"
   },
   "68": {
     "name": "Undercity",
-    "charFaction": 1101
+    "charFaction": "horde"
   },
   "69": {
     "name": "Darnassus",
-    "charFaction": 690
+    "charFaction": "alliance"
   },
   "70": {
     "name": "Syndicate",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "72": {
     "name": "Stormwind",
-    "charFaction": 690
+    "charFaction": "alliance"
   },
   "76": {
     "name": "Orgrimmar",
-    "charFaction": 1101
+    "charFaction": "horde"
   },
   "81": {
     "name": "Thunder Bluff",
-    "charFaction": 1101
+    "charFaction": "horde"
   },
   "87": {
     "name": "Bloodsail Buccaneers",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "92": {
     "name": "Gelkis Clan Centaur",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "93": {
     "name": "Magram Clan Centaur",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "169": {
     "name": "Steamwheedle Cartel",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "270": {
     "name": "Zandalar Tribe",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "349": {
     "name": "Ravenholdt",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "369": {
     "name": "Gadgetzan",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "469": {
     "name": "Alliance",
-    "charFaction": 690
+    "charFaction": "alliance"
   },
   "470": {
     "name": "Ratchet",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "471": {
     "name": "Wildhammer Clan",
-    "charFaction": 690
+    "charFaction": "alliance"
   },
   "509": {
     "name": "The League of Arathor",
-    "charFaction": 690
+    "charFaction": "alliance"
   },
   "510": {
     "name": "The Defilers",
-    "charFaction": 1101
+    "charFaction": "horde"
   },
   "529": {
     "name": "Argent Dawn",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "530": {
     "name": "Darkspear Trolls",
-    "charFaction": 1101
+    "charFaction": "horde"
   },
   "574": {
     "name": "Caer Darrow",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "576": {
     "name": "Timbermaw Hold",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "577": {
     "name": "Everlook",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "589": {
     "name": "Wintersaber Trainers",
-    "charFaction": 1101
+    "charFaction": "horde"
   },
   "609": {
     "name": "Cenarion Circle",
-    "charFaction": 40
+    "charFaction": "neutral"
   },
   "729": {
     "name": "Frostwolf Clan",
-    "charFaction": 1101
+    "charFaction": "horde"
   },
   "730": {
     "name": "Stormpike Guard",
-    "charFaction": 690
+    "charFaction": "alliance"
   },
   "749": {
     "name": "Hydraxian Waterlords",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "809": {
     "name": "Shen'dralar",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "889": {
     "name": "Warsong Outriders",
-    "charFaction": 1101
+    "charFaction": "horde"
   },
   "890": {
     "name": "Silverwing Sentinels",
-    "charFaction": 690
+    "charFaction": "alliance"
   },
   "891": {
     "name": "Alliance Forces",
-    "charFaction": 178
+    "charFaction": "alliance"
   },
   "892": {
     "name": "Horde Forces",
-    "charFaction": 77
+    "charFaction": "horde"
   },
   "909": {
     "name": "Darkmoon Faire",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "910": {
     "name": "Brood of Nozdormu",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "911": {
     "name": "Silvermoon City",
-    "charFaction": 1101
+    "charFaction": "horde"
   },
   "922": {
     "name": "Tranquillien",
-    "charFaction": 1101
+    "charFaction": "horde"
   },
   "930": {
     "name": "Exodar",
-    "charFaction": 946
+    "charFaction": "alliance"
   },
   "932": {
     "name": "The Aldor",
-    "charFaction": 1024
+    "charFaction": "neutral"
   },
   "933": {
     "name": "The Consortium",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "934": {
     "name": "The Scryers",
-    "charFaction": 1024
+    "charFaction": "neutral"
   },
   "935": {
     "name": "The Sha'tar",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "936": {
     "name": "Shattrath City",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "941": {
     "name": "The Mag'har",
-    "charFaction": 1101
+    "charFaction": "horde"
   },
   "942": {
     "name": "Cenarion Expedition",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "946": {
     "name": "Honor Hold",
-    "charFaction": 690
+    "charFaction": "alliance"
   },
   "947": {
     "name": "Thrallmar",
-    "charFaction": 1101
+    "charFaction": "horde"
   },
   "948": {
     "name": "Test Faction 2",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "949": {
     "name": "Test Faction 1",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "952": {
     "name": "Test Faction 3",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "967": {
     "name": "The Violet Eye",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "970": {
     "name": "Sporeggar",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "978": {
     "name": "Kurenai",
-    "charFaction": 690
+    "charFaction": "alliance"
   },
   "980": {
     "name": "The Burning Crusade",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "989": {
     "name": "Keepers of Time",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "990": {
     "name": "The Scale of the Sands",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "1005": {
     "name": "Friendly, Hidden",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "1011": {
     "name": "Lower City",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "1012": {
     "name": "Ashtongue Deathsworn",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "1015": {
     "name": "Netherwing",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "1031": {
     "name": "Sha'tari Skyguard",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "1037": {
     "name": "Alliance Vanguard",
-    "charFaction": 690
+    "charFaction": "alliance"
   },
   "1038": {
     "name": "Ogri'la",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "1050": {
     "name": "Valiance Expedition",
-    "charFaction": 690
+    "charFaction": "alliance"
   },
   "1052": {
     "name": "Horde Expedition",
-    "charFaction": 1101
+    "charFaction": "horde"
   },
   "1064": {
     "name": "The Taunka",
-    "charFaction": 1101
+    "charFaction": "horde"
   },
   "1067": {
     "name": "The Hand of Vengeance",
-    "charFaction": 1101
+    "charFaction": "horde"
   },
   "1068": {
     "name": "Explorers' League",
-    "charFaction": 690
+    "charFaction": "alliance"
   },
   "1073": {
     "name": "The Kalu'ak",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "1077": {
     "name": "Shattered Sun Offensive",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "1082": {
     "name": "REUSE",
-    "charFaction": 690
+    "charFaction": "alliance"
   },
   "1085": {
     "name": "Warsong Offensive",
-    "charFaction": 690
+    "charFaction": "alliance"
   },
   "1090": {
     "name": "Kirin Tor",
-    "charFaction": 690
+    "charFaction": "alliance"
   },
   "1091": {
     "name": "The Wyrmrest Accord",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "1094": {
     "name": "The Silver Covenant",
-    "charFaction": 690
+    "charFaction": "alliance"
   },
   "1097": {
     "name": "Wrath of the Lich King",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "1098": {
     "name": "Knights of the Ebon Blade",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "1104": {
     "name": "Frenzyheart Tribe",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "1105": {
     "name": "The Oracles",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "1106": {
     "name": "Argent Crusade",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "1117": {
     "name": "Sholazar Basin",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "1118": {
     "name": "Classic",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "1119": {
     "name": "The Sons of Hodir",
-    "charFaction": 0
+    "charFaction": "neutral"
   },
   "1124": {
     "name": "The Sunreavers",
-    "charFaction": 1101
+    "charFaction": "horde"
   },
   "1126": {
     "name": "The Frostborn",
-    "charFaction": 690
+    "charFaction": "alliance"
   }
 }

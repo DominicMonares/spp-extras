@@ -90,5 +90,5 @@ export interface TemplateQuest {
 export interface TemplateQuests {
   alliance: TemplateFactionQuests | Record<string,never>;
   horde: TemplateFactionQuests | Record<string,never>;
-  both: TemplateFactionQuests | Record<string,never>;
+  neutral: TemplateFactionQuests | Record<string,never>;
 }

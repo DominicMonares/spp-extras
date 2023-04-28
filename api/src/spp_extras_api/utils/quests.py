@@ -45,12 +45,12 @@ def format_template_quests(quests):
     all = {
         'alliance': {},
         'horde': {},
-        'both': {}
+        'neutral': {}
     }
 
     alliance = [1, 4, 5, 8, 64, 65, 68, 77, 1101, 1024]
     horde = [2, 16, 32, 128, 130, 144, 162, 176, 178, 512, 514, 690]
-    both = [0, 255, 1791]
+    neutral = [0, 255, 1791]
 
     for quest in quests:
         required_races = quest['requiredraces']
@@ -67,7 +67,7 @@ def format_template_quests(quests):
             all['alliance'][entry] = quest
         elif required_races in horde:
             all['horde'][entry] = quest
-        elif required_races in both:
-            all['both'][entry] = quest
+        elif required_races in neutral:
+            all['neutral'][entry] = quest
 
     return all

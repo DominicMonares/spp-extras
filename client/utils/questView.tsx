@@ -33,7 +33,7 @@ export const filterTemplateQuests: FilterQuests = (all, settings, templateQuests
   
   // Add template quests that meet all conditions to view quests
   const viewQuests: ViewQuests = [];
-  const template = { ...templateQuests[faction], ...templateQuests['both'] };
+  const template = { ...templateQuests[faction], ...templateQuests['neutral'] };
   for (const q in template) {
     const quest = template[q];
     const questClass = quest.requiredclasses;
@@ -233,7 +233,7 @@ export const createViewQuests: CreateViewQuests = (
   // Create list of quests filtered using quest tracker settings
   const filteredTemplateQuests = filterTemplateQuests(all, settings, templateQuests);
 
-  // Mark completed quests, check both factions so neutral quests are marked
+  // Mark completed quests, check neutral factions so neutral quests are marked
   if (character && character.id) {
     const characterQuests = completedQuests[settings.faction][character.id];
     markTemplateQuests(characterQuests, filteredTemplateQuests, type);

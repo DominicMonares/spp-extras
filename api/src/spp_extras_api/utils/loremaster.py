@@ -10,7 +10,7 @@ with open(from_root('data/zones/zoneContinents.json'), 'r') as json_file:
 def loremaster(completed_quests, template_quests, loremaster_prog):
     alliance_template_quests = template_quests['alliance']
     horde_template_quests = template_quests['horde']
-    neutral_quests = template_quests['both']
+    neutral_quests = template_quests['neutral']
     all_alliance_template_quests = {
         **alliance_template_quests, **neutral_quests}
     all_horde_template_quests = {

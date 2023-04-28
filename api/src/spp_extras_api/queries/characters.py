@@ -380,10 +380,11 @@ def sel_all_completed_monthly_quests(expansion):
 # Reputation
 # ----------------------------------------------------------------
 
-def sel_all_char_rep(expansion):
+def sel_all_char_rep(expansion, char_ids):
     return character_rep_model(expansion).objects\
         .using(f'{expansion}characters')\
         .all()\
+        .filter(guid__in=char_ids)\
         .values('guid', 'faction', 'standing')
 
 

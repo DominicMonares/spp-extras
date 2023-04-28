@@ -377,5 +377,5 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
                 send_msg(f'Error: {e}')
                 return
 
-        send_msg('All account-wide achievements successfully transferred!')
+        send_msg('All account-wide achievement processes finished!')
         send_msg('You can safely close this tool now.')

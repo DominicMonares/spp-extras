@@ -20,7 +20,7 @@ const connect: WebSocketMessage = (dispatchMessage) => {
   }
 }
 
-export const mountsAndPetsSocket: WebSocketMessage = async (dispatchMessage) => {
+export const openMountsPetsSocket: WebSocketMessage = async (dispatchMessage) => {
   connect(dispatchMessage);
   gameSocket.send(JSON.stringify({
     'message': 'player'

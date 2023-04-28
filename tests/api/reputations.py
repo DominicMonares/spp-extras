@@ -29,5 +29,4 @@ class TestTransferReputations(TestCase):
             expected = json.load(json_file)
 
         result = transfer_reputations(characters, char_reps)
-        print(f'PRICK {result}')
         self.assertEqual(result, expected)

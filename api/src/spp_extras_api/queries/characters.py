@@ -385,3 +385,12 @@ def sel_all_char_rep(expansion):
         .using(f'{expansion}characters')\
         .all()\
         .values('guid', 'faction', 'standing')
+
+
+def upd_char_rep(reputations):
+    for r in reputations:
+        record = WotlkCharacterReputation.objects\
+            .using('wotlkcharacters')\
+            .get(guid=r['guid'], faction=r['faction'])
+        record.standing = r['standing']
+        record.save()

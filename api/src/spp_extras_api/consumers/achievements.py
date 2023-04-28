@@ -27,10 +27,10 @@ from spp_extras_api.queries.mangos import (
 )
 from spp_extras_api.queries.realmd import sel_all_accounts
 from spp_extras_api.utils.achievements import (
-    combine_acct_data,
     format_ach_credit,
     format_ach_prog,
     format_ach_rewards,
+    format_all_acct_data,
     format_rew_item_charges
 )
 from spp_extras_api.utils.ach_credit_transfer import transfer_ach_credit
@@ -242,7 +242,7 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
                 completed_regular_data, [], [], [])
 
             # Combine all formatted account/character data
-            all_acct_data = combine_acct_data(
+            all_acct_data = format_all_acct_data(
                 accounts,
                 ach_credit,
                 ach_char_prog,

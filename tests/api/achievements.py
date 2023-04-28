@@ -4,8 +4,8 @@ from unittest import TestCase
 from api.src.spp_extras_api.utils.achievements import (
     format_ach_credit,
     format_ach_prog,
-    combine_acct_data,
     format_ach_rewards,
+    format_all_acct_data,
     format_rew_item_charges,
     check_faction_ach
 )
@@ -13,22 +13,22 @@ from api.src.spp_extras_api.utils.achievements import (
 
 class TestCombineAcctData(TestCase):
     """Should combine all character data into one main dict"""
-    def test_combine_acct_data(self):
+    def test_format_all_acct_data(self):
         with open(from_root('tests/samples/formattedData/achCredit.json'), 'r') as json_file:
             ach_credit = json.load(json_file)
         with open(from_root('tests/samples/formattedData/achProgress.json'), 'r') as json_file:
             ach_prog = json.load(json_file)
-        with open(from_root('tests/samples/api/combinedAccounts.json'), 'r') as json_file:
-            combined_accounts = json.load(json_file)
+        with open(from_root('tests/samples/api/allAccountData.json'), 'r') as json_file:
+            all_account_data = json.load(json_file)
         with open(from_root('tests/samples/formattedData/completedQuests.json'), 'r') as json_file:
             completed_quests = json.load(json_file)
         with open(from_root('tests/samples/formattedData/playerSortedAccounts.json'), 'r') as json_file:
             accounts = json.load(json_file)
         acct_prog = ach_prog['account']
         char_prog = ach_prog['character']
-        result = combine_acct_data(
+        result = format_all_acct_data(
             accounts, ach_credit, char_prog, acct_prog, completed_quests)
-        self.assertDictEqual(result, combined_accounts)
+        self.assertDictEqual(result, all_account_data)
 
 
 class TestFormatAchCredit(TestCase):

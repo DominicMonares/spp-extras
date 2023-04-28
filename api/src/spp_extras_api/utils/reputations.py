@@ -1,3 +1,9 @@
+import json
+from from_root import from_root
+with open(from_root('data/reputations/reputationTemplate.json'), 'r') as json_file:
+    rep_template = json.load(json_file)
+
+
 # Organize reputation data by character
 def format_reputations(reputations):
     all = {}
@@ -20,8 +26,13 @@ def transfer_reputations(reputations):
         'neutral': {}
     }
 
-    for char in reputations:
-        for rep in reputations[char]:
+    for c in reputations:
+        char = reputations[c]
+        for r in char:
+            rep = char[r]
+            guid = rep['guid']
+            faction = rep['faction']
+            standing = rep['faction']
 
 
     return args

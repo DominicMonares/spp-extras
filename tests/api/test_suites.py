@@ -31,7 +31,7 @@ def suites():
     transfer_ach_prog_suite = TestLoader()\
         .loadTestsFromTestCase(TestTransferAchProg)
     # Achievement Utils
-    combine_acct_data_suite = TestLoader()\
+    format_all_acct_data_suite = TestLoader()\
         .loadTestsFromTestCase(TestCombineAcctData)
     format_ach_credit_suite = TestLoader()\
         .loadTestsFromTestCase(TestFormatAchCredit)
@@ -61,7 +61,7 @@ def suites():
     top_suite = TestSuite([
         transfer_ach_credit_suite,
         transfer_ach_prog_suite,
-        combine_acct_data_suite,
+        format_all_acct_data_suite,
         format_ach_credit_suite,
         format_ach_prog_suite,
         format_ach_rew_suite,

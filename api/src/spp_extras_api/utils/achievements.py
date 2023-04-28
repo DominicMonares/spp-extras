@@ -5,7 +5,7 @@ with open(from_root('data/achievements/factionAchievements.json'), 'r') as json_
 
 
 # Organize all quest, achievement, and other character related data by character
-def combine_acct_data(accounts, ach_credit, ach_char_prog, ach_shared_prog, completed_quests):
+def format_all_acct_data(accounts, ach_credit, ach_char_prog, ach_shared_prog, completed_quests):
     # Use accounts as base for all date
     all = accounts
 

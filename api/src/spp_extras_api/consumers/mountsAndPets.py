@@ -21,6 +21,10 @@ class AccountWideMountsPetsConsumer(WebsocketConsumer):
     def receive(self, text_data):
         def send_msg(msg): self.send(json.dumps({'message': msg}))
 
+        # ----------------------------------------------------------------
+        # Create all new data needed for transfers
+        # ----------------------------------------------------------------
+
         # Fetch all account data
         try:
             send_msg('Fetching account data...')
@@ -30,3 +34,32 @@ class AccountWideMountsPetsConsumer(WebsocketConsumer):
             send_msg('Failed to fetch account data!')
             send_msg(f'Error: {e}')
             return
+
+        # Fetch all character data
+        try:
+            send_msg('Fetching character data...')
+            character_data = sel_all_chars('wotlk')
+            send_msg('Character data successfully fetched!')
+        except Exception as e:
+            send_msg('Failed to fetch character data!')
+            send_msg(f'Error: {e}')
+            return
+        
+        # ----------------------------------------------------------------
+        # Fetch all existing data needed for transfers
+        # ----------------------------------------------------------------
+
+
+        # ----------------------------------------------------------------
+        # Format fetched data
+        # ----------------------------------------------------------------
+
+
+        # ----------------------------------------------------------------
+        # Run transfers and create db query arguments
+        # ----------------------------------------------------------------
+
+
+        # ----------------------------------------------------------------
+        # Run queries to save new data
+        # ----------------------------------------------------------------

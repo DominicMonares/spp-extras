@@ -180,6 +180,7 @@ Account-wide Achievements
 - double check if async is needed or not
 Account-wide Reputation
 Account-wide HKs
+Python types
 
 TEST
 Account-wide Achievements

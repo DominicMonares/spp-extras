@@ -4,7 +4,11 @@ import Modal from 'react-modal';
 import MainButton from '../MainButton';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { storeMessages } from '../../store/slices';
-import { openAchievementSocket, openReputationSocket } from '../../apiCalls';
+import { 
+  openAchievementSocket, 
+  openMountsPetsSocket,
+  openReputationSocket 
+} from '../../apiCalls';
 import './Controls.css';
 
 
@@ -58,17 +62,22 @@ const AccountWideControls = () => {
     setModalIsOpen(false);
   }
 
-  // Clear all current websocket message data then open new achievement connection
+  // Open account-wide WebSocket
   const openSocket = () => {
+    // Clear previous messages
     dispatch(storeMessages('del'));
+
+    // Dispatch to display each message sent from server as they come in
     if (tool === 'acctAchievements') {
       openAchievementSocket((message: string) => {
-        // Display each message sent from server as they come in
         dispatch(storeMessages(message));
       }, botsActive);
     } else if (tool === 'acctReps') {
       openReputationSocket((message: string) => {
-        // Display each message sent from server as they come in
+        dispatch(storeMessages(message));
+      }, botsActive);
+    } else if (tool === 'acctMountsPets') {
+      openMountsPetsSocket((message: string) => {
         dispatch(storeMessages(message));
       }, botsActive);
     }

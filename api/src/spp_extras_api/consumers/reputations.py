@@ -6,11 +6,7 @@ from spp_extras_api.queries.characters import (
     upd_char_rep
 )
 from spp_extras_api.queries.realmd import sel_all_accounts
-from spp_extras_api.utils.characters import (
-    create_char_ids,
-    format_accts_n_chars, 
-    format_player_accts
-)
+from spp_extras_api.utils.characters import format_accts_n_chars, format_player_accts
 from spp_extras_api.utils.reputations import format_reputations, transfer_reputations
 
 
@@ -48,10 +44,16 @@ class AccountWideReputationsConsumer(WebsocketConsumer):
             send_msg(f'Error: {e}')
             return
 
-        # Fetch reputation data for player accounts
+        # Format fetched account/char data then fetch rep data for player accounts
         try:
             send_msg('Fetching character reputation data...')
-            char_ids = create_char_ids(account_data, character_data)
+            _accounts = format_accts_n_chars(account_data, character_data)
+            accounts = format_player_accts(_accounts, False)
+            characters = accounts['0']['characters']
+            merged_chars = {**characters['alliance'], **characters['horde']}
+            char_ids = []
+            for c in merged_chars:
+                char_ids.append(int(c))
             char_rep_data = sel_all_char_rep('wotlk', char_ids)
             send_msg('Character reputation data successfully fetched!')
         except Exception as e:
@@ -62,7 +64,7 @@ class AccountWideReputationsConsumer(WebsocketConsumer):
         # Format fetched reputation data
         try:
             send_msg('Formatting fetched data...')
-            reputations = format_reputations(char_rep_data)
+            reputations = format_reputations(characters, char_rep_data)
             send_msg('Fetched data successfully formatted!')
         except Exception as e:
             send_msg('Failed to format fetched data!')

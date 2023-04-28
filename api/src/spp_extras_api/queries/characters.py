@@ -203,7 +203,7 @@ def ins_char_ach_shared_prog(achievements):
         counter = ach['counter']
         date = ach['date']
         try:
-            prog = WotlkCharacterAchievementSharedProgress.objects\
+            WotlkCharacterAchievementSharedProgress.objects\
                 .using('wotlkcharacters')\
                 .get(
                     account=account,
@@ -217,7 +217,7 @@ def ins_char_ach_shared_prog(achievements):
                     counter=counter,
                     date=date)
         else:
-            prog = WotlkCharacterAchievementSharedProgress.objects\
+            WotlkCharacterAchievementSharedProgress.objects\
                 .using('wotlkcharacters')\
                 .filter(
                     account=account,
@@ -390,8 +390,9 @@ def sel_all_char_rep(expansion, char_ids):
 
 def upd_char_rep(reputations):
     for r in reputations:
-        record = WotlkCharacterReputation.objects\
+        WotlkCharacterReputation.objects\
             .using('wotlkcharacters')\
-            .get(guid=r['guid'], faction=r['faction'])
-        record.standing = r['standing']
-        record.save()
+            .all()\
+            .filter(
+                guid=r['guid'], faction=r['faction'])\
+            .update(standing=r['standing'])

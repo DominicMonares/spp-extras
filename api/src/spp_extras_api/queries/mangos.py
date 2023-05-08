@@ -82,13 +82,12 @@ def sel_pet_mount_items():
         .using('wotlkmangos')\
         .filter(
             # Pets are subclass 2, Mounts are subclass 5
-            Q(class_field__exact=15, subclass__exact=2) |
-            Q(class_field__exact=15, subclass__exact=5))\
+            Q(class_field__exact=15, subclass__exact=2, allowable_class__exact=-1) |
+            Q(class_field__exact=15, subclass__exact=5, allowable_class__exact=-1))\
         .values(
             'entry',
             'subclass',
             'name',
-            'allowableclass',
             'allowablerace',
             'requiredskill',
             'requiredskillrank',

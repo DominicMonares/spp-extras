@@ -94,10 +94,10 @@ def sel_pet_mount_items():
             'requiredskillrank',
             'spellid_2')
 
+
 # ----------------------------------------------------------------
 # Quests
 # ----------------------------------------------------------------
-
 
 def sel_all_template_quests(expansion):
     return quest_template_model(expansion).objects\

@@ -24,7 +24,7 @@ class AccountWideReputationsConsumer(WebsocketConsumer):
     def receive(self, text_data):
         def send_msg(msg): self.send(json.dumps({'message': msg}))
 
-        # Fetch all account data
+        # FETCH all account data
         try:
             send_msg('Fetching account data...')
             account_data = sel_all_accounts('wotlk')
@@ -34,7 +34,7 @@ class AccountWideReputationsConsumer(WebsocketConsumer):
             send_msg(f'Error: {e}')
             return
 
-        # Fetch all character data
+        # FETCH all character data
         try:
             send_msg('Fetching character data...')
             character_data = sel_all_chars('wotlk')
@@ -44,13 +44,20 @@ class AccountWideReputationsConsumer(WebsocketConsumer):
             send_msg(f'Error: {e}')
             return
         
-        # Format fetched account/char data
-        _accounts = format_accts_n_chars(account_data, character_data)
-        accounts = format_player_accts(_accounts, False)
-        characters = accounts['0']['characters']
-        merged_chars = {**characters['alliance'], **characters['horde']}
+        # FORMAT fetched account/char data
+        try:
+            send_msg('Formatting account and character data...')
+            _accounts = format_accts_n_chars(account_data, character_data)
+            accounts = format_player_accts(_accounts, False)
+            characters = accounts['0']['characters']
+            merged_chars = {**characters['alliance'], **characters['horde']}
+            send_msg('Account and character data successfully formatted!')
+        except Exception as e:
+            send_msg('Failed to format account and character data!')
+            send_msg(f'Error: {e}')
+            return
 
-        # Fetch rep data for player accounts
+        # FETCH rep data for player accounts
         try:
             send_msg('Fetching character reputation data...')
             char_ids = []
@@ -63,7 +70,7 @@ class AccountWideReputationsConsumer(WebsocketConsumer):
             send_msg(f'Error: {e}')
             return
 
-        # Format fetched reputation data
+        # FORMAT fetched reputation data
         try:
             send_msg('Formatting fetched data...')
             reputations = format_reputations(char_rep_data)

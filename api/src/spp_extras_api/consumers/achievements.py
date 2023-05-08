@@ -60,7 +60,7 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
             bots_active = False
 
         # ----------------------------------------------------------------
-        # Create all new data needed for transfers
+        # Create new data needed for transfers
         # ----------------------------------------------------------------
 
         # Restore cut titles if they don't exist in db
@@ -108,10 +108,10 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
             return
         
         # ----------------------------------------------------------------
-        # Fetch all existing data needed for transfers
+        # Fetch and format data
         # ----------------------------------------------------------------
 
-        # Fetch all account data
+        # FETCH all account data
         try:
             send_msg('Fetching account data...')
             account_data = sel_all_accounts('wotlk')
@@ -121,7 +121,7 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
             send_msg(f'Error: {e}')
             return
 
-        # Fetch all character data
+        # FETCH all character data
         try:
             send_msg('Fetching character data...')
             character_data = sel_all_chars('wotlk')
@@ -131,7 +131,11 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
             send_msg(f'Error: {e}')
             return
 
-        # Fetch all achievement credit data
+        # FORMAT account and character data, combine player accounts
+        _accounts = format_accts_n_chars(account_data, character_data)
+        accounts = format_player_accts(_accounts, bots_active)
+
+        # FETCH all achievement credit data
         try:
             send_msg('Fetching achievement credit data...')
             ach_credit_data = sel_all_char_achs()
@@ -141,17 +145,23 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
             send_msg(f'Error: {e}')
             return
 
-        # Fetch all achievement progress data
+        # FORMAT achievement credit data
+        ach_credit = format_ach_credit(ach_credit_data)
+
+        # FETCH all achievement progress data
         try:
             send_msg('Fetching achievement progress data...')
-            ach_char_prog_data = sel_all_ach_prog()
+            ach_prog_data = sel_all_ach_prog()
             send_msg('Achievement progress data successfully fetched!')
         except Exception as e:
             send_msg('Failed to fetch achievement progress data!')
             send_msg(f'Error: {e}')
             return
+        
+        # FORMAT achievement progress data
+        ach_prog = format_ach_prog('char', ach_prog_data)
 
-        # Fetch all shared achievement progress data
+        # FETCH all shared achievement progress data
         try:
             send_msg('Fetching all shared achievement progress data...')
             ach_shared_prog_data = sel_all_char_ach_shared_prog()
@@ -161,7 +171,33 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
             send_msg(f'Error: {e}')
             return
 
-        # Fetch achievement reward template data
+        # FORMAT shared achievement progress data
+        ach_shared_prog = format_ach_prog('shared', ach_shared_prog_data)
+
+        # FETCH all completed regular quest data
+        try:
+            send_msg('Fetching completed regular quest data...')
+            completed_regular_data = sel_all_completed_reg_quests('wotlk')
+            send_msg('Completed regular quest data successfully fetched!')
+        except Exception as e:
+            send_msg('Failed to fetch completed regular quest data!')
+            send_msg(f'Error: {e}')
+            return
+
+        # FORMAT all completed regular quest data
+        # Weekly and monthly quests not tracked for any achievements (AFAIK)
+        completed_quests = format_completed_quests(
+            completed_regular_data, [], [], [])
+
+        # FORMAT all account and character related data
+        all_acct_data = format_all_acct_data(
+            accounts,
+            ach_credit,
+            ach_prog,
+            ach_shared_prog,
+            completed_quests)
+
+        # FETCH achievement reward template data
         try:
             send_msg('Fetching achievement reward data...')
             ach_rew_data = sel_all_ach_rewards()
@@ -170,8 +206,11 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
             send_msg('Failed to fetch achievement reward data!')
             send_msg(f'Error: {e}')
             return
+        
+        # FORMAT achievement reward template data
+        ach_rewards = format_ach_rewards(ach_rew_data)
 
-        # Fetch achievement reward item charge data
+        # FETCH achievement reward item charge data
         try:
             send_msg('Fetching achievement reward item charge data...')
             # Use achievement reward item IDs in query
@@ -183,8 +222,24 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
             send_msg('Failed to fetch achievement reward item charge data!')
             send_msg(f'Error: {e}')
             return
+        
+        # FORMAT achievement reward item charge data
+        item_charges = format_rew_item_charges(rew_item_charge_data)
 
-        # Fetch last item instance ID
+        # FETCH template quest data
+        try:
+            send_msg('Fetching template quest data...')
+            template_quest_data = sel_all_template_quests('wotlk')
+            send_msg('Template quest data successfully fetched!')
+        except Exception as e:
+            send_msg('Failed to fetch template quest data!')
+            send_msg(f'Error: {e}')
+            return
+        
+        # FORMAT template quest data
+        template_quests = format_template_quests(template_quest_data)
+
+        # FETCH last item instance ID
         try:
             send_msg('Fetching last item instance ID data...')
             last_item_inst_id = sel_last_item_inst_id()['guid']
@@ -194,7 +249,7 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
             send_msg(f'Error: {e}')
             return
 
-        # Fetch last mail ID
+        # FETCH last mail ID
         try:
             send_msg('Fetching last mail ID data...')
             last_mail_id = sel_last_mail_id()['id']
@@ -204,62 +259,8 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
             send_msg(f'Error: {e}')
             return
 
-        # Fetch all completed regular quest data
-        try:
-            send_msg('Fetching completed regular quest data...')
-            completed_regular_data = sel_all_completed_reg_quests('wotlk')
-            send_msg('Completed regular quest data successfully fetched!')
-        except Exception as e:
-            send_msg('Failed to fetch completed regular quest data!')
-            send_msg(f'Error: {e}')
-            return
-
-        # Fetch template quest data
-        try:
-            send_msg('Fetching template quest data...')
-            template_quest_data = sel_all_template_quests('wotlk')
-            send_msg('Template quest data successfully fetched!')
-        except Exception as e:
-            send_msg('Failed to fetch template quest data!')
-            send_msg(f'Error: {e}')
-            return
-
         # ----------------------------------------------------------------
-        # Format fetched data
-        # ----------------------------------------------------------------
-
-        try:
-            send_msg('Formatting fetched data...')
-            _accounts = format_accts_n_chars(account_data, character_data)
-            # Combine all player accounts/chars
-            accounts = format_player_accts(_accounts, bots_active)
-            ach_credit = format_ach_credit(ach_credit_data)
-            ach_char_prog = format_ach_prog('char', ach_char_prog_data)
-            ach_shared_prog = format_ach_prog('shared', ach_shared_prog_data)
-
-            # Weekly and monthly quests not tracked for any achievements (AFAIK)
-            completed_quests = format_completed_quests(
-                completed_regular_data, [], [], [])
-
-            # Combine all formatted account/character data
-            all_acct_data = format_all_acct_data(
-                accounts,
-                ach_credit,
-                ach_char_prog,
-                ach_shared_prog,
-                completed_quests)
-
-            ach_rewards = format_ach_rewards(ach_rew_data)
-            item_charges = format_rew_item_charges(rew_item_charge_data)
-            template_quests = format_template_quests(template_quest_data)
-            send_msg('Fetched data successfully formatted!')
-        except Exception as e:
-            send_msg('Failed to format fetched data!')
-            send_msg(f'Error: {e}')
-            return
-
-        # ----------------------------------------------------------------
-        # Run transfers and create db query arguments
+        # Run transfers
         # ----------------------------------------------------------------
 
         # Run progress transfer and add any new achievements in all_acct_data

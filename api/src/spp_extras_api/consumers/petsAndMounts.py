@@ -8,7 +8,7 @@ from spp_extras_api.queries.realmd import sel_all_accounts
 from spp_extras_api.utils.characters import format_accts_n_chars, format_player_accts
 
 
-class AccountWideMountsPetsConsumer(WebsocketConsumer):
+class AccountWidePetsMountsConsumer(WebsocketConsumer):
     def connect(self):
         print('Connected to mounts and pets WebSocket!')
         self.accept()

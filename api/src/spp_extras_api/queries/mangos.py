@@ -1,4 +1,5 @@
 import json
+from django.db.models import Q
 from from_root import from_root
 from spp_extras_api.models.classicmangos import ClassicQuestTemplate
 from spp_extras_api.models.tbcmangos import TbcQuestTemplate
@@ -76,19 +77,27 @@ def sel_rew_item_charges(items):
         .values('entry', 'spellcharges_1')
 
 
-# ----------------------------------------------------------------
-# Pets & Mounts
-# ----------------------------------------------------------------
-
-def sel_known_template_spells(known_spells):  # NEEDS REFACTORING
-    return WotlkSpellTemplate.objects\
+def sel_pet_mount_items():
+    return WotlkItemTemplate.objects\
         .using('wotlkmangos')\
-        .values()
-
+        .filter(
+            # Pets are subclass 2, Mounts are subclass 5
+            Q(class_field__exact=15, subclass__exact=2) |
+            Q(class_field__exact=15, subclass__exact=5))\
+        .values(
+            'entry',
+            'subclass',
+            'name',
+            'allowableclass',
+            'allowablerace',
+            'requiredskill',
+            'requiredskillrank',
+            'spellid_2')
 
 # ----------------------------------------------------------------
 # Quests
 # ----------------------------------------------------------------
+
 
 def sel_all_template_quests(expansion):
     return quest_template_model(expansion).objects\

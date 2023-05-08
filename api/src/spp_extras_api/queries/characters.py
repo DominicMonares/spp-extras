@@ -87,7 +87,7 @@ def monthly_quest_model(expansion):
 # Characters
 # ----------------------------------------------------------------
 
-def sel_all_chars(expansion):
+def sel_all_chars(expansion, player_only):
     return characters_model(expansion).objects\
         .using(f'{expansion}characters')\
         .all()\
@@ -320,30 +320,6 @@ def ins_reward_mail_items(items):
 
 
 # ----------------------------------------------------------------
-# Achievement Reward Spells
-# ----------------------------------------------------------------
-
-def sel_all_char_spells():
-    return WotlkCharacterSpell.objects\
-        .using('wotlkcharacters')\
-        .all()\
-        .values('guid', 'spell')
-
-
-def ins_char_spells(spells):  # NEEDS REFACTORING
-    WotlkCharacterSpell.objects\
-        .using('wotlkcharacters')\
-        .bulk_create(spells, ignore_conflicts=True)
-
-
-def sel_all_char_skills():
-    return WotlkCharacterSkills.objects\
-        .using('wotlkcharacters')\
-        .all()\
-        .values('guid', 'skill', 'values')
-
-
-# ----------------------------------------------------------------
 # Quests
 # ----------------------------------------------------------------
 
@@ -396,3 +372,29 @@ def upd_char_rep(reputations):
             .filter(
                 guid=r['guid'], faction=r['faction'])\
             .update(standing=r['standing'])
+
+
+# ----------------------------------------------------------------
+# Pets and Mounts
+# ----------------------------------------------------------------
+
+def sel_char_riding_skills(char_ids):
+    return WotlkCharacterSkills.objects\
+        .using('wotlkcharacters')\
+        .all()\
+        .filter(guid__in=char_ids, skill__exact=762)\
+        .values('guid', 'skill', 'value')
+
+
+def sel_char_pet_mount_spells(char_ids, spell_ids):
+    return WotlkCharacterSpell.objects\
+        .using('wotlkcharacters')\
+        .all()\
+        .filter(guid__in=char_ids, spell_ids__in=spell_ids)\
+        .values('guid', 'spell')
+
+
+def ins_char_pet_mount_spells(spells):  # NEEDS REFACTORING
+    WotlkCharacterSpell.objects\
+        .using('wotlkcharacters')\
+        .bulk_create(spells, ignore_conflicts=True)

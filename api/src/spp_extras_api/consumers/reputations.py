@@ -51,6 +51,9 @@ class AccountWideReputationsConsumer(WebsocketConsumer):
             accounts = format_player_accts(_accounts, False)
             characters = accounts['0']['characters']
             merged_chars = {**characters['alliance'], **characters['horde']}
+            char_ids = []
+            for c in merged_chars:
+                char_ids.append(int(c))
             send_msg('Account and character data successfully formatted!')
         except Exception as e:
             send_msg('Failed to format account and character data!')
@@ -60,9 +63,6 @@ class AccountWideReputationsConsumer(WebsocketConsumer):
         # FETCH rep data for player accounts
         try:
             send_msg('Fetching character reputation data...')
-            char_ids = []
-            for c in merged_chars:
-                char_ids.append(int(c))
             char_rep_data = sel_all_char_rep('wotlk', char_ids)
             send_msg('Character reputation data successfully fetched!')
         except Exception as e:

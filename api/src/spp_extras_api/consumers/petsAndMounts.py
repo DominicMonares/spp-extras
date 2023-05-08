@@ -1,7 +1,9 @@
 import json
 from channels.generic.websocket import WebsocketConsumer
 from spp_extras_api.queries.characters import (
-    sel_all_chars
+    sel_all_chars,
+    sel_char_pet_mount_spells,
+    sel_char_riding_skills
 )
 from spp_extras_api.queries.mangos import sel_pet_mount_items
 from spp_extras_api.queries.realmd import sel_all_accounts
@@ -23,7 +25,7 @@ class AccountWidePetsMountsConsumer(WebsocketConsumer):
         def send_msg(msg): self.send(json.dumps({'message': msg}))
 
         # ----------------------------------------------------------------
-        # Fetch all existing data needed for transfers
+        # Fetch and format data
         # ----------------------------------------------------------------
 
         # FETCH all account data
@@ -46,29 +48,49 @@ class AccountWidePetsMountsConsumer(WebsocketConsumer):
             send_msg(f'Error: {e}')
             return
         
-        # FORMAT fetched account/char data
+        # FORMAT fetched account and character data
+        _accounts = format_accts_n_chars(account_data, character_data)
+        accounts = format_player_accts(_accounts, False)
+        characters = accounts['0']['characters']
+        merged_chars = {**characters['alliance'], **characters['horde']}
+        
+        # Create list of character IDs for queries
+        def id_num(id): return int(id)
+        char_ids = map(id_num, merged_chars.keys())
+
+        # FETCH and FORMAT pet and mount item template data
         try:
-            send_msg('Formatting account and character data...')
-            _accounts = format_accts_n_chars(account_data, character_data)
-            accounts = format_player_accts(_accounts, False)
-            characters = accounts['0']['characters']
-            merged_chars = {**characters['alliance'], **characters['horde']}
-            send_msg('Account and character data successfully formatted!')
+            send_msg('Fetching pet and mount item data...')
+            pet_mount_item_data = sel_pet_mount_items()
+            send_msg('Pet and mount item data successfully fetched!')
         except Exception as e:
-            send_msg('Failed to format account and character data!')
+            send_msg('Failed to fetch pet and mount item data!')
             send_msg(f'Error: {e}')
             return
 
-        # FETCH template item data for pets and mounts
+        # Create list of pet and mount spell IDs for queries
+        def spell_id_num(id): return id['spellid_2']
+        spell_ids = map(spell_id_num, pet_mount_item_data)
+
+        # FETCH character pet and mount spell data
         try:
-            send_msg('Fetching character reputation data...')
-            char_ids = []
-            for c in merged_chars:
-                char_ids.append(int(c))
-            char_rep_data = sel_all_char_rep('wotlk', char_ids)
-            send_msg('Character reputation data successfully fetched!')
+            send_msg('Fetching character pet and mount spell data...')
+            pet_mount_spell_data = sel_char_pet_mount_spells(char_ids, spell_ids)
+            send_msg('Character pet and mount spell data successfully fetched!')
         except Exception as e:
-            send_msg('Failed to fetch character reputation data!')
+            send_msg('Failed to fetch character pet and mount spell data!')
+            send_msg(f'Error: {e}')
+            return
+
+
+
+        # FETCH character riding skill data
+        try:
+            send_msg('Fetching character riding skill data...')
+            riding_skill_data = sel_char_riding_skills(char_ids)
+            send_msg('Character riding skill data successfully fetched!')
+        except Exception as e:
+            send_msg('Failed to fetch character riding skill data!')
             send_msg(f'Error: {e}')
             return
 

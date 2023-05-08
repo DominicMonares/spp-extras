@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { storeMessages } from '../../store/slices';
 import { 
   openAchievementSocket, 
-  openMountsPetsSocket,
+  openPetsMountsSocket,
   openReputationSocket 
 } from '../../apiCalls';
 import './Controls.css';
@@ -48,8 +48,8 @@ const AccountWideControls = () => {
     } else if (tool === 'acctReps') {
       setMsgTool('reputations');
       setBotsActive(true);
-    } else if (tool === 'acctMountsPets') {
-      setMsgTool('mounts and pets');
+    } else if (tool === 'acctPetsMounts') {
+      setMsgTool('pets and mounts');
       setBotsActive(true);
     }
   }, [tool])
@@ -76,8 +76,8 @@ const AccountWideControls = () => {
       openReputationSocket((message: string) => {
         dispatch(storeMessages(message));
       }, botsActive);
-    } else if (tool === 'acctMountsPets') {
-      openMountsPetsSocket((message: string) => {
+    } else if (tool === 'acctPetsMounts') {
+      openPetsMountsSocket((message: string) => {
         dispatch(storeMessages(message));
       }, botsActive);
     }

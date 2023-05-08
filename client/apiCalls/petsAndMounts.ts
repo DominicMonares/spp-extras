@@ -2,15 +2,15 @@ import { port, wsUrl } from '../config';
 import { WebSocketMessage } from '../types';
 
 
-const gameSocket = new WebSocket(`${wsUrl}:${port}/ws/account_wide/mounts_pets/`);
+const gameSocket = new WebSocket(`${wsUrl}:${port}/ws/account_wide/pets_mounts/`);
 
 const connect: WebSocketMessage = (dispatchMessage) => {
   gameSocket.onopen = () => {
-    console.log('Mounts and pets WebSocket connection created!');
+    console.log('Pets and mounts WebSocket connection created!');
   }
 
   gameSocket.onclose = () => {
-    console.log('Mounts and pets WebSocket connection closed!');
+    console.log('Pets and mounts WebSocket connection closed!');
   }
 
   gameSocket.onmessage = e => {
@@ -20,7 +20,7 @@ const connect: WebSocketMessage = (dispatchMessage) => {
   }
 }
 
-export const openMountsPetsSocket: WebSocketMessage = async (dispatchMessage) => {
+export const openPetsMountsSocket: WebSocketMessage = async (dispatchMessage) => {
   connect(dispatchMessage);
   gameSocket.send(JSON.stringify({
     'message': 'player'

@@ -25,7 +25,7 @@ const Tools = ({ setInstalled }: ToolsProps) => {
         {expansion === 'wotlk' ? (
           <>
             <Tool tool="acctAchievements" name={'Account-wide Achievements'} />
-            <Tool tool="acctMountsPets" name={'Account-wide Mounts & Pets'} />
+            <Tool tool="acctPetsMounts" name={'Account-wide Pets & Mounts'} />
           </>
         ) : (
           <></>

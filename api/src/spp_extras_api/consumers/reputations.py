@@ -43,14 +43,16 @@ class AccountWideReputationsConsumer(WebsocketConsumer):
             send_msg('Failed to fetch character data!')
             send_msg(f'Error: {e}')
             return
+        
+        # Format fetched account/char data
+        _accounts = format_accts_n_chars(account_data, character_data)
+        accounts = format_player_accts(_accounts, False)
+        characters = accounts['0']['characters']
+        merged_chars = {**characters['alliance'], **characters['horde']}
 
-        # Format fetched account/char data then fetch rep data for player accounts
+        # Fetch rep data for player accounts
         try:
             send_msg('Fetching character reputation data...')
-            _accounts = format_accts_n_chars(account_data, character_data)
-            accounts = format_player_accts(_accounts, False)
-            characters = accounts['0']['characters']
-            merged_chars = {**characters['alliance'], **characters['horde']}
             char_ids = []
             for c in merged_chars:
                 char_ids.append(int(c))

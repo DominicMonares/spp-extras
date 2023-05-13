@@ -71,6 +71,7 @@
 }
 
 .error-text {
+  margin-bottom: 10px;
   font-family: MORPHEUS;
   font-size: 19px;
 }

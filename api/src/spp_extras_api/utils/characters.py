@@ -1,3 +1,4 @@
+# Determine faction based on race IDs
 def check_faction(faction):
     alliance = [1, 3, 4, 7, 11]
     return 'alliance' if faction in alliance else 'horde'

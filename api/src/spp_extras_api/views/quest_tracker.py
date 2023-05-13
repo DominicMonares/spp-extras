@@ -89,14 +89,6 @@ class QuestTrackerViewSet(viewsets.ViewSet):
             except Exception as e:
                 return send_err('Failed to fetch completed monthly quest data!')
 
-        # Send error if no quests exist
-        regs_exist = len(completed_reg_data) > 1
-        dailies_exist = len(completed_daily_data) > 1
-        weeklies_exist = len(completed_weekly_data) > 1
-        monthlies_exist = len(completed_monthly_data) > 1
-        if not regs_exist or not dailies_exist or not weeklies_exist or not monthlies_exist:
-            return send_err('No completed quests exist!')
-
         # Fetch all template quest data
         try:
             print('Fetching template quest data...')

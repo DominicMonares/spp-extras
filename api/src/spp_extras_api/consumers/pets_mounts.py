@@ -1,6 +1,7 @@
 import json
 from channels.generic.websocket import WebsocketConsumer
 from spp_extras_api.queries.characters import (
+    ins_char_pet_mount_spells,
     sel_all_chars,
     sel_char_pet_mount_spells,
     sel_char_riding_skills
@@ -11,7 +12,8 @@ from spp_extras_api.utils.characters import format_accts_n_chars, format_player_
 from spp_extras_api.utils.pets_mounts import (
     format_char_spell_data,
     format_char_skill_data,
-    format_pet_mount_item_data
+    format_pet_mount_item_data,
+    transfer_pet_mount_spells
 )
 
 
@@ -52,13 +54,13 @@ class AccountWidePetsMountsConsumer(WebsocketConsumer):
             send_msg('Failed to fetch character data!')
             send_msg(f'Error: {e}')
             return
-        
+
         # FORMAT fetched account and character data
         _accounts = format_accts_n_chars(account_data, character_data)
         accounts = format_player_accts(_accounts, False)
         characters = accounts['0']['characters']
         merged_chars = {**characters['alliance'], **characters['horde']}
-        
+
         # Create list of character IDs for queries
         def id_num(id): return int(id)
         char_ids = map(id_num, merged_chars.keys())
@@ -83,7 +85,8 @@ class AccountWidePetsMountsConsumer(WebsocketConsumer):
         # FETCH character pet and mount spell data
         try:
             send_msg('Fetching character pet and mount spell data...')
-            pet_mount_spell_data = sel_char_pet_mount_spells(char_ids, spell_ids)
+            pet_mount_spell_data = sel_char_pet_mount_spells(
+                char_ids, spell_ids)
             send_msg('Character pet and mount spell data successfully fetched!')
         except Exception as e:
             send_msg('Failed to fetch character pet and mount spell data!')
@@ -102,11 +105,35 @@ class AccountWidePetsMountsConsumer(WebsocketConsumer):
             send_msg('Failed to fetch character riding skill data!')
             send_msg(f'Error: {e}')
             return
-    
+
         # FORMAT character riding skill data
         char_riding_skills = format_char_skill_data(riding_skill_data)
 
         # ----------------------------------------------------------------
-        # Transfer and save
+        # Run transfer and query to save new data
         # ----------------------------------------------------------------
 
+        # Run character pet and mount spell transfer
+        try:
+            send_msg('Transferring pets and mounts between characters...')
+            spell_args = transfer_pet_mount_spells(
+                item_template, known_spells, char_riding_skills)
+            send_msg('Pets and mounts successfully transferred between characters!')
+        except Exception as e:
+            send_msg('Failed to transfer pets and mounts between characters!')
+            send_msg(f'Error: {e}')
+            return
+
+        # Save new character pet and mount spells
+        if len(spell_args):
+            try:
+                send_msg('Saving new pet and mount spell data...')
+                ins_char_pet_mount_spells(spell_args)
+                send_msg('New pet and mount spell data successfully saved!')
+            except Exception as e:
+                send_msg('Failed to save new pet and mount spell data!')
+                send_msg(f'Error: {e}')
+                return
+
+        send_msg('All pet and mount processes finished!')
+        send_msg('You can safely close this tool now.')

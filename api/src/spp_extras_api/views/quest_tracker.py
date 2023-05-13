@@ -21,7 +21,7 @@ class QuestTrackerViewSet(viewsets.ViewSet):
     def all(self, request):
         expansion = request.GET.get('expansion')
 
-        def send_res(data):
+        def send_success(data):
             print('All Quest Tracker data fetched and formatted!')
             return Response(
                 status=status.HTTP_200_OK,
@@ -133,4 +133,4 @@ class QuestTrackerViewSet(viewsets.ViewSet):
         # Return final response
         # ----------------------------------------------------------------
 
-        return send_res(all_data)
+        return send_success(all_data)

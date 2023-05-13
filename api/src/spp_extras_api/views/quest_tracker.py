@@ -48,7 +48,7 @@ class QuestTrackerViewSet(viewsets.ViewSet):
         # Fetch all character data
         try:
             print('Fetching character data...')
-            character_data = sel_all_chars(expansion)
+            character_data = sel_all_chars(expansion, False)
             print('Character data successfully fetched!')
         except Exception as e:
             return send_err('Failed to fetch character data!')

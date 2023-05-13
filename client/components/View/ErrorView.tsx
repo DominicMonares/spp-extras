@@ -10,9 +10,6 @@ const ErrorView = ({ error, getAllData }: ViewProps) => {
       <MainBigHeader headerText="Error" />
       <div className="error-view-body">
         <div className="error-text">{error}</div>
-        <div className="error-db-text">
-          Please ensure the database is still running.
-        </div>
         <MainButton handleClick={getAllData} buttonText={'Retry'} />
       </div>
     </div>

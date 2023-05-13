@@ -1,6 +1,6 @@
 from django.urls import re_path
 from .consumers.achievements import AccountWideAchievementsConsumer
-from .consumers.petsAndMounts import AccountWidePetsMountsConsumer
+from .consumers.pets_mounts import AccountWidePetsMountsConsumer
 from .consumers.reputations import AccountWideReputationsConsumer
 
 websocket_urlpatterns = [

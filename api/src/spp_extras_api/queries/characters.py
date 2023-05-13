@@ -87,7 +87,7 @@ def monthly_quest_model(expansion):
 # Characters
 # ----------------------------------------------------------------
 
-def sel_all_chars(expansion, player_only):
+def sel_all_chars(expansion):
     return characters_model(expansion).objects\
         .using(f'{expansion}characters')\
         .all()\

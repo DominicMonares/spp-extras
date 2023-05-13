@@ -1,10 +1,10 @@
 import { httpUrl, port } from '../config';
-import { FetchAllData } from '../types';
+import { FetchQuestTrackerData } from '../types';
 
 
-export const fetchAllData: FetchAllData = async expansion => {
+export const fetchQuestTrackerData: FetchQuestTrackerData = async expansion => {
   const parameters = new URLSearchParams({ expansion });
-  return await fetch(`${httpUrl}:${port}/data/all/?` + parameters)
+  return await fetch(`${httpUrl}:${port}/quest_tracker/all/?` + parameters)
     .then(async data => {
       const status = data.status;
       const response = await data.json();

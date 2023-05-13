@@ -1,4 +1,4 @@
 export * from './achievements';
-export * from './allData';
+export * from './questTracker';
 export * from './petsAndMounts';
 export * from './reputations';

@@ -1,10 +1,10 @@
 from django.urls import include, path
 from rest_framework import routers
-from .views.all_data import DataViewSet
+from .views.quest_tracker import QuestTrackerViewSet
 
 
 router = routers.DefaultRouter()
-router.register( 'data', DataViewSet, basename='/data' )
+router.register('quest_tracker', QuestTrackerViewSet, basename='/quest_tracker' )
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.

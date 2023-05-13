@@ -13,7 +13,7 @@ import {
   storeTemplateQuests,
   storeWindowWidth
 } from '../store/slices';
-import { fetchAllData } from '../apiCalls';
+import { fetchQuestTrackerData } from '../apiCalls';
 import { windowIsSmall } from '../utils';
 import { Expansion } from '../types';
 import './App.css';
@@ -40,7 +40,7 @@ const App = () => {
       if (savedExpansion && savedFaction) {
         // Close preferences and fetch data once settings have been transferred/confirmed
         setInstalled(true);
-        getAllData(null, savedExpansion);
+        getQuestTrackerData(null, savedExpansion);
       }
     }
 
@@ -48,7 +48,7 @@ const App = () => {
   }, [installed])
 
   useEffect(() => {
-    if (expansion && faction) getAllData();
+    if (expansion && faction) getQuestTrackerData();
   }, []);
 
   useEffect(() => {
@@ -59,12 +59,12 @@ const App = () => {
   }, []);
 
   // Fetch all data used in SPP Extras from DB
-  const getAllData = async (e?: any, xpac?: Expansion) => {
+  const getQuestTrackerData = async (e?: any, xpac?: Expansion) => {
     if (!xpac) xpac = expansion; // Used when switching expansions
     setLoading(true);
     setError('');
 
-    const allData = await fetchAllData(xpac).catch(err => setError(err.message));
+    const allData = await fetchQuestTrackerData(xpac).catch(err => setError(err.message));
     if (allData) {
       dispatch(storeAccounts(allData.accounts));
       dispatch(storeCompletedQuests(allData.completed_quests));
@@ -82,7 +82,7 @@ const App = () => {
     <div className={`app ${expansion || 'all'}-container`}>
       {installed ? (
         <>
-          <ExpansionNav getAllData={getAllData} />
+          <ExpansionNav getAllData={getQuestTrackerData} />
           <div className="lower-app">
             {smallWindow ? (
               <>
@@ -90,12 +90,12 @@ const App = () => {
                   <Tools setInstalled={setInstalled} />
                   <Controls />
                 </div>
-                <View error={error} getAllData={getAllData} loading={loading} />
+                <View error={error} getAllData={getQuestTrackerData} loading={loading} />
               </>
             ) : (
               <>
                 <Tools setInstalled={setInstalled} />
-                <View error={error} getAllData={getAllData} loading={loading} />
+                <View error={error} getAllData={getQuestTrackerData} loading={loading} />
                 <Controls />
               </>
             )}

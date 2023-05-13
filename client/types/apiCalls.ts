@@ -3,11 +3,11 @@ import { Expansion } from "./expansions";
 import { CompletedQuests, TemplateQuests } from "./quests";
 
 
-export type FetchAllData = (
+export type FetchQuestTrackerData = (
   expansion: Expansion
-) => Promise<FetchAllDataResponse>;
+) => Promise<FetchQuestTrackerResponse>;
 
-export interface FetchAllDataResponse {
+export interface FetchQuestTrackerResponse {
   accounts: Accounts;
   completed_quests: CompletedQuests;
   template_quests: TemplateQuests;

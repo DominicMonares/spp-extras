@@ -383,7 +383,7 @@ def sel_char_riding_skills(char_ids):
         .using('wotlkcharacters')\
         .all()\
         .filter(guid__in=char_ids, skill__exact=762)\
-        .values('guid', 'skill', 'value')
+        .values('guid', 'value')
 
 
 def sel_char_pet_mount_spells(char_ids, spell_ids):

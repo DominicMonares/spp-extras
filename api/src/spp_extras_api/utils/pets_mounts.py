@@ -1,28 +1,28 @@
 # Organize pet and mount items by faction and type
 def format_pet_mount_item_data(items):
     all = {
-        'alliance': {'pets': {}, 'mounts': {}}, 
-        'horde': {'pets': {}, 'mounts': {}}, 
+        'alliance': {'pets': {}, 'mounts': {}},
+        'horde': {'pets': {}, 'mounts': {}},
         'neutral': {'pets': {}, 'mounts': {}}
     }
-    
+
     for item in items:
         entry = item['entry']
         faction = item['allowablerace']
         subclass = item['subclass']
-        if subclass == 2: # Pets
-            if faction == 1101: # Alliance
+        if subclass == 2:  # Pets
+            if faction == 1101:  # Alliance
                 all['alliance']['pets'][str(entry)] = item
-            if faction == 690: # Horde
+            if faction == 690:  # Horde
                 all['horde']['pets'][str(entry)] = item
-            elif faction == -1: # Neutral
+            elif faction == -1:  # Neutral
                 all['neutral']['pets'][str(entry)] = item
-        elif subclass == 5: # Mounts
-            if faction == 1101: # Alliance
+        elif subclass == 5:  # Mounts
+            if faction == 1101:  # Alliance
                 all['alliance']['mounts'][str(entry)] = item
-            if faction == 690: # Horde
+            if faction == 690:  # Horde
                 all['horde']['mounts'][str(entry)] = item
-            elif faction == -1: # Neutral
+            elif faction == -1:  # Neutral
                 all['neutral']['mounts'][str(entry)] = item
 
     return all
@@ -51,3 +51,16 @@ def format_char_skill_data(skills):
         all[guid] = value
 
     return all
+
+
+def transfer_pet_mount_spells(item_template, known_spells, char_riding_skills):
+    args = []
+    all = {
+        'alliance': {'pets': {}, 'mounts': {}},
+        'horde': {'pets': {}, 'mounts': {}},
+        'neutral': {'pets': {}, 'mounts': {}}
+    }
+
+    
+
+    return

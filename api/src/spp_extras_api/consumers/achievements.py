@@ -177,7 +177,7 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
         # FETCH all completed regular quest data
         try:
             send_msg('Fetching completed regular quest data...')
-            completed_regular_data = sel_all_completed_reg_quests('wotlk')
+            completed_reg_data = sel_all_completed_reg_quests('wotlk')
             send_msg('Completed regular quest data successfully fetched!')
         except Exception as e:
             send_msg('Failed to fetch completed regular quest data!')
@@ -187,7 +187,7 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
         # FORMAT all completed regular quest data
         # Weekly and monthly quests not tracked for any achievements (AFAIK)
         completed_quests = format_completed_quests(
-            completed_regular_data, [], [], [])
+            completed_reg_data, [], [], [])
 
         # FORMAT all account and character related data
         all_acct_data = format_all_acct_data(

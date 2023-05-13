@@ -8,6 +8,11 @@ from spp_extras_api.queries.characters import (
 from spp_extras_api.queries.mangos import sel_pet_mount_items
 from spp_extras_api.queries.realmd import sel_all_accounts
 from spp_extras_api.utils.characters import format_accts_n_chars, format_player_accts
+from spp_extras_api.utils.pets_mounts import (
+    format_char_spell_data,
+    format_char_skill_data,
+    format_pet_mount_item_data
+)
 
 
 class AccountWidePetsMountsConsumer(WebsocketConsumer):
@@ -58,7 +63,7 @@ class AccountWidePetsMountsConsumer(WebsocketConsumer):
         def id_num(id): return int(id)
         char_ids = map(id_num, merged_chars.keys())
 
-        # FETCH and FORMAT pet and mount item template data
+        # FETCH pet and mount item template data
         try:
             send_msg('Fetching pet and mount item data...')
             pet_mount_item_data = sel_pet_mount_items()
@@ -67,6 +72,9 @@ class AccountWidePetsMountsConsumer(WebsocketConsumer):
             send_msg('Failed to fetch pet and mount item data!')
             send_msg(f'Error: {e}')
             return
+
+        # FORMAT pet and mount item template data
+        item_template = format_pet_mount_item_data(pet_mount_item_data)
 
         # Create list of pet and mount spell IDs for queries
         def spell_id_num(id): return id['spellid_2']
@@ -82,7 +90,8 @@ class AccountWidePetsMountsConsumer(WebsocketConsumer):
             send_msg(f'Error: {e}')
             return
 
-
+        # FORMAT character pet and mount spell data
+        known_spells = format_char_spell_data(pet_mount_spell_data)
 
         # FETCH character riding skill data
         try:
@@ -93,17 +102,11 @@ class AccountWidePetsMountsConsumer(WebsocketConsumer):
             send_msg('Failed to fetch character riding skill data!')
             send_msg(f'Error: {e}')
             return
+    
+        # FORMAT character riding skill data
+        char_riding_skills = format_char_skill_data(riding_skill_data)
 
         # ----------------------------------------------------------------
-        # Format fetched data
+        # Transfer and save
         # ----------------------------------------------------------------
 
-
-        # ----------------------------------------------------------------
-        # Run transfers and create db query arguments
-        # ----------------------------------------------------------------
-
-
-        # ----------------------------------------------------------------
-        # Run queries to save new data
-        # ----------------------------------------------------------------

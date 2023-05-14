@@ -117,7 +117,7 @@ class AccountWidePetsMountsConsumer(WebsocketConsumer):
         try:
             send_msg('Transferring pets and mounts between characters...')
             spell_args = transfer_pet_mount_spells(
-                item_template, known_spells, char_riding_skills)
+                item_template, merged_chars, known_spells, char_riding_skills)
             send_msg('Pets and mounts successfully transferred between characters!')
         except Exception as e:
             send_msg('Failed to transfer pets and mounts between characters!')

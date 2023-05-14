@@ -1,29 +1,9 @@
-# Organize pet and mount items by faction and type
+# Organize and assign factions to each pet and mount spell
 def format_pet_mount_item_data(items):
-    all = {
-        'alliance': {'pets': {}, 'mounts': {}},
-        'horde': {'pets': {}, 'mounts': {}},
-        'neutral': {'pets': {}, 'mounts': {}}
-    }
-
+    all = {}
     for item in items:
         entry = item['entry']
-        faction = item['allowablerace']
-        subclass = item['subclass']
-        if subclass == 2:  # Pets
-            if faction == 1101:  # Alliance
-                all['alliance']['pets'][str(entry)] = item
-            if faction == 690:  # Horde
-                all['horde']['pets'][str(entry)] = item
-            elif faction == -1:  # Neutral
-                all['neutral']['pets'][str(entry)] = item
-        elif subclass == 5:  # Mounts
-            if faction == 1101:  # Alliance
-                all['alliance']['mounts'][str(entry)] = item
-            if faction == 690:  # Horde
-                all['horde']['mounts'][str(entry)] = item
-            elif faction == -1:  # Neutral
-                all['neutral']['mounts'][str(entry)] = item
+        all[str(entry)] = item
 
     return all
 

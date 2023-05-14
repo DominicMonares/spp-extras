@@ -86,7 +86,6 @@ def sel_pet_mount_items():
             Q(class_field__exact=15, subclass__exact=5, allowable_class__exact=-1))\
         .values(
             'entry',
-            'subclass',
             'name',
             'allowablerace',
             'requiredskill',

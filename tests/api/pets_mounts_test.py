@@ -45,4 +45,16 @@ class TestFormatCharSkills(TestCase):
 class TestTransferPetMountSpells(TestCase):
     """Should return array of pet and mount spell query arguments"""
     def transfer_pet_mount_spells(self):
-        self.assertEqual([], [])
+        with open(from_root('tests/samples/api/transferredPetsMounts.json'), 'r') as json_file:
+            expected = json.load(json_file)
+        with open(from_root('tests/samples/formattedData/characterSkills.json'), 'r') as json_file:
+            char_skills = json.load(json_file)
+        with open(from_root('tests/samples/formattedData/characterSpells.json'), 'r') as json_file:
+            char_spells = json.load(json_file)
+        with open(from_root('tests/samples/formattedData/mergedCharacters.json'), 'r') as json_file:
+            merged_chars = json.load(json_file)
+        with open(from_root('tests/samples/formattedData/petMountItems.json'), 'r') as json_file:
+            pet_mount_items = json.load(json_file)
+        result = transfer_pet_mount_spells(
+            pet_mount_items, merged_chars, char_spells, char_skills)
+        self.assertEqual(result, expected)

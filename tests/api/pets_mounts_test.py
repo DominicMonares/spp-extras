@@ -23,9 +23,9 @@ class TestFormatPetMountItems(TestCase):
 class TestFormatCharSpells(TestCase):
     """Should return known pet and mount spell dict sorted by character"""
     def test_format_char_spell_data(self):
-        with open(from_root('tests/samples/formattedData/charSpells.json'), 'r') as json_file:
+        with open(from_root('tests/samples/formattedData/characterSpells.json'), 'r') as json_file:
             char_spells = json.load(json_file)
-        with open(from_root('tests/samples/rawData/rawCharSpells.json'), 'r') as json_file:
+        with open(from_root('tests/samples/rawData/rawCharacterSpells.json'), 'r') as json_file:
             raw_char_spells = json.load(json_file)
         result = format_char_spell_data(raw_char_spells)
         self.assertEqual(result, char_spells)

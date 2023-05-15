@@ -30,7 +30,7 @@ def format_char_skill_data(skills):
     all = {}
     for skill in skills:
         guid = str(skill['guid'])
-        value = str(skill['value'])
+        value = skill['value']
         all[guid] = value
 
     return all
@@ -44,7 +44,8 @@ def transfer_pet_mount_spells(pet_mount_items, merged_chars, known_spells, char_
     faction_items = {'alliance': {}, 'horde': {}, 'neutral': {}}
     for char in known_spells:
         spells = known_spells[char]
-        for spell_id in spells:
+        for s_id in spells:
+            spell_id = str(s_id)
             if spell_id in pet_mount_items:
                 spell_item = pet_mount_items[spell_id]
                 race = spell_item['allowablerace']
@@ -59,18 +60,18 @@ def transfer_pet_mount_spells(pet_mount_items, merged_chars, known_spells, char_
     for c in merged_chars:
         char = merged_chars[c]
         race = char['race']
-        faction = check_faction[race]
+        faction = check_faction(race)
         items = {**faction_items[faction], **faction_items['neutral']}
-        for si in items:
-            item = items[si]
-            req_skill = item['requiredskill']
+        for s_id in items:
+            item = items[s_id]
+            req_skill = item['requiredskillrank']
             char_skill = char_riding_skills[c]
             can_use = char_skill >= req_skill
-            already_known = si in known_spells[c]
+            already_known = c in known_spells and s_id in known_spells[c]
             if can_use and not already_known:
                 args.append({
                     'guid': c,
-                    'spell_id': si
+                    'spell_id': s_id
                 })
 
     return args

@@ -89,7 +89,6 @@ def sel_pet_mount_items():
             'subclass',
             'name',
             'allowablerace',
-            'requiredskill',
             'requiredskillrank',
             'spellid_2')
 

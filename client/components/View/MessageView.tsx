@@ -15,7 +15,7 @@ const MessageView = () => {
       setHeaderTool('achievements');
     } else if (tool === 'acctReps') {
       setHeaderTool('reputations');
-    } else if (tool === 'acctMountsPets') {
+    } else if (tool === 'acctPetsMounts') {
       setHeaderTool('mounts & pets');
     }
   })

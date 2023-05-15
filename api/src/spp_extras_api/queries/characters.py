@@ -379,7 +379,6 @@ def upd_char_rep(reputations):
 # ----------------------------------------------------------------
 
 def sel_char_riding_skills(char_ids):
-
     return WotlkCharacterSkills.objects\
         .using('wotlkcharacters')\
         .all()\

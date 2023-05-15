@@ -63,7 +63,7 @@ class AccountWidePetsMountsConsumer(WebsocketConsumer):
 
         # Create list of character IDs for queries
         def id_num(id): return int(id)
-        char_ids = map(id_num, merged_chars.keys())
+        char_ids = list(map(id_num, merged_chars.keys()))
 
         # FETCH pet and mount item template data
         try:
@@ -80,18 +80,18 @@ class AccountWidePetsMountsConsumer(WebsocketConsumer):
 
         # Create list of pet and mount spell IDs for queries
         def spell_id_num(id): return id['spellid_2']
-        spell_ids = map(spell_id_num, pet_mount_item_data)
+        spell_ids = list(map(spell_id_num, pet_mount_item_data))
 
         # FETCH character pet and mount spell data
         try:
             send_msg('Fetching character pet and mount spell data...')
-            pet_mount_spell_data = sel_char_pet_mount_spells(
-                char_ids, spell_ids)
+            pet_mount_spell_data = sel_char_pet_mount_spells(char_ids, spell_ids)
             send_msg('Character pet and mount spell data successfully fetched!')
         except Exception as e:
             send_msg('Failed to fetch character pet and mount spell data!')
             send_msg(f'Error: {e}')
             return
+        
 
         # FORMAT character pet and mount spell data
         known_spells = format_char_spell_data(pet_mount_spell_data)

@@ -148,7 +148,7 @@ def ins_ach_prog(achievements):
         counter = ach['counter']
         date = ach['date']
         try:
-            prog = WotlkCharacterAchievementProgress.objects\
+            WotlkCharacterAchievementProgress.objects\
                 .using('wotlkcharacters')\
                 .get(
                     guid=guid,
@@ -162,7 +162,7 @@ def ins_ach_prog(achievements):
                     counter=counter,
                     date=date)
         else:
-            prog = WotlkCharacterAchievementProgress.objects\
+            WotlkCharacterAchievementProgress.objects\
                 .using('wotlkcharacters')\
                 .filter(
                     guid=guid,
@@ -394,7 +394,12 @@ def sel_char_pet_mount_spells(char_ids, spell_ids):
         .values('guid', 'spell')
 
 
-def ins_char_pet_mount_spells(spells):  # NEEDS REFACTORING
-    WotlkCharacterSpell.objects\
-        .using('wotlkcharacters')\
-        .bulk_create(spells, ignore_conflicts=True)
+def ins_char_pet_mount_spells(spells):
+    for spell in spells:
+        WotlkCharacterSpell.objects\
+            .using('wotlkcharacters')\
+            .create(
+                guid=spell['guid'],
+                spell=spell['spell_id'],
+                active=1,
+                disabled=0)

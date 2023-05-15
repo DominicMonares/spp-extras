@@ -62,7 +62,8 @@
     "allowablerace": 32767,
     "requiredskillrank": 300,
     "spellid_2": 61451
-  },{
+  },
+  {
     "entry": 46100,
     "subclass": 5,
     "name": "White Kodo",

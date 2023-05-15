@@ -1,7 +1,7 @@
 from unittest import TestLoader, TestSuite, TextTestRunner
-from .ach_credit_transfer import TestTransferAchCredit
-from .ach_prog_transfer import TestTransferAchProg
-from .achievements import (
+from .ach_credit_transfer_test import TestTransferAchCredit
+from .ach_prog_transfer_test import TestTransferAchProg
+from .achievements_test import (
     TestFormatAchCredit,
     TestFormatAchProg,
     TestCombineAcctData,
@@ -9,16 +9,16 @@ from .achievements import (
     TestFormatRewItemCharges,
     TestCheckFactionAch
 )
-from .characters import (
+from .characters_test import (
     TestCheckFaction,
     TestFormatCharacters,
     TestFormatPlayers,
 )
-from .reputations import (
+from .reputations_test import (
     TestFormatReputations,
     TestTransferReputations
 )
-from .quests import TestFormatCompletedQuests, TestFormatTemplateQuests
+from .quests_test import TestFormatCompletedQuests, TestFormatTemplateQuests
 
 
 # Prevents init constructor warnings

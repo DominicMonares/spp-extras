@@ -14,6 +14,12 @@ from .characters_test import (
     TestFormatCharacters,
     TestFormatPlayers,
 )
+from .pets_mounts_test import (
+    TestFormatPetMountItems,
+    TestFormatCharSpells,
+    TestFormatCharSkills,
+    TestTransferPetMountSpells
+)
 from .reputations_test import (
     TestFormatReputations,
     TestTransferReputations
@@ -57,6 +63,16 @@ def suites():
     format_players_suite = TestLoader()\
         .loadTestsFromTestCase(TestFormatPlayers)
     
+    # Pet and Mount Utils
+    format_pet_mount_items_suite = TestLoader()\
+        .loadTestsFromTestCase(TestFormatPetMountItems)
+    format_char_spells_suite = TestLoader()\
+        .loadTestsFromTestCase(TestFormatCharSpells)
+    format_char_skills_suite = TestLoader()\
+        .loadTestsFromTestCase(TestFormatCharSkills)
+    transfer_pet_mount_spells_suite = TestLoader()\
+        .loadTestsFromTestCase(TestTransferPetMountSpells)
+
     # Reputation Utils
     format_char_reps_suite = TestLoader()\
         .loadTestsFromTestCase(TestFormatReputations)
@@ -82,6 +98,10 @@ def suites():
         check_faction_suite,
         format_characters_suite,
         format_players_suite,
+        format_pet_mount_items_suite,
+        format_char_spells_suite,
+        format_char_skills_suite,
+        transfer_pet_mount_spells_suite,
         format_char_reps_suite,
         transfer_reputations_suite,
         format_completed_quests_suite,

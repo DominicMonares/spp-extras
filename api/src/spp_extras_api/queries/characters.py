@@ -124,12 +124,6 @@ def ins_char_achs(achievements):
         .bulk_create(args, ignore_conflicts=True)
 
 
-def ins_char_honor_kills(chars):  # NEEDS REFACTORING
-    WotlkCharacters.objects\
-        .using('wotlkcharacters')\
-        .bulk_update(chars, [])
-
-
 # ----------------------------------------------------------------
 # Achievement Progress
 # ----------------------------------------------------------------

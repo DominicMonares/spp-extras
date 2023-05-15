@@ -238,3 +238,5 @@ Note for all account-wide:
 
 Note for account-wide rep:
   - Progress won't appear in the in-game Reputation tab until a character has discovered the rep
+
+CLEANUP insert update queries

@@ -7,7 +7,7 @@ with open(from_root('data/petsAndMounts/professionSpells.json'), 'r') as json_fi
     profession_spells = json.load(json_file)
 
 
-# Organize and assign factions to each pet and mount spell
+# Organize pet and mount items by spell ID
 def format_pet_mount_item_data(items):
     all = {}
     for item in items:

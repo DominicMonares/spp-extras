@@ -76,7 +76,7 @@ class AccountWidePetsMountsConsumer(WebsocketConsumer):
             return
 
         # FORMAT pet and mount item template data
-        item_template = format_pet_mount_item_data(pet_mount_item_data)
+        pet_mount_items = format_pet_mount_item_data(pet_mount_item_data)
 
         # Create list of pet and mount spell IDs for queries
         def spell_id_num(id): return id['spellid_2']
@@ -117,7 +117,7 @@ class AccountWidePetsMountsConsumer(WebsocketConsumer):
         try:
             send_msg('Transferring pets and mounts between characters...')
             spell_args = transfer_pet_mount_spells(
-                item_template, merged_chars, known_spells, char_riding_skills)
+                pet_mount_items, merged_chars, known_spells, char_riding_skills)
             send_msg('Pets and mounts successfully transferred between characters!')
         except Exception as e:
             send_msg('Failed to transfer pets and mounts between characters!')

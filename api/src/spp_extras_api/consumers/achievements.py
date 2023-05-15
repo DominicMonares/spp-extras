@@ -215,7 +215,7 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
             send_msg('Fetching achievement reward item charge data...')
             # Use achievement reward item IDs in query
             def rew_item_id(i): return i['item']
-            rew_item_ids = map(rew_item_id, ach_rew_data)
+            rew_item_ids = list(map(rew_item_id, ach_rew_data))
             rew_item_charge_data = sel_rew_item_charges(rew_item_ids)
             send_msg('Achievement reward item charge data successfully fetched!')
         except Exception as e:

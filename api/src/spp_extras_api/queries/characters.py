@@ -118,7 +118,7 @@ def ins_char_achs(achievements):
             guid=a['guid'],
             achievement=a['achievement'],
             date=a['date'])
-    args = map(create_args, achievements)
+    args = list(map(create_args, achievements))
     WotlkCharacterAchievement.objects\
         .using('wotlkcharacters')\
         .bulk_create(args, ignore_conflicts=True)
@@ -269,7 +269,7 @@ def ins_reward_item_instances(instances):
             durability=i['durability'],
             playedtime=i['playedtime'],
             text=i['text'])
-    args = map(create_args, instances)
+    args = list(map(create_args, instances))
     WotlkItemInstance.objects\
         .using('wotlkcharacters')\
         .bulk_create(args)
@@ -300,7 +300,7 @@ def ins_reward_mail(mail):
             money=m['money'],
             cod=m['cod'],
             checked=m['checked'])
-    args = map(create_args, mail)
+    args = list(map(create_args, mail))
     WotlkMail.objects\
         .using('wotlkcharacters')\
         .bulk_create(args)
@@ -313,7 +313,7 @@ def ins_reward_mail_items(items):
             item_guid=i['item_guid'],
             item_template=i['item_template'],
             receiver=i['receiver'])
-    args = map(create_args, items)
+    args = list(map(create_args, items))
     WotlkMailItems.objects\
         .using('wotlkcharacters')\
         .bulk_create(args)
@@ -379,6 +379,7 @@ def upd_char_rep(reputations):
 # ----------------------------------------------------------------
 
 def sel_char_riding_skills(char_ids):
+
     return WotlkCharacterSkills.objects\
         .using('wotlkcharacters')\
         .all()\
@@ -387,10 +388,13 @@ def sel_char_riding_skills(char_ids):
 
 
 def sel_char_pet_mount_spells(char_ids, spell_ids):
+    print(f'BBBBBBBBB {char_ids}')
+    for char in char_ids:
+        print(f'AAAAAAAAa {char}')
     return WotlkCharacterSpell.objects\
         .using('wotlkcharacters')\
         .all()\
-        .filter(guid__in=char_ids, spell_ids__in=spell_ids)\
+        .filter(guid__in=char_ids, spell__in=spell_ids)\
         .values('guid', 'spell')
 
 

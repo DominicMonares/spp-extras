@@ -15,6 +15,14 @@
     "requiredskillrank": 75,
     "spellid_2": 10873
   },
+  "23227": {
+    "entry": 18776,
+    "subclass": 5,
+    "name": "Swift Palomino",
+    "allowablerace": 1101,
+    "requiredskillrank": 150,
+    "spellid_2": 23227
+  },
   "23251": {
     "entry": 18797,
     "subclass": 5,
@@ -54,5 +62,13 @@
     "allowablerace": 32767,
     "requiredskillrank": 300,
     "spellid_2": 61451
+  },
+  "64657": {
+    "entry": 46100,
+    "subclass": 5,
+    "name": "White Kodo",
+    "allowablerace": 690,
+    "requiredskillrank": 75,
+    "spellid_2": 64657
   }
 }

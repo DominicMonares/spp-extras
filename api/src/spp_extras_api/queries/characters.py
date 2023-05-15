@@ -388,9 +388,6 @@ def sel_char_riding_skills(char_ids):
 
 
 def sel_char_pet_mount_spells(char_ids, spell_ids):
-    print(f'BBBBBBBBB {char_ids}')
-    for char in char_ids:
-        print(f'AAAAAAAAa {char}')
     return WotlkCharacterSpell.objects\
         .using('wotlkcharacters')\
         .all()\

@@ -28,13 +28,18 @@ class TestFormatCharSpells(TestCase):
         with open(from_root('tests/samples/rawData/rawCharacterSpells.json'), 'r') as json_file:
             raw_char_spells = json.load(json_file)
         result = format_char_spell_data(raw_char_spells)
-        self.assertEqual(result, char_spells)
+        self.assertDictEqual(result, char_spells)
 
 
 class TestFormatCharSkills(TestCase):
     """Should return riding skill dict sorted by character"""
     def test_format_char_skill_data(self):
-        self.assertDictEqual({}, {})
+        with open(from_root('tests/samples/formattedData/characterSkills.json'), 'r') as json_file:
+            char_skills = json.load(json_file)
+        with open(from_root('tests/samples/rawData/rawCharacterSkills.json'), 'r') as json_file:
+            raw_char_skills = json.load(json_file)
+        result = format_char_skill_data(raw_char_skills)
+        self.assertDictEqual(result, char_skills)
 
 
 class TestTransferPetMountSpells(TestCase):

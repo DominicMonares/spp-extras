@@ -65,7 +65,7 @@ def transfer_pet_mount_spells(pet_mount_items, merged_chars, known_spells, char_
         for s_id in items:
             item = items[s_id]
             req_skill = item['requiredskillrank']
-            char_skill = char_riding_skills[c]
+            char_skill = char_riding_skills[c] or 0
             can_use = char_skill >= req_skill
             already_known = c in known_spells and s_id in known_spells[c]
             if can_use and not already_known:

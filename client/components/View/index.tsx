@@ -22,7 +22,7 @@ const View = ({ error, getAllData, loading }: ViewProps) => {
       {error ? <ErrorView error={error} getAllData={getAllData} /> : <></>}
       {!tool && !loading && !error ? <HomeView /> : <></>}
       {(
-        (tool === 'acctAchievements' || tool === 'acctReps' || tool === 'acctMountsPets') && 
+        (tool === 'acctAchievements' || tool === 'acctReps' || tool === 'acctPetsMounts') && 
         (!loading && !error)
       ) ? (
         <MessageView />

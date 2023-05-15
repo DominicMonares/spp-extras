@@ -19,7 +19,7 @@ const Controls = () => {
       ) : (
         <></>
       )}
-      {tool === 'acctAchievements' || tool === 'acctReps' || tool === 'acctMountsPets' ? (
+      {tool === 'acctAchievements' || tool === 'acctReps' || tool === 'acctPetsMounts' ? (
         <AccountwideControls />
       ) : (
         <></>

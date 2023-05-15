@@ -114,15 +114,15 @@ class AccountWidePetsMountsConsumer(WebsocketConsumer):
         # ----------------------------------------------------------------
 
         # Run character pet and mount spell transfer
-        # try:
-        send_msg('Transferring pets and mounts between characters...')
-        spell_args = transfer_pet_mount_spells(
-            pet_mount_items, merged_chars, known_spells, char_riding_skills)
-        send_msg('Pets and mounts successfully transferred between characters!')
-        # except Exception as e:
-        #     send_msg('Failed to transfer pets and mounts between characters!')
-        #     send_msg(f'Error: {e}')
-        #     return
+        try:
+            send_msg('Transferring pets and mounts between characters...')
+            spell_args = transfer_pet_mount_spells(
+                pet_mount_items, merged_chars, known_spells, char_riding_skills)
+            send_msg('Pets and mounts successfully transferred between characters!')
+        except Exception as e:
+            send_msg('Failed to transfer pets and mounts between characters!')
+            send_msg(f'Error: {e}')
+            return
 
         # Save new character pet and mount spells
         if len(spell_args):

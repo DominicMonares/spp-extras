@@ -56,7 +56,7 @@ class AccountWideReputationsConsumer(WebsocketConsumer):
 
         # Create list of character IDs for queries
         def id_num(id): return int(id)
-        char_ids = map(id_num, merged_chars.keys())
+        char_ids = list(map(id_num, merged_chars.keys()))
 
         # FETCH rep data for player accounts
         try:

@@ -80,11 +80,13 @@ def transfer_pet_mount_spells(pet_mount_items, merged_chars, known_spells, char_
                     item = pet_mount_items[s_id]
 
             # Check to see if character has high enough riding skill
-            char_skill = char_riding_skills[c] or 0
+            char_skill = 0
+            if c in char_riding_skills:
+                char_skill = char_riding_skills[c]
             req_skill = item['requiredskillrank']
             if s_id in profession_spells:
                 # Specify riding level requirement for engineering/tailoring mounts
-                # Approved side effect: removes profession requirements for these mounts
+                # Approved side effect: profession reqs get removed for these mounts
                 req_skill = profession_spells[s_id]
             skill_match = char_skill >= req_skill
 
@@ -96,7 +98,7 @@ def transfer_pet_mount_spells(pet_mount_items, merged_chars, known_spells, char_
             spell_is_horde = req_faction == 690
             char_is_horde = char_faction == 'horde'
             horde_match = spell_is_horde and char_is_horde
-            neutral_match = req_faction == 0 or req_faction == 32767
+            neutral_match = req_faction == -1 or req_faction == 32767
             faction_match = alliance_match or horde_match or neutral_match
 
             # Check to see if character meets all requirements

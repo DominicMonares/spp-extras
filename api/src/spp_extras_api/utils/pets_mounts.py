@@ -1,3 +1,6 @@
+from .characters import check_faction
+
+
 # Organize and assign factions to each pet and mount spell
 def format_pet_mount_item_data(items):
     all = {}
@@ -33,19 +36,41 @@ def format_char_skill_data(skills):
     return all
 
 
-def transfer_pet_mount_spells(item_template, merged_chars, known_spells, char_riding_skills):
+# Share pet and mount spells between all characters
+def transfer_pet_mount_spells(pet_mount_items, merged_chars, known_spells, char_riding_skills):
     args = []
-    faction_spells = {
-        'alliance': {},
-        'horde': {},
-        'neutral': {}
-    }
 
-    # Sort known spells by faction using known spells and item template
-    # Iterate through merged chars, determine char faction, and add spell arg if char
-    # doesn't know it
+    # Find all known mounts and sort by faction
+    faction_items = {'alliance': {}, 'horde': {}, 'neutral': {}}
+    for char in known_spells:
+        spells = known_spells[char]
+        for spell_id in spells:
+            if spell_id in pet_mount_items:
+                spell_item = pet_mount_items[spell_id]
+                race = spell_item['allowablerace']
+                if race == 1101:  # Alliance
+                    faction_items['alliance'][spell_id] = spell_item
+                if race == 690:  # Horde
+                    faction_items['horde'][spell_id] = spell_item
+                if race == 0:  # Neutral
+                    faction_items['neutral'][spell_id] = spell_item
 
-    for s in known_spells:
-        spell = known_spells[s]
+    # Add pets and mounts for chars that don't already have them and can use them
+    for c in merged_chars:
+        char = merged_chars[c]
+        race = char['race']
+        faction = check_faction[race]
+        items = {**faction_items[faction], **faction_items['neutral']}
+        for si in items:
+            item = items[si]
+            req_skill = item['requiredskill']
+            char_skill = char_riding_skills[c]
+            can_use = char_skill >= req_skill
+            already_known = si in known_spells[c]
+            if can_use and not already_known:
+                args.append({
+                    'guid': c,
+                    'spell_id': si
+                })
 
     return args

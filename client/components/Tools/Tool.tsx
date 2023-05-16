@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import MainBigButton from '../MainBigButton';
 import MainButton from '../MainButton';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { storeMessages, storeTool } from '../../store/slices';
@@ -26,19 +25,11 @@ const Tool = ({ tool, name }: ToolNavProps) => {
 
   return (
     <li>
-      {tool === 'acctAchievements' || tool === 'acctReps' || tool === 'acctPetsMounts' ? (
-        <MainBigButton
-          active={active}
-          handleClick={() => switchTool(tool)}
-          buttonText={name}
-        />
-      ) : (
-        <MainButton
-          active={active}
-          handleClick={() => switchTool(tool)}
-          buttonText='Quest Tracker'
-        />
-      )}
+      <MainButton
+        active={active}
+        handleClick={() => switchTool(tool)}
+        buttonText={name}
+      />
     </li>
   );
 }

@@ -22,15 +22,7 @@ const Tools = ({ setInstalled }: ToolsProps) => {
     <div className={`tools ${expansion}-tools ${collapsed ? 'collapsed-menu' : ''}`}>
       <MainHeader collapsed={collapsed} headerText="Tools" setCollapsed={setCollapsed} />
       <ul className="tool-list">
-        {expansion === 'wotlk' ? (
-          <>
-            <Tool tool="acctAchievements" name={'Account-wide Achievements'} />
-            <Tool tool="acctPetsMounts" name={'Account-wide Pets & Mounts'} />
-          </>
-        ) : (
-          <></>
-        )}
-        <Tool tool="acctReps" name={'Account-wide Reputations'} />
+        <Tool tool="accountWide" name={'Account-Wide'} />
         <Tool tool="questTracker" name="Quest Tracker" />
         <div className="tool-prefs">
           <MainButton handleClick={handlePreferences} buttonText="Preferences" />

@@ -58,6 +58,7 @@ spp_extras_api.exe runserver --settings=spp_extras.settings.prod --noreload
 TODO
 - Vanilla switch issue
 - Final styling cleanup
+  - New styling for refactor - warning messages, buttons, etc.
   - Window size
   - Preferences
   - Taskbar, window, and other icons for production

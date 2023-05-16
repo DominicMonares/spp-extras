@@ -8,17 +8,17 @@ const MessageView = () => {
   const expansion = useAppSelector(state => state.expansion.selected);
   const messages = useAppSelector(state => state.websocket.messages);
   const tool = useAppSelector(state => state.tool.selected);
-  const [headerTool, setHeaderTool] = useState<string>('');
+  const [headerTool, setHeaderTool] = useState<string>('DATA');
 
-  useEffect(() => {
-    if (tool === 'acctAchievements') {
-      setHeaderTool('achievements');
-    } else if (tool === 'acctReps') {
-      setHeaderTool('reputations');
-    } else if (tool === 'acctPetsMounts') {
-      setHeaderTool('mounts & pets');
-    }
-  })
+  // useEffect(() => {
+  //   if (tool === 'acctAchievements') {
+  //     setHeaderTool('achievements');
+  //   } else if (tool === 'acctReps') {
+  //     setHeaderTool('reputations');
+  //   } else if (tool === 'acctPetsMounts') {
+  //     setHeaderTool('mounts & pets');
+  //   }
+  // })
 
   return (
     <div>

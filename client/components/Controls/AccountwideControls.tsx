@@ -36,23 +36,11 @@ Modal.setAppElement('#root');
 
 const AccountWideControls = () => {
   const dispatch = useAppDispatch();
-  const tool = useAppSelector(state => state.tool.selected);
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
-  const [botsActive, setBotsActive] = useState<boolean>(false);
-  const [msgTool, setMsgTool] = useState<string>('');
-
-  useEffect(() => {
-    if (tool === 'acctAchievements') {
-      setMsgTool('achievements');
-      setBotsActive(false);
-    } else if (tool === 'acctReps') {
-      setMsgTool('reputations');
-      setBotsActive(false);
-    } else if (tool === 'acctPetsMounts') {
-      setMsgTool('pets and mounts');
-      setBotsActive(false);
-    }
-  }, [tool])
+  const [petsMountsChecked, setPetsMountsChecked] = useState<boolean>(true);
+  const [repsChecked, setRepsChecked] = useState<boolean>(true);
+  const [achsChecked, setAchsChecked] = useState<boolean>(true);
+  const [botsChecked, setBotsChecked] = useState<boolean>(false);
 
   const openModal = () => {
     setModalIsOpen(true);
@@ -68,18 +56,20 @@ const AccountWideControls = () => {
     dispatch(storeMessages('del'));
 
     // Dispatch to display each message sent from server as they come in
-    if (tool === 'acctAchievements') {
-      openAchievementSocket((message: string) => {
-        dispatch(storeMessages(message));
-      }, botsActive);
-    } else if (tool === 'acctReps') {
-      openReputationSocket((message: string) => {
-        dispatch(storeMessages(message));
-      }, botsActive);
-    } else if (tool === 'acctPetsMounts') {
+    if (petsMountsChecked && !repsChecked && !achsChecked) {
       openPetsMountsSocket((message: string) => {
         dispatch(storeMessages(message));
-      }, botsActive);
+      }, botsChecked);
+    } else if (repsChecked && !petsMountsChecked && !achsChecked) {
+      openReputationSocket((message: string) => {
+        dispatch(storeMessages(message));
+      }, botsChecked);
+    } else if (achsChecked && !petsMountsChecked && !repsChecked) {
+      openAchievementSocket((message: string) => {
+        dispatch(storeMessages(message));
+      }, botsChecked);
+    } else if (petsMountsChecked && repsChecked && achsChecked) {
+      // Run all
     }
 
     setModalIsOpen(false);
@@ -93,25 +83,49 @@ const AccountWideControls = () => {
         style={modalStyles}
         contentLabel="Expansion Warning"
       >
-        <div className="msg-warning">WARNING</div>
-        <div className="msg-warning">Sharing {msgTool} is irreversible.</div>
-        <div className="msg-warning">Making a backup of your database through</div>
-        <div className="msg-warning">the SPP Classics launcher before proceeding</div>
-        <div className="msg-warning">is strongly recommended.</div>
-        <div className="msg-warning-buttons">
-          <MainButton handleClick={closeModal} buttonText="Cancel" />
-          <MainButton handleClick={openSocket} buttonText="Continue" />
-        </div>
+        {!petsMountsChecked && !repsChecked && !achsChecked ? (
+          <>
+            <div className="msg-warning">Please select a data option</div>
+            <MainButton handleClick={closeModal} buttonText="Close" />
+          </>
+        ) : (
+          <>
+            <div className="msg-warning"><b>WARNING</b></div>
+            <div className="msg-warning">Transferring data between characters is irreversible.</div>
+            <div className="msg-warning">Making a backup of your database through</div>
+            <div className="msg-warning">the SPP Classics launcher before proceeding</div>
+            <div className="msg-warning">is <b>strongly</b> recommended.</div>
+            <div className="msg-warning-buttons">
+              <MainButton handleClick={closeModal} buttonText="Cancel" />
+              <MainButton handleClick={openSocket} buttonText="Continue" />
+            </div>
+          </>
+        )}
+
       </Modal>
-      {tool === 'acctAchievements' ? (
-        <Checkbox 
-          callback={() => setBotsActive(!botsActive)} 
-          isChecked={botsActive} 
-          text="Apply to bot accounts" 
-        />
-      ) : (
-        <></>
-      )}
+      <div>Choose the data you want to transfer</div>
+      <Checkbox 
+        callback={() => setPetsMountsChecked(!petsMountsChecked)} 
+        isChecked={petsMountsChecked} 
+        text="Pets & Mounts" 
+      />
+      <Checkbox 
+        callback={() => setRepsChecked(!repsChecked)} 
+        isChecked={repsChecked} 
+        text="Reputations" 
+      />
+      <Checkbox 
+        callback={() => setAchsChecked(!achsChecked)} 
+        isChecked={achsChecked} 
+        text="Achievements" 
+      />
+      <Checkbox 
+        callback={() => setBotsChecked(!botsChecked)} 
+        isChecked={botsChecked} 
+        text="Include bot accounts" 
+      />
+      Note: You will not receive any achievements, pets, etc. from bot accounts.
+      This only runs achievement transfers for bot accounts in addition to yours.
       <MainButton handleClick={openModal} buttonText="Start" />
       <div className="msg-options-container">
       </div>

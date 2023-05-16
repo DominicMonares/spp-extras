@@ -123,6 +123,7 @@ const createWindows = async () => {
     height: 300,
     transparent: true,
     frame: false,
+    alwaysOnTop: true,
     webPreferences: {
       images: true
     }

@@ -38,19 +38,19 @@ const AccountWideControls = () => {
   const dispatch = useAppDispatch();
   const tool = useAppSelector(state => state.tool.selected);
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
-  const [botsActive, setBotsActive] = useState<boolean>(true);
+  const [botsActive, setBotsActive] = useState<boolean>(false);
   const [msgTool, setMsgTool] = useState<string>('');
 
   useEffect(() => {
     if (tool === 'acctAchievements') {
       setMsgTool('achievements');
-      setBotsActive(true);
+      setBotsActive(false);
     } else if (tool === 'acctReps') {
       setMsgTool('reputations');
-      setBotsActive(true);
+      setBotsActive(false);
     } else if (tool === 'acctPetsMounts') {
       setMsgTool('pets and mounts');
-      setBotsActive(true);
+      setBotsActive(false);
     }
   }, [tool])
 

@@ -256,7 +256,7 @@ def ins_reward_item_instances(instances):
             giftcreatorguid=i['giftcreatorguid'],
             count=i['count'],
             duration=i['duration'],
-            charges=i['guichargesd'],
+            charges=i['charges'],
             flags=i['flags'],
             enchantments=i['enchantments'],
             randompropertyid=i['randompropertyid'],

@@ -9,7 +9,8 @@ import {
 
 
 const initialState: QuestTrackerSettings = {
-  all: false
+  all: false,
+  zone: 'Nagrand' // TEMP DEFAULT
 };
 
 export const questTrackerSlice = createSlice({

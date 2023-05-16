@@ -3,7 +3,7 @@ import { Tool, SelectedTool } from '../../types';
 
 
 const initialState: Tool = {
-  selected: 'acctPetsMounts' // TEMP DEFAULT
+  selected: 'questTracker' // TEMP DEFAULT
 }
 
 export const toolSlice = createSlice({

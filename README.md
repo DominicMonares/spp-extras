@@ -63,8 +63,8 @@ TODO
   - Preferences
   - Taskbar, window, and other icons for production
 - Create actual readme file
-- Reputation opposing faction equivalents?
-- Run all button?
+- Reputation opposing faction equivalents for rep share?
+- Add reputation and pet/mount progress for achievements?
 
 
 TEST
@@ -87,3 +87,7 @@ All account-wide tools:
 
 Account-wide rep:
   - Progress won't appear in the in-game Reputation tab until a character has discovered the rep
+
+Account-wide rep and pets/mounts:
+  - Random bot accounts are not included in the rep or pets/mounts transfers
+  - I decided not to implement this because rep/pets/mounts cannot be inspected in-game

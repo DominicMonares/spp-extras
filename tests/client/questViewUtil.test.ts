@@ -22,7 +22,6 @@ describe('createViewQuests', () => {
     newFilteredQuests[1]['completed'] = false;
   });
 
-
   it('should return all specific character marked, filtered template quests', () => {
     const allTypesSetting = { faction: 'horde', character: orcCharacter } as QuestTrackerSettings;
     const newFilteredQuests = filteredTemplateQuests.slice();
@@ -36,7 +35,6 @@ describe('createViewQuests', () => {
     newFilteredQuests[4]['completed'] = true;
   });
 
-
   it('should return all regular, specific character marked, filtered template quests', () => {
     const regularTypesSetting = { faction: 'horde', type: 'regular' } as QuestTrackerSettings;
     const newFilteredQuests = filteredTemplateQuests.slice(0, 5);
@@ -45,7 +43,6 @@ describe('createViewQuests', () => {
     expect(result).toStrictEqual(Object.values(newFilteredQuests));
     newFilteredQuests[1]['completed'] = false;
   });
-
 
   it('should return all monthly, specific character marked, filtered template quests', () => {
     const monthlyTypesSetting = {
@@ -58,13 +55,11 @@ describe('createViewQuests', () => {
     expect(result).toStrictEqual(filteredTemplateQuests.slice(5, 6));
   });
 
-
   it('should return all shaman marked, filtered template quests', () => {
     const shamanSetting = { faction: 'horde', characterClass: shaman } as QuestTrackerSettings;
     const result = createViewQuests(false, playerQuests, shamanSetting, templateQuests);
     expect(result).toStrictEqual(filteredTemplateQuests.slice(2, 3));
   });
-
 
   it('should return all blood elf paladin marked, filtered template quests', () => {
     const raceClassMatchSetting = {
@@ -77,7 +72,6 @@ describe('createViewQuests', () => {
     expect(result).toStrictEqual(filteredTemplateQuests.slice(4, 5));
   });
 
-
   it('should return no quests for race/class mismatch', () => {
     const raceClassMismatchSetting = {
       faction: 'horde',
@@ -89,13 +83,11 @@ describe('createViewQuests', () => {
     expect(result).toStrictEqual([]);
   });
 
-
   it('should return all classless blood elf marked, filtered template quests', () => {
     const noClassSetting = { faction: 'horde', race: bloodElf } as QuestTrackerSettings;
     const result = createViewQuests(false, playerQuests, noClassSetting, templateQuests);
     expect(result).toStrictEqual(filteredTemplateQuests.slice(3, 5));
   });
-
 
   it('should return all zone marked, filtered template quests', () => {
     const zoneSetting = { faction: 'horde', zone: 'Ashenvale' } as QuestTrackerSettings;
@@ -115,14 +107,12 @@ describe('sortViewQuests', () => {
     expect(sortViewQuests([quests[0], ...quests], 'name')).toStrictEqual(expected);
   });
 
-
   it('should sort in numeric order when id selected', () => {
     const quests = filteredTemplateQuests.slice(0, 4);
     const shuffled = [quests[0], quests[2], quests[3], quests[1], quests[0]];
     const expected = [quests[0], ...quests];
     expect(sortViewQuests(shuffled, 'id')).toStrictEqual(expected);
   });
-
 
   it('should sort in completed order when status selected', () => {
     const quests = filteredTemplateQuests.slice(0, 4);
@@ -133,7 +123,6 @@ describe('sortViewQuests', () => {
     expect(sortViewQuests(expected.reverse(), 'status')).toStrictEqual(expected);
     quests[0]['completed'] = true;
   });
-
 
   it('should return unsorted list when no sort setting provided', () => {
     expect(sortViewQuests(filteredTemplateQuests, '')).toStrictEqual(filteredTemplateQuests);
@@ -147,7 +136,6 @@ describe('reverseSortViewQuests', () => {
     const expected = [quests[1], quests[3], quests[2], quests[0], quests[0]];
     expect(reverseSortViewQuests([...quests, quests[0]], 'name')).toStrictEqual(expected);
   });
-
 
   it('should sort in reverse numeric order when id selected', () => {
     const quests = filteredTemplateQuests.slice(0, 4);
@@ -164,7 +152,6 @@ describe('reverseSortViewQuests', () => {
     quests[0]['completed'] = true;
   });
 
-  
   it('should return unsorted list when no sort setting provided', () => {
     expect(reverseSortViewQuests(filteredTemplateQuests, '')).toStrictEqual(filteredTemplateQuests);
   });

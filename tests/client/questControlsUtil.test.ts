@@ -34,7 +34,6 @@ describe('characterMenu', () => {
     expect(result).toStrictEqual(noCharacterMenu);
   });
 
-
   it('should create a menu with an all characters option and unselected characters', () => {
     const result = characterMenu(orcCharacter, sampleCharacters, 'horde');
     expect(result).toStrictEqual(currentCharacterMenu);
@@ -55,7 +54,6 @@ describe('classMenu', () => {
     expect(result).toStrictEqual(menu);
   });
 
-
   it('should not render the shaman option if on classic, alliance, and no class selected', () => {
     submenu?.splice(0, 2);
     submenu?.splice(6, 1);
@@ -63,13 +61,11 @@ describe('classMenu', () => {
     expect(result).toStrictEqual(menu);
   });
 
-
   it('should not render the death knight option if not on wotlk and no class selected', () => {
     submenu?.splice(0, 2);
     const result = classMenu('tbc', 'horde', undefined);
     expect(result).toStrictEqual(menu);
   });
-
 
   it('should render all classes option and not render paladin option when class selected', () => {
     submenu?.splice(5, 1);
@@ -86,20 +82,17 @@ describe('raceMenu', () => {
     submenu = menu[0]?.submenu;
   });
 
-
   it('should not render the all races option if no race selected', () => {
     submenu?.shift();
     const result = raceMenu('wotlk', 'horde', undefined);
     expect(result).toStrictEqual(menu);
   });
 
-
   it('should not render the blood elf option if on classic and no race selected', () => {
     submenu?.splice(0, 2);
     const result = raceMenu('classic', 'horde', undefined);
     expect(result).toStrictEqual(menu);
   });
-
 
   it('should render all races option and not orc option when race selected', () => {
     submenu?.splice(2, 1);
@@ -122,7 +115,6 @@ describe('questTypeMenu', () => {
     expect(result).toStrictEqual(menu);
   });
 
-
   it('should not render the daily and monthly options if on classic and no type selected', () => {
     submenu?.shift();
     submenu?.splice(1, 1);
@@ -130,7 +122,6 @@ describe('questTypeMenu', () => {
     const result = questTypeMenu('classic', undefined);
     expect(result).toStrictEqual(menu);
   });
-
 
   it('should render all types option and not regular option when regular type selected', () => {
     submenu?.splice(1, 1);
@@ -153,7 +144,6 @@ describe('zoneMenu', () => {
     expect(result).toStrictEqual(menu);
   });
 
-
   it('should not render tbc and wotlk zones if on classic and no zone selected', () => {
     submenu?.shift();
     submenu?.[0].submenu?.splice(2, 2);
@@ -169,7 +159,6 @@ describe('zoneMenu', () => {
     expect(result).toStrictEqual(menu);
   });
 
-
   it('should not render tbc if on tbc and no zone selected', () => {
     submenu?.shift();
     submenu?.[0].submenu?.splice(3, 1);
@@ -180,7 +169,6 @@ describe('zoneMenu', () => {
     expect(result).toStrictEqual(menu);
   });
 
-  
   it('should render all zones option and not zone if zone selected', () => {
     if (submenu?.[0].title) submenu[0].submenu = undefined;
     submenu?.[1].submenu?.[0].submenu?.splice(17, 1);

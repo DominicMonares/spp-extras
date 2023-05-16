@@ -4,8 +4,8 @@ import sampleClasses from '../samples/client/classes.json';
 import sampleRaces from '../samples/client/races.json';
 
 
-const { 
-  dwarfCharacter, 
+const {
+  dwarfCharacter,
   orcCharacter,
   paladinCharacter,
   shamanCharacter
@@ -18,7 +18,6 @@ describe('checkClass', () => {
     expect(checkClass(paladinCharacter)).toStrictEqual(paladin);
   });
 
-
   it('Should return a shaman class setting for a shaman character', () => {
     expect(checkClass(shamanCharacter)).toStrictEqual(shaman);
   });
@@ -30,7 +29,6 @@ describe('checkFaction', () => {
     expect(checkFaction(1)).toBe('alliance');
   });
 
-
   it('Should return horde for blood elf race id', () => {
     expect(checkFaction(10)).toBe('horde');
   });
@@ -41,7 +39,6 @@ describe('checkRace', () => {
   it('Should return a dwarf race for an dwarf character', () => {
     expect(checkRace(dwarfCharacter, 'alliance')).toStrictEqual(dwarf);
   });
-
 
   it('Should return an orc race for an orc character', () => {
     expect(checkRace(orcCharacter, 'horde')).toStrictEqual(orc);

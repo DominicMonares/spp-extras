@@ -1,15 +1,20 @@
 .main-big-header {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.main-big-header-label {
+  display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 5px;
-  margin-bottom: 13.5px;
+  width: 436px;
+  height: 40px;
+  background-image: url("../../assets/headers/main-big-header.png");
 }
 
 .main-big-header-text {
-  margin-top: -32px;
-  height: 24px;
   background: -webkit-linear-gradient(#c88f19 40%, #f7f243 70%);
   background-clip: text;
   -webkit-background-clip: text;

@@ -54,14 +54,11 @@ spp_extras_api.exe runserver --settings=spp_extras.settings.prod --noreload
 
 ============ ALL ABOVE MUST BE DONE FROM ACTIVATED VE ============
 
+
 TODO
-- Fix client test json imports
-- Make startup logo visible/on top when opening app
 - Final styling cleanup
-  - Navbar expansion top margin
   - Window size
   - Taskbar, window, and other icons for production
-- Clear websocket messages when switching tools
 - Create actual readme file
 
 TEST 

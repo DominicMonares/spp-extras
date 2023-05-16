@@ -2,6 +2,7 @@
 
 .view {
   margin-top: 5px;
+  margin-bottom: 5px;
   width: 100%;
   height: max-content;
   border: 1px solid black;
@@ -34,10 +35,6 @@
   border: black 1px solid;
 }
 
-.messages {
-  padding-left: 2px;
-}
-
 .qt-table {
   display: flex;
   flex-direction: column;
@@ -68,6 +65,7 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 5px;
+  padding-left: 2px;
 }
 
 .error-text {
@@ -109,7 +107,7 @@
 }
 
 .message {
-  padding-left: 3px;
+  padding-left: 5px;
   text-align: left;
 }
 

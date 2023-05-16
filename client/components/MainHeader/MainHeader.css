@@ -2,14 +2,14 @@
   display: flex;
   justify-content: center;
   position: relative;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .main-header-label {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 5px;
-  margin-bottom: 5px;
   width: 198px;
   height: 40px;
   background-image: url("../../assets/headers/main-header.png");

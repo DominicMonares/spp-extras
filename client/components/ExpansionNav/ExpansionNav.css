@@ -82,6 +82,7 @@
 .classic-label,
 .tbc-label,
 .wotlk-label {
+  margin-top: 5px;
   transition: width 0.1s linear, height 0.1s linear;
 }
 

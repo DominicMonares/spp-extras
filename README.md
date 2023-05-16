@@ -62,17 +62,11 @@ TODO
   - Preferences
   - Taskbar, window, and other icons for production
 - Create actual readme file
+- Reputation opposing faction equivalents?
+- Run all button?
 
-TEST 
-Account-wide achievements credit:
-  - Mail reward items for multiple characters and multiple rewards at once
-  - See if earning ek/k loremaster through sharing prog, if loremaster ol/northrend are
-    already earned, does the main loremaster achievement need to be transferred or will
-    it trigger on login? 
 
-Account-wide achievements progress:
-  - Check if transferring pet and mount spells count toward achievements
-
+TEST
 General
   - Starting prod build without database running - websocket
 

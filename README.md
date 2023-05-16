@@ -59,6 +59,7 @@ TODO
 - Vanilla switch issue
 - Final styling cleanup
   - Window size
+  - Preferences
   - Taskbar, window, and other icons for production
 - Create actual readme file
 

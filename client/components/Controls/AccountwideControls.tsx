@@ -1,14 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Checkbox from '../Checkbox';
 import Modal from 'react-modal';
 import MainButton from '../MainButton';
-import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { useAppDispatch } from '../../store/hooks';
 import { storeMessages } from '../../store/slices';
-import { 
-  openAchievementSocket, 
-  openPetsMountsSocket,
-  openReputationSocket 
-} from '../../apiCalls';
+import { openAccountWideSocket } from '../../apiCalls';
 import './Controls.css';
 
 
@@ -56,22 +52,15 @@ const AccountWideControls = () => {
     dispatch(storeMessages('del'));
 
     // Dispatch to display each message sent from server as they come in
-    if (petsMountsChecked && !repsChecked && !achsChecked) {
-      openPetsMountsSocket((message: string) => {
-        dispatch(storeMessages(message));
-      }, botsChecked);
-    } else if (repsChecked && !petsMountsChecked && !achsChecked) {
-      openReputationSocket((message: string) => {
-        dispatch(storeMessages(message));
-      }, botsChecked);
-    } else if (achsChecked && !petsMountsChecked && !repsChecked) {
-      openAchievementSocket((message: string) => {
-        dispatch(storeMessages(message));
-      }, botsChecked);
-    } else if (petsMountsChecked && repsChecked && achsChecked) {
-      // Run all
+    const dispatchMessage = (message: string) => dispatch(storeMessages(message))
+    const settings = {
+      petsMounts: petsMountsChecked,
+      reps: repsChecked,
+      achievements: achsChecked,
+      bots: botsChecked
     }
 
+    openAccountWideSocket(dispatchMessage, settings);
     setModalIsOpen(false);
   }
 

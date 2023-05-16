@@ -8,7 +8,6 @@ const MainHeader = ({ collapsed, headerText, setCollapsed }: MainHeaderProps) =>
   return (
     <div className="main-header">
       <div className="main-header-label">
-        <img src={header} />
         <div className="main-header-text">{headerText}</div>
       </div>
       <div className="collapse-arrow">
@@ -19,7 +18,7 @@ const MainHeader = ({ collapsed, headerText, setCollapsed }: MainHeaderProps) =>
         />
       </div>
     </div>
-  );
+  ); 
 }
 
 export default MainHeader;

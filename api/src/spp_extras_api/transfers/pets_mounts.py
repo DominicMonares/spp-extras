@@ -5,8 +5,6 @@ from spp_extras_api.queries.characters import (
     sel_char_riding_skills
 )
 from spp_extras_api.queries.mangos import sel_pet_mount_items
-from spp_extras_api.queries.realmd import sel_all_accounts
-from spp_extras_api.utils.characters import format_accts_n_chars, format_player_accts
 from spp_extras_api.utils.pets_mounts import (
     create_pet_mount_spell_args,
     format_char_spell_data,
@@ -15,16 +13,10 @@ from spp_extras_api.utils.pets_mounts import (
 )
 
 
-def transfer_pets_mounts(accounts, send_msg):
+def transfer_pets_mounts(accounts, char_ids, send_msg):
     # ----------------------------------------------------------------
     # Fetch and format data
     # ----------------------------------------------------------------
-    characters = accounts['0']['characters']
-    merged_chars = {**characters['alliance'], **characters['horde']}
-
-    # Create list of character IDs for queries
-    def id_num(id): return int(id)
-    char_ids = list(map(id_num, merged_chars.keys()))
 
     # FETCH pet and mount item template data
     try:
@@ -52,7 +44,6 @@ def transfer_pets_mounts(accounts, send_msg):
         send_msg('Failed to fetch character pet and mount spell data!')
         send_msg(f'Error: {e}')
         return
-    
 
     # FORMAT character pet and mount spell data
     known_spells = format_char_spell_data(pet_mount_spell_data)
@@ -78,7 +69,7 @@ def transfer_pets_mounts(accounts, send_msg):
     try:
         send_msg('Creating pet and mount arguments...')
         spell_args = create_pet_mount_spell_args(
-            pet_mount_items, merged_chars, known_spells, char_riding_skills)
+            pet_mount_items, accounts, known_spells, char_riding_skills)
         send_msg('Pet and mount arguments successfully created!')
     except Exception as e:
         send_msg('Failed to create pet and mount arguments!')

@@ -5,7 +5,10 @@ from spp_extras_api.queries.realmd import sel_all_accounts
 from spp_extras_api.transfers.achievements import transfer_achievements
 from spp_extras_api.transfers.pets_mounts import transfer_pets_mounts
 from spp_extras_api.transfers.reputations import transfer_reputations
-from spp_extras_api.utils.characters import format_accts_n_chars, format_player_accts
+from spp_extras_api.utils.characters import (
+    create_char_ids, 
+    format_accts_n_chars
+)
 
 class AccountWideConsumer(WebsocketConsumer):
     def connect(self):
@@ -51,8 +54,9 @@ class AccountWideConsumer(WebsocketConsumer):
             send_msg(f'Error: {e}')
             return
 
-        # FORMAT account and character data, combine player accounts
+        # FORMAT account and character data
         accounts = format_accts_n_chars(account_data, character_data)
+        char_ids = create_char_ids(accounts)
 
         # ----------------------------------------------------------------
         # Run transfers
@@ -62,7 +66,7 @@ class AccountWideConsumer(WebsocketConsumer):
         if pets_mounts:
             try:
                 send_msg('Starting pet and mount data transfers...')
-                transfer_pets_mounts(accounts, send_msg)
+                transfer_pets_mounts(accounts, char_ids, send_msg)
                 send_msg('Pet and mount data transfers finished!')
             except Exception as e:
                 send_msg('Failed to transfer pet and mount data!')
@@ -73,7 +77,7 @@ class AccountWideConsumer(WebsocketConsumer):
         if reputations:
             try:
                 send_msg('Starting reputation data transfers...')
-                transfer_reputations(accounts, send_msg)
+                transfer_reputations(accounts, char_ids, send_msg)
                 send_msg('Reputation data transfers finished!')
             except Exception as e:
                 send_msg('Failed to transfer reputation data!')
@@ -84,7 +88,7 @@ class AccountWideConsumer(WebsocketConsumer):
         if achievements:
             try:
                 send_msg('Starting achievement data transfers...')
-                transfer_achievements(accounts, send_msg)
+                transfer_achievements(accounts, char_ids, send_msg)
                 send_msg('Achievement data transfers finished!')
             except Exception as e:
                 send_msg('Failed to transfer achievement data!')

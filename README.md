@@ -64,7 +64,7 @@ TODO
   - Taskbar, window, and other icons for production
 - Create actual readme file
 - Reputation opposing faction equivalents for rep share?
-- Add reputation and pet/mount progress for achievements?
+- Initial quest tracker queries on load?
 
 
 TEST

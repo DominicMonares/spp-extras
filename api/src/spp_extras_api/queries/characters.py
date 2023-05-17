@@ -87,10 +87,11 @@ def monthly_quest_model(expansion):
 # Characters
 # ----------------------------------------------------------------
 
-def sel_all_chars(expansion):
+def sel_all_chars(expansion, account_ids):
     return characters_model(expansion).objects\
         .using(f'{expansion}characters')\
         .all()\
+        .filter(account__in=account_ids)\
         .values(
             'guid',
             'account',

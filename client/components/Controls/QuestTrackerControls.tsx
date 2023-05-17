@@ -6,7 +6,6 @@ import { storeQuestTrackerAll } from '../../store/slices';
 import {
   characterMenu,
   classMenu,
-  createPlayerCharacters,
   questTypeMenu,
   raceMenu,
   zoneMenu
@@ -16,7 +15,7 @@ import './Controls.css';
 
 const QuestTrackerControls = () => {
   const dispatch = useAppDispatch();
-  const accounts = useAppSelector(state => createPlayerCharacters(state.accounts.all));
+  const account = useAppSelector(state => state.accounts.all['0']);
   const expansion = useAppSelector(state => state.expansion.selected);
   const faction = useAppSelector(state => state.faction.selected);
   const settings = useAppSelector(state => state.questTracker);
@@ -44,7 +43,7 @@ const QuestTrackerControls = () => {
         <div className="ctrl-label qt-additional-label">Secondary Filters:</div>
         <DropdownMenu
           dropdownType="character"
-          menu={characterMenu(character, accounts, faction)}
+          menu={characterMenu(character, account.characters, faction)}
         />
         <DropdownMenu dropdownType="type" menu={questTypeMenu(expansion, type)} />
       </div>

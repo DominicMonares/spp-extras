@@ -1,8 +1,6 @@
 import _classMenu from '../../data/menus/classMenu.json';
 import _raceMenu from '../../data/menus/raceMenu.json';
 import { 
-  Account,
-  Accounts,
   CharacterSetting,
   ClassSetting,
   Faction, 
@@ -35,18 +33,4 @@ export const checkRace = (character: CharacterSetting, faction: Faction) => {
 
   // Use currently selected race setting to obtain template race data
   for (const r of races) if (r.id === race) return r as RaceSetting;
-}
-
-export const createPlayerCharacters = (accounts: Accounts) => {
-  const playerCharacters = { alliance: {}, horde: {} };
-  Object.values(accounts).forEach((a: Account) => {
-    if (!a.username.includes('RNDBOT')) {
-      const allianceChars = a.characters.alliance;
-      const hordeChars = a.characters.horde;
-      playerCharacters.alliance = { ...playerCharacters.alliance, ...allianceChars };
-      playerCharacters.horde = { ...playerCharacters.horde, ...hordeChars };
-    }
-  });
-
-  return playerCharacters;
 }

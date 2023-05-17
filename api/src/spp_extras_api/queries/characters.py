@@ -88,11 +88,13 @@ def monthly_quest_model(expansion):
 # ----------------------------------------------------------------
 
 def sel_all_chars(expansion, account_ids):
-    return characters_model(expansion).objects\
+    characters = characters_model(expansion).objects\
         .using(f'{expansion}characters')\
         .all()\
-        .filter(account__in=account_ids)\
-        .values(
+        .filter(account__in=account_ids)
+    
+    if expansion == 'wotlk':
+        return characters.values(
             'guid',
             'account',
             'name',
@@ -100,6 +102,13 @@ def sel_all_chars(expansion, account_ids):
             'gender',
             'class_field',
             'knowntitles')
+    else:
+        return characters.values(
+            'guid',
+            'account',
+            'name',
+            'race',
+            'class_field')
 
 
 # ----------------------------------------------------------------

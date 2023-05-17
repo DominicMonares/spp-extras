@@ -16,6 +16,7 @@ def create_char_ids(accounts):
 
     return char_ids
 
+
 # Combine player accounts into a single account separate from bots
 def format_player_accts(accounts):
     player_accts = []

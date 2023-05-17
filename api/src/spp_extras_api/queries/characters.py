@@ -105,10 +105,11 @@ def sel_all_chars(expansion):
 # Achievement Credit
 # ----------------------------------------------------------------
 
-def sel_all_char_achs():
+def sel_all_char_achs(char_ids):
     return WotlkCharacterAchievement.objects\
         .using('wotlkcharacters')\
         .all()\
+        .filter(guid__in=char_ids)\
         .values()
 
 
@@ -128,10 +129,11 @@ def ins_char_achs(achievements):
 # Achievement Progress
 # ----------------------------------------------------------------
 
-def sel_all_ach_prog():
+def sel_all_ach_prog(char_ids):
     return WotlkCharacterAchievementProgress.objects\
         .using('wotlkcharacters')\
         .all()\
+        .filter(guid__in=char_ids)\
         .values()
 
 
@@ -183,11 +185,17 @@ def create_char_ach_shared_prog():
         schema_editor.create_model(WotlkCharacterAchievementSharedProgress)
 
 
-def sel_all_char_ach_shared_prog():
-    return WotlkCharacterAchievementSharedProgress.objects\
+def sel_all_char_ach_shared_prog(bots):
+    progress = WotlkCharacterAchievementSharedProgress.objects\
         .using('wotlkcharacters')\
         .all()\
-        .values('account', 'criteria', 'counter', 'date')
+        
+    if bots:
+        return progress.values('account', 'criteria', 'counter', 'date')
+    else:
+        return progress\
+            .filter(account=0)\
+            .values('account', 'criteria', 'counter', 'date')
 
 
 def ins_char_ach_shared_prog(achievements):
@@ -317,32 +325,35 @@ def ins_reward_mail_items(items):
 # Quests
 # ----------------------------------------------------------------
 
-def sel_all_completed_reg_quests(expansion):
+def sel_all_completed_reg_quests(expansion, char_ids):
     return regular_quest_model(expansion).objects\
         .using(f'{expansion}characters')\
         .all()\
-        .filter(status__exact=1)\
+        .filter(guid__in=char_ids, status__exact=1)\
         .values()
 
 
-def sel_all_completed_daily_quests(expansion):
+def sel_all_completed_daily_quests(expansion, char_ids):
     return daily_quest_model(expansion).objects\
         .using(f'{expansion}characters')\
         .all()\
+        .filter(guid__in=char_ids)\
         .values()
 
 
-def sel_all_completed_weekly_quests(expansion):
+def sel_all_completed_weekly_quests(expansion, char_ids):
     return weekly_quest_model(expansion).objects\
         .using(f'{expansion}characters')\
         .all()\
+        .filter(guid__in=char_ids)\
         .values()
 
 
-def sel_all_completed_monthly_quests(expansion):
+def sel_all_completed_monthly_quests(expansion, char_ids):
     return monthly_quest_model(expansion).objects\
         .using(f'{expansion}characters')\
         .all()\
+        .filter(guid__in=char_ids)\
         .values()
 
 

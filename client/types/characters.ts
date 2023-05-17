@@ -12,9 +12,9 @@ export interface Character {
   account: number;
   name: string;
   race: Race;
-  gender: number;
+  gender?: number;
   class_field: number;
-  knowntitles: string;
+  knowntitles?: string;
 }
 
 export type CharacterClass = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11;

@@ -51,10 +51,9 @@ class TestTransferPetMountSpells(TestCase):
             char_skills = json.load(json_file)
         with open(from_root('tests/samples/formattedData/characterSpells.json'), 'r') as json_file:
             char_spells = json.load(json_file)
-        with open(from_root('tests/samples/formattedData/mergedCharacters.json'), 'r') as json_file:
-            merged_chars = json.load(json_file)
+        with open(from_root('tests/samples/formattedData/playerAccountsChars.json'), 'r') as json_file:
+            accounts = json.load(json_file)
         with open(from_root('tests/samples/formattedData/petMountItems.json'), 'r') as json_file:
             pet_mount_items = json.load(json_file)
-        result = create_pet_mount_spell_args(pet_mount_items, merged_chars, char_spells, char_skills)
-        print(f'RESULT {result}')
+        result = create_pet_mount_spell_args(pet_mount_items, accounts, char_spells, char_skills)
         self.assertEqual(result, expected)

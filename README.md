@@ -63,6 +63,7 @@ TODO
   - Taskbar, window, and other icons for production
   - error body styling for large error
 - Create actual readme file
+- Rep discrepancies - not sharing entire standing for each faction?
 
 
 TEST

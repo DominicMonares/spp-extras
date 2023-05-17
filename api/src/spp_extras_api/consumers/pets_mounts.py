@@ -10,10 +10,10 @@ from spp_extras_api.queries.mangos import sel_pet_mount_items
 from spp_extras_api.queries.realmd import sel_all_accounts
 from spp_extras_api.utils.characters import format_accts_n_chars, format_player_accts
 from spp_extras_api.utils.pets_mounts import (
+    create_pet_mount_spell_args,
     format_char_spell_data,
     format_char_skill_data,
-    format_pet_mount_item_data,
-    transfer_pet_mount_spells
+    format_pet_mount_item_data
 )
 
 
@@ -116,7 +116,7 @@ class AccountWidePetsMountsConsumer(WebsocketConsumer):
         # Run character pet and mount spell transfer
         try:
             send_msg('Transferring pets and mounts between characters...')
-            spell_args = transfer_pet_mount_spells(
+            spell_args = create_pet_mount_spell_args(
                 pet_mount_items, merged_chars, known_spells, char_riding_skills)
             send_msg('Pets and mounts successfully transferred between characters!')
         except Exception as e:

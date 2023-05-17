@@ -7,7 +7,7 @@ from spp_extras_api.queries.characters import (
 )
 from spp_extras_api.queries.realmd import sel_all_accounts
 from spp_extras_api.utils.characters import format_accts_n_chars, format_player_accts
-from spp_extras_api.utils.reputations import format_reputations, transfer_reputations
+from spp_extras_api.utils.reputations import create_reputation_args, format_reputations
 
 
 class AccountWideReputationsConsumer(WebsocketConsumer):
@@ -78,7 +78,7 @@ class AccountWideReputationsConsumer(WebsocketConsumer):
         # Run reputation progress transfer
         try:
             send_msg('Transferring reputation progress between characters...')
-            rep_args = transfer_reputations(characters, reputations)
+            rep_args = create_reputation_args(characters, reputations)
             send_msg(
                 'Reputation progress successfully transferred between characters!')
         except Exception as e:

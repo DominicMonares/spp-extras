@@ -32,9 +32,9 @@ from spp_extras_api.utils.achievements import (
     format_all_acct_data,
     format_rew_item_charges
 )
-from spp_extras_api.utils.ach_credit_transfer import transfer_ach_credit
-from spp_extras_api.utils.ach_prog_transfer import transfer_ach_prog
-from spp_extras_api.utils.characters import format_accts_n_chars, format_player_accts
+from api.src.spp_extras_api.utils.ach_credit import create_ach_credit_args
+from api.src.spp_extras_api.utils.ach_prog import create_ach_prog_args
+
 from spp_extras_api.utils.quests import format_completed_quests, format_template_quests
 
 
@@ -109,7 +109,6 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
         # ----------------------------------------------------------------
         # Fetch and format data
         # ----------------------------------------------------------------
-
 
         # FETCH all achievement credit data
         try:
@@ -242,7 +241,7 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
         # Run progress transfer and add any new achievements in all_acct_data
         try:
             send_msg('Transferring achievement progress between characters...')
-            ach_prog_args = transfer_ach_prog(all_acct_data, template_quests)
+            ach_prog_args = create_ach_prog_args(all_acct_data, template_quests)
             all_acct_data = ach_prog_args['new_accounts']
             char_prog_args = ach_prog_args['char_prog_args']
             shared_prog_args = ach_prog_args['shared_prog_args']
@@ -257,7 +256,7 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
         try:
             send_msg(
                 'Transferring achievement credit and rewards between characters...')
-            ach_credit_args = transfer_ach_credit(
+            ach_credit_args = create_ach_credit_args(
                 all_acct_data, ach_rewards, item_charges, last_item_inst_id, last_mail_id)
             credit_args = ach_credit_args['credit_args']
             item_inst_args = ach_credit_args['item_inst_args']

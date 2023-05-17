@@ -15,7 +15,7 @@ export interface FetchQuestTrackerResponse {
 
 export type WebSocketMessage = (
   dispatchMessage: (message: string) => void,
-  settings: {
+  settings?: {
     [key: string]: boolean
   }
 ) => void;

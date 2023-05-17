@@ -19,37 +19,52 @@ def format_reputations(reputations):
 
 
 # Share reputation standing between characters
-def create_reputation_args(characters, reputations):
+def create_reputation_args(accounts, reputations):
     args = []
-    acct_standing = {
-        'alliance': {},
-        'horde': {},
-        'neutral': {}
-    }
+    for acct_id in accounts:
+        account = accounts[acct_id]
+        characters = account['characters']
+        merged_chars = {**characters['alliance'], **characters['horde']}
+        acct_standing = {
+            'alliance': {},
+            'horde': {},
+            'neutral': {}
+        }
 
-    # Add the highest standing for each rep to acct_standing tracker
-    for c in reputations:
-        char = reputations[c]
-        for faction_id in char:
-            standing = char[faction_id]
-            if faction_id not in rep_template: continue
-            char_faction = rep_template[faction_id]['charFaction']
-            if faction_id not in acct_standing[char_faction]:
-                acct_standing[char_faction][faction_id] = standing
-            elif standing > acct_standing[char_faction][faction_id]:
-                acct_standing[char_faction][faction_id] = standing
+        # Add the highest standing for each rep to acct_standing tracker
+        for char_id in merged_chars:
+            if char_id in reputations:
+                char_reps = reputations[char_id]
+                for faction_id in char_reps:
+                    standing = char_reps[faction_id]
+                    if faction_id not in rep_template:
+                        continue
+                    char_faction = rep_template[faction_id]['charFaction']
+                    if faction_id not in acct_standing[char_faction]:
+                        acct_standing[char_faction][faction_id] = standing
+                    elif standing > acct_standing[char_faction][faction_id]:
+                        acct_standing[char_faction][faction_id] = standing
 
-    # Create arguments for new reputation standings
-    for char_faction in characters:
-        faction_chars = characters[char_faction]
-        for char_id in faction_chars:
-            merged_acct_standing = {**acct_standing[char_faction], **acct_standing['neutral']}
-            for rep_id in merged_acct_standing:
-                standing = merged_acct_standing[rep_id]
-                args.append({
-                    'guid': int(char_id),
-                    'faction': int(rep_id),
-                    'standing': standing
-                })
+        # Create arguments for new reputation standings
+        for char_faction in characters:
+            faction_chars = characters[char_faction]
+            for char_id in faction_chars:
+                merged_acct_standing = {
+                    **acct_standing[char_faction], **acct_standing['neutral']}
+                char_reps = {}
+                if char_id in reputations:
+                    char_reps = reputations[char_id]
+
+                for rep_id in merged_acct_standing:
+                    highest_standing = merged_acct_standing[rep_id]
+                    char_standing = 0
+                    if rep_id in char_reps:
+                        char_standing = char_reps[rep_id]
+                    if highest_standing > char_standing:
+                        args.append({
+                            'guid': int(char_id),
+                            'faction': int(rep_id),
+                            'standing': highest_standing
+                        })
 
     return args

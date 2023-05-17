@@ -1,6 +1,5 @@
 from spp_extras_api.queries.characters import (
-    sel_all_char_rep, 
-    sel_all_chars,
+    sel_all_char_rep,
     upd_char_rep
 )
 from spp_extras_api.queries.realmd import sel_all_accounts
@@ -8,16 +7,10 @@ from spp_extras_api.utils.characters import format_accts_n_chars, format_player_
 from spp_extras_api.utils.reputations import create_reputation_args, format_reputations
 
 
-def transfer_reputations(accounts, send_msg):
+def transfer_reputations(accounts, char_ids, send_msg):
     # ----------------------------------------------------------------
     # Fetch and format data
     # ----------------------------------------------------------------
-    characters = accounts['0']['characters']
-    merged_chars = {**characters['alliance'], **characters['horde']}
-
-    # Create list of character IDs for queries
-    def id_num(id): return int(id)
-    char_ids = list(map(id_num, merged_chars.keys()))
 
     # FETCH rep data for player accounts
     try:
@@ -39,7 +32,7 @@ def transfer_reputations(accounts, send_msg):
     # Create arguments
     try:
         send_msg('Creating reputation standing arguments...')
-        rep_args = create_reputation_args(characters, reputations)
+        rep_args = create_reputation_args(accounts, reputations)
         send_msg('Reputation standing arguments successfully created!')
     except Exception as e:
         send_msg('Failed to create reputation standing arguments!')

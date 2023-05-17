@@ -1,6 +1,6 @@
 from unittest import TestLoader, TestSuite, TextTestRunner
-from .ach_credit_transfer_test import TestTransferAchCredit
-from .ach_prog_transfer_test import TestTransferAchProg
+from .ach_credit_test import TestAchCredit
+from .ach_prog_test import TestAchProg
 from .achievements_test import (
     TestFormatAchCredit,
     TestFormatAchProg,
@@ -34,12 +34,12 @@ TestSuite.__test__ = False
 
 def suites():
     # Achievement Credit Transfer Utils
-    transfer_ach_credit_suite = TestLoader()\
-        .loadTestsFromTestCase(TestTransferAchCredit)
+    ach_credit_suite = TestLoader()\
+        .loadTestsFromTestCase(TestAchCredit)
     
     # Achievement Progress Transfer Utils
-    transfer_ach_prog_suite = TestLoader()\
-        .loadTestsFromTestCase(TestTransferAchProg)
+    ach_prog_suite = TestLoader()\
+        .loadTestsFromTestCase(TestAchProg)
     
     # Achievement Utils
     format_all_acct_data_suite = TestLoader()\
@@ -87,8 +87,8 @@ def suites():
     
     # Top Level Suite
     top_suite = TestSuite([
-        transfer_ach_credit_suite,
-        transfer_ach_prog_suite,
+        ach_credit_suite,
+        ach_prog_suite,
         format_all_acct_data_suite,
         format_ach_credit_suite,
         format_ach_prog_suite,

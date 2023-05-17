@@ -14,14 +14,14 @@ with open(from_root('data/zones/zoneContinents.json'), 'r') as json_file:
     zone_continents = json.load(json_file)
 
 
-def transfer_ach_prog(accounts, template_quests):
+def create_ach_prog_args(accounts, template_quests):
     args = {
         'char_prog_args': [],
         'shared_prog_args': [],
         'new_accounts': accounts
     }
 
-    def create_char_prog_args(guid, criteria, counter, date):
+    def add_char_prog_args(guid, criteria, counter, date):
         args['char_prog_args'].append({
             'guid': guid,
             'criteria': int(criteria),
@@ -29,7 +29,7 @@ def transfer_ach_prog(accounts, template_quests):
             'date': date
         })
 
-    def create_shared_prog_args(acct_id, criteria_id, counter, date):
+    def add_shared_prog_args(acct_id, criteria_id, counter, date):
         args['shared_prog_args'].append({
             'account': acct_id,
             'criteria': int(criteria_id),
@@ -72,7 +72,7 @@ def transfer_ach_prog(accounts, template_quests):
                     ach_prog = char_prog[criteria_id]
                     add_to_shared_prog(criteria_id, ach_prog)
 
-        # Run transfers for all shared progress
+        # Add args for all shared progress
         for criteria_id in new_shared_prog:
             ach_prog = new_shared_prog[criteria_id]
             date = ach_prog[0]['date']
@@ -117,8 +117,8 @@ def transfer_ach_prog(accounts, template_quests):
                 if date > loremaster_prog[misc_lm_crit]['date']:
                     loremaster_prog[misc_lm_crit]['date'] = date
 
-            # Transfer shared achievement progress
-            create_shared_prog_args(acct_id, criteria_id, new_count, date)
+            # Add shared achievement progress
+            add_shared_prog_args(acct_id, criteria_id, new_count, date)
 
             # Ensure progress counter doesn't exceed threshold
             threshold = shared_ach_criteria[criteria_id]['threshold']
@@ -131,7 +131,7 @@ def transfer_ach_prog(accounts, template_quests):
             if new_count == threshold and ach_id not in credit:
                 credit[ach_id] = date
 
-            # Transfer individual character progress
+            # Add individual character progress
             for char_id in chars:
                 char = chars[char_id]
                 faction = check_faction(char['race'])
@@ -142,9 +142,9 @@ def transfer_ach_prog(accounts, template_quests):
                 is_horde = faction == 'horde'
                 is_horde_prog = is_lm_h and is_horde
                 if not misc_lm_crit or is_alliance_prog or is_horde_prog:
-                    create_char_prog_args(char_id, criteria_id, new_count, date)
+                    add_char_prog_args(char_id, criteria_id, new_count, date)
 
-        # Run transfers for Loremaster progress
+        # Add all Loremaster progress
         all_loremaster_prog = loremaster(
             completed_quests, template_quests, loremaster_prog)
         main_lm_prog = all_loremaster_prog['main_prog']
@@ -177,7 +177,7 @@ def transfer_ach_prog(accounts, template_quests):
         if loremaster_earned(1680, horde_k_count):
             credit['1680'] = horde_k_date
 
-        # Transfer Loremaster progress for each character
+        # Add Loremaster progress for each character
         for char_id in chars:
             char = chars[char_id]
             faction = check_faction(char['race'])
@@ -185,12 +185,12 @@ def transfer_ach_prog(accounts, template_quests):
                 for criteria_id in alliance_lm_prog:
                     count = alliance_lm_prog[criteria_id]['count']
                     date = alliance_lm_prog[criteria_id]['date']
-                    create_char_prog_args(char_id, criteria_id, count, date)
+                    add_char_prog_args(char_id, criteria_id, count, date)
             elif faction == 'horde':
                 for criteria_id in horde_lm_prog:
                     count = horde_lm_prog[criteria_id]['count']
                     date = horde_lm_prog[criteria_id]['date']
-                    create_char_prog_args(char_id, criteria_id, count, date)
+                    add_char_prog_args(char_id, criteria_id, count, date)
 
         # Use length of credit for Complete {X} Quests achievement chain
         completed_quest_count = len(completed_quests)
@@ -210,9 +210,9 @@ def transfer_ach_prog(accounts, template_quests):
             if completed_quest_count == threshold and ach_id not in credit:
                 credit[ach_id] = date
 
-            # Transfer individual character progress
+            # Add individual character progress
             for char_id in chars:
-                create_char_prog_args(
+                add_char_prog_args(
                     char_id, criteria_id, completed_quest_count, date)
 
         # Add new credit to account

@@ -8,7 +8,7 @@ with open(from_root('data/titles/titles.json'), 'r') as json_file:
     titles = json.load(json_file)
 
 
-def transfer_ach_credit(accounts, ach_rewards, item_charges, last_item_inst_id, last_mail_id):
+def create_ach_credit_args(accounts, ach_rewards, item_charges, last_item_inst_id, last_mail_id):
     # Item IDs appear to be overwritten as new items are added through the game
     # Add 10000 to last ids to prevent items from being overwritten for a while
     last_item_inst_id += 10000
@@ -22,14 +22,14 @@ def transfer_ach_credit(accounts, ach_rewards, item_charges, last_item_inst_id, 
         'title_args': []
     }
 
-    def create_credit_args(char_id, ach_id, date):
+    def add_credit_arg(char_id, ach_id, date):
         args['credit_args'].append({
             'guid': char_id,
             'achievement': ach_id,
             'date': date
         })
 
-    def create_item_inst_args(last_item_inst_id, char_id, item, item_charges):
+    def add_item_inst_arg(last_item_inst_id, char_id, item, item_charges):
         args['item_inst_args'].append({
             'guid': last_item_inst_id,
             'owner_guid': char_id,
@@ -47,7 +47,7 @@ def transfer_ach_credit(accounts, ach_rewards, item_charges, last_item_inst_id, 
             'text': ''
         })
 
-    def create_mail_args(last_mail_id, sender, char_id, reward, new_date):
+    def add_mail_arg(last_mail_id, sender, char_id, reward, new_date):
         args['mail_args'].append({
             'id': last_mail_id,
             'messagetype': 3,
@@ -65,7 +65,7 @@ def transfer_ach_credit(accounts, ach_rewards, item_charges, last_item_inst_id, 
             'checked': 0
         })
 
-    def create_mail_item_args(last_mail_id, last_item_inst_id, item, char_id):
+    def add_mail_item_arg(last_mail_id, last_item_inst_id, item, char_id):
         args['mail_item_args'].append({
             'mail_id': last_mail_id,
             'item_guid': last_item_inst_id,
@@ -73,18 +73,18 @@ def transfer_ach_credit(accounts, ach_rewards, item_charges, last_item_inst_id, 
             'receiver': char_id
         })
 
-    def run_sub_transfers(char_id, ach_id, date, char, last_item_inst_id, last_mail_id):
-        # Transfer achievement credit
-        create_credit_args(char_id, ach_id, date)
+    def add_args(char_id, ach_id, date, char, last_item_inst_id, last_mail_id):
+        # Add achievement credit
+        add_credit_arg(char_id, ach_id, date)
 
-        # Transfer reward(s) if achievement has reward(s)
+        # Add reward(s) if achievement has reward(s)
         if ach_id in ach_rewards:
             reward_list = ach_rewards[ach_id]
             reward = reward_list[0]
             if len(reward_list) > 1:  # Handle Matron/Patron
                 reward = reward_list[char['gender']]
 
-            # Transfer title if achievement rewards one
+            # Add title if achievement rewards one
             title_id = reward['title_a']
             if faction == 'horde':
                 title_id = reward['title_h']
@@ -101,18 +101,18 @@ def transfer_ach_credit(accounts, ach_rewards, item_charges, last_item_inst_id, 
                 known_titles[title_index] = str(title_val + bit)
                 char['knowntitles'] = ' '.join(known_titles) + ' '
 
-            # Transfer mail item if achievement rewards one
+            # Add mail item if achievement rewards one
             now = datetime.datetime.now()
             new_date = calendar.timegm(now.timetuple())
             sender = reward['sender']
             if sender:
-                create_mail_args(
+                add_mail_arg(
                     last_mail_id, sender, char_id, reward, new_date)
                 item = reward['item']
                 if item:
-                    create_mail_item_args(
+                    add_mail_item_arg(
                         last_mail_id, last_item_inst_id, item, char_id)
-                    create_item_inst_args(
+                    add_item_inst_arg(
                         last_item_inst_id, char_id, item, item_charges)
 
     # Iterate through all accounts and characters to check achievements
@@ -140,9 +140,9 @@ def transfer_ach_credit(accounts, ach_rewards, item_charges, last_item_inst_id, 
                 ach_id = new_ach_id
                 existing_ach = ach_id in char_credit
 
-                # Run transfers if achievement is valid
+                # Create all char achievement args if achievement is valid
                 if not existing_ach and faction_match:
-                    run_sub_transfers(
+                    add_args(
                         char_id, ach_id, date, char, last_item_inst_id, last_mail_id)
 
                 # Increment mail and item reward IDs for items added
@@ -153,7 +153,7 @@ def transfer_ach_credit(accounts, ach_rewards, item_charges, last_item_inst_id, 
                 if new_mail_len > mail_len:
                     last_mail_id += 1
 
-            # Transfer known titles once all achievement rewards given
+            # Add known titles once all achievement rewards given
             args['title_args'].append({
                 'guid': char_id,
                 'knowntitles': char['knowntitles']

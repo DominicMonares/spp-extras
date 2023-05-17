@@ -43,7 +43,7 @@ def format_char_skill_data(skills):
 
 
 # Share pet and mount spells between all characters
-def transfer_pet_mount_spells(pet_mount_items, merged_chars, known_spells, char_riding_skills):
+def create_pet_mount_spell_args(pet_mount_items, merged_chars, known_spells, char_riding_skills):
     args = []
 
     # Get all known pets and mounts on account level

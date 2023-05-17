@@ -11,7 +11,6 @@ from spp_extras_api.queries.characters import (
     ins_reward_mail_items,
     sel_all_ach_prog,
     sel_all_char_achs,
-    sel_all_chars,
     sel_all_completed_reg_quests,
     sel_all_char_ach_shared_prog,
     sel_last_item_inst_id,
@@ -25,7 +24,7 @@ from spp_extras_api.queries.mangos import (
     sel_cut_title,
     sel_rew_item_charges
 )
-from spp_extras_api.queries.realmd import sel_all_accounts
+
 from spp_extras_api.utils.achievements import (
     format_ach_credit,
     format_ach_prog,
@@ -111,29 +110,6 @@ class AccountWideAchievementsConsumer(WebsocketConsumer):
         # Fetch and format data
         # ----------------------------------------------------------------
 
-        # FETCH all account data
-        try:
-            send_msg('Fetching account data...')
-            account_data = sel_all_accounts('wotlk')
-            send_msg('Account data successfully fetched!')
-        except Exception as e:
-            send_msg('Failed to fetch account data!')
-            send_msg(f'Error: {e}')
-            return
-
-        # FETCH all character data
-        try:
-            send_msg('Fetching character data...')
-            character_data = sel_all_chars('wotlk')
-            send_msg('Character data successfully fetched!')
-        except Exception as e:
-            send_msg('Failed to fetch character data!')
-            send_msg(f'Error: {e}')
-            return
-
-        # FORMAT account and character data, combine player accounts
-        _accounts = format_accts_n_chars(account_data, character_data)
-        accounts = format_player_accts(_accounts, bots_active)
 
         # FETCH all achievement credit data
         try:

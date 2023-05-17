@@ -19,7 +19,7 @@ def format_reputations(reputations):
 
 
 # Share reputation progress between characters
-def transfer_reputations(characters, reputations):
+def create_reputation_args(characters, reputations):
     args = []
     progress = {
         'alliance': {},

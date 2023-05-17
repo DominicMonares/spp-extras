@@ -23,9 +23,9 @@ class AccountWideConsumer(WebsocketConsumer):
     def receive(self, text_data):
         def send_msg(msg): self.send(json.dumps({'message': msg}))
         settings = json.loads(text_data)
-        pets_mounts = settings['petsMounts'],
-        reputations = settings['reputations'],
-        achievements = settings['achievements'],
+        pets_mounts = settings['petsMounts']
+        reputations = settings['reputations']
+        achievements = settings['achievements']
         bots = settings['bots']
 
         send_msg('Starting account-wide data transfers...')

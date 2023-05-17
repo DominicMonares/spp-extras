@@ -32,7 +32,7 @@ class QuestTrackerViewSet(viewsets.ViewSet):
             print(msg)
             return Response(
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR,
-                data={'message': f'Server error: {msg}'})
+                data={'message': msg})
 
         # ----------------------------------------------------------------
         # Fetch and format all data
@@ -44,7 +44,7 @@ class QuestTrackerViewSet(viewsets.ViewSet):
             account_data = sel_all_accounts(expansion, False)
             print('Account data successfully fetched!')
         except Exception as e:
-            return send_err('Failed to fetch account data!')
+            return send_err(f'Failed to fetch account data!\nError: {e}')
         
         # Create list of account IDs
         def acct_id(acct): return acct['id']
@@ -56,7 +56,7 @@ class QuestTrackerViewSet(viewsets.ViewSet):
             character_data = sel_all_chars(expansion, account_ids)
             print('Character data successfully fetched!')
         except Exception as e:
-            return send_err('Failed to fetch character data!')
+            return send_err(f'Failed to fetch character data!\nError: {e}')
 
         # FORMAT account and character data
         accounts = format_accts_n_chars(account_data, character_data)
@@ -69,7 +69,7 @@ class QuestTrackerViewSet(viewsets.ViewSet):
                 expansion, char_ids)
             print('Completed regular quest data successfully fetched!')
         except Exception as e:
-            return send_err('Failed to fetch completed regular quest data!')
+            return send_err(f'Failed to fetch completed regular quest data!\nError: {e}')
 
         # FETCH all completed daily quest data
         completed_daily_data = []
@@ -80,7 +80,7 @@ class QuestTrackerViewSet(viewsets.ViewSet):
                     expansion, char_ids)
                 print('Completed daily quest data successfully fetched!')
             except Exception as e:
-                return send_err('Failed to fetch completed daily quest data!')
+                return send_err(f'Failed to fetch completed daily quest data!\nError: {e}')
 
         # FETCH all completed weekly quest data
         try:
@@ -89,7 +89,7 @@ class QuestTrackerViewSet(viewsets.ViewSet):
                 expansion, char_ids)
             print('Completed weekly quest data successfully fetched!')
         except Exception as e:
-            return send_err('Failed to fetch completed weekly quest data!')
+            return send_err(f'Failed to fetch completed weekly quest data!\nError: {e}')
 
         # FETCH all completed monthly quest data
         completed_monthly_data = []
@@ -100,7 +100,7 @@ class QuestTrackerViewSet(viewsets.ViewSet):
                     expansion, char_ids)
                 print('Completed monthly quest data successfully fetched!')
             except Exception as e:
-                return send_err('Failed to fetch completed monthly quest data!')
+                return send_err(f'Failed to fetch completed monthly quest data!\nError: {e}')
 
         # FORMAT all completed quest data
         completed_quests = format_completed_quests(
@@ -115,7 +115,7 @@ class QuestTrackerViewSet(viewsets.ViewSet):
             template_quest_data = sel_all_template_quests(expansion)
             print('Template quest data successfully fetched!')
         except Exception as e:
-            return send_err('Failed to fetch template quest data!')
+            return send_err(f'Failed to fetch template quest data!\nError: {e}')
 
         # FORMAT template quest data
         template_quests = format_template_quests(template_quest_data)

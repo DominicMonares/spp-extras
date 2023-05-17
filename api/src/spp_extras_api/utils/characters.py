@@ -41,7 +41,6 @@ def format_player_accts(accounts):
     # Add merged account to characters dict
     merged_acct['player_accts'] = player_accts
     accounts['0'] = merged_acct
-    f = accounts['0']
 
     # Remove individual player accounts from main store
     for plyr_acct in player_accts:
@@ -64,7 +63,4 @@ def format_accts_n_chars(accounts, characters):
         faction = check_faction(char['race'])
         all[account_num]['characters'][faction][str(char['guid'])] = char
 
-    if len(all):
-        return format_player_accts(all)
-    else:
-        return all
+    return format_player_accts(all) if len(all) else all

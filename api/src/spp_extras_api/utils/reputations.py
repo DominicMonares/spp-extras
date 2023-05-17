@@ -51,15 +51,12 @@ def create_reputation_args(accounts, reputations):
             for char_id in faction_chars:
                 merged_acct_standing = {
                     **acct_standing[char_faction], **acct_standing['neutral']}
-                char_reps = {}
-                if char_id in reputations:
-                    char_reps = reputations[char_id]
-
+                reps_exist = char_id in reputations
+                char_reps = reputations[char_id] if reps_exist else {}
                 for rep_id in merged_acct_standing:
                     highest_standing = merged_acct_standing[rep_id]
-                    char_standing = 0
-                    if rep_id in char_reps:
-                        char_standing = char_reps[rep_id]
+                    char_reps_exist = rep_id in char_reps
+                    char_standing = char_reps[rep_id] if char_reps_exist else 0
                     if highest_standing > char_standing:
                         args.append({
                             'guid': int(char_id),

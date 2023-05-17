@@ -12,9 +12,8 @@ def format_all_acct_data(accounts, ach_credit, ach_char_prog, ach_shared_prog, c
     # Iterate through all accounts and characters to add data
     for acct_id in accounts:
         account = all[acct_id]
-        player_accts = []
-        if acct_id == '0':
-            player_accts = account['player_accts']
+        player = acct_id == '0'
+        player_accts = account['player_accts'] if player else []
 
         # Combine characters
         alliance_chars = account['characters']['alliance']
@@ -25,9 +24,8 @@ def format_all_acct_data(accounts, ach_credit, ach_char_prog, ach_shared_prog, c
 
         # Combine quests and achievement credit/progress
         credit = {}
-        shared_progress = {}
-        if acct_id in ach_shared_prog:
-            shared_progress = ach_shared_prog[acct_id]
+        shared_exists = acct_id in ach_shared_prog
+        shared_progress = ach_shared_prog[acct_id] if shared_exists else {}
         quests = {}
         if chars is None: continue
         for char_id in chars:
@@ -44,9 +42,8 @@ def format_all_acct_data(accounts, ach_credit, ach_char_prog, ach_shared_prog, c
                 if char_id in ach_credit:
                     for ach_id in ach_credit[char_id]:
                         incoming_date = ach_credit[char_id][ach_id]
-                        existing_date = incoming_date
-                        if ach_id in credit:
-                            existing_date = credit[ach_id]
+                        credit_exists = ach_id in credit
+                        existing_date = credit[ach_id] if credit_exists else incoming_date
 
                         # Use oldest completion date if achievement already exists
                         older_entry = existing_date > incoming_date
@@ -78,9 +75,8 @@ def format_all_acct_data(accounts, ach_credit, ach_char_prog, ach_shared_prog, c
                     all[acct_id]['characters'][char_id]['quests'] = char_quests
 
                 # Add data for each character
-                char_progress = {}
-                if char_id in ach_char_prog:
-                    char_progress = ach_char_prog[char_id]
+                char_prog_exists = char_id in ach_char_prog
+                char_progress = ach_char_prog[char_id] if char_prog_exists else {}
                 all[acct_id]['characters'][char_id]['progress'] = char_progress
 
         # Add data for each account
@@ -108,12 +104,8 @@ def format_ach_credit(achievements):
 def format_ach_prog(type, achievements):
     all = {}
     for a in achievements:
-        guid_or_acct = ''
-        if type == 'char':
-            guid_or_acct = str(a['guid'])
-        else:
-            guid_or_acct = str(a['account'])
-
+        char_type = type == 'char'
+        guid_or_acct = str(a['guid']) if char_type else str(a['account'])
         if guid_or_acct not in all:
             all[guid_or_acct] = {}
 

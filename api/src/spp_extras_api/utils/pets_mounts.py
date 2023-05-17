@@ -85,14 +85,13 @@ def create_pet_mount_spell_args(pet_mount_items, accounts, known_spells, char_ri
                         item = pet_mount_items[s_id]
 
                 # Check to see if character has high enough riding skill
-                char_skill = 0
-                if char_id in char_riding_skills:
-                    char_skill = char_riding_skills[char_id]
-                req_skill = item['requiredskillrank']
-                if s_id in profession_spells:
-                    # Specify riding level requirement for engineering/tailoring mounts
-                    # Approved side effect: profession reqs get removed for these mounts
-                    req_skill = profession_spells[s_id]
+                skill_exists = char_id in char_riding_skills
+                char_skill = char_riding_skills[char_id] if skill_exists else 0
+                # Switch required profession skill for riding skill with eng/tailoring mounts
+                # This allows any character to use these mounts without the professions
+                profession_spell = s_id in profession_spells
+                skill_rank = item['requiredskillrank']
+                req_skill = profession_spells[s_id] if profession_spell else skill_rank
                 skill_match = char_skill >= req_skill
 
                 # Check to see if character and pet/mount factions match

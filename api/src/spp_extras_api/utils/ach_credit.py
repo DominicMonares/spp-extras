@@ -80,16 +80,18 @@ def create_ach_credit_args(accounts, ach_rewards, item_charges, last_item_inst_i
         # Add reward(s) if achievement has reward(s)
         if ach_id in ach_rewards:
             reward_list = ach_rewards[ach_id]
-            reward = reward_list[0]
-            if len(reward_list) > 1:  # Handle Matron/Patron
-                reward = reward_list[char['gender']]
+            matron_patron = len(reward_list) > 1
+            gender = char['gender']
+            reward = reward_list[gender] if matron_patron else reward_list[0]
 
             # Add title if achievement rewards one
-            title_id = reward['title_a']
-            if faction == 'horde':
-                title_id = reward['title_h']
+            title_a = reward['title_a']
+            title_h = reward['title_h']
+            alliance = faction == 'alliance'
+            title_id = title_a if alliance else title_h
             if title_id:
                 known_titles = char['knowntitles'].split(' ')
+                
                 # Remove empty string created by trailing space
                 known_titles.pop()
 

@@ -88,7 +88,7 @@ class AccountWideConsumer(WebsocketConsumer):
         if achievements:
             try:
                 send_msg('Starting achievement data transfers...')
-                transfer_achievements(accounts, char_ids, send_msg)
+                transfer_achievements(accounts, char_ids, send_msg, bots)
                 send_msg('Achievement data transfers finished!')
             except Exception as e:
                 send_msg('Failed to transfer achievement data!')

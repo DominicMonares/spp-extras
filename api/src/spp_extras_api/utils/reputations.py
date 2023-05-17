@@ -18,34 +18,34 @@ def format_reputations(reputations):
     return all
 
 
-# Share reputation progress between characters
+# Share reputation standing between characters
 def create_reputation_args(characters, reputations):
     args = []
-    progress = {
+    acct_standing = {
         'alliance': {},
         'horde': {},
         'neutral': {}
     }
 
-    # Add the highest standing for each rep to progress tracker
+    # Add the highest standing for each rep to acct_standing tracker
     for c in reputations:
         char = reputations[c]
         for faction_id in char:
             standing = char[faction_id]
             if faction_id not in rep_template: continue
             char_faction = rep_template[faction_id]['charFaction']
-            if faction_id not in progress[char_faction]:
-                progress[char_faction][faction_id] = standing
-            elif standing > progress[char_faction][faction_id]:
-                progress[char_faction][faction_id] = standing
+            if faction_id not in acct_standing[char_faction]:
+                acct_standing[char_faction][faction_id] = standing
+            elif standing > acct_standing[char_faction][faction_id]:
+                acct_standing[char_faction][faction_id] = standing
 
-    # Create arguments for new reputation progress
+    # Create arguments for new reputation standings
     for char_faction in characters:
         faction_chars = characters[char_faction]
         for char_id in faction_chars:
-            merged_progress = {**progress[char_faction], **progress['neutral']}
-            for rep_id in merged_progress:
-                standing = merged_progress[rep_id]
+            merged_acct_standing = {**acct_standing[char_faction], **acct_standing['neutral']}
+            for rep_id in merged_acct_standing:
+                standing = merged_acct_standing[rep_id]
                 args.append({
                     'guid': int(char_id),
                     'faction': int(rep_id),

@@ -15,14 +15,14 @@ import _classMenu from '../../data/menus/classMenu.json';
 import _raceMenu from '../../data//menus/raceMenu.json';
 import _questTypes from '../../data//menus/questTypeMenu.json';
 import _zoneMenu from '../../data//menus/zoneMenu.json';
-import sampleAccounts from '../samples/formattedData/accounts.json';
+import sampleAccounts from '../samples/formattedData/allAccountsChars.json';
 import sampleCharacterMenus from '../samples/client/characterMenus.json';
 import sampleCharacterSettings from '../samples/client/characterSettings.json';
 import sampleClasses from '../samples/client/classes.json';
 import sampleRaces from '../samples/client/races.json';
 
 
-const sampleCharacters = sampleAccounts[500]['characters'] as Characters;
+const sampleCharacters = sampleAccounts[0]['characters'] as Characters;
 const { currentCharacterMenu, noCharacterMenu } = sampleCharacterMenus;
 const { orcCharacter } = sampleCharacterSettings;
 const { paladin } = sampleClasses;

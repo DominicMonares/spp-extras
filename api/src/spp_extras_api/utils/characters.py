@@ -4,6 +4,18 @@ def check_faction(faction):
     return 'alliance' if faction in alliance else 'horde'
 
 
+# Create list of character IDs to use for db queries
+def create_char_ids(accounts):
+    char_ids = []
+    for acct_id in accounts:
+        account = accounts[acct_id]
+        characters = account['characters']
+        merged_chars = {**characters['alliance'], **characters['horde']}
+        for char_id in merged_chars:
+            char_ids.append(int(char_id))
+
+    return char_ids
+
 # Combine player accounts into a single account separate from bots
 def format_player_accts(accounts):
     player_accts = []

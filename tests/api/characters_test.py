@@ -3,8 +3,8 @@ from from_root import from_root
 from unittest import TestCase
 from api.src.spp_extras_api.utils.characters import (
     check_faction,
-    format_accts_n_chars,
-    format_player_accts
+    create_char_ids,
+    format_accts_n_chars
 )
 
 
@@ -16,6 +16,15 @@ class TestCheckFaction(TestCase):
     """Should return 'horde' if Horde ID provided"""
     def test_horde(self):
         self.assertEqual(check_faction(5), 'horde')
+
+
+class TestCreateCharIds(TestCase):
+    """Should return list of char ID numbers"""
+    def test_create_char_ids(self):
+        with open(from_root('tests/samples/formattedData/allAccountsChars.json'), 'r') as json_file:
+            accounts = json.load(json_file)
+        expected = [5263, 1001, 4501, 79411, 6000, 6001]
+        self.assertEqual(create_char_ids(accounts), expected)
 
 
 class TestFormatCharacters(TestCase):

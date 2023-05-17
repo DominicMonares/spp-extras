@@ -11,6 +11,7 @@ from .achievements_test import (
 )
 from .characters_test import (
     TestCheckFaction,
+    TestCreateCharIds,
     TestFormatCharacters,
 )
 from .pets_mounts_test import (
@@ -57,6 +58,8 @@ def suites():
     # Character Utils
     check_faction_suite = TestLoader()\
         .loadTestsFromTestCase(TestCheckFaction)
+    create_char_ids_suite = TestLoader()\
+        .loadTestsFromTestCase(TestCreateCharIds)
     format_characters_suite = TestLoader()\
         .loadTestsFromTestCase(TestFormatCharacters)
     
@@ -93,6 +96,7 @@ def suites():
         format_rew_item_charges_suite,
         check_faction_ach_suite,
         check_faction_suite,
+        create_char_ids_suite,
         format_characters_suite,
         format_pet_mount_items_suite,
         format_char_spells_suite,

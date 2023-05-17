@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Checkbox from '../Checkbox';
 import Modal from 'react-modal';
 import MainButton from '../MainButton';
-import { useAppDispatch } from '../../store/hooks';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { storeMessages } from '../../store/slices';
 import { openAccountWideSocket } from '../../apiCalls';
 import './Controls.css';
@@ -32,11 +32,27 @@ Modal.setAppElement('#root');
 
 const AccountWideControls = () => {
   const dispatch = useAppDispatch();
+  const expansion = useAppSelector(state => state.expansion.selected);
+  const tool = useAppSelector(state => state.tool.selected);
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
   const [petsMountsChecked, setPetsMountsChecked] = useState<boolean>(true);
   const [repsChecked, setRepsChecked] = useState<boolean>(true);
   const [achsChecked, setAchsChecked] = useState<boolean>(true);
   const [botsChecked, setBotsChecked] = useState<boolean>(false);
+
+  // Clear settings when tool changes
+  useEffect(() => {
+    if (expansion === 'wotlk') {
+      setPetsMountsChecked(true)
+      setAchsChecked(true)
+    } else {
+      setPetsMountsChecked(false)
+      setAchsChecked(false)
+    }
+
+    setRepsChecked(true)
+    setBotsChecked(false)
+  }, [tool])
 
   const openModal = () => {
     setModalIsOpen(true);
@@ -54,6 +70,7 @@ const AccountWideControls = () => {
     // Dispatch to display each message sent from server as they come in
     const dispatchMessage = (message: string) => dispatch(storeMessages(message))
     const settings = {
+      expansion: expansion,
       petsMounts: petsMountsChecked,
       reputations: repsChecked,
       achievements: achsChecked,
@@ -93,21 +110,29 @@ const AccountWideControls = () => {
 
       </Modal>
       <div>Choose the data you want to transfer</div>
-      <Checkbox 
-        callback={() => setPetsMountsChecked(!petsMountsChecked)} 
-        isChecked={petsMountsChecked} 
-        text="Pets & Mounts" 
-      />
+      {expansion === 'wotlk' ? (
+        <Checkbox 
+          callback={() => setPetsMountsChecked(!petsMountsChecked)} 
+          isChecked={petsMountsChecked} 
+          text="Pets & Mounts" 
+        />
+      ) : (
+        <></>
+      )}
       <Checkbox 
         callback={() => setRepsChecked(!repsChecked)} 
         isChecked={repsChecked} 
         text="Reputations" 
       />
-      <Checkbox 
-        callback={() => setAchsChecked(!achsChecked)} 
-        isChecked={achsChecked} 
-        text="Achievements" 
-      />
+      {expansion === 'wotlk' ? (
+        <Checkbox 
+          callback={() => setAchsChecked(!achsChecked)} 
+          isChecked={achsChecked} 
+          text="Achievements" 
+        />
+      ) : (
+        <></>
+      )}
       <Checkbox 
         callback={() => setBotsChecked(!botsChecked)} 
         isChecked={botsChecked} 

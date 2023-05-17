@@ -23,10 +23,9 @@ class TestTransferReputations(TestCase):
     def test_create_reputation_args(self):
         with open(from_root('tests/samples/formattedData/characterReputations.json'), 'r') as json_file:
             char_reps = json.load(json_file)
-        with open(from_root('tests/samples/api/repCharacters.json'), 'r') as json_file:
+        with open(from_root('tests/samples/formattedData/allAccountsChars.json'), 'r') as json_file:
             characters = json.load(json_file)
         with open(from_root('tests/samples/api/transferredReps.json'), 'r') as json_file:
             expected = json.load(json_file)
-
         result = create_reputation_args(characters, char_reps)
         self.assertEqual(result, expected)

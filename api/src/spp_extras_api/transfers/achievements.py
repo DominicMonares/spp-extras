@@ -34,7 +34,7 @@ from spp_extras_api.utils.ach_prog import create_ach_prog_args
 from spp_extras_api.utils.quests import format_completed_quests, format_template_quests
 
 
-def transfer_achievements(accounts, send_msg):
+def transfer_achievements(accounts, char_ids, send_msg, bots):
     # ----------------------------------------------------------------
     # Create new data needed for transfers
     # ----------------------------------------------------------------
@@ -90,7 +90,7 @@ def transfer_achievements(accounts, send_msg):
     # FETCH all achievement credit data
     try:
         send_msg('Fetching achievement credit data...')
-        ach_credit_data = sel_all_char_achs()
+        ach_credit_data = sel_all_char_achs(char_ids)
         send_msg('Achievement credit data successfully fetched!')
     except Exception as e:
         send_msg('Failed to fetch achievement credit data!')
@@ -103,7 +103,7 @@ def transfer_achievements(accounts, send_msg):
     # FETCH all achievement progress data
     try:
         send_msg('Fetching achievement progress data...')
-        ach_prog_data = sel_all_ach_prog()
+        ach_prog_data = sel_all_ach_prog(char_ids)
         send_msg('Achievement progress data successfully fetched!')
     except Exception as e:
         send_msg('Failed to fetch achievement progress data!')
@@ -116,7 +116,7 @@ def transfer_achievements(accounts, send_msg):
     # FETCH all shared achievement progress data
     try:
         send_msg('Fetching all shared achievement progress data...')
-        ach_shared_prog_data = sel_all_char_ach_shared_prog()
+        ach_shared_prog_data = sel_all_char_ach_shared_prog(bots)
         send_msg('Shared achievement progress data successfully fetched!')
     except Exception as e:
         send_msg('Failed to fetch shared achievement progress data!')
@@ -129,7 +129,7 @@ def transfer_achievements(accounts, send_msg):
     # FETCH all completed regular quest data
     try:
         send_msg('Fetching completed regular quest data...')
-        completed_reg_data = sel_all_completed_reg_quests('wotlk')
+        completed_reg_data = sel_all_completed_reg_quests('wotlk', char_ids)
         send_msg('Completed regular quest data successfully fetched!')
     except Exception as e:
         send_msg('Failed to fetch completed regular quest data!')

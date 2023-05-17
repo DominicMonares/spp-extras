@@ -62,8 +62,8 @@ def create_pet_mount_spell_args(pet_mount_items, accounts, known_spells, char_ri
                         account_items[spell_id] = spell_item
 
         # Add pets and mounts for chars that don't already have them and can use them
-        for c in merged_chars:
-            char = merged_chars[c]
+        for char_id in merged_chars:
+            char = merged_chars[char_id]
             char_faction = check_faction(char['race'])
             for s_id in account_items:
                 item = account_items[s_id]
@@ -86,8 +86,8 @@ def create_pet_mount_spell_args(pet_mount_items, accounts, known_spells, char_ri
 
                 # Check to see if character has high enough riding skill
                 char_skill = 0
-                if c in char_riding_skills:
-                    char_skill = char_riding_skills[c]
+                if char_id in char_riding_skills:
+                    char_skill = char_riding_skills[char_id]
                 req_skill = item['requiredskillrank']
                 if s_id in profession_spells:
                     # Specify riding level requirement for engineering/tailoring mounts
@@ -108,10 +108,10 @@ def create_pet_mount_spell_args(pet_mount_items, accounts, known_spells, char_ri
 
                 # Check to see if character meets all requirements
                 char_can_use = skill_match and faction_match
-                already_known = c in known_spells and int(s_id) in known_spells[c]
+                already_known = char_id in known_spells and int(s_id) in known_spells[char_id]
                 if char_can_use and not already_known:
                     args.append({
-                        'guid': c,
+                        'guid': char_id,
                         'spell_id': s_id
                     })
 

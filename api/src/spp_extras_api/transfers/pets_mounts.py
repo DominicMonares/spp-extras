@@ -1,6 +1,5 @@
 from spp_extras_api.queries.characters import (
     ins_char_pet_mount_spells,
-    sel_all_chars,
     sel_char_pet_mount_spells,
     sel_char_riding_skills
 )

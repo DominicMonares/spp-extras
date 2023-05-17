@@ -23,6 +23,7 @@ class AccountWideConsumer(WebsocketConsumer):
     def receive(self, text_data):
         def send_msg(msg): self.send(json.dumps({'message': msg}))
         settings = json.loads(text_data)
+        expansion = settings['expansion']
         pets_mounts = settings['petsMounts']
         reputations = settings['reputations']
         achievements = settings['achievements']
@@ -37,7 +38,7 @@ class AccountWideConsumer(WebsocketConsumer):
         # FETCH all account data
         try:
             send_msg('Fetching account data...')
-            account_data = sel_all_accounts('wotlk', bots)
+            account_data = sel_all_accounts(expansion, bots)
             send_msg('Account data successfully fetched!')
         except Exception as e:
             send_msg('Failed to fetch account data!')
@@ -51,7 +52,7 @@ class AccountWideConsumer(WebsocketConsumer):
         # FETCH all character data
         try:
             send_msg('Fetching character data...')
-            character_data = sel_all_chars('wotlk', account_ids)
+            character_data = sel_all_chars(expansion, account_ids)
             send_msg('Character data successfully fetched!')
         except Exception as e:
             send_msg('Failed to fetch character data!')
@@ -81,7 +82,7 @@ class AccountWideConsumer(WebsocketConsumer):
         if reputations:
             try:
                 send_msg('Starting reputation data transfers...')
-                transfer_reputations(accounts, char_ids, send_msg)
+                transfer_reputations(accounts, char_ids, send_msg, expansion)
                 send_msg('Reputation data transfers finished!')
             except Exception as e:
                 send_msg('Failed to transfer reputation data!')

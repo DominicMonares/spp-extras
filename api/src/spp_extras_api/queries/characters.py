@@ -379,9 +379,9 @@ def sel_all_char_rep(expansion, char_ids):
         .values('guid', 'faction', 'standing')
 
 
-def upd_char_rep(reputations):
+def upd_char_rep(expansion, reputations):
     for r in reputations:
-        WotlkCharacterReputation.objects\
+        character_rep_model(expansion).objects\
             .using('wotlkcharacters')\
             .all()\
             .filter(

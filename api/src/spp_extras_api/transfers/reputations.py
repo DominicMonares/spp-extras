@@ -7,7 +7,7 @@ from spp_extras_api.utils.characters import format_accts_n_chars, format_player_
 from spp_extras_api.utils.reputations import create_reputation_args, format_reputations
 
 
-def transfer_reputations(accounts, char_ids, send_msg):
+def transfer_reputations(accounts, char_ids, send_msg, expansion):
     # ----------------------------------------------------------------
     # Fetch and format data
     # ----------------------------------------------------------------
@@ -43,7 +43,7 @@ def transfer_reputations(accounts, char_ids, send_msg):
     if len(rep_args):
         try:
             send_msg('Saving new reputation data...')
-            upd_char_rep(rep_args)
+            upd_char_rep(expansion, rep_args)
             send_msg('New reputation data successfully saved!')
         except Exception as e:
             send_msg('Failed to save new reputation data!')

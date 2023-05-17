@@ -15,7 +15,7 @@ def transfer_reputations(accounts, char_ids, send_msg, expansion):
     # FETCH rep data for player accounts
     try:
         send_msg('Fetching character reputation data...')
-        char_rep_data = sel_all_char_rep('wotlk', char_ids)
+        char_rep_data = sel_all_char_rep(expansion, char_ids)
         send_msg('Character reputation data successfully fetched!')
     except Exception as e:
         send_msg('Failed to fetch character reputation data!')

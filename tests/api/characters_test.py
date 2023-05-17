@@ -19,11 +19,11 @@ class TestCheckFaction(TestCase):
 
 
 class TestFormatCharacters(TestCase):
-    """Should return accounts and characters dict"""
+    """Should return all accounts with player accounts combined into one account with random bots included"""
     def test_format_accts_n_chars(self):
-        with open(from_root('tests/samples/formattedData/accounts.json'), 'r') as json_file:
-            accounts = json.load(json_file)
-        with open(from_root('tests/samples/rawData/rawCharacters.json'), 'r') as json_file:
+        with open(from_root('tests/samples/formattedData/allAccountsChars.json'), 'r') as json_file:
+            expected = json.load(json_file)
+        with open(from_root('tests/samples/rawData/rawAllCharacters.json'), 'r') as json_file:
             raw_characters = json.load(json_file)
         raw_accounts = [
             {'id': 500, 'username': 'ACCOUNT1'},
@@ -32,30 +32,23 @@ class TestFormatCharacters(TestCase):
         ]
 
         result = format_accts_n_chars(raw_accounts, raw_characters)
-        self.assertDictEqual(result, accounts)
+        self.assertDictEqual(result, expected)
+
+    """Should return all accounts with player accounts combined into one account without random bots included"""
+    def test_format_player_accts_no_bots(self):
+        with open(from_root('tests/samples/formattedData/playerAccountsChars.json'), 'r') as json_file:
+            expected = json.load(json_file)
+        with open(from_root('tests/samples/rawData/rawPlayerCharacters.json'), 'r') as json_file:
+            raw_characters = json.load(json_file)
+        raw_accounts = [
+            {'id': 500, 'username': 'ACCOUNT1'},
+            {'id': 501, 'username': 'ACCOUNT2'}
+        ]
+            
+        result = format_accts_n_chars(raw_accounts, raw_characters)
+        self.assertDictEqual(result, expected)
 
     """Should return empty characters dict if no characters provided"""
     def test_no_characters(self):
         result = format_accts_n_chars([], [])
         self.assertDictEqual(result, {})
-
-
-class TestFormatPlayers(TestCase):
-    """Should return all accounts with player accounts combined into one account along with random bots"""
-    def test_format_player_accts(self):
-        with open(from_root('tests/samples/formattedData/accounts.json'), 'r') as json_file:
-            accounts = json.load(json_file)
-        with open(from_root('tests/samples/formattedData/playerSortedAccounts.json'), 'r') as json_file:
-            player_sorted_accts = json.load(json_file)
-        result = format_player_accts(accounts, True)
-        self.assertDictEqual(result, player_sorted_accts)
-
-    """Should return all accounts with player accounts combined into one account with random bots unincluded"""
-    def test_format_player_accts_no_bots(self):
-        with open(from_root('tests/samples/formattedData/accounts.json'), 'r') as json_file:
-            accounts = json.load(json_file)
-        with open(from_root('tests/samples/formattedData/playerSortedAccounts.json'), 'r') as json_file:
-            player_sorted_accts = json.load(json_file)
-        result = format_player_accts(accounts, False)
-        expected = {'0': player_sorted_accts['0']}
-        self.assertDictEqual(result, expected)

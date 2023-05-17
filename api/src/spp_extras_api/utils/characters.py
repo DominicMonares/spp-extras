@@ -4,25 +4,8 @@ def check_faction(faction):
     return 'alliance' if faction in alliance else 'horde'
 
 
-# Organize characters by account
-def format_accts_n_chars(accounts, characters):
-    all = {}
-    for account in accounts:
-        all[str(account['id'])] = {
-            'username': account['username'],
-            'characters': {'alliance': {}, 'horde': {}}
-        }
-
-    for char in characters:
-        account_num = str(char['account'])
-        faction = check_faction(char['race'])
-        all[account_num]['characters'][faction][str(char['guid'])] = char
-
-    return all
-
-
 # Combine player accounts into a single account separate from bots
-def format_player_accts(accounts, bots_active):
+def format_player_accts(accounts):
     player_accts = []
     merged_acct = {
         'username': 'player_accts',
@@ -51,7 +34,24 @@ def format_player_accts(accounts, bots_active):
     for plyr_acct in player_accts:
         accounts.pop(plyr_acct)
 
-    if bots_active:
-        return accounts
+    return accounts
+
+
+# Organize characters by account
+def format_accts_n_chars(accounts, characters):
+    all = {}
+    for account in accounts:
+        all[str(account['id'])] = {
+            'username': account['username'],
+            'characters': {'alliance': {}, 'horde': {}}
+        }
+
+    for char in characters:
+        account_num = str(char['account'])
+        faction = check_faction(char['race'])
+        all[account_num]['characters'][faction][str(char['guid'])] = char
+
+    if len(all):
+        return format_player_accts(all)
     else:
-        return {'0': accounts['0']}
+        return all

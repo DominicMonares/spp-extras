@@ -34,7 +34,7 @@ class AccountWideConsumer(WebsocketConsumer):
         # FETCH all account data
         try:
             send_msg('Fetching account data...')
-            account_data = sel_all_accounts('wotlk')
+            account_data = sel_all_accounts('wotlk', bots)
             send_msg('Account data successfully fetched!')
         except Exception as e:
             send_msg('Failed to fetch account data!')
@@ -52,8 +52,7 @@ class AccountWideConsumer(WebsocketConsumer):
             return
 
         # FORMAT account and character data, combine player accounts
-        _accounts = format_accts_n_chars(account_data, character_data)
-        accounts = format_player_accts(_accounts, bots)
+        accounts = format_accts_n_chars(account_data, character_data)
 
         # ----------------------------------------------------------------
         # Run transfers

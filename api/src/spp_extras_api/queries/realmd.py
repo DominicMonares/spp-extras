@@ -18,8 +18,14 @@ def account_model(expansion):
 # Accounts
 # ----------------------------------------------------------------
 
-def sel_all_accounts(expansion):
-    return account_model(expansion).objects\
+def sel_all_accounts(expansion, bots):
+    accounts = account_model(expansion).objects\
         .using(f'{expansion}realmd')\
-        .all()\
-        .values('id', 'username')
+        .all()
+    
+    if bots:
+        return accounts.values('id', 'username')
+    else:
+        return accounts\
+            .exclude(username__contains='RNDBOT')\
+            .values('id', 'username')

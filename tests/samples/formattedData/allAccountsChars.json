@@ -1,8 +1,19 @@
 {
-  "500": {
-    "username": "ACCOUNT1",
+  "0": {
+    "username": "player_accts",
+    "player_accts": ["500", "501"],
     "characters": {
-      "alliance": {},
+      "alliance": {
+        "5263": {
+          "guid": 5263,
+          "account": 501,
+          "name": "Bub",
+          "race": 1,
+          "gender": 0,
+          "class_field": 1,
+          "knowntitles": "0 0 0 0 0 0 "
+        }
+      },
       "horde": {
         "1001": {
           "guid": 1001,
@@ -32,23 +43,6 @@
           "knowntitles": "0 0 0 0 0 0 "
         }
       }
-    }
-  },
-  "501": {
-    "username": "ACCOUNT2",
-    "characters": {
-      "alliance": {
-        "5263": {
-          "guid": 5263,
-          "account": 501,
-          "name": "Bub",
-          "race": 1,
-          "gender": 0,
-          "class_field": 1,
-          "knowntitles": "0 0 0 0 0 0 "
-        }
-      },
-      "horde": {}
     }
   },
   "502": {

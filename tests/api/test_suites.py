@@ -12,7 +12,7 @@ from .achievements_test import (
 from .characters_test import (
     TestCheckFaction,
     TestFormatCharacters,
-    TestFormatPlayers,
+    # TestFormatPlayers,
 )
 from .pets_mounts_test import (
     TestFormatPetMountItems,
@@ -60,8 +60,8 @@ def suites():
         .loadTestsFromTestCase(TestCheckFaction)
     format_characters_suite = TestLoader()\
         .loadTestsFromTestCase(TestFormatCharacters)
-    format_players_suite = TestLoader()\
-        .loadTestsFromTestCase(TestFormatPlayers)
+    # format_players_suite = TestLoader()\
+    #     .loadTestsFromTestCase(TestFormatPlayers)
     
     # Pet and Mount Utils
     format_pet_mount_items_suite = TestLoader()\
@@ -97,7 +97,7 @@ def suites():
         check_faction_ach_suite,
         check_faction_suite,
         format_characters_suite,
-        format_players_suite,
+        # format_players_suite,
         format_pet_mount_items_suite,
         format_char_spells_suite,
         format_char_skills_suite,

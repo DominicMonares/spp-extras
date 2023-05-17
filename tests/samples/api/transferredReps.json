@@ -1,37 +1,112 @@
 [
   {
-    "guid": 6,
+    "guid": 5263,
     "faction": 47,
     "standing": 500
   },
   {
-    "guid": 6,
+    "guid": 5263,
     "faction": 87,
     "standing": 1500
   },
   {
-    "guid": 6,
+    "guid": 5263,
     "faction": 470,
     "standing": 2000
   },
   {
-    "guid": 7,
+    "guid": 5263,
+    "faction": 1090,
+    "standing": 0
+  },
+  {
+    "guid": 1001,
     "faction": 87,
     "standing": 1500
   },
   {
-    "guid": 7,
+    "guid": 1001,
     "faction": 470,
     "standing": 2000
   },
   {
-    "guid": 8,
+    "guid": 1001,
+    "faction": 1090,
+    "standing": 0
+  },
+  {
+    "guid": 4501,
     "faction": 87,
     "standing": 1500
   },
   {
-    "guid": 8,
+    "guid": 4501,
     "faction": 470,
     "standing": 2000
+  },
+  {
+    "guid": 4501,
+    "faction": 1090,
+    "standing": 0
+  },
+  {
+    "guid": 79411,
+    "faction": 47,
+    "standing": 500
+  },
+  {
+    "guid": 79411,
+    "faction": 87,
+    "standing": 1500
+  },
+  {
+    "guid": 79411,
+    "faction": 470,
+    "standing": 2000
+  },
+  {
+    "guid": 79411,
+    "faction": 1090,
+    "standing": 0
+  },
+  {
+    "guid": 6000,
+    "faction": 47,
+    "standing": 0
+  },
+  {
+    "guid": 6000,
+    "faction": 87,
+    "standing": 0
+  },
+  {
+    "guid": 6000,
+    "faction": 470,
+    "standing": 0
+  },
+  {
+    "guid": 6000,
+    "faction": 1090,
+    "standing": 5000
+  },
+  {
+    "guid": 6001,
+    "faction": 47,
+    "standing": 0
+  },
+  {
+    "guid": 6001,
+    "faction": 87,
+    "standing": 0
+  },
+  {
+    "guid": 6001,
+    "faction": 470,
+    "standing": 0
+  },
+  {
+    "guid": 6001,
+    "faction": 1090,
+    "standing": 5000
   }
 ]

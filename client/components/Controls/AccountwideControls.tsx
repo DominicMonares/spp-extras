@@ -55,7 +55,7 @@ const AccountWideControls = () => {
     const dispatchMessage = (message: string) => dispatch(storeMessages(message))
     const settings = {
       petsMounts: petsMountsChecked,
-      reps: repsChecked,
+      reputations: repsChecked,
       achievements: achsChecked,
       bots: botsChecked
     }

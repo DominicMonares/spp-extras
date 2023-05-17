@@ -2,8 +2,7 @@ import { useState } from 'react';
 import MainBigHeader from '../MainBigHeader';
 import Quest from './Quest';
 import { useAppSelector } from '../../store/hooks';
-import { 
-  createPlayerCharacters, 
+import {
   createViewQuests, 
   reverseSortViewQuests, 
   sortViewQuests 
@@ -18,10 +17,11 @@ const QuestTrackerView = () => {
   const faction = useAppSelector(state => state.faction.selected);
 
   // Separate completed player quests from bot quests
-  const accounts = useAppSelector(state => createPlayerCharacters(state.accounts.all));
+  const accounts = useAppSelector(state => state.accounts.all);
+  const account = accounts[0]
   const quests = useAppSelector(state => state.quests);
   const { completedQuests, templateQuests } = quests;
-  const playerQuests = createPlayerQuests(accounts, completedQuests);
+  const playerQuests = createPlayerQuests(account.characters, completedQuests);
 
   // Determine how to filter view quests
   const settings = useAppSelector(state => state.questTracker);

@@ -44,10 +44,14 @@ class AccountWideConsumer(WebsocketConsumer):
             send_msg(f'Error: {e}')
             return
 
+        # Create list of account IDs
+        def acct_id(acct): return acct['id']
+        account_ids = map(acct_id, account_data)
+
         # FETCH all character data
         try:
             send_msg('Fetching character data...')
-            character_data = sel_all_chars('wotlk')
+            character_data = sel_all_chars('wotlk', account_ids)
             send_msg('Character data successfully fetched!')
         except Exception as e:
             send_msg('Failed to fetch character data!')

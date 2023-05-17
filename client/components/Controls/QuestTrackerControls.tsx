@@ -15,7 +15,8 @@ import './Controls.css';
 
 const QuestTrackerControls = () => {
   const dispatch = useAppDispatch();
-  const account = useAppSelector(state => state.accounts.all['0']);
+  const accounts = useAppSelector(state => state.accounts.all);
+  const account = accounts[0]
   const expansion = useAppSelector(state => state.expansion.selected);
   const faction = useAppSelector(state => state.faction.selected);
   const settings = useAppSelector(state => state.questTracker);

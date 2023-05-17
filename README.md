@@ -63,12 +63,12 @@ TODO
   - Taskbar, window, and other icons for production
   - error body styling for large error
 - Create actual readme file
-- Rep share for tbc and classic after switching/in general
 
 
 TEST
 General
   - Starting prod build without database running - websocket
+  - Test everything in production
 
 
 NOTES

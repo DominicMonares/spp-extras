@@ -70,5 +70,13 @@
     "allowablerace": 690,
     "requiredskillrank": 75,
     "spellid_2": 64657
+  },
+  "68810": {
+    "entry": 49343,
+    "subclass": 2,
+    "name": "Spectral Tiger Cub",
+    "allowablerace": 0,
+    "requiredskillrank": 0,
+    "spellid_2": 68810
   }
 }

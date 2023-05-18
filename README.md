@@ -64,6 +64,7 @@ TODO
   - error body styling for large error
 - Create actual readme file
 - Rep discrepancies - not sharing entire standing for each faction?
+- Remove big button
 
 
 TEST

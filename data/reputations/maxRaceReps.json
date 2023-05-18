@@ -1,0 +1,232 @@
+{
+  "1": {
+    "name": "Human",
+    "47": {
+      "name": "Ironforge",
+      "maxStanding": 39899
+    },
+    "54": {
+      "name": "Gnomeregan Exiles",
+      "maxStanding": 39899
+    },
+    "69": {
+      "name": "Darnassus",
+      "maxStanding": 39899
+    },
+    "72": {
+      "name": "Stormwind",
+      "maxStanding": 38999
+    },
+    "930": {
+      "name": "Exodar",
+      "maxStanding": 39999
+    }
+  },
+  "2": {
+    "name": "Orc",
+    "68": {
+      "name": "Undercity",
+      "maxStanding": 42499
+    },
+    "76": {
+      "name": "Orgrimmar",
+      "maxStanding": 38999
+    },
+    "81": {
+      "name": "Thunder Bluff",
+      "maxStanding": 39899
+    },
+    "530": {
+      "name": "Darkspear Trolls",
+      "maxStanding": 39899
+    },
+    "911": {
+      "name": "Silvermoon City",
+      "maxStanding": 42599
+    }
+  },
+  "3": {
+    "name": "Dwarf",
+    "47": {
+      "name": "Ironforge",
+      "maxStanding": 38999
+    },
+    "54": {
+      "name": "Gnomeregan Exiles",
+      "maxStanding": 39899
+    },
+    "69": {
+      "name": "Darnassus",
+      "maxStanding": 39899
+    },
+    "72": {
+      "name": "Stormwind",
+      "maxStanding": 39899
+    },
+    "930": {
+      "name": "Exodar",
+      "maxStanding": 39999
+    }
+  },
+  "4": {
+    "name": "Night Elf",
+    "47": {
+      "name": "Ironforge",
+      "maxStanding": 39899
+    },
+    "54": {
+      "name": "Gnomeregan Exiles",
+      "maxStanding": 39899
+    },
+    "69": {
+      "name": "Darnassus",
+      "maxStanding": 38999
+    },
+    "72": {
+      "name": "Stormwind",
+      "maxStanding": 39899
+    },
+    "930": {
+      "name": "Exodar",
+      "maxStanding": 39999
+    }
+  },
+  "5": {
+    "name": "Undead",
+    "68": {
+      "name": "Undercity",
+      "maxStanding": 38999
+    },
+    "76": {
+      "name": "Orgrimmar",
+      "maxStanding": 42499
+    },
+    "81": {
+      "name": "Thunder Bluff",
+      "maxStanding": 42499
+    },
+    "530": {
+      "name": "Darkspear Trolls",
+      "maxStanding": 42499
+    },
+    "911": {
+      "name": "Silvermoon City",
+      "maxStanding": 39899
+    }
+  },
+  "6": {
+    "name": "Tauren",
+    "68": {
+      "name": "Undercity",
+      "maxStanding": 42499
+    },
+    "76": {
+      "name": "Orgrimmar",
+      "maxStanding": 39899
+    },
+    "81": {
+      "name": "Thunder Bluff",
+      "maxStanding": 38999
+    },
+    "530": {
+      "name": "Darkspear Trolls",
+      "maxStanding": 39899
+    },
+    "911": {
+      "name": "Silvermoon City",
+      "maxStanding": 42599
+    }
+  },
+  "7": {
+    "name": "Gnome",
+    "47": {
+      "name": "Ironforge",
+      "maxStanding": 39899
+    },
+    "54": {
+      "name": "Gnomeregan Exiles",
+      "maxStanding": 38999
+    },
+    "69": {
+      "name": "Darnassus",
+      "maxStanding": 39899
+    },
+    "72": {
+      "name": "Stormwind",
+      "maxStanding": 39899
+    },
+    "930": {
+      "name": "Exodar",
+      "maxStanding": 39999
+    }
+  },
+  "8": {
+    "name": "Troll",
+    "68": {
+      "name": "Undercity",
+      "maxStanding": 42499
+    },
+    "76": {
+      "name": "Orgrimmar",
+      "maxStanding": 39899
+    },
+    "81": {
+      "name": "Thunder Bluff",
+      "maxStanding": 39899
+    },
+    "530": {
+      "name": "Darkspear Trolls",
+      "maxStanding": 38999
+    },
+    "911": {
+      "name": "Silvermoon City",
+      "maxStanding": 42599
+    }
+  },
+  "10": {
+    "name": "Blood Elf",
+    "68": {
+      "name": "Undercity",
+      "maxStanding": 39899
+    },
+    "76": {
+      "name": "Orgrimmar",
+      "maxStanding": 42499
+    },
+    "81": {
+      "name": "Thunder Bluff",
+      "maxStanding": 42499
+    },
+    "530": {
+      "name": "Darkspear Trolls",
+      "maxStanding": 42499
+    },
+    "911": {
+      "name": "Silvermoon City",
+      "maxStanding": 38999
+    }
+  },
+  "11": {
+    "name": "Draenei",
+    "47": {
+      "name": "Ironforge",
+      "maxStanding": 39899
+    },
+    "54": {
+      "name": "Gnomeregan Exiles",
+      "maxStanding": 39899
+    },
+    "69": {
+      "name": "Darnassus",
+      "maxStanding": 39899
+    },
+    "72": {
+      "name": "Stormwind",
+      "maxStanding": 39899
+    },
+    "930": {
+      "name": "Exodar",
+      "maxStanding": 38999
+    }
+  }
+}

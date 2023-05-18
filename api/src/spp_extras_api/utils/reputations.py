@@ -1,5 +1,7 @@
 import json
 from from_root import from_root
+with open(from_root('data/reputations/maxRaceReps.json'), 'r') as json_file:
+    max_race_reps = json.load(json_file)
 with open(from_root('data/reputations/reputationTemplate.json'), 'r') as json_file:
     rep_template = json.load(json_file)
 
@@ -49,6 +51,8 @@ def create_reputation_args(accounts, reputations):
         for char_faction in characters:
             faction_chars = characters[char_faction]
             for char_id in faction_chars:
+                char = faction_chars[char_id]
+                race = char['race']
                 merged_acct_standing = {
                     **acct_standing[char_faction], **acct_standing['neutral']}
                 reps_exist = char_id in reputations
@@ -57,6 +61,22 @@ def create_reputation_args(accounts, reputations):
                     highest_standing = merged_acct_standing[rep_id]
                     char_reps_exist = rep_id in char_reps
                     char_standing = char_reps[rep_id] if char_reps_exist else 0
+                    
+                    # Prevent race/city rep overflow
+                    # Race/city reputations vary depending on char race.
+                    # Ex: Orcs start at 1000/6000 with Org and 100/6000 with Thunderbluff
+                    # This causes in-game counters to go higher than 999/1000 for these reps
+                    # These reps will also not reflect 1:1 in-game for different races
+                    # Ex: Orc with 999/1000 Org will transfer to 18499/21000 for Undead char
+                    # This ONLY applies to the 10 char race factions
+                    # No plans to implement a workaround for this
+                    if rep_id in max_race_reps[str(race)]:
+                        race_rep = max_race_reps[str(race)][rep_id]
+                        max_race_standing = race_rep['maxStanding']
+                        if highest_standing > max_race_standing:
+                            highest_standing = max_race_standing
+
+                    # Add argument for higher standings
                     if highest_standing > char_standing:
                         args.append({
                             'guid': int(char_id),

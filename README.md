@@ -63,7 +63,6 @@ TODO
   - Taskbar, window, and other icons for production
   - error body styling for large error
 - Create actual readme file
-- Remove big button
 
 
 TEST

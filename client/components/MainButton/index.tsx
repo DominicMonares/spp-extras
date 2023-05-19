@@ -3,17 +3,21 @@ import './MainButton.css';
 
 
 const MainButton = ({ active, handleClick, buttonText }: MainButtonProps) => {
+  const prefs = buttonText === 'Preferences';
+
   return (
     <button
       className={`
-        main-btn
-        ${active ? 'main-btn-active' : ''}
+        ${prefs ? 'prefs-btn' : 'main-btn'}
+        ${active && prefs ? 'prefs-btn-active' : ''}
+        ${active && !prefs ? 'main-btn-active' : ''}
       `}
       onClick={handleClick}
     >
       <div className={`
-        main-btn-text
-        ${active ? 'main-btn-text-active' : ''}
+        ${prefs ? 'prefs-btn-text' : 'main-btn-text'}
+        ${active && prefs ? 'prefs-btn-text-active' : ''}
+        ${active && !prefs ? 'main-btn-text-active' : ''}
       `}>
         {buttonText}
       </div>

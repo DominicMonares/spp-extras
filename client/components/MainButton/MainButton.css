@@ -1,13 +1,17 @@
 /* Container */
 
-.main-btn {
-  width: 224px;
-  height: 54px;
+.main-btn,
+.prefs-btn {
   border-radius: 5px;
   background-image: url("../../assets/buttons/main-button.png");
   background-size: 100%;
   background-repeat: no-repeat;
   transition: width 0.1s linear, height 0.1s linear;
+}
+
+.main-btn {
+  width: 224px;
+  height: 54px;
 }
 
 .main-btn:hover,
@@ -16,10 +20,22 @@
   height: 57px;
 }
 
+.prefs-btn {
+  width: 168px;
+  height: 40.5px;
+}
+
+.prefs-btn:hover,
+.prefs-btn-active {
+  width: 177px;
+  height: 42.67px;
+}
+
 
 /* Text */
 
-.main-btn-text {
+.main-btn-text,
+.prefs-btn-text {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,11 +44,23 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: Friz Quadrata;
-  font-size: 25px;
   transition: font-size 0.1s linear;
+}
+
+.main-btn-text {
+  font-size: 25px;
 }
 
 .main-btn:hover > .main-btn-text,
 .main-btn-text-active {
   font-size: 26.5px;
+}
+
+.prefs-btn-text {
+  font-size: 19px;
+}
+
+.prefs-btn:hover > .prefs-btn-text,
+.prefs-btn-text-active {
+  font-size: 20px;
 }

@@ -57,7 +57,6 @@ spp_extras_api.exe runserver --settings=spp_extras.settings.prod --noreload
 
 TODO
 - Final styling cleanup
-  - Account-wide controls
   - header with arrow
   - dropdown different font growth
   - Window size

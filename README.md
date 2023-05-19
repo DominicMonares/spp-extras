@@ -57,10 +57,9 @@ spp_extras_api.exe runserver --settings=spp_extras.settings.prod --noreload
 
 TODO
 - Final styling cleanup
-  - New styling for refactor - warning messages, buttons, etc.
+  - Account-wide controls
   - Window size
   - Taskbar, window, and other icons for production
-  - error body styling for large error
 - Create actual readme file
 
 

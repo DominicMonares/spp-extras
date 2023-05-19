@@ -128,28 +128,39 @@
 }
 
 .dd-main-arrow,
-.dd-main-arrow-active {
-  margin-left: 20px;
-  transition: width 0.1s linear, height 0.1s linear;
+.dd-main-arrow-sm,
+.dd-main-arrow-active,
+.dd-main-arrow-sm-active {
+  transition: margin 0.1s linear, width 0.1s linear, height 0.1s linear;
 }
 
-.dd-main-arrow-sm,
-.dd-main-arrow-sm-active {
+.dd-main-arrow {
+  margin-left: 20px;
+}
+
+.dd-main-arrow-sm {
   margin-right: 20px;
   transform: scaleX(-1);
-  transition: width 0.1s linear, height 0.1s linear;
+}
+
+.dd-main-arrow-active {
+  margin-left: 21.5px;
+}
+
+.dd-main-arrow-sm-active {
+  margin-right: 21.5px;
 }
 
 .dd-main-arrow,
 .dd-main-arrow-sm {
-  width: 21px;
-  height: 21px;
+  width: 20px;
+  height: 20px;
 }
 
 .dd-main-arrow-active,
 .dd-main-arrow-sm-active {
-  width: 22.5px;
-  height: 22.5px;
+  width: 21.5px;
+  height: 21.5px;
 }
 
 .c12, .c12-active,

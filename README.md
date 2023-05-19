@@ -59,7 +59,6 @@ TODO
 - Final styling cleanup
   - New styling for refactor - warning messages, buttons, etc.
   - Window size
-  - Preferences
   - Taskbar, window, and other icons for production
   - error body styling for large error
 - Create actual readme file

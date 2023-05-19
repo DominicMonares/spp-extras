@@ -57,8 +57,6 @@ spp_extras_api.exe runserver --settings=spp_extras.settings.prod --noreload
 
 TODO
 - Final styling cleanup
-  - header with arrow
-  - dropdown different font growth
   - Window size
   - Taskbar, window, and other icons for production
 - Create actual readme file

@@ -109,37 +109,41 @@ const AccountWideControls = () => {
         )}
 
       </Modal>
-      <div>Choose the data you want to transfer</div>
-      {expansion === 'wotlk' ? (
+      <div className="msg-label">Choose data to transfer</div>
+      <div className={`checkboxes ${expansion}-checkboxes`}>
+        {expansion === 'wotlk' ? (
+          <Checkbox 
+            callback={() => setPetsMountsChecked(!petsMountsChecked)} 
+            isChecked={petsMountsChecked} 
+            text="Pets & Mounts" 
+          />
+        ) : (
+          <></>
+        )}
         <Checkbox 
-          callback={() => setPetsMountsChecked(!petsMountsChecked)} 
-          isChecked={petsMountsChecked} 
-          text="Pets & Mounts" 
+          callback={() => setRepsChecked(!repsChecked)} 
+          isChecked={repsChecked} 
+          text="Reputations" 
         />
-      ) : (
-        <></>
-      )}
-      <Checkbox 
-        callback={() => setRepsChecked(!repsChecked)} 
-        isChecked={repsChecked} 
-        text="Reputations" 
-      />
-      {expansion === 'wotlk' ? (
+        {expansion === 'wotlk' ? (
+          <Checkbox 
+            callback={() => setAchsChecked(!achsChecked)} 
+            isChecked={achsChecked} 
+            text="Achievements" 
+          />
+        ) : (
+          <></>
+        )}
         <Checkbox 
-          callback={() => setAchsChecked(!achsChecked)} 
-          isChecked={achsChecked} 
-          text="Achievements" 
+          callback={() => setBotsChecked(!botsChecked)} 
+          isChecked={botsChecked} 
+          text="Include bot accounts" 
         />
-      ) : (
-        <></>
-      )}
-      <Checkbox 
-        callback={() => setBotsChecked(!botsChecked)} 
-        isChecked={botsChecked} 
-        text="Include bot accounts" 
-      />
-      Note: You will not receive any achievements, pets, etc. from bot accounts.
-      This only runs achievement transfers for bot accounts in addition to yours.
+        <div className="msg-note">
+          <b>Note:</b> You will not receive any achievements, pets, etc. from bot accounts.
+          This only runs transfers for bot accounts in addition to yours.
+        </div>
+      </div>
       <MainButton handleClick={openModal} buttonText="Start" />
       <div className="msg-options-container">
       </div>

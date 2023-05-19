@@ -43,7 +43,7 @@
 }
 
 
-/* Account-wide */
+/* Messages (Account-Wide) */
 
 .msg-controls {
   display: flex;
@@ -53,8 +53,44 @@
   margin-bottom: 5px;
 }
 
+.msg-label,
+.msg-note {
+  margin-bottom: 5px;
+  text-align: center;
+  font-family: MORPHEUS;
+}
 
-/* Account-wide Modal */
+.msg-label {
+  font-size: 20px;
+}
+
+.msg-note {
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.checkboxes {
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
+  border: black 1px solid;
+}
+
+.classic-checkboxes {
+  background: rgba(241, 221, 111, 0.5);
+}
+
+.tbc-checkboxes {
+  background: rgba(45, 159, 5, 0.5);
+}
+
+.wotlk-checkboxes {
+  background: rgba(3, 130, 183, 0.8);
+}
+
+
+/* Messages (Account-Wide) Modal */
 
 .ReactModal__Overlay {
   z-index: 1000;

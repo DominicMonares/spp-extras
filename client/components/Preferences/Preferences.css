@@ -24,6 +24,10 @@
   background-color: rgba(0, 0, 0, 0.7);
 }
 
+.prefs-body-short {
+  height: 382px;
+}
+
 .prefs-text-body {
   display: flex;
   flex-direction: column;
@@ -41,7 +45,7 @@
   font-size: 24px;
 }
 
-.welcome {
+.pref-text-top {
   margin-top: 22px;
   margin-bottom: 14px;
 }

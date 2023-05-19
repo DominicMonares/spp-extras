@@ -35,25 +35,35 @@ const Preferences = ({ setInstalled }: PreferencesProps) => {
     setInstalled(true);
   }
 
+  const prefsSet = expansion || faction
+  const prefsNotSet = !expansion || !faction
+
   return (
     <div className="preferences">
       <img className="main-logo" src={mainLogo} />
-      <div className="prefs-body">
+      <div className={`prefs-body ${prefsSet ? 'prefs-body-short' : ''}`}>
         <div className="prefs-text-body">
-          {!expansion || !faction ? (
-            <div className="pref-text welcome">Welcome to SPP Extras!</div>
+          {prefsNotSet ? (
+            <div className="pref-text pref-text-top">Welcome to SPP Extras!</div>
           ) : (
             <></>
           )}
-          <div className="pref-text">
+          <div className={`
+            pref-text
+            ${prefsSet ? 'pref-text-top' : ''}
+          `}>
             Please select your preferred faction and expansion.
           </div>
           <div className="pref-text">
             These will be selected every time you open the app.
           </div>
-          <div className="pref-text">
-            You can change your preferences any time from the Tools menu.
-          </div>
+          {prefsNotSet ? (
+            <div className="pref-text">
+              You can change your preferences any time from the Tools menu.
+            </div>
+          ) : (
+            <></>
+          )}
         </div>
         <ExpansionPreferences setSelectedExpansion={setSelectedExpansion} />
         <FactionPreferences setSelectedFaction={setSelectedFaction} />

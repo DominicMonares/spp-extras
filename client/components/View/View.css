@@ -26,7 +26,8 @@
 }
 
 .messages,
-.qt-table {
+.qt-table,
+.error {
   margin-left: 5px;
   margin-right: 5px;
   margin-top: 5px;
@@ -42,36 +43,46 @@
 }
 
 .classic-messages,
-.classic-qt-table {
+.classic-qt-table,
+.classic-error {
   background: rgba(241, 221, 111, 0.5);
 }
 
 .tbc-messages,
-.tbc-qt-table {
+.tbc-qt-table,
+.tbc-error {
   background: rgba(45, 159, 5, 0.5);
 }
 
 .wotlk-messages,
-.wotlk-qt-table {
+.wotlk-qt-table,
+.wotlk-error {
   background: rgba(3, 130, 183, 0.8);
 }
 
 
 /* Error View */
 
-.error-view-body {
+.error {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 5px;
-  padding-left: 2px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 2px;
 }
 
 .error-text {
-  margin-bottom: 10px;
+  width: 100%;
   font-family: MORPHEUS;
-  font-size: 19px;
+  font-size: 15px;
+}
+
+.error-btn {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
 }
 
 
@@ -160,7 +171,7 @@ tbody {
   overflow-y: overlay;
   scrollbar-gutter: auto;
   font-family: MORPHEUS;
-  font-size: 17px;
+  font-size: 15px;
 }
 
 tbody::-webkit-scrollbar {

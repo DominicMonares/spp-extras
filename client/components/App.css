@@ -23,3 +23,10 @@
 .wotlk-container {
   background-image: url("../assets/backgrounds/wotlk.jpg");
 }
+
+.all-container,
+.classic-container,
+.tbc-container,
+.wotlk-container {
+  background-size: cover;
+}

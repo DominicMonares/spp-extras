@@ -101,7 +101,7 @@
 .dd-main-button-active {
   border-radius: 5px;
   background-image: url("../../assets/buttons/main-button.png");
-  background-size: 100%;
+  /* background-size: 100%; <=== MOST LIKELY CULPRIT */
   background-repeat: no-repeat;
   /* transition: width 0.1s linear, height 0.1s linear; */
 }

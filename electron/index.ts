@@ -154,7 +154,6 @@ const createWindows = async () => {
   splash.close();
 
   if (!isDevelopmentEnv()) mainWindow.setMenu(null);
-  mainWindow.setMenu(null);
   mainWindow.show();
 
   // Open the DevTools

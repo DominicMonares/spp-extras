@@ -25,7 +25,7 @@ const QuestTrackerControls = () => {
 
   return (
     <div className="qt-controls">
-      <div className="ctrl-label top-ctrl-label">Primary Filters</div>
+      <div className="ctrl-label primary-ctrl-label">Primary Filters</div>
       <FactionSelect />
       <div className="qt-filter-list">
         <DropdownMenu dropdownType="zone" menu={zoneMenu(expansion, zone)} />

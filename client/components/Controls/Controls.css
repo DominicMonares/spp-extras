@@ -27,17 +27,12 @@
 }
 
 
-/* Control Labels */
+/* Control Label */
 
 .ctrl-label {
   text-align: center;
   font-family: MORPHEUS;
-  font-size: 24px;
-}
-
-.home-ctrl-label {
-  margin-top: -8.5px;
-  margin-bottom: 5px;
+  font-size: 21px;
 }
 
 
@@ -52,15 +47,15 @@
   margin-bottom: 5px;
 }
 
-.msg-label,
+.msg-label {
+  margin-top: -7px;
+  margin-bottom: 5px;
+}
+
 .msg-note {
   margin-bottom: 5px;
   text-align: center;
   font-family: MORPHEUS;
-}
-
-.msg-label {
-  font-size: 20px;
 }
 
 .msg-note {
@@ -233,20 +228,28 @@
 
 /* Quest Tracker */
 
-.qt-faction,
-.qt-filters,
+/* .qt-controls,
+.qt-filter-list,
 .qt-additional-filters {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+} */
+
+.qt-controls {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.qt-faction {
-  margin-top: -8px;
+.primary-ctrl-label {
+  margin-top: -6.5px;
+  margin-bottom: 5px;
 }
 
-.qt-filters {
+.qt-filter-list {
   /* margin-top: 50.37px; */
 }
 

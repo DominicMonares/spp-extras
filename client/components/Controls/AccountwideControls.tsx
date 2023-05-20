@@ -109,7 +109,7 @@ const AccountWideControls = () => {
         )}
 
       </Modal>
-      <div className="msg-label">Choose data to transfer</div>
+      <div className="ctrl-label msg-label">Choose data to transfer</div>
       <div className={`checkboxes ${expansion}-checkboxes`}>
         {expansion === 'wotlk' ? (
           <Checkbox 

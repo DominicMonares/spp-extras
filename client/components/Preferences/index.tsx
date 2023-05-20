@@ -68,7 +68,10 @@ const Preferences = ({ setInstalled }: PreferencesProps) => {
         <ExpansionPreferences setSelectedExpansion={setSelectedExpansion} />
         <FactionPreferences setSelectedFaction={setSelectedFaction} />
         <div className="save-container">
-          <MainButton handleClick={save} buttonText="Save and Begin" />
+          <MainButton 
+            handleClick={save} 
+            buttonText={`Save${prefsNotSet ? 'and Begin' : ''}`} 
+          />
           {noSelections ? (
             <div className="pref-text pref-text-save">
               Please select both an expansion and a faction to continue

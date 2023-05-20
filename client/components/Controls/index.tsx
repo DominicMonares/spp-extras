@@ -15,7 +15,7 @@ const Controls = () => {
     <div className={`controls ${expansion}-controls ${collapsed ? 'collapsed-menu' : ''}`}>
       <MainHeader collapsed={collapsed} headerText="Controls" setCollapsed={setCollapsed} />
       {!tool ? (
-        <div className="ctrl-label home-ctrl-label">No tool selected</div>
+        <div className="ctrl-label top-ctrl-label home-ctrl-label">No tool selected</div>
       ) : (
         <></>
       )}

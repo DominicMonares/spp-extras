@@ -1,9 +1,7 @@
 /* Container */
 
 .controls {
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-top: 5px;
+  margin: 5px;
   width: 249.5px;
   min-width: 249.5px;
   height: max-content;

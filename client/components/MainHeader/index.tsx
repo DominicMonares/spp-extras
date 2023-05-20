@@ -6,16 +6,15 @@ import './MainHeader.css';
 const MainHeader = ({ collapsed, headerText, setCollapsed }: MainHeaderProps) => {
   return (
     <div className="main-header">
+      <div className="main-header-buffer"></div>
       <div className="main-header-label">
         <div className="main-header-text">{headerText}</div>
       </div>
-      <div className="collapse-arrow">
-        <img
-          className={collapsed ? 'collapsed' : 'expanded'}
-          src={arrow}
-          onClick={() => setCollapsed(!collapsed)}
-        />
-      </div>
+      <img
+        className={collapsed ? 'collapsed' : 'expanded'}
+        src={arrow}
+        onClick={() => setCollapsed(!collapsed)}
+      />
     </div>
   ); 
 }

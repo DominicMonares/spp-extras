@@ -48,6 +48,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 6px;
   margin-bottom: 5px;
 }
 
@@ -116,10 +117,17 @@
 /* FactionSelect */
 
 .faction-select {
+  position: relative;
+  height: 47px;
+}
+
+.faction-select-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
   position: absolute;
-  margin-top: 86px;
+  width: 100%;
+  height: 47px;
 }
 
 .qt-alliance-1,
@@ -128,16 +136,16 @@
   z-index: 2;
 }
 
-@keyframes qt-alliance-1-animation {
+@keyframes qt-alliance-animation-1 {
   0% {
     z-index: 1;
   }
   50% {
-    margin-bottom: 24px;
+    margin-top: -23.5px;
     z-index: 1;
   }
   51% {
-    margin-bottom: 24px;
+    margin-top: -23.5px;
     z-index: 2;
   }
   100% {
@@ -147,7 +155,7 @@
 }
 
 .qt-alliance-1-anim-1 {
-  animation-name: qt-alliance-1-animation;
+  animation-name: qt-alliance-animation-1;
   animation-duration: 0.5s;
 }
 
@@ -158,9 +166,9 @@
   z-index: 1;
 }
 
-@keyframes qt-horde-1-animation {
+@keyframes qt-horde-animation-1 {
   50% {
-    margin-top: -24px;
+    margin-top: 0px;
   }
   100% {
     margin-top: -47px;
@@ -168,7 +176,7 @@
 }
 
 .qt-horde-1-anim-1 {
-  animation-name: qt-horde-1-animation;
+  animation-name: qt-horde-animation-1;
   animation-duration: 0.5s;
 }
 
@@ -179,7 +187,7 @@
   z-index: 1;
 }
 
-@keyframes qt-alliance-2-animation {
+@keyframes qt-alliance-animation-2 {
   50% {
     margin-top: 0px;
   }
@@ -189,7 +197,7 @@
 }
 
 .qt-alliance-2-anim-2 {
-  animation-name: qt-faction-1-animation;
+  animation-name: qt-alliance-animation-2;
   animation-duration: 0.5s;
 }
 
@@ -199,16 +207,16 @@
   z-index: 2;
 }
 
-@keyframes qt-horde-2-animation {
+@keyframes qt-horde-animation-2 {
   0% {
     z-index: 1;
   }
   50% {
-    margin-bottom: 47px;
+    margin-top: -23.5px;
     z-index: 1;
   }
   51% {
-    margin-bottom: 47px;
+    margin-top: -23.5px;
     z-index: 2;
   }
   100% {
@@ -218,7 +226,7 @@
 }
 
 .qt-horde-2-anim-2 {
-  animation-name: qt-horde-2-animation;
+  animation-name: qt-horde-animation-2;
   animation-duration: 0.5s;
 }
 
@@ -235,12 +243,11 @@
 }
 
 .qt-faction {
-  position: relative;
-  margin-top: -8.5px;
+  margin-top: -8px;
 }
 
 .qt-filters {
-  margin-top: 50.37px;
+  /* margin-top: 50.37px; */
 }
 
 .qt-additional-filters {

@@ -43,7 +43,7 @@ const FactionSelect = () => {
   return (
     <div className="faction-select">
       {faction === 'alliance' ? (
-        <>
+        <div className="faction-select-container">
           <img
             className={`qt-alliance-1${animation}`}
             src={alliance}
@@ -54,9 +54,9 @@ const FactionSelect = () => {
             src={horde}
             onClick={() => selectFaction('horde')}
           />
-        </>
+        </div>
       ) : (
-        <>
+        <div className="faction-select-container">
           <img
             className={`qt-horde-2${animation}`}
             src={horde}
@@ -67,7 +67,7 @@ const FactionSelect = () => {
             src={alliance}
             onClick={() => selectFaction('alliance')}
           />
-        </>
+        </div>
       )}
 
     </div>

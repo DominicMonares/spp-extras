@@ -99,7 +99,7 @@
   text-align: center;
   font-family: Friz Quadrata;
   font-size: 25px;
-  transition: font-size 0.1s linear;
+  /* transition: font-size 0.1s linear; */
 }
 
 .msg-warning-buttons {
@@ -229,12 +229,19 @@
 /* Quest Tracker */
 
 .qt-controls,
-.qt-filter-list,
-.qt-additional-filters {
+/* .qt-filter-list, */
+.qt-sec-filter-list {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.qt-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: -5px;
+  width: 100%;
 }
 
 .primary-ctrl-label {
@@ -242,7 +249,7 @@
   margin-bottom: 5px;
 }
 
-.qt-additional-filters {
+.qt-sec-filter-list {
   margin-bottom: 5px;
 }
 

@@ -6,7 +6,7 @@
   background-image: url("../../assets/buttons/main-button.png");
   background-size: 100%;
   background-repeat: no-repeat;
-  transition: width 0.1s linear, height 0.1s linear;
+  /* transition: width 0.1s linear, height 0.1s linear; */
 }
 
 .main-btn {
@@ -17,7 +17,7 @@
 .main-btn:hover,
 .main-btn-active {
   width: 236.5px;
-  height: 56.5px;
+  height: 56.78px;
 }
 
 .prefs-btn {
@@ -44,7 +44,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: Friz Quadrata;
-  transition: font-size 0.1s linear;
+  /* transition: font-size 0.1s linear; */
 }
 
 .main-btn-text {

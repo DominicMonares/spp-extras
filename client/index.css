@@ -3,13 +3,17 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  cursor: url('assets/cursors/gauntlet.cur'), auto;
+}
+
+*:hover {
+  cursor: url('assets/cursors/gauntlet.cur'), auto;
 }
 
 html,
 body,
 #root {
   height: 100%;
-  cursor: url('assets/cursors/gauntlet.cur'), auto;
 }
 
 html::-webkit-scrollbar {

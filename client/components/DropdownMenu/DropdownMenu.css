@@ -92,7 +92,6 @@
   width: 100%;
   border: none;
   font-size: 14px;
-  cursor: pointer;
 }
 
 
@@ -104,7 +103,7 @@
   background-image: url("../../assets/buttons/main-button.png");
   background-size: 100%;
   background-repeat: no-repeat;
-  transition: width 0.1s linear, height 0.1s linear;
+  /* transition: width 0.1s linear, height 0.1s linear; */
 }
 
 .dd-main-button {
@@ -128,7 +127,7 @@
 .dd-main-arrow-sm,
 .dd-main-arrow-active,
 .dd-main-arrow-sm-active {
-  transition: margin 0.1s linear, width 0.1s linear, height 0.1s linear;
+  /* transition: margin 0.1s linear, width 0.1s linear, height 0.1s linear; */
 }
 
 .dd-main-arrow {
@@ -182,7 +181,7 @@
   -webkit-text-fill-color: transparent;
   text-align: center;
   font-family: Friz Quadrata;
-  transition: font-size 0.1s linear;
+  /* transition: font-size 0.1s linear; */
 }
 
 .c-sm {
@@ -341,7 +340,7 @@
   -webkit-text-fill-color: transparent;
   font-family: Friz Quadrata;
   font-weight: bold;
-  transition: font-size 0.1s linear;
+  /* transition: font-size 0.1s linear; */
 }
 
 .dd-long-sub-text {

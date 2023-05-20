@@ -100,9 +100,6 @@
 
 .dd-main-button,
 .dd-main-button-active {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   border-radius: 5px;
   background-image: url("../../assets/buttons/main-button.png");
   background-size: 100%;
@@ -117,7 +114,7 @@
 
 .dd-main-button-active {
   width: 236.5px;
-  height: 57px;
+  height: 56.78px;
 }
 
 .dd-main-button-content {
@@ -149,6 +146,7 @@
 
 .dd-main-arrow-sm-active {
   margin-right: 21.5px;
+  transform: scaleX(-1);
 }
 
 .dd-main-arrow,

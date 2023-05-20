@@ -228,16 +228,9 @@
 
 /* Quest Tracker */
 
-/* .qt-controls,
+.qt-controls,
 .qt-filter-list,
 .qt-additional-filters {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-} */
-
-.qt-controls {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -247,10 +240,6 @@
 .primary-ctrl-label {
   margin-top: -6.5px;
   margin-bottom: 5px;
-}
-
-.qt-filter-list {
-  /* margin-top: 50.37px; */
 }
 
 .qt-additional-filters {

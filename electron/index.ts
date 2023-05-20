@@ -104,10 +104,10 @@ const createWindows = async () => {
 
   // Create the primary window
   const mainWindow = new BrowserWindow({
-    width: 1094,
+    width: 1080,
     minWidth: 794,
-    height: 1137,
-    minHeight: 810,
+    height: 1080,
+    minHeight: 844,
     show: false,
     webPreferences: {
       preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
@@ -152,7 +152,9 @@ const createWindows = async () => {
 
   // Close the splash and display main window
   splash.close();
-  // mainWindow.setMenu(null)
+
+  if (!isDevelopmentEnv()) mainWindow.setMenu(null);
+  mainWindow.setMenu(null);
   mainWindow.show();
 
   // Open the DevTools

@@ -154,10 +154,11 @@ const createWindows = async () => {
   splash.close();
 
   mainWindow.moveTop()
-  if (!isDevelopmentEnv()) mainWindow.setMenu(null);
+  // if (!isDevelopmentEnv()) mainWindow.setMenu(null);
   mainWindow.show();
 
   // Open the DevTools
+  openDevTools(mainWindow);
   if (isDevelopmentEnv()) openDevTools(mainWindow);
 };
 

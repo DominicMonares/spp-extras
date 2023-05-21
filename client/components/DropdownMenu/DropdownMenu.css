@@ -101,19 +101,23 @@
 .dd-main-button-active {
   border-radius: 5px;
   background-image: url("../../assets/buttons/main-button.png");
-  /* background-size: 100%; <=== MOST LIKELY CULPRIT */
+  background-size: 100%;
   background-repeat: no-repeat;
   /* transition: width 0.1s linear, height 0.1s linear; */
 }
 
 .dd-main-button {
-  width: 224px;
-  height: 54px;
+  min-width: 224px;
+  max-width: 224px;
+  min-height: 54px;
+  max-height: 54px;
 }
 
 .dd-main-button-active {
-  width: 236.5px;
-  height: 56.78px;
+  min-width: 236.5px;
+  max-width: 236.5px;
+  min-height: 56.78px;
+  max-height: 56.78px;
 }
 
 .dd-main-button-content {
@@ -123,12 +127,12 @@
   width: 100%;
 }
 
-.dd-main-arrow,
+/* .dd-main-arrow,
 .dd-main-arrow-sm,
 .dd-main-arrow-active,
 .dd-main-arrow-sm-active {
-  /* transition: margin 0.1s linear, width 0.1s linear, height 0.1s linear; */
-}
+  transition: margin 0.1s linear, width 0.1s linear, height 0.1s linear;
+} */
 
 .dd-main-arrow {
   margin-left: 20px;

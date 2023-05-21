@@ -229,12 +229,17 @@
 /* Quest Tracker */
 
 .qt-controls,
-/* .qt-filter-list, */
+.qt-filter-list,
 .qt-sec-filter-list {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.qt-filter-list {
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .qt-button-container {

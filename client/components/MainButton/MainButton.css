@@ -10,25 +10,33 @@
 }
 
 .main-btn {
-  width: 224px;
-  height: 54px;
+  min-width: 224px;
+  max-width: 224px;
+  min-height: 54px;
+  max-height: 54px;
 }
 
 .main-btn:hover,
 .main-btn-active {
-  width: 236.5px;
-  height: 56.78px;
+  min-width: 236.5px;
+  max-width: 236.5px;
+  min-height: 56.78px;
+  max-height: 56.78px;
 }
 
 .prefs-btn {
-  width: 168px;
-  height: 40.5px;
+  min-width: 168px;
+  max-width: 168px;
+  min-height: 40.5px;
+  max-height: 40.5px;
 }
 
 .prefs-btn:hover,
 .prefs-btn-active {
-  width: 177px;
-  height: 42.67px;
+  min-width: 177px;
+  max-width: 177px;
+  min-height: 42.67px;
+  max-height: 42.67px;
 }
 
 

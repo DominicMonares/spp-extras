@@ -35,12 +35,10 @@ const QuestTrackerControls = () => {
         />
         <DropdownMenu dropdownType="race" menu={raceMenu(expansion, faction, race)} />
       </div>
-      <div className="qt-button-container">
-        <MainButton
-          handleClick={() => dispatch(storeQuestTrackerAll({ all: true }))}
-          buttonText="All Quests"
-        />
-      </div>
+      <MainButton
+        handleClick={() => dispatch(storeQuestTrackerAll({ all: true }))}
+        buttonText="All Quests"
+      />
       <div className="ctrl-label qt-additional-label">Secondary Filters:</div>
       <div className="qt-sec-filter-list">
         <DropdownMenu

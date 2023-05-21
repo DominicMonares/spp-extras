@@ -153,6 +153,7 @@ const createWindows = async () => {
   // Close the splash and display main window
   splash.close();
 
+  mainWindow.moveTop()
   if (!isDevelopmentEnv()) mainWindow.setMenu(null);
   mainWindow.show();
 

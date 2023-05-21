@@ -12,19 +12,28 @@ import copyApiFolder from './electron/buildScripts/copyApiFolder';
 
 const config: ForgeConfig = {
   packagerConfig: {
+    icon: './client/assets/icons/icon',
     afterExtract: [
       copyApiFolder
     ]
   },
   rebuildConfig: {},
   makers: [
-    new MakerSquirrel({}), 
+    new MakerSquirrel({
+      iconUrl: './client/assets/icons/icon',
+      setupIcon: './client/assets/icons/icon'
+    }), 
     new MakerZIP({}, ['darwin']), 
     new MakerRpm({}), 
-    new MakerDeb({}),
+    new MakerDeb({
+      options: {
+        icon: './client/assets/icons/icon'
+      } 
+    }),
     {
       name: '@rabbitholesyndrome/electron-forge-maker-portable',
       config: {
+        iconUrl: './client/assets/icons/icon',
         portable: {
           artifactName: 'SPP Extras'
         }

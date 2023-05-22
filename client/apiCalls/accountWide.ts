@@ -20,7 +20,7 @@ const connect: WebSocketMessage = (dispatchMessage) => {
   }
 }
 
-export const openAccountWideSocket: WebSocketMessage = async (dispatchMessage, settings) => {
+export const openAccountWideSocket: WebSocketMessage = (dispatchMessage, settings) => {
   connect(dispatchMessage);
   gameSocket.send(JSON.stringify(settings));
 }

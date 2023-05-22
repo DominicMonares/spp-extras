@@ -2,18 +2,18 @@ import { port, wsUrl } from '../config';
 import { WebSocketMessage } from '../types';
 
 
-const gameSocket = new WebSocket(`${wsUrl}:${port}/ws/account_wide/transfer/`);
+const accountWideSocket = new WebSocket(`${wsUrl}:${port}/ws/account_wide/transfer/`);
 
 const connect: WebSocketMessage = (dispatchMessage) => {
-  gameSocket.onopen = () => {
+  accountWideSocket.onopen = () => {
     console.log('Account-Wide WebSocket connection created!');
   }
 
-  gameSocket.onclose = () => {
+  accountWideSocket.onclose = () => {
     console.log('Account-Wide WebSocket connection closed!');
   }
 
-  gameSocket.onmessage = e => {
+  accountWideSocket.onmessage = e => {
     const data = JSON.parse(e.data);
     const message = data.message;
     dispatchMessage(message);
@@ -22,5 +22,5 @@ const connect: WebSocketMessage = (dispatchMessage) => {
 
 export const openAccountWideSocket: WebSocketMessage = (dispatchMessage, settings) => {
   connect(dispatchMessage);
-  gameSocket.send(JSON.stringify(settings));
+  accountWideSocket.send(JSON.stringify(settings));
 }

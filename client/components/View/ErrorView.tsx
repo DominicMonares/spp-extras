@@ -13,6 +13,13 @@ const ErrorView = ({ error, getAllData }: ViewProps) => {
       <MainBigHeader headerText="Error" />
       <div className={`error ${expansion}-error`}>
         <div className="error-text">{error}</div>
+        {error.includes('Unexpected') ? (
+          <div className="error-text">
+            Please ensure the database is still running.
+          </div>
+        ) : (
+          <></>
+        )}
       </div>
       <div className="error-btn">
         <MainButton handleClick={getAllData} buttonText={'Retry'} />

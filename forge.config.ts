@@ -15,9 +15,6 @@ const config: ForgeConfig = {
     afterExtract: [
       copyApiFolder
     ],
-    // extraResource: [
-    //   './electron/splash.html'
-    // ],
     icon: './client/assets/icons/icon'
   },
   rebuildConfig: {},
@@ -54,9 +51,6 @@ const config: ForgeConfig = {
             html: './electron/splash/prod-splash.html',
             js: './electron/splash/renderer.ts',
             name: 'splash_window',
-            // preload: {
-            //   js: './electron/preload.ts'
-            // }
           },
           {
             html: './client/index.html',

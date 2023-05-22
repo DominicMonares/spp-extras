@@ -15,5 +15,5 @@
     },
     "jsx": "react-jsx"
   },
-  "include": ["client/**/*", "electron/index.ts"]
+  "include": ["client/**/*", "electron/**/*"]
 }

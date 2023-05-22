@@ -46,11 +46,11 @@ python src/manage.py migrate --database=wotlkcharacters --fake spp_extras_api
 
 
 PACKAGE
-pyinstaller --name=spp_extras_api src\manage.py --noconfirm
+pyinstaller --name=spp_extras_api src\manage.py --noconfirm 
 
 TEST PACKAGED SERVER
 cd dist\spp_extras_api
-spp_extras_api.exe runserver --settings=spp_extras.settings.prod --noreload
+spp_extras_api.exe runserver 80 --settings=spp_extras.settings.prod --noreload
 
 ============ ALL ABOVE MUST BE DONE FROM ACTIVATED VE ============
 

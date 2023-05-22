@@ -1,5 +1,5 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
-import { spawn, ChildProcessWithoutNullStreams } from 'child_process';
+import { ChildProcessWithoutNullStreams, spawn } from 'child_process';
 import kill from 'tree-kill';
 import store from './store'
 import { Expansion, Faction } from '../client/types';
@@ -10,6 +10,7 @@ import { Expansion, Faction } from '../client/types';
 // whether you're running in development or production).
 declare const MAIN_WINDOW_WEBPACK_ENTRY: string;
 declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string;
+declare const SPLASH_WINDOW_WEBPACK_ENTRY: string;
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) app.quit();
@@ -50,27 +51,33 @@ const spawnDjango = () => {
 
 const startDjangoServer = () => {
   DJANGO_CHILD_PROCESS = spawnDjango();
-  DJANGO_CHILD_PROCESS.stdout.on('data', data => {
-    console.log(`stdout:\n${data}`);
-  });
-
-  DJANGO_CHILD_PROCESS.stderr.on('data', data => {
-    console.log(`stderr: ${data}`);
-  });
-
-  DJANGO_CHILD_PROCESS.on('error', (error) => {
-    console.log(`error: ${error.message}`);
-  });
-
-  DJANGO_CHILD_PROCESS.on('close', (code) => {
-    console.log(`child process exited with code ${code}`);
-  });
-
-  DJANGO_CHILD_PROCESS.on('message', (message) => {
-    console.log(`stdout:\n${message}`);
-  });
-
-  return DJANGO_CHILD_PROCESS;
+  return new Promise((resolve, reject) => {
+    DJANGO_CHILD_PROCESS.stdout.on('data', data => {
+      console.log('MAIN ', MAIN_WINDOW_WEBPACK_ENTRY)
+      console.log('SPLASH ', __dirname)
+      console.log(`stdout:\n${data}`);
+      if (data.includes('Quit the server with CTRL-BREAK.')) {
+        resolve(DJANGO_CHILD_PROCESS)
+      }
+    });
+  
+    DJANGO_CHILD_PROCESS.stderr.on('data', data => {
+      console.log(`stderr: ${data}`);
+    });
+  
+    DJANGO_CHILD_PROCESS.on('error', (error) => {
+      console.log(`error: ${error.message}`);
+      reject(error)
+    });
+  
+    DJANGO_CHILD_PROCESS.on('close', (code) => {
+      console.log(`child process exited with code ${code}`);
+    });
+  
+    DJANGO_CHILD_PROCESS.on('message', (message) => {
+      console.log(`stdout:\n${message}`);
+    });
+  })
 }
 
 // Used for origin headers
@@ -100,7 +107,29 @@ const openDevTools = (mainWindow: BrowserWindow) => {
 
 // Handle application startup
 const createWindows = async () => {
-  startDjangoServer();
+  // Create the splash window
+  const splash = new BrowserWindow({
+    width: 500,
+    height: 300,
+    transparent: true,
+    frame: false,
+    alwaysOnTop: true,
+    webPreferences: {
+      images: true
+    }
+  });
+
+  // Display splash window while app is loading
+  if (isDevelopmentEnv()) {
+    splash.loadFile('electron/splash/dev-splash.html');
+  } else {
+    splash.loadURL(SPLASH_WINDOW_WEBPACK_ENTRY)
+  }
+
+  splash.center();
+
+  // Start server
+  await startDjangoServer();
 
   // Create the primary window
   const mainWindow = new BrowserWindow({
@@ -113,18 +142,6 @@ const createWindows = async () => {
       preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
       nodeIntegration: true,
       contextIsolation: true
-    }
-  });
-
-  // Create the splash window
-  const splash = new BrowserWindow({
-    width: 500,
-    height: 300,
-    transparent: true,
-    frame: false,
-    alwaysOnTop: true,
-    webPreferences: {
-      images: true
     }
   });
 
@@ -142,10 +159,6 @@ const createWindows = async () => {
     upsertKeyValue(responseHeaders, 'Access-Control-Allow-Headers', ['*']);
     callback({ responseHeaders });
   });
-
-  // Display splash window while app is loading
-  splash.loadFile('electron/splash.html');
-  splash.center();
 
   // Load the index.html of the app
   await mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);

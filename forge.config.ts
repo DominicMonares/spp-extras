@@ -12,10 +12,13 @@ import copyApiFolder from './electron/buildScripts/copyApiFolder';
 
 const config: ForgeConfig = {
   packagerConfig: {
-    icon: './client/assets/icons/icon',
     afterExtract: [
       copyApiFolder
-    ]
+    ],
+    // extraResource: [
+    //   './electron/splash.html'
+    // ],
+    icon: './client/assets/icons/icon'
   },
   rebuildConfig: {},
   makers: [
@@ -48,17 +51,25 @@ const config: ForgeConfig = {
         config: rendererConfig,
         entryPoints: [
           {
+            html: './electron/splash/prod-splash.html',
+            js: './electron/splash/renderer.ts',
+            name: 'splash_window',
+            // preload: {
+            //   js: './electron/preload.ts'
+            // }
+          },
+          {
             html: './client/index.html',
             js: './electron/renderer.ts',
             name: 'main_window',
             preload: {
-              js: './electron/preload.ts',
-            },
-          },
-        ],
-      },
-    }),
-  ],
+              js: './electron/preload.ts'
+            }
+          }
+        ]
+      }
+    })
+  ]
 };
 
 export default config;

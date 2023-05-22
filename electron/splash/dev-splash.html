@@ -16,7 +16,7 @@
       setInterval(() => {
         const loadingText = document.getElementsByClassName('loading-text')[0].innerText;
         const dots = loadingText.split('Loading')[1];
-        const newDots = dots.length === 3 ?  '' : dots + '.'
+        const newDots = dots.length === 3 ?  '' : dots + '.';
         document.getElementsByClassName('loading-text')[0].innerText = 'Loading' + newDots;
       }, 500);
     </script>

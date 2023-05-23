@@ -45,39 +45,38 @@ const spawnDjango = () => {
 
   return spawn(
     `cd api && spp_extras_api.exe runserver 80 --settings=spp_extras.settings.prod --noreload`,
-    { shell: true }
+    { shell: true, detached: true }
   );
 }
 
 const startDjangoServer = () => {
   DJANGO_CHILD_PROCESS = spawnDjango();
-  return new Promise((resolve, reject) => {
-    DJANGO_CHILD_PROCESS.stdout.on('data', data => {
-      console.log('MAIN ', MAIN_WINDOW_WEBPACK_ENTRY)
-      console.log('SPLASH ', __dirname)
-      console.log(`stdout:\n${data}`);
-      if (data.includes('Quit the server with CTRL-BREAK.')) {
-        resolve(DJANGO_CHILD_PROCESS)
-      }
-    });
-  
-    DJANGO_CHILD_PROCESS.stderr.on('data', data => {
-      console.log(`stderr: ${data}`);
-    });
-  
-    DJANGO_CHILD_PROCESS.on('error', (error) => {
-      console.log(`error: ${error.message}`);
-      reject(error)
-    });
-  
-    DJANGO_CHILD_PROCESS.on('close', (code) => {
-      console.log(`child process exited with code ${code}`);
-    });
-  
-    DJANGO_CHILD_PROCESS.on('message', (message) => {
-      console.log(`stdout:\n${message}`);
-    });
-  })
+  DJANGO_CHILD_PROCESS.stdout.on('data', data => {
+    console.log(`stdout:\n${data}`);
+    // if (data.includes('Quit the server with CTRL-BREAK.')) {
+    //   resolve(DJANGO_CHILD_PROCESS)
+    // }
+  });
+
+  DJANGO_CHILD_PROCESS.stderr.on('data', data => {
+    console.log(`stderr: ${data}`);
+  });
+
+  DJANGO_CHILD_PROCESS.on('error', (error) => {
+    console.log(`error: ${error.message}`);
+    // reject(error)
+  });
+
+  DJANGO_CHILD_PROCESS.on('close', (code) => {
+    console.log(`child process exited with code ${code}`);
+  });
+
+  DJANGO_CHILD_PROCESS.on('message', (message) => {
+    console.log(`stdout:\n${message}`);
+  });
+  // return new Promise((resolve, reject) => {
+  // })
+  return DJANGO_CHILD_PROCESS
 }
 
 // Used for origin headers
@@ -104,6 +103,8 @@ const openDevTools = (mainWindow: BrowserWindow) => {
     mainWindow.webContents.openDevTools();
   }
 }
+
+// app.commandLine.appendSwitch('ignore-certificate-errors');
 
 // Handle application startup
 const createWindows = async () => {
@@ -141,7 +142,8 @@ const createWindows = async () => {
     webPreferences: {
       preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
       nodeIntegration: true,
-      contextIsolation: true
+      contextIsolation: true,
+      // webSecurity: false
     }
   });
 

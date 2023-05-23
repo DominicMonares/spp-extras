@@ -76,7 +76,7 @@ ASGI_APPLICATION = 'spp_extras.asgi.application'
 
 CHANNEL_LAYERS = {
     'default': {
-        "BACKEND": "channels.layers.InMemoryChannelLayer"
+        'BACKEND': 'channels.layers.InMemoryChannelLayer'
     },
 }
 

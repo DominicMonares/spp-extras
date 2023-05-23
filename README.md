@@ -56,8 +56,13 @@ spp_extras_api.exe runserver 80 --settings=spp_extras.settings.prod --noreload
 
 
 TODO
-- Final styling cleanup
-  - Taskbar, window, and other icons for production
+- Get websocket working in production
+- Add source code and bug report links at bottom of preferences
+- Optimize
+  - Lighthouse
+  - Remove unused models - possible to combine expansions to reduce file size?
+- Cleanup warning messages in console
+  - Development server logging during production
 - Create actual readme file
 
 

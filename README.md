@@ -63,6 +63,7 @@ TODO
   - Remove unused models - possible to combine expansions to reduce file size?
 - Cleanup warning messages in console
   - Development server logging during production
+- Create installation and portable versions of app
 - Create actual readme file
 
 

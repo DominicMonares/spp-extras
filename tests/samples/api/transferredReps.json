@@ -1,0 +1,27 @@
+[
+  {
+    "guid": 5263,
+    "faction": 87,
+    "standing": 1500
+  },
+  {
+    "guid": 4501,
+    "faction": 87,
+    "standing": 1500
+  },
+  {
+    "guid": 79411,
+    "faction": 87,
+    "standing": 1500
+  },
+  {
+    "guid": 79411,
+    "faction": 470,
+    "standing": 2000
+  },
+  {
+    "guid": 6000,
+    "faction": 1090,
+    "standing": 5000
+  }
+]

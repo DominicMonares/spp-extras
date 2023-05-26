@@ -1,0 +1,17 @@
+{
+  "bloodElf": {
+    "title": "Blood Elf",
+    "id": 10,
+    "value": 512
+  },
+  "dwarf": {
+    "title": "Dwarf",
+    "id": 3,
+    "value": 4
+  },
+  "orc": {
+    "title": "Orc",
+    "id": 2,
+    "value": 2
+  }
+}

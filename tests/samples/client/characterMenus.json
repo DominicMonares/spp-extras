@@ -1,0 +1,46 @@
+{
+  "noCharacterMenu": [
+    {
+      "title": "Characters",
+      "submenu": [
+        {
+          "title": "Gaz",
+          "id": 1001,
+          "value": "{\"characterClass\":7,\"race\":8}"
+        },
+        {
+          "title": "Drak",
+          "id": 4501,
+          "value": "{\"characterClass\":3,\"race\":2}"
+        },
+        {
+          "title": "Harley",
+          "id": 79411,
+          "value": "{\"characterClass\":7,\"race\":8}"
+        }
+      ]
+    }
+  ],
+  "currentCharacterMenu": [
+    {
+      "title": "Characters",
+      "submenu": [
+        {
+          "title": "All Characters",
+          "id": 0,
+          "value": "{ \"characterClass\": 0, \"race\": 0 }"
+        },
+        {
+          "title": "Gaz",
+          "id": 1001,
+          "value": "{\"characterClass\":7,\"race\":8}"
+        },
+        {
+          "title": "Harley",
+          "id": 79411,
+          "value": "{\"characterClass\":7,\"race\":8}"
+        }
+      ]
+    }
+  ]
+}

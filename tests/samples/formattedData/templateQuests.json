@@ -1,0 +1,557 @@
+{
+  "alliance": {
+    "37": {
+      "entry": 37,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "Find the Lost Guards",
+      "type": 0,
+      "zoneorsort": 12,
+      "questflags": 8
+    },
+    "55": {
+      "entry": 55,
+      "requiredclasses": 0,
+      "requiredraces": 0,
+      "title": "Morbent Fel",
+      "type": 0,
+      "zoneorsort": 10,
+      "questflags": 0
+    },
+    "57": {
+      "entry": 57,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "The Night Watch",
+      "type": 0,
+      "zoneorsort": 10,
+      "questflags": 8
+    },
+    "58": {
+      "entry": 58,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "The Night Watch",
+      "type": 0,
+      "zoneorsort": 10,
+      "questflags": 8
+    },
+    "59": {
+      "entry": 59,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "Cloth and Leather Armor",
+      "type": 0,
+      "zoneorsort": 12,
+      "questflags": 0
+    },
+    "60": {
+      "entry": 60,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "Kobold Candles",
+      "type": 0,
+      "zoneorsort": 12,
+      "questflags": 8
+    },
+    "61": {
+      "entry": 61,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "Shipment to Stormwind",
+      "type": 0,
+      "zoneorsort": 12,
+      "questflags": 0
+    },
+    "62": {
+      "entry": 62,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "The Fargodeep Mine",
+      "type": 0,
+      "zoneorsort": 12,
+      "questflags": 12
+    },
+    "64": {
+      "entry": 64,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "The Forgotten Heirloom",
+      "type": 0,
+      "zoneorsort": 40,
+      "questflags": 8
+    },
+    "65": {
+      "entry": 65,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "The Defias Brotherhood",
+      "type": 0,
+      "zoneorsort": 40,
+      "questflags": 8
+    },
+    "66": {
+      "entry": 66,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "The Legend of Stalvan",
+      "type": 0,
+      "zoneorsort": 10,
+      "questflags": 8
+    },
+    "67": {
+      "entry": 67,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "The Legend of Stalvan",
+      "type": 0,
+      "zoneorsort": 10,
+      "questflags": 8
+    },
+    "68": {
+      "entry": 68,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "The Legend of Stalvan",
+      "type": 0,
+      "zoneorsort": 10,
+      "questflags": 0
+    },
+    "69": {
+      "entry": 69,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "The Legend of Stalvan",
+      "type": 0,
+      "zoneorsort": 10,
+      "questflags": 8
+    },
+    "70": {
+      "entry": 70,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "The Legend of Stalvan",
+      "type": 0,
+      "zoneorsort": 10,
+      "questflags": 8
+    },
+    "71": {
+      "entry": 71,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "Report to Thomas",
+      "type": 0,
+      "zoneorsort": 12,
+      "questflags": 0
+    },
+    "72": {
+      "entry": 72,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "The Legend of Stalvan",
+      "type": 0,
+      "zoneorsort": 10,
+      "questflags": 8
+    },
+    "74": {
+      "entry": 74,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "The Legend of Stalvan",
+      "type": 0,
+      "zoneorsort": 10,
+      "questflags": 0
+    },
+    "75": {
+      "entry": 75,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "The Legend of Stalvan",
+      "type": 0,
+      "zoneorsort": 10,
+      "questflags": 8
+    },
+    "76": {
+      "entry": 76,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "The Jasperlode Mine",
+      "type": 0,
+      "zoneorsort": 12,
+      "questflags": 12
+    },
+    "78": {
+      "entry": 78,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "The Legend of Stalvan",
+      "type": 0,
+      "zoneorsort": 10,
+      "questflags": 0
+    },
+    "79": {
+      "entry": 79,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "The Legend of Stalvan",
+      "type": 0,
+      "zoneorsort": 10,
+      "questflags": 0
+    },
+    "80": {
+      "entry": 80,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "The Legend of Stalvan",
+      "type": 0,
+      "zoneorsort": 10,
+      "questflags": 0
+    },
+    "83": {
+      "entry": 83,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "Red Linen Goods",
+      "type": 0,
+      "zoneorsort": 12,
+      "questflags": 8
+    },
+    "84": {
+      "entry": 84,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "Back to Billy",
+      "type": 0,
+      "zoneorsort": 12,
+      "questflags": 0
+    },
+    "85": {
+      "entry": 85,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "Lost Necklace",
+      "type": 0,
+      "zoneorsort": 12,
+      "questflags": 8
+    },
+    "86": {
+      "entry": 86,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "Pie for Billy",
+      "type": 0,
+      "zoneorsort": 12,
+      "questflags": 8
+    },
+    "87": {
+      "entry": 87,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "Goldtooth",
+      "type": 0,
+      "zoneorsort": 12,
+      "questflags": 8
+    },
+    "88": {
+      "entry": 88,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "Princess Must Die!",
+      "type": 0,
+      "zoneorsort": 12,
+      "questflags": 8
+    },
+    "89": {
+      "entry": 89,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "The Everstill Bridge",
+      "type": 0,
+      "zoneorsort": 44,
+      "questflags": 8
+    },
+    "90": {
+      "entry": 90,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "Seasoned Wolf Kabobs",
+      "type": 0,
+      "zoneorsort": 10,
+      "questflags": 8
+    },
+    "91": {
+      "entry": 91,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "Solomon's Law",
+      "type": 0,
+      "zoneorsort": 44,
+      "questflags": 8
+    },
+    "92": {
+      "entry": 92,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "Redridge Goulash",
+      "type": 0,
+      "zoneorsort": 44,
+      "questflags": 8
+    },
+    "93": {
+      "entry": 93,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "Dusky Crab Cakes",
+      "type": 0,
+      "zoneorsort": 10,
+      "questflags": 8
+    },
+    "94": {
+      "entry": 94,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "A Watchful Eye",
+      "type": 0,
+      "zoneorsort": 44,
+      "questflags": 0
+    },
+    "95": {
+      "entry": 95,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "Sven's Revenge",
+      "type": 0,
+      "zoneorsort": 10,
+      "questflags": 8
+    },
+    "97": {
+      "entry": 97,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "The Legend of Stalvan",
+      "type": 0,
+      "zoneorsort": 10,
+      "questflags": 8
+    },
+    "98": {
+      "entry": 98,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "The Legend of Stalvan",
+      "type": 0,
+      "zoneorsort": 10,
+      "questflags": 8
+    },
+    "101": {
+      "entry": 101,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "The Totem of Infliction",
+      "type": 0,
+      "zoneorsort": 10,
+      "questflags": 8
+    },
+    "102": {
+      "entry": 102,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "Patrolling Westfall",
+      "type": 0,
+      "zoneorsort": 40,
+      "questflags": 8
+    },
+    "106": {
+      "entry": 106,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "Young Lovers",
+      "type": 0,
+      "zoneorsort": 12,
+      "questflags": 0
+    },
+    "107": {
+      "entry": 107,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "Note to William",
+      "type": 0,
+      "zoneorsort": 12,
+      "questflags": 0
+    },
+    "109": {
+      "entry": 109,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "Report to Gryan Stoutmantle",
+      "type": 0,
+      "zoneorsort": 12,
+      "questflags": 8
+    },
+    "111": {
+      "entry": 111,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "Speak with Gramma",
+      "type": 0,
+      "zoneorsort": 12,
+      "questflags": 8
+    },
+    "112": {
+      "entry": 112,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "Collecting Kelp",
+      "type": 0,
+      "zoneorsort": 12,
+      "questflags": 8
+    },
+    "114": {
+      "entry": 114,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "The Escape",
+      "type": 0,
+      "zoneorsort": 12,
+      "questflags": 0
+    },
+    "115": {
+      "entry": 115,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "Shadow Magic",
+      "type": 0,
+      "zoneorsort": 44,
+      "questflags": 8
+    },
+    "116": {
+      "entry": 116,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "Dry Times",
+      "type": 0,
+      "zoneorsort": 44,
+      "questflags": 8
+    },
+    "117": {
+      "entry": 117,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "Thunderbrew Lager",
+      "type": 0,
+      "zoneorsort": 40,
+      "questflags": 8
+    },
+    "120": {
+      "entry": 120,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "Messenger to Stormwind",
+      "type": 0,
+      "zoneorsort": 44,
+      "questflags": 0
+    },
+    "121": {
+      "entry": 121,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "Messenger to Stormwind",
+      "type": 0,
+      "zoneorsort": 44,
+      "questflags": 0
+    },
+    "123": {
+      "entry": 123,
+      "requiredclasses": 0,
+      "requiredraces": 1101,
+      "title": "The Collector",
+      "type": 0,
+      "zoneorsort": 12,
+      "questflags": 0
+    },
+    "1780": {
+      "entry": 1780,
+      "requiredclasses": 2,
+      "requiredraces": 1,
+      "title": "The Tome of Divinity",
+      "type": 0,
+      "zoneorsort": -141,
+      "questflags": 8
+    }
+  },
+  "horde": {
+    "8": {
+      "entry": 8,
+      "requiredclasses": 0,
+      "requiredraces": 178,
+      "title": "A Rogue's Deal",
+      "type": 0,
+      "zoneorsort": 154,
+      "questflags": 0
+    },
+    "25": {
+      "entry": 25,
+      "requiredclasses": 0,
+      "requiredraces": 178,
+      "title": "Stonetalon Standstill",
+      "type": 0,
+      "zoneorsort": 331,
+      "questflags": 12
+    },
+    "1523": {
+      "entry": 1523,
+      "requiredclasses": 64,
+      "requiredraces": 690,
+      "title": "Call of Fire",
+      "type": 0,
+      "zoneorsort": -82,
+      "questflags": 8
+    },
+    "9621": {
+      "entry": 9621,
+      "requiredclasses": 0,
+      "requiredraces": 512,
+      "title": "Envoy to the Horde",
+      "type": 0,
+      "zoneorsort": 1497,
+      "questflags": 128
+    },
+    "9678": {
+      "entry": 9678,
+      "requiredclasses": 2,
+      "requiredraces": 512,
+      "title": "The First Trial",
+      "type": 0,
+      "zoneorsort": -141,
+      "questflags": 136
+    }
+  },
+  "neutral": {
+    "9884": {
+      "entry": 9884,
+      "requiredclasses": 0,
+      "requiredraces": 0,
+      "title": "Membership Benefits",
+      "type": 0,
+      "zoneorsort": 3518,
+      "questflags": 136
+    },
+    "11389": {
+      "entry": 11389,
+      "requiredclasses": 0,
+      "requiredraces": 0,
+      "title": "Wanted: A Warp Splinter Clipping",
+      "type": 85,
+      "zoneorsort": 3845,
+      "questflags": 4232
+    },
+    "24584": {
+      "entry": 24584,
+      "requiredclasses": 0,
+      "requiredraces": 0,
+      "title": "Malygos Must Die!",
+      "type": 62,
+      "zoneorsort": 4500,
+      "questflags": 32968
+    }
+  }
+}

@@ -1,0 +1,267 @@
+/* Navbar */
+
+.classic-xpac-nav,
+.tbc-xpac-nav,
+.wotlk-xpac-nav {
+  display: flex;
+  flex-direction: column-reverse;
+  height: 68px;
+}
+
+.classic-xpac-nav {
+  background-image: linear-gradient(#140804, #190a07 50%);
+}
+
+.tbc-xpac-nav {
+  background-image: linear-gradient(#080d07, #0b160e 50%);
+}
+
+.wotlk-xpac-nav {
+  background-image: linear-gradient(#040817, #05283c 50%);
+}
+
+.nav-underline {
+  height: 2px;
+  border-bottom: 1px solid black;
+  background-color: #b8a34f;
+}
+
+
+/* Tabs */
+
+.classic-gradient {
+  background-image: linear-gradient(#080d07, #f1dd6f 80%);
+}
+
+.tbc-gradient {
+  background-image: linear-gradient(#080d07, #2d9f05 80%);
+}
+
+.wotlk-gradient {
+  background-image: linear-gradient(#080d07, #0282b7 80%);
+}
+
+.xpac-tabs {
+  display: flex;
+}
+
+.classic-tab,
+.tbc-tab,
+.wotlk-tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(100% / 3);
+  height: 48px;
+  border: 1px solid black;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.classic-tab-active,
+.tbc-tab-active,
+.wotlk-tab-active {
+  z-index: 2;
+}
+
+.classic-tab {
+  margin-right: -1px;
+}
+
+.tbc-tab {
+  z-index: 1;
+}
+
+.wotlk-tab {
+  margin-left: -1px;
+}
+
+
+/* Tab Labels */
+
+.classic-label,
+.tbc-label,
+.wotlk-label {
+  margin-top: 5px;
+  transition: width 0.1s linear, height 0.1s linear;
+}
+
+.classic-label {
+  width: 115px;
+  height: 30px;
+}
+
+.classic-tab:hover > .classic-label,
+.classic-label-active {
+  width: 150px;
+  height: 39px;
+}
+
+.tbc-label {
+  width: 49px;
+  height: 30px;
+}
+
+.tbc-tab:hover > .tbc-label,
+.tbc-label-active {
+  width: 64px;
+  height: 39px;
+}
+
+.wotlk-label {
+  width: 94px;
+  height: 30px;
+}
+
+.wotlk-tab:hover > .wotlk-label,
+.wotlk-label-active {
+  width: 122px;
+  height: 39px;
+}
+
+
+/* Buffers */
+
+.classic-color {
+  background: #f1dd6f;
+}
+
+.tbc-color {
+  background: #2d9f05;
+}
+
+.wotlk-color {
+  background: #0282b7;
+}
+
+.left-buffer,
+.right-buffer {
+  display: flex;
+  flex-direction: column-reverse;
+  z-index: 3;
+  width: 20px;
+}
+
+.classic-lb {
+  margin-right: -1px;
+}
+
+.classic-rb {
+  margin-right: -20px;
+}
+
+.tbc-lb {
+  margin-left: -20px;
+}
+
+.tbc-rb {
+  margin-right: -20px;
+}
+
+.wotlk-lb {
+  margin-left: -20px;
+}
+
+.wotlk-rb {
+  margin-left: -1px;
+}
+
+.square {
+  width: 20px;
+  height: 10px;
+  border-bottom: 1px solid black;
+}
+
+.tbc-left-sq {
+  margin-left: 1px;
+}
+
+.tbc-right-sq {
+  margin-left: -1px;
+}
+
+.curve {
+  margin-bottom: -10px;
+  z-index: 4;
+  width: 20px;
+  height: 10px;
+  border-bottom: 1px solid black;
+}
+
+.classic-rc,
+.classic-frc,
+.tbc-rc,
+.tbc-frc,
+.wotlk-frc {
+  border-left: 1px solid black;
+  border-bottom-left-radius: 15px;
+}
+
+.classic-flc,
+.tbc-lc,
+.tbc-flc,
+.wotlk-lc,
+.wotlk-flc {
+  border-right: 1px solid black;
+  border-bottom-right-radius: 15px;
+}
+
+.classic-rc {
+  margin-left: 0.01em;
+  background: #2d9f05;
+}
+
+.classic-flc,
+.classic-frc {
+  background: #190a07;
+}
+
+.tbc-lc {
+  margin-left: 0.05em;
+  background: #f1dd6f;
+}
+
+.tbc-rc {
+  margin-left: -0.05em;
+  background: #0282b7;
+}
+
+.tbc-flc,
+.tbc-frc {
+  background: #0b160e;
+}
+
+.wotlk-lc {
+  margin-left: -0.01em;
+  background: #2d9f05;
+}
+
+.wotlk-flc,
+.wotlk-frc {
+  background: #05283c;
+}
+
+
+/* Modal */
+
+.ReactModal__Overlay {
+  z-index: 1000;
+}
+
+.xpac-warning {
+  width: 100%;
+  background: -webkit-linear-gradient(#c88f19 40%, #f7f243 80%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  font-family: Friz Quadrata;
+  font-size: 25px;
+  transition: font-size 0.1s linear;
+}
+
+.xpac-warning-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}

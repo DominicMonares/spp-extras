@@ -1,0 +1,21 @@
+.checkbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 224px;
+  height: 28px;
+}
+
+.checkbox-img {
+  width: 24px;
+  height: 24px;
+}
+
+.checkbox-text {
+  padding-bottom: 4px;
+  width: 200px;
+  text-align: center;
+  line-height: 28px;
+  font-family: MORPHEUS;
+  font-size: 20px;
+}

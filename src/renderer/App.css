@@ -1,9 +1,33 @@
+* {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: url('assets/cursors/gauntlet.cur'), auto;
+}
+
+*:hover {
+  cursor: url('assets/cursors/gauntlet.cur'), auto;
+}
+
+html,
+body,
+#root,
 .app {
   height: 100%;
 }
 
+html::-webkit-scrollbar,
 .app::-webkit-scrollbar {
   display: none;
+}
+
+body {
+  margin: auto;
+}
+
+button {
+  all: unset;
 }
 
 .lower-app {
@@ -35,4 +59,14 @@
   width: 100%;
   height: 100%;
   background-size: cover;
+}
+
+@font-face {
+  font-family: 'Friz Quadrata';
+  src: url('assets/fonts/Friz\ Quadrata\ Std\ Medium.otf');
+}
+
+@font-face {
+  font-family: 'MORPHEUS';
+  src: url('assets/fonts/MORPHEUS.TTF');
 }

@@ -1,19 +1,20 @@
 {
   "compilerOptions": {
-    "target": "ES6",
-    "allowJs": true,
+    "incremental": true,
+    "target": "es2021",
     "module": "commonjs",
-    "skipLibCheck": true,
-    "esModuleInterop": true,
+    "lib": ["dom", "es2021"],
+    "jsx": "react-jsx",
+    "strict": true,
     "sourceMap": true,
-    "baseUrl": ".",
-    "outDir": "dist",
+    "baseUrl": "./src",
     "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
-    "paths": {
-      "*": ["node_modules/*"]
-    },
-    "jsx": "react-jsx"
+    "allowJs": true,
+    "outDir": ".erb/dll",
+    "noImplicitAny": true
   },
-  "include": ["client/**/*", "electron/**/*"]
+  "exclude": ["test", "release/build", "release/app/dist", ".erb/dll"]
 }

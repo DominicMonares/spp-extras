@@ -1,0 +1,124 @@
+FUTURE FEATURE IDEAS
+- Character specific/account wide quest credit sharing
+- Vanilla boss loot increase
+  - Possibly adjust boss loot for all xpacs
+- Mount tweaks
+  - Green Mech Strider item add spell
+  - Holiday mounts (brooms) perma learn spell
+
+
+============ CSS Hierarchy ============
+DISPLAY
+display
+flex-direction
+justify-content
+align-items
+direction
+overflow-x
+overflow-y
+list-style-type
+
+POSITION
+position
+left
+right
+top
+bottom
+margin-left
+margin-right
+margin-top
+margin-bottom
+padding-left
+padding-right
+padding-top
+padding-bottom
+z-index
+
+SIZE
+width
+min-width
+max-width
+height
+min-height
+max-height
+
+BORDER
+box-sizing
+border
+border-left
+border-right
+border-top
+border-bottom
+border-radius
+border-top-left-radius
+border-top-right-radius
+border-bottom-left-radius
+border-bottom-right-radius
+scrollbar-gutter
+scroll-snap-type
+scroll-snap-align
+
+BACKGROUND
+background
+background-color
+background-img
+background-size
+background-repeat
+background-clip
+-webkit-background-clip
+-webkit-text-fill-color
+filter
+opacity
+
+TEXT
+text-align
+font-family
+font-size
+font-weight
+color
+
+ANIMATIONS
+transform
+transform-origin
+transition
+transition-duration
+animation-name
+animation-duration
+
+CURSOR
+cursor
+
+
+============ Import Hierarchy ============
+REACT
+useEffect, useState
+components
+
+REDUX
+useAppDispatch, useAppSelector
+store functions.
+
+API CALLS
+api call functions
+
+UTILS
+util functions
+
+IMAGES
+image imports
+
+DATA
+JSON data imports
+
+TYPES
+type imports
+
+CSS
+CSS import
+
+
+============ State/Store Hierarchy ============
+dispatch
+redux store
+react state
+other vars

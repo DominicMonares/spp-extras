@@ -1,6 +1,6 @@
 import mysql from 'mysql2/promise';
 
-export const connection = async (xpac: string, db: string) => {
+const connection = async (xpac: string, db: string) => {
   const conn = await mysql.createConnection({
     host: 'localhost',
     port: 3310,
@@ -11,3 +11,5 @@ export const connection = async (xpac: string, db: string) => {
 
   return conn;
 };
+
+export default connection;

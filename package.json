@@ -100,6 +100,7 @@
     "electron": "^23.0.0",
     "electron-builder": "^24.2.1",
     "electron-devtools-installer": "^3.2.0",
+    "electron-store": "^8.1.0",
     "electronmon": "^2.0.2",
     "eslint": "^8.33.0",
     "eslint-config-airbnb-base": "^15.0.0",

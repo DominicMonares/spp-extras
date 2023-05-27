@@ -22,7 +22,7 @@ const electronHandler = {
       ipcRenderer.once(channel, (_event, ...args) => func(...args));
     },
   },
-  questTracker: async (xpac: any) => { // TEMP TYPE
+  questTracker: async (xpac: any, bots: boolean) => { // TEMP TYPE
     return ipcRenderer.invoke('questTracker', xpac);
   },
   getExpansion: async () => {

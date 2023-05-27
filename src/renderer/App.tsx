@@ -36,7 +36,7 @@ const App = () => {
     setLoading(true);
     setError('');
 
-    const allData = await window.electron.questTracker(xpac)
+    const allData = await window.electron.questTracker(xpac, false) // TEMP FALSE
       .catch(err => setError(err.message));
 
     if (allData) {

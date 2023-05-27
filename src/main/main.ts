@@ -129,7 +129,7 @@ app.on('window-all-closed', () => {
 app
   .whenReady()
   .then(() => {
-    ipcMain.handle('questTracker', questTracker);
+    ipcMain.handle('questTracker', async (e, xpac: string) => questTracker(xpac)); // TEMP TYPE
     ipcMain.handle('get:expansion', async () => store.get('expansion'));
     ipcMain.handle('set:expansion', async (e, expansion: string) => { // TEMP TYPE
       return store.set('expansion', expansion);

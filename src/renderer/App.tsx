@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import Controls from './Controls';
-import ExpansionNav from './ExpansionNav';
-import Preferences from './Preferences';
-import Tools from './Tools';
-import View from './View';
-import { useAppDispatch, useAppSelector } from '../store/hooks';
+import Controls from './components/Controls';
+import ExpansionNav from './components/ExpansionNav';
+import Preferences from './components/Preferences';
+import Tools from './components/Tools';
+import View from './components/View';
+import { useAppDispatch, useAppSelector } from './store/hooks';
 import {
   storeAccounts,
   storeCompletedQuests,
@@ -12,10 +12,10 @@ import {
   storeFaction,
   storeTemplateQuests,
   storeWindowWidth
-} from '../store/slices';
-import { fetchQuestTrackerData } from '../apiCalls';
-import { windowIsSmall } from '../utils';
-import { Expansion } from '../types';
+} from './store/slices';
+import { fetchQuestTrackerData } from './apiCalls';
+import { windowIsSmall } from './utils';
+import { Expansion } from './types';
 import './App.css';
 
 
@@ -29,6 +29,28 @@ const App = () => {
 
   // Track whether user has completed initial setup or not
   const [installed, setInstalled] = useState<boolean>(false);
+
+  // Fetch all data used in SPP Extras from DB
+  const getQuestTrackerData = async (e?: any, xpac?: Expansion) => {
+    if (!xpac) xpac = expansion; // Used when switching expansions
+    setLoading(true);
+    setError('');
+
+    const allData = await window.electron.questTracker(xpac)
+      .catch(err => setError(err.message));
+
+    if (allData) {
+      dispatch(storeAccounts(allData.accounts));
+      dispatch(storeCompletedQuests(allData.completed_quests));
+      dispatch(storeTemplateQuests(allData.template_quests));
+    } else {
+      setLoading(false);
+      return;
+    }
+
+    setLoading(false);
+    setError('');
+  }
 
   useEffect(() => {
     // Transfer data from electron store to redux store if it exists
@@ -57,26 +79,6 @@ const App = () => {
     window.addEventListener('resize', handleWidthChange);
     return () => window.removeEventListener('resize', handleWidthChange);
   }, []);
-
-  // Fetch all data used in SPP Extras from DB
-  const getQuestTrackerData = async (e?: any, xpac?: Expansion) => {
-    if (!xpac) xpac = expansion; // Used when switching expansions
-    setLoading(true);
-    setError('');
-
-    const allData = await fetchQuestTrackerData(xpac).catch(err => setError(err.message));
-    if (allData) {
-      dispatch(storeAccounts(allData.accounts));
-      dispatch(storeCompletedQuests(allData.completed_quests));
-      dispatch(storeTemplateQuests(allData.template_quests));
-    } else {
-      setLoading(false);
-      return;
-    }
-
-    setLoading(false);
-    setError('');
-  }
 
   return (
     <div className={`app ${expansion || 'all'}-container`}>

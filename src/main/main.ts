@@ -15,6 +15,7 @@ import log from 'electron-log';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './utils/paths';
 import questTracker from './services/questTracker';
+import store from './store';
 
 class AppUpdater {
   constructor() {
@@ -128,7 +129,16 @@ app.on('window-all-closed', () => {
 app
   .whenReady()
   .then(() => {
-    ipcMain.handle('questTracker', questTracker)
+    ipcMain.handle('questTracker', questTracker);
+    ipcMain.handle('get:expansion', async () => store.get('expansion'));
+    ipcMain.handle('set:expansion', async (e, expansion: string) => { // TEMP TYPE
+      return store.set('expansion', expansion);
+    });
+    ipcMain.handle('get:faction', async () =>store.get('faction'));
+    ipcMain.handle('set:faction', async (e, faction: string) => { // TEMP TYPE
+      return store.set('faction', faction);
+    });
+
     createWindow();
     app.on('activate', () => {
       // On macOS it's common to re-create a window in the app when the

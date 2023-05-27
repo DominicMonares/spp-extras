@@ -21,8 +21,20 @@ const electronHandler = {
     once(channel: Channels, func: (...args: unknown[]) => void) {
       ipcRenderer.once(channel, (_event, ...args) => func(...args));
     },
-    testDb: () => ipcRenderer.invoke('testDb')
   },
+  questTracker: async () => ipcRenderer.invoke('questTracker'),
+  getExpansion: async () => {
+    return ipcRenderer.invoke('get:expansion');
+  },
+  setExpansion: async (expansion: string) => { // TEMP TYPE
+    return ipcRenderer.invoke('set:expansion', expansion);
+  },
+  getFaction: async () => {
+    return ipcRenderer.invoke('get:faction');
+  },
+  setFaction: async (faction: string) => { // TEMP TYPE
+    return ipcRenderer.invoke('set:faction', faction);
+  }
 };
 
 contextBridge.exposeInMainWorld('electron', electronHandler);

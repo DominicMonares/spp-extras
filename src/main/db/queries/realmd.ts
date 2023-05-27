@@ -1,10 +1,10 @@
 export const selAccts = async (conn: any, bots: boolean) => { // TEMP ANY
-  try {
-    const sql = `
-      SELECT * FROM account
-      ${!bots ? 'WHERE username NOT LIKE "%RNDBOT%;"' : ''}
-    `;
+  const sql = `
+    SELECT id, username FROM account
+    ${!bots ? 'WHERE username NOT LIKE "%RNDBOT%;"' : ''}
+  `;
 
+  try {
     console.log('Fetching account data...');
     const [rows] = await conn.execute(sql);
     console.log('Account data fetched!');

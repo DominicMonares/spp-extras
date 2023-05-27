@@ -15,13 +15,14 @@ module.exports = {
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
     'prettier/prettier': 0,
-    "react/function-component-definition": [
+    'react/function-component-definition': [
       2,
       {
-        namedComponents: "arrow-function",
-        unnamedComponents: "arrow-function",
+        namedComponents: 'arrow-function',
+        unnamedComponents: 'arrow-function',
       },
     ],
+    'react-hooks/exhaustive-deps': 'false',
   },
   parserOptions: {
     ecmaVersion: 2020,

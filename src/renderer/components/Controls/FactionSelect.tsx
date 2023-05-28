@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { 
-  storeFaction, 
-  storeQuestTrackerCharacter, 
-  storeQuestTrackerClass, 
-  storeQuestTrackerRace 
+import {
+  storeFaction,
+  storeQuestTrackerCharacter,
+  storeQuestTrackerClass,
+  storeQuestTrackerRace
 } from '../../store/slices';
-import alliance from '../../assets/buttons/alliance.png';
-import horde from '../../assets/buttons/horde.png';
+import alliance from '../../../../assets/buttons/alliance.png';
+import horde from '../../../../assets/buttons/horde.png';
 import { Faction } from "../../types";
 
 
@@ -17,12 +17,12 @@ const FactionSelect = () => {
   const settings = useAppSelector(state => state.questTracker);
   // Switch animation depending on currently selected faction
   const [animation, setAnimation] = useState<string>('');
-  
+
   // Clear character, class, and race settings when faction changes
   const clearSettings = () => {
     dispatch(storeQuestTrackerCharacter({ character: { id: 0, name: '', value: '' } }));
-    dispatch(storeQuestTrackerClass({ characterClass: { id: 0, name: '', value: '' } }));
-    dispatch(storeQuestTrackerRace({ race: { id: 0, name: '', value: '' } }));
+    dispatch(storeQuestTrackerClass({ characterClass: { id: 0, name: '', value: '' } as any })); // TEMP ANY
+    dispatch(storeQuestTrackerRace({ race: { id: 0, name: '', value: '' } as any })); // TEMP ANY
   }
 
   // Change animation and send selected faction to store

@@ -3,7 +3,7 @@ import { Faction, ReduxInitialFaction } from '../../types/factions';
 
 
 const initialState: ReduxInitialFaction = {
-  selected: ''
+  selected: '' as Faction, // TEMP TYPE WORKAROUND
 }
 
 export const factionSlice = createSlice({

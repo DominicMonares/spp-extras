@@ -3,9 +3,9 @@ import MainBigHeader from '../MainBigHeader';
 import Quest from './Quest';
 import { useAppSelector } from '../../store/hooks';
 import {
-  createViewQuests, 
-  reverseSortViewQuests, 
-  sortViewQuests 
+  createViewQuests,
+  reverseSortViewQuests,
+  sortViewQuests
 } from '../../utils';
 import { SortSetting } from '../../types';
 import './View.css';
@@ -25,7 +25,7 @@ const QuestTrackerView = () => {
 
   // Determine how to filter view quests
   const settings = useAppSelector(state => state.questTracker);
-  const { all, characterClass, race, zone } = settings;
+  const { all, characterClass, race, zone } = settings as any; // TEMP ANY
 
   // Track which column is currently being sorted
   const [sort, setSort] = useState<SortSetting>('');
@@ -34,7 +34,7 @@ const QuestTrackerView = () => {
   const [sortNameReverse, setSortNameReverse] = useState<boolean>(true);
   const [sortIDReverse, setSortIDReverse] = useState<boolean>(true);
   const [sortStatusReverse, setStatusReverse] = useState<boolean>(true);
-  
+
   // Add faction to settings and create view quests
   const fullSettings = { ...settings, faction: faction };
   const viewQuests = createViewQuests(all, playerQuests, fullSettings, templateQuests);

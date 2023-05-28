@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { 
+import {
   CharacterSetting,
   ClassSetting,
-  QuestTrackerSettings, 
-  QuestType, 
+  QuestTrackerSettings,
+  QuestType,
   RaceSetting
 } from '../../types';
 
@@ -28,45 +28,45 @@ export const questTrackerSlice = createSlice({
     },
     storeQuestTrackerCharacter: (state, action: PayloadAction<QuestTrackerSettings>) => {
       if (!state.character) state.character = {} as CharacterSetting;
-      if (action.payload.character.id === 0) {
+      if (action.payload.character?.id === 0) { // TEMP CHECK FOR UNDEFINED TYPE
         delete state.character;
       } else {
-        state.character.id = action.payload.character.id;
-        state.character.name = action.payload.character.name;
-        state.character.value = action.payload.character.value;
+        state.character.id = action.payload.character?.id as any; // TEMP CHECK FOR UNDEFINED TYPE
+        state.character.name = action.payload.character?.name as any; // TEMP CHECK FOR UNDEFINED TYPE
+        state.character.value = action.payload.character?.value as any; // TEMP CHECK FOR UNDEFINED TYPE
       }
 
       if (state.all) delete state.all;
     },
     storeQuestTrackerClass: (state, action: PayloadAction<QuestTrackerSettings>) => {
       if (!state.characterClass) state.characterClass = {} as ClassSetting;
-      if (action.payload.characterClass.id as number === 0) {
+      if (action.payload.characterClass?.id as number === 0) { // TEMP CHECK FOR UNDEFINED TYPE
         delete state.characterClass;
       } else {
-        state.characterClass.id = action.payload.characterClass.id;
-        state.characterClass.title = action.payload.characterClass.title;
-        state.characterClass.value = action.payload.characterClass.value;
+        state.characterClass.id = action.payload.characterClass?.id as any; // TEMP CHECK FOR UNDEFINED TYPE
+        state.characterClass.title = action.payload.characterClass?.title as any; // TEMP CHECK FOR UNDEFINED TYPE
+        state.characterClass.value = action.payload.characterClass?.value as any; // TEMP CHECK FOR UNDEFINED TYPE
       }
-      
+
       if (state.all) delete state.all;
     },
     storeQuestTrackerRace: (state, action: PayloadAction<QuestTrackerSettings>) => {
       if (!state.race) state.race = {} as RaceSetting;
-      if (action.payload.race.id as number === 0) {
+      if (action.payload.race?.id as number === 0) { // TEMP CHECK FOR UNDEFINED TYPE
         delete state.race;
       } else {
-        state.race.id = action.payload.race.id;
-        state.race.title = action.payload.race.title;
-        state.race.value = action.payload.race.value;
+        state.race.id = action.payload.race?.id as any; // TEMP CHECK FOR UNDEFINED TYPE
+        state.race.title = action.payload.race?.title as any; // TEMP CHECK FOR UNDEFINED TYPE
+        state.race.value = action.payload.race?.value as any; // TEMP CHECK FOR UNDEFINED TYPE
       }
 
       if (state.all) delete state.all;
     },
     storeQuestTrackerType: (state, action: PayloadAction<QuestTrackerSettings>) => {
-      if (action.payload.type.toLowerCase() === 'all quest types') {
+      if (action.payload.type?.toLowerCase() === 'all quest types') { // TEMP CHECK FOR UNDEFINED TYPE
         delete state.type;
       } else {
-        state.type = action.payload.type.toLowerCase() as QuestType;
+        state.type = action.payload.type?.toLowerCase() as QuestType; // TEMP CHECK FOR UNDEFINED TYPE
       }
 
       if (state.all) delete state.all;

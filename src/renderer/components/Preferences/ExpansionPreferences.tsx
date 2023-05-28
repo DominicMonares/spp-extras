@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import vanillaLogo from '../../assets/logos/vanilla.png';
-import tbcLogo from '../../assets/logos/tbc.png';
-import wotlkLogo from '../../assets/logos/wotlk.png';
+import vanillaLogo from '../../../../assets/logos/vanilla.png';
+import tbcLogo from '../../../../assets/logos/tbc.png';
+import wotlkLogo from '../../../../assets/logos/wotlk.png';
 import { ExpansionPreferencesProps } from '../../types';
 import './Preferences.css';
 
@@ -41,48 +41,48 @@ const ExpansionPreferences = ({ setSelectedExpansion }: ExpansionPreferencesProp
   return (
     <div className="expansion-preferences">
       <div className="pref-container" onClick={handleVanilla}>
-        <img 
-          className="pref vanilla-pref" 
-          src={vanillaLogo} 
+        <img
+          className="pref vanilla-pref"
+          src={vanillaLogo}
           onMouseEnter={() => setVanillaHovering(true)}
           onMouseLeave={() => setVanillaHovering(false)}
         />
-        <img 
+        <img
           className={`
-            pref-glow${vanillaActive || vanillaHovering ? '-active' : ''} 
+            pref-glow${vanillaActive || vanillaHovering ? '-active' : ''}
             vanilla-pref-glow
-          `} 
-          src={vanillaLogo} 
+          `}
+          src={vanillaLogo}
         />
       </div>
       <div className="pref-container" onClick={handleTbc}>
-        <img 
-          className="pref tbc-pref" 
-          src={tbcLogo} 
+        <img
+          className="pref tbc-pref"
+          src={tbcLogo}
           onMouseEnter={() => setTbcHovering(true)}
           onMouseLeave={() => setTbcHovering(false)}
         />
-        <img 
+        <img
           className={`
-            pref-glow${tbcActive || tbcHovering ? '-active' : ''} 
+            pref-glow${tbcActive || tbcHovering ? '-active' : ''}
             tbc-pref-glow
-          `} 
-          src={tbcLogo} 
+          `}
+          src={tbcLogo}
         />
       </div>
       <div className="pref-container" onClick={handleWotlk}>
-        <img 
-          className="pref wotlk-pref" 
-          src={wotlkLogo} 
+        <img
+          className="pref wotlk-pref"
+          src={wotlkLogo}
           onMouseEnter={() => setWotlkHovering(true)}
           onMouseLeave={() => setWotlkHovering(false)}
         />
-        <img 
+        <img
           className={`
-            pref-glow${wotlkActive || wotlkHovering ? '-active' : ''} 
+            pref-glow${wotlkActive || wotlkHovering ? '-active' : ''}
             wotlk-pref-glow
-          `} 
-          src={wotlkLogo} 
+          `}
+          src={wotlkLogo}
         />
       </div>
     </div>

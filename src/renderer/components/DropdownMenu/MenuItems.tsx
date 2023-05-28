@@ -57,7 +57,7 @@ const MenuItems = ({ dropdownType, items, depthLevel }: MenuItemsProps) => {
         }
       }));
     } else if (dropdownType === 'type') {
-      dispatch(storeQuestTrackerType({ type: title }))
+      dispatch(storeQuestTrackerType({ type: title as any })) // TEMP ANY
     } else if (dropdownType === 'zone') {
       dispatch(storeQuestTrackerZone({ zone: title }));
     } else if (dropdownType === 'class') {
@@ -66,7 +66,7 @@ const MenuItems = ({ dropdownType, items, depthLevel }: MenuItemsProps) => {
           id: id,
           title: title,
           value: Number(value)
-        }
+        } as any, // TEMP ANY
       }));
     } else if (dropdownType === 'race') {
       dispatch(storeQuestTrackerRace({
@@ -74,7 +74,7 @@ const MenuItems = ({ dropdownType, items, depthLevel }: MenuItemsProps) => {
           id: id,
           title: title,
           value: Number(value)
-        }
+        } as any, // TEMP ANY
       }));
     }
 
@@ -108,7 +108,7 @@ const MenuItems = ({ dropdownType, items, depthLevel }: MenuItemsProps) => {
         <>
           {depthLevel === 0 ? (
             <MenuButton
-              selected={selected}
+              selected={selected as any} // TEMP ANY
               subHovering={subHovering}
               title={items.title}
             />

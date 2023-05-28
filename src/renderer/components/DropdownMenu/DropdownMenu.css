@@ -100,7 +100,7 @@
 .dd-main-button,
 .dd-main-button-active {
   border-radius: 5px;
-  background-image: url("../../assets/buttons/main-button.png");
+  background-image: url("../../../../assets/buttons/main-button.png");
   background-size: 100%;
   background-repeat: no-repeat;
   /* transition: width 0.1s linear, height 0.1s linear; */
@@ -309,7 +309,7 @@
   width: 174px;
   height: 30px;
   scroll-snap-align: start;
-  background-image: url("../../assets/buttons/sub-button.png");
+  background-image: url("../../../../assets/buttons/sub-button.png");
 }
 
 .dd-sub-button-active {

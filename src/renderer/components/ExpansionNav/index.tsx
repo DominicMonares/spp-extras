@@ -49,7 +49,7 @@ const ExpansionNav = ({ getAllData }: ExpansionProps) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   // Tracks the newly selected expansion
-  const [nextExpansion, setNextExpansion] = useState<Expansion>(null);
+  const [nextExpansion, setNextExpansion] = useState<Expansion>(null as any); // TEMP ANY
 
   const openModal = () => {
     setModalIsOpen(true);
@@ -76,11 +76,11 @@ const ExpansionNav = ({ getAllData }: ExpansionProps) => {
     dispatch(storeCompletedQuests({}));
     dispatch(storeMessages('del'));
     dispatch(storeTemplateQuests({ alliance: {}, horde: {}, neutral: {} }));
-    dispatch(storeQuestTrackerAll(false));
-    dispatch(storeQuestTrackerCharacter({ character: { id: 0 } }));
-    dispatch(storeQuestTrackerClass({ characterClass: { id: 0 } }));
-    dispatch(storeQuestTrackerRace({ race: { id: 0 } }));
-    dispatch(storeQuestTrackerType({ type: 'all quest types' }));
+    dispatch(storeQuestTrackerAll(false as any)); // TEMP ANY
+    dispatch(storeQuestTrackerCharacter({ character: { id: 0 } as any })); // TEMP ANY
+    dispatch(storeQuestTrackerClass({ characterClass: { id: 0 } as any })); // TEMP ANY
+    dispatch(storeQuestTrackerRace({ race: { id: 0 } as any })); // TEMP ANY
+    dispatch(storeQuestTrackerType({ type: 'all quest types' as any })); // TEMP ANY
     dispatch(storeQuestTrackerZone({ zone: 'All Zones' }));
     dispatch(storeTool(''));
 

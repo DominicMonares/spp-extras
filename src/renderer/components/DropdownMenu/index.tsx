@@ -25,7 +25,7 @@ const DropdownMenu = ({ depthLevel, dropdown, dropdownType, menu }: DropdownProp
             dropdownType={dropdownType}
             items={m}
             key={i}
-            depthLevel={depthLevel}
+            depthLevel={depthLevel as number} // TEMP TYPE
           />
         );
       })}

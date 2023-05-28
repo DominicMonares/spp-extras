@@ -8,12 +8,13 @@ import './View.css';
 const ErrorView = ({ error, getAllData }: ViewProps) => {
   const expansion = useAppSelector(state => state.expansion.selected);
 
+  // TEMP ANY IN MAIN BUTTON
   return (
     <div>
       <MainBigHeader headerText="Error" />
       <div className={`error ${expansion}-error`}>
         <div className="error-text">{error}</div>
-        {error.includes('Unexpected') ? (
+        {error?.includes('Unexpected') ? ( // TEMP DOUBLE CHECK ERROR TYPE
           <div className="error-text">
             Please ensure the database is still running.
           </div>
@@ -22,7 +23,7 @@ const ErrorView = ({ error, getAllData }: ViewProps) => {
         )}
       </div>
       <div className="error-btn">
-        <MainButton handleClick={getAllData} buttonText={'Retry'} />
+        <MainButton handleClick={getAllData as any} buttonText={'Retry'} />
       </div>
     </div>
   );

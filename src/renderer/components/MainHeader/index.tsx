@@ -1,4 +1,4 @@
-import arrow from '../../assets/buttons/collapse-arrow.gif';
+import arrow from '../../../../assets/buttons/collapse-arrow.gif';
 import { MainHeaderProps } from '../../types';
 import './MainHeader.css';
 
@@ -16,7 +16,7 @@ const MainHeader = ({ collapsed, headerText, setCollapsed }: MainHeaderProps) =>
         onClick={() => setCollapsed(!collapsed)}
       />
     </div>
-  ); 
+  );
 }
 
 export default MainHeader;

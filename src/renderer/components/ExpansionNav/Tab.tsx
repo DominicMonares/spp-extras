@@ -1,7 +1,7 @@
 import { useAppSelector } from '../../store/hooks';
-import vanillaTab from '../../assets/tabs/vanilla.png';
-import tbcTab from '../../assets/tabs/tbc.png';
-import wotlkTab from '../../assets/tabs/wotlk.png';
+import vanillaTab from '../../../../assets/tabs/vanilla.png';
+import tbcTab from '../../../../assets/tabs/tbc.png';
+import wotlkTab from '../../../../assets/tabs/wotlk.png';
 import { TabProps } from "../../types";
 import './ExpansionNav.css';
 

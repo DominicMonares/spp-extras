@@ -13,7 +13,7 @@ export const websocketSlice = createSlice({
       if (action.payload === 'del') {
         state.messages = [];
       } else {
-        state.messages.push(action.payload);
+        state.messages.push(action.payload as never); // TEMP NEVER
       }
     }
   }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useAppSelector } from '../../store/hooks';
-import arrow from '../../assets/buttons/arrow.png';
+import arrow from '../../../../assets/buttons/arrow.png';
 import { SubmenuButtonProps } from '../../types';
 import './DropdownMenu.css';
 
@@ -20,7 +20,7 @@ const SubmenuButton = ({ handleSelection, final, item, subHovering }: SubmenuBut
       id={item.id ? item.id.toString() : ''}
       className={`dd-sub-button${active}`}
       value={item.value ? item.value : ''}
-      onClick={final ? handleSelection : () => null}
+      onClick={final ? handleSelection as any: () => null} // TEMP ANY
       onMouseEnter={() => setActive('-active')}
       onMouseLeave={() => setActive('')}
     >

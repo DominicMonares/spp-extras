@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import alliance from '../../assets/buttons/alliance.png';
-import horde from '../../assets/buttons/horde.png';
+import alliance from '../../../../assets/buttons/alliance.png';
+import horde from '../../../../assets/buttons/horde.png';
 import { FactionPreferencesProps } from '../../types';
 import './Preferences.css';
 

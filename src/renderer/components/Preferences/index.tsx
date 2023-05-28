@@ -4,7 +4,7 @@ import FactionPreferences from './FactionPreferences';
 import MainButton from '../MainButton';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { storeExpansion, storeFaction } from '../../store/slices';
-import mainLogo from '../../assets/logos/main.png';
+import mainLogo from '../../../../assets/logos/main.png';
 import { Expansion, Faction, PreferencesProps } from '../../types';
 import './Preferences.css';
 
@@ -16,7 +16,7 @@ const Preferences = ({ setInstalled }: PreferencesProps) => {
 
   // Track selected preferences
   const [selectedExpansion, setSelectedExpansion] = useState<Expansion>('');
-  const [selectedFaction, setSelectedFaction] = useState<Faction>('');
+  const [selectedFaction, setSelectedFaction] = useState<Faction>('' as any); // TEMP ANY
 
   // Prevent save button from being pressed when no expansion and/or faction selected
   const [noSelections, setNoSelections] = useState<boolean>(false);
@@ -68,9 +68,9 @@ const Preferences = ({ setInstalled }: PreferencesProps) => {
         <ExpansionPreferences setSelectedExpansion={setSelectedExpansion} />
         <FactionPreferences setSelectedFaction={setSelectedFaction} />
         <div className="save-container">
-          <MainButton 
-            handleClick={save} 
-            buttonText={`Save${prefsNotSet ? 'and Begin' : ''}`} 
+          <MainButton
+            handleClick={save}
+            buttonText={`Save${prefsNotSet ? 'and Begin' : ''}`}
           />
           {noSelections ? (
             <div className="pref-text pref-text-save">

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useAppSelector } from '../../store/hooks';
-import arrow from '../../assets/buttons/arrow.png';
+import arrow from '../../../../assets/buttons/arrow.png';
 import { MenuButtonProps } from '../../types';
 import './DropdownMenu.css';
 
@@ -13,7 +13,7 @@ const MenuButton = ({ selected, subHovering, title }: MenuButtonProps) => {
 
   // Keep main button hovering if hovering over sub-buttons
   useEffect(() => subHovering ? setActive('-active') : setActive(''));
-  
+
   // Font size depends on title length
   const titleLength = () => {
     const length = selected() ? selected().length : title.length;

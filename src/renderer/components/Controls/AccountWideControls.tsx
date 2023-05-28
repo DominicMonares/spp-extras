@@ -112,32 +112,32 @@ const AccountWideControls = () => {
       <div className="ctrl-label msg-label">Choose data to transfer</div>
       <div className={`checkboxes ${expansion}-checkboxes`}>
         {expansion === 'wotlk' ? (
-          <Checkbox 
-            callback={() => setPetsMountsChecked(!petsMountsChecked)} 
-            isChecked={petsMountsChecked} 
-            text="Pets & Mounts" 
+          <Checkbox
+            callback={() => setPetsMountsChecked(!petsMountsChecked)}
+            isChecked={petsMountsChecked}
+            text="Pets & Mounts"
           />
         ) : (
           <></>
         )}
-        <Checkbox 
-          callback={() => setRepsChecked(!repsChecked)} 
-          isChecked={repsChecked} 
-          text="Reputations" 
+        <Checkbox
+          callback={() => setRepsChecked(!repsChecked)}
+          isChecked={repsChecked}
+          text="Reputations"
         />
         {expansion === 'wotlk' ? (
-          <Checkbox 
-            callback={() => setAchsChecked(!achsChecked)} 
-            isChecked={achsChecked} 
-            text="Achievements" 
+          <Checkbox
+            callback={() => setAchsChecked(!achsChecked)}
+            isChecked={achsChecked}
+            text="Achievements"
           />
         ) : (
           <></>
         )}
-        <Checkbox 
-          callback={() => setBotsChecked(!botsChecked)} 
-          isChecked={botsChecked} 
-          text="Include bot accounts" 
+        <Checkbox
+          callback={() => setBotsChecked(!botsChecked)}
+          isChecked={botsChecked}
+          text="Include bot accounts"
         />
         <div className="msg-note">
           <b>Note:</b> You will not receive any achievements, pets, etc. from bot accounts.

@@ -43,10 +43,12 @@ const questTracker = async (xpac: any, bots: boolean) => { // TEMP TYPE
   const acct_ids = accounts.map((a: any) => a.id); // TEMP ANY
   let characters: any // TEMP ANY
   try {
-    characters = await selChars(charactersDB, xpac, acct_ids)
+    characters = await selChars(charactersDB, xpac, acct_ids);
   } catch (err) {
     throw err;
   }
+
+
 
   // ----------------------------------------------------------------
   // Disconnect from all databases

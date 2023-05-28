@@ -1,7 +1,7 @@
-import _classMenu from '../../data/menus/classMenu.json';
-import _questTypeMenu from '../../data/menus/questTypeMenu.json';
-import _raceMenu from '../../data/menus/raceMenu.json';
-import _zoneMenu from '../../data/menus/zoneMenu.json';
+import _classMenu from '../../../data/menus/classMenu.json';
+import _questTypeMenu from '../../../data/menus/questTypeMenu.json';
+import _raceMenu from '../../../data/menus/raceMenu.json';
+import _zoneMenu from '../../../data/menus/zoneMenu.json';
 import {
   Character,
   FilteredCharacterMenu,
@@ -65,7 +65,7 @@ export const raceMenu: FilteredRaceMenu = (expansion, faction, race) => {
   const raceMenuFaction = _raceMenu[faction][0];
   return [{
     title: raceMenuFaction.title,
-    submenu: raceMenuFaction.submenu.filter((r: RaceSetting) => {
+    submenu: raceMenuFaction.submenu.filter((r: any) => { // TEMP ANY
       // Do not include Blood Elves or Draenei when Vanilla selected
       const nonVanillaRace = r.id === 10 || r.id === 11;
       if (expansion === 'classic' && nonVanillaRace) return false;
@@ -124,7 +124,7 @@ export const zoneMenu: FilteredZoneMenu = (expansion, zone) => {
 
           // Do not include Outland or Northrend if Vanilla selected
           if (expansion === 'classic' && (onOutland || onNorthrend)) return false;
-          
+
           // Do not include Northrend if TBC selected
           if (expansion === 'tbc' && onNorthrend) return false;
           return true;

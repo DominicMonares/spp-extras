@@ -1,5 +1,5 @@
 {
-  "credit_args": [
+  "creditArgs": [
     {
       "guid": "1001",
       "achievement": "6",
@@ -146,110 +146,110 @@
       "date": 1682294400
     }
   ],
-  "item_inst_args": [
+  "itemInstArgs": [
     {
       "guid": 11000,
       "owner_guid": "1001",
-      "itementry": 43300,
-      "creatorguid": 0,
-      "giftcreatorguid": 0,
+      "itemEntry": 43300,
+      "creatorGuid": 0,
+      "giftCreatorGuid": 0,
       "count": 1,
       "duration": 0,
       "charges": "0 0 0 0 0",
       "flags": 0,
       "enchantments": "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ",
-      "randompropertyid": 0,
+      "randomPropertyId": 0,
       "durability": 0,
-      "playedtime": 0,
+      "playedTime": 0,
       "text": ""
     },
     {
       "guid": 11001,
       "owner_guid": "1001",
-      "itementry": 44160,
-      "creatorguid": 0,
-      "giftcreatorguid": 0,
+      "itemEntry": 44160,
+      "creatorGuid": 0,
+      "giftCreatorGuid": 0,
       "count": 1,
       "duration": 0,
       "charges": "-1 0 0 0 0",
       "flags": 0,
       "enchantments": "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ",
-      "randompropertyid": 0,
+      "randomPropertyId": 0,
       "durability": 0,
-      "playedtime": 0,
+      "playedTime": 0,
       "text": ""
     },
     {
       "guid": 11002,
       "owner_guid": "4501",
-      "itementry": 43300,
-      "creatorguid": 0,
-      "giftcreatorguid": 0,
+      "itemEntry": 43300,
+      "creatorGuid": 0,
+      "giftCreatorGuid": 0,
       "count": 1,
       "duration": 0,
       "charges": "0 0 0 0 0",
       "flags": 0,
       "enchantments": "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ",
-      "randompropertyid": 0,
+      "randomPropertyId": 0,
       "durability": 0,
-      "playedtime": 0,
+      "playedTime": 0,
       "text": ""
     },
     {
       "guid": 11003,
       "owner_guid": "5263",
-      "itementry": 44160,
-      "creatorguid": 0,
-      "giftcreatorguid": 0,
+      "itemEntry": 44160,
+      "creatorGuid": 0,
+      "giftCreatorGuid": 0,
       "count": 1,
       "duration": 0,
       "charges": "-1 0 0 0 0",
       "flags": 0,
       "enchantments": "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ",
-      "randompropertyid": 0,
+      "randomPropertyId": 0,
       "durability": 0,
-      "playedtime": 0,
+      "playedTime": 0,
       "text": ""
     },
     {
       "guid": 11004,
       "owner_guid": "79411",
-      "itementry": 43300,
-      "creatorguid": 0,
-      "giftcreatorguid": 0,
+      "itemEntry": 43300,
+      "creatorGuid": 0,
+      "giftCreatorGuid": 0,
       "count": 1,
       "duration": 0,
       "charges": "0 0 0 0 0",
       "flags": 0,
       "enchantments": "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ",
-      "randompropertyid": 0,
+      "randomPropertyId": 0,
       "durability": 0,
-      "playedtime": 0,
+      "playedTime": 0,
       "text": ""
     },
     {
       "guid": 11005,
       "owner_guid": "79411",
-      "itementry": 44160,
-      "creatorguid": 0,
-      "giftcreatorguid": 0,
+      "itemEntry": 44160,
+      "creatorGuid": 0,
+      "giftCreatorGuid": 0,
       "count": 1,
       "duration": 0,
       "charges": "-1 0 0 0 0",
       "flags": 0,
       "enchantments": "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ",
-      "randompropertyid": 0,
+      "randomPropertyId": 0,
       "durability": 0,
-      "playedtime": 0,
+      "playedTime": 0,
       "text": ""
     }
   ],
-  "mail_args": [
+  "mailArgs": [
     {
       "id": 11000,
-      "messagetype": 3,
+      "messageType": 3,
       "stationery": 41,
-      "mailtemplateid": 0,
+      "mailTemplateId": 0,
       "sender": 3057,
       "receiver": "1001",
       "subject": "",
@@ -263,9 +263,9 @@
     },
     {
       "id": 11001,
-      "messagetype": 3,
+      "messageType": 3,
       "stationery": 41,
-      "mailtemplateid": 0,
+      "mailTemplateId": 0,
       "sender": 26917,
       "receiver": "1001",
       "subject": "Glory of the Hero",
@@ -279,9 +279,9 @@
     },
     {
       "id": 11002,
-      "messagetype": 3,
+      "messageType": 3,
       "stationery": 41,
-      "mailtemplateid": 0,
+      "mailTemplateId": 0,
       "sender": 3057,
       "receiver": "4501",
       "subject": "",
@@ -295,9 +295,9 @@
     },
     {
       "id": 11003,
-      "messagetype": 3,
+      "messageType": 3,
       "stationery": 41,
-      "mailtemplateid": 0,
+      "mailTemplateId": 0,
       "sender": 26917,
       "receiver": "5263",
       "subject": "Glory of the Hero",
@@ -311,9 +311,9 @@
     },
     {
       "id": 11004,
-      "messagetype": 3,
+      "messageType": 3,
       "stationery": 41,
-      "mailtemplateid": 0,
+      "mailTemplateId": 0,
       "sender": 3057,
       "receiver": "79411",
       "subject": "",
@@ -327,9 +327,9 @@
     },
     {
       "id": 11005,
-      "messagetype": 3,
+      "messageType": 3,
       "stationery": 41,
-      "mailtemplateid": 0,
+      "mailTemplateId": 0,
       "sender": 26917,
       "receiver": "79411",
       "subject": "Glory of the Hero",
@@ -342,7 +342,7 @@
       "checked": 0
     }
   ],
-  "mail_item_args": [
+  "mailItemArgs": [
     {
       "mail_id": 11000,
       "item_guid": 11000,
@@ -380,30 +380,30 @@
       "receiver": "79411"
     }
   ],
-  "title_args": [
+  "titleArgs": [
     {
       "guid": "1001",
-      "knowntitles": "0 136314880 541065216 256 0 0 "
+      "knownTitles": "0 136314880 541065216 256 0 0 "
     },
     {
       "guid": "4501",
-      "knowntitles": "0 0 536870912 0 0 0 "
+      "knownTitles": "0 0 536870912 0 0 0 "
     },
     {
       "guid": "5263",
-      "knowntitles": "0 0 0 512 0 0 "
+      "knownTitles": "0 0 0 512 0 0 "
     },
     {
       "guid": "79411",
-      "knowntitles": "0 0 536870912 512 0 0 "
+      "knownTitles": "0 0 536870912 512 0 0 "
     },
     {
       "guid": "6000",
-      "knowntitles": "0 0 0 0 0 0 "
+      "knownTitles": "0 0 0 0 0 0 "
     },
     {
       "guid": "6001",
-      "knowntitles": "0 0 0 0 0 0 "
+      "knownTitles": "0 0 0 0 0 0 "
     }
   ]
 }

@@ -1,5 +1,6 @@
 import {
   CreateViewQuests,
+  Faction,
   FilterQuests,
   MarkTemplateQuests,
   QuestConditions,
@@ -10,19 +11,20 @@ import {
   ViewSubzone,
   ViewZones
 } from "../types";
-import devQuestKeywords from '../../data/quests/devQuestKeywords.json';
-import questRaceIDs from '../../data/quests/questRaceIDs.json';
-import repeatQuestFlags from '../../data/quests/repeatQuestFlags.json';
-import zoneRef from '../../data/zones/zoneRef.json';
+import devQuestKeywords from '../../../data/quests/devQuestKeywords.json';
+import questRaceIDs from '../../../data/quests/questRaceIDs.json';
+import repeatQuestFlags from '../../../data/quests/repeatQuestFlags.json';
+import zoneRef from '../../../data/zones/zoneRef.json';
 
 
 // Decide which quests to display
 export const filterTemplateQuests: FilterQuests = (all, settings, templateQuests) => {
-  const { characterClass, faction, race, type, zone } = settings;
+  const { characterClass, faction, race, type, zone } = settings as any; // TEMP ANY
 
   // Different quest types have multiple different flags in DB
   // Use those flag values to find quest type
-  const questFlags = repeatQuestFlags as QuestFlags; 
+  // const questFlags = repeatQuestFlags as QuestFlags;
+  const questFlags = repeatQuestFlags as any; // TEMP ANY
 
   // Required quest races can come in a variety of combinations
   // i.e. Alliance, Horde, Orc, Troll-Tauren, All, etc.
@@ -30,10 +32,11 @@ export const filterTemplateQuests: FilterQuests = (all, settings, templateQuests
 
   // Some zones have multiple subzone IDs
   const zones = zoneRef as ViewZones;
-  
+
   // Add template quests that meet all conditions to view quests
   const viewQuests: ViewQuests = [];
-  const template = { ...templateQuests[faction], ...templateQuests['neutral'] };
+  const _faction = faction as Faction; // TEMP TYPESCRIPT WORKAROUND - FIX THIS
+  const template = { ...templateQuests[_faction], ...templateQuests['neutral'] };
   for (const q in template) {
     const quest = template[q];
     const questClass = quest.requiredclasses;
@@ -121,7 +124,7 @@ export const sortTitle = (a: string, b: string) => {
 
 // Used for ascending column sort
 export const sortViewQuests: SortViewQuests = (viewQuests, sortSetting) => {
-  return viewQuests.sort((a, b) => {
+  return viewQuests.sort((a, b): any => { // TEMP ANY
     if (sortSetting === 'name') {
       // Sort by alphabetical order
       return sortTitle(a.title, b.title);
@@ -161,7 +164,7 @@ export const reverseSortTitle = (a: string, b: string) => {
 
 // Used for descending column sort
 export const reverseSortViewQuests: SortViewQuests = (viewQuests, sortSetting) => {
-  return viewQuests.sort((a, b) => {
+  return viewQuests.sort((a, b): any => { // TEMP ANY
     if (sortSetting === 'name') {
       // Sort by alphabetical order
       return reverseSortTitle(a.title, b.title);
@@ -203,7 +206,7 @@ export const markTemplateQuests: MarkTemplateQuests = (
 
   const typeQuests = type ? characterQuests[type] : allCharacterQuests;
   for (const q in typeQuests) {
-    let completedQuestIndex: number;
+    let completedQuestIndex: number = 0; // DOUBLE CHECK FOR SIDE EFFECTS
     const quest = typeQuests[q];
 
     const questCompleted = filteredTemplateQuests.some(((q, i) => {
@@ -211,7 +214,7 @@ export const markTemplateQuests: MarkTemplateQuests = (
       const match = q.entry === quest.quest;
       if (match) completedQuestIndex = i;
       return match;
-    }))
+    }));
 
     if (questCompleted) {
       filteredTemplateQuests[completedQuestIndex]['completed'] = true;
@@ -223,19 +226,20 @@ export const markTemplateQuests: MarkTemplateQuests = (
 
 // Create list of quests to be displayed
 export const createViewQuests: CreateViewQuests = (
-  all, 
-  completedQuests, 
-  settings, 
+  all,
+  completedQuests,
+  settings,
   templateQuests
 ) => {
-  const { character, type } = settings;
+  const { character, type } = settings as any; // TEMP ANY
 
   // Create list of quests filtered using quest tracker settings
   const filteredTemplateQuests = filterTemplateQuests(all, settings, templateQuests);
 
   // Mark completed quests, check neutral factions so neutral quests are marked
   if (character && character.id) {
-    const characterQuests = completedQuests[settings.faction][character.id];
+    const faction = settings.faction as Faction; // TEMP??? REVISIT
+    const characterQuests = completedQuests[faction][character.id];
     markTemplateQuests(characterQuests, filteredTemplateQuests, type);
   } else {
     const allCompletedQuests = { ...completedQuests['alliance'], ...completedQuests['horde'] };

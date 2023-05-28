@@ -1,7 +1,7 @@
 {
   "0": {
     "username": "player_accts",
-    "player_accts": [
+    "playerAccts": [
       "500",
       "501"
     ],
@@ -12,8 +12,8 @@
         "name": "Gaz",
         "race": 8,
         "gender": 1,
-        "class_field": 7,
-        "knowntitles": "0 136314880 4194304 0 0 0 ",
+        "class": 7,
+        "knownTitles": "0 136314880 4194304 0 0 0 ",
         "credit": {},
         "progress": {},
         "quests": {
@@ -62,8 +62,8 @@
         "name": "Drak",
         "race": 2,
         "gender": 0,
-        "class_field": 3,
-        "knowntitles": "0 0 0 0 0 0 ",
+        "class": 3,
+        "knownTitles": "0 0 0 0 0 0 ",
         "credit": {
           "6": 1682152714,
           "1793": 1682152714,
@@ -148,8 +148,8 @@
         "name": "Bub",
         "race": 1,
         "gender": 0,
-        "class_field": 1,
-        "knowntitles": "0 0 0 0 0 0 ",
+        "class": 1,
+        "knownTitles": "0 0 0 0 0 0 ",
         "credit": {
           "6": 1682152718,
           "604": 1682152714,
@@ -215,8 +215,8 @@
         "name": "Harley",
         "race": 8,
         "gender": 0,
-        "class_field": 7,
-        "knowntitles": "0 0 0 0 0 0 ",
+        "class": 7,
+        "knownTitles": "0 0 0 0 0 0 ",
         "credit": {},
         "progress": {},
         "quests": {
@@ -421,8 +421,8 @@
         "name": "Sneed",
         "race": 1,
         "gender": 0,
-        "class_field": 1,
-        "knowntitles": "0 0 0 0 0 0 ",
+        "class": 1,
+        "knownTitles": "0 0 0 0 0 0 ",
         "credit": {
           "1428": 1682152714
         },
@@ -462,8 +462,8 @@
         "name": "Feed",
         "race": 1,
         "gender": 1,
-        "class_field": 1,
-        "knowntitles": "0 0 0 0 0 0 ",
+        "class": 1,
+        "knownTitles": "0 0 0 0 0 0 ",
         "credit": {},
         "progress": {},
         "quests": {

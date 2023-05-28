@@ -1,12 +1,15 @@
-import { createViewQuests, reverseSortViewQuests, sortViewQuests } from '../../client/utils';
-import { QuestTrackerSettings } from '../../client/types';
-import playerQuests from '../samples/client/playerQuests.json';
-import sampleCharacterSettings from '../samples/client/characterSettings.json';
-import sampleClasses from '../samples/client/classes.json';
-import filteredTemplateQuests from '../samples/client/filteredTemplateQuests.json';
-import sampleRaces from '../samples/client/races.json';
+import {
+  createViewQuests,
+  reverseSortViewQuests,
+  sortViewQuests
+} from '../../src/renderer/utils';
+import { QuestTrackerSettings } from '../../src/renderer/types';
+import playerQuests from '../samples/renderer/playerQuests.json';
+import sampleCharacterSettings from '../samples/renderer/characterSettings.json';
+import sampleClasses from '../samples/renderer/classes.json';
+import filteredTemplateQuests from '../samples/renderer/filteredTemplateQuests.json';
+import sampleRaces from '../samples/renderer/races.json';
 import templateQuests from '../samples/formattedData/templateQuests.json';
-
 
 const { orcCharacter } = sampleCharacterSettings;
 const { paladin, shaman } = sampleClasses;
@@ -99,7 +102,6 @@ describe('createViewQuests', () => {
   });
 });
 
-
 describe('sortViewQuests', () => {
   it('should sort in alphabetic order when name selected', () => {
     const quests = filteredTemplateQuests.slice(0, 4);
@@ -128,7 +130,6 @@ describe('sortViewQuests', () => {
     expect(sortViewQuests(filteredTemplateQuests, '')).toStrictEqual(filteredTemplateQuests);
   });
 });
-
 
 describe('reverseSortViewQuests', () => {
   it('should sort in reverse alphabetic order when name selected', () => {

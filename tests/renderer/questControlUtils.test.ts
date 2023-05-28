@@ -4,23 +4,22 @@ import {
   questTypeMenu,
   raceMenu,
   zoneMenu
-} from '../../client/utils';
-import { 
+} from '../../src/renderer/utils';
+import {
   Characters,
-  ClassSetting, 
-  Menu, 
+  ClassSetting,
+  Menu,
   RaceSetting
-} from '../../client/types';
+} from '../../src/renderer/types';
 import _classMenu from '../../data/menus/classMenu.json';
-import _raceMenu from '../../data//menus/raceMenu.json';
-import _questTypes from '../../data//menus/questTypeMenu.json';
-import _zoneMenu from '../../data//menus/zoneMenu.json';
+import _raceMenu from '../../data/menus/raceMenu.json';
+import _questTypes from '../../data/menus/questTypeMenu.json';
+import _zoneMenu from '../../data/menus/zoneMenu.json';
 import sampleAccounts from '../samples/formattedData/allAccountsChars.json';
-import sampleCharacterMenus from '../samples/client/characterMenus.json';
-import sampleCharacterSettings from '../samples/client/characterSettings.json';
-import sampleClasses from '../samples/client/classes.json';
-import sampleRaces from '../samples/client/races.json';
-
+import sampleCharacterMenus from '../samples/renderer/characterMenus.json';
+import sampleCharacterSettings from '../samples/renderer/characterSettings.json';
+import sampleClasses from '../samples/renderer/classes.json';
+import sampleRaces from '../samples/renderer/races.json';
 
 const sampleCharacters = sampleAccounts[0]['characters'] as Characters;
 const { currentCharacterMenu, noCharacterMenu } = sampleCharacterMenus;
@@ -39,7 +38,6 @@ describe('characterMenu', () => {
     expect(result).toStrictEqual(currentCharacterMenu);
   });
 });
-
 
 describe('classMenu', () => {
   let menu: Menu, submenu: Menu | undefined;
@@ -74,7 +72,6 @@ describe('classMenu', () => {
   })
 });
 
-
 describe('raceMenu', () => {
   let menu: Menu, submenu: Menu | undefined;
   beforeEach(() => {
@@ -100,7 +97,6 @@ describe('raceMenu', () => {
     expect(result).toStrictEqual(menu);
   });
 });
-
 
 describe('questTypeMenu', () => {
   let menu: Menu, submenu: Menu | undefined;
@@ -129,7 +125,6 @@ describe('questTypeMenu', () => {
     expect(result).toStrictEqual(menu);
   });
 });
-
 
 describe('zoneMenu', () => {
   let menu: Menu, submenu: Menu | undefined;

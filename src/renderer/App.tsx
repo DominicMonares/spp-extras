@@ -37,7 +37,7 @@ const App = () => {
     setError('');
 
     const allData = await window.electron.questTracker(xpac, false) // TEMP FALSE
-      .catch(err => setError(err.message));
+      .catch((err: any) => setError(err.message)); // TEMP ANY
 
     if (allData) {
       dispatch(storeAccounts(allData.accounts));

@@ -5,7 +5,7 @@ import MainButton from '../MainButton';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { storeExpansion, storeFaction } from '../../store/slices';
 import mainLogo from '../../../../assets/logos/main.png';
-import { Expansion, Faction, PreferencesProps } from '../../types';
+import { Expansion, Faction, PreferencesProps } from '../../../types';
 import './Preferences.css';
 
 

@@ -1,4 +1,4 @@
-import { CreatePlayerQuests } from "../types";
+import { CreatePlayerQuests } from "../../types";
 
 
 export const createPlayerQuests: CreatePlayerQuests = (characters, completedQuests) => {

@@ -1,5 +1,5 @@
 import arrow from '../../../../assets/buttons/collapse-arrow.gif';
-import { MainHeaderProps } from '../../types';
+import { MainHeaderProps } from '../../../types';
 import './MainHeader.css';
 
 

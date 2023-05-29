@@ -10,7 +10,7 @@ import {
   ViewQuests,
   ViewSubzone,
   ViewZones
-} from "../types";
+} from "../../types";
 import devQuestKeywords from '../../../data/quests/devQuestKeywords.json';
 import questRaceIDs from '../../../data/quests/questRaceIDs.json';
 import repeatQuestFlags from '../../../data/quests/repeatQuestFlags.json';

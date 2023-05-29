@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Expansion, ReduxInitialExpansion } from '../../types';
+import { Expansion, ReduxInitialExpansion } from '../../../types';
 
 
 const initialState: ReduxInitialExpansion = {

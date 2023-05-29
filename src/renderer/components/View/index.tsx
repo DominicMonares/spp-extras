@@ -4,7 +4,7 @@ import HomeView from "./HomeView";
 import LoadingView from './LoadingView';
 import QuestTrackerView from "./QuestTrackerView";
 import { useAppSelector } from '../../store/hooks';
-import { ViewProps } from '../../types';
+import { ViewProps } from '../../../types';
 import './View.css';
 
 const View = ({ error, getAllData, loading }: ViewProps) => {

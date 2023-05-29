@@ -1,4 +1,4 @@
-import { ViewProps } from "../../types";
+import { ViewProps } from "../../../types";
 import MainButton from "../MainButton";
 import MainBigHeader from "../MainBigHeader";
 import { useAppSelector } from '../../store/hooks';

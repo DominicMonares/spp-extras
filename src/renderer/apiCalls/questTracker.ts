@@ -1,5 +1,5 @@
 import { httpUrl, port } from '../config';
-import { FetchQuestTrackerData } from '../types';
+import { FetchQuestTrackerData } from '../../types';
 
 
 export const fetchQuestTrackerData: FetchQuestTrackerData = async expansion => {

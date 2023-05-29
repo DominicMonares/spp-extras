@@ -10,7 +10,7 @@ import {
   FilteredRaceMenu,
   FilteredZoneMenu,
   RaceSetting,
-} from "../types";
+} from "../../types";
 
 
 // Create character menu from player character data

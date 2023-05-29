@@ -2,7 +2,7 @@ import { useState } from 'react';
 import vanillaLogo from '../../../../assets/logos/vanilla.png';
 import tbcLogo from '../../../../assets/logos/tbc.png';
 import wotlkLogo from '../../../../assets/logos/wotlk.png';
-import { ExpansionPreferencesProps } from '../../types';
+import { ExpansionPreferencesProps } from '../../../types';
 import './Preferences.css';
 
 

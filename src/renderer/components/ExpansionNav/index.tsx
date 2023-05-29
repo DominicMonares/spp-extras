@@ -17,7 +17,7 @@ import {
   storeTemplateQuests,
   storeTool
  } from '../../store/slices';
-import { Expansion, ExpansionProps } from '../../types';
+import { Expansion, ExpansionProps } from '../../../types';
 import './ExpansionNav.css';
 
 

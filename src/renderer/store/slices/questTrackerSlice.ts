@@ -5,7 +5,7 @@ import {
   QuestTrackerSettings,
   QuestType,
   RaceSetting
-} from '../../types';
+} from '../../../types';
 
 
 const initialState: QuestTrackerSettings = {

@@ -1,6 +1,6 @@
 import MenuItems from './MenuItems';
 import { useAppSelector } from '../../store/hooks';
-import { DropdownProps, Submenu } from '../../types';
+import { DropdownProps, Submenu } from '../../../types';
 import './DropdownMenu.css';
 
 

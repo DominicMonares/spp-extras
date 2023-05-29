@@ -6,7 +6,7 @@ import {
   Faction,
   Race,
   RaceSetting
-} from '../types';
+} from '../../types';
 
 export const checkClass = (character: CharacterSetting) => {
   // Value is an object string containing race/class

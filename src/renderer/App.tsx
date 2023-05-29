@@ -15,7 +15,7 @@ import {
 } from './store/slices';
 import { fetchQuestTrackerData } from './apiCalls';
 import { windowIsSmall } from './utils';
-import { Expansion } from './types';
+import { Expansion } from '../types';
 import './App.css';
 
 

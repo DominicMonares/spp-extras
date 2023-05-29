@@ -1,4 +1,4 @@
-import { MainButtonProps } from '../../types';
+import { MainButtonProps } from '../../../types';
 import './MainButton.css';
 
 

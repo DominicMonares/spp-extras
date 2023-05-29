@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Accounts, ReduxInitialAccounts } from '../../types';
+import { Accounts, ReduxInitialAccounts } from '../../../types';
 
 
 const initialState: ReduxInitialAccounts = {

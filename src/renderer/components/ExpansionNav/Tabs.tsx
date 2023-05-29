@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Tab from './Tab';
 import { useAppSelector } from '../../store/hooks';
-import { TabsProps } from "../../types";
+import { TabsProps } from "../../../types";
 import './ExpansionNav.css';
 
 
@@ -19,7 +19,7 @@ const Tabs = ({ openModal }: TabsProps) => {
       </span>
       <Tab bufferHover={classicBufferHover} openModal={openModal} xpac="classic" />
       {expansion === 'classic' ? (
-        <span 
+        <span
           className="right-buffer classic-rb"
           onMouseEnter={() => setTbcBufferHover(true)}
           onMouseLeave={() => setTbcBufferHover(false)}
@@ -28,7 +28,7 @@ const Tabs = ({ openModal }: TabsProps) => {
           <div className="curve classic-rc"></div>
         </span>
       ) : (
-        <span 
+        <span
           className="left-buffer tbc-lb"
           onMouseEnter={() => setClassicBufferHover(true)}
           onMouseLeave={() => setClassicBufferHover(false)}
@@ -39,7 +39,7 @@ const Tabs = ({ openModal }: TabsProps) => {
       )}
       <Tab bufferHover={tbcBufferHover} openModal={openModal} xpac="tbc" />
       {expansion === 'wotlk' ? (
-        <span 
+        <span
           className="left-buffer wotlk-lb"
           onMouseEnter={() => setTbcBufferHover(true)}
           onMouseLeave={() => setTbcBufferHover(false)}
@@ -48,7 +48,7 @@ const Tabs = ({ openModal }: TabsProps) => {
           <div className="curve wotlk-lc"></div>
         </span>
       ) : (
-        <span 
+        <span
           className="right-buffer tbc-rb"
           onMouseEnter={() => setWotlkBufferHover(true)}
           onMouseLeave={() => setWotlkBufferHover(false)}

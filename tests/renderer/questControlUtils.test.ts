@@ -10,7 +10,7 @@ import {
   ClassSetting,
   Menu,
   RaceSetting
-} from '../../src/renderer/types';
+} from '../../src/types';
 import _classMenu from '../../data/menus/classMenu.json';
 import _raceMenu from '../../data/menus/raceMenu.json';
 import _questTypes from '../../data/menus/questTypeMenu.json';

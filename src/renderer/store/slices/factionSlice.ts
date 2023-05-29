@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Faction, ReduxInitialFaction } from '../../types/factions';
+import { Faction, ReduxInitialFaction } from '../../../types/factions';
 
 
 const initialState: ReduxInitialFaction = {

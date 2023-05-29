@@ -10,7 +10,7 @@ import {
   storeQuestTrackerType,
   storeQuestTrackerZone
 } from '../../store/slices';
-import { MenuItemsProps } from '../../types';
+import { MenuItemsProps } from '../../../types';
 import './DropdownMenu.css';
 
 

@@ -8,7 +8,7 @@ import {
 } from '../../store/slices';
 import alliance from '../../../../assets/buttons/alliance.png';
 import horde from '../../../../assets/buttons/horde.png';
-import { Faction } from "../../types";
+import { Faction } from "../../../types";
 
 
 const FactionSelect = () => {

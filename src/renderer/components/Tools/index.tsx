@@ -3,7 +3,7 @@ import MainButton from '../MainButton';
 import MainHeader from '../MainHeader';
 import Tool from './Tool';
 import { useAppSelector } from '../../store/hooks';
-import { ToolsProps } from '../../types';
+import { ToolsProps } from '../../../types';
 import './Tools.css';
 
 

@@ -1,5 +1,5 @@
 import { port, wsUrl } from '../config';
-import { WebSocketMessage } from '../types';
+import { WebSocketMessage } from '../../types';
 
 
 const accountWideSocket = new WebSocket(`${wsUrl}:${port}/ws/account_wide/transfer/`);

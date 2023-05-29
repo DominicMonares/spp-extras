@@ -1,29 +1,16 @@
 import { CharacterClass, Characters, Race } from './characters';
 import { Menu } from './dropdown';
 import { Expansion } from './expansions';
-import { Faction } from './factions';
+import { Faction, FactionSetting } from './factions';
 import {
   CharacterQuestClass,
   CharacterQuestRace,
   CharacterQuests,
   PlayerQuests,
-  QuestType,
+  QuestTypeSetting,
   TemplateQuests
 } from './quests';
 import { ViewQuest, ViewQuests } from './view';
-
-
-export interface CharacterSetting {
-  id: number;
-  name: string;
-  value: string;
-}
-
-export interface ClassSetting {
-  id: CharacterClass;
-  title: string;
-  value: CharacterQuestClass;
-}
 
 export type CreateViewQuests = (
   all: boolean,
@@ -39,7 +26,7 @@ export type FilterQuests = (
 ) => ViewQuests;
 
 export type FilteredCharacterMenu = (
-  chararcter: CharacterSetting | undefined,
+  chararcter: QTCharacter | undefined,
   characters: Characters,
   faction: Faction
 ) => Menu;
@@ -47,7 +34,7 @@ export type FilteredCharacterMenu = (
 export type FilteredClassMenu = (
   expansion: Expansion,
   faction: Faction,
-  characterClass: ClassSetting | undefined
+  characterClass: QTClass | undefined
 ) => Menu;
 
 export type FilteredQuestTypeMenu = (
@@ -58,7 +45,7 @@ export type FilteredQuestTypeMenu = (
 export type FilteredRaceMenu = (
   expansion: Expansion,
   faction: Faction,
-  race: RaceSetting | undefined
+  race: QTRace | undefined
 ) => Menu;
 
 export type FilteredZoneMenu = (
@@ -73,7 +60,7 @@ export type MarkTemplateQuests = (
 ) => ViewQuests;
 
 export interface QuestCondition {
-  setting: CharacterSetting | ClassSetting | Faction | QuestType | RaceSetting | string;
+  setting: QTCharacter | QTClass | Faction | QuestType | QTRace | string;
   conditionMet: () => boolean;
 }
 
@@ -86,16 +73,28 @@ export interface QuestProps {
 }
 
 export interface QuestTrackerSettings {
-  all?: boolean;
-  character?: CharacterSetting;
-  characterClass?: ClassSetting;
-  faction?: Faction;
-  race?: RaceSetting;
-  type?: QuestType;
-  zone?: string;
+  all: boolean;
+  character: QTCharacter | Record<string,never>;
+  characterClass: QTClass | Record<string,never>;
+  faction: FactionSetting;
+  race: QTRace | Record<string,never>;
+  type: QuestTypeSetting;
+  zone: string;
 }
 
-export interface RaceSetting { 
+export interface QTCharacter {
+  id: number;
+  name: string;
+  value: string;
+}
+
+export interface QTClass {
+  id: CharacterClass;
+  title: string;
+  value: CharacterQuestClass;
+}
+
+export interface QTRace {
   id: Race;
   title: string;
   value: CharacterQuestRace;

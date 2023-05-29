@@ -1,9 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Accounts, ReduxInitialAccounts } from '../../../types';
+import { Accounts } from '../../../types';
 
+interface InitialState {
+  all: Accounts;
+}
 
-const initialState: ReduxInitialAccounts = {
-  all: {}
+const initialState: InitialState = {
+  all: {},
 };
 
 export const accountSlice = createSlice({
@@ -12,10 +15,9 @@ export const accountSlice = createSlice({
   reducers: {
     storeAccounts: (state, action: PayloadAction<Accounts>) => {
       state.all = action.payload;
-    }
-  }
+    },
+  },
 });
 
 export const { storeAccounts } = accountSlice.actions;
-
 export default accountSlice.reducer;

@@ -1,9 +1,13 @@
 import arrow from '../../../../assets/buttons/collapse-arrow.gif';
-import { MainHeaderProps } from '../../../types';
 import './MainHeader.css';
 
+interface Props {
+  collapsed: boolean;
+  headerText: string;
+  setCollapsed: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-const MainHeader = ({ collapsed, headerText, setCollapsed }: MainHeaderProps) => {
+const MainHeader = ({ collapsed, headerText, setCollapsed }: Props) => {
   return (
     <div className="main-header">
       <div className="main-header-buffer"></div>

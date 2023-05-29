@@ -1,9 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Tool, SelectedTool } from '../../../types';
+import { SelectedTool } from '../../../types';
 
+interface InitialState {
+  selected: SelectedTool;
+}
 
-const initialState: Tool = {
-  selected: 'questTracker' // TEMP DEFAULT
+const initialState: InitialState = {
+  selected: 'questTracker', // TEMP DEFAULT
 }
 
 export const toolSlice = createSlice({
@@ -12,8 +15,8 @@ export const toolSlice = createSlice({
   reducers: {
     storeTool: (state, action: PayloadAction<SelectedTool>) => {
       state.selected = action.payload;
-    }
-  }
+    },
+  },
 });
 
 export const { storeTool } = toolSlice.actions;

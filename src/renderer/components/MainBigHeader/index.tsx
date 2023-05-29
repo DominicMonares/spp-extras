@@ -1,7 +1,10 @@
 import './MainBigHeader.css';
 
+interface Props {
+  headerText: string;
+}
 
-const MainBigHeader = ({ headerText }: any) => { // TEMP ANY
+const MainBigHeader = ({ headerText }: Props) => {
   return (
     <div className="main-big-header">
       <div className="main-big-header-label">

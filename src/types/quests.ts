@@ -2,10 +2,10 @@ import { Characters } from './characters';
 import { Faction } from './factions';
 
 
-export interface AllQuests {
-  completedQuests: CompletedQuests | Record<string,never>;
-  templateQuests: TemplateQuests | Record<string,never>;
-}
+// export interface AllQuests {
+//   completedQuests: CompletedQuests | Record<string,never>;
+//   templateQuests: TemplateQuests | Record<string,never>;
+// }
 
 export interface CharacterQuests {
   regular: Quests;
@@ -24,7 +24,7 @@ export interface CompletedQuests {
 
 export type CreatePlayerQuests = (
   characters: Characters,
-  completedQuests: CompletedQuests 
+  completedQuests: CompletedQuests
 ) => PlayerQuests;
 
 export interface PlayerQuests {
@@ -72,6 +72,8 @@ export interface Quests {
 }
 
 export type QuestType = 'regular' | 'daily' | 'weekly' | 'monthly';
+
+export type QuestTypeSetting = QuestType | '';
 
 export interface TemplateFactionQuests {
   [key: string]: TemplateQuest;

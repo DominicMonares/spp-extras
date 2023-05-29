@@ -1,10 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { windowIsSmall } from '../../utils';
 
+interface InitialState {
+  smallWindow: boolean;
+}
 
-interface Window { smallWindow: boolean }
-const initialState: Window = {
-  smallWindow: windowIsSmall(window.innerWidth)
+const initialState: InitialState = {
+  smallWindow: windowIsSmall(window.innerWidth),
 }
 
 export const windowSlice = createSlice({
@@ -13,8 +15,8 @@ export const windowSlice = createSlice({
   reducers: {
     storeWindowWidth: (state, action: PayloadAction<boolean>) => {
       state.smallWindow = action.payload;
-    }
-  }
+    },
+  },
 });
 
 export const { storeWindowWidth } = windowSlice.actions;

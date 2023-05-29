@@ -1,8 +1,12 @@
-import { MainButtonProps } from '../../../types';
 import './MainButton.css';
 
+interface Props {
+  active?: string;
+  handleClick: () => void;
+  buttonText: string;
+}
 
-const MainButton = ({ active, handleClick, buttonText }: MainButtonProps) => {
+const MainButton = ({ active, handleClick, buttonText }: Props) => {
   const prefs = buttonText === 'Preferences';
 
   return (

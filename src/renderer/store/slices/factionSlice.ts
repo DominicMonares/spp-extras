@@ -1,9 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Faction, ReduxInitialFaction } from '../../../types/factions';
+import { Faction, FactionSetting } from '../../../types/factions';
 
+interface InitialState {
+  selected: FactionSetting;
+}
 
-const initialState: ReduxInitialFaction = {
-  selected: '' as Faction, // TEMP TYPE WORKAROUND
+const initialState: InitialState = {
+  selected: '',
 }
 
 export const factionSlice = createSlice({
@@ -12,8 +15,8 @@ export const factionSlice = createSlice({
   reducers: {
     storeFaction: (state, action: PayloadAction<Faction>) => {
       state.selected = action.payload;
-    }
-  }
+    },
+  },
 });
 
 export const { storeFaction } = factionSlice.actions;

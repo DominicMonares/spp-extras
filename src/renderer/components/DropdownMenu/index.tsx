@@ -1,10 +1,20 @@
 import MenuItems from './MenuItems';
 import { useAppSelector } from '../../store/hooks';
-import { DropdownProps, Submenu } from '../../../types';
+import {
+  DropdownType,
+  Menu,
+  Submenu
+} from '../../../types';
 import './DropdownMenu.css';
 
+type Props = {
+  dropdownType: DropdownType;
+  menu: Menu;
+  dropdown?: boolean;
+  depthLevel?: number;
+}
 
-const DropdownMenu = ({ depthLevel, dropdown, dropdownType, menu }: DropdownProps) => {
+const DropdownMenu = ({ depthLevel, dropdown, dropdownType, menu }: Props) => {
   const smallWindow = useAppSelector(state => state.window.smallWindow);
 
   // Create class names depending on different factors

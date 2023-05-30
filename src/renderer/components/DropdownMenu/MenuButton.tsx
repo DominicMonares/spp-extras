@@ -1,11 +1,15 @@
 import { useEffect, useState } from 'react';
 import { useAppSelector } from '../../store/hooks';
 import arrow from '../../../../assets/buttons/arrow.png';
-import { MenuButtonProps } from '../../../types';
 import './DropdownMenu.css';
 
+type Props = {
+  selected: () => string;
+  subHovering: boolean;
+  title: string;
+}
 
-const MenuButton = ({ selected, subHovering, title }: MenuButtonProps) => {
+const MenuButton = ({ selected, subHovering, title }: Props) => {
   const smallWindow = useAppSelector(state => state.window.smallWindow);
 
   // Need to use hovering class name to track nested sub-button hovering

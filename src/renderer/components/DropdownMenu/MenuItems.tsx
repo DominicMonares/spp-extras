@@ -14,14 +14,20 @@ import {
   CharacterClass,
   CharacterQuestClass,
   CharacterQuestRace,
-  MenuItemsProps,
+  DropdownType,
   QuestTypeSetting,
-  Race
+  Race,
+  Submenu,
 } from '../../../types';
 import './DropdownMenu.css';
 
+type Props = {
+  dropdownType: DropdownType;
+  items: Submenu;
+  depthLevel: number;
+}
 
-const MenuItems = ({ dropdownType, items, depthLevel }: MenuItemsProps) => {
+const MenuItems = ({ dropdownType, items, depthLevel }: Props) => {
   const dispatch = useAppDispatch();
   const settings = useAppSelector(state => state.questTracker);
   const { character, characterClass, race, type, zone } = settings;
@@ -49,7 +55,7 @@ const MenuItems = ({ dropdownType, items, depthLevel }: MenuItemsProps) => {
 
   // Update quest tracker settings depending on the dropdown menu selection
   // Multiple selections can be made at once
-  const handleSelection = (e: MouseEvent<HTMLInputElement>) => {
+  const handleSelection = (e: any) => {
     const target = e.target as HTMLInputElement;
     const title = target.innerText;
     const id = Number(target.id);
@@ -95,6 +101,8 @@ const MenuItems = ({ dropdownType, items, depthLevel }: MenuItemsProps) => {
       return characterClass.title;
     } else if (dropdownType === 'race' && race) {
       return race.title;
+    } else {
+      return 'No Selection';
     }
   }
 
@@ -109,7 +117,7 @@ const MenuItems = ({ dropdownType, items, depthLevel }: MenuItemsProps) => {
         <>
           {depthLevel === 0 ? (
             <MenuButton
-              selected={selected as any} // TEMP ANY
+              selected={selected}
               subHovering={subHovering}
               title={items.title}
             />

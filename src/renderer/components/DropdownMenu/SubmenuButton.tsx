@@ -1,11 +1,17 @@
 import { useEffect, useState } from 'react';
 import { useAppSelector } from '../../store/hooks';
 import arrow from '../../../../assets/buttons/arrow.png';
-import { SubmenuButtonProps } from '../../../types';
+import { Submenu } from '../../../types';
 import './DropdownMenu.css';
 
+type Props = {
+  final: boolean;
+  handleSelection: (e: any) => void;
+  subHovering: boolean;
+  item: Submenu;
+}
 
-const SubmenuButton = ({ handleSelection, final, item, subHovering }: SubmenuButtonProps) => {
+const SubmenuButton = ({ handleSelection, final, item, subHovering }: Props) => {
   const smallWindow = useAppSelector(state => state.window.smallWindow);
   const [active, setActive] = useState<string>('');
 
@@ -20,7 +26,7 @@ const SubmenuButton = ({ handleSelection, final, item, subHovering }: SubmenuBut
       id={item.id ? item.id.toString() : ''}
       className={`dd-sub-button${active}`}
       value={item.value ? item.value : ''}
-      onClick={final ? handleSelection as any: () => null} // TEMP ANY
+      onClick={final ? handleSelection : () => {}}
       onMouseEnter={() => setActive('-active')}
       onMouseLeave={() => setActive('')}
     >

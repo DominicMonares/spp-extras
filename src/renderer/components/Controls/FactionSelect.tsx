@@ -20,9 +20,9 @@ const FactionSelect = () => {
 
   // Clear character, class, and race settings when faction changes
   const clearSettings = () => {
-    dispatch(storeQuestTrackerCharacter({ character: { id: 0, name: '', value: '' } }));
-    dispatch(storeQuestTrackerClass({ characterClass: { id: 0, name: '', value: '' } as any })); // TEMP ANY
-    dispatch(storeQuestTrackerRace({ race: { id: 0, name: '', value: '' } as any })); // TEMP ANY
+    dispatch(storeQuestTrackerCharacter({ id: 0, name: '', value: '' }));
+    dispatch(storeQuestTrackerClass({ id: 0, title: '', value: 0 }));
+    dispatch(storeQuestTrackerRace({ id: 0, title: '', value: 0 }));
   }
 
   // Change animation and send selected faction to store

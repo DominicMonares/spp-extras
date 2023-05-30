@@ -1,9 +1,9 @@
 import {
-  characterMenu,
-  classMenu,
-  questTypeMenu,
-  raceMenu,
-  zoneMenu
+  createCharacterMenu,
+  createClassMenu,
+  createQuestTypeMenu,
+  createRaceMenu,
+  createZoneMenu
 } from '../../src/renderer/utils';
 import {
   Characters,
@@ -27,19 +27,19 @@ const { orcCharacter } = sampleCharacterSettings;
 const { paladin } = sampleClasses;
 const { orc } = sampleRaces;
 
-describe('characterMenu', () => {
+describe('createCharacterMenu', () => {
   it('should create a menu with three characters if no character provided', () => {
-    const result = characterMenu(undefined, sampleCharacters, 'horde');
+    const result = createCharacterMenu(undefined, sampleCharacters, 'horde');
     expect(result).toStrictEqual(noCharacterMenu);
   });
 
   it('should create a menu with an all characters option and unselected characters', () => {
-    const result = characterMenu(orcCharacter, sampleCharacters, 'horde');
+    const result = createCharacterMenu(orcCharacter, sampleCharacters, 'horde');
     expect(result).toStrictEqual(currentCharacterMenu);
   });
 });
 
-describe('classMenu', () => {
+describe('createClassMenu', () => {
   let menu: Menu, submenu: Menu | undefined;
   beforeEach(() => {
     menu = JSON.parse(JSON.stringify(_classMenu));
@@ -48,31 +48,31 @@ describe('classMenu', () => {
 
   it('should not render the all classes option if no class selected', () => {
     submenu?.shift();
-    const result = classMenu('wotlk', 'horde', undefined);
+    const result = createClassMenu('wotlk', 'horde', undefined);
     expect(result).toStrictEqual(menu);
   });
 
   it('should not render the shaman option if on classic, alliance, and no class selected', () => {
     submenu?.splice(0, 2);
     submenu?.splice(6, 1);
-    const result = classMenu('classic', 'alliance', undefined);
+    const result = createClassMenu('classic', 'alliance', undefined);
     expect(result).toStrictEqual(menu);
   });
 
   it('should not render the death knight option if not on wotlk and no class selected', () => {
     submenu?.splice(0, 2);
-    const result = classMenu('tbc', 'horde', undefined);
+    const result = createClassMenu('tbc', 'horde', undefined);
     expect(result).toStrictEqual(menu);
   });
 
   it('should render all classes option and not render paladin option when class selected', () => {
     submenu?.splice(5, 1);
-    const result = classMenu('wotlk', 'horde', paladin as ClassSetting);
+    const result = createClassMenu('wotlk', 'horde', paladin as ClassSetting);
     expect(result).toStrictEqual(menu);
   })
 });
 
-describe('raceMenu', () => {
+describe('createRaceMenu', () => {
   let menu: Menu, submenu: Menu | undefined;
   beforeEach(() => {
     menu = JSON.parse(JSON.stringify(_raceMenu)).horde;
@@ -81,24 +81,24 @@ describe('raceMenu', () => {
 
   it('should not render the all races option if no race selected', () => {
     submenu?.shift();
-    const result = raceMenu('wotlk', 'horde', undefined);
+    const result = createRaceMenu('wotlk', 'horde', undefined);
     expect(result).toStrictEqual(menu);
   });
 
   it('should not render the blood elf option if on classic and no race selected', () => {
     submenu?.splice(0, 2);
-    const result = raceMenu('classic', 'horde', undefined);
+    const result = createRaceMenu('classic', 'horde', undefined);
     expect(result).toStrictEqual(menu);
   });
 
   it('should render all races option and not orc option when race selected', () => {
     submenu?.splice(2, 1);
-    const result = raceMenu('wotlk', 'horde', orc as RaceSetting);
+    const result = createRaceMenu('wotlk', 'horde', orc as RaceSetting);
     expect(result).toStrictEqual(menu);
   });
 });
 
-describe('questTypeMenu', () => {
+describe('createQuestTypeMenu', () => {
   let menu: Menu, submenu: Menu | undefined;
   beforeEach(() => {
     menu = JSON.parse(JSON.stringify(_questTypes));
@@ -107,7 +107,7 @@ describe('questTypeMenu', () => {
 
   it('should not render the all quest types option if no type selected', () => {
     submenu?.shift();
-    const result = questTypeMenu('wotlk', undefined);
+    const result = createQuestTypeMenu('wotlk', undefined);
     expect(result).toStrictEqual(menu);
   });
 
@@ -115,18 +115,18 @@ describe('questTypeMenu', () => {
     submenu?.shift();
     submenu?.splice(1, 1);
     submenu?.pop();
-    const result = questTypeMenu('classic', undefined);
+    const result = createQuestTypeMenu('classic', undefined);
     expect(result).toStrictEqual(menu);
   });
 
   it('should render all types option and not regular option when regular type selected', () => {
     submenu?.splice(1, 1);
-    const result = questTypeMenu('tbc', 'regular');
+    const result = createQuestTypeMenu('tbc', 'regular');
     expect(result).toStrictEqual(menu);
   });
 });
 
-describe('zoneMenu', () => {
+describe('createZoneMenu', () => {
   let menu: Menu, submenu: Menu | undefined;
   beforeEach(() => {
     menu = JSON.parse(JSON.stringify(_zoneMenu));
@@ -135,7 +135,7 @@ describe('zoneMenu', () => {
 
   it('should not render all zones option if no zone selected', () => {
     submenu?.shift();
-    const result = zoneMenu('wotlk', undefined);
+    const result = createZoneMenu('wotlk', undefined);
     expect(result).toStrictEqual(menu);
   });
 
@@ -150,7 +150,7 @@ describe('zoneMenu', () => {
     submenu?.[0].submenu?.[0].submenu?.splice(18, 1);
     submenu?.[0].submenu?.[1].submenu?.splice(2, 2);
     submenu?.[0].submenu?.[1].submenu?.splice(18, 1);
-    const result = zoneMenu('classic', undefined);
+    const result = createZoneMenu('classic', undefined);
     expect(result).toStrictEqual(menu);
   });
 
@@ -160,7 +160,7 @@ describe('zoneMenu', () => {
     submenu?.[1].submenu?.splice(3, 1);
     submenu?.[2].submenu?.splice(3, 1);
     submenu?.[3].submenu?.splice(3, 1);
-    const result = zoneMenu('tbc', undefined);
+    const result = createZoneMenu('tbc', undefined);
     expect(result).toStrictEqual(menu);
   });
 
@@ -168,7 +168,7 @@ describe('zoneMenu', () => {
     if (submenu?.[0].title) submenu[0].submenu = undefined;
     submenu?.[1].submenu?.[0].submenu?.splice(17, 1);
     const zone = 'Isle of Quel\'Danas'
-    const result = zoneMenu('wotlk', zone);
+    const result = createZoneMenu('wotlk', zone);
     expect(result).toStrictEqual(menu);
   });
 });

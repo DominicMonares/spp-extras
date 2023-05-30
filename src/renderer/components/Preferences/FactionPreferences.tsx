@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import alliance from '../../../../assets/buttons/alliance.png';
 import horde from '../../../../assets/buttons/horde.png';
-import { FactionPreferencesProps } from '../../../types';
+import { FactionSetting } from '../../../types';
 import './Preferences.css';
 
+interface Props {
+  setSelectedFaction: React.Dispatch<React.SetStateAction<FactionSetting>>;
+}
 
-const FactionPreferences = ({ setSelectedFaction }: FactionPreferencesProps) => {
+const FactionPreferences = ({ setSelectedFaction }: Props) => {
   // Keep currently selected faction active
   const [allianceActive, setAllianceActive] = useState<string>('');
   const [hordeActive, setHordeActive] = useState<string>('');

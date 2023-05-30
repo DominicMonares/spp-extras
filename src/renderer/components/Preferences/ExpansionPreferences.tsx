@@ -2,11 +2,14 @@ import { useState } from 'react';
 import vanillaLogo from '../../../../assets/logos/vanilla.png';
 import tbcLogo from '../../../../assets/logos/tbc.png';
 import wotlkLogo from '../../../../assets/logos/wotlk.png';
-import { ExpansionPreferencesProps } from '../../../types';
+import { ExpansionSetting } from '../../../types';
 import './Preferences.css';
 
+interface Props {
+  setSelectedExpansion: React.Dispatch<React.SetStateAction<ExpansionSetting>>;
+}
 
-const ExpansionPreferences = ({ setSelectedExpansion }: ExpansionPreferencesProps) => {
+const ExpansionPreferences = ({ setSelectedExpansion }: Props) => {
   // Keep currently selected expansion active
   const [vanillaActive, setVanillaActive] = useState<boolean>(false);
   const [tbcActive, setTbcActive] = useState<boolean>(false);

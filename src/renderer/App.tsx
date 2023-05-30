@@ -15,7 +15,7 @@ import {
 } from './store/slices';
 import { fetchQuestTrackerData } from './apiCalls';
 import { windowIsSmall } from './utils';
-import { Expansion } from '../types';
+import { AllQTData, ExpansionSetting } from '../types';
 import './App.css';
 
 
@@ -31,15 +31,20 @@ const App = () => {
   const [installed, setInstalled] = useState<boolean>(false);
 
   // Fetch all data used in SPP Extras from DB
-  const getQuestTrackerData = async (e?: any, xpac?: Expansion) => {
+  const getQuestTrackerData = async (xpac?: ExpansionSetting) => {
     if (!xpac) xpac = expansion; // Used when switching expansions
     setLoading(true);
     setError('');
 
-    const allData = await window.electron.questTracker(xpac, false) // TEMP FALSE
-      .catch((err: any) => setError(err.message)); // TEMP ANY
+    let allData: AllQTData | Record<string,never> = {};
+    try {
+      allData = await window.electron.questTracker(xpac, false) // TEMP FALSE
+    } catch (err) {
+      if (typeof err === 'string') setError(err);
+      else setError(JSON.stringify(err));
+    }
 
-    if (allData) {
+    if (Object.keys(allData).length) {
       dispatch(storeAccounts(allData.accounts));
       dispatch(storeCompletedQuests(allData.completed_quests));
       dispatch(storeTemplateQuests(allData.template_quests));
@@ -62,7 +67,7 @@ const App = () => {
       if (savedExpansion && savedFaction) {
         // Close preferences and fetch data once settings have been transferred/confirmed
         setInstalled(true);
-        getQuestTrackerData(null, savedExpansion);
+        getQuestTrackerData(savedExpansion);
       }
     }
 

@@ -5,18 +5,21 @@ import MainButton from '../MainButton';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { storeExpansion, storeFaction } from '../../store/slices';
 import mainLogo from '../../../../assets/logos/main.png';
-import { Expansion, Faction, PreferencesProps } from '../../../types';
+import { ExpansionSetting, FactionSetting } from '../../../types';
 import './Preferences.css';
 
+interface Props {
+  setInstalled: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-const Preferences = ({ setInstalled }: PreferencesProps) => {
+const Preferences = ({ setInstalled }: Props) => {
   const dispatch = useAppDispatch();
   const expansion = useAppSelector(state => state.expansion.selected);
   const faction = useAppSelector(state => state.faction.selected);
 
   // Track selected preferences
-  const [selectedExpansion, setSelectedExpansion] = useState<Expansion>('');
-  const [selectedFaction, setSelectedFaction] = useState<Faction>('' as any); // TEMP ANY
+  const [selectedExpansion, setSelectedExpansion] = useState<ExpansionSetting>('');
+  const [selectedFaction, setSelectedFaction] = useState<FactionSetting>('');
 
   // Prevent save button from being pressed when no expansion and/or faction selected
   const [noSelections, setNoSelections] = useState<boolean>(false);

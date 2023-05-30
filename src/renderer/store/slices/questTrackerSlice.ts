@@ -1,5 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { QuestTrackerSettings, QuestType } from '../../../types';
+import {
+  QTCharacter,
+  QTClass,
+  QTRace,
+  QuestTrackerSettings,
+  QuestTypeSetting,
+} from '../../../types';
 
 const initialState: QuestTrackerSettings = {
   all: false,
@@ -15,8 +21,8 @@ export const questTrackerSlice = createSlice({
   name: 'questTracker',
   initialState,
   reducers: {
-    storeQuestTrackerAll: (state, action: PayloadAction<QuestTrackerSettings>) => {
-      state.all = action.payload.all;
+    storeQuestTrackerAll: (state, action: PayloadAction<boolean>) => {
+      state.all = action.payload;
 
       // Clear previous state items
       state.character = {};
@@ -26,49 +32,56 @@ export const questTrackerSlice = createSlice({
       state.type = '';
       state.zone = '';
     },
-    storeQuestTrackerCharacter: (state, action: PayloadAction<QuestTrackerSettings>) => {
-      if (action.payload.character.id === 0) {
+    storeQuestTrackerCharacter: (state, action: PayloadAction<QTCharacter>) => {
+      const payload = action.payload;
+      if (payload.id === 0) {
         state.character = {};
       } else {
-        state.character.id = action.payload.character.id;
-        state.character.name = action.payload.character.name;
-        state.character.value = action.payload.character.value;
+        state.character.id = payload.id;
+        state.character.name = payload.name;
+        state.character.value = payload.value;
       }
       state.all = false;
     },
-    storeQuestTrackerClass: (state, action: PayloadAction<QuestTrackerSettings>) => {
-      if (action.payload.characterClass.id as number === 0) {
+    storeQuestTrackerClass: (state, action: PayloadAction<QTClass>) => {
+      const payload = action.payload;
+      if (payload.id === 0) {
         state.characterClass = {};
       } else {
-        state.characterClass.id = action.payload.characterClass.id;
-        state.characterClass.title = action.payload.characterClass.title;
-        state.characterClass.value = action.payload.characterClass.value;
+        state.characterClass.id = payload.id;
+        state.characterClass.title = payload.title;
+        state.characterClass.value = payload.value;
       }
       state.all = false;
     },
-    storeQuestTrackerRace: (state, action: PayloadAction<QuestTrackerSettings>) => {
-      if (action.payload.race.id as number === 0) {
+    storeQuestTrackerRace: (state, action: PayloadAction<QTRace>) => {
+      const payload = action.payload;
+      if (payload.id === 0) {
         state.race = {};
       } else {
-        state.race.id = action.payload.race.id;
-        state.race.title = action.payload.race.title;
-        state.race.value = action.payload.race.value;
+        state.race.id = payload.id;
+        state.race.title = payload.title;
+        state.race.value = payload.value;
       }
       state.all = false;
     },
-    storeQuestTrackerType: (state, action: PayloadAction<QuestTrackerSettings>) => {
-      if (action.payload.type.toLowerCase() === 'all quest types') {
+    storeQuestTrackerType: (
+      state,
+      action: PayloadAction<QuestTypeSetting | 'all quest types'>,
+    ) => {
+      const payload = action.payload.toLowerCase();
+      if (payload === 'all quest types') {
         state.type = '';
-      } else {
-        state.type = action.payload.type.toLowerCase() as QuestType;
+      } else if (payload) {
+        state.type = payload as QuestTypeSetting;
       }
       state.all = false;
     },
-    storeQuestTrackerZone: (state, action: PayloadAction<QuestTrackerSettings>) => {
-      if (action.payload.zone === 'All Zones') {
+    storeQuestTrackerZone: (state, action: PayloadAction<string>) => {
+      if (action.payload === 'All Zones') {
         state.zone = '';
       } else {
-        state.zone = action.payload.zone;
+        state.zone = action.payload;
       }
       state.all = false;
     },
@@ -81,7 +94,7 @@ export const {
   storeQuestTrackerClass,
   storeQuestTrackerRace,
   storeQuestTrackerType,
-  storeQuestTrackerZone
+  storeQuestTrackerZone,
 } = questTrackerSlice.actions;
 
 export default questTrackerSlice.reducer;

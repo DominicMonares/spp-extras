@@ -1,4 +1,4 @@
-import { CharacterClass, Characters, Race } from './characters';
+import { Accounts, CharacterClass, Characters, ClassSetting, Race, RaceSetting } from './characters';
 import { Menu } from './dropdown';
 import { Expansion } from './expansions';
 import { Faction, FactionSetting } from './factions';
@@ -6,11 +6,18 @@ import {
   CharacterQuestClass,
   CharacterQuestRace,
   CharacterQuests,
+  CompletedQuests,
   PlayerQuests,
   QuestTypeSetting,
-  TemplateQuests
+  TemplateQuests,
 } from './quests';
 import { ViewQuest, ViewQuests } from './view';
+
+export interface AllQTData {
+  accounts: Accounts;
+  completed_quests: CompletedQuests;
+  template_quests: TemplateQuests;
+}
 
 export type CreateViewQuests = (
   all: boolean,
@@ -19,48 +26,14 @@ export type CreateViewQuests = (
   templateQuests: TemplateQuests | Record<string,never>
 ) => ViewQuests;
 
-export type FilterQuests = (
-  all: boolean,
-  settings: QuestTrackerSettings,
-  templateQuests: TemplateQuests | Record<string,never>
-) => ViewQuests;
-
-export type FilteredCharacterMenu = (
-  chararcter: QTCharacter | undefined,
-  characters: Characters,
-  faction: Faction
-) => Menu;
-
-export type FilteredClassMenu = (
-  expansion: Expansion,
-  faction: Faction,
-  characterClass: QTClass | undefined
-) => Menu;
-
-export type FilteredQuestTypeMenu = (
-  expansion: Expansion,
-  type: QuestType | undefined
-) => Menu;
-
-export type FilteredRaceMenu = (
-  expansion: Expansion,
-  faction: Faction,
-  race: QTRace | undefined
-) => Menu;
-
-export type FilteredZoneMenu = (
-  expansion: Expansion,
-  zone: string | undefined
-) => Menu;
-
 export type MarkTemplateQuests = (
   characterQuests: CharacterQuests,
   filteredTemplateQuests: ViewQuests,
-  type: QuestType
+  type: QuestTypeSetting
 ) => ViewQuests;
 
 export interface QuestCondition {
-  setting: QTCharacter | QTClass | Faction | QuestType | QTRace | string;
+  setting: QTCharacter | QTClass | Faction | QuestTypeSetting | QTRace | string;
   conditionMet: () => boolean;
 }
 
@@ -89,15 +62,15 @@ export interface QTCharacter {
 }
 
 export interface QTClass {
-  id: CharacterClass;
+  id: ClassSetting;
   title: string;
-  value: CharacterQuestClass;
+  value: CharacterQuestClass | 0;
 }
 
 export interface QTRace {
-  id: Race;
+  id: RaceSetting;
   title: string;
-  value: CharacterQuestRace;
+  value: CharacterQuestRace | 0;
 }
 
 export type SortSetting = 'name' | 'id' | 'status' | '';

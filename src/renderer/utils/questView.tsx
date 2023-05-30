@@ -1,12 +1,12 @@
 import {
   CreateViewQuests,
   Faction,
-  FilterQuests,
   MarkTemplateQuests,
   QuestConditions,
-  QuestFlags,
   QuestRaces,
+  QuestTrackerSettings,
   SortViewQuests,
+  TemplateQuests,
   ViewQuests,
   ViewSubzone,
   ViewZones
@@ -18,7 +18,11 @@ import zoneRef from '../../../data/zones/zoneRef.json';
 
 
 // Decide which quests to display
-export const filterTemplateQuests: FilterQuests = (all, settings, templateQuests) => {
+export const filterTemplateQuests = (
+  all: boolean,
+  settings: QuestTrackerSettings,
+  templateQuests: TemplateQuests | Record<string,never>,
+) => {
   const { characterClass, faction, race, type, zone } = settings as any; // TEMP ANY
 
   // Different quest types have multiple different flags in DB

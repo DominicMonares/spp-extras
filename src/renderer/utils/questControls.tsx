@@ -4,18 +4,25 @@ import _raceMenu from '../../../data/menus/raceMenu.json';
 import _zoneMenu from '../../../data/menus/zoneMenu.json';
 import {
   Character,
-  FilteredCharacterMenu,
-  FilteredClassMenu,
-  FilteredQuestTypeMenu,
-  FilteredRaceMenu,
-  FilteredZoneMenu,
+  Characters,
+  ClassSetting,
+  Expansion,
+  ExpansionSetting,
+  Faction,
+  FactionSetting,
+  QTCharacter,
+  QuestTypeSetting,
   RaceSetting,
 } from "../../types";
 
 
 // Create character menu from player character data
-export const characterMenu: FilteredCharacterMenu = (character, characters, faction) => {
-  const submenu = Object.values(characters[faction]).map((c: Character) => {
+export const createCharacterMenu = (
+  character: number,
+  characters: Characters,
+  faction: Faction,
+) => {
+  const submenu = Object.values(characters[faction]).map(c => {
     const value = { characterClass: c.class_field, race: c.race };
     return { title: c.name, id: c.guid, value: JSON.stringify(value) };
   });
@@ -31,12 +38,16 @@ export const characterMenu: FilteredCharacterMenu = (character, characters, fact
 
   return [{
     title: 'Characters',
-    submenu: submenu.filter(s => s.id !== character?.id)
+    submenu: submenu.filter(s => s.id !== character)
   }];
 }
 
 // Create class menu based on expansion and faction data
-export const classMenu: FilteredClassMenu = (expansion, faction, characterClass) => {
+export const createClassMenu = (
+  expansion: ExpansionSetting,
+  faction: Faction,
+  characterClass: ClassSetting,
+) => {
   return [{
     title: _classMenu[0]['title'],
     submenu: _classMenu[0]['submenu'].filter(c => {
@@ -53,7 +64,7 @@ export const classMenu: FilteredClassMenu = (expansion, faction, characterClass)
       const deathKnight = c.id === 6;
       if (expansion !== 'wotlk' && deathKnight) return false;
 
-      const noClassMatch = c.id !== characterClass?.id;
+      const noClassMatch = c.id !== characterClass;
       const noClassSelected = !characterClass && !c.id;
       return noClassMatch && noClassSelected ? false : noClassMatch;
     })
@@ -61,24 +72,31 @@ export const classMenu: FilteredClassMenu = (expansion, faction, characterClass)
 }
 
 // Create race menu using expansion and faction data
-export const raceMenu: FilteredRaceMenu = (expansion, faction, race) => {
+export const createRaceMenu = (
+  expansion: ExpansionSetting,
+  faction: Faction,
+  race: RaceSetting,
+) => {
   const raceMenuFaction = _raceMenu[faction][0];
   return [{
     title: raceMenuFaction.title,
-    submenu: raceMenuFaction.submenu.filter((r: any) => { // TEMP ANY
+    submenu: raceMenuFaction.submenu.filter(r => {
       // Do not include Blood Elves or Draenei when Vanilla selected
       const nonVanillaRace = r.id === 10 || r.id === 11;
       if (expansion === 'classic' && nonVanillaRace) return false;
 
-      const noRaceMatch = r.id !== race?.id;
+      const noRaceMatch = r.id !== race;
       const noRaceSelected = !race && !r.id;
       return noRaceMatch && noRaceSelected ? false : noRaceMatch;
-    })
+    }),
   }];
 }
 
 // Create quest type menu using expansion data
-export const questTypeMenu: FilteredQuestTypeMenu = (expansion, type) => {
+export const createQuestTypeMenu = (
+  expansion: ExpansionSetting,
+  type: QuestTypeSetting
+) => {
   return [{
     title: _questTypeMenu[0]['title'],
     submenu: _questTypeMenu[0]['submenu'].filter(t => {
@@ -89,12 +107,15 @@ export const questTypeMenu: FilteredQuestTypeMenu = (expansion, type) => {
       const noTypeMatch = t.title.toLowerCase() !== type;
       const noTypeSelected = !type && t.title === 'All Quest Types';
       return noTypeMatch && noTypeSelected ? false : noTypeMatch;
-    })
+    }),
   }];
 }
 
 // Create zone menu using expansion data
-export const zoneMenu: FilteredZoneMenu = (expansion, zone) => {
+export const createZoneMenu = (
+  expansion: ExpansionSetting,
+  zone: string,
+) => {
   const menu = [{
     title: _zoneMenu[0]['title'],
     submenu: _zoneMenu[0]['submenu'].map(w => {

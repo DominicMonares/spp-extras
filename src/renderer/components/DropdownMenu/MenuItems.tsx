@@ -10,7 +10,14 @@ import {
   storeQuestTrackerType,
   storeQuestTrackerZone
 } from '../../store/slices';
-import { MenuItemsProps } from '../../../types';
+import {
+  CharacterClass,
+  CharacterQuestClass,
+  CharacterQuestRace,
+  MenuItemsProps,
+  QuestTypeSetting,
+  Race
+} from '../../../types';
 import './DropdownMenu.css';
 
 
@@ -50,31 +57,25 @@ const MenuItems = ({ dropdownType, items, depthLevel }: MenuItemsProps) => {
 
     if (dropdownType === 'character') {
       dispatch(storeQuestTrackerCharacter({
-        character: {
-          id: id,
-          name: title,
-          value: value
-        }
+        id: id,
+        name: title,
+        value: value,
       }));
     } else if (dropdownType === 'type') {
-      dispatch(storeQuestTrackerType({ type: title as any })) // TEMP ANY
+      dispatch(storeQuestTrackerType(title as QuestTypeSetting));
     } else if (dropdownType === 'zone') {
-      dispatch(storeQuestTrackerZone({ zone: title }));
+      dispatch(storeQuestTrackerZone(title));
     } else if (dropdownType === 'class') {
       dispatch(storeQuestTrackerClass({
-        characterClass: {
-          id: id,
-          title: title,
-          value: Number(value)
-        } as any, // TEMP ANY
+        id: id as CharacterClass,
+        title: title,
+        value: Number(value) as CharacterQuestClass,
       }));
     } else if (dropdownType === 'race') {
       dispatch(storeQuestTrackerRace({
-        race: {
-          id: id,
-          title: title,
-          value: Number(value)
-        } as any, // TEMP ANY
+        id: id as Race,
+        title: title,
+        value: Number(value) as CharacterQuestRace,
       }));
     }
 

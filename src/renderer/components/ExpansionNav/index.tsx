@@ -17,9 +17,8 @@ import {
   storeTemplateQuests,
   storeTool
  } from '../../store/slices';
-import { Expansion, ExpansionProps } from '../../../types';
+import { Expansion } from '../../../types';
 import './ExpansionNav.css';
-
 
 // Modal styling must be passed down to Modal component via props
 const modalStyles = {
@@ -33,15 +32,19 @@ const modalStyles = {
     width: '600px',
     height: '182px',
     background: 'rgba(0, 0, 0, 0.7)',
-    border: 'black 2px solid'
+    border: 'black 2px solid',
   },
   overlay: {
-    background: 'rgba(0, 0, 0, 0.5)'
-  }
+    background: 'rgba(0, 0, 0, 0.5)',
+  },
 };
 
 // Attach modal component to root div
 Modal.setAppElement('#root');
+
+interface ExpansionProps {
+  getAllData: (xpac: Expansion) => void;
+}
 
 const ExpansionNav = ({ getAllData }: ExpansionProps) => {
   const dispatch = useAppDispatch();
@@ -76,16 +79,16 @@ const ExpansionNav = ({ getAllData }: ExpansionProps) => {
     dispatch(storeCompletedQuests({}));
     dispatch(storeMessages('del'));
     dispatch(storeTemplateQuests({ alliance: {}, horde: {}, neutral: {} }));
-    dispatch(storeQuestTrackerAll(false as any)); // TEMP ANY
-    dispatch(storeQuestTrackerCharacter({ character: { id: 0 } as any })); // TEMP ANY
-    dispatch(storeQuestTrackerClass({ characterClass: { id: 0 } as any })); // TEMP ANY
-    dispatch(storeQuestTrackerRace({ race: { id: 0 } as any })); // TEMP ANY
-    dispatch(storeQuestTrackerType({ type: 'all quest types' as any })); // TEMP ANY
-    dispatch(storeQuestTrackerZone({ zone: 'All Zones' }));
+    dispatch(storeQuestTrackerAll(false));
+    dispatch(storeQuestTrackerCharacter({ id: 0, name: '', value: '' }));
+    dispatch(storeQuestTrackerClass({ id: 0, title: '', value: 0 }));
+    dispatch(storeQuestTrackerRace({ id: 0, title: '', value: 0 }));
+    dispatch(storeQuestTrackerType(''));
+    dispatch(storeQuestTrackerZone('All Zones'));
     dispatch(storeTool(''));
 
     // Re-fetch all data for new expansion
-    getAllData(null, nextExpansion);
+    getAllData(nextExpansion);
     closeModal();
   }
 

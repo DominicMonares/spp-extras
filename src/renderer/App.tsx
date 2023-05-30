@@ -6,14 +6,13 @@ import Tools from './components/Tools';
 import View from './components/View';
 import { useAppDispatch, useAppSelector } from './store/hooks';
 import {
-  storeAccounts,
+  storeCharacters,
   storeCompletedQuests,
   storeExpansion,
   storeFaction,
   storeTemplateQuests,
   storeWindowWidth
 } from './store/slices';
-import { fetchQuestTrackerData } from './apiCalls';
 import { windowIsSmall } from '../utils';
 import { AllQTData, ExpansionSetting } from '../types';
 import './App.css';
@@ -45,9 +44,9 @@ const App = () => {
     }
 
     if (Object.keys(allData).length) {
-      dispatch(storeAccounts(allData.accounts));
-      dispatch(storeCompletedQuests(allData.completed_quests));
-      dispatch(storeTemplateQuests(allData.template_quests));
+      dispatch(storeCharacters(allData.characters));
+      dispatch(storeCompletedQuests(allData.completedQuests));
+      dispatch(storeTemplateQuests(allData.templateQuests));
     } else {
       setLoading(false);
       return;

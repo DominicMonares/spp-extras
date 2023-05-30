@@ -14,9 +14,9 @@ import {
 import { ViewQuest, ViewQuests } from './view';
 
 export interface AllQTData {
-  accounts: Accounts;
-  completed_quests: CompletedQuests;
-  template_quests: TemplateQuests;
+  characters: Characters;
+  completedQuests: CompletedQuests;
+  templateQuests: TemplateQuests;
 }
 
 export type CreateViewQuests = (

@@ -1,4 +1,5 @@
 import _questRaceZeros from '../../data/quests/questRaceZeros.json';
+import { Characters, CompletedQuests } from "../types";
 
 interface QuestRaceZeros { // MOVE TO TYPE FILE
   [key: string]: string; // CHANGE TO FACTION TYPE
@@ -35,6 +36,25 @@ export const formatCompletedQuests = ( // TEMP ANYS
     weekly.forEach((q: any) => addQuest(q, 'weekly')); // TEMP ANY
     if (monthly) monthly.forEach((q: any) => addQuest(q, 'monthly')); // TEMP ANY
   }
+
+  return all;
+}
+
+// Organize completed quests by faction
+export const formatComplFactionQuests = (
+  characters: Characters,
+  completedQuests: CompletedQuests,
+) => {
+  const all: any = { alliance: {}, horde: {} }; // TEMP ANY
+
+  // Gather quests completed only by player characters
+  Object.values(characters.alliance).forEach(c => {
+    all['alliance'][c.guid] = completedQuests[c.guid];
+  });
+
+  Object.values(characters.horde).forEach(c => {
+    all['horde'][c.guid] = completedQuests[c.guid];
+  });
 
   return all;
 }

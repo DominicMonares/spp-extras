@@ -1,4 +1,4 @@
-export * from './accountSlice'
+export * from './characterSlice'
 export * from './expansionSlice';
 export * from './factionSlice';
 export * from './questSlice';

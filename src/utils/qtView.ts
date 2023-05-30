@@ -2,6 +2,7 @@ import {
   CreateViewQuests,
   Faction,
   MarkTemplateQuests,
+  PlayerQuests,
   QuestConditions,
   QuestRaces,
   QuestTrackerSettings,
@@ -9,7 +10,7 @@ import {
   TemplateQuests,
   ViewQuests,
   ViewSubzone,
-  ViewZones
+  ViewZones,
 } from "../types";
 import devQuestKeywords from '../../data/quests/devQuestKeywords.json';
 import questRaceIDs from '../../data/quests/questRaceIDs.json';
@@ -214,7 +215,7 @@ export const markTemplateQuests: MarkTemplateQuests = (
     const quest = typeQuests[q];
 
     const questCompleted = filteredTemplateQuests.some(((q, i) => {
-      // quest.quest is essentially quest.entry - named so b/c of DB schema
+      // quest.quest is essentially quest.entry - named so b/c of legacy DB schema
       const match = q.entry === quest.quest;
       if (match) completedQuestIndex = i;
       return match;
@@ -230,10 +231,10 @@ export const markTemplateQuests: MarkTemplateQuests = (
 
 // Create list of quests to be displayed
 export const createViewQuests: CreateViewQuests = (
-  all,
-  completedQuests,
-  settings,
-  templateQuests
+  all: boolean,
+  completedQuests: PlayerQuests | Record<string,never>,
+  settings: QuestTrackerSettings,
+  templateQuests: TemplateQuests | Record<string,never>
 ) => {
   const { character, type } = settings as any; // TEMP ANY
 

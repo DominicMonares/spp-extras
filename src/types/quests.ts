@@ -1,12 +1,6 @@
 import { Characters } from './characters';
 import { Faction } from './factions';
 
-
-// export interface AllQuests {
-//   completedQuests: CompletedQuests | Record<string,never>;
-//   templateQuests: TemplateQuests | Record<string,never>;
-// }
-
 export interface CharacterQuests {
   regular: Quests;
   daily?: Quests;
@@ -21,11 +15,6 @@ export type CharacterQuestRace = 1 | 2 | 4 | 8 | 16 | 32 | 64 | 128 | 512 | 1024
 export interface CompletedQuests {
   [key: string]: CharacterQuests;
 }
-
-export type CreatePlayerQuests = (
-  characters: Characters,
-  completedQuests: CompletedQuests
-) => PlayerQuests;
 
 export interface PlayerQuests {
   alliance: CompletedQuests;

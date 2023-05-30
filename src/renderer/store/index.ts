@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import accountReducer from './slices/accountSlice';
+import characterReducer from './slices/characterSlice';
 import expansionReducer from './slices/expansionSlice';
 import factionReducer from './slices/factionSlice';
 import questReducer from './slices/questSlice';
@@ -11,7 +11,7 @@ import windowReducer from './slices/windowSlice';
 
 export const store = configureStore({
   reducer: {
-    accounts: accountReducer,
+    characters: characterReducer,
     expansion: expansionReducer,
     faction: factionReducer,
     quests: questReducer,

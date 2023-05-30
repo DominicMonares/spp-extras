@@ -26,6 +26,8 @@ export interface Characters {
   horde: FactionCharacters | Record<string,never>;
 }
 
+// export type CharacterSetting = FactionCharacters | Record<string,never>;
+
 export interface FactionCharacters {
   [key: string]: Character;
 }

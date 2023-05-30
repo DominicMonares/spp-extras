@@ -4,7 +4,7 @@ import MainButton from '../MainButton';
 import Tabs from './Tabs';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import {
-  storeAccounts,
+  storeCharacters,
   storeCompletedQuests,
   storeExpansion,
   storeMessages,
@@ -74,7 +74,7 @@ const ExpansionNav = ({ getAllData }: Props) => {
 
   const switchExpansion = () => {
     // Clear all stores that rely on expansion specific data
-    dispatch(storeAccounts({}))
+    dispatch(storeCharacters({ alliance: {}, horde: {} }));
     dispatch(storeExpansion(nextExpansion));
     dispatch(storeCompletedQuests({}));
     dispatch(storeMessages('del'));

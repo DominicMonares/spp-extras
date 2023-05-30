@@ -16,9 +16,7 @@ import { Faction } from 'types';
 
 const QuestTrackerControls = () => {
   const dispatch = useAppDispatch();
-  const accounts = useAppSelector(state => state.accounts.all);
-  const account = accounts[0];
-  const characters = account?.characters || { alliance: {}, horde: {} };
+  const characters = useAppSelector(state => state.characters);
   const expansion = useAppSelector(state => state.expansion.selected);
   const faction = useAppSelector(state => state.faction.selected as Faction);
   const settings = useAppSelector(state => state.questTracker);

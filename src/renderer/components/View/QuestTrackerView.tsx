@@ -9,7 +9,7 @@ import {
 } from '../../../utils';
 import { SortSetting } from '../../../types';
 import './View.css';
-import { createPlayerQuests } from '../../utils/quests';
+import { formatComplFactionQuests } from '../../../utils';
 
 
 const QuestTrackerView = () => {
@@ -17,11 +17,11 @@ const QuestTrackerView = () => {
   const faction = useAppSelector(state => state.faction.selected);
 
   // Separate completed player quests from bot quests
-  const accounts = useAppSelector(state => state.accounts.all);
-  const account = accounts[0]
+  const characters = useAppSelector(state => state.characters);
+  // const account = accounts[0]
   const quests = useAppSelector(state => state.quests);
   const { completedQuests, templateQuests } = quests;
-  const playerQuests = createPlayerQuests(account.characters, completedQuests);
+  const playerQuests = formatComplFactionQuests(characters, completedQuests);
 
   // Determine how to filter view quests
   const settings = useAppSelector(state => state.questTracker);

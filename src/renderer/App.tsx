@@ -14,7 +14,7 @@ import {
   storeWindowWidth
 } from './store/slices';
 import { fetchQuestTrackerData } from './apiCalls';
-import { windowIsSmall } from './utils';
+import { windowIsSmall } from '../utils';
 import { AllQTData, ExpansionSetting } from '../types';
 import './App.css';
 

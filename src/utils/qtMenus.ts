@@ -1,20 +1,15 @@
-import _classMenu from '../../../data/menus/classMenu.json';
-import _questTypeMenu from '../../../data/menus/questTypeMenu.json';
-import _raceMenu from '../../../data/menus/raceMenu.json';
-import _zoneMenu from '../../../data/menus/zoneMenu.json';
+import _classMenu from '../../data/menus/classMenu.json';
+import _questTypeMenu from '../../data/menus/questTypeMenu.json';
+import _raceMenu from '../../data/menus/raceMenu.json';
+import _zoneMenu from '../../data/menus/zoneMenu.json';
 import {
-  Character,
   Characters,
   ClassSetting,
-  Expansion,
   ExpansionSetting,
   Faction,
-  FactionSetting,
-  QTCharacter,
   QuestTypeSetting,
   RaceSetting,
-} from "../../types";
-
+} from "../types";
 
 // Create character menu from player character data
 export const createCharacterMenu = (
@@ -95,7 +90,7 @@ export const createRaceMenu = (
 // Create quest type menu using expansion data
 export const createQuestTypeMenu = (
   expansion: ExpansionSetting,
-  type: QuestTypeSetting
+  type: QuestTypeSetting,
 ) => {
   return [{
     title: _questTypeMenu[0]['title'],

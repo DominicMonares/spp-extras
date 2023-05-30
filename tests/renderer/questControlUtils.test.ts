@@ -4,7 +4,7 @@ import {
   createQuestTypeMenu,
   createRaceMenu,
   createZoneMenu
-} from '../../src/renderer/utils';
+} from '../../src/utils';
 import {
   Characters,
   ClassSetting,

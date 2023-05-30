@@ -1,4 +1,4 @@
-import { checkClass, checkFaction, checkRace } from '../../src/renderer/utils';
+import { checkClass, checkFaction, checkRace } from '../../src/utils';
 import sampleCharSettings from '../samples/renderer/characterSettings.json';
 import sampleClasses from '../samples/renderer/classes.json';
 import sampleRaces from '../samples/renderer/races.json';

@@ -6,7 +6,7 @@ import {
   createViewQuests,
   reverseSortViewQuests,
   sortViewQuests
-} from '../../utils';
+} from '../../../utils';
 import { SortSetting } from '../../../types';
 import './View.css';
 import { createPlayerQuests } from '../../utils/quests';

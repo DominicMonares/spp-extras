@@ -1,7 +1,7 @@
 import {
   createReputationArgs,
   formatReputations,
-} from '../../src/main/utils/reputations';
+} from '../../src/utils/awReputations';
 import allAccountsChars from '../samples/formattedData/allAccountsChars.json';
 import characterReputations from '../samples/formattedData/characterReputations.json';
 import rawCharacterReps from '../samples/rawData/rawCharacterReps.json';

@@ -1,4 +1,4 @@
-import { createAchCreditArgs } from "../../src/main/utils/achCredit";
+import { createAchCreditArgs } from "../../src/utils/awAchCredit";
 import achCreditTransfer from '../samples/main/achCreditTransfer.json';
 import achProgTransfer from '../samples/main/achProgTransfer.json';
 import achRewards from '../samples/formattedData/achRewards.json';

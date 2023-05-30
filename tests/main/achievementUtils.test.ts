@@ -5,7 +5,7 @@ import {
   formatAllAcctData,
   formatRewItemCharges,
   checkFactionAch,
-} from '../../src/main/utils/achievements';
+} from '../../src/utils/achievements';
 import achCredit from '../samples/formattedData/achCredit.json';
 import achProg from '../samples/formattedData/achProgress.json';
 import achRewards from '../samples/formattedData/achRewards.json';

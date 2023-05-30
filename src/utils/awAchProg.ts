@@ -4,10 +4,10 @@ import {
   loremasterEarned,
   miscLMCriteria
 } from './loremaster';
-import _questAchCriteria from '../../../data/achievements/questAchCriteria.json';
-import _loremasterAchCriteria from '../../../data/achievements/loremasterAchCriteria.json';
-import _sharedAchCriteria from '../../../data/achievements/sharedAchCriteria.json';
-import _zoneContinents from '../../../data/zones/zoneContinents.json';
+import _questAchCriteria from '../../data/achievements/questAchCriteria.json';
+import _loremasterAchCriteria from '../../data/achievements/loremasterAchCriteria.json';
+import _sharedAchCriteria from '../../data/achievements/sharedAchCriteria.json';
+import _zoneContinents from '../../data/zones/zoneContinents.json';
 
 interface AchCriteria { // MOVE TO TYPE FILE
   [key: string]: {

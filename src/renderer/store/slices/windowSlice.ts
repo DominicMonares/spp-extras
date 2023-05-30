@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { windowIsSmall } from '../../utils';
+import { windowIsSmall } from '../../../utils';
 
 interface InitialState {
   smallWindow: boolean;

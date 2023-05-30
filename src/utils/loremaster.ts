@@ -1,5 +1,5 @@
-import _lmCriteria from '../../../data/achievements/loremasterAchCriteria.json';
-import _zoneContinents from '../../../data/zones/zoneContinents.json';
+import _lmCriteria from '../../data/achievements/loremasterAchCriteria.json';
+import _zoneContinents from '../../data/zones/zoneContinents.json';
 
 interface LoremasterCrit { // MOVE TO TYPE FILE
   criteria: number;

@@ -9,7 +9,7 @@ import {
   createQuestTypeMenu,
   createRaceMenu,
   createZoneMenu
-} from '../../utils';
+} from '../../../utils';
 import './Controls.css';
 import { Faction } from 'types';
 

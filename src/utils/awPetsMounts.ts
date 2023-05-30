@@ -1,6 +1,6 @@
 import { checkFaction } from "./characters";
-import _factionSpells from '../../../data/petsAndMounts/factionSpells.json';
-import _professionSpells from '../../../data/petsAndMounts/professionSpells.json';
+import _factionSpells from '../../data/petsAndMounts/factionSpells.json';
+import _professionSpells from '../../data/petsAndMounts/professionSpells.json';
 
 interface FactionSpells { // REFACTOR AND MOVE TO TYPE FILE
   [key: string]: {
@@ -14,39 +14,6 @@ interface ProfessionSpells { // MOVE TO TYPE FILE
   [key: string]: number;
 }
 const professionSpells = _professionSpells as ProfessionSpells;
-
-// Organize pet and mount items by spell ID
-export const formatPetMountItemData = (items: any) => { // TEMP ANY
-  const all: any = {}; // TEMP ANY
-  items.forEach((item: any) => { // TEMP ANY
-    const spellID = item.spellid_2.toString();
-    all[spellID] = item;
-  });
-  return all;
-}
-
-// Organize known pet and mount spells by character
-export const formatCharSpellData = (spells: any) => { // TEMP ANY
-  const all: any = {}; // TEMP ANY
-  spells.forEach((spell: any) => { // TEMP ANY
-    const guid = spell.guid.toString();
-    const spellID = spell.spell;
-    if (!all[guid]) all[guid] = [spellID];
-    else all[guid].push(spellID);
-  });
-  return all;
-}
-
-// Organize riding skills by character
-export const formatCharSkillData = (skills: any) => { // TEMP ANY
-  const all: any = {}; // TEMP ANY
-  skills.forEach((skill: any) => { // TEMP ANY
-    const guid = skill.guid.toString();
-    const value = skill.value;
-    all[guid] = value;
-  });
-  return all;
-}
 
 // Share pet and mount spells between all characters
 export const createPetMountSpellArgs = ( // TEMP ANYS

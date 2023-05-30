@@ -1,5 +1,5 @@
-import _maxRaceReps from '../../../data/reputations/maxRaceReps.json';
-import _reputationTemplate from '../../../data/reputations/reputationTemplate.json';
+import _maxRaceReps from '../../data/reputations/maxRaceReps.json';
+import _reputationTemplate from '../../data/reputations/reputationTemplate.json';
 
 interface MaxRaceReps { // REFACTOR AND MOVE TO TYPE FILE
   [key: string]: {
@@ -14,19 +14,6 @@ interface ReputationTemplate { // REFACTOR AND MOVE TO TYPE FILE
   }
 }
 const reputationTemplate = _reputationTemplate as ReputationTemplate;
-
-// Organize reputation data by character
-export const formatReputations = (reputations: any) => { // TEMP ANY
-  const all: any = {}; // TEMP ANY
-  reputations.forEach((rep: any) => { // TEMP ANY
-    const guid = rep.guid.toString();
-    const faction = rep.faction.toString();
-    const standing = rep.standing;
-    if (!all[guid]) all[guid] = {};
-    all[guid][faction] = standing;
-  });
-  return all;
-}
 
 // Share reputation standing between characters
 export const createReputationArgs = (accounts: any, reputations: any) => { // TEMP ANYS

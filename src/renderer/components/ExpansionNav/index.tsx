@@ -42,11 +42,11 @@ const modalStyles = {
 // Attach modal component to root div
 Modal.setAppElement('#root');
 
-interface ExpansionProps {
+type Props = {
   getAllData: (xpac: Expansion) => void;
 }
 
-const ExpansionNav = ({ getAllData }: ExpansionProps) => {
+const ExpansionNav = ({ getAllData }: Props) => {
   const dispatch = useAppDispatch();
   const expansion = useAppSelector(state => state.expansion.selected);
   const [modalIsOpen, setModalIsOpen] = useState(false);

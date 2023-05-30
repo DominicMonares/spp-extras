@@ -1,4 +1,4 @@
-import _questRaceZeros from '../../../data/quests/questRaceZeros.json';
+import _questRaceZeros from '../../data/quests/questRaceZeros.json';
 
 interface QuestRaceZeros { // MOVE TO TYPE FILE
   [key: string]: string; // CHANGE TO FACTION TYPE

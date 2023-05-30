@@ -2,7 +2,7 @@ import {
   createViewQuests,
   reverseSortViewQuests,
   sortViewQuests
-} from '../../src/renderer/utils';
+} from '../../src/utils';
 import { QuestTrackerSettings } from '../../src/types';
 import playerQuests from '../samples/renderer/playerQuests.json';
 import sampleCharacterSettings from '../samples/renderer/characterSettings.json';

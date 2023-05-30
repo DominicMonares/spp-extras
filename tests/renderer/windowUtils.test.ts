@@ -1,4 +1,4 @@
-import { windowIsSmall } from "../../src/renderer/utils";
+import { windowIsSmall } from "../../src/utils";
 
 describe('windowIsSmall', () => {
   it('should determine whether window is small or not', () => {

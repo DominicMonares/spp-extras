@@ -1,7 +1,7 @@
 import {
   formatCompletedQuests,
   formatTemplateQuests,
-} from '../../src/main/utils/quests';
+} from '../../src/utils/quests';
 import completedQuests from '../samples/formattedData/completedQuests.json';
 import rawCompletedQuests from '../samples/rawData/rawCompletedQuests.json';
 import rawTemplateQuests from '../samples/rawData/rawTemplateQuests.json';

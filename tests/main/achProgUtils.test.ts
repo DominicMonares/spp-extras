@@ -1,4 +1,4 @@
-import { createAchProgArgs } from "../../src/main/utils/achProg";
+import { createAchProgArgs } from "../../src/utils/awAchProg";
 import achProgTransfer from '../samples/main/achProgTransfer.json';
 import allAccountData from '../samples/main/allAccountData.json';
 import templateQuests from '../samples/formattedData/templateQuests.json';

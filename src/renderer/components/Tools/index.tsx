@@ -3,11 +3,13 @@ import MainButton from '../MainButton';
 import MainHeader from '../MainHeader';
 import Tool from './Tool';
 import { useAppSelector } from '../../store/hooks';
-import { ToolsProps } from '../../../types';
 import './Tools.css';
 
+type Props = {
+  setInstalled: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-const Tools = ({ setInstalled }: ToolsProps) => {
+const Tools = ({ setInstalled }: Props) => {
   const expansion = useAppSelector(state => state.expansion.selected);
   const [collapsed, setCollapsed] = useState<boolean>(false);
 

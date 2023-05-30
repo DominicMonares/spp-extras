@@ -1,6 +1,6 @@
 import { checkFactionAch } from "./achievements";
 import { checkFaction } from './characters';
-import _titles from '../../../data/titles/titles.json';
+import _titles from '../../data/titles/titles.json';
 
 interface Title {
   name: string;

@@ -3,7 +3,7 @@ import {
   formatCharSpellData,
   formatCharSkillData,
   createPetMountSpellArgs
-} from '../../src/main/utils/petsMounts';
+} from '../../src/utils/petsMounts';
 import allAccountsChars from '../samples/formattedData/allAccountsChars.json';
 import characterSkills from '../samples/formattedData/characterSkills.json';
 import characterSpells from '../samples/formattedData/characterSpells.json';

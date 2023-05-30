@@ -2,7 +2,7 @@ import {
   checkFaction,
   createCharIDs,
   formatAcctsChars
-} from '../../src/main/utils/characters';
+} from '../../src/utils/accounts';
 
 import allAccountsChars from '../samples/formattedData/allAccountsChars.json';
 import playerAccountsChars from '../samples/formattedData/playerAccountsChars.json';

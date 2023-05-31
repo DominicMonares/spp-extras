@@ -1,4 +1,4 @@
-import { dbReply } from '../../utils';
+import { send } from '../../utils';
 
 // ----------------------------------------------------------------
 // Accounts
@@ -11,14 +11,14 @@ export const selAccts = async (conn: any, bots: boolean, reply?: any) => { // TE
   `;
   try {
     const startMsg = 'Fetching account data...';
-    dbReply(startMsg, reply);
+    send(startMsg, reply);
     const [rows] = await conn.query(sql);
     const successMsg = 'Account data fetched!';
-    dbReply(successMsg, reply);
+    send(successMsg, reply);
     return rows;
   } catch (err) {
     const errMsg = `Failed to fetch account data!\n${err}`;
-    dbReply(errMsg, reply);
+    send(errMsg, reply);
     throw err;
   }
 }

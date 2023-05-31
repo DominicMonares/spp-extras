@@ -1,4 +1,4 @@
-import { dbReply } from '../../utils';
+import { send } from '../../utils';
 import cutTitles from '../../../data/titles/cutTitles.json';
 
 // ----------------------------------------------------------------
@@ -9,14 +9,14 @@ export const selAllAchRewards = async (conn: any, reply?: any) => { // TEMP ANY
   const sql = `SELECT * FROM achievement_reward`;
   try {
     const startMsg = 'Fetching achievement reward data...';
-    dbReply(startMsg, reply);
+    send(startMsg, reply);
     const [rows] = await conn.query(sql);
     const successMsg = 'Achievement reward data fetched!';
-    dbReply(successMsg, reply);
+    send(successMsg, reply);
     return rows;
   } catch (err) {
     const errMsg = `Failed to fetch achievement reward data!\n${err}`;
-    dbReply(errMsg, reply);
+    send(errMsg, reply);
     throw err;
   }
 }
@@ -32,14 +32,14 @@ export const selCutTitle = async (conn: any, reply?: any) => { // TEMP ANY
   `;
   try {
     const startMsg = 'Fetching cut title data...';
-    dbReply(startMsg, reply);
+    send(startMsg, reply);
     const [rows] = await conn.query(sql);
     const successMsg = 'Cut title data fetched!';
-    dbReply(successMsg, reply);
+    send(successMsg, reply);
     return rows;
   } catch (err) {
     const errMsg = `Failed to fetch cut title data!\n${err}`;
-    dbReply(errMsg, reply);
+    send(errMsg, reply);
     throw err;
   }
 }
@@ -61,14 +61,14 @@ export const insCutTitles = async (conn: any, reply?: any) => { // TEMP ANY
   const sql = `INSERT INTO achievement_reward (${columns}) VALUES ?`;
   try {
     const startMsg = 'Adding cut titles to the database...';
-    dbReply(startMsg, reply);
+    send(startMsg, reply);
     const [rows] = await conn.query(sql, [values]);
     const successMsg = 'Cut titles successfully added to the database!';
-    dbReply(successMsg, reply);
+    send(successMsg, reply);
     return rows;
   } catch (err) {
     const errMsg = `Failed to add cut titles to database!\n${err}`;
-    dbReply(errMsg, reply);
+    send(errMsg, reply);
     throw err;
   }
 }
@@ -84,14 +84,14 @@ export const selRewItemCharges = async (conn: any, items: any, reply?: any) => {
   `;
   try {
     const startMsg = 'Fetching reward item charge data...';
-    dbReply(startMsg, reply);
+    send(startMsg, reply);
     const [rows] = await conn.query(sql, [items]);
     const successMsg = 'Reward item charge data fetched!';
-    dbReply(successMsg, reply);
+    send(successMsg, reply);
     return rows;
   } catch (err) {
     const errMsg = `Failed to fetch reward item charge data!\n${err}`;
-    dbReply(errMsg, reply);
+    send(errMsg, reply);
     throw err;
   }
 }
@@ -111,14 +111,14 @@ export const selPetMountItems = async (conn: any, reply?: any) => { // TEMP ANY
   `;
   try {
     const startMsg = 'Fetching pet and mount item data...';
-    dbReply(startMsg, reply);
+    send(startMsg, reply);
     const [rows] = await conn.query(sql);
     const successMsg = 'Pet and mount item data fetched!';
-    dbReply(successMsg, reply);
+    send(successMsg, reply);
     return rows;
   } catch (err) {
     const errMsg = `Failed to fetch pet and mount item data!\n${err}`;
-    dbReply(errMsg, reply);
+    send(errMsg, reply);
     throw err;
   }
 }
@@ -140,14 +140,14 @@ export const selAllTemplateQuests = async (conn: any, reply?: any) => { // TEMP 
   const sql = `SELECT ${values} FROM quest_template`;
   try {
     const startMsg = 'Fetching template quest data...';
-    dbReply(startMsg, reply);
+    send(startMsg, reply);
     const [rows] = await conn.query(sql);
     const successMsg = 'Template quest data fetched!';
-    dbReply(successMsg, reply);
+    send(successMsg, reply);
     return rows;
   } catch (err) {
     const errMsg = `Failed to template quest item data!\n${err}`;
-    dbReply(errMsg, reply);
+    send(errMsg, reply);
     throw err;
   }
 }

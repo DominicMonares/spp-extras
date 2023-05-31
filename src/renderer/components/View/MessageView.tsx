@@ -5,7 +5,7 @@ import './View.css';
 
 const MessageView = () => {
   const expansion = useAppSelector(state => state.expansion.selected);
-  const messages = useAppSelector(state => state.websocket.messages);
+  const messages = useAppSelector(state => state.messages.all);
 
   return (
     <div>
@@ -16,7 +16,7 @@ const MessageView = () => {
           }).reverse()}
         </ol>
       ) : (
-        <MainBigHeader headerText={`Transfer data between all characters`} /> 
+        <MainBigHeader headerText={`Transfer data between all characters`} />
       )}
     </div>
   );

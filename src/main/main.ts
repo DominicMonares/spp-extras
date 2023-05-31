@@ -31,7 +31,7 @@ let mainWindow: BrowserWindow | null = null;
 // Handle account-wide service
 ipcMain.on('account-wide', async (event, arg) => {
   console.log(arg);
-  accountWide(event);
+  accountWide(event.reply);
 });
 
 if (process.env.NODE_ENV === 'production') {

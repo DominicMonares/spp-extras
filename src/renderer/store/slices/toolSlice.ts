@@ -6,7 +6,7 @@ interface InitialState {
 }
 
 const initialState: InitialState = {
-  selected: 'questTracker', // TEMP DEFAULT
+  selected: 'accountWide', // TEMP DEFAULT
 }
 
 export const toolSlice = createSlice({

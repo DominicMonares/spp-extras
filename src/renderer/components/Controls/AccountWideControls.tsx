@@ -68,7 +68,7 @@ const AccountWideControls = () => {
 
     // Dispatch to display each message sent from main as they come in
     const settings = {
-      expansion: expansion,
+      xpac: expansion,
       petsMounts: petsMountsChecked,
       reputations: repsChecked,
       achievements: achsChecked,

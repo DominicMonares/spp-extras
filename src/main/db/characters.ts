@@ -1,8 +1,10 @@
+import { dbReply } from '../../utils';
+
 // ----------------------------------------------------------------
 // Characters
 // ----------------------------------------------------------------
 
-export const selChars = async (conn: any, xpac: any, accts: any) => { // TEMP ANY
+export const selChars = async (conn: any, xpac: any, accts: any, reply?: any) => { // TEMP ANY
   const values = `
     guid,
     account,
@@ -16,13 +18,15 @@ export const selChars = async (conn: any, xpac: any, accts: any) => { // TEMP AN
     WHERE account IN (?)
   `;
   try {
-    console.log('Fetching character data...');
+    const startMsg = 'Fetching character data...';
+    dbReply(startMsg, reply);
     const [rows] = await conn.query(sql, [accts]);
-    console.log('Character data fetched!');
+    const successMsg = 'Character data fetched!';
+    dbReply(successMsg, reply);
     return rows;
   } catch (err) {
-    err = `Failed to fetch character data!\n${err}`;
-    console.error(err);
+    const errMsg = `Failed to fetch character data!\n${err}`;
+    dbReply(errMsg, reply);
     throw err;
   }
 }
@@ -31,37 +35,41 @@ export const selChars = async (conn: any, xpac: any, accts: any) => { // TEMP AN
 // Achievement Credit
 // ----------------------------------------------------------------
 
-export const selAllCharAchs = async (conn: any, charIDs: any) => { // TEMP ANY
+export const selAllCharAchs = async (conn: any, charIDs: any, reply?: any) => { // TEMP ANY
   const sql = `
     SELECT * FROM character_achievement
     WHERE guid IN (?)
   `;
   try {
-    console.log('Fetching character achievement credit data...');
+    const startMsg = 'Fetching character achievement credit data...';
+    dbReply(startMsg, reply);
     const [rows] = await conn.query(sql, [charIDs]);
-    console.log('Failed to fetch character achievement credit data!');
+    const successMsg = 'Failed to fetch character achievement credit data!';
+    dbReply(successMsg, reply);
     return rows;
   } catch (err) {
-    err = `Failed to fetch character achievement credit data!\n${err}`;
-    console.error(err);
+    const errMsg = `Failed to fetch character achievement credit data!\n${err}`;
+    dbReply(errMsg, reply);
     throw err;
   }
 }
 
-export const insCharAchs = async (conn: any, achievements: any) => { // TEMP ANY
+export const insCharAchs = async (conn: any, achievements: any, reply?: any) => { // TEMP ANY
   const columns = 'guid, achievement, date';
   const values = achievements.map((a: any) => { // TEMP ANY
     return [a.guid, a.achievement, a.date];
   });
   const sql = `INSERT IGNORE INTO character_achievement (${columns}) VALUES ?`;
   try {
-    console.log('Saving new character achievement credit...');
+    const startMsg = 'Saving new character achievement credit...';
+    dbReply(startMsg, reply);
     const [rows] = await conn.query(sql, [values]);
-    console.log('New character achievement credit successfully saved!');
+    const successMsg = 'New character achievement credit successfully saved!';
+    dbReply(successMsg, reply);
     return rows;
   } catch (err) {
-    err = `Failed to save new character achievement credit!\n${err}`;
-    console.error(err);
+    const errMsg = `Failed to save new character achievement credit!\n${err}`;
+    dbReply(errMsg, reply);
     throw err;
   }
 }
@@ -70,24 +78,26 @@ export const insCharAchs = async (conn: any, achievements: any) => { // TEMP ANY
 // Achievement Progress
 // ----------------------------------------------------------------
 
-export const selAllAchProg = async (conn: any, charIDs: any) => { // TEMP ANY
+export const selAllAchProg = async (conn: any, charIDs: any, reply?: any) => { // TEMP ANY
   const sql = `
     SELECT * FROM character_achievement_progress
     WHERE guid IN (?)
   `;
   try {
-    console.log('Fetching character achievement progress data...');
+    const startMsg = 'Fetching character achievement progress data...';
+    dbReply(startMsg, reply);
     const [rows] = await conn.query(sql, [charIDs]);
-    console.log('Character achievement progress data fetched!');
+    const successMsg = 'Character achievement progress data fetched!';
+    dbReply(successMsg, reply);
     return rows;
   } catch (err) {
-    err = `Failed to fetch character achievement progress data!\n${err}`;
-    console.error(err);
+    const errMsg = `Failed to fetch character achievement progress data!\n${err}`;
+    dbReply(errMsg, reply);
     throw err;
   }
 }
 
-export const insUpdAchProg = async (conn: any, achievements: any) => { // TEMP ANY
+export const insUpdAchProg = async (conn: any, achievements: any, reply?: any) => { // TEMP ANY
   const columns = 'guid, criteria, counter, date';
   const values = achievements.map((a: any) => { // TEMP ANY
     return [a.guid, a.criteria, a.counter, a.date];
@@ -97,13 +107,15 @@ export const insUpdAchProg = async (conn: any, achievements: any) => { // TEMP A
       ON DUPLICATE KEY UPDATE counter=VALUES(counter), date=VALUES(date)
   `;
   try {
-    console.log('Saving new character achievement progress...');
+    const startMsg = 'Saving new character achievement progress...';
+    dbReply(startMsg, reply);
     const [rows] = await conn.query(sql, [values]);
-    console.log('New character achievement progress successfully saved!');
+    const successMsg = 'New character achievement progress successfully saved!';
+    dbReply(successMsg, reply);
     return rows;
   } catch (err) {
-    err = `Failed to save new character achievement progress!\n${err}`;
-    console.error(err);
+    const errMsg = `Failed to save new character achievement progress!\n${err}`;
+    dbReply(errMsg, reply);
     throw err;
   }
 }
@@ -112,21 +124,23 @@ export const insUpdAchProg = async (conn: any, achievements: any) => { // TEMP A
 // Achievement Shared Progress
 // ----------------------------------------------------------------
 
-export const showSharedProg = async (conn: any, charIDs: any) => { // TEMP ANY
+export const showSharedProg = async (conn: any, reply?: any) => { // TEMP ANY
   const sql = 'SHOW TABLES LIKE "character_achievement_shared_progress"';
   try {
-    console.log('Fetching shared achievement progress table data...');
+    const startMsg = 'Fetching shared achievement progress table data...';
+    dbReply(startMsg, reply);
     const [rows] = await conn.query(sql);
-    console.log('Shared achievement progress table data fetched!');
+    const successMsg = 'Shared achievement progress table data fetched!';
+    dbReply(successMsg, reply);
     return rows;
   } catch (err) {
-    err = `Failed to fetch shared achievement progress table data!\n${err}`;
-    console.error(err);
+    const errMsg = `Failed to fetch shared achievement progress table data!\n${err}`;
+    dbReply(errMsg, reply);
     throw err;
   }
 }
 
-export const createSharedProgTable = async (conn: any) => { // TEMP ANY
+export const createSharedProgTable = async (conn: any, reply?: any) => { // TEMP ANY
   const sql = `
     CREATE TABLE character_achievement_shared_progress (
       account INT NOT NULL,
@@ -136,35 +150,39 @@ export const createSharedProgTable = async (conn: any) => { // TEMP ANY
     )
   `;
   try {
-    console.log('Creating character_achievement_shared_progress table...');
+    const startMsg = 'Creating character_achievement_shared_progress table...';
+    dbReply(startMsg, reply);
     const [rows] = await conn.query(sql);
-    console.log('Successfully created character_achievement_shared_progress table!');
+    const successMsg = 'Successfully created character_achievement_shared_progress table!';
+    dbReply(successMsg, reply);
     return rows;
   } catch (err) {
-    err = `Failed to create character_achievement_shared_progress table!\n${err}`;
-    console.error(err);
+    const errMsg = `Failed to create character_achievement_shared_progress table!\n${err}`;
+    dbReply(errMsg, reply);
     throw err;
   }
 }
 
-export const selAllCharAchSharedProg = async (conn: any, accountIDs: boolean) => { // TEMP ANY
+export const selAllCharAchSharedProg = async (conn: any, accountIDs: boolean, reply?: any) => { // TEMP ANY
   const sql = `
     SELECT * FROM character_achievement_shared_progress
     WHERE guid IN (?)
   `;
   try {
-    console.log('Fetching character achievement shared progress data...');
+    const startMsg = 'Fetching character achievement shared progress data...';
+    dbReply(startMsg, reply);
     const [rows] = await conn.query(sql, [accountIDs]);
-    console.log('Character achievement shared progress data fetched!');
+    const successMsg = 'Character achievement shared progress data fetched!';
+    dbReply(successMsg, reply);
     return rows;
   } catch (err) {
-    err = `Failed to fetch character achievement shared progress data!\n${err}`;
-    console.error(err);
+    const errMsg = `Failed to fetch character achievement shared progress data!\n${err}`;
+    dbReply(errMsg, reply);
     throw err;
   }
 }
 
-export const insUpdCharAchSharedProg = async (conn: any, achievements: any) => { // TEMP ANY
+export const insUpdCharAchSharedProg = async (conn: any, achievements: any, reply?: any) => { // TEMP ANY
   const columns = 'account, criteria, counter, date';
   const values = achievements.map((a: any) => { // TEMP ANY
     return [a.account, a.criteria, a.counter, a.date];
@@ -174,13 +192,15 @@ export const insUpdCharAchSharedProg = async (conn: any, achievements: any) => {
       ON DUPLICATE KEY UPDATE counter=VALUES(counter), date=VALUES(date)
   `;
   try {
-    console.log('Saving new character achievement shared progress...');
+    const startMsg = 'Saving new character achievement shared progress...';
+    dbReply(startMsg, reply);
     const [rows] = await conn.query(sql, [values]);
-    console.log('New character achievement shared progress successfully saved!');
+    const successMsg = 'New character achievement shared progress successfully saved!';
+    dbReply(successMsg, reply);
     return rows;
   } catch (err) {
-    err = `Failed to save new character achievement shared progress!\n${err}`;
-    console.error(err);
+    const errMsg = `Failed to save new character achievement shared progress!\n${err}`;
+    dbReply(errMsg, reply);
     throw err;
   }
 }
@@ -189,7 +209,7 @@ export const insUpdCharAchSharedProg = async (conn: any, achievements: any) => {
 // Achievement Reward Titles
 // ----------------------------------------------------------------
 
-export const updRewardTitles = async (conn: any, titles: any) => { // TEMP ANY
+export const updRewardTitles = async (conn: any, titles: any, reply?: any) => { // TEMP ANY
   const values = titles.map((t: any) => { // TEMP ANY
     return [t.guid, t.knownTitles];
   });
@@ -198,13 +218,15 @@ export const updRewardTitles = async (conn: any, titles: any) => { // TEMP ANY
       ON DUPLICATE KEY UPDATE knownTitles=VALUES(knownTitles)
   `;
   try {
-    console.log('Updating character titles...');
+    const startMsg = 'Updating character titles...';
+    dbReply(startMsg, reply);
     const [rows] = await conn.query(sql, [values]);
-    console.log('Character titles updated!');
+    const successMsg = 'Character titles updated!';
+    dbReply(successMsg, reply);
     return rows;
   } catch (err) {
-    err = `Failed to update character titles!\n${err}`;
-    console.error(err);
+    const errMsg = `Failed to update character titles!\n${err}`;
+    dbReply(errMsg, reply);
     throw err;
   }
 }
@@ -213,21 +235,23 @@ export const updRewardTitles = async (conn: any, titles: any) => { // TEMP ANY
 // Achievement Reward Items
 // ----------------------------------------------------------------
 
-export const selLastItemInstID = async (conn: any) => { // TEMP ANY
+export const selLastItemInstID = async (conn: any, reply?: any) => { // TEMP ANY
   const sql = 'SELECT MAX(guid) FROM item_instance';
   try {
-    console.log('Fetching last item instance ID data...');
+    const startMsg = 'Fetching last item instance ID data...';
+    dbReply(startMsg, reply);
     const [rows] = await conn.query(sql);
-    console.log('Last item instance ID data fetched!');
+    const successMsg = 'Last item instance ID data fetched!';
+    dbReply(successMsg, reply);
     return rows;
   } catch (err) {
-    err = `Failed to fetch last item instance ID data!\n${err}`;
-    console.error(err);
+    const errMsg = `Failed to fetch last item instance ID data!\n${err}`;
+    dbReply(errMsg, reply);
     throw err;
   }
 }
 
-export const insRewardItemInstances = async (conn: any, instances: any) => { // TEMP ANY
+export const insRewardItemInstances = async (conn: any, instances: any, reply?: any) => { // TEMP ANY
   const columns = `
     guid,
     owner_guid,
@@ -264,32 +288,36 @@ export const insRewardItemInstances = async (conn: any, instances: any) => { // 
   });
   const sql = `INSERT INTO item_instance (${columns}) VALUES ?`;
   try {
-    console.log('Saving new item instance data...');
+    const startMsg = 'Saving new item instance data...';
+    dbReply(startMsg, reply);
     const [rows] = await conn.query(sql, [values]);
-    console.log('New item instance data successfully saved!');
+    const successMsg = 'New item instance data successfully saved!';
+    dbReply(successMsg, reply);
     return rows;
   } catch (err) {
-    err = `Failed to save new item instance data!\n${err}`;
-    console.error(err);
+    const errMsg = `Failed to save new item instance data!\n${err}`;
+    dbReply(errMsg, reply);
     throw err;
   }
 }
 
-export const selLastMailID = async (conn: any) => { // TEMP ANY
+export const selLastMailID = async (conn: any, reply?: any) => { // TEMP ANY
   const sql = 'SELECT MAX(id) FROM mail';
   try {
-    console.log('Fetching last mail ID data...');
+    const startMsg = 'Fetching last mail ID data...';
+    dbReply(startMsg, reply);
     const [rows] = await conn.query(sql);
-    console.log('Last mail ID data fetched!');
+    const successMsg = 'Last mail ID data fetched!';
+    dbReply(successMsg, reply);
     return rows;
   } catch (err) {
-    err = `Failed to fetch last mail ID data!\n${err}`;
-    console.error(err);
+    const errMsg = `Failed to fetch last mail ID data!\n${err}`;
+    dbReply(errMsg, reply);
     throw err;
   }
 }
 
-export const insRewardMail = async (conn: any, mail: any) => { // TEMP ANY
+export const insRewardMail = async (conn: any, mail: any, reply?: any) => { // TEMP ANY
   const columns = `
     id,
     messageType,
@@ -306,7 +334,7 @@ export const insRewardMail = async (conn: any, mail: any) => { // TEMP ANY
     cod,
     checked
   `;
-  const values = mail.map((m: any) => { // TEMP ANY
+  const values = mail.map((m: any, reply?: any) => { // TEMP ANY
     return [
       m.id,
       m.messageType,
@@ -326,31 +354,35 @@ export const insRewardMail = async (conn: any, mail: any) => { // TEMP ANY
   });
   const sql = `INSERT INTO mail (${columns}) VALUES ?`;
   try {
-    console.log('Saving new mail data...');
+    const startMsg = 'Saving new mail data...';
+    dbReply(startMsg, reply);
     const [rows] = await conn.query(sql, [values]);
-    console.log('New mail data successfully saved!');
+    const successMsg = 'New mail data successfully saved!';
+    dbReply(successMsg, reply);
     return rows;
   } catch (err) {
-    err = `Failed to save new mail data!\n${err}`;
-    console.error(err);
+    const errMsg = `Failed to save new mail data!\n${err}`;
+    dbReply(errMsg, reply);
     throw err;
   }
 }
 
-export const insRewardMailItems = async (conn: any, items: any) => { // TEMP ANY
+export const insRewardMailItems = async (conn: any, items: any, reply?: any) => { // TEMP ANY
   const columns = 'mail_id, item_guid, item_template, receiver';
   const values = items.map((i: any) => { // TEMP ANY
     return [i.mail_id, i.item_guid, i.item_template, i.receiver];
   });
   const sql = `INSERT INTO mail_items (${columns}) VALUES ?`;
   try {
-    console.log('Saving new mail item data...');
+    const startMsg = 'Saving new mail item data...';
+    dbReply(startMsg, reply);
     const [rows] = await conn.query(sql, [values]);
-    console.log('New mail item data successfully saved!');
+    const successMsg = 'New mail item data successfully saved!';
+    dbReply(successMsg, reply);
     return rows;
   } catch (err) {
-    err = `Failed to save new mail item data!\n${err}`;
-    console.error(err);
+    const errMsg = `Failed to save new mail item data!\n${err}`;
+    dbReply(errMsg, reply);
     throw err;
   }
 }
@@ -359,70 +391,78 @@ export const insRewardMailItems = async (conn: any, items: any) => { // TEMP ANY
 // Quests
 // ----------------------------------------------------------------
 
-export const selCompletedRegQuests = async (conn: any, charIDs: any) => { // TEMP ANY
+export const selCompletedRegQuests = async (conn: any, charIDs: any, reply?: any) => { // TEMP ANY
   const sql = `
     SELECT * FROM character_queststatus
     WHERE guid IN (?) AND status=1
   `;
   try {
-    console.log('Fetching completed regular quest data...');
+    const startMsg = 'Fetching completed regular quest data...';
+    dbReply(startMsg, reply);
     const [rows] = await conn.query(sql, [charIDs]);
-    console.log('Completed regular quest data fetched!');
+    const successMsg = 'Completed regular quest data fetched!';
+    dbReply(successMsg, reply);
     return rows;
   } catch (err) {
-    err = `Failed to fetch completed regular quest data!\n${err}`;
-    console.error(err);
+    const errMsg = `Failed to fetch completed regular quest data!\n${err}`;
+    dbReply(errMsg, reply);
     throw err;
   }
 }
 
-export const selCompletedDailyQuests = async (conn: any, charIDs: any) => { // TEMP ANY
+export const selCompletedDailyQuests = async (conn: any, charIDs: any, reply?: any) => { // TEMP ANY
   const sql = `
     SELECT * FROM character_queststatus_daily
     WHERE guid IN (?)
   `;
   try {
-    console.log('Fetching completed daily quest data...');
+    const startMsg = 'Fetching completed daily quest data...';
+    dbReply(startMsg, reply);
     const [rows] = await conn.query(sql, [charIDs]);
-    console.log('Completed daily quest data fetched!');
+    const successMsg = 'Completed daily quest data fetched!';
+    dbReply(successMsg, reply);
     return rows;
   } catch (err) {
-    err = `Failed to fetch completed daily quest data!\n${err}`;
-    console.error(err);
+    const errMsg = `Failed to fetch completed daily quest data!\n${err}`;
+    dbReply(errMsg, reply);
     throw err;
   }
 }
 
-export const selCompletedWeeklyQuests = async (conn: any, charIDs: any) => { // TEMP ANY
+export const selCompletedWeeklyQuests = async (conn: any, charIDs: any, reply?: any) => { // TEMP ANY
   const sql = `
     SELECT * FROM character_queststatus_weekly
     WHERE guid IN (?)
   `;
   try {
-    console.log('Fetching completed weekly quest data...');
+    const startMsg = 'Fetching completed weekly quest data...';
+    dbReply(startMsg, reply);
     const [rows] = await conn.query(sql, [charIDs]);
-    console.log('Completed weekly quest data fetched!');
+    const successMsg = 'Completed weekly quest data fetched!';
+    dbReply(successMsg, reply);
     return rows;
   } catch (err) {
-    err = `Failed to fetch completed weekly quest data!\n${err}`;
-    console.error(err);
+    const errMsg = `Failed to fetch completed weekly quest data!\n${err}`;
+    dbReply(errMsg, reply);
     throw err;
   }
 }
 
-export const selCompletedMonthlyQuests = async (conn: any, charIDs: any) => { // TEMP ANY
+export const selCompletedMonthlyQuests = async (conn: any, charIDs: any, reply?: any) => { // TEMP ANY
   const sql = `
     SELECT * FROM character_queststatus_monthly
     WHERE guid IN (?)
   `;
   try {
-    console.log('Fetching completed monthly quest data...');
+    const startMsg = 'Fetching completed monthly quest data...';
+    dbReply(startMsg, reply);
     const [rows] = await conn.query(sql, [charIDs]);
-    console.log('Completed monthly quest data fetched!');
+    const successMsg = 'Completed monthly quest data fetched!';
+    dbReply(successMsg, reply);
     return rows;
   } catch (err) {
-    err = `Failed to fetch completed monthly quest data!\n${err}`;
-    console.error(err);
+    const errMsg = `Failed to fetch completed monthly quest data!\n${err}`;
+    dbReply(errMsg, reply);
     throw err;
   }
 }
@@ -431,24 +471,26 @@ export const selCompletedMonthlyQuests = async (conn: any, charIDs: any) => { //
 // Reputation
 // ----------------------------------------------------------------
 
-export const selAllCharRep = async (conn: any, charIDs: any) => { // TEMP ANY
+export const selAllCharRep = async (conn: any, charIDs: any, reply?: any) => { // TEMP ANY
   const sql = `
     SELECT guid, faction, standing FROM character_reputation
     WHERE guid IN (?)
   `;
   try {
-    console.log('Fetching character reputation data...');
+    const startMsg = 'Fetching character reputation data...';
+    dbReply(startMsg, reply);
     const [rows] = await conn.query(sql, [charIDs]);
-    console.log('Character reputation data fetched!');
+    const successMsg = 'Character reputation data fetched!';
+    dbReply(successMsg, reply);
     return rows;
   } catch (err) {
-    err = `Failed to fetch character reputation data!\n${err}`;
-    console.error(err);
+    const errMsg = `Failed to fetch character reputation data!\n${err}`;
+    dbReply(errMsg, reply);
     throw err;
   }
 }
 
-export const updCharRep = async (conn: any, reputations: any) => { // TEMP ANY
+export const updCharRep = async (conn: any, reputations: any, reply?: any) => { // TEMP ANY
   const values = reputations.map((r: any) => { // TEMP ANY
     return [r.guid, r.faction, r.standing, r.flags];
   });
@@ -457,13 +499,15 @@ export const updCharRep = async (conn: any, reputations: any) => { // TEMP ANY
       ON DUPLICATE KEY UPDATE standing=VALUES(standing)
   `;
   try {
-    console.log('Updating character reputation standings...');
+    const startMsg = 'Updating character reputation standings...';
+    dbReply(startMsg, reply);
     const [rows] = await conn.query(sql, [values]);
-    console.log('Character reputation standings updated!');
+    const successMsg = 'Character reputation standings updated!';
+    dbReply(successMsg, reply);
     return rows;
   } catch (err) {
-    err = `Failed to update character reputation standings!\n${err}`;
-    console.error(err);
+    const errMsg = `Failed to update character reputation standings!\n${err}`;
+    dbReply(errMsg, reply);
     throw err;
   }
 }
@@ -472,41 +516,45 @@ export const updCharRep = async (conn: any, reputations: any) => { // TEMP ANY
 // Pets and Mounts
 // ----------------------------------------------------------------
 
-export const selCharRidingSkills = async (conn: any, charIDs: any) => { // TEMP ANY
+export const selCharRidingSkills = async (conn: any, charIDs: any, reply?: any) => { // TEMP ANY
   const sql = `
     SELECT guid, value FROM character_skills
     WHERE guid IN (?) AND skill=762
   `;
   try {
-    console.log('Fetching character riding skill data...');
+    const startMsg = 'Fetching character riding skill data...';
+    dbReply(startMsg, reply);
     const [rows] = await conn.query(sql, [charIDs]);
-    console.log('Character riding skill data fetched!');
+    const successMsg = 'Character riding skill data fetched!';
+    dbReply(successMsg, reply);
     return rows;
   } catch (err) {
-    err = `Failed to fetch character riding skill data!\n${err}`;
-    console.error(err);
+    const errMsg = `Failed to fetch character riding skill data!\n${err}`;
+    dbReply(errMsg, reply);
     throw err;
   }
 }
 
-export const selCharPetMountSpells = async (conn: any, charIDs: any, spellIDs: any) => { // TEMP ANY
+export const selCharPetMountSpells = async (conn: any, charIDs: any, spellIDs: any, reply?: any) => { // TEMP ANY
   const sql = `
     SELECT guid, spell FROM character_spell
     WHERE guid IN (?) AND spell IN (?)
   `;
   try {
-    console.log('Fetching character pet and mount spell data...');
+    const startMsg = 'Fetching character pet and mount spell data...';
+    dbReply(startMsg, reply);
     const [rows] = await conn.query(sql, [charIDs, spellIDs]);
-    console.log('Character pet and mount spell data fetched!');
+    const successMsg = 'Character pet and mount spell data fetched!';
+    dbReply(successMsg, reply);
     return rows;
   } catch (err) {
-    err = `Failed to fetch character pet and mount spell data!\n${err}`;
-    console.error(err);
+    const errMsg = `Failed to fetch character pet and mount spell data!\n${err}`;
+    dbReply(errMsg, reply);
     throw err;
   }
 }
 
-export const insCharPetMountSpells = async (conn: any, spells: any) => { // TEMP ANY
+export const insCharPetMountSpells = async (conn: any, spells: any, reply?: any) => { // TEMP ANY
   const columns = 'guid, spell, active, disabled';
   const values = spells.map((s: any) => { // TEMP ANY
     return [
@@ -518,13 +566,15 @@ export const insCharPetMountSpells = async (conn: any, spells: any) => { // TEMP
   });
   const sql = `INSERT INTO character_spell (${columns}) VALUES ?`;
   try {
-    console.log('Saving new pet and mount spell data...');
+    const startMsg = 'Saving new pet and mount spell data...';
+    dbReply(startMsg, reply);
     const [rows] = await conn.query(sql, [values]);
-    console.log('New pet and mount spell data successfully saved!');
+    const successMsg = 'New pet and mount spell data successfully saved!';
+    dbReply(successMsg, reply);
     return rows;
   } catch (err) {
-    err = `Failed to save new pet and mount spell data!\n${err}`;
-    console.error(err);
+    const errMsg = `Failed to save new pet and mount spell data!\n${err}`;
+    dbReply(errMsg, reply);
     throw err;
   }
 }

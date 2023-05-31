@@ -1,19 +1,22 @@
+import { dbReply } from '../../utils';
 import cutTitles from '../../../data/titles/cutTitles.json';
 
 // ----------------------------------------------------------------
 // Achievement Rewards
 // ----------------------------------------------------------------
 
-export const selAllAchRewards = async (conn: any) => { // TEMP ANY
+export const selAllAchRewards = async (conn: any, reply?: any) => { // TEMP ANY
   const sql = `SELECT * FROM achievement_reward`;
   try {
-    console.log('Fetching achievement reward data...');
+    const startMsg = 'Fetching achievement reward data...';
+    dbReply(startMsg, reply);
     const [rows] = await conn.query(sql);
-    console.log('Achievement reward data fetched!');
+    const successMsg = 'Achievement reward data fetched!';
+    dbReply(successMsg, reply);
     return rows;
   } catch (err) {
-    err = `Failed to fetch achievement reward data!\n${err}`;
-    console.error(err);
+    const errMsg = `Failed to fetch achievement reward data!\n${err}`;
+    dbReply(errMsg, reply);
     throw err;
   }
 }
@@ -22,24 +25,26 @@ export const selAllAchRewards = async (conn: any) => { // TEMP ANY
 // Cut Titles
 // ----------------------------------------------------------------
 
-export const selCutTitle = async (conn: any) => { // TEMP ANY
+export const selCutTitle = async (conn: any, reply?: any) => { // TEMP ANY
   const sql = `
     SELECT * FROM achievement_reward
     WHERE entry=457
   `;
   try {
-    console.log('Fetching cut title data...');
+    const startMsg = 'Fetching cut title data...';
+    dbReply(startMsg, reply);
     const [rows] = await conn.query(sql);
-    console.log('Cut title data fetched!');
+    const successMsg = 'Cut title data fetched!';
+    dbReply(successMsg, reply);
     return rows;
   } catch (err) {
-    err = `Failed to fetch cut title data!\n${err}`;
-    console.error(err);
+    const errMsg = `Failed to fetch cut title data!\n${err}`;
+    dbReply(errMsg, reply);
     throw err;
   }
 }
 
-export const insCutTitles = async (conn: any) => { // TEMP ANY
+export const insCutTitles = async (conn: any, reply?: any) => { // TEMP ANY
   const columns = 'entry, gender, title_A, title_H, item, sender, subject, text';
   const values = cutTitles.map(t => {
     return [
@@ -55,13 +60,15 @@ export const insCutTitles = async (conn: any) => { // TEMP ANY
   });
   const sql = `INSERT INTO achievement_reward (${columns}) VALUES ?`;
   try {
-    console.log('Adding cut titles to the database...');
+    const startMsg = 'Adding cut titles to the database...';
+    dbReply(startMsg, reply);
     const [rows] = await conn.query(sql, [values]);
-    console.log('Cut titles successfully added to the database!');
+    const successMsg = 'Cut titles successfully added to the database!';
+    dbReply(successMsg, reply);
     return rows;
   } catch (err) {
-    err = `Failed to add cut titles to database!\n${err}`;
-    console.error(err);
+    const errMsg = `Failed to add cut titles to database!\n${err}`;
+    dbReply(errMsg, reply);
     throw err;
   }
 }
@@ -70,24 +77,26 @@ export const insCutTitles = async (conn: any) => { // TEMP ANY
 // Items
 // ----------------------------------------------------------------
 
-export const selRewItemCharges = async (conn: any, items: any) => { // TEMP ANY
+export const selRewItemCharges = async (conn: any, items: any, reply?: any) => { // TEMP ANY
   const sql = `
     SELECT entry, spellcharges_1 FROM item_template
     WHERE entry IN (?)
   `;
   try {
-    console.log('Fetching reward item charge data...');
+    const startMsg = 'Fetching reward item charge data...';
+    dbReply(startMsg, reply);
     const [rows] = await conn.query(sql, [items]);
-    console.log('Reward item charge data fetched!');
+    const successMsg = 'Reward item charge data fetched!';
+    dbReply(successMsg, reply);
     return rows;
   } catch (err) {
-    err = `Failed to fetch reward item charge data!\n${err}`;
-    console.error(err);
+    const errMsg = `Failed to fetch reward item charge data!\n${err}`;
+    dbReply(errMsg, reply);
     throw err;
   }
 }
 
-export const selPetMountItems = async (conn: any) => { // TEMP ANY
+export const selPetMountItems = async (conn: any, reply?: any) => { // TEMP ANY
   const values = `
     entry,
     subclass,
@@ -101,13 +110,15 @@ export const selPetMountItems = async (conn: any) => { // TEMP ANY
     WHERE class=15 AND AllowableClass=-1 AND (subclass=2 OR subclass=5)
   `;
   try {
-    console.log('Fetching pet and mount item data...');
+    const startMsg = 'Fetching pet and mount item data...';
+    dbReply(startMsg, reply);
     const [rows] = await conn.query(sql);
-    console.log('Pet and mount item data fetched!');
+    const successMsg = 'Pet and mount item data fetched!';
+    dbReply(successMsg, reply);
     return rows;
   } catch (err) {
-    err = `Failed to fetch pet and mount item data!\n${err}`;
-    console.error(err);
+    const errMsg = `Failed to fetch pet and mount item data!\n${err}`;
+    dbReply(errMsg, reply);
     throw err;
   }
 }
@@ -116,7 +127,7 @@ export const selPetMountItems = async (conn: any) => { // TEMP ANY
 // Quests
 // ----------------------------------------------------------------
 
-export const selAllTemplateQuests = async (conn: any) => { // TEMP ANY
+export const selAllTemplateQuests = async (conn: any, reply?: any) => { // TEMP ANY
   const values = `
     entry,
     ZoneOrSort,
@@ -128,13 +139,15 @@ export const selAllTemplateQuests = async (conn: any) => { // TEMP ANY
   `;
   const sql = `SELECT ${values} FROM quest_template`;
   try {
-    console.log('Fetching template quest data...');
+    const startMsg = 'Fetching template quest data...';
+    dbReply(startMsg, reply);
     const [rows] = await conn.query(sql);
-    console.log('Template quest data fetched!');
+    const successMsg = 'Template quest data fetched!';
+    dbReply(successMsg, reply);
     return rows;
   } catch (err) {
-    err = `Failed to template quest item data!\n${err}`;
-    console.error(err);
+    const errMsg = `Failed to template quest item data!\n${err}`;
+    dbReply(errMsg, reply);
     throw err;
   }
 }

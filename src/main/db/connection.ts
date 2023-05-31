@@ -9,7 +9,6 @@ export const connect = async (xpac: string, db: string, reply?: any) => { // TEM
     password: '123456',
     database: `${xpac}${db}`
   };
-
   try {
     const startMsg = `Connecting to ${xpac}${db}...`;
     dbReply(startMsg, reply);

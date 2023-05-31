@@ -9,7 +9,6 @@ export const selAccts = async (conn: any, bots: boolean, reply?: any) => { // TE
     SELECT id, username FROM account
     ${!bots ? 'WHERE username NOT LIKE "%RNDBOT%"' : ''}
   `;
-
   try {
     const startMsg = 'Fetching account data...';
     dbReply(startMsg, reply);

@@ -27,7 +27,7 @@ export const selChars = async (conn: any, xpac: any, accts: any, reply?: any) =>
   } catch (err) {
     const errMsg = `Failed to fetch character data!\n${err}`;
     send(errMsg, reply);
-    throw err;
+    throw errMsg;
   }
 }
 
@@ -50,7 +50,7 @@ export const selAllCharAchs = async (conn: any, charIDs: any, reply?: any) => { 
   } catch (err) {
     const errMsg = `Failed to fetch character achievement credit data!\n${err}`;
     send(errMsg, reply);
-    throw err;
+    throw errMsg;
   }
 }
 
@@ -70,7 +70,7 @@ export const insCharAchs = async (conn: any, achievements: any, reply?: any) => 
   } catch (err) {
     const errMsg = `Failed to save new character achievement credit!\n${err}`;
     send(errMsg, reply);
-    throw err;
+    throw errMsg;
   }
 }
 
@@ -93,7 +93,7 @@ export const selAllAchProg = async (conn: any, charIDs: any, reply?: any) => { /
   } catch (err) {
     const errMsg = `Failed to fetch character achievement progress data!\n${err}`;
     send(errMsg, reply);
-    throw err;
+    throw errMsg;
   }
 }
 
@@ -116,7 +116,7 @@ export const insUpdAchProg = async (conn: any, achievements: any, reply?: any) =
   } catch (err) {
     const errMsg = `Failed to save new character achievement progress!\n${err}`;
     send(errMsg, reply);
-    throw err;
+    throw errMsg;
   }
 }
 
@@ -136,7 +136,7 @@ export const showSharedProg = async (conn: any, reply?: any) => { // TEMP ANY
   } catch (err) {
     const errMsg = `Failed to fetch shared achievement progress table data!\n${err}`;
     send(errMsg, reply);
-    throw err;
+    throw errMsg;
   }
 }
 
@@ -159,7 +159,7 @@ export const createSharedProgTable = async (conn: any, reply?: any) => { // TEMP
   } catch (err) {
     const errMsg = `Failed to create character_achievement_shared_progress table!\n${err}`;
     send(errMsg, reply);
-    throw err;
+    throw errMsg;
   }
 }
 
@@ -178,7 +178,7 @@ export const selAllCharAchSharedProg = async (conn: any, accountIDs: boolean, re
   } catch (err) {
     const errMsg = `Failed to fetch character achievement shared progress data!\n${err}`;
     send(errMsg, reply);
-    throw err;
+    throw errMsg;
   }
 }
 
@@ -201,7 +201,7 @@ export const insUpdCharAchSharedProg = async (conn: any, achievements: any, repl
   } catch (err) {
     const errMsg = `Failed to save new character achievement shared progress!\n${err}`;
     send(errMsg, reply);
-    throw err;
+    throw errMsg;
   }
 }
 
@@ -227,7 +227,7 @@ export const updRewardTitles = async (conn: any, titles: any, reply?: any) => { 
   } catch (err) {
     const errMsg = `Failed to update character titles!\n${err}`;
     send(errMsg, reply);
-    throw err;
+    throw errMsg;
   }
 }
 
@@ -247,7 +247,7 @@ export const selLastItemInstID = async (conn: any, reply?: any) => { // TEMP ANY
   } catch (err) {
     const errMsg = `Failed to fetch last item instance ID data!\n${err}`;
     send(errMsg, reply);
-    throw err;
+    throw errMsg;
   }
 }
 
@@ -297,7 +297,7 @@ export const insRewardItemInstances = async (conn: any, instances: any, reply?: 
   } catch (err) {
     const errMsg = `Failed to save new item instance data!\n${err}`;
     send(errMsg, reply);
-    throw err;
+    throw errMsg;
   }
 }
 
@@ -313,7 +313,7 @@ export const selLastMailID = async (conn: any, reply?: any) => { // TEMP ANY
   } catch (err) {
     const errMsg = `Failed to fetch last mail ID data!\n${err}`;
     send(errMsg, reply);
-    throw err;
+    throw errMsg;
   }
 }
 
@@ -363,7 +363,7 @@ export const insRewardMail = async (conn: any, mail: any, reply?: any) => { // T
   } catch (err) {
     const errMsg = `Failed to save new mail data!\n${err}`;
     send(errMsg, reply);
-    throw err;
+    throw errMsg;
   }
 }
 
@@ -383,7 +383,7 @@ export const insRewardMailItems = async (conn: any, items: any, reply?: any) => 
   } catch (err) {
     const errMsg = `Failed to save new mail item data!\n${err}`;
     send(errMsg, reply);
-    throw err;
+    throw errMsg;
   }
 }
 
@@ -406,7 +406,7 @@ export const selCompletedRegQuests = async (conn: any, charIDs: any, reply?: any
   } catch (err) {
     const errMsg = `Failed to fetch completed regular quest data!\n${err}`;
     send(errMsg, reply);
-    throw err;
+    throw errMsg;
   }
 }
 
@@ -425,7 +425,7 @@ export const selCompletedDailyQuests = async (conn: any, charIDs: any, reply?: a
   } catch (err) {
     const errMsg = `Failed to fetch completed daily quest data!\n${err}`;
     send(errMsg, reply);
-    throw err;
+    throw errMsg;
   }
 }
 
@@ -444,7 +444,7 @@ export const selCompletedWeeklyQuests = async (conn: any, charIDs: any, reply?: 
   } catch (err) {
     const errMsg = `Failed to fetch completed weekly quest data!\n${err}`;
     send(errMsg, reply);
-    throw err;
+    throw errMsg;
   }
 }
 
@@ -463,7 +463,7 @@ export const selCompletedMonthlyQuests = async (conn: any, charIDs: any, reply?:
   } catch (err) {
     const errMsg = `Failed to fetch completed monthly quest data!\n${err}`;
     send(errMsg, reply);
-    throw err;
+    throw errMsg;
   }
 }
 
@@ -486,7 +486,7 @@ export const selAllCharRep = async (conn: any, charIDs: any, reply?: any) => { /
   } catch (err) {
     const errMsg = `Failed to fetch character reputation data!\n${err}`;
     send(errMsg, reply);
-    throw err;
+    throw errMsg;
   }
 }
 
@@ -508,7 +508,7 @@ export const updCharRep = async (conn: any, reputations: any, reply?: any) => { 
   } catch (err) {
     const errMsg = `Failed to update character reputation standings!\n${err}`;
     send(errMsg, reply);
-    throw err;
+    throw errMsg;
   }
 }
 
@@ -531,7 +531,7 @@ export const selCharRidingSkills = async (conn: any, charIDs: any, reply?: any) 
   } catch (err) {
     const errMsg = `Failed to fetch character riding skill data!\n${err}`;
     send(errMsg, reply);
-    throw err;
+    throw errMsg;
   }
 }
 
@@ -550,7 +550,7 @@ export const selCharPetMountSpells = async (conn: any, charIDs: any, spellIDs: a
   } catch (err) {
     const errMsg = `Failed to fetch character pet and mount spell data!\n${err}`;
     send(errMsg, reply);
-    throw err;
+    throw errMsg;
   }
 }
 
@@ -575,6 +575,6 @@ export const insCharPetMountSpells = async (conn: any, spells: any, reply?: any)
   } catch (err) {
     const errMsg = `Failed to save new pet and mount spell data!\n${err}`;
     send(errMsg, reply);
-    throw err;
+    throw errMsg;
   }
 }

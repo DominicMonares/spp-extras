@@ -17,7 +17,7 @@ export const selAllAchRewards = async (conn: any, reply?: any) => { // TEMP ANY
   } catch (err) {
     const errMsg = `Failed to fetch achievement reward data!\n${err}`;
     send(errMsg, reply);
-    throw err;
+    throw errMsg;
   }
 }
 
@@ -40,7 +40,7 @@ export const selCutTitle = async (conn: any, reply?: any) => { // TEMP ANY
   } catch (err) {
     const errMsg = `Failed to fetch cut title data!\n${err}`;
     send(errMsg, reply);
-    throw err;
+    throw errMsg;
   }
 }
 
@@ -69,7 +69,7 @@ export const insCutTitles = async (conn: any, reply?: any) => { // TEMP ANY
   } catch (err) {
     const errMsg = `Failed to add cut titles to database!\n${err}`;
     send(errMsg, reply);
-    throw err;
+    throw errMsg;
   }
 }
 
@@ -92,7 +92,7 @@ export const selRewItemCharges = async (conn: any, items: any, reply?: any) => {
   } catch (err) {
     const errMsg = `Failed to fetch reward item charge data!\n${err}`;
     send(errMsg, reply);
-    throw err;
+    throw errMsg;
   }
 }
 
@@ -119,7 +119,7 @@ export const selPetMountItems = async (conn: any, reply?: any) => { // TEMP ANY
   } catch (err) {
     const errMsg = `Failed to fetch pet and mount item data!\n${err}`;
     send(errMsg, reply);
-    throw err;
+    throw errMsg;
   }
 }
 
@@ -148,6 +148,6 @@ export const selAllTemplateQuests = async (conn: any, reply?: any) => { // TEMP 
   } catch (err) {
     const errMsg = `Failed to template quest item data!\n${err}`;
     send(errMsg, reply);
-    throw err;
+    throw errMsg;
   }
 }

@@ -19,7 +19,7 @@ export const connect = async (xpac: string, db: string, reply?: any) => { // TEM
   } catch (err) {
     const errMsg = `Failed to connect to ${xpac}${db}!\n${err}`;
     send(errMsg, reply);
-    throw err;
+    throw errMsg;
   }
 }
 
@@ -38,6 +38,6 @@ export const disconnect = async ( // TEMP ANY
   } catch (err) {
     const errMsg = `Failed to disconnect from ${xpac}${db}!\n${err}`;
     send(errMsg, reply);
-    throw err;
+    throw errMsg;
   }
 }

@@ -19,6 +19,6 @@ export const selAccts = async (conn: any, bots: boolean, reply?: any) => { // TE
   } catch (err) {
     const errMsg = `Failed to fetch account data!\n${err}`;
     send(errMsg, reply);
-    throw err;
+    throw errMsg;
   }
 }

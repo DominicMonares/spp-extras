@@ -16,6 +16,7 @@ import log from 'electron-log';
 import MenuBuilder from './menu';
 import questTracker from './services/questTracker';
 import store from './store';
+import accountWide from './services/accountWide';
 
 class AppUpdater {
   constructor() {
@@ -27,10 +28,10 @@ class AppUpdater {
 
 let mainWindow: BrowserWindow | null = null;
 
-ipcMain.on('ipc-example', async (event, arg) => {
-  const msgTemplate = (pingPong: string) => `IPC test: ${pingPong}`;
-  console.log(msgTemplate(arg));
-  event.reply('ipc-example', msgTemplate('pong'));
+// Handle account-wide service
+ipcMain.on('account-wide', async (event, arg) => {
+  console.log(arg);
+  accountWide(event);
 });
 
 if (process.env.NODE_ENV === 'production') {
@@ -140,7 +141,7 @@ app
   .whenReady()
   .then(() => {
     ipcMain.handle('questTracker', async (e, xpac: string, bots: boolean) => { // TEMP TYPE
-      return questTracker(xpac, bots);
+      return questTracker(xpac);
     });
     ipcMain.handle('get:expansion', async () => store.get('expansion'));
     ipcMain.handle('set:expansion', async (e, expansion: string) => { // TEMP TYPE

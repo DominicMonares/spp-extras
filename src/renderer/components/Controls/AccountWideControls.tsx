@@ -61,22 +61,25 @@ const AccountWideControls = () => {
     setModalIsOpen(false);
   }
 
-  // Open account-wide WebSocket
-  const openSocket = () => {
+  // Start account-wide transfer
+  const startAccountWide = () => {
     // Clear previous messages
     dispatch(storeMessages('del'));
 
-    // Dispatch to display each message sent from server as they come in
-    const dispatchMessage = (message: string) => dispatch(storeMessages(message))
+    // Dispatch to display each message sent from main as they come in
     const settings = {
       expansion: expansion,
       petsMounts: petsMountsChecked,
       reputations: repsChecked,
       achievements: achsChecked,
       bots: botsChecked
-    }
+    };
 
-    // openAccountWideSocket(dispatchMessage, settings);
+    window.electron.ipcRenderer.sendMessage('account-wide', settings);
+    window.electron.ipcRenderer.on('account-wide', ((args: any) => { // TEMP ANY
+      dispatch(storeMessages(args));
+    }));
+
     setModalIsOpen(false);
   }
 
@@ -102,7 +105,7 @@ const AccountWideControls = () => {
             <div className="msg-warning">is <b>strongly</b> recommended.</div>
             <div className="msg-warning-buttons">
               <MainButton handleClick={closeModal} buttonText="Cancel" />
-              <MainButton handleClick={openSocket} buttonText="Continue" />
+              <MainButton handleClick={startAccountWide} buttonText="Continue" />
             </div>
           </>
         )}

@@ -5,6 +5,7 @@ export * from './awAchProg';
 export * from './awReputations';
 export * from './accounts';
 export * from './characters';
+export * from './dbReply';
 export * from './loremaster';
 export * from './petsMounts';
 export * from './qtMenus';

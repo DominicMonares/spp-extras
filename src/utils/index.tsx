@@ -6,7 +6,6 @@ export * from './awReputations';
 export * from './accounts';
 export * from './characters';
 export * from './loremaster';
-export * from './paths';
 export * from './petsMounts';
 export * from './qtMenus';
 export * from './qtView';

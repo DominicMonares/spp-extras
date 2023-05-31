@@ -9,11 +9,11 @@
  * `./src/main.js` using webpack. This gives us some performance wins.
  */
 import path from 'path';
+import { URL } from 'url';
 import { app, BrowserWindow, shell, ipcMain } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
-import { resolveHtmlPath } from '../utils/paths';
 import questTracker from './services/questTracker';
 import store from './store';
 
@@ -83,7 +83,17 @@ const createWindow = async () => {
     },
   });
 
-  mainWindow.loadURL(resolveHtmlPath('index.html'));
+  let htmlPath: string;
+  if (process.env.NODE_ENV === 'development') {
+    const port = process.env.PORT || 1212;
+    const url = new URL(`http://localhost:${port}`);
+    url.pathname = 'index.html';
+    htmlPath = url.href;
+  } else {
+    htmlPath = `file://${path.resolve(__dirname, '../renderer/', 'index.html')}`;
+  }
+
+  mainWindow.loadURL(htmlPath);
 
   mainWindow.on('ready-to-show', () => {
     if (!mainWindow) {

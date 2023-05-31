@@ -4,7 +4,6 @@ import Modal from 'react-modal';
 import MainButton from '../MainButton';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { storeMessages } from '../../store/slices';
-import { openAccountWideSocket } from '../../apiCalls';
 import './Controls.css';
 
 
@@ -77,7 +76,7 @@ const AccountWideControls = () => {
       bots: botsChecked
     }
 
-    openAccountWideSocket(dispatchMessage, settings);
+    // openAccountWideSocket(dispatchMessage, settings);
     setModalIsOpen(false);
   }
 

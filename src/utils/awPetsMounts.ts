@@ -92,7 +92,7 @@ export const createPetMountSpellArgs = ( // TEMP ANYS
         if (charCanUse && !alreadyKnown) {
           args.push({
             guid: charID,
-            spellID: spellID
+            spell: spellID
           });
         }
       }

@@ -1,6 +1,6 @@
 import { connect, disconnect } from '../db/connection';
-import { selAccts } from '../db/queries/realmd';
-import { selChars } from '../db/queries/characters';
+import { selAccts } from '../db/realmd';
+import { selChars } from '../db/characters';
 
 const questTracker = async (xpac: any, bots: boolean) => { // TEMP TYPE
   // ----------------------------------------------------------------

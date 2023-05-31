@@ -1,5 +1,5 @@
 import { connect, disconnect } from '../db/connection';
-import { selPlayerAccts } from '../db/realmd';
+import { selAccts } from '../db/realmd';
 import {
   selChars,
   selCompletedDailyQuests,
@@ -48,7 +48,7 @@ const questTracker = async (xpac: any) => { // TEMP TYPE
   // Accounts
   let acctIDs: any = []; // TEMP ANY
   try {
-    const rawAccounts = await selPlayerAccts(realmdDB);
+    const rawAccounts = await selAccts(realmdDB, false);
     acctIDs = rawAccounts.map((a: any) => a.id); // TEMP ANY
   } catch (err) {
     throw err;

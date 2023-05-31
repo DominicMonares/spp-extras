@@ -85,7 +85,7 @@ const QuestTrackerView = () => {
 
   return (
     <div>
-      {all || characterClass || race || zone ? (
+      {all || Object.keys(characterClass).length || Object.keys(race).length || zone ? (
         <table className={`qt-table ${expansion}-qt-table`}>
           <thead>
             <tr>

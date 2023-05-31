@@ -56,7 +56,7 @@ export const filterTemplateQuests = (
           // Look for exact class match
           let completeMatch = true;
           const classesMatch = characterClass?.value === questClass;
-          if (characterClass && !classesMatch) completeMatch = false;
+          if (Object.keys(characterClass).length && !classesMatch) completeMatch = false;
           return completeMatch;
         }
       },
@@ -67,7 +67,7 @@ export const filterTemplateQuests = (
           let completeMatch = true;
           const currentRaceIds = questRaces[questRace]['raceIds'];
           const racesMatch = currentRaceIds.includes(race?.id) && currentRaceIds.length <= 3;
-          if (race && !racesMatch) completeMatch = false;
+          if (Object.keys(race).length && !racesMatch) completeMatch = false;
           return completeMatch;
         }
       },

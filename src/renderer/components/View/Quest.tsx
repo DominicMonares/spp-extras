@@ -17,7 +17,7 @@ const Quest = ({ quest }: QuestProps) => {
         )}
       </td>
       <td className="qt-td2">{quest.entry}</td>
-      <td className="qt-td1">{quest.title}&lrm;</td>
+      <td className="qt-td1">{quest.Title}&lrm;</td>
     </tr>
   );
 }

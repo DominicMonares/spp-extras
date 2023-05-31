@@ -97,9 +97,9 @@ const MenuItems = ({ dropdownType, items, depthLevel }: Props) => {
       return type[0].toUpperCase().concat(type.substring(1));
     } else if (dropdownType === 'zone' && zone) {
       return zone;
-    } else if (dropdownType === 'class' && characterClass) {
+    } else if (dropdownType === 'class' && Object.keys(characterClass).length) {
       return characterClass.title;
-    } else if (dropdownType === 'race' && race) {
+    } else if (dropdownType === 'race' && Object.keys(race).length) {
       return race.title;
     } else {
       return '';

@@ -1,6 +1,6 @@
 import mysql from 'mysql2/promise';
 
-export const connect = async (xpac: string, db: string) => { // TEMP TYPES
+export const connect = async (xpac: string, db: string, reply?: any) => { // TEMP TYPES
   const settings = {
     host: 'localhost',
     port: 3310,
@@ -10,25 +10,40 @@ export const connect = async (xpac: string, db: string) => { // TEMP TYPES
   };
 
   try {
-    console.log(`Connecting to ${xpac}${db}...`);
+    const startMsg = `Connecting to ${xpac}${db}...`;
+    if (reply) reply(startMsg);
+    else console.log(startMsg);
     const connection = await mysql.createConnection(settings);
-    console.log(`Connected to ${xpac}${db}!`);
+    const successMsg = `Connected to ${xpac}${db}!`;
+    if (reply) reply(successMsg);
+    else console.log(successMsg);
     return connection;
   } catch (err) {
-    err = `Failed to connect to ${xpac}${db}!\n${err}`;
-    console.error(err);
+    const errMsg = `Failed to connect to ${xpac}${db}!\n${err}`;
+    if (reply) reply(errMsg);
+    else console.error(errMsg);
     throw err;
   }
 }
 
-export const disconnect = async (connection: any, xpac: string, db: string) => { // TEMP ANY
+export const disconnect = async ( // TEMP ANY
+  connection: any,
+  xpac: string,
+  db: string,
+  reply?: any
+) => {
   try {
-    console.log(`Disconnecting from ${xpac}${db}...`);
+    const startMsg = `Disconnecting from ${xpac}${db}...`;
+    if (reply) reply(startMsg);
+    else console.log(startMsg);
     await connection.end();
-    console.log(`Disconnected from ${xpac}${db}!`);
+    const successMsg = `Disconnected from ${xpac}${db}!`;
+    if (reply) reply(successMsg);
+    else console.log(successMsg);
   } catch (err) {
-    err = `Failed to disconnect from ${xpac}${db}!\n${err}`;
-    console.error(err);
+    const errMsg = `Failed to disconnect from ${xpac}${db}!\n${err}`;
+    if (reply) reply(errMsg);
+    else console.log(errMsg);
     throw err;
   }
 }

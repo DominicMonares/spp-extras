@@ -2,20 +2,25 @@
 // Accounts
 // ----------------------------------------------------------------
 
-export const selAccts = async (conn: any, bots: boolean) => { // TEMP ANY
+export const selAccts = async (conn: any, bots: boolean, reply?: any) => { // TEMP ANY
   const sql = `
     SELECT id, username FROM account
     ${!bots ? 'WHERE username NOT LIKE "%RNDBOT%"' : ''}
   `;
 
   try {
-    console.log('Fetching account data...');
+    const startMsg = 'Fetching account data...';
+    if (reply) reply(startMsg);
+    else console.log(startMsg);
     const [rows] = await conn.query(sql);
-    console.log('Account data fetched!');
+    const successMsg = 'Account data fetched!';
+    if (reply) reply(successMsg);
+    else console.log(successMsg);;
     return rows;
   } catch (err) {
-    err = `Failed to fetch account data!\n${err}`;
-    console.error(err);
+    const errMsg = `Failed to fetch account data!\n${err}`;
+    if (reply) reply(errMsg);
+    else console.log(errMsg);
     throw err;
   }
 }

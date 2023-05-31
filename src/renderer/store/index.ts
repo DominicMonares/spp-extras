@@ -5,7 +5,7 @@ import factionReducer from './slices/factionSlice';
 import questReducer from './slices/questSlice';
 import questTrackerReducer from './slices/questTrackerSlice';
 import toolReducer from './slices/toolSlice';
-import websocketReducer from './slices/websocketSlice';
+import messageReducer from './slices/messageSlice';
 import windowReducer from './slices/windowSlice';
 
 
@@ -17,7 +17,7 @@ export const store = configureStore({
     quests: questReducer,
     tool: toolReducer,
     questTracker: questTrackerReducer,
-    websocket: websocketReducer,
+    messages: messageReducer,
     window: windowReducer
   }
 });

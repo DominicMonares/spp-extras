@@ -1,26 +1,26 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface InitialState {
-  messages: string[];
+  all: string[];
 }
 
 const initialState: InitialState = {
-  messages: [],
+  all: [],
 };
 
-export const websocketSlice = createSlice({
-  name: 'websocket',
+export const messageSlice = createSlice({
+  name: 'messages',
   initialState,
   reducers: {
     storeMessages: (state, action: PayloadAction<string>) => {
       if (action.payload === 'del') {
-        state.messages = [];
+        state.all = [];
       } else {
-        state.messages.push(action.payload);
+        state.all.push(action.payload);
       }
     },
   },
 });
 
-export const { storeMessages } = websocketSlice.actions;
-export default websocketSlice.reducer;
+export const { storeMessages } = messageSlice.actions;
+export default messageSlice.reducer;

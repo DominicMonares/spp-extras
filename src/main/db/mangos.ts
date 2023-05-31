@@ -89,12 +89,12 @@ export const selRewItemCharges = async (conn: any, items: any) => { // TEMP ANY
 
 export const selPetMountItems = async (conn: any) => { // TEMP ANY
   const values = `
-    'entry',
-    'subclass',
-    'name',
-    'AllowableRace',
-    'RequiredSkillRank',
-    'spellid_2'
+    entry,
+    subclass,
+    name,
+    AllowableRace,
+    RequiredSkillRank,
+    spellid_2
   `;
   const sql = `
     SELECT ${values} FROM item_template
@@ -118,13 +118,13 @@ export const selPetMountItems = async (conn: any) => { // TEMP ANY
 
 export const selAllTemplateQuests = async (conn: any) => { // TEMP ANY
   const values = `
-    'entry',
-    'ZoneOrSort',
-    'Type',
-    'RequiredClasses',
-    'RequiredRaces',
-    'Title',
-    'QuestFlags'
+    entry,
+    ZoneOrSort,
+    Type,
+    RequiredClasses,
+    RequiredRaces,
+    Title,
+    QuestFlags
   `;
   const sql = `SELECT ${values} FROM quest_template`;
   try {

@@ -30,12 +30,12 @@ export const formatCompletedQuests = ( // TEMP ANYS
     else if (type === 'daily' && daily) all[guid]['daily'][questID] = quest;
     else if (type === 'weekly') all[guid]['weekly'][questID] = quest;
     else if (type === 'monthly' && monthly) all[guid]['monthly'][questID] = quest;
-
-    regular.forEach((q: any) => addQuest(q, 'regular')); // TEMP ANY
-    if (daily) daily.forEach((q: any) => addQuest(q, 'daily')); // TEMP ANY
-    weekly.forEach((q: any) => addQuest(q, 'weekly')); // TEMP ANY
-    if (monthly) monthly.forEach((q: any) => addQuest(q, 'monthly')); // TEMP ANY
   }
+
+  regular.forEach((q: any) => addQuest(q, 'regular')); // TEMP ANY
+  if (daily) daily.forEach((q: any) => addQuest(q, 'daily')); // TEMP ANY
+  weekly.forEach((q: any) => addQuest(q, 'weekly')); // TEMP ANY
+  if (monthly) monthly.forEach((q: any) => addQuest(q, 'monthly')); // TEMP ANY
 
   return all;
 }

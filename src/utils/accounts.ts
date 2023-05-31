@@ -46,7 +46,7 @@ export const formatAcctsChars = (accounts: any, characters: any) => { // TEMP AN
   characters.forEach((char: any) => { // TEMP ANY
     const accountID = char.account.toString();
     const faction = checkFaction(char.race);
-    all[accountID]['characters'][faction][char.guid.toString()] = char;
+    all[accountID]['characters'][faction][char.guid] = char;
   });
 
   return Object.keys(all).length ? formatPlayerAccts(all) : all;

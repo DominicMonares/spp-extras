@@ -38,6 +38,8 @@ const App = () => {
     let allData: AllQTData | Record<string,never> = {};
     try {
       allData = await window.electron.questTracker(xpac, false) // TEMP FALSE
+      console.log('ASDFSDA ', allData)
+
     } catch (err) {
       if (typeof err === 'string') setError(err);
       else setError(JSON.stringify(err));

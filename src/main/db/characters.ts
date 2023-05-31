@@ -359,7 +359,7 @@ export const insRewardMailItems = async (conn: any, items: any) => { // TEMP ANY
 // Quests
 // ----------------------------------------------------------------
 
-export const selAllCompletedRegQuests = async (conn: any, charIDs: any) => { // TEMP ANY
+export const selCompletedRegQuests = async (conn: any, charIDs: any) => { // TEMP ANY
   const sql = `
     SELECT * FROM character_queststatus
     WHERE guid IN (?) AND status=1
@@ -376,7 +376,7 @@ export const selAllCompletedRegQuests = async (conn: any, charIDs: any) => { // 
   }
 }
 
-export const selAllCompletedDailyQuests = async (conn: any, charIDs: any) => { // TEMP ANY
+export const selCompletedDailyQuests = async (conn: any, charIDs: any) => { // TEMP ANY
   const sql = `
     SELECT * FROM character_queststatus_daily
     WHERE guid IN (?)
@@ -393,7 +393,7 @@ export const selAllCompletedDailyQuests = async (conn: any, charIDs: any) => { /
   }
 }
 
-export const selAllCompletedWeeklyQuests = async (conn: any, charIDs: any) => { // TEMP ANY
+export const selCompletedWeeklyQuests = async (conn: any, charIDs: any) => { // TEMP ANY
   const sql = `
     SELECT * FROM character_queststatus_weekly
     WHERE guid IN (?)
@@ -410,7 +410,7 @@ export const selAllCompletedWeeklyQuests = async (conn: any, charIDs: any) => { 
   }
 }
 
-export const selAllCompletedMonthlyQuests = async (conn: any, charIDs: any) => { // TEMP ANY
+export const selCompletedMonthlyQuests = async (conn: any, charIDs: any) => { // TEMP ANY
   const sql = `
     SELECT * FROM character_queststatus_monthly
     WHERE guid IN (?)

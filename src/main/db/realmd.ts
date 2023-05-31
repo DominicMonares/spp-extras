@@ -5,7 +5,7 @@
 export const selAccts = async (conn: any, bots: boolean) => { // TEMP ANY
   const sql = `
     SELECT id, username FROM account
-    ${!bots ? 'WHERE username NOT LIKE "%RNDBOT%;"' : ''}
+    ${!bots ? 'WHERE username NOT LIKE "%RNDBOT%"' : ''}
   `;
 
   try {

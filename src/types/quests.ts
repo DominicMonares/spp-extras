@@ -70,12 +70,12 @@ export interface TemplateFactionQuests {
 
 export interface TemplateQuest {
   entry: number;
-  requiredclasses: number;
-  requiredraces: number;
-  title: string;
-  type: number;
-  zoneorsort: number;
-  questflags: number;
+  ZoneOrSort: number;
+  Type: number;
+  RequiredClasses: number;
+  RequiredRaces: number;
+  Title: string;
+  QuestFlags: number;
 }
 
 export interface TemplateQuests {

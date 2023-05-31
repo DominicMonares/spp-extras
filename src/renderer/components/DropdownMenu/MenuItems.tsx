@@ -102,7 +102,7 @@ const MenuItems = ({ dropdownType, items, depthLevel }: Props) => {
     } else if (dropdownType === 'race' && race) {
       return race.title;
     } else {
-      return 'No Selection';
+      return '';
     }
   }
 

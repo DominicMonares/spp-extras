@@ -44,8 +44,8 @@ export const filterTemplateQuests = (
   const template = { ...templateQuests[_faction], ...templateQuests['neutral'] };
   for (const q in template) {
     const quest = template[q];
-    const questClass = quest.requiredclasses;
-    const questRace = quest.requiredraces;
+    const questClass = quest.RequiredClasses;
+    const questRace = quest.RequiredRaces;
     const entry = quest.entry;
 
     // Check to see if quests match the conditions specified in the Quest Tracker settings
@@ -78,7 +78,7 @@ export const filterTemplateQuests = (
           if (type === 'regular' || type === 'daily' || type === 'weekly') {
             // The 4 monthly quests are marked as regular in template
             if (entry >= 9884 && entry <= 9887) return false;
-            return questFlags[type].includes(quest.questflags);
+            return questFlags[type].includes(quest.QuestFlags);
           } else if (type === 'monthly') {
             // Only 4 monthly quests prior to patch 4.3
             if (entry >= 9884 && entry <= 9887) return true;
@@ -92,7 +92,7 @@ export const filterTemplateQuests = (
         conditionMet: () => {
           // Look for exact zone match
           const zoneIds = zone ? zones[zone].map((s: ViewSubzone) => s.subzoneId) : false;
-          return zoneIds ? zoneIds.includes(quest.zoneorsort) : false;
+          return zoneIds ? zoneIds.includes(quest.ZoneOrSort) : false;
         }
       }
     };
@@ -108,7 +108,7 @@ export const filterTemplateQuests = (
     }
 
     // Remove unused/dev quests
-    if (devQuestKeywords.some((k: string) => quest.title.includes(k))) conditionsMet = false;
+    if (devQuestKeywords.some((k: string) => quest.Title.includes(k))) conditionsMet = false;
 
     // Add quest to viewQuests if conditions are met
     if (conditionsMet) viewQuests.push({ ...quest, completed: false });
@@ -132,7 +132,7 @@ export const sortViewQuests: SortViewQuests = (viewQuests, sortSetting) => {
   return viewQuests.sort((a, b): any => { // TEMP ANY
     if (sortSetting === 'name') {
       // Sort by alphabetical order
-      return sortTitle(a.title, b.title);
+      return sortTitle(a.Title, b.Title);
     } else if (sortSetting === 'id') {
       // Sort by numerical order
       if (a.entry > b.entry) {
@@ -149,7 +149,7 @@ export const sortViewQuests: SortViewQuests = (viewQuests, sortSetting) => {
       } else if (a.completed && !b.completed) {
         return -1;
       } else if ((a.completed && b.completed) || (!a.completed && !b.completed)) {
-        return sortTitle(a.title, b.title);
+        return sortTitle(a.Title, b.Title);
       }
     } else {
       return 0;
@@ -172,7 +172,7 @@ export const reverseSortViewQuests: SortViewQuests = (viewQuests, sortSetting) =
   return viewQuests.sort((a, b): any => { // TEMP ANY
     if (sortSetting === 'name') {
       // Sort by alphabetical order
-      return reverseSortTitle(a.title, b.title);
+      return reverseSortTitle(a.Title, b.Title);
     } else if (sortSetting === 'id') {
       // Sort by numerical order
       if (a.entry < b.entry) {
@@ -187,7 +187,7 @@ export const reverseSortViewQuests: SortViewQuests = (viewQuests, sortSetting) =
       } else if (!a.completed && b.completed) {
         return -1;
       } else if ((a.completed && b.completed) || (!a.completed && !b.completed)) {
-        return reverseSortTitle(a.title, b.title);
+        return reverseSortTitle(a.Title, b.Title);
       }
     } else {
       return 0;

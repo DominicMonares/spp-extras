@@ -34,7 +34,7 @@ export const formatPlayerAccts = (accounts: any) => { // TEMP ANY
 }
 
 // Organize characters by account
-export const formatAcctsChars = (accounts: any, characters: any) => { // TEMP ANY
+export const formatAcctChars = (accounts: any, characters: any) => { // TEMP ANY
   const all: any = {} // TEMP ANY
   accounts.forEach((account: any) => { // TEMP ANY
     all[account.id.toString()] = {

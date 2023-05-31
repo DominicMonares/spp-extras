@@ -10,6 +10,7 @@ import {
   selCompletedWeeklyQuests,
 } from '../db';
 import {
+  formatAcctChars,
   formatChars,
   formatCompletedQuests,
   formatTemplateQuests,
@@ -62,11 +63,12 @@ const accountWide = async (reply: any, settings: any) => { // TEMP ANY
   }
 
   // Characters
-  let accounts: any = {}; // TEMP ANY
+  let acctChars: any = {}; // TEMP ANY
   let charIDs: any = []; // TEMP ANY
   try {
     const rawChars = await selChars(charactersDB, xpac, acctIDs, reply);
     charIDs = rawChars.map((c: any) => c.guid); // TEMP ANY
+    acctChars = formatAcctChars
   } catch (err) {
     throw err;
   }

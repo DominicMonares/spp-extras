@@ -5,7 +5,7 @@ import { useAppSelector } from '../../store/hooks';
 import './View.css';
 
 
-const ErrorView = ({ error, getAllData }: ViewProps) => {
+const ErrorView = ({ error, getAllData }: ViewProps) => { // TEMP error type
   const expansion = useAppSelector(state => state.expansion.selected);
 
   // TEMP ANY IN MAIN BUTTON
@@ -13,14 +13,9 @@ const ErrorView = ({ error, getAllData }: ViewProps) => {
     <div>
       <MainBigHeader headerText="Error" />
       <div className={`error ${expansion}-error`}>
-        <div className="error-text">{error}</div>
-        {error?.includes('Unexpected') ? ( // TEMP DOUBLE CHECK ERROR TYPE
-          <div className="error-text">
-            Please ensure the database is still running.
-          </div>
-        ) : (
-          <></>
-        )}
+        {error?.split('\n').map((m, i) => {
+          return <div key={i} className="error-text">{m}</div>
+        })}
       </div>
       <div className="error-btn">
         <MainButton handleClick={getAllData as any} buttonText={'Retry'} />

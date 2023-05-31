@@ -43,7 +43,7 @@ const modalStyles = {
 Modal.setAppElement('#root');
 
 type Props = {
-  getAllData: (xpac: Expansion) => void;
+  getAllData: (e?: any, xpac?: Expansion) => void; // TEMP ANY
 }
 
 const ExpansionNav = ({ getAllData }: Props) => {
@@ -88,7 +88,7 @@ const ExpansionNav = ({ getAllData }: Props) => {
     dispatch(storeTool(''));
 
     // Re-fetch all data for new expansion
-    getAllData(nextExpansion);
+    getAllData(null, nextExpansion);
     closeModal();
   }
 

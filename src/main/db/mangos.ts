@@ -26,6 +26,7 @@ export const selAchRewards = async (conn: any, reply?: any) => { // TEMP ANY
 // ----------------------------------------------------------------
 
 export const selCutTitle = async (conn: any, reply?: any) => { // TEMP ANY
+  // Look for 'the Supreme' title to see if cut titles already exist
   const sql = `
     SELECT * FROM achievement_reward
     WHERE entry=457
@@ -34,7 +35,10 @@ export const selCutTitle = async (conn: any, reply?: any) => { // TEMP ANY
     const startMsg = 'Fetching cut title data...';
     send(startMsg, reply);
     const [rows] = await conn.query(sql);
-    const successMsg = 'Cut title data fetched!';
+    const titleExists = rows.length ? true : false;
+    const existsMsg = 'Cut title data fetched!';
+    const notExistsMsg = 'Cut title data doesn\'t exist!';
+    const successMsg = titleExists ? existsMsg : notExistsMsg;
     send(successMsg, reply);
     return rows;
   } catch (err) {
@@ -58,7 +62,7 @@ export const insCutTitles = async (conn: any, reply?: any) => { // TEMP ANY
       null // text
     ];
   });
-  const sql = `INSERT INTO achievement_reward (${columns}) VALUES ?`;
+  const sql = `INSERT IGNORE INTO achievement_reward (${columns}) VALUES ?`;
   try {
     const startMsg = 'Adding cut titles to the database...';
     send(startMsg, reply);

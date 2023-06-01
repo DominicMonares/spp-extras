@@ -11,6 +11,7 @@ import {
   formatPetMountItemData,
   send,
 } from '../../utils';
+import { PetMountSpellValues } from 'types';
 
 export const transferPetsMounts = async (
   acctChars: any,
@@ -24,7 +25,10 @@ export const transferPetsMounts = async (
   let petMountItems: any = {}; // TEMP ANY
   try {
     const rawPetMountItems = await selPetMountItems(mangosDB, reply);
-    spellIDs = rawPetMountItems.map((i: any) => i.spellid_2); // TEMP ANY
+    if (Array.isArray(rawPetMountItems)) spellIDs = rawPetMountItems.map(i => {
+      const item: number = JSON.parse(JSON.stringify(i)).spellid_2; // RowDataPacket workaround
+      return item;
+    });
     petMountItems = formatPetMountItemData(rawPetMountItems);
   } catch (err) {
     throw err;
@@ -49,7 +53,7 @@ export const transferPetsMounts = async (
   }
 
   // Create new DB values
-  let petMountSpellValues: any = []; // TEMP ANY
+  let petMountSpellValues: PetMountSpellValues = [];
   try {
     send('Creating new pet and mount spell DB values...', reply);
     petMountSpellValues = createPetMountSpellValues(

@@ -1,11 +1,12 @@
 import { send } from '../../utils';
 import cutTitles from '../../../data/titles/cutTitles.json';
+import { Connection, Reply } from '../../types';
 
 // ----------------------------------------------------------------
 // Achievement Rewards
 // ----------------------------------------------------------------
 
-export const selAchRewards = async (conn: any, reply?: any) => { // TEMP ANY
+export const selAchRewards = async (conn: Connection, reply?: Reply) => {
   const sql = `SELECT * FROM achievement_reward`;
   try {
     const startMsg = 'Fetching achievement reward data...';
@@ -25,7 +26,7 @@ export const selAchRewards = async (conn: any, reply?: any) => { // TEMP ANY
 // Cut Titles
 // ----------------------------------------------------------------
 
-export const selCutTitle = async (conn: any, reply?: any) => { // TEMP ANY
+export const selCutTitle = async (conn: Connection, reply?: Reply) => {
   // Look for 'the Supreme' title to see if cut titles already exist
   const sql = `
     SELECT * FROM achievement_reward
@@ -35,7 +36,7 @@ export const selCutTitle = async (conn: any, reply?: any) => { // TEMP ANY
     const startMsg = 'Fetching cut title data...';
     send(startMsg, reply);
     const [rows] = await conn.query(sql);
-    const titleExists = rows.length ? true : false;
+    const titleExists = Array.isArray(rows) && rows.length ? true : false;
     const existsMsg = 'Cut title data fetched!';
     const notExistsMsg = 'Cut title data doesn\'t exist!';
     const successMsg = titleExists ? existsMsg : notExistsMsg;
@@ -48,7 +49,7 @@ export const selCutTitle = async (conn: any, reply?: any) => { // TEMP ANY
   }
 }
 
-export const insCutTitles = async (conn: any, reply?: any) => { // TEMP ANY
+export const insCutTitles = async (conn: Connection, reply?: Reply) => {
   const columns = 'entry, gender, title_A, title_H, item, sender, subject, text';
   const values = cutTitles.map(t => {
     return [
@@ -81,7 +82,11 @@ export const insCutTitles = async (conn: any, reply?: any) => { // TEMP ANY
 // Items
 // ----------------------------------------------------------------
 
-export const selRewItemCharges = async (conn: any, items: any, reply?: any) => { // TEMP ANY
+export const selRewItemCharges = async (
+  conn: Connection,
+  itemIDs: number[],
+  reply?: Reply
+) => {
   const sql = `
     SELECT entry, spellcharges_1 FROM item_template
     WHERE entry IN (?)
@@ -89,7 +94,7 @@ export const selRewItemCharges = async (conn: any, items: any, reply?: any) => {
   try {
     const startMsg = 'Fetching reward item charge data...';
     send(startMsg, reply);
-    const [rows] = await conn.query(sql, [items]);
+    const [rows] = await conn.query(sql, [itemIDs]);
     const successMsg = 'Reward item charge data fetched!';
     send(successMsg, reply);
     return rows;
@@ -100,7 +105,7 @@ export const selRewItemCharges = async (conn: any, items: any, reply?: any) => {
   }
 }
 
-export const selPetMountItems = async (conn: any, reply?: any) => { // TEMP ANY
+export const selPetMountItems = async (conn: Connection, reply?: Reply) => {
   const values = `
     entry,
     subclass,
@@ -131,7 +136,7 @@ export const selPetMountItems = async (conn: any, reply?: any) => { // TEMP ANY
 // Quests
 // ----------------------------------------------------------------
 
-export const selTemplateQuests = async (conn: any, reply?: any) => { // TEMP ANY
+export const selTemplateQuests = async (conn: Connection, reply?: Reply) => {
   const values = `
     entry,
     ZoneOrSort,

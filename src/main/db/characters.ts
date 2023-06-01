@@ -1,10 +1,18 @@
 import { send } from '../../utils';
 import {
   Connection,
+  CreditValues,
   Expansion,
+  ItemInstanceValues,
+  MailItemValues,
+  MailValues,
+  PetMountSpellValues,
+  ProgValues,
   Reply,
+  ReputationValues,
+  SharedProgValues,
+  TitleValues,
 } from '../../types';
-
 
 // ----------------------------------------------------------------
 // Characters
@@ -15,7 +23,7 @@ export const selChars = async (
   xpac: Expansion,
   accts: number[],
   reply?: Reply
-) => { // TEMP ANY
+) => {
   const values = `
     guid,
     account,
@@ -46,7 +54,11 @@ export const selChars = async (
 // Achievement Credit
 // ----------------------------------------------------------------
 
-export const selAchCredit = async (conn: any, charIDs: any, reply?: any) => { // TEMP ANY
+export const selAchCredit = async (
+  conn: Connection,
+  charIDs: number[],
+  reply?: Reply
+) => {
   const sql = `
     SELECT * FROM character_achievement
     WHERE guid IN (?)
@@ -65,11 +77,13 @@ export const selAchCredit = async (conn: any, charIDs: any, reply?: any) => { //
   }
 }
 
-export const insCharAchs = async (conn: any, achievements: any, reply?: any) => { // TEMP ANY
+export const insCharAchs = async (
+  conn: Connection,
+  achCredit: CreditValues,
+  reply?: Reply
+) => {
   const columns = 'guid, achievement, date';
-  const values = achievements.map((a: any) => { // TEMP ANY
-    return [a.guid, a.achievement, a.date];
-  });
+  const values = achCredit.map(a =>[a.guid, a.achievement, a.date]);
   const sql = `INSERT IGNORE INTO character_achievement (${columns}) VALUES ?`;
   try {
     const startMsg = 'Saving new character achievement credit...';
@@ -89,7 +103,11 @@ export const insCharAchs = async (conn: any, achievements: any, reply?: any) => 
 // Achievement Progress
 // ----------------------------------------------------------------
 
-export const selAchProg = async (conn: any, charIDs: any, reply?: any) => { // TEMP ANY
+export const selAchProg = async (
+  conn: Connection,
+  charIDs: number[],
+  reply?: Reply
+) => {
   const sql = `
     SELECT * FROM character_achievement_progress
     WHERE guid IN (?)
@@ -108,9 +126,13 @@ export const selAchProg = async (conn: any, charIDs: any, reply?: any) => { // T
   }
 }
 
-export const insUpdAchProg = async (conn: any, achievements: any, reply?: any) => { // TEMP ANY
+export const insUpdAchProg = async (
+  conn: Connection,
+  achProg: ProgValues,
+  reply?: Reply
+) => {
   const columns = 'guid, criteria, counter, date';
-  const values = achievements.map((a: any) => { // TEMP ANY
+  const values = achProg.map(a => {
     return [a.guid, a.criteria, a.counter, a.date];
   });
   const sql = `
@@ -135,13 +157,13 @@ export const insUpdAchProg = async (conn: any, achievements: any, reply?: any) =
 // Achievement Shared Progress
 // ----------------------------------------------------------------
 
-export const showSharedProg = async (conn: any, reply?: any) => { // TEMP ANY
+export const showSharedProg = async (conn: Connection, reply?: Reply) => {
   const sql = 'SHOW TABLES LIKE "character_achievement_shared_progress"';
   try {
     const startMsg = 'Looking for shared achievement progress table...';
     send(startMsg, reply);
     const [rows] = await conn.query(sql);
-    const tableExists = rows.length ? true : false;
+    const tableExists = Array.isArray(rows) && rows.length ? true : false;
     const existsMsg = 'Shared achievement progress table found!';
     const notExistsMsg = 'Shared achievement progress table doesn\'t exist!';
     const successMsg = tableExists ? existsMsg : notExistsMsg;
@@ -154,7 +176,7 @@ export const showSharedProg = async (conn: any, reply?: any) => { // TEMP ANY
   }
 }
 
-export const createSharedProgTable = async (conn: any, reply?: any) => { // TEMP ANY
+export const createSharedProgTable = async (conn: Connection, reply?: Reply) => {
   const sql = `
     CREATE TABLE character_achievement_shared_progress (
       id INT,
@@ -178,7 +200,11 @@ export const createSharedProgTable = async (conn: any, reply?: any) => { // TEMP
   }
 }
 
-export const selAchSharedProg = async (conn: any, accountIDs: boolean, reply?: any) => { // TEMP ANY
+export const selAchSharedProg = async (
+  conn: Connection,
+  accountIDs: number[],
+  reply?: Reply
+) => {
   const sql = `
     SELECT * FROM character_achievement_shared_progress
     WHERE id IN (?)
@@ -197,12 +223,13 @@ export const selAchSharedProg = async (conn: any, accountIDs: boolean, reply?: a
   }
 }
 
-export const insUpdCharAchSharedProg = async (conn: any, achievements: any, reply?: any) => { // TEMP ANY
+export const insUpdCharAchSharedProg = async (
+  conn: Connection,
+  achSharedProg: SharedProgValues,
+  reply?: Reply
+) => {
   const columns = 'id, criteria, counter, date';
-  const values = achievements.map((a: any) => { // TEMP ANY
-    return [a.id, a.criteria, a.counter, a.date];
-  });
-  console.log('FUCK ', values)
+  const values = achSharedProg.map(a =>  [a.id, a.criteria, a.counter, a.date]);
   const sql = `
     INSERT INTO character_achievement_shared_progress (${columns}) VALUES ?
       ON DUPLICATE KEY UPDATE counter=VALUES(counter), date=VALUES(date)
@@ -225,7 +252,7 @@ export const insUpdCharAchSharedProg = async (conn: any, achievements: any, repl
 // Achievement Reward Items
 // ----------------------------------------------------------------
 
-export const selLastItemInstID = async (conn: any, reply?: any) => { // TEMP ANY
+export const selLastItemInstID = async (conn: Connection, reply?: Reply) => {
   const sql = 'SELECT MAX(guid) FROM item_instance';
   try {
     const startMsg = 'Fetching last item instance ID data...';
@@ -241,7 +268,11 @@ export const selLastItemInstID = async (conn: any, reply?: any) => { // TEMP ANY
   }
 }
 
-export const insRewardItemInstances = async (conn: any, instances: any, reply?: any) => { // TEMP ANY
+export const insRewardItemInstances = async (
+  conn: Connection,
+  instances: ItemInstanceValues,
+  reply?: Reply
+) => {
   const columns = `
     guid,
     owner_guid,
@@ -258,7 +289,7 @@ export const insRewardItemInstances = async (conn: any, instances: any, reply?: 
     playedTime,
     text
   `;
-  const values = instances.map((i: any) => { // TEMP ANY
+  const values = instances.map(i => {
     return [
       i.guid,
       i.owner_guid,
@@ -291,7 +322,7 @@ export const insRewardItemInstances = async (conn: any, instances: any, reply?: 
   }
 }
 
-export const selLastMailID = async (conn: any, reply?: any) => { // TEMP ANY
+export const selLastMailID = async (conn: Connection, reply?: Reply) => {
   const sql = 'SELECT MAX(id) FROM mail';
   try {
     const startMsg = 'Fetching last mail ID data...';
@@ -307,7 +338,11 @@ export const selLastMailID = async (conn: any, reply?: any) => { // TEMP ANY
   }
 }
 
-export const insRewardMail = async (conn: any, mail: any, reply?: any) => { // TEMP ANY
+export const insRewardMail = async (
+  conn: Connection,
+  mail: MailValues,
+  reply?: Reply
+) => {
   const columns = `
     id,
     messageType,
@@ -324,7 +359,7 @@ export const insRewardMail = async (conn: any, mail: any, reply?: any) => { // T
     cod,
     checked
   `;
-  const values = mail.map((m: any, reply?: any) => { // TEMP ANY
+  const values = mail.map(m => {
     return [
       m.id,
       m.messageType,
@@ -357,11 +392,13 @@ export const insRewardMail = async (conn: any, mail: any, reply?: any) => { // T
   }
 }
 
-export const insRewardMailItems = async (conn: any, items: any, reply?: any) => { // TEMP ANY
+export const insRewardMailItems = async (
+  conn: Connection,
+  items: MailItemValues,
+  reply?: Reply
+) => {
   const columns = 'mail_id, item_guid, item_template, receiver';
-  const values = items.map((i: any) => { // TEMP ANY
-    return [i.mail_id, i.item_guid, i.item_template, i.receiver];
-  });
+  const values = items.map(i => [i.mail_id, i.item_guid, i.item_template, i.receiver]);
   const sql = `INSERT INTO mail_items (${columns}) VALUES ?`;
   try {
     const startMsg = 'Saving new mail item data...';
@@ -381,10 +418,12 @@ export const insRewardMailItems = async (conn: any, items: any, reply?: any) => 
 // Achievement Reward Titles
 // ----------------------------------------------------------------
 
-export const updRewardTitles = async (conn: any, titles: any, reply?: any) => { // TEMP ANY
-  const values = titles.map((t: any) => { // TEMP ANY
-    return [t.guid, t.knownTitles];
-  });
+export const updRewardTitles = async (
+  conn: Connection,
+  titles: TitleValues,
+  reply?: Reply
+) => {
+  const values = titles.map(t => [t.guid, t.knownTitles]);
   const sql = `
     INSERT INTO characters (guid, knownTitles) VALUES ?
       ON DUPLICATE KEY UPDATE knownTitles=VALUES(knownTitles)
@@ -407,7 +446,11 @@ export const updRewardTitles = async (conn: any, titles: any, reply?: any) => { 
 // Quests
 // ----------------------------------------------------------------
 
-export const selCompletedRegQuests = async (conn: any, charIDs: any, reply?: any) => { // TEMP ANY
+export const selCompletedRegQuests = async (
+  conn: Connection,
+  charIDs: number[],
+  reply?: Reply
+) => {
   const sql = `
     SELECT * FROM character_queststatus
     WHERE guid IN (?) AND status=1
@@ -426,7 +469,11 @@ export const selCompletedRegQuests = async (conn: any, charIDs: any, reply?: any
   }
 }
 
-export const selCompletedDailyQuests = async (conn: any, charIDs: any, reply?: any) => { // TEMP ANY
+export const selCompletedDailyQuests = async (
+  conn: Connection,
+  charIDs: number[],
+  reply?: Reply
+) => {
   const sql = `
     SELECT * FROM character_queststatus_daily
     WHERE guid IN (?)
@@ -445,7 +492,11 @@ export const selCompletedDailyQuests = async (conn: any, charIDs: any, reply?: a
   }
 }
 
-export const selCompletedWeeklyQuests = async (conn: any, charIDs: any, reply?: any) => { // TEMP ANY
+export const selCompletedWeeklyQuests = async (
+  conn: Connection,
+  charIDs: number[],
+  reply?: Reply
+) => {
   const sql = `
     SELECT * FROM character_queststatus_weekly
     WHERE guid IN (?)
@@ -464,7 +515,11 @@ export const selCompletedWeeklyQuests = async (conn: any, charIDs: any, reply?: 
   }
 }
 
-export const selCompletedMonthlyQuests = async (conn: any, charIDs: any, reply?: any) => { // TEMP ANY
+export const selCompletedMonthlyQuests = async (
+  conn: Connection,
+  charIDs: number[],
+  reply?: Reply
+) => {
   const sql = `
     SELECT * FROM character_queststatus_monthly
     WHERE guid IN (?)
@@ -487,7 +542,11 @@ export const selCompletedMonthlyQuests = async (conn: any, charIDs: any, reply?:
 // Pets and Mounts
 // ----------------------------------------------------------------
 
-export const selCharRidingSkills = async (conn: any, charIDs: any, reply?: any) => { // TEMP ANY
+export const selCharRidingSkills = async (
+  conn: Connection,
+  charIDs: number[],
+  reply?: Reply
+) => {
   const sql = `
     SELECT guid, value FROM character_skills
     WHERE guid IN (?) AND skill=762
@@ -506,7 +565,12 @@ export const selCharRidingSkills = async (conn: any, charIDs: any, reply?: any) 
   }
 }
 
-export const selCharPetMountSpells = async (conn: any, charIDs: any, spellIDs: any, reply?: any) => { // TEMP ANY
+export const selCharPetMountSpells = async (
+  conn: Connection,
+  charIDs: number[],
+  spellIDs: number[],
+  reply?: Reply
+) => {
   const sql = `
     SELECT guid, spell FROM character_spell
     WHERE guid IN (?) AND spell IN (?)
@@ -525,9 +589,13 @@ export const selCharPetMountSpells = async (conn: any, charIDs: any, spellIDs: a
   }
 }
 
-export const insCharPetMountSpells = async (conn: any, spells: any, reply?: any) => { // TEMP ANY
+export const insCharPetMountSpells = async (
+  conn: Connection,
+  spells: PetMountSpellValues,
+  reply?: Reply
+) => {
   const columns = 'guid, spell, active, disabled';
-  const values = spells.map((s: any) => { // TEMP ANY
+  const values = spells.map(s => {
     return [
       s.guid,
       s.spell,
@@ -554,7 +622,11 @@ export const insCharPetMountSpells = async (conn: any, spells: any, reply?: any)
 // Reputation
 // ----------------------------------------------------------------
 
-export const selCharRep = async (conn: any, charIDs: any, reply?: any) => { // TEMP ANY
+export const selCharRep = async (
+  conn: Connection,
+  charIDs: number[],
+  reply?: Reply
+) => {
   const sql = `
     SELECT guid, faction, standing FROM character_reputation
     WHERE guid IN (?)
@@ -573,10 +645,12 @@ export const selCharRep = async (conn: any, charIDs: any, reply?: any) => { // T
   }
 }
 
-export const updCharRep = async (conn: any, reputations: any, reply?: any) => { // TEMP ANY
-  const values = reputations.map((r: any) => { // TEMP ANY
-    return [r.guid, r.faction, r.standing, r.flags];
-  });
+export const updCharRep = async (
+  conn: Connection,
+  reputations: ReputationValues,
+  reply?: Reply
+) => {
+  const values = reputations.map(r => [r.guid, r.faction, r.standing, r.flags]);
   const sql = `
     INSERT INTO characters (guid, faction, standing, flags) VALUES ?
       ON DUPLICATE KEY UPDATE standing=VALUES(standing)

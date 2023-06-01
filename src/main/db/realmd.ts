@@ -1,10 +1,11 @@
 import { send } from '../../utils';
+import { Connection, Reply } from '../../types';
 
 // ----------------------------------------------------------------
 // Accounts
 // ----------------------------------------------------------------
 
-export const selAccts = async (conn: any, bots: boolean, reply?: any) => { // TEMP ANY
+export const selAccts = async (conn: Connection, bots: boolean, reply?: Reply) => {
   const sql = `
     SELECT id, username FROM account
     ${!bots ? 'WHERE username NOT LIKE "%RNDBOT%"' : ''}

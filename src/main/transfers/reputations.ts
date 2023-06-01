@@ -4,6 +4,7 @@ import {
   formatCharSpellData,
   send,
 } from '../../utils';
+import { ReputationValues } from 'types';
 
 export const transferReputations = async (
   acctChars: any,
@@ -21,7 +22,7 @@ export const transferReputations = async (
   }
 
   // Create new DB values
-  let reputationValues: any = []; // TEMP ANY
+  let reputationValues: ReputationValues = [];
   try {
     send('Creating new character reputation standing DB values...', reply);
     reputationValues = createReputationValues(

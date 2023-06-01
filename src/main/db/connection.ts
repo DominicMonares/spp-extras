@@ -1,7 +1,16 @@
 import mysql from 'mysql2/promise';
 import { send } from '../../utils';
+import {
+  Connection,
+  Expansion,
+  Reply,
+} from '../../types';
 
-export const connect = async (xpac: string, db: string, reply?: any) => { // TEMP TYPES
+export const connect = async (
+  xpac: Expansion,
+  db: string,
+  reply?: Reply
+) => {
   const settings = {
     host: 'localhost',
     port: 3310,
@@ -23,11 +32,11 @@ export const connect = async (xpac: string, db: string, reply?: any) => { // TEM
   }
 }
 
-export const disconnect = async ( // TEMP ANY
-  connection: any,
-  xpac: string,
+export const disconnect = async (
+  connection: Connection,
+  xpac: Expansion,
   db: string,
-  reply?: any
+  reply?: Reply
 ) => {
   try {
     const startMsg = `Disconnecting from ${xpac}${db}...`;

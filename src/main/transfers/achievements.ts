@@ -32,6 +32,15 @@ import {
   formatTemplateQuests,
   send,
 } from '../../utils';
+import {
+  CreditValues,
+  ItemInstanceValues,
+  MailItemValues,
+  MailValues,
+  ProgValues,
+  SharedProgValues,
+  TitleValues,
+} from '../../types';
 
 export const transferAchievements = async ( // TEMP ANY
   acctChars: any,
@@ -50,7 +59,7 @@ export const transferAchievements = async ( // TEMP ANY
   // Restore cut titles if they don't exist in db
   try {
     const cutTitle = await selCutTitle(mangosDB, reply);
-    if (!cutTitle.length) try {
+    if (Array.isArray(cutTitle) && !cutTitle.length) try {
       await insCutTitles(mangosDB, reply);
     } catch (err) {
       throw err;
@@ -63,7 +72,8 @@ export const transferAchievements = async ( // TEMP ANY
   try {
     let sharedProgExists = false;
     const sharedProgTable = await showSharedProg(charactersDB, reply);
-    if (sharedProgTable.length) sharedProgExists = true;
+    const tableArray = Array.isArray(sharedProgTable);
+    if (tableArray && sharedProgTable.length) sharedProgExists = true;
     if (!sharedProgExists) try {
       await createSharedProgTable(charactersDB, reply);
     } catch (err) {
@@ -129,7 +139,8 @@ export const transferAchievements = async ( // TEMP ANY
   let lastItemInstID = 0;
   try {
     const rawLastItemInstID = await selLastItemInstID(charactersDB, reply);
-    lastItemInstID = rawLastItemInstID[0]['MAX(guid)'];
+    const itemInstArray = Array.isArray(rawLastItemInstID);
+    if (itemInstArray) lastItemInstID = Object.values(rawLastItemInstID[0])[0];
   } catch (err) {
     throw err;
   }
@@ -138,7 +149,8 @@ export const transferAchievements = async ( // TEMP ANY
   let lastMailID = 0;
   try {
     const rawLastMailID = await selLastMailID(charactersDB, reply);
-    lastMailID = rawLastMailID[0]['MAX(guid)'];
+    const mailArray = Array.isArray(rawLastMailID);
+    if (mailArray) lastMailID = Object.values(rawLastMailID[0])[0];
   } catch (err) {
     throw err;
   }
@@ -152,7 +164,10 @@ export const transferAchievements = async ( // TEMP ANY
   let achRewards: any = {}; // TEMP ANY
   try {
     const rawAchRewards = await selAchRewards(mangosDB, reply);
-    achItemIDs = rawAchRewards.map((r: any) => r.item); // TEMP ANY
+    if (Array.isArray(rawAchRewards)) achItemIDs = rawAchRewards.map(r => {
+      const rew: number = JSON.parse(JSON.stringify(r)).item; // RowDataPacket workaround
+      return rew;
+    }); // TEMP ANY
     achRewards = formatAchRewards(rawAchRewards);
   } catch (err) {
     throw err;
@@ -181,8 +196,8 @@ export const transferAchievements = async ( // TEMP ANY
   // ----------------------------------------------------------------
 
   // Create progress values and add any new achievements to credit
-  let charProgValues: any = []; // TEMP ANY
-  let sharedProgValues: any = []; // TEMP ANY
+  let charProgValues: ProgValues = [];
+  let sharedProgValues: SharedProgValues = [];
   try {
     send('Creating new achievement progress DB values...', reply);
     const achProgValues = createProgValues(allAcctData, templateQuests);
@@ -198,11 +213,11 @@ export const transferAchievements = async ( // TEMP ANY
   }
 
   // Create credit and reward values
-  let creditValues: any = []; // TEMP ANY
-  let itemInstValues: any = []; // TEMP ANY
-  let mailValues: any = []; // TEMP ANY
-  let mailItemValues: any = []; // TEMP ANY
-  let titleValues: any = []; // TEMP ANY
+  let creditValues: CreditValues = [];
+  let itemInstValues: ItemInstanceValues = [];
+  let mailValues: MailValues = [];
+  let mailItemValues: MailItemValues = [];
+  let titleValues: TitleValues = [];
   try {
     send('Creating new achievement credit and reward DB values...', reply);
     const creditRewardValues = createCreditRewValues(

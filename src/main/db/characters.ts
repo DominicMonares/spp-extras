@@ -35,7 +35,7 @@ export const selChars = async (conn: any, xpac: any, accts: any, reply?: any) =>
 // Achievement Credit
 // ----------------------------------------------------------------
 
-export const selAllCharAchs = async (conn: any, charIDs: any, reply?: any) => { // TEMP ANY
+export const selAchCredit = async (conn: any, charIDs: any, reply?: any) => { // TEMP ANY
   const sql = `
     SELECT * FROM character_achievement
     WHERE guid IN (?)
@@ -78,7 +78,7 @@ export const insCharAchs = async (conn: any, achievements: any, reply?: any) => 
 // Achievement Progress
 // ----------------------------------------------------------------
 
-export const selAllAchProg = async (conn: any, charIDs: any, reply?: any) => { // TEMP ANY
+export const selAchProg = async (conn: any, charIDs: any, reply?: any) => { // TEMP ANY
   const sql = `
     SELECT * FROM character_achievement_progress
     WHERE guid IN (?)
@@ -127,12 +127,15 @@ export const insUpdAchProg = async (conn: any, achievements: any, reply?: any) =
 export const showSharedProg = async (conn: any, reply?: any) => { // TEMP ANY
   const sql = 'SHOW TABLES LIKE "character_achievement_shared_progress"';
   try {
-    const startMsg = 'Fetching shared achievement progress table data...';
+    const startMsg = 'Looking for shared achievement progress table...';
     send(startMsg, reply);
     const [rows] = await conn.query(sql);
-    const successMsg = 'Shared achievement progress table data fetched!';
+    const tableExists = rows.length ? true : false;
+    const existsMsg = 'Shared achievement progress table found!';
+    const notExistsMsg = 'Shared achievement progress table doesn\'t exist!';
+    const successMsg = tableExists ? existsMsg : notExistsMsg;
     send(successMsg, reply);
-    return rows;
+    return tableExists;
   } catch (err) {
     const errMsg = `Failed to fetch shared achievement progress table data!\n${err}`;
     send(errMsg, reply);
@@ -163,7 +166,7 @@ export const createSharedProgTable = async (conn: any, reply?: any) => { // TEMP
   }
 }
 
-export const selAllCharAchSharedProg = async (conn: any, accountIDs: boolean, reply?: any) => { // TEMP ANY
+export const selAchSharedProg = async (conn: any, accountIDs: boolean, reply?: any) => { // TEMP ANY
   const sql = `
     SELECT * FROM character_achievement_shared_progress
     WHERE guid IN (?)
@@ -471,7 +474,7 @@ export const selCompletedMonthlyQuests = async (conn: any, charIDs: any, reply?:
 // Reputation
 // ----------------------------------------------------------------
 
-export const selAllCharRep = async (conn: any, charIDs: any, reply?: any) => { // TEMP ANY
+export const selCharRep = async (conn: any, charIDs: any, reply?: any) => { // TEMP ANY
   const sql = `
     SELECT guid, faction, standing FROM character_reputation
     WHERE guid IN (?)

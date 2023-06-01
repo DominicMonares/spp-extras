@@ -16,10 +16,10 @@ interface ReputationTemplate { // REFACTOR AND MOVE TO TYPE FILE
 const reputationTemplate = _reputationTemplate as ReputationTemplate;
 
 // Share reputation standing between characters
-export const createReputationValues = (allAcctData: any, reputations: any) => { // TEMP ANYS
+export const createReputationValues = (acctChars: any, reputations: any) => { // TEMP ANYS
   const dbValues: any = []; // TEMP ANY
-  for (const acctID in allAcctData) {
-    const account = allAcctData[acctID];
+  for (const acctID in acctChars) {
+    const account = acctChars[acctID];
     const characters = account.characters;
     const mergedChars = { ...characters.alliance, ...characters.horde };
     const acctStanding: any = { // TEMP ANY

@@ -126,23 +126,25 @@ const AccountWideControls = () => {
           text="Reputations"
         />
         {expansion === 'wotlk' ? (
-          <Checkbox
-            callback={() => setAchsChecked(!achsChecked)}
-            isChecked={achsChecked}
-            text="Achievements"
-          />
+          <>
+            <Checkbox
+              callback={() => setAchsChecked(!achsChecked)}
+              isChecked={achsChecked}
+              text="Achievements"
+            />
+            <Checkbox
+              callback={() => setBotsChecked(!botsChecked)}
+              isChecked={botsChecked}
+              text="Include bot accounts"
+            />
+            <div className="msg-note">
+              <b>Note:</b> You will not receive any achievements, pets, etc. from bot accounts.
+              This only runs transfers for bot accounts in addition to yours.
+            </div>
+          </>
         ) : (
           <></>
         )}
-        <Checkbox
-          callback={() => setBotsChecked(!botsChecked)}
-          isChecked={botsChecked}
-          text="Include bot accounts"
-        />
-        <div className="msg-note">
-          <b>Note:</b> You will not receive any achievements, pets, etc. from bot accounts.
-          This only runs transfers for bot accounts in addition to yours.
-        </div>
       </div>
       <MainButton handleClick={openModal} buttonText="Start" />
       <div className="msg-options-container">

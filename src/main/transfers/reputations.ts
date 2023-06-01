@@ -1,10 +1,7 @@
 import { selCharRep } from '../db';
 import {
-  createPetMountSpellValues,
   createReputationValues,
-  formatCharSkillData,
   formatCharSpellData,
-  formatPetMountItemData,
   send,
 } from '../../utils';
 

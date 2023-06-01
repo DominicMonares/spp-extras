@@ -40,7 +40,8 @@ const App = () => {
     } catch (err: any) { // TEMP ANY
       if (typeof err !== 'string') err = err.toString();
       // Remove boilerplate portion of err message
-      const errMsg = err.length > 50 ? err.slice(52) : err;
+      const errMsg = err.length > 52 ? err.slice(52) : err;
+
       setLoading(false);
       setError(errMsg);
       return;

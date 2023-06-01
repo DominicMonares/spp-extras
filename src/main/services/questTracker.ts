@@ -1,19 +1,19 @@
 import { connect, disconnect } from '../db/connection';
-import { selAccts } from '../db/realmd';
 import {
+  selAccts,
   selChars,
   selCompletedDailyQuests,
   selCompletedMonthlyQuests,
   selCompletedRegQuests,
-  selCompletedWeeklyQuests
-} from '../db/charactersSelf';
+  selCompletedWeeklyQuests,
+  selTemplateQuests,
+} from '../db';
 import {
   formatChars,
   formatCompletedQuests,
   formatTemplateQuests,
-  send
+  send,
 } from '../../utils';
-import { selTemplateQuests } from '../db/mangos';
 
 const questTracker = async (xpac: any) => { // TEMP TYPE
   send('Starting Quest Tracker service');
@@ -52,7 +52,10 @@ const questTracker = async (xpac: any) => { // TEMP TYPE
   let acctIDs: any = []; // TEMP ANY
   try {
     const rawAccounts = await selAccts(realmdDB, false);
-    acctIDs = rawAccounts.map((a: any) => a.id); // TEMP ANY
+    if (Array.isArray(rawAccounts)) acctIDs = rawAccounts.map(a => {
+      const acct: number = JSON.parse(JSON.stringify(a)).id; // RowDataPacket workaround
+      return acct;
+    });
   } catch (err) {
     throw err;
   }
@@ -62,8 +65,10 @@ const questTracker = async (xpac: any) => { // TEMP TYPE
   let characters: any; // TEMP ANY
   try {
     const rawCharacters = await selChars(charactersDB, xpac, acctIDs);
-    charIDs = rawCharacters.map((c: any) => c.guid); // TEMP ANY
-    characters = formatChars(rawCharacters);
+    if (Array.isArray(rawCharacters)) charIDs = rawCharacters.map(c => {
+      const char: number = JSON.parse(JSON.stringify(c)).guid; // RowDataPacket workaround
+      return char;
+    });
   } catch (err) {
     throw err;
   }

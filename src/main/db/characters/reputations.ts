@@ -1,9 +1,9 @@
-import { send } from '../../utils';
+import { send } from '../../../utils';
 import {
   Connection,
   Reply,
   ReputationValues,
-} from '../../types';
+} from '../../../types';
 
 // ----------------------------------------------------------------
 // Reputation

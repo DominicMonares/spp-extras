@@ -1,9 +1,9 @@
-import { send } from '../../utils';
+import { send } from '../../../utils';
 import {
   Connection,
   Expansion,
   Reply,
-} from '../../types';
+} from '../../../types';
 
 // ----------------------------------------------------------------
 // Characters

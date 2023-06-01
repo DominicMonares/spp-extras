@@ -1,11 +1,11 @@
-import { send } from '../../utils';
+import { send } from '../../../utils';
 import {
   Connection,
   ItemInstanceValues,
   MailItemValues,
   MailValues,
   Reply,
-} from '../../types';
+} from '../../../types';
 
 // ----------------------------------------------------------------
 // Achievement Reward Items

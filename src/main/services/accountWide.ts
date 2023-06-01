@@ -3,17 +3,9 @@ import {
   disconnect,
   selAccts,
   selChars,
-  selCompletedDailyQuests,
-  selCompletedMonthlyQuests,
-  selCompletedRegQuests,
-  selCompletedWeeklyQuests,
-  selTemplateQuests,
 } from '../db';
 import {
   formatAcctChars,
-  formatChars,
-  formatCompletedQuests,
-  formatTemplateQuests,
   send,
 } from '../../utils';
 import {

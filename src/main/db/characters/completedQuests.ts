@@ -1,11 +1,11 @@
-import { send } from '../../utils';
+import { send } from '../../../utils';
 import {
   Connection,
   Reply,
-} from '../../types';
+} from '../../../types';
 
 // ----------------------------------------------------------------
-// Quests
+// Completed Quests
 // ----------------------------------------------------------------
 
 export const selCompletedRegQuests = async (

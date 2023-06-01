@@ -1,9 +1,9 @@
-import { send } from '../../utils';
+import { send } from '../../../utils';
 import {
   Connection,
   PetMountSpellValues,
   Reply,
-} from '../../types';
+} from '../../../types';
 
 // ----------------------------------------------------------------
 // Pets and Mounts

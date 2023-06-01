@@ -1,9 +1,9 @@
-import { send } from '../../utils';
+import { send } from '../../../utils';
 import {
   Connection,
   CreditValues,
   Reply,
-} from '../../types';
+} from '../../../types';
 
 // ----------------------------------------------------------------
 // Achievement Credit

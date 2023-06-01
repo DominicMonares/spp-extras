@@ -130,7 +130,7 @@ export const showSharedProg = async (conn: any, reply?: any) => { // TEMP ANY
     const startMsg = 'Looking for shared achievement progress table...';
     send(startMsg, reply);
     const [rows] = await conn.query(sql);
-    const tableExists = rows.length ? true : false;
+    const tableExists = !rows.length ? true : false;
     const existsMsg = 'Shared achievement progress table found!';
     const notExistsMsg = 'Shared achievement progress table doesn\'t exist!';
     const successMsg = tableExists ? existsMsg : notExistsMsg;
@@ -169,7 +169,7 @@ export const createSharedProgTable = async (conn: any, reply?: any) => { // TEMP
 export const selAchSharedProg = async (conn: any, accountIDs: boolean, reply?: any) => { // TEMP ANY
   const sql = `
     SELECT * FROM character_achievement_shared_progress
-    WHERE guid IN (?)
+    WHERE id IN (?)
   `;
   try {
     const startMsg = 'Fetching character achievement shared progress data...';

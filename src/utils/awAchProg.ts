@@ -29,14 +29,14 @@ interface ZoneContinents { // MOVE TO TYPE FILE
 }
 const zoneContinents = _zoneContinents as ZoneContinents;
 
-export const createProgValues = (accounts: any, templateQuests: any) => { // TEMP ANYS
+export const createProgValues = (allAcctData: any, templateQuests: any) => { // TEMP ANYS
   interface ProgValues { // REFACTOR/MOVE TO TYPES FILE
     [key: string]: any;
   }
   const dbValues: ProgValues = {
     charProgValues: [],
     sharedProgValues: [],
-    newAccounts: accounts,
+    newAccounts: allAcctData,
   }
 
   const addCharProgValues = ( // TEMP ANYS
@@ -67,8 +67,8 @@ export const createProgValues = (accounts: any, templateQuests: any) => { // TEM
     });
   }
 
-  for (const acctID in accounts) {
-    const account = accounts[acctID];
+  for (const acctID in allAcctData) {
+    const account = allAcctData[acctID];
     const chars = account.characters;
     const credit = account.credit;
     const sharedProgress = account.sharedProgress;

@@ -12,7 +12,7 @@ interface Titles {
 const titles = _titles as Titles;
 
 export const createCreditRewValues = ( // TEMP ANYS
-  accounts: any,
+allAcctData: any,
   achRewards: any,
   itemCharges: any,
   lastItemInstID: any,
@@ -160,9 +160,9 @@ export const createCreditRewValues = ( // TEMP ANYS
   }
 
   // Iterate through all accounts and characters to check achievements
-  for (const acctID in accounts) {
-    const chars = accounts[acctID]['characters'];
-    const credit = accounts[acctID]['credit'];
+  for (const acctID in allAcctData) {
+    const chars = allAcctData[acctID]['characters'];
+    const credit = allAcctData[acctID]['credit'];
     if (!chars) continue;
     for (const charID in chars) {
       const char = chars[charID];

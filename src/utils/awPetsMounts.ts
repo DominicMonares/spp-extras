@@ -18,13 +18,13 @@ const professionSpells = _professionSpells as ProfessionSpells;
 // Share pet and mount spells between all characters
 export const createPetMountSpellValues = ( // TEMP ANYS
   petMountItems: any,
-  accounts: any,
+  allAcctData: any,
   knownSpells: any,
   charRidingSkills: any,
 ) => {
   const dbValues: any = []; // TEMP ANY
-  for (const acctID in accounts) {
-    const account = accounts[acctID];
+  for (const acctID in allAcctData) {
+    const account = allAcctData[acctID];
     const characters = account.characters;
     const mergedChars = { ...characters.alliance, ...characters.horde };
 

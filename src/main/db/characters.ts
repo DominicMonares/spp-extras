@@ -1,10 +1,21 @@
 import { send } from '../../utils';
+import {
+  Connection,
+  Expansion,
+  Reply,
+} from '../../types';
+
 
 // ----------------------------------------------------------------
 // Characters
 // ----------------------------------------------------------------
 
-export const selChars = async (conn: any, xpac: any, accts: any, reply?: any) => { // TEMP ANY
+export const selChars = async (
+  conn: Connection,
+  xpac: Expansion,
+  accts: number[],
+  reply?: Reply
+) => { // TEMP ANY
   const values = `
     guid,
     account,

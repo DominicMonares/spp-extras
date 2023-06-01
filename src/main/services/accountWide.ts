@@ -16,9 +16,15 @@ import {
   formatTemplateQuests,
   send,
 } from '../../utils';
+import {
+  transferAchievements,
+  transferPetsMounts,
+  transferReputations
+} from '../transfers';
 
 const accountWide = async (reply: any, settings: any) => { // TEMP ANY
   const { xpac, petsMounts, reputations, achievements, bots } = settings;
+  send('Starting account-wide data transfers...', reply);
 
   // ----------------------------------------------------------------
   // Connect to all databases needed
@@ -47,28 +53,28 @@ const accountWide = async (reply: any, settings: any) => { // TEMP ANY
     return;
   }
 
-  send('Starting account-wide data transfers...', reply);
-
   // ----------------------------------------------------------------
-  // Fetch and format all data
+  // Fetch and format account and character data
   // ----------------------------------------------------------------
 
   // Accounts
+  let rawAccts: any = []; // TEMP ANY
   let acctIDs: any = []; // TEMP ANY
   try {
-    const rawAccts = await selAccts(realmdDB, false);
+    rawAccts = await selAccts(realmdDB, bots, reply);
     acctIDs = rawAccts.map((a: any) => a.id); // TEMP ANY
   } catch (err) {
     throw err;
   }
 
   // Characters
-  let acctChars: any = {}; // TEMP ANY
+  let rawChars: any = []; // TEMP ANY
   let charIDs: any = []; // TEMP ANY
+  let acctChars: any = {}; // TEMP ANY
   try {
-    const rawChars = await selChars(charactersDB, xpac, acctIDs, reply);
+    rawChars = await selChars(charactersDB, xpac, acctIDs, reply);
     charIDs = rawChars.map((c: any) => c.guid); // TEMP ANY
-    acctChars = formatAcctChars
+    acctChars = formatAcctChars(rawAccts, rawChars);
   } catch (err) {
     throw err;
   }
@@ -77,8 +83,23 @@ const accountWide = async (reply: any, settings: any) => { // TEMP ANY
   // Run transfers
   // ----------------------------------------------------------------
 
+  if (achievements) try {
+    await transferAchievements(acctChars, charIDs, reply, charactersDB, mangosDB);
+  } catch (err) {
+    throw err;
+  }
 
+  if (petsMounts) try {
+    await transferPetsMounts(xpac, acctChars, charIDs, reply, charactersDB, mangosDB);
+  } catch (err) {
+    throw err;
+  }
 
+  if (reputations) try {
+    await transferReputations(acctChars, charIDs, reply, charactersDB, mangosDB)
+  } catch (err) {
+    throw err;
+  }
 
   // ----------------------------------------------------------------
   // Disconnect from all databases

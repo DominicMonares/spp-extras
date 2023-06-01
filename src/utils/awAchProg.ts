@@ -60,7 +60,7 @@ export const createProgValues = (allAcctData: any, templateQuests: any) => { // 
     date: any,
   ) => {
     dbValues.sharedProgVals.push({
-      account: acctID,
+      id: acctID,
       criteria: Number(criteriaID),
       counter: counter,
       date: date

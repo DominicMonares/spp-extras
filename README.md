@@ -13,6 +13,7 @@ TODO
 - Create installation and portable versions of app
 - AccountWide transfer with no options selected - error styling
 - Combine SQL queries where possible
+- Batch disconnect db functions
 - Create actual readme file
 
 

@@ -12,7 +12,7 @@ interface Titles {
 const titles = _titles as Titles;
 
 export const createCreditRewValues = ( // TEMP ANYS
-allAcctData: any,
+  allAcctData: any,
   achRewards: any,
   itemCharges: any,
   lastItemInstID: any,
@@ -27,15 +27,15 @@ allAcctData: any,
     [key: string]: any[];
   }
   const dbValues: CreditRewValues = {
-    creditValues: [],
-    itemInstValues: [],
-    mailValues: [],
-    mailItemValues: [],
-    titleValues: [],
+    creditVals: [],
+    itemInstVals: [],
+    mailVals: [],
+    mailItemVals: [],
+    titleVals: [],
   };
 
   const addCreditValue = (charID: any, achID: any, date: any) => {
-    dbValues.creditValues.push({
+    dbValues.creditVals.push({
       guid: charID,
       achievement: achID,
       date: date,
@@ -48,7 +48,7 @@ allAcctData: any,
     itemID: any,
     itemCharges: any,
   ) => {
-    dbValues.itemInstValues.push({
+    dbValues.itemInstVals.push({
       guid: lastItemInstID,
       owner_guid: charID,
       itemEntry: itemID,
@@ -73,7 +73,7 @@ allAcctData: any,
     reward: any,
     newDate: any,
   ) => {
-    dbValues.mailValues.push({
+    dbValues.mailVals.push({
       id: lastMailID,
       messageType: 3,
       stationery: 41,
@@ -97,7 +97,7 @@ allAcctData: any,
     itemID: any,
     charID: any,
   ) => {
-    dbValues.mailItemValues.push({
+    dbValues.mailItemVals.push({
       mail_id: lastMailID,
       item_guid: lastItemInstID,
       item_template: itemID,
@@ -171,8 +171,8 @@ allAcctData: any,
       for (let achID in credit) {
         let existingAch = charCredit[achID];
         const date = credit[achID];
-        const itemInstLen = dbValues.itemInstValues.length;
-        const mailLen = dbValues.mailValues.length;
+        const itemInstLen = dbValues.itemInstVals.length;
+        const mailLen = dbValues.mailVals.length;
 
         // Check to see if achievement if faction specific/matches char faction
         const factionAch = checkFactionAch(Number(achID), faction);
@@ -191,13 +191,13 @@ allAcctData: any,
         }
 
         // Increment mail and item reward IDs for items added
-        const newItemInstLen = dbValues.itemInstValues.length;
-        const newMailLen = dbValues.mailValues.length;
+        const newItemInstLen = dbValues.itemInstVals.length;
+        const newMailLen = dbValues.mailVals.length;
         if (newItemInstLen > itemInstLen) lastItemInstID++;
         if (newMailLen > mailLen) lastMailID++;
 
         // Add known titles once all achievement rewards given
-        dbValues.titleValues.push({
+        dbValues.titleVals.push({
           guid: charID,
           knownTitles: char.knownTitles
         });

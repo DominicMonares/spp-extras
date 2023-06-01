@@ -2,12 +2,12 @@ import {
   connect,
   disconnect,
   selAccts,
-  selAllTemplateQuests,
   selChars,
   selCompletedDailyQuests,
   selCompletedMonthlyQuests,
   selCompletedRegQuests,
   selCompletedWeeklyQuests,
+  selTemplateQuests,
 } from '../db';
 import {
   formatAcctChars,
@@ -58,22 +58,22 @@ const accountWide = async (reply: any, settings: any) => { // TEMP ANY
   // ----------------------------------------------------------------
 
   // Accounts
-  let rawAccts: any = []; // TEMP ANY
   let acctIDs: any = []; // TEMP ANY
+  let rawAccts: any = []; // TEMP ANY
   try {
-    rawAccts = await selAccts(realmdDB, bots, reply);
     acctIDs = rawAccts.map((a: any) => a.id); // TEMP ANY
+    rawAccts = await selAccts(realmdDB, bots, reply);
   } catch (err) {
     throw err;
   }
 
   // Characters
-  let rawChars: any = []; // TEMP ANY
   let charIDs: any = []; // TEMP ANY
+  let rawChars: any = []; // TEMP ANY
   let acctChars: any = {}; // TEMP ANY
   try {
-    rawChars = await selChars(charactersDB, xpac, acctIDs, reply);
     charIDs = rawChars.map((c: any) => c.guid); // TEMP ANY
+    rawChars = await selChars(charactersDB, xpac, acctIDs, reply);
     acctChars = formatAcctChars(rawAccts, rawChars);
   } catch (err) {
     throw err;

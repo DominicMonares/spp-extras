@@ -36,7 +36,7 @@ export const createProgValues = (allAcctData: any, templateQuests: any) => { // 
   const dbValues: ProgValues = {
     charProgValues: [],
     sharedProgValues: [],
-    newAccounts: allAcctData,
+    allAcctData: allAcctData,
   }
 
   const addCharProgValues = ( // TEMP ANYS
@@ -245,7 +245,7 @@ export const createProgValues = (allAcctData: any, templateQuests: any) => { // 
     }
 
     // Add new credit to account
-    dbValues['newAccounts'][acctID]['credit'] = credit;
+    dbValues['allAcctData'][acctID]['credit'] = credit;
   }
 
   return dbValues;

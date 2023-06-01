@@ -10,11 +10,14 @@ import {
 import {
   formatChars,
   formatCompletedQuests,
-  formatTemplateQuests
+  formatTemplateQuests,
+  send
 } from '../../utils';
 import { selAllTemplateQuests } from '../db/mangos';
 
 const questTracker = async (xpac: any) => { // TEMP TYPE
+  send('Starting Quest Tracker service');
+
   // ----------------------------------------------------------------
   // Connect to all databases needed
   // ----------------------------------------------------------------
@@ -130,6 +133,8 @@ const questTracker = async (xpac: any) => { // TEMP TYPE
   // ----------------------------------------------------------------
   // Return response
   // ----------------------------------------------------------------
+
+  send('Quest Tracker service finished running!');
 
   const response: any = { // TEMP ANY
     characters,

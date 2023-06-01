@@ -6,7 +6,7 @@ import {
   selCompletedMonthlyQuests,
   selCompletedRegQuests,
   selCompletedWeeklyQuests
-} from '../db/characters';
+} from '../db/charactersSelf';
 import {
   formatChars,
   formatCompletedQuests,

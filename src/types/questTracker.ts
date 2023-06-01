@@ -13,7 +13,7 @@ import {
 } from './quests';
 import { ViewQuest, ViewQuests } from './view';
 
-export interface AllQTData {
+export type AllQTData = {
   characters: Characters;
   completedQuests: CompletedQuests;
   templateQuests: TemplateQuests;
@@ -32,20 +32,20 @@ export type MarkTemplateQuests = (
   type: QuestTypeSetting
 ) => ViewQuests;
 
-export interface QuestCondition {
+export type QuestCondition = {
   setting: QTCharacter | QTClass | Faction | QuestTypeSetting | QTRace | string;
   conditionMet: () => boolean;
 }
 
-export interface QuestConditions {
+export type QuestConditions = {
   [key: string]: QuestCondition;
 }
 
-export interface QuestProps {
+export type QuestProps = {
   quest: ViewQuest;
 }
 
-export interface QuestTrackerSettings {
+export type QuestTrackerSettings = {
   all: boolean;
   character: QTCharacter | Record<string,never>;
   characterClass: QTClass | Record<string,never>;
@@ -55,19 +55,19 @@ export interface QuestTrackerSettings {
   zone: string;
 }
 
-export interface QTCharacter {
+export type QTCharacter = {
   id: number;
   name: string;
   value: string;
 }
 
-export interface QTClass {
+export type QTClass = {
   id: ClassSetting;
   title: string;
   value: CharacterQuestClass | 0;
 }
 
-export interface QTRace {
+export type QTRace = {
   id: RaceSetting;
   title: string;
   value: CharacterQuestRace | 0;

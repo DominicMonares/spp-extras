@@ -7,6 +7,6 @@ export interface TabProps extends TabsProps {
   xpac: Expansion;
 }
 
-export interface TabsProps {
+export type TabsProps = {
   openModal: (xpac: Expansion) => void;
 }

@@ -1,13 +1,13 @@
-export interface Account {
+export type Account = {
   username: string;
   characters: Characters;
 }
 
-export interface Accounts {
+export type Accounts = {
   [key: number]: Account;
 }
 
-export interface Character {
+export type Character = {
   guid: number;
   account: number;
   name: string;
@@ -21,14 +21,12 @@ export type CharacterClass = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11;
 
 export type ClassSetting = CharacterClass | 0;
 
-export interface Characters {
+export type Characters = {
   alliance: FactionCharacters | Record<string,never>;
   horde: FactionCharacters | Record<string,never>;
 }
 
-// export type CharacterSetting = FactionCharacters | Record<string,never>;
-
-export interface FactionCharacters {
+export type FactionCharacters = {
   [key: string]: Character;
 }
 

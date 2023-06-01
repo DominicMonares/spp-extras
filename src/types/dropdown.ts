@@ -2,7 +2,7 @@ export type DropdownType = 'character' | 'class' | 'type' | 'race' | 'zone';
 
 export type Menu = Submenu[];
 
-export interface Submenu {
+export type Submenu = {
   title: string;
   submenu?: Menu;
   id?: number;

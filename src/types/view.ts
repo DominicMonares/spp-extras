@@ -7,7 +7,7 @@ export type SortViewQuests = (
   sortSetting: SortSetting
 ) => ViewQuests
 
-export interface ViewProps {
+export type ViewProps = {
   error?: string;
   getAllData?: () => void;
   loading?: boolean;
@@ -19,13 +19,13 @@ export interface ViewQuest extends TemplateQuest {
 
 export type ViewQuests = ViewQuest[];
 
-export interface ViewSubzone {
+export type ViewSubzone = {
   subzoneId: number;
   subzone: string;
 }
 
 export type ViewZone = ViewSubzone[];
 
-export interface ViewZones {
+export type ViewZones = {
   [key: string]: ViewZone;
 }

@@ -1,7 +1,7 @@
 import { Characters } from './characters';
 import { Faction } from './factions';
 
-export interface CharacterQuests {
+export type CharacterQuests = {
   regular: Quests;
   daily?: Quests;
   weekly: Quests;
@@ -12,16 +12,16 @@ export type CharacterQuestClass = 1 | 2 | 4 | 8 | 16 | 32 | 64 | 128 | 256 | 102
 
 export type CharacterQuestRace = 1 | 2 | 4 | 8 | 16 | 32 | 64 | 128 | 512 | 1024;
 
-export interface CompletedQuests {
+export type CompletedQuests = {
   [key: string]: CharacterQuests;
 }
 
-export interface PlayerQuests {
+export type PlayerQuests = {
   alliance: CompletedQuests;
   horde: CompletedQuests;
 }
 
-export interface Quest {
+export type Quest = {
   guid: number;
   quest: number;
   status?: number;
@@ -38,25 +38,25 @@ export interface Quest {
   itemcount4?: number;
 }
 
-export interface QuestFlags {
+export type QuestFlags = {
   regular: number[];
   daily?: number[];
   weekly: number[];
   monthly?: number[];
 }
 
-export interface QuestRace {
+export type QuestRace = {
   questRaceId: number;
   faction: Faction;
   races: string;
   raceIds: number[];
 }
 
-export interface QuestRaces {
+export type QuestRaces = {
   [key: string]: QuestRace;
 }
 
-export interface Quests {
+export type Quests = {
   [key: string]: Quest;
 }
 
@@ -64,11 +64,11 @@ export type QuestType = 'regular' | 'daily' | 'weekly' | 'monthly';
 
 export type QuestTypeSetting = QuestType | '';
 
-export interface TemplateFactionQuests {
+export type TemplateFactionQuests = {
   [key: string]: TemplateQuest;
 }
 
-export interface TemplateQuest {
+export type TemplateQuest = {
   entry: number;
   ZoneOrSort: number;
   Type: number;
@@ -78,7 +78,7 @@ export interface TemplateQuest {
   QuestFlags: number;
 }
 
-export interface TemplateQuests {
+export type TemplateQuests = {
   alliance: TemplateFactionQuests | Record<string,never>;
   horde: TemplateFactionQuests | Record<string,never>;
   neutral: TemplateFactionQuests | Record<string,never>;

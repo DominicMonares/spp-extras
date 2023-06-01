@@ -210,32 +210,6 @@ export const insUpdCharAchSharedProg = async (conn: any, achievements: any, repl
 }
 
 // ----------------------------------------------------------------
-// Achievement Reward Titles
-// ----------------------------------------------------------------
-
-export const updRewardTitles = async (conn: any, titles: any, reply?: any) => { // TEMP ANY
-  const values = titles.map((t: any) => { // TEMP ANY
-    return [t.guid, t.knownTitles];
-  });
-  const sql = `
-    INSERT INTO characters (guid, knownTitles) VALUES ?
-      ON DUPLICATE KEY UPDATE knownTitles=VALUES(knownTitles)
-  `;
-  try {
-    const startMsg = 'Updating character titles...';
-    send(startMsg, reply);
-    const [rows] = await conn.query(sql, [values]);
-    const successMsg = 'Character titles updated!';
-    send(successMsg, reply);
-    return rows;
-  } catch (err) {
-    const errMsg = `Failed to update character titles!\n${err}`;
-    send(errMsg, reply);
-    throw errMsg;
-  }
-}
-
-// ----------------------------------------------------------------
 // Achievement Reward Items
 // ----------------------------------------------------------------
 
@@ -386,6 +360,32 @@ export const insRewardMailItems = async (conn: any, items: any, reply?: any) => 
     return rows;
   } catch (err) {
     const errMsg = `Failed to save new mail item data!\n${err}`;
+    send(errMsg, reply);
+    throw errMsg;
+  }
+}
+
+// ----------------------------------------------------------------
+// Achievement Reward Titles
+// ----------------------------------------------------------------
+
+export const updRewardTitles = async (conn: any, titles: any, reply?: any) => { // TEMP ANY
+  const values = titles.map((t: any) => { // TEMP ANY
+    return [t.guid, t.knownTitles];
+  });
+  const sql = `
+    INSERT INTO characters (guid, knownTitles) VALUES ?
+      ON DUPLICATE KEY UPDATE knownTitles=VALUES(knownTitles)
+  `;
+  try {
+    const startMsg = 'Updating character titles...';
+    send(startMsg, reply);
+    const [rows] = await conn.query(sql, [values]);
+    const successMsg = 'Character titles updated!';
+    send(successMsg, reply);
+    return rows;
+  } catch (err) {
+    const errMsg = `Failed to update character titles!\n${err}`;
     send(errMsg, reply);
     throw errMsg;
   }

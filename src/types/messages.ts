@@ -1,3 +1,3 @@
 import { IpcMainEvent } from 'electron';
 
-export type Reply = IpcMainEvent['reply']
+export type Reply = IpcMainEvent['reply'];

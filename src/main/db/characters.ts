@@ -149,7 +149,7 @@ export const createSharedProgTable = async (conn: any, reply?: any) => { // TEMP
       id INT,
       criteria INT,
       counter INT DEFAULT 0,
-      date BIGINT,
+      date BIGINT DEFAULT 0,
       PRIMARY KEY (id, criteria)
     )
   `;
@@ -187,10 +187,11 @@ export const selAchSharedProg = async (conn: any, accountIDs: boolean, reply?: a
 }
 
 export const insUpdCharAchSharedProg = async (conn: any, achievements: any, reply?: any) => { // TEMP ANY
-  const columns = 'account, criteria, counter, date';
+  const columns = 'id, criteria, counter, date';
   const values = achievements.map((a: any) => { // TEMP ANY
-    return [a.account, a.criteria, a.counter, a.date];
+    return [a.id, a.criteria, a.counter, a.date];
   });
+  console.log('FUCK ', values)
   const sql = `
     INSERT INTO character_achievement_shared_progress (${columns}) VALUES ?
       ON DUPLICATE KEY UPDATE counter=VALUES(counter), date=VALUES(date)
@@ -472,51 +473,6 @@ export const selCompletedMonthlyQuests = async (conn: any, charIDs: any, reply?:
 }
 
 // ----------------------------------------------------------------
-// Reputation
-// ----------------------------------------------------------------
-
-export const selCharRep = async (conn: any, charIDs: any, reply?: any) => { // TEMP ANY
-  const sql = `
-    SELECT guid, faction, standing FROM character_reputation
-    WHERE guid IN (?)
-  `;
-  try {
-    const startMsg = 'Fetching character reputation data...';
-    send(startMsg, reply);
-    const [rows] = await conn.query(sql, [charIDs]);
-    const successMsg = 'Character reputation data fetched!';
-    send(successMsg, reply);
-    return rows;
-  } catch (err) {
-    const errMsg = `Failed to fetch character reputation data!\n${err}`;
-    send(errMsg, reply);
-    throw errMsg;
-  }
-}
-
-export const updCharRep = async (conn: any, reputations: any, reply?: any) => { // TEMP ANY
-  const values = reputations.map((r: any) => { // TEMP ANY
-    return [r.guid, r.faction, r.standing, r.flags];
-  });
-  const sql = `
-    INSERT INTO characters (guid, faction, standing, flags) VALUES ?
-      ON DUPLICATE KEY UPDATE standing=VALUES(standing)
-  `;
-  try {
-    const startMsg = 'Updating character reputation standings...';
-    send(startMsg, reply);
-    const [rows] = await conn.query(sql, [values]);
-    const successMsg = 'Character reputation standings updated!';
-    send(successMsg, reply);
-    return rows;
-  } catch (err) {
-    const errMsg = `Failed to update character reputation standings!\n${err}`;
-    send(errMsg, reply);
-    throw errMsg;
-  }
-}
-
-// ----------------------------------------------------------------
 // Pets and Mounts
 // ----------------------------------------------------------------
 
@@ -578,6 +534,51 @@ export const insCharPetMountSpells = async (conn: any, spells: any, reply?: any)
     return rows;
   } catch (err) {
     const errMsg = `Failed to save new pet and mount spell data!\n${err}`;
+    send(errMsg, reply);
+    throw errMsg;
+  }
+}
+
+// ----------------------------------------------------------------
+// Reputation
+// ----------------------------------------------------------------
+
+export const selCharRep = async (conn: any, charIDs: any, reply?: any) => { // TEMP ANY
+  const sql = `
+    SELECT guid, faction, standing FROM character_reputation
+    WHERE guid IN (?)
+  `;
+  try {
+    const startMsg = 'Fetching character reputation data...';
+    send(startMsg, reply);
+    const [rows] = await conn.query(sql, [charIDs]);
+    const successMsg = 'Character reputation data fetched!';
+    send(successMsg, reply);
+    return rows;
+  } catch (err) {
+    const errMsg = `Failed to fetch character reputation data!\n${err}`;
+    send(errMsg, reply);
+    throw errMsg;
+  }
+}
+
+export const updCharRep = async (conn: any, reputations: any, reply?: any) => { // TEMP ANY
+  const values = reputations.map((r: any) => { // TEMP ANY
+    return [r.guid, r.faction, r.standing, r.flags];
+  });
+  const sql = `
+    INSERT INTO characters (guid, faction, standing, flags) VALUES ?
+      ON DUPLICATE KEY UPDATE standing=VALUES(standing)
+  `;
+  try {
+    const startMsg = 'Updating character reputation standings...';
+    send(startMsg, reply);
+    const [rows] = await conn.query(sql, [values]);
+    const successMsg = 'Character reputation standings updated!';
+    send(successMsg, reply);
+    return rows;
+  } catch (err) {
+    const errMsg = `Failed to update character reputation standings!\n${err}`;
     send(errMsg, reply);
     throw errMsg;
   }

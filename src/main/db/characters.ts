@@ -135,7 +135,7 @@ export const showSharedProg = async (conn: any, reply?: any) => { // TEMP ANY
     const notExistsMsg = 'Shared achievement progress table doesn\'t exist!';
     const successMsg = tableExists ? existsMsg : notExistsMsg;
     send(successMsg, reply);
-    return tableExists;
+    return rows;
   } catch (err) {
     const errMsg = `Failed to fetch shared achievement progress table data!\n${err}`;
     send(errMsg, reply);

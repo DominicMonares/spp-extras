@@ -96,7 +96,7 @@ const accountWide = async (reply: any, settings: any) => { // TEMP ANY
   }
 
   if (reputations) try {
-    await transferReputations(acctChars, acctIDs, charIDs, reply, charactersDB, mangosDB)
+    await transferReputations(acctChars, charIDs, reply, charactersDB)
   } catch (err) {
     throw err;
   }

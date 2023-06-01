@@ -7,11 +7,9 @@ import {
 
 export const transferReputations = async (
   acctChars: any,
-  acctIDs: any,
   charIDs: any,
   reply: any,
-  charactersDB: any,
-  mangosDB: any,
+  charactersDB: any
 ) => {
   // Fetch and format character reputations
   let reputations: any = {}; // TEMP ANY

@@ -61,8 +61,8 @@ const accountWide = async (reply: any, settings: any) => { // TEMP ANY
   let acctIDs: any = []; // TEMP ANY
   let rawAccts: any = []; // TEMP ANY
   try {
-    acctIDs = rawAccts.map((a: any) => a.id); // TEMP ANY
     rawAccts = await selAccts(realmdDB, bots, reply);
+    acctIDs = rawAccts.map((a: any) => a.id); // TEMP ANY
   } catch (err) {
     throw err;
   }
@@ -72,8 +72,8 @@ const accountWide = async (reply: any, settings: any) => { // TEMP ANY
   let rawChars: any = []; // TEMP ANY
   let acctChars: any = {}; // TEMP ANY
   try {
-    charIDs = rawChars.map((c: any) => c.guid); // TEMP ANY
     rawChars = await selChars(charactersDB, xpac, acctIDs, reply);
+    charIDs = rawChars.map((c: any) => c.guid); // TEMP ANY
     acctChars = formatAcctChars(rawAccts, rawChars);
   } catch (err) {
     throw err;

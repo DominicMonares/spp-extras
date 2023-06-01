@@ -90,7 +90,7 @@ const accountWide = async (reply: any, settings: any) => { // TEMP ANY
   }
 
   if (petsMounts) try {
-    await transferPetsMounts(xpac, acctChars, acctIDs, charIDs, reply, charactersDB, mangosDB);
+    await transferPetsMounts(acctChars, charIDs, reply, charactersDB, mangosDB);
   } catch (err) {
     throw err;
   }

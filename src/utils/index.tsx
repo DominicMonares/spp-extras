@@ -2,6 +2,7 @@ export * from './achievements';
 export * from './awAccounts';
 export * from './awAchCredit';
 export * from './awAchProg';
+export * from './awPetsMounts';
 export * from './awReputations';
 export * from './accounts';
 export * from './characters';

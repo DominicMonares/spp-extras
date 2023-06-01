@@ -10,8 +10,15 @@ const electronHandler = {
       ipcRenderer.send(channel, ...args);
     },
     on(channel: Channels, func: (...args: unknown[]) => void) {
-      const subscription = (_event: IpcRendererEvent, ...args: unknown[]) =>
-        func(...args);
+      const listeners = ipcRenderer.rawListeners('account-wide');
+      const subscription = (_event: IpcRendererEvent, ...args: unknown[]) => func(...args);
+      listeners.forEach(listener => {
+        const listenerExists = listener.toString() === subscription.toString();
+        if (listenerExists) {
+          ipcRenderer.removeListener(channel, listener as (...args: unknown[]) => void); // TEMP TYPE
+        }
+      })
+
       ipcRenderer.on(channel, subscription);
 
       return () => {

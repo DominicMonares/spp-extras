@@ -62,7 +62,7 @@ const AccountWideControls = () => {
   }
 
   // Start account-wide transfer
-  const startAccountWide = () => {
+  const startAccountWide = async () => {
     // Clear previous messages
     dispatch(storeMessages('del'));
 
@@ -75,11 +75,9 @@ const AccountWideControls = () => {
       bots: botsChecked
     };
 
+    const listener = (args: any) => dispatch(storeMessages(args)); // TEMP ANY
+    window.electron.ipcRenderer.on('account-wide', listener);
     window.electron.ipcRenderer.sendMessage('account-wide', settings);
-    window.electron.ipcRenderer.on('account-wide', ((args: any) => { // TEMP ANY
-      dispatch(storeMessages(args));
-    }));
-
     setModalIsOpen(false);
   }
 

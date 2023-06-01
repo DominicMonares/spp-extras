@@ -62,8 +62,8 @@ const questTracker = async (xpac: any) => { // TEMP TYPE
   let characters: any; // TEMP ANY
   try {
     const rawCharacters = await selChars(charactersDB, xpac, acctIDs);
-    characters = formatChars(rawCharacters);
     charIDs = rawCharacters.map((c: any) => c.guid); // TEMP ANY
+    characters = formatChars(rawCharacters);
   } catch (err) {
     throw err;
   }

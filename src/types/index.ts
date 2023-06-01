@@ -1,5 +1,6 @@
 export * from './apiCalls';
 export * from './characters';
+export * from './database';
 export * from './dropdown';
 export * from './expansions';
 export * from './factions';

@@ -34,9 +34,9 @@ export const createProgValues = (allAcctData: any, templateQuests: any) => { // 
     [key: string]: any;
   }
   const dbValues: ProgValues = {
-    charProgValues: [],
-    sharedProgValues: [],
-    allAcctData: allAcctData,
+    charProgVals: [],
+    sharedProgVals: [],
+    newAcctData: allAcctData,
   }
 
   const addCharProgValues = ( // TEMP ANYS
@@ -45,7 +45,7 @@ export const createProgValues = (allAcctData: any, templateQuests: any) => { // 
     counter: any,
     date: any,
   ) => {
-    dbValues.charProgValues.push({
+    dbValues.charProgVals.push({
       guid: guid,
       criteria: Number(criteria),
       counter: counter,
@@ -59,7 +59,7 @@ export const createProgValues = (allAcctData: any, templateQuests: any) => { // 
     counter: any,
     date: any,
   ) => {
-    dbValues.sharedProgValues.push({
+    dbValues.sharedProgVals.push({
       account: acctID,
       criteria: Number(criteriaID),
       counter: counter,
@@ -245,7 +245,7 @@ export const createProgValues = (allAcctData: any, templateQuests: any) => { // 
     }
 
     // Add new credit to account
-    dbValues['allAcctData'][acctID]['credit'] = credit;
+    dbValues['newAcctData'][acctID]['credit'] = credit;
   }
 
   return dbValues;

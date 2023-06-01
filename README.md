@@ -18,6 +18,7 @@ TEST
 General
   - Starting prod build without database running - websocket
   - Test everything in production
+  - accountWide transfer with no options selected - error styling
 
 
 NOTES

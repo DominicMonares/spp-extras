@@ -29,11 +29,11 @@ interface ZoneContinents { // MOVE TO TYPE FILE
 }
 const zoneContinents = _zoneContinents as ZoneContinents;
 
-export const createAchProgArgs = (accounts: any, templateQuests: any) => { // TEMP ANYS
-  interface ProgArgs { // REFACTOR/MOVE TO TYPES FILE
+export const createProgValues = (accounts: any, templateQuests: any) => { // TEMP ANYS
+  interface ProgValues { // REFACTOR/MOVE TO TYPES FILE
     [key: string]: any;
   }
-  const args: ProgArgs = {
+  const dbValues: ProgValues = {
     charProgArgs: [],
     sharedProgArgs: [],
     newAccounts: accounts,
@@ -45,7 +45,7 @@ export const createAchProgArgs = (accounts: any, templateQuests: any) => { // TE
     counter: any,
     date: any,
   ) => {
-    args.charProgArgs.push({
+    dbValues.charProgArgs.push({
       guid: guid,
       criteria: Number(criteria),
       counter: counter,
@@ -59,7 +59,7 @@ export const createAchProgArgs = (accounts: any, templateQuests: any) => { // TE
     counter: any,
     date: any,
   ) => {
-    args.sharedProgArgs.push({
+    dbValues.sharedProgArgs.push({
       account: acctID,
       criteria: Number(criteriaID),
       counter: counter,
@@ -104,7 +104,7 @@ export const createAchProgArgs = (accounts: any, templateQuests: any) => { // TE
       }
     }
 
-    // Add args for all shared progress
+    // Add DB values for all shared progress
     for (const criteriaID in newSharedProg) {
       const achProg = newSharedProg[criteriaID];
       let date = achProg[0]['date'];
@@ -245,8 +245,8 @@ export const createAchProgArgs = (accounts: any, templateQuests: any) => { // TE
     }
 
     // Add new credit to account
-    args['newAccounts'][acctID]['credit'] = credit;
+    dbValues['newAccounts'][acctID]['credit'] = credit;
   }
 
-  return args;
+  return dbValues;
 }

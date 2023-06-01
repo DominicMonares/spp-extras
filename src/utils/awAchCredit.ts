@@ -11,7 +11,7 @@ interface Titles {
 }
 const titles = _titles as Titles;
 
-export const createAchCreditArgs = ( // TEMP ANYS
+export const createCreditRewValues = ( // TEMP ANYS
   accounts: any,
   achRewards: any,
   itemCharges: any,
@@ -23,32 +23,32 @@ export const createAchCreditArgs = ( // TEMP ANYS
   lastItemInstID += 10000;
   lastMailID += 10000;
 
-  interface CreditArgs { // REFACTOR/MOVE TO TYPES FILE
+  interface CreditRewValues { // REFACTOR/MOVE TO TYPES FILE
     [key: string]: any[];
   }
-  const args: CreditArgs = {
-    creditArgs: [],
-    itemInstArgs: [],
-    mailArgs: [],
-    mailItemArgs: [],
-    titleArgs: [],
+  const dbValues: CreditRewValues = {
+    creditValues: [],
+    itemInstValues: [],
+    mailValues: [],
+    mailItemValues: [],
+    titleValues: [],
   };
 
-  const addCreditArg = (charID: any, achID: any, date: any) => {
-    args.creditArgs.push({
+  const addCreditValue = (charID: any, achID: any, date: any) => {
+    dbValues.creditValues.push({
       guid: charID,
       achievement: achID,
       date: date,
     });
   }
 
-  const addItemInstArg = ( // TEMP ANYS
+  const addItemInstValue = ( // TEMP ANYS
     lastItemInstID: any,
     charID: any,
     itemID: any,
     itemCharges: any,
   ) => {
-    args.itemInstArgs.push({
+    dbValues.itemInstValues.push({
       guid: lastItemInstID,
       owner_guid: charID,
       itemEntry: itemID,
@@ -66,14 +66,14 @@ export const createAchCreditArgs = ( // TEMP ANYS
     });
   }
 
-  const addMailArg = ( // TEMP ANYS
+  const addMailValue = ( // TEMP ANYS
     lastMailID: any,
     sender: any,
     charID: any,
     reward: any,
     newDate: any,
   ) => {
-    args.mailArgs.push({
+    dbValues.mailValues.push({
       id: lastMailID,
       messageType: 3,
       stationery: 41,
@@ -91,13 +91,13 @@ export const createAchCreditArgs = ( // TEMP ANYS
     });
   }
 
-  const addMailItemArg = ( // TEMP ANYS
+  const addMailItemValue = ( // TEMP ANYS
     lastMailID: any,
     lastItemInstID: any,
     itemID: any,
     charID: any,
   ) => {
-    args.mailItemArgs.push({
+    dbValues.mailItemValues.push({
       mail_id: lastMailID,
       item_guid: lastItemInstID,
       item_template: itemID,
@@ -106,7 +106,7 @@ export const createAchCreditArgs = ( // TEMP ANYS
   }
 
   // Run all previously defined argument creation functions
-  const addArgs = ( // TEMP ANYS
+  const addDBValues = ( // TEMP ANYS
     charID: any,
     achID: any,
     date: any,
@@ -115,7 +115,7 @@ export const createAchCreditArgs = ( // TEMP ANYS
     lastMailID: any,
   ) => {
     // Add achievement credit
-    addCreditArg(charID, achID, date);
+    addCreditValue(charID, achID, date);
 
     // Add reward(s) if achievement has reward(s)
     const rewardList = achRewards[achID];
@@ -149,11 +149,11 @@ export const createAchCreditArgs = ( // TEMP ANYS
       const newDate = new Date().getTime() / 1000;
       const sender = reward.sender;
       if (sender) {
-        addMailArg(lastMailID, sender, charID, reward, newDate);
+        addMailValue(lastMailID, sender, charID, reward, newDate);
         const itemID = reward.item;
         if (itemID) {
-          addMailItemArg(lastMailID, lastItemInstID, itemID, charID);
-          addItemInstArg(lastItemInstID, charID, itemID, itemCharges);
+          addMailItemValue(lastMailID, lastItemInstID, itemID, charID);
+          addItemInstValue(lastItemInstID, charID, itemID, itemCharges);
         }
       }
     }
@@ -171,8 +171,8 @@ export const createAchCreditArgs = ( // TEMP ANYS
       for (let achID in credit) {
         let existingAch = charCredit[achID];
         const date = credit[achID];
-        const itemInstLen = args.itemInstArgs.length;
-        const mailLen = args.mailArgs.length;
+        const itemInstLen = dbValues.itemInstValues.length;
+        const mailLen = dbValues.mailValues.length;
 
         // Check to see if achievement if faction specific/matches char faction
         const factionAch = checkFactionAch(Number(achID), faction);
@@ -185,19 +185,19 @@ export const createAchCreditArgs = ( // TEMP ANYS
         achID = factionAchID;
         existingAch = charCredit[achID];
 
-        // Create all char achievement args if achievement if valid
+        // Create all char achievement values if achievement if valid
         if (!existingAch && factionMatch) {
-          addArgs(charID, achID, date, char, lastItemInstID, lastMailID);
+          addDBValues(charID, achID, date, char, lastItemInstID, lastMailID);
         }
 
         // Increment mail and item reward IDs for items added
-        const newItemInstLen = args.itemInstArgs.length;
-        const newMailLen = args.mailArgs.length;
+        const newItemInstLen = dbValues.itemInstValues.length;
+        const newMailLen = dbValues.mailValues.length;
         if (newItemInstLen > itemInstLen) lastItemInstID++;
         if (newMailLen > mailLen) lastMailID++;
 
         // Add known titles once all achievement rewards given
-        args.titleArgs.push({
+        dbValues.titleValues.push({
           guid: charID,
           knownTitles: char.knownTitles
         });
@@ -205,5 +205,5 @@ export const createAchCreditArgs = ( // TEMP ANYS
     }
   }
 
-  return args;
+  return dbValues;
 }

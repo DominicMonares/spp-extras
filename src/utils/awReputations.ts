@@ -16,8 +16,8 @@ interface ReputationTemplate { // REFACTOR AND MOVE TO TYPE FILE
 const reputationTemplate = _reputationTemplate as ReputationTemplate;
 
 // Share reputation standing between characters
-export const createReputationArgs = (accounts: any, reputations: any) => { // TEMP ANYS
-  const args: any = []; // TEMP ANY
+export const createReputationValues = (accounts: any, reputations: any) => { // TEMP ANYS
+  const dbValues: any = []; // TEMP ANY
   for (const acctID in accounts) {
     const account = accounts[acctID];
     const characters = account.characters;
@@ -77,7 +77,7 @@ export const createReputationArgs = (accounts: any, reputations: any) => { // TE
 
           // Add argument for higher standings
           if (highestStanding > charStanding) {
-            args.push({
+            dbValues.push({
               guid: Number(charID),
               faction: Number(repID),
               standing: highestStanding,
@@ -88,5 +88,5 @@ export const createReputationArgs = (accounts: any, reputations: any) => { // TE
     }
   }
 
-  return args;
+  return dbValues;
 }

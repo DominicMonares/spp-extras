@@ -16,13 +16,13 @@ interface ProfessionSpells { // MOVE TO TYPE FILE
 const professionSpells = _professionSpells as ProfessionSpells;
 
 // Share pet and mount spells between all characters
-export const createPetMountSpellArgs = ( // TEMP ANYS
+export const createPetMountSpellValues = ( // TEMP ANYS
   petMountItems: any,
   accounts: any,
   knownSpells: any,
   charRidingSkills: any,
 ) => {
-  const args: any = []; // TEMP ANY
+  const dbValues: any = []; // TEMP ANY
   for (const acctID in accounts) {
     const account = accounts[acctID];
     const characters = account.characters;
@@ -90,7 +90,7 @@ export const createPetMountSpellArgs = ( // TEMP ANYS
         const charCanUse = skillMatch && factionMatch;
         const alreadyKnown = knownSpells[charID]?.includes(spellID);
         if (charCanUse && !alreadyKnown) {
-          args.push({
+          dbValues.push({
             guid: charID,
             spell: spellID
           });
@@ -99,5 +99,5 @@ export const createPetMountSpellArgs = ( // TEMP ANYS
     }
   }
 
-  return args;
+  return dbValues;
 }

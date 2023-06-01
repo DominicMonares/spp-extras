@@ -13,7 +13,7 @@ import {
   formatTemplateQuests,
   send
 } from '../../utils';
-import { selAllTemplateQuests } from '../db/mangos';
+import { selTemplateQuests } from '../db/mangos';
 
 const questTracker = async (xpac: any) => { // TEMP TYPE
   send('Starting Quest Tracker service');
@@ -102,7 +102,7 @@ const questTracker = async (xpac: any) => { // TEMP TYPE
   // Template Quests
   let templateQuests: any; // TEMP ANY
   try {
-    const rawTemplateQuests = await selAllTemplateQuests(mangosDB);
+    const rawTemplateQuests = await selTemplateQuests(mangosDB);
     templateQuests = formatTemplateQuests(rawTemplateQuests);
   } catch (err) {
     throw err;

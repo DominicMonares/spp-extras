@@ -5,7 +5,7 @@ import cutTitles from '../../../data/titles/cutTitles.json';
 // Achievement Rewards
 // ----------------------------------------------------------------
 
-export const selAllAchRewards = async (conn: any, reply?: any) => { // TEMP ANY
+export const selAchRewards = async (conn: any, reply?: any) => { // TEMP ANY
   const sql = `SELECT * FROM achievement_reward`;
   try {
     const startMsg = 'Fetching achievement reward data...';
@@ -127,7 +127,7 @@ export const selPetMountItems = async (conn: any, reply?: any) => { // TEMP ANY
 // Quests
 // ----------------------------------------------------------------
 
-export const selAllTemplateQuests = async (conn: any, reply?: any) => { // TEMP ANY
+export const selTemplateQuests = async (conn: any, reply?: any) => { // TEMP ANY
   const values = `
     entry,
     ZoneOrSort,

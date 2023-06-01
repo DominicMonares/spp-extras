@@ -11,6 +11,8 @@ TODO
 - Cleanup warning messages in console
   - Development server logging during production
 - Create installation and portable versions of app
+- AccountWide transfer with no options selected - error styling
+- Combine SQL queries where possible
 - Create actual readme file
 
 
@@ -18,7 +20,6 @@ TEST
 General
   - Starting prod build without database running - websocket
   - Test everything in production
-  - accountWide transfer with no options selected - error styling
 
 
 NOTES

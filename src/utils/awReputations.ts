@@ -49,7 +49,7 @@ export const createReputationValues = (acctChars: any, reputations: any) => { //
       const factionChars = characters[charFaction];
       for (const charID in factionChars) {
         const char = factionChars[charID];
-        const race = char.race.toString();
+        const race = char.race;
         const mergedAcctStanding = {
           ...acctStanding[charFaction],
           ...acctStanding.neutral

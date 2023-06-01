@@ -34,18 +34,18 @@ export const createProgValues = (accounts: any, templateQuests: any) => { // TEM
     [key: string]: any;
   }
   const dbValues: ProgValues = {
-    charProgArgs: [],
-    sharedProgArgs: [],
+    charProgValues: [],
+    sharedProgValues: [],
     newAccounts: accounts,
   }
 
-  const addCharProgArgs = ( // TEMP ANYS
+  const addCharProgValues = ( // TEMP ANYS
     guid: any,
     criteria: any,
     counter: any,
     date: any,
   ) => {
-    dbValues.charProgArgs.push({
+    dbValues.charProgValues.push({
       guid: guid,
       criteria: Number(criteria),
       counter: counter,
@@ -53,13 +53,13 @@ export const createProgValues = (accounts: any, templateQuests: any) => { // TEM
     });
   }
 
-  const addSharedProgArgs = ( // TEMP ANYS
+  const addSharedProgValues = ( // TEMP ANYS
     acctID: any,
     criteriaID: any,
     counter: any,
     date: any,
   ) => {
-    dbValues.sharedProgArgs.push({
+    dbValues.sharedProgValues.push({
       account: acctID,
       criteria: Number(criteriaID),
       counter: counter,
@@ -151,7 +151,7 @@ export const createProgValues = (accounts: any, templateQuests: any) => { // TEM
       }
 
       // Add shared achievement progress
-      addSharedProgArgs(acctID, criteriaID, newCount, date);
+      addSharedProgValues(acctID, criteriaID, newCount, date);
 
       // Ensure progress counter doesn't exceed threshold
       const threshold = sharedAchCriteria[criteriaID]['threshold'];
@@ -173,7 +173,7 @@ export const createProgValues = (accounts: any, templateQuests: any) => { // TEM
         const isHorde = faction === 'horde';
         const isHordeProg = isLMH && isHorde;
         if (!miscLMCrit || isAllianceProg || isHordeProg) {
-          addCharProgArgs(charID, criteriaID, newCount, date);
+          addCharProgValues(charID, criteriaID, newCount, date);
         }
       }
     }
@@ -211,13 +211,13 @@ export const createProgValues = (accounts: any, templateQuests: any) => { // TEM
         for (const criteriaID in allianceLMProg) {
           const count = allianceLMProg[criteriaID]['count'];
           const date = allianceLMProg[criteriaID]['date'];
-          addCharProgArgs(charID, criteriaID, count, date);
+          addCharProgValues(charID, criteriaID, count, date);
         }
       } else if (faction === 'horde') {
         for (const criteriaID in hordeLMProg) {
           const count = hordeLMProg[criteriaID]['count'];
           const date = hordeLMProg[criteriaID]['date'];
-          addCharProgArgs(charID, criteriaID, count, date);
+          addCharProgValues(charID, criteriaID, count, date);
         }
       }
     }
@@ -240,7 +240,7 @@ export const createProgValues = (accounts: any, templateQuests: any) => { // TEM
 
       // Add individual character progress
       for (const charID in chars) {
-        addCharProgArgs(charID, criteriaID, completedQuestCount, date);
+        addCharProgValues(charID, criteriaID, completedQuestCount, date);
       }
     }
 

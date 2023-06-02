@@ -30,17 +30,20 @@ const App = () => {
   const [installed, setInstalled] = useState<boolean>(false);
 
   // Fetch all data used in SPP Extras from DB
-  const getQuestTrackerData = async (e?: any, xpac?: ExpansionSetting) => { // TEMP ANY
+  const getQuestTrackerData = async (e?: unknown, xpac?: ExpansionSetting) => {
     if (!xpac) xpac = expansion; // Used when switching expansions
     setLoading(true);
     setError('');
     let allData: AllQTData | Record<string,never> = {};
     try {
       allData = await window.electron.questTracker(xpac);
-    } catch (err: any) { // TEMP ANY
-      if (typeof err !== 'string') err = err.toString();
-      // Remove boilerplate portion of err message
-      const errMsg = err.length > 52 ? err.slice(52) : err;
+    } catch (err) {
+      if (err && typeof err !== 'string') err = err.toString();
+      let errMsg: string = '';
+      if (err && typeof err === 'string') {
+        // Remove boilerplate portion of err message
+        errMsg = err.length > 52 ? err.slice(52) : err;
+      }
 
       setLoading(false);
       setError(errMsg);

@@ -73,8 +73,8 @@ export const transferPetsMounts = async (
   try {
     send('Creating new pet and mount spell DB values...', reply);
     petMountSpellValues = createPetMountSpellValues(
-      petMountItems,
       acctChars,
+      petMountItems,
       knownSpells,
       ridingSkills
     );

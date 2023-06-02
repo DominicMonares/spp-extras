@@ -15,17 +15,19 @@ import {
   send,
 } from '../../utils';
 import {
-  Characters,
+  AllCharacters,
   CompletedQuests,
   Connection,
+  Expansion,
   RawAccounts,
   RawCharacters,
-  RawComplNonRegQuests,
+  RawComplRepeatQuests,
   RawComplRegQuests,
   RawTemplateQuests,
+  TemplateQuests,
 } from '../../types';
 
-const questTracker = async (xpac: any) => { // TEMP TYPE
+const questTracker = async (xpac: Expansion) => {
   send('Starting Quest Tracker service');
 
   // ----------------------------------------------------------------
@@ -69,7 +71,7 @@ const questTracker = async (xpac: any) => { // TEMP TYPE
 
   // Characters
   let charIDs: number[] = [];
-  let characters: Characters;
+  let characters: AllCharacters;
   try {
     const rawCharacters: RawCharacters = await selChars(charactersDB, xpac, acctIDs);
     charIDs = rawCharacters.map(c => c.guid);
@@ -88,19 +90,19 @@ const questTracker = async (xpac: any) => { // TEMP TYPE
     );
 
     // Daily
-    let rawCompletedDaily: RawComplNonRegQuests = [];
+    let rawCompletedDaily: RawComplRepeatQuests = [];
     if (xpac !== 'classic') {
       rawCompletedDaily = await selCompletedDailyQuests(charactersDB, charIDs);
     }
 
     // Weekly
-    const rawCompletedWeekly: RawComplNonRegQuests = await selCompletedWeeklyQuests(
+    const rawCompletedWeekly: RawComplRepeatQuests = await selCompletedWeeklyQuests(
       charactersDB,
       charIDs
     );
 
     // Monthly
-    let rawCompletedMonthly: RawComplNonRegQuests = [];
+    let rawCompletedMonthly: RawComplRepeatQuests = [];
     if (xpac !== 'classic') {
       rawCompletedMonthly = await selCompletedMonthlyQuests(charactersDB, charIDs);
     }
@@ -116,9 +118,9 @@ const questTracker = async (xpac: any) => { // TEMP TYPE
   }
 
   // Template Quests
-  let templateQuests: RawTemplateQuests;
+  let templateQuests: TemplateQuests;
   try {
-    const rawTemplateQuests = await selTemplateQuests(mangosDB);
+    const rawTemplateQuests: RawTemplateQuests = await selTemplateQuests(mangosDB);
     templateQuests = formatTemplateQuests(rawTemplateQuests);
   } catch (err) {
     throw err;

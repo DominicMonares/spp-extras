@@ -1,36 +1,50 @@
+import {
+  AccountCharacters,
+  AchCredit,
+  AllAccountsData,
+  AllAchCredit,
+  AllAchProgress,
+  CompletedQuests,
+  CompletedRegQuests,
+} from '../types';
+
 // Organize all quest, achievement, and other character related data by character
-export const formatAllAcctData = ( // TEMP ANYS
-  accounts: any,
-  achCredit: any,
-  achCharProg: any,
-  achSharedProg: any,
-  completedQuests: any,
+export const formatAllAcctData = (
+  acctChars: AccountCharacters,
+  achCredit: AllAchCredit,
+  achCharProg: AllAchProgress,
+  achSharedProg: AllAchProgress,
+  completedQuests: CompletedQuests,
 ) => {
   // Use accounts as base for all data
-  const all: any = accounts; // TEMP ANY
+  const all: AllAccountsData = {};
 
   // Iterate through all accounts and characters to add data
-  for (const acctID in accounts) {
-    const account = all[acctID];
+  for (const acctID in acctChars) {
+    const account = acctChars[acctID];
     const player = acctID === '0';
-    const playerAccts = player ? account.playerAccts : [];
+    const playerAcctIDs = player ? account.playerAcctIDs : [];
 
     // Combine characters
     const allianceChars = account.characters.alliance;
     const hordeChars = account.characters.horde;
     const mergedChars = { ...allianceChars, ...hordeChars };
-    all[acctID]['characters'] = mergedChars;
+    all[acctID] = {
+      username: account.username,
+      characters: mergedChars,
+    };
+
     const chars = all[acctID]['characters'];
 
     // Combine quests and achievement credit/progress
-    const credit: any = {}; // TEMP ANY
+    const credit: AchCredit = {};
     const sharedProgress = achSharedProg[acctID] || {};
-    const quests: any = {}; // TEMP ANY
+    const quests: CompletedRegQuests = {};
     if (!chars) continue;
     for (const charID in chars) {
       // Ensure character matches account
       const char = chars[charID];
-      const validPlayerAcct = playerAccts[char.account];
+      const validPlayerAcct = playerAcctIDs?.[char.account];
       const validPlayerChar = acctID === '0' && validPlayerAcct;
       const validBotAcct = char.account === Number(acctID);
       const validBotChar = acctID !== '0' && validBotAcct;
@@ -63,8 +77,8 @@ export const formatAllAcctData = ( // TEMP ANYS
             if (!quests[questID]) {
               quests[questID] = quest;
             } else {
-              const existing_date = quests[questID]['timer'];
-              const incoming_date = quest.timer;
+              const existing_date = quests[questID]['timer'] || 0;
+              const incoming_date = quest.timer || 0;
 
               // Use more recent date for Loremaster progress
               if (incoming_date > existing_date) quests[questID] = quest;
@@ -83,7 +97,7 @@ export const formatAllAcctData = ( // TEMP ANYS
 
     // Add data for each account
     all[acctID]['credit'] = credit;
-    all[acctID]['sharedProgress'] = sharedProgress;
+    all[acctID]['sharedProg'] = sharedProgress;
     all[acctID]['quests'] = quests;
   }
 

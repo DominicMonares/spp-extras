@@ -1,13 +1,15 @@
 import {
+  AllCompletedQuests,
   CreateViewQuests,
   Faction,
   MarkTemplateQuests,
-  PlayerQuests,
   QuestConditions,
+  QuestFlags,
   QuestRaces,
   QuestTrackerSettings,
   SortViewQuests,
   TemplateQuests,
+  ViewQuest,
   ViewQuests,
   ViewSubzone,
   ViewZones,
@@ -17,6 +19,16 @@ import questRaceIDs from '../../data/quests/questRaceIDs.json';
 import repeatQuestFlags from '../../data/quests/repeatQuestFlags.json';
 import zoneRef from '../../data/zones/zoneRef.json';
 
+// Different quest types have multiple different flags in DB
+// Use those flag values to find quest type
+const questFlags = repeatQuestFlags as QuestFlags;
+
+// Required quest races can come in a variety of combinations
+// i.e. Alliance, Horde, Orc, Troll-Tauren, All, etc.
+const questRaces = questRaceIDs as QuestRaces;
+
+// Some zones have multiple subzone IDs
+const zones = zoneRef as ViewZones;
 
 // Decide which quests to display
 export const filterTemplateQuests = (
@@ -24,19 +36,7 @@ export const filterTemplateQuests = (
   settings: QuestTrackerSettings,
   templateQuests: TemplateQuests | Record<string,never>,
 ) => {
-  const { characterClass, faction, race, type, zone } = settings as any; // TEMP ANY
-
-  // Different quest types have multiple different flags in DB
-  // Use those flag values to find quest type
-  // const questFlags = repeatQuestFlags as QuestFlags;
-  const questFlags = repeatQuestFlags as any; // TEMP ANY
-
-  // Required quest races can come in a variety of combinations
-  // i.e. Alliance, Horde, Orc, Troll-Tauren, All, etc.
-  const questRaces = questRaceIDs as QuestRaces;
-
-  // Some zones have multiple subzone IDs
-  const zones = zoneRef as ViewZones;
+  const { characterClass, faction, race, type, zone } = settings;
 
   // Add template quests that meet all conditions to view quests
   const viewQuests: ViewQuests = [];
@@ -81,7 +81,7 @@ export const filterTemplateQuests = (
             return questFlags[type].includes(quest.QuestFlags);
           } else if (type === 'monthly') {
             // Only 4 monthly quests prior to patch 4.3
-            if (entry >= 9884 && entry <= 9887) return true;
+            return entry >= 9884 && entry <= 9887 ? true : false;
           } else {
             return true;
           }
@@ -129,7 +129,7 @@ export const sortTitle = (a: string, b: string) => {
 
 // Used for ascending column sort
 export const sortViewQuests: SortViewQuests = (viewQuests, sortSetting) => {
-  return viewQuests.sort((a, b): any => { // TEMP ANY
+  return viewQuests.sort((a: ViewQuest, b: ViewQuest) => {
     if (sortSetting === 'name') {
       // Sort by alphabetical order
       return sortTitle(a.Title, b.Title);
@@ -150,6 +150,8 @@ export const sortViewQuests: SortViewQuests = (viewQuests, sortSetting) => {
         return -1;
       } else if ((a.completed && b.completed) || (!a.completed && !b.completed)) {
         return sortTitle(a.Title, b.Title);
+      } else {
+        return 0;
       }
     } else {
       return 0;
@@ -169,7 +171,7 @@ export const reverseSortTitle = (a: string, b: string) => {
 
 // Used for descending column sort
 export const reverseSortViewQuests: SortViewQuests = (viewQuests, sortSetting) => {
-  return viewQuests.sort((a, b): any => { // TEMP ANY
+  return viewQuests.sort((a: ViewQuest, b: ViewQuest) => {
     if (sortSetting === 'name') {
       // Sort by alphabetical order
       return reverseSortTitle(a.Title, b.Title);
@@ -179,6 +181,8 @@ export const reverseSortViewQuests: SortViewQuests = (viewQuests, sortSetting) =
         return 1;
       } else if (a.entry > b.entry) {
         return -1;
+      } else {
+        return 0;
       }
     } else if (sortSetting === 'status') {
       // Sort by completed status
@@ -188,6 +192,8 @@ export const reverseSortViewQuests: SortViewQuests = (viewQuests, sortSetting) =
         return -1;
       } else if ((a.completed && b.completed) || (!a.completed && !b.completed)) {
         return reverseSortTitle(a.Title, b.Title);
+      } else {
+        return 0;
       }
     } else {
       return 0;
@@ -232,11 +238,11 @@ export const markTemplateQuests: MarkTemplateQuests = (
 // Create list of quests to be displayed
 export const createViewQuests: CreateViewQuests = (
   all: boolean,
-  completedQuests: PlayerQuests | Record<string,never>,
+  completedQuests: AllCompletedQuests | Record<string,never>,
   settings: QuestTrackerSettings,
   templateQuests: TemplateQuests | Record<string,never>
 ) => {
-  const { character, type } = settings as any; // TEMP ANY
+  const { character, type } = settings as QuestTrackerSettings;
 
   // Create list of quests filtered using quest tracker settings
   const filteredTemplateQuests = filterTemplateQuests(all, settings, templateQuests);

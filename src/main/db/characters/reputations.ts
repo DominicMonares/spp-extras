@@ -15,7 +15,7 @@ export const selCharRep = async (
   reply?: Reply
 ) => {
   const sql = `
-    SELECT guid, faction, standing FROM character_reputation
+    SELECT * FROM character_reputation
     WHERE guid IN (?)
   `;
   try {

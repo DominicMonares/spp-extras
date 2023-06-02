@@ -1,4 +1,5 @@
 import mysql from 'mysql2/promise';
+import { AllAccountsData } from './accountWide';
 
 // ----------------------------------------------------------------
 // Connection
@@ -28,11 +29,11 @@ export type ProgBase = {
   date: number;
 }
 
-export interface ProgValue extends ProgBase {
+export interface CharProgValue extends ProgBase {
   guid: number;
 }
 
-export type ProgValues = ProgValue[];
+export type CharProgValues = CharProgValue[];
 
 export interface SharedProgValue extends ProgBase {
   id: number;
@@ -125,3 +126,21 @@ export type ReputationValue = {
 }
 
 export type ReputationValues = ReputationValue[];
+
+// ----------------------------------------------------------------
+// Complete Values
+// ----------------------------------------------------------------
+
+export type CreditRewardValues = {
+  creditVals: CreditValues;
+  itemInstVals: ItemInstanceValues;
+  mailVals: MailValues;
+  mailItemVals: MailItemValues;
+  titleVals: TitleValues;
+}
+
+export type ProgressValues = {
+  charProgVals: CharProgValues;
+  sharedProgVals: SharedProgValues;
+  newAcctData: AllAccountsData;
+}

@@ -17,7 +17,7 @@ import {
   storeTemplateQuests,
   storeTool
  } from '../../store/slices';
-import { Expansion } from '../../../types';
+import { Expansion, ExpansionSetting } from '../../../types';
 import './ExpansionNav.css';
 
 // Modal styling must be passed down to Modal component via props
@@ -43,7 +43,7 @@ const modalStyles = {
 Modal.setAppElement('#root');
 
 type Props = {
-  getAllData: (e?: any, xpac?: Expansion) => void; // TEMP ANY
+  getAllData: (e?: unknown, xpac?: ExpansionSetting) => void;
 }
 
 const ExpansionNav = ({ getAllData }: Props) => {
@@ -52,7 +52,7 @@ const ExpansionNav = ({ getAllData }: Props) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   // Tracks the newly selected expansion
-  const [nextExpansion, setNextExpansion] = useState<Expansion>(null as any); // TEMP ANY
+  const [nextExpansion, setNextExpansion] = useState<ExpansionSetting>('');
 
   const openModal = () => {
     setModalIsOpen(true);

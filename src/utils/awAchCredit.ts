@@ -1,32 +1,31 @@
 import { checkFactionAch } from "./achievements";
 import { checkFaction } from './characters';
 import _titles from '../../data/titles/titles.json';
+import {
+  AchReward,
+  AchRewardItemCharges,
+  AchRewards,
+  AllAccountsData,
+  Character,
+  CreditRewardValues,
+  Titles,
+} from "../types";
 
-interface Title {
-  name: string;
-  inGameOrder: number;
-}
-interface Titles {
-  [key: string]: Title;
-}
 const titles = _titles as Titles;
 
-export const createCreditRewValues = ( // TEMP ANYS
-  allAcctData: any,
-  achRewards: any,
-  itemCharges: any,
-  lastItemInstID: any,
-  lastMailID: any,
+export const createCreditRewValues = (
+  allAcctData: AllAccountsData,
+  achRewards: AchRewards,
+  itemCharges: AchRewardItemCharges,
+  lastItemInstID: number,
+  lastMailID: number,
 ) => {
   // Item IDs appear to be overwritten as new items are added through the game
   // Add 10000 to last ids to prevent items from being overwritten for a while
   lastItemInstID += 10000;
   lastMailID += 10000;
 
-  interface CreditRewValues { // REFACTOR/MOVE TO TYPES FILE
-    [key: string]: any[];
-  }
-  const dbValues: CreditRewValues = {
+  const dbValues: CreditRewardValues = {
     creditVals: [],
     itemInstVals: [],
     mailVals: [],
@@ -34,7 +33,7 @@ export const createCreditRewValues = ( // TEMP ANYS
     titleVals: [],
   };
 
-  const addCreditValue = (charID: any, achID: any, date: any) => {
+  const addCreditValue = (charID: number, achID: number, date: number) => {
     dbValues.creditVals.push({
       guid: charID,
       achievement: achID,
@@ -42,11 +41,11 @@ export const createCreditRewValues = ( // TEMP ANYS
     });
   }
 
-  const addItemInstValue = ( // TEMP ANYS
-    lastItemInstID: any,
-    charID: any,
-    itemID: any,
-    itemCharges: any,
+  const addItemInstValue = (
+    lastItemInstID: number,
+    charID: number,
+    itemID: number,
+    itemCharges: AchRewardItemCharges,
   ) => {
     dbValues.itemInstVals.push({
       guid: lastItemInstID,
@@ -66,12 +65,12 @@ export const createCreditRewValues = ( // TEMP ANYS
     });
   }
 
-  const addMailValue = ( // TEMP ANYS
-    lastMailID: any,
-    sender: any,
-    charID: any,
-    reward: any,
-    newDate: any,
+  const addMailValue = (
+    lastMailID: number,
+    sender: number,
+    charID: number,
+    reward: AchReward,
+    newDate: number,
   ) => {
     dbValues.mailVals.push({
       id: lastMailID,
@@ -91,11 +90,11 @@ export const createCreditRewValues = ( // TEMP ANYS
     });
   }
 
-  const addMailItemValue = ( // TEMP ANYS
-    lastMailID: any,
-    lastItemInstID: any,
-    itemID: any,
-    charID: any,
+  const addMailItemValue = (
+    lastMailID: number,
+    lastItemInstID: number,
+    itemID: number,
+    charID: number,
   ) => {
     dbValues.mailItemVals.push({
       mail_id: lastMailID,
@@ -106,13 +105,13 @@ export const createCreditRewValues = ( // TEMP ANYS
   }
 
   // Run all previously defined argument creation functions
-  const addDBValues = ( // TEMP ANYS
-    charID: any,
-    achID: any,
-    date: any,
-    char: any,
-    lastItemInstID: any,
-    lastMailID: any,
+  const addDBValues = (
+    charID: number,
+    achID: number,
+    date: number,
+    char: Character,
+    lastItemInstID: number,
+    lastMailID: number,
   ) => {
     // Add achievement credit
     addCreditValue(charID, achID, date);
@@ -121,8 +120,8 @@ export const createCreditRewValues = ( // TEMP ANYS
     const rewardList = achRewards[achID];
     if (rewardList) {
       const matronPatron = rewardList.length > 1;
-      const gender = char.gender;
-      const reward = matronPatron ? rewardList[gender] : rewardList[0];
+      const gender = char.gender || 0;
+      const reward = rewardList[gender];
 
       // Add title if achievement rewards one
       const faction = checkFaction(char.race);
@@ -130,8 +129,8 @@ export const createCreditRewValues = ( // TEMP ANYS
       const titleH = reward.title_H;
       const alliance = faction === 'alliance';
       const titleID = alliance ? titleA : titleH;
-      if (titleID) {
-        let knownTitles = char.knownTitles.split(' ');
+      if (titleID && char.knownTitles) {
+        const knownTitles = char.knownTitles.split(' ');
 
         // Remove empty string created by trailing space
         knownTitles.pop();
@@ -141,7 +140,7 @@ export const createCreditRewValues = ( // TEMP ANYS
         let titleIndex = Number((inGameOrder / 32).toString()[0]);
         const titleValue = Number(knownTitles[titleIndex]);
         const bit = 2 ** (inGameOrder % 32);
-        knownTitles[titleIndex] = (titleValue + bit);
+        knownTitles[titleIndex] = (titleValue + bit).toString();
         char.knownTitles = knownTitles.join(' ') + ' ';
       }
 
@@ -169,7 +168,7 @@ export const createCreditRewValues = ( // TEMP ANYS
       const charCredit = char.credit;
       const faction = checkFaction(char.race);
       for (let achID in credit) {
-        let existingAch = charCredit[achID];
+        let existingAch = charCredit?.[achID];
         const date = credit[achID];
         const itemInstLen = dbValues.itemInstVals.length;
         const mailLen = dbValues.mailVals.length;
@@ -177,17 +176,24 @@ export const createCreditRewValues = ( // TEMP ANYS
         // Check to see if achievement if faction specific/matches char faction
         const factionAch = checkFactionAch(Number(achID), faction);
         const factionMatch = factionAch[0];
-        const factionAchID = factionAch[1];
-        if (achID !== factionAchID.toString()) {
+        const factionAchID = factionAch[1].toString();
+        if (achID !== factionAchID) {
           if (credit[factionAchID]) continue;
         }
 
         achID = factionAchID;
-        existingAch = charCredit[achID];
+        existingAch = charCredit?.[achID];
 
         // Create all char achievement values if achievement if valid
         if (!existingAch && factionMatch) {
-          addDBValues(charID, achID, date, char, lastItemInstID, lastMailID);
+          addDBValues(
+            Number(charID),
+            Number(achID),
+            date,
+            char,
+            lastItemInstID,
+            lastMailID
+          );
         }
 
         // Increment mail and item reward IDs for items added
@@ -198,8 +204,8 @@ export const createCreditRewValues = ( // TEMP ANYS
 
         // Add known titles once all achievement rewards given
         dbValues.titleVals.push({
-          guid: charID,
-          knownTitles: char.knownTitles
+          guid: Number(charID),
+          knownTitles: char.knownTitles || '0 0 0 0 0 0 ',
         });
       }
     }

@@ -8,7 +8,6 @@ import './View.css';
 const ErrorView = ({ error, getAllData }: ViewProps) => { // TEMP error type
   const expansion = useAppSelector(state => state.expansion.selected);
 
-  // TEMP ANY IN MAIN BUTTON
   return (
     <div>
       <MainBigHeader headerText="Error" />
@@ -18,7 +17,10 @@ const ErrorView = ({ error, getAllData }: ViewProps) => { // TEMP error type
         })}
       </div>
       <div className="error-btn">
-        <MainButton handleClick={getAllData as any} buttonText={'Retry'} />
+        <MainButton
+          handleClick={getAllData ? getAllData : () => {}}
+          buttonText={'Retry'}
+        />
       </div>
     </div>
   );

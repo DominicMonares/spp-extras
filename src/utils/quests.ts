@@ -1,20 +1,28 @@
 import _questRaceZeros from '../../data/quests/questRaceZeros.json';
-import { Characters, CompletedQuests } from "../types";
+import {
+  AllCharacters,
+  AllCompletedQuests,
+  CompletedQuests,
+  RawComplRepeatQuests,
+  RawComplRegQuests,
+  Quest,
+  QuestRaceZeros,
+  QuestType,
+  RawTemplateQuests,
+  TemplateQuests,
+} from "../types";
 
-interface QuestRaceZeros { // MOVE TO TYPE FILE
-  [key: string]: string; // CHANGE TO FACTION TYPE
-}
 const questRaceZeros = _questRaceZeros as QuestRaceZeros;
 
 // Organize completed quests by character
-export const formatCompletedQuests = ( // TEMP ANYS
-  regular: any,
-  daily: any,
-  weekly: any,
-  monthly: any,
+export const formatCompletedQuests = (
+  regular: RawComplRegQuests,
+  daily: RawComplRepeatQuests,
+  weekly: RawComplRepeatQuests,
+  monthly: RawComplRepeatQuests,
 ) => {
-  const all: any = {}; // TEMP ANY
-  const addQuest = (quest: any, type: any) => { // TEMP ANY
+  const all: CompletedQuests = {};
+  const addQuest = (quest: Quest, type: QuestType) => {
     const guid = quest.guid.toString();
     const questID = quest.quest.toString();
     if (!all[guid]) {
@@ -32,20 +40,20 @@ export const formatCompletedQuests = ( // TEMP ANYS
     else if (type === 'monthly' && monthly) all[guid]['monthly'][questID] = quest;
   }
 
-  regular.forEach((q: any) => addQuest(q, 'regular')); // TEMP ANY
-  if (daily) daily.forEach((q: any) => addQuest(q, 'daily')); // TEMP ANY
-  weekly.forEach((q: any) => addQuest(q, 'weekly')); // TEMP ANY
-  if (monthly) monthly.forEach((q: any) => addQuest(q, 'monthly')); // TEMP ANY
+  regular.forEach(q => addQuest(q, 'regular'));
+  if (daily) daily.forEach(q => addQuest(q, 'daily'));
+  weekly.forEach(q => addQuest(q, 'weekly'));
+  if (monthly) monthly.forEach(q => addQuest(q, 'monthly'));
 
   return all;
 }
 
 // Organize completed quests by faction
 export const formatComplFactionQuests = (
-  characters: Characters,
+  characters: AllCharacters,
   completedQuests: CompletedQuests,
 ) => {
-  const all: any = { alliance: {}, horde: {} }; // TEMP ANY
+  const all: AllCompletedQuests = { alliance: {}, horde: {} };
 
   // Gather quests completed only by player characters
   Object.values(characters.alliance).forEach(c => {
@@ -60,8 +68,8 @@ export const formatComplFactionQuests = (
 }
 
 // Organize template quests by faction
-export const formatTemplateQuests = (quests: any) => { // TEMP ANY
-  const all: any = { // TEMP ANY
+export const formatTemplateQuests = (quests: RawTemplateQuests) => {
+  const all: TemplateQuests = {
     alliance: {},
     horde: {},
     neutral: {}
@@ -70,7 +78,7 @@ export const formatTemplateQuests = (quests: any) => { // TEMP ANY
   const alliance = [1, 4, 5, 8, 64, 65, 68, 77, 1101, 1024];
   const horde = [2, 16, 32, 128, 130, 144, 162, 176, 178, 512, 514, 690];
   const neutral = [0, 255, 1791];
-  quests.forEach((quest: any) => { // TEMP ANY
+  quests.forEach(quest => {
     const reqRaces = quest.RequiredRaces;
     const entry = quest.entry;
 

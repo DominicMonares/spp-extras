@@ -1,7 +1,16 @@
+import {
+  KnownSpells,
+  PetMountItems,
+  RawCharRidingSkills,
+  RawPetMountItems,
+  RawPetMountSpells,
+  RidingSkills,
+} from "../types";
+
 // Organize pet and mount items by spell ID
-export const formatPetMountItemData = (items: any) => { // TEMP ANY
-  const all: any = {}; // TEMP ANY
-  items.forEach((item: any) => { // TEMP ANY
+export const formatPetMountItemData = (items: RawPetMountItems) => {
+  const all: PetMountItems = {};
+  items.forEach(item => {
     const spellID = item.spellid_2.toString();
     all[spellID] = item;
   });
@@ -9,9 +18,9 @@ export const formatPetMountItemData = (items: any) => { // TEMP ANY
 }
 
 // Organize known pet and mount spells by character
-export const formatCharSpellData = (spells: any) => { // TEMP ANY
-  const all: any = {}; // TEMP ANY
-  spells.forEach((spell: any) => { // TEMP ANY
+export const formatCharSpellData = (spells: RawPetMountSpells) => {
+  const all: KnownSpells = {};
+  spells.forEach(spell => {
     const guid = spell.guid.toString();
     const spellID = spell.spell;
     if (!all[guid]) all[guid] = [spellID];
@@ -21,9 +30,9 @@ export const formatCharSpellData = (spells: any) => { // TEMP ANY
 }
 
 // Organize riding skills by character
-export const formatCharSkillData = (skills: any) => { // TEMP ANY
-  const all: any = {}; // TEMP ANY
-  skills.forEach((skill: any) => { // TEMP ANY
+export const formatCharSkillData = (skills: RawCharRidingSkills) => {
+  const all: RidingSkills = {};
+  skills.forEach(skill => {
     const guid = skill.guid.toString();
     const value = skill.value;
     all[guid] = value;

@@ -1,11 +1,7 @@
 import { AchReward } from "./achievements";
 import { Character } from "./characters";
 import { PetMountItem } from "./petsMounts";
-import {
-  Quest,
-  RegQuest,
-  TemplateQuest
-} from "./quests";
+import { Quest, TemplateQuest } from "./quests";
 
 // ----------------------------------------------------------------
 // Accounts
@@ -28,10 +24,10 @@ export type RawCharacters = Character[];
 // Quests
 // ----------------------------------------------------------------
 
-export type RawComplRegQuests = RegQuest[];
+export type RawComplRegQuests = Quest[];
 
 // Used for dailies, weeklies, and monthlies
-export type RawComplNonRegQuests = Quest[];
+export type RawComplRepeatQuests = Quest[];
 
 export type RawTemplateQuests = TemplateQuest[];
 
@@ -106,6 +102,7 @@ export type RawReputation = {
   guid: number;
   faction: number;
   standing: number;
+  flags: number;
 }
 
 export type RawReputations = RawReputation[];

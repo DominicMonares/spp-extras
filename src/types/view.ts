@@ -1,7 +1,6 @@
 import { TemplateQuest } from "./quests";
 import { SortSetting } from "./questTracker";
 
-
 export type SortViewQuests = (
   viewQuests: ViewQuests,
   sortSetting: SortSetting

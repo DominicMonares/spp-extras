@@ -55,7 +55,7 @@ const MenuItems = ({ dropdownType, items, depthLevel }: Props) => {
 
   // Update quest tracker settings depending on the dropdown menu selection
   // Multiple selections can be made at once
-  const handleSelection = (e: any) => {
+  const handleSelection = (e: React.MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => {
     const target = e.target as HTMLInputElement;
     const title = target.innerText;
     const id = Number(target.id);

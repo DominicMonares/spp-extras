@@ -1,35 +1,34 @@
 import { checkFaction } from "./characters";
 import _factionSpells from '../../data/petsAndMounts/factionSpells.json';
 import _professionSpells from '../../data/petsAndMounts/professionSpells.json';
+import {
+  AccountCharacters,
+  FactionSpells,
+  KnownSpells,
+  PetMountItems,
+  PetMountSpellValues,
+  ProfessionSpells,
+  RidingSkills
+} from '../types';
 
-interface FactionSpells { // REFACTOR AND MOVE TO TYPE FILE
-  [key: string]: {
-    name: string;
-    faction: string; // TEMP TYPE
-    oppFactionSpell: number;
-  };
-}
 const factionSpells = _factionSpells as FactionSpells;
-interface ProfessionSpells { // MOVE TO TYPE FILE
-  [key: string]: number;
-}
 const professionSpells = _professionSpells as ProfessionSpells;
 
 // Share pet and mount spells between all characters
-export const createPetMountSpellValues = ( // TEMP ANYS
-  petMountItems: any,
-  acctChars: any,
-  knownSpells: any,
-  charRidingSkills: any,
+export const createPetMountSpellValues = (
+  acctChars: AccountCharacters,
+  petMountItems: PetMountItems,
+  knownSpells: KnownSpells,
+  ridingSkills: RidingSkills,
 ) => {
-  const dbValues: any = []; // TEMP ANY
+  const dbValues: PetMountSpellValues = [];
   for (const acctID in acctChars) {
     const account = acctChars[acctID];
     const characters = account.characters;
     const mergedChars = { ...characters.alliance, ...characters.horde };
 
     // Get all known pets and mounts on account level
-    const accountItems: any = {}; // TEMP ANY
+    const accountItems: PetMountItems = {};
     for (const charID in mergedChars) {
       const spells = knownSpells[charID];
       if (spells) {
@@ -65,8 +64,8 @@ export const createPetMountSpellValues = ( // TEMP ANYS
         }
 
         // Check to see if character has high enough riding skill
-        const skillExists = charRidingSkills[charID];
-        const charSkill = skillExists ? charRidingSkills[charID] : 0;
+        const skillExists = ridingSkills[charID];
+        const charSkill = skillExists ? ridingSkills[charID] : 0;
 
         // Switch required profession skill for riding skill with eng/tailoring mounts
         // This allows any character to use these mounts without the professions
@@ -88,11 +87,11 @@ export const createPetMountSpellValues = ( // TEMP ANYS
 
         // Check to see if character meets all requirements
         const charCanUse = skillMatch && factionMatch;
-        const alreadyKnown = knownSpells[charID]?.includes(spellID);
+        const alreadyKnown = knownSpells[charID]?.includes(Number(spellID));
         if (charCanUse && !alreadyKnown) {
           dbValues.push({
-            guid: charID,
-            spell: spellID
+            guid: Number(charID),
+            spell: Number(spellID)
           });
         }
       }

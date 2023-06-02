@@ -1,27 +1,27 @@
-import { Accounts, CharacterClass, Characters, ClassSetting, Race, RaceSetting } from './characters';
+import { AllCharacters, ClassSetting, RaceSetting } from './characters';
 import { Menu } from './dropdown';
 import { Expansion } from './expansions';
 import { Faction, FactionSetting } from './factions';
 import {
+  AllCompletedQuests,
   CharacterQuestClass,
   CharacterQuestRace,
   CharacterQuests,
   CompletedQuests,
-  PlayerQuests,
   QuestTypeSetting,
   TemplateQuests,
 } from './quests';
 import { ViewQuest, ViewQuests } from './view';
 
 export type AllQTData = {
-  characters: Characters;
+  characters: AllCharacters;
   completedQuests: CompletedQuests;
   templateQuests: TemplateQuests;
 }
 
 export type CreateViewQuests = (
   all: boolean,
-  completedQuests: PlayerQuests | Record<string,never>,
+  completedQuests: AllCompletedQuests | Record<string,never>,
   settings: QuestTrackerSettings,
   templateQuests: TemplateQuests | Record<string,never>
 ) => ViewQuests;
@@ -29,11 +29,11 @@ export type CreateViewQuests = (
 export type MarkTemplateQuests = (
   characterQuests: CharacterQuests,
   filteredTemplateQuests: ViewQuests,
-  type: QuestTypeSetting
+  type: QuestTypeSetting,
 ) => ViewQuests;
 
 export type QuestCondition = {
-  setting: QTCharacter | QTClass | Faction | QuestTypeSetting | QTRace | string;
+  setting: QTCharacter | QTClass | Faction | QuestTypeSetting | QTRace | string | Record<string,never | boolean>;
   conditionMet: () => boolean;
 }
 

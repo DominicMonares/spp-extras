@@ -1,5 +1,3 @@
-/* eslint global-require: off, no-console: off, promise/always-return: off */
-
 /**
  * This module executes inside of electron's main process. You can start
  * electron renderer process from here and communicate with the other processes
@@ -14,17 +12,18 @@ import { app, BrowserWindow, shell, ipcMain } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
-import questTracker from './services/questTracker';
 import store from './store';
 import accountWide from './services/accountWide';
+import questTracker from './services/questTracker';
+import { Expansion, Faction } from '../types';
 
-class AppUpdater {
-  constructor() {
-    log.transports.file.level = 'info';
-    autoUpdater.logger = log;
-    autoUpdater.checkForUpdatesAndNotify();
-  }
-}
+// class AppUpdater {
+//   constructor() {
+//     log.transports.file.level = 'info';
+//     autoUpdater.logger = log;
+//     autoUpdater.checkForUpdatesAndNotify();
+//   }
+// }
 
 let mainWindow: BrowserWindow | null = null;
 
@@ -38,12 +37,10 @@ if (process.env.NODE_ENV === 'production') {
   sourceMapSupport.install();
 }
 
-const isDebug =
-  process.env.NODE_ENV === 'development' || process.env.DEBUG_PROD === 'true';
+const isDev = process.env.NODE_ENV === 'development';
+const isDebug = isDev || process.env.DEBUG_PROD === 'true';
 
-if (isDebug) {
-  require('electron-debug')();
-}
+if (isDebug) require('electron-debug')();
 
 // const installExtensions = async () => {
 //   const installer = require('electron-devtools-installer');
@@ -84,7 +81,7 @@ const createWindow = async () => {
   });
 
   let htmlPath: string;
-  if (process.env.NODE_ENV === 'development') {
+  if (isDev) {
     const port = process.env.PORT || 1212;
     const url = new URL(`http://localhost:${port}`);
     url.pathname = 'index.html';
@@ -121,7 +118,7 @@ const createWindow = async () => {
 
   // Remove this if your app does not use auto updates
   // eslint-disable-next-line
-  new AppUpdater();
+  // new AppUpdater();
 };
 
 /**
@@ -139,15 +136,13 @@ app.on('window-all-closed', () => {
 app
   .whenReady()
   .then(() => {
-    ipcMain.handle('questTracker', async (e, xpac: string, bots: boolean) => { // TEMP TYPE
-      return questTracker(xpac);
-    });
+    ipcMain.handle('questTracker', async (e, xpac: Expansion) => questTracker(xpac));
     ipcMain.handle('get:expansion', async () => store.get('expansion'));
-    ipcMain.handle('set:expansion', async (e, expansion: string) => { // TEMP TYPE
-      return store.set('expansion', expansion);
+    ipcMain.handle('set:expansion', async (e, xpac: Expansion) => {
+      return store.set('expansion', xpac);
     });
     ipcMain.handle('get:faction', async () =>store.get('faction'));
-    ipcMain.handle('set:faction', async (e, faction: string) => { // TEMP TYPE
+    ipcMain.handle('set:faction', async (e, faction: Faction) => {
       return store.set('faction', faction);
     });
 

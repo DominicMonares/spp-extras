@@ -75,7 +75,7 @@ const AccountWideControls = () => {
       bots: botsChecked,
     };
 
-    const listener = (args: any) => dispatch(storeMessages(args)); // TEMP ANY
+    const listener = (msg: string) => dispatch(storeMessages(msg));
     window.electron.ipcRenderer.on('account-wide', listener);
     window.electron.ipcRenderer.sendMessage('account-wide', settings);
     setModalIsOpen(false);

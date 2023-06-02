@@ -1,4 +1,4 @@
-import { Characters } from "./characters";
+import { AllCharacters } from "./characters";
 
 // ----------------------------------------------------------------
 // Characters Sorted By Account
@@ -6,9 +6,10 @@ import { Characters } from "./characters";
 
 export type AccountCharsNode = {
   username: string;
-  characters: Characters;
+  characters: AllCharacters;
+  playerAcctIDs?: number[];
 }
 
 export type AccountCharacters = {
-  [key: number]: AccountCharsNode;
+  [key: string]: AccountCharsNode;
 }

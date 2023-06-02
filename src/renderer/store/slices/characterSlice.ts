@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Characters } from '../../../types';
+import { AllCharacters } from '../../../types';
 
-const initialState: Characters = {
+const initialState: AllCharacters = {
   alliance: {},
   horde: {},
 };
@@ -10,7 +10,7 @@ export const characterSlice = createSlice({
   name: 'characters',
   initialState,
   reducers: {
-    storeCharacters: (state, action: PayloadAction<Characters>) => {
+    storeCharacters: (state, action: PayloadAction<AllCharacters>) => {
       const payload = action.payload;
       if (!Object.keys(payload).length) {
         state.alliance = {};

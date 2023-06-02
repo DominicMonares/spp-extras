@@ -1,47 +1,44 @@
-// Disable no-unused-vars, broken for spread args
-/* eslint no-unused-vars: off */
 import { contextBridge, ipcRenderer, IpcRendererEvent } from 'electron';
+import { Expansion, Faction } from 'types';
 
-export type Channels = 'ipc-example';
+export type Channels = 'account-wide';
+export type Callback = (...args: unknown[]) => void;
 
 const electronHandler = {
   ipcRenderer: {
-    sendMessage(channel: Channels, ...args: unknown[]) {
+    sendMessage: (channel: Channels, ...args: unknown[]) => {
       ipcRenderer.send(channel, ...args);
     },
-    on(channel: Channels, func: (...args: unknown[]) => void) {
+    on: (channel: Channels, func: Callback) => {
       const listeners = ipcRenderer.rawListeners('account-wide');
       const subscription = (_event: IpcRendererEvent, ...args: unknown[]) => func(...args);
       listeners.forEach(listener => {
         const listenerExists = listener.toString() === subscription.toString();
-        if (listenerExists) {
-          ipcRenderer.removeListener(channel, listener as (...args: unknown[]) => void); // TEMP TYPE
-        }
-      })
+        if (listenerExists) ipcRenderer.removeListener(channel, listener as Callback);
+      });
 
       ipcRenderer.on(channel, subscription);
-
       return () => {
         ipcRenderer.removeListener(channel, subscription);
       };
     },
-    once(channel: Channels, func: (...args: unknown[]) => void) {
+    once: (channel: Channels, func: Callback) => {
       ipcRenderer.once(channel, (_event, ...args) => func(...args));
     },
   },
-  questTracker: async (xpac: any, bots: boolean) => { // TEMP TYPE
+  questTracker: async (xpac: Expansion) => {
     return ipcRenderer.invoke('questTracker', xpac);
   },
   getExpansion: async () => {
     return ipcRenderer.invoke('get:expansion');
   },
-  setExpansion: async (expansion: string) => { // TEMP TYPE
+  setExpansion: async (expansion: Expansion) => {
     return ipcRenderer.invoke('set:expansion', expansion);
   },
   getFaction: async () => {
     return ipcRenderer.invoke('get:faction');
   },
-  setFaction: async (faction: string) => { // TEMP TYPE
+  setFaction: async (faction: Faction) => {
     return ipcRenderer.invoke('set:faction', faction);
   }
 };

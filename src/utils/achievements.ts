@@ -1,51 +1,63 @@
+import {
+  AchRewardItemCharges,
+  AchRewards,
+  AllAchCredit,
+  AllAchProgress,
+  Faction,
+  FactionAchievements,
+  RawAchCredit,
+  RawAchRewItemCharges,
+  RawAchRewards,
+  RawCharAchProgress,
+  RawSharedAchProgress,
+} from '../types';
 import _factionAchievements from '../../data/achievements/factionAchievements.json';
+const factionAchievements = _factionAchievements as FactionAchievements;
 
 // Organize achievement credit by character
-export const formatAchCredit = (achievements: any) => { // TEMP ANY
-  const all: any = {}; // TEMP ANY
-  achievements.forEach((a: any) => { // TEMP ANY
-    const guid = a.guid.toString();
+export const formatAchCredit = (credit: RawAchCredit) => {
+  const all: AllAchCredit = {};
+  credit.forEach(ach => {
+    const guid = ach.guid;
+    const achID = ach.achievement;
     if (!all[guid]) all[guid] = {};
-    const achID = a.achievement.toString();
-    all[guid][achID] = a.date;
+    all[guid][achID] = ach.date;
   });
   return all;
 }
 
 // Organize achievement progress by character or account
-export const formatAchProg = (type: any, achievements: any) => { // TEMP ANY
-  const all: any = {}; // TEMP ANY
-  achievements.forEach((a: any) => { // TEMP ANY
-    const charType = type === 'char';
-    const guidOrAcct = charType ? a.guid : a.account;
+export const formatAchProg = (prog: RawCharAchProgress | RawSharedAchProgress) => {
+  const all: AllAchProgress = {};
+  prog.forEach(ach => {
+    const guidOrAcct = 'guid' in ach ? ach.guid : ach.id;
     if (!all[guidOrAcct]) all[guidOrAcct] = {};
-
-    // Criteria is separate from achievement ID
-    const criteria = a.criteria;
+    const criteria = ach.criteria; // Criteria is separate from achievement ID
     all[guidOrAcct][criteria] = {
-      counter: a.counter,
-      date: a.date,
+      counter: ach.counter,
+      date: ach.date,
     }
   });
+
   return all;
 }
 
 // Organize achievement rewards by achievement
-export const formatAchRewards = (achievements: any) => { // TEMP ANY
-  const all: any = {}; // TEMP ANY
-  achievements.forEach((a: any) => { // TEMP ANY
+export const formatAchRewards = (rewards: RawAchRewards) => {
+  const all: AchRewards = {};
+  rewards.forEach(ach => {
     // Store in arrays b/c of Matron/Patron duplicate
-    const entry = a.entry.toString();
-    if (!all[entry]) all[entry] = [a];
-    else all[entry].push(a);
+    const entry = ach.entry.toString();
+    if (!all[entry]) all[entry] = [ach];
+    else all[entry].push(ach);
   });
   return all;
 }
 
 // Organize reward item charges by item
-export const formatRewItemCharges = (items: any) => { // TEMP ANY
-  const all: any = {}; // TEMP ANY
-  items.forEach((i: any) => { // TEMP ANY
+export const formatRewItemCharges = (items: RawAchRewItemCharges) => {
+  const all: AchRewardItemCharges = {};
+  items.forEach(i => {
     const entry = i.entry;
     all[entry] = i.spellcharges_1;
   });
@@ -54,17 +66,7 @@ export const formatRewItemCharges = (items: any) => { // TEMP ANY
 
 // Check to see if achievement is faction specific and matches char faction
 // Return alt achievement ID if faction doesn't match
-interface FactionAchievement { // MOVE TO TYPE FOLDER
-  name: string;
-  faction: string;
-  alt: number | null;
-}
-interface FactionAchievements { // MOVE TO TYPE FOLDER
-  [key: string]: FactionAchievement;
-}
-const factionAchievements = _factionAchievements as FactionAchievements;
-
-export const checkFactionAch = (achID: number, faction: any): any => { // TEMP ANY
+export const checkFactionAch = (achID: number, faction: Faction): [boolean, number] => {
   let factionMatch = false;
   const factionAch = factionAchievements[achID];
   if (factionAch) {

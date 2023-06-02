@@ -1,3 +1,5 @@
+import { Faction } from "./factions";
+
 // ----------------------------------------------------------------
 // Credit
 // ----------------------------------------------------------------
@@ -41,9 +43,57 @@ export type AchReward = {
 }
 
 export type AchRewards = {
-  [key: string]: AchReward;
+  [key: string]: AchReward[];
 }
 
 export type AchRewardItemCharges = {
   [key: string]: number;
+}
+
+// ----------------------------------------------------------------
+// Loremaster Achievement Criteria
+// ----------------------------------------------------------------
+
+export type LoremasterCrit = {
+  criteria: number;
+  achievement: number;
+  description: string;
+  threshold: number;
+}
+
+export type LoremasterCriteria = {
+  alliance: { [key: string]: LoremasterCrit };
+  horde: { [key: string]: LoremasterCrit };
+}
+
+export type LMCriteriaTracker = {
+  alliance: AchProgress;
+  horde: AchProgress;
+}
+
+// ----------------------------------------------------------------
+// JSON Data
+// ----------------------------------------------------------------
+
+export type FactionAchievement = {
+  name: string;
+  faction: Faction;
+  alt: number | null;
+}
+export type FactionAchievements = {
+  [key: string]: FactionAchievement;
+}
+
+export type AchCriteria = {
+  [key: string]: {
+    criteria?: number;
+    achievement: number;
+    description: string;
+    threshold: number;
+  };
+}
+
+export type LoremasterAchCriteria = {
+  alliance: AchCriteria;
+  horde: AchCriteria;
 }

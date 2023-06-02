@@ -1,7 +1,7 @@
 import { send } from '../../../utils';
 import {
   Connection,
-  ProgValues,
+  CharProgValues,
   Reply,
 } from '../../../types';
 
@@ -34,7 +34,7 @@ export const selAchProg = async (
 
 export const insUpdAchProg = async (
   conn: Connection,
-  achProg: ProgValues,
+  achProg: CharProgValues,
   reply?: Reply
 ) => {
   const columns = 'guid, criteria, counter, date';

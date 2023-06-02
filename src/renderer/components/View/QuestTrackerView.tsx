@@ -7,7 +7,7 @@ import {
   reverseSortViewQuests,
   sortViewQuests
 } from '../../../utils';
-import { SortSetting } from '../../../types';
+import { QuestTrackerSettings, SortSetting } from '../../../types';
 import './View.css';
 import { formatComplFactionQuests } from '../../../utils';
 
@@ -25,7 +25,7 @@ const QuestTrackerView = () => {
 
   // Determine how to filter view quests
   const settings = useAppSelector(state => state.questTracker);
-  const { all, characterClass, race, zone } = settings as any; // TEMP ANY
+  const { all, characterClass, race, zone } = settings as QuestTrackerSettings;
 
   // Track which column is currently being sorted
   const [sort, setSort] = useState<SortSetting>('');

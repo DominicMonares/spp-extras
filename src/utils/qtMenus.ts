@@ -3,7 +3,7 @@ import _questTypeMenu from '../../data/menus/questTypeMenu.json';
 import _raceMenu from '../../data/menus/raceMenu.json';
 import _zoneMenu from '../../data/menus/zoneMenu.json';
 import {
-  Characters,
+  AllCharacters,
   ClassSetting,
   ExpansionSetting,
   Faction,
@@ -14,7 +14,7 @@ import {
 // Create character menu from player character data
 export const createCharacterMenu = (
   character: number,
-  characters: Characters,
+  characters: AllCharacters,
   faction: Faction,
 ) => {
   const submenu = Object.values(characters[faction]).map(c => {

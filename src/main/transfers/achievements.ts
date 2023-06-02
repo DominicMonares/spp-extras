@@ -36,16 +36,16 @@ import {
   AccountCharacters,
   AchRewardItemCharges,
   AchRewards,
-  AllAccountData,
+  AllAccountsData,
   AllAchCredit,
   AllAchProgress,
+  CharProgValues,
   CompletedQuests,
   Connection,
   CreditValues,
   ItemInstanceValues,
   MailItemValues,
   MailValues,
-  ProgValues,
   RawAchCredit,
   RawAchRewards,
   RawCharAchProgress,
@@ -124,7 +124,7 @@ export const transferAchievements = async (
       charIDs,
       reply
     );
-    achProg = formatAchProg('char', rawAchProg);
+    achProg = formatAchProg(rawAchProg);
   } catch (err) {
     throw err;
   }
@@ -137,7 +137,7 @@ export const transferAchievements = async (
       acctIDs,
       reply
     );
-    achProgShared = formatAchProg('acct', rawAchSharedProg);
+    achProgShared = formatAchProg(rawAchSharedProg);
   } catch (err) {
     throw err;
   }
@@ -159,7 +159,7 @@ export const transferAchievements = async (
   }
 
   // All account data
-  let allAcctData: AllAccountData = formatAllAcctData(
+  let allAcctData: AllAccountsData = formatAllAcctData(
     acctChars,
     achCredit,
     achProg,
@@ -232,7 +232,7 @@ export const transferAchievements = async (
   // ----------------------------------------------------------------
 
   // Create progress values and add any new achievements to credit
-  let charProgValues: ProgValues = [];
+  let charProgValues: CharProgValues = [];
   let sharedProgValues: SharedProgValues = [];
   try {
     send('Creating new achievement progress DB values...', reply);

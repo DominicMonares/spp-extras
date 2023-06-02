@@ -6,10 +6,10 @@ import {
 } from '../../utils';
 import {
   AccountCharacters,
+  AllReputations,
   Connection,
   RawReputations,
   Reply,
-  Reputations,
   ReputationValues
 } from 'types';
 
@@ -20,7 +20,7 @@ export const transferReputations = async (
   reply: Reply,
 ) => {
   // Fetch and format character reputations
-  let reputations: Reputations = {};
+  let reputations: AllReputations = {};
   try {
     const rawReputations: RawReputations = await selCharRep(
       charactersDB,
@@ -38,7 +38,7 @@ export const transferReputations = async (
     send('Creating new character reputation standing DB values...', reply);
     reputationValues = createReputationValues(
       acctChars,
-      reputationValues
+      reputations
     );
     send('New character reputation standing DB values created!', reply);
   } catch (err) {

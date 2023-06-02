@@ -5,45 +5,34 @@ import {
   miscLMCriteria
 } from './loremaster';
 import _questAchCriteria from '../../data/achievements/questAchCriteria.json';
-import _loremasterAchCriteria from '../../data/achievements/loremasterAchCriteria.json';
 import _sharedAchCriteria from '../../data/achievements/sharedAchCriteria.json';
-import _zoneContinents from '../../data/zones/zoneContinents.json';
+import {
+  AchCriteria,
+  AllAccountsData,
+  NewSharedProg,
+  NewSharedProgress,
+  ProgressValues,
+  TemplateQuests,
+} from '../types';
 
-interface AchCriteria { // MOVE TO TYPE FILE
-  [key: string]: {
-    criteria?: number;
-    achievement: number;
-    description: string;
-    threshold: number;
-  };
-}
 const questAchCriteria = _questAchCriteria as AchCriteria;
-interface LoremasterAchCriteria { // MOVE TO TYPE FILE
-  alliance: AchCriteria;
-  horde: AchCriteria;
-}
-const loremasterAchCriteria = _loremasterAchCriteria as LoremasterAchCriteria;
 const sharedAchCriteria = _sharedAchCriteria as AchCriteria;
-interface ZoneContinents { // MOVE TO TYPE FILE
-  [key: string]: number;
-}
-const zoneContinents = _zoneContinents as ZoneContinents;
 
-export const createProgValues = (allAcctData: any, templateQuests: any) => { // TEMP ANYS
-  interface ProgValues { // REFACTOR/MOVE TO TYPES FILE
-    [key: string]: any;
-  }
-  const dbValues: ProgValues = {
+export const createProgValues = (
+  allAcctData: AllAccountsData,
+  templateQuests: TemplateQuests
+) => {
+  const dbValues: ProgressValues = {
     charProgVals: [],
     sharedProgVals: [],
     newAcctData: allAcctData,
   }
 
-  const addCharProgValues = ( // TEMP ANYS
-    guid: any,
-    criteria: any,
-    counter: any,
-    date: any,
+  const addCharProgValues = (
+    guid: number,
+    criteria: number,
+    counter: number,
+    date: number,
   ) => {
     dbValues.charProgVals.push({
       guid: guid,
@@ -53,11 +42,11 @@ export const createProgValues = (allAcctData: any, templateQuests: any) => { // 
     });
   }
 
-  const addSharedProgValues = ( // TEMP ANYS
-    acctID: any,
-    criteriaID: any,
-    counter: any,
-    date: any,
+  const addSharedProgValues = (
+    acctID: number,
+    criteriaID: number,
+    counter: number,
+    date: number,
   ) => {
     dbValues.sharedProgVals.push({
       id: acctID,
@@ -71,23 +60,23 @@ export const createProgValues = (allAcctData: any, templateQuests: any) => { // 
     const account = allAcctData[acctID];
     const chars = account.characters;
     const credit = account.credit;
-    const sharedProgress = account.sharedProgress;
-    const completedQuests = account.quests;
+    const sharedProgress = account.sharedProg || {};
+    const completedQuests = account.quests || {};
     const loremasterProg = {
       // Alliance Eastern Kingdoms
-      1676: {count: 0, date: new Date('0000000000').getTime() / 1000},
+      1676: {counter: 0, date: new Date('0000000000').getTime() / 1000},
       // Alliance Kalimdor
-      1678: {count: 0, date: new Date('0000000000').getTime() / 1000},
+      1678: {counter: 0, date: new Date('0000000000').getTime() / 1000},
       // Horde Eastern Kingdoms
-      1677: {count: 0, date: new Date('0000000000').getTime() / 1000},
+      1677: {counter: 0, date: new Date('0000000000').getTime() / 1000},
       // Horde Kalimdor
-      1680: {count: 0, date: new Date('0000000000').getTime() / 1000},
+      1680: {counter: 0, date: new Date('0000000000').getTime() / 1000},
     }
 
     // Organize all character shared achievement progress by criteria
-    const newSharedProg: any = {}; // TEMP ANY
+    const newSharedProg: NewSharedProgress = {};
 
-    const addToSharedProg = (criteriaID: any, achProg: any) => { // TEMP ANY
+    const addToSharedProg = (criteriaID: number, achProg: NewSharedProg) => {
       if (!newSharedProg[criteriaID]) newSharedProg[criteriaID] = [achProg];
       else newSharedProg[criteriaID].push(achProg);
     }
@@ -99,7 +88,7 @@ export const createProgValues = (allAcctData: any, templateQuests: any) => { // 
       for (const criteriaID in charProg) {
         if (sharedAchCriteria[criteriaID]) {
           const achProg = charProg[criteriaID];
-          addToSharedProg(criteriaID, achProg);
+          addToSharedProg(Number(criteriaID), achProg);
         }
       }
     }
@@ -113,21 +102,22 @@ export const createProgValues = (allAcctData: any, templateQuests: any) => { // 
       let newProgress = 0;
 
       // Re-assign previous count and date if shared progress already exists
-      const acctSharedExists = sharedProgress.length > 0;
+      const sharedProgLen = sharedProgress ? Object.keys(sharedProgress).length : 0;
+      const acctSharedExists = sharedProgLen > 0;
       let acctSharedCriteriaExists = false;
       if (acctSharedExists) {
-        const criteriaExists = sharedProgress[criteriaID];
-        const acctSharedCriteriaExists = criteriaExists;
+        const criteriaExists = sharedProgress?.[criteriaID] ? true : false;
+        acctSharedCriteriaExists = criteriaExists;
       }
 
       if (acctSharedCriteriaExists) {
-        const sharedCriteria = sharedProgress[criteriaID];
-        previousCount = sharedProgress.counter;
-        date = sharedCriteria.date;
+        const sharedCriteria = sharedProgress?.[criteriaID];
+        previousCount = sharedCriteria?.counter || 0;
+        date = sharedCriteria?.date || 0;
       }
 
       // Calculate new count using previous count
-      achProg.forEach((charAchProg: any) => { // TEMP ANY
+      achProg.forEach(charAchProg => {
         // Use most recent date for progress
         const charProgDate = charAchProg.date;
         if (charProgDate > date) date = charProgDate;
@@ -144,14 +134,14 @@ export const createProgValues = (allAcctData: any, templateQuests: any) => { // 
       // Add misc Loremaster criteria to loremasterProg if it exists
       const miscLMCrit = miscLMCriteria(Number(criteriaID));
       if (miscLMCrit) {
-        loremasterProg[miscLMCrit]['count'] += newCount;
+        loremasterProg[miscLMCrit]['counter'] += newCount;
         if (date > loremasterProg[miscLMCrit]['date']) {
           loremasterProg[miscLMCrit]['date'] = date;
         }
       }
 
       // Add shared achievement progress
-      addSharedProgValues(acctID, criteriaID, newCount, date);
+      addSharedProgValues(Number(acctID), Number(criteriaID), newCount, date);
 
       // Ensure progress counter doesn't exceed threshold
       const threshold = sharedAchCriteria[criteriaID]['threshold'];
@@ -160,7 +150,7 @@ export const createProgValues = (allAcctData: any, templateQuests: any) => { // 
       // Check to see if new achievement is earned
       // Add new achievement to all credit
       const achID = sharedAchCriteria[criteriaID]['achievement'];
-      if (newCount === threshold && !credit[achID]) credit[achID] = date;
+      if (newCount === threshold && credit && !credit?.[achID]) credit[achID] = date;
 
       // Add individual character progress
       for (const charID in chars) {
@@ -173,7 +163,7 @@ export const createProgValues = (allAcctData: any, templateQuests: any) => { // 
         const isHorde = faction === 'horde';
         const isHordeProg = isLMH && isHorde;
         if (!miscLMCrit || isAllianceProg || isHordeProg) {
-          addCharProgValues(charID, criteriaID, newCount, date);
+          addCharProgValues(Number(charID), Number(criteriaID), newCount, date);
         }
       }
     }
@@ -186,22 +176,24 @@ export const createProgValues = (allAcctData: any, templateQuests: any) => { // 
     const hordeLMProg = subLMProg.horde;
 
     // Add credit for Loremaster achievements if they exceed threshold
-    const allianceEK = mainLMProg['1676'];
-    const allianceEKCount = allianceEK.count;
-    const allianceEKDate = allianceEK.date;
-    if (loremasterEarned(1676, allianceEKCount)) credit['1676'] = allianceEKDate;
-    const allianceK = mainLMProg['1678'];
-    const allianceKCount = allianceK.count;
-    const allianceKDate = allianceK.date;
-    if (loremasterEarned(1678, allianceKCount)) credit['1678'] = allianceKDate;
-    const hordeEK = mainLMProg['1677'];
-    const hordeEKCount = hordeEK.count;
-    const hordeEKDate = hordeEK.date;
-    if (loremasterEarned(1677, hordeEKCount)) credit['1677'] = hordeEKDate;
-    const hordeK = mainLMProg['1680'];
-    const hordeKCount = hordeK.count;
-    const hordeKDate = hordeK.date;
-    if (loremasterEarned(1680, hordeKCount)) credit['1680'] = hordeKDate;
+    if (credit) {
+      const allianceEK = mainLMProg['1676'];
+      const allianceEKCount = allianceEK.count;
+      const allianceEKDate = allianceEK.date;
+      if (loremasterEarned(1676, allianceEKCount)) credit['1676'] = allianceEKDate;
+      const allianceK = mainLMProg['1678'];
+      const allianceKCount = allianceK.count;
+      const allianceKDate = allianceK.date;
+      if (loremasterEarned(1678, allianceKCount)) credit['1678'] = allianceKDate;
+      const hordeEK = mainLMProg['1677'];
+      const hordeEKCount = hordeEK.count;
+      const hordeEKDate = hordeEK.date;
+      if (loremasterEarned(1677, hordeEKCount)) credit['1677'] = hordeEKDate;
+      const hordeK = mainLMProg['1680'];
+      const hordeKCount = hordeK.count;
+      const hordeKDate = hordeK.date;
+      if (loremasterEarned(1680, hordeKCount)) credit['1680'] = hordeKDate;
+    }
 
     // Add Loremaster progress for each character
     for (const charID in chars) {
@@ -209,21 +201,21 @@ export const createProgValues = (allAcctData: any, templateQuests: any) => { // 
       const faction = checkFaction(char.race);
       if (faction === 'alliance') {
         for (const criteriaID in allianceLMProg) {
-          const count = allianceLMProg[criteriaID]['count'];
+          const count = allianceLMProg[criteriaID]['counter'];
           const date = allianceLMProg[criteriaID]['date'];
-          addCharProgValues(charID, criteriaID, count, date);
+          addCharProgValues(Number(charID), Number(criteriaID), count, date);
         }
       } else if (faction === 'horde') {
         for (const criteriaID in hordeLMProg) {
-          const count = hordeLMProg[criteriaID]['count'];
+          const count = hordeLMProg[criteriaID]['counter'];
           const date = hordeLMProg[criteriaID]['date'];
-          addCharProgValues(charID, criteriaID, count, date);
+          addCharProgValues(Number(charID), Number(criteriaID), count, date);
         }
       }
     }
 
     // Use length of credit for Complete {X} Quests achievement chain
-    let completedQuestCount = completedQuests.length;
+    let completedQuestCount = completedQuests ? Object.keys(completedQuests).length : 0;
     for (const criteriaID in questAchCriteria) {
       const criteria = questAchCriteria[criteriaID];
       const date = new Date().getTime() / 1000;
@@ -236,11 +228,11 @@ export const createProgValues = (allAcctData: any, templateQuests: any) => { // 
       // Add new achievement to all credit
       const achID = criteria.achievement.toString();
       const thresholdMet = completedQuestCount === threshold;
-      if (thresholdMet && !credit[achID]) credit[achID] = date;
+      if (thresholdMet && credit && !credit?.[achID]) credit[achID] = date;
 
       // Add individual character progress
       for (const charID in chars) {
-        addCharProgValues(charID, criteriaID, completedQuestCount, date);
+        addCharProgValues(Number(charID), Number(criteriaID), completedQuestCount, date);
       }
     }
 

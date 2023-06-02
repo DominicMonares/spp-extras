@@ -6,7 +6,9 @@ import './DropdownMenu.css';
 
 type Props = {
   final: boolean;
-  handleSelection: (e: any) => void;
+  handleSelection: (
+    e: React.MouseEvent<HTMLButtonElement, globalThis.MouseEvent>,
+  ) => void;
   subHovering: boolean;
   item: Submenu;
 }

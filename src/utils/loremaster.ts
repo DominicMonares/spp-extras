@@ -1,5 +1,4 @@
 import _lmCriteria from '../../data/achievements/loremasterAchCriteria.json';
-import _zoneContinents from '../../data/zones/zoneContinents.json';
 import {
   AchProgress,
   CompletedRegQuests,
@@ -7,14 +6,12 @@ import {
   LMCriteriaTracker,
   LoremasterCriteria,
   TemplateQuests,
-  ZoneContinents,
 } from '../types';
 
 const lmCriteria = _lmCriteria as LoremasterCriteria;
-const zoneContinents = _zoneContinents as ZoneContinents;
 
 // See which completed quests belong to which criteria and what their counts are
-export const loremaster = ( // TEMP ANYS
+export const loremaster = (
   completedQuests: CompletedRegQuests,
   templateQuests: TemplateQuests,
   loremasterProg: AchProgress,

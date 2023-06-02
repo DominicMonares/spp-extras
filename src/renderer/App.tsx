@@ -36,7 +36,7 @@ const App = () => {
     setError('');
     let allData: AllQTData | Record<string,never> = {};
     try {
-      allData = await window.electron.questTracker(xpac, false) // TEMP FALSE
+      allData = await window.electron.questTracker(xpac);
     } catch (err: any) { // TEMP ANY
       if (typeof err !== 'string') err = err.toString();
       // Remove boilerplate portion of err message

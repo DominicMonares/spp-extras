@@ -14,6 +14,7 @@ TODO
 - AccountWide transfer with no options selected - error styling
 - Combine SQL queries where possible
 - Batch disconnect db functions
+- Replace try/catch with just await/catch?
 - Create actual readme file
 
 

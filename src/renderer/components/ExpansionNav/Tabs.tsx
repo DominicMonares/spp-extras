@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import Tab from './Tab';
 import { useAppSelector } from '../../store/hooks';
-import { TabsProps } from "../../../types";
+import { Expansion } from "../../../types";
 import './ExpansionNav.css';
 
+type Props = {
+  openModal: (xpac: Expansion) => void;
+}
 
-const Tabs = ({ openModal }: TabsProps) => {
+const Tabs = ({ openModal }: Props) => {
   const expansion = useAppSelector(state => state.expansion.selected);
   const [classicBufferHover, setClassicBufferHover] = useState<boolean>(false);
   const [tbcBufferHover, setTbcBufferHover] = useState<boolean>(false);

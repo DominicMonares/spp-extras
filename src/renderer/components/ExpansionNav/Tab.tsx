@@ -2,11 +2,16 @@ import { useAppSelector } from '../../store/hooks';
 import vanillaTab from '../../../../assets/tabs/vanilla.png';
 import tbcTab from '../../../../assets/tabs/tbc.png';
 import wotlkTab from '../../../../assets/tabs/wotlk.png';
-import { TabProps } from "../../../types";
+import { Expansion } from "../../../types";
 import './ExpansionNav.css';
 
+type Props = {
+  bufferHover: boolean;
+  openModal: (xpac: Expansion) => void;
+  xpac: Expansion;
+}
 
-const Tab = ({ bufferHover, openModal, xpac }: TabProps) => {
+const Tab = ({ bufferHover, openModal, xpac }: Props) => {
   const expansion = useAppSelector(state => state.expansion.selected);
 
   const tabImg = () => {

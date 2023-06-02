@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { CompletedQuests, TemplateQuests } from '../../../types';
+import { CompletedQuests, AllTemplateQuests } from '../../../types';
 
 interface InitialState {
   completedQuests: CompletedQuests | Record<string,never>;
-  templateQuests: TemplateQuests | Record<string,never>;
+  templateQuests: AllTemplateQuests | Record<string,never>;
 }
 
 const initialState: InitialState = {
@@ -18,7 +18,7 @@ export const questSlice = createSlice({
     storeCompletedQuests: (state, action: PayloadAction<CompletedQuests>) => {
       state.completedQuests = action.payload;
     },
-    storeTemplateQuests: (state, action: PayloadAction<TemplateQuests>) => {
+    storeTemplateQuests: (state, action: PayloadAction<AllTemplateQuests>) => {
       state.templateQuests = action.payload;
     },
   },

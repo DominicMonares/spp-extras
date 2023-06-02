@@ -1,29 +1,25 @@
 import { AllCharacters, ClassSetting, RaceSetting } from './characters';
-import { Menu } from './dropdown';
-import { Expansion } from './expansions';
-import { Faction, FactionSetting } from './factions';
+import { Faction, FactionSetting } from './characters';
 import {
   AllCompletedQuests,
-  CharacterQuestClass,
-  CharacterQuestRace,
+  AllTemplateQuests,
   CharacterQuests,
   CompletedQuests,
   QuestTypeSetting,
-  TemplateQuests,
 } from './quests';
 import { ViewQuest, ViewQuests } from './view';
 
 export type AllQTData = {
   characters: AllCharacters;
   completedQuests: CompletedQuests;
-  templateQuests: TemplateQuests;
+  templateQuests: AllTemplateQuests;
 }
 
 export type CreateViewQuests = (
   all: boolean,
   completedQuests: AllCompletedQuests | Record<string,never>,
   settings: QuestTrackerSettings,
-  templateQuests: TemplateQuests | Record<string,never>
+  templateQuests: AllTemplateQuests | Record<string,never>
 ) => ViewQuests;
 
 export type MarkTemplateQuests = (
@@ -64,13 +60,13 @@ export type QTCharacter = {
 export type QTClass = {
   id: ClassSetting;
   title: string;
-  value: CharacterQuestClass | 0;
+  value: number;
 }
 
 export type QTRace = {
   id: RaceSetting;
   title: string;
-  value: CharacterQuestRace | 0;
+  value: number;
 }
 
 export type SortSetting = 'name' | 'id' | 'status' | '';

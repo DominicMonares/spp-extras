@@ -1,5 +1,6 @@
 import {
   AllCompletedQuests,
+  AllTemplateQuests,
   CreateViewQuests,
   Faction,
   MarkTemplateQuests,
@@ -8,7 +9,6 @@ import {
   QuestRaces,
   QuestTrackerSettings,
   SortViewQuests,
-  TemplateQuests,
   ViewQuest,
   ViewQuests,
   ViewSubzone,
@@ -34,7 +34,7 @@ const zones = zoneRef as ViewZones;
 export const filterTemplateQuests = (
   all: boolean,
   settings: QuestTrackerSettings,
-  templateQuests: TemplateQuests | Record<string,never>,
+  templateQuests: AllTemplateQuests | Record<string,never>,
 ) => {
   const { characterClass, faction, race, type, zone } = settings;
 
@@ -243,7 +243,7 @@ export const createViewQuests: CreateViewQuests = (
   all: boolean,
   completedQuests: AllCompletedQuests | Record<string,never>,
   settings: QuestTrackerSettings,
-  templateQuests: TemplateQuests | Record<string,never>
+  templateQuests: AllTemplateQuests | Record<string,never>
 ) => {
   const { character, type } = settings as QuestTrackerSettings;
 

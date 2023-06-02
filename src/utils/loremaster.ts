@@ -1,11 +1,11 @@
 import _lmCriteria from '../../data/achievements/loremasterAchCriteria.json';
 import {
   AchProgress,
+  AllTemplateQuests,
   CompletedRegQuests,
   Faction,
   LMCriteriaTracker,
   LoremasterCriteria,
-  TemplateQuests,
 } from '../types';
 
 const lmCriteria = _lmCriteria as LoremasterCriteria;
@@ -13,7 +13,7 @@ const lmCriteria = _lmCriteria as LoremasterCriteria;
 // See which completed quests belong to which criteria and what their counts are
 export const loremaster = (
   completedQuests: CompletedRegQuests,
-  templateQuests: TemplateQuests,
+  templateQuests: AllTemplateQuests,
   loremasterProg: AchProgress,
 ) => {
   const allianceTemplQuests = templateQuests.alliance;

@@ -9,10 +9,10 @@ import _sharedAchCriteria from '../../data/achievements/sharedAchCriteria.json';
 import {
   AchCriteria,
   AllAccountsData,
+  AllTemplateQuests,
   NewSharedProg,
   NewSharedProgress,
   ProgressValues,
-  TemplateQuests,
 } from '../types';
 
 const questAchCriteria = _questAchCriteria as AchCriteria;
@@ -20,7 +20,7 @@ const sharedAchCriteria = _sharedAchCriteria as AchCriteria;
 
 export const createProgValues = (
   allAcctData: AllAccountsData,
-  templateQuests: TemplateQuests
+  templateQuests: AllTemplateQuests
 ) => {
   const dbValues: ProgressValues = {
     charProgVals: [],

@@ -1,8 +1,8 @@
+import { Faction } from "./characters";
+
 // ----------------------------------------------------------------
 // Items
 // ----------------------------------------------------------------
-
-import { Faction } from "./factions";
 
 export type PetMountItem = {
   entry: number;

@@ -1,3 +1,7 @@
+// ----------------------------------------------------------------
+// Dropdown
+// ----------------------------------------------------------------
+
 export type DropdownType = 'character' | 'class' | 'type' | 'race' | 'zone';
 
 export type Menu = Submenu[];

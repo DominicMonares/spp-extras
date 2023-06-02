@@ -2,6 +2,7 @@ import _questRaceZeros from '../../data/quests/questRaceZeros.json';
 import {
   AllCharacters,
   AllCompletedQuests,
+  AllTemplateQuests,
   CompletedQuests,
   RawComplRepeatQuests,
   RawComplRegQuests,
@@ -9,7 +10,6 @@ import {
   QuestRaceZeros,
   QuestType,
   RawTemplateQuests,
-  TemplateQuests,
 } from "../types";
 
 const questRaceZeros = _questRaceZeros as QuestRaceZeros;
@@ -69,7 +69,7 @@ export const formatComplFactionQuests = (
 
 // Organize template quests by faction
 export const formatTemplateQuests = (quests: RawTemplateQuests) => {
-  const all: TemplateQuests = {
+  const all: AllTemplateQuests = {
     alliance: {},
     horde: {},
     neutral: {}

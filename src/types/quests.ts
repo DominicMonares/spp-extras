@@ -1,28 +1,16 @@
-import { Faction } from './factions';
+import { Faction } from './characters';
 
-export type CharacterQuests = {
-  regular: Quests;
-  daily: Quests;
-  weekly: Quests;
-  monthly: Quests;
-}
+// ----------------------------------------------------------------
+// Quest Types
+// ----------------------------------------------------------------
 
-export type CharacterQuestClass = 1 | 2 | 4 | 8 | 16 | 32 | 64 | 128 | 256 | 1024;
+export type QuestType = 'regular' | 'daily' | 'weekly' | 'monthly';
 
-export type CharacterQuestRace = 1 | 2 | 4 | 8 | 16 | 32 | 64 | 128 | 512 | 1024;
+export type QuestTypeSetting = QuestType | '';
 
-export type CompletedRegQuests = {
-  [key: string]: Quest;
-}
-
-export type CompletedQuests = {
-  [key: string]: CharacterQuests;
-}
-
-export type AllCompletedQuests = {
-  alliance: CompletedQuests;
-  horde: CompletedQuests;
-}
+// ----------------------------------------------------------------
+// Completed Quests
+// ----------------------------------------------------------------
 
 export type Quest = {
   guid: number;
@@ -45,13 +33,29 @@ export type Quests = {
   [key: string]: Quest;
 }
 
-export type QuestType = 'regular' | 'daily' | 'weekly' | 'monthly';
-
-export type QuestTypeSetting = QuestType | '';
-
-export type TemplateFactionQuests = {
-  [key: string]: TemplateQuest;
+export type CharacterQuests = {
+  regular: Quests;
+  daily: Quests;
+  weekly: Quests;
+  monthly: Quests;
 }
+
+export type CompletedQuests = {
+  [key: string]: CharacterQuests;
+}
+
+export type AllCompletedQuests = {
+  alliance: CompletedQuests;
+  horde: CompletedQuests;
+}
+
+export type CompletedRegQuests = {
+  [key: string]: Quest;
+}
+
+// ----------------------------------------------------------------
+// Template Quests
+// ----------------------------------------------------------------
 
 export type TemplateQuest = {
   entry: number;
@@ -64,9 +68,13 @@ export type TemplateQuest = {
 }
 
 export type TemplateQuests = {
-  alliance: TemplateFactionQuests | Record<string,never>;
-  horde: TemplateFactionQuests | Record<string,never>;
-  neutral: TemplateFactionQuests | Record<string,never>;
+  [key: string]: TemplateQuest;
+}
+
+export type AllTemplateQuests = {
+  alliance: TemplateQuests | Record<string,never>;
+  horde: TemplateQuests | Record<string,never>;
+  neutral: TemplateQuests | Record<string,never>;
 }
 
 // ----------------------------------------------------------------

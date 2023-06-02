@@ -12,8 +12,6 @@ import {
 } from '../../store/slices';
 import {
   CharacterClass,
-  CharacterQuestClass,
-  CharacterQuestRace,
   DropdownType,
   QuestTypeSetting,
   Race,
@@ -75,13 +73,13 @@ const MenuItems = ({ dropdownType, items, depthLevel }: Props) => {
       dispatch(storeQuestTrackerClass({
         id: id as CharacterClass,
         title: title,
-        value: Number(value) as CharacterQuestClass,
+        value: Number(value),
       }));
     } else if (dropdownType === 'race') {
       dispatch(storeQuestTrackerRace({
         id: id as Race,
         title: title,
-        value: Number(value) as CharacterQuestRace,
+        value: Number(value),
       }));
     }
 

@@ -39,6 +39,7 @@ import {
   AllAccountsData,
   AllAchCredit,
   AllAchProgress,
+  AllTemplateQuests,
   CharProgValues,
   CompletedQuests,
   Connection,
@@ -55,7 +56,6 @@ import {
   Reply,
   SharedProgValues,
   TitleValues,
-  TemplateQuests,
   RawTemplateQuests,
 } from '../../types';
 
@@ -216,7 +216,7 @@ export const transferAchievements = async (
   }
 
   // Template Quests
-  let templateQuests: TemplateQuests = { alliance: {}, horde: {}, neutral: {} };
+  let templateQuests: AllTemplateQuests = { alliance: {}, horde: {}, neutral: {} };
   try {
     const rawTemplateQuests: RawTemplateQuests = await selTemplateQuests(
       mangosDB,

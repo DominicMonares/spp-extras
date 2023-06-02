@@ -15,6 +15,7 @@ TODO
 - Combine SQL queries where possible
 - Batch disconnect db functions
 - Replace try/catch with just await/catch?
+- Replace double quotes with singles wherever possible
 - Create actual readme file
 
 

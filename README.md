@@ -16,6 +16,7 @@ TODO
 - Batch disconnect db functions
 - Replace try/catch with just await/catch?
 - Replace double quotes with singles wherever possible
+- JSON imports w/ types (quest tracker)
 - Create actual readme file
 
 

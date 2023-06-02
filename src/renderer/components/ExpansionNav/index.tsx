@@ -75,7 +75,7 @@ const ExpansionNav = ({ getAllData }: Props) => {
   const switchExpansion = () => {
     // Clear all stores that rely on expansion specific data
     dispatch(storeCharacters({ alliance: {}, horde: {} }));
-    dispatch(storeExpansion(nextExpansion));
+    dispatch(storeExpansion(nextExpansion as Expansion));
     dispatch(storeCompletedQuests({}));
     dispatch(storeMessages('del'));
     dispatch(storeTemplateQuests({ alliance: {}, horde: {}, neutral: {} }));

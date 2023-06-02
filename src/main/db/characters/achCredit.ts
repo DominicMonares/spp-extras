@@ -24,7 +24,7 @@ export const selAchCredit = async (
     const [rows] = await conn.query(sql, [charIDs]);
     const successMsg = 'Failed to fetch character achievement credit data!';
     send(successMsg, reply);
-    return rows;
+    return JSON.parse(JSON.stringify(rows));
   } catch (err) {
     const errMsg = `Failed to fetch character achievement credit data!\n${err}`;
     send(errMsg, reply);
@@ -46,7 +46,7 @@ export const insCharAchs = async (
     const [rows] = await conn.query(sql, [values]);
     const successMsg = 'New character achievement credit successfully saved!';
     send(successMsg, reply);
-    return rows;
+    return JSON.parse(JSON.stringify(rows));
   } catch (err) {
     const errMsg = `Failed to save new character achievement credit!\n${err}`;
     send(errMsg, reply);

@@ -25,7 +25,7 @@ export const updRewardTitles = async (
     const [rows] = await conn.query(sql, [values]);
     const successMsg = 'Character titles updated!';
     send(successMsg, reply);
-    return rows;
+    return JSON.parse(JSON.stringify(rows));
   } catch (err) {
     const errMsg = `Failed to update character titles!\n${err}`;
     send(errMsg, reply);

@@ -13,7 +13,7 @@ export const selAchRewards = async (conn: Connection, reply?: Reply) => {
     const [rows] = await conn.query(sql);
     const successMsg = 'Achievement reward data fetched!';
     send(successMsg, reply);
-    return rows;
+    return JSON.parse(JSON.stringify(rows));
   } catch (err) {
     const errMsg = `Failed to fetch achievement reward data!\n${err}`;
     send(errMsg, reply);

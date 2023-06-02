@@ -22,7 +22,7 @@ export const selTemplateQuests = async (conn: Connection, reply?: Reply) => {
     const [rows] = await conn.query(sql);
     const successMsg = 'Template quest data fetched!';
     send(successMsg, reply);
-    return rows;
+    return JSON.parse(JSON.stringify(rows));
   } catch (err) {
     const errMsg = `Failed to template quest item data!\n${err}`;
     send(errMsg, reply);

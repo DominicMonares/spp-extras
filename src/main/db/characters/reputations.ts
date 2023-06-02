@@ -24,7 +24,7 @@ export const selCharRep = async (
     const [rows] = await conn.query(sql, [charIDs]);
     const successMsg = 'Character reputation data fetched!';
     send(successMsg, reply);
-    return rows;
+    return JSON.parse(JSON.stringify(rows));
   } catch (err) {
     const errMsg = `Failed to fetch character reputation data!\n${err}`;
     send(errMsg, reply);
@@ -48,7 +48,7 @@ export const updCharRep = async (
     const [rows] = await conn.query(sql, [values]);
     const successMsg = 'Character reputation standings updated!';
     send(successMsg, reply);
-    return rows;
+    return JSON.parse(JSON.stringify(rows));
   } catch (err) {
     const errMsg = `Failed to update character reputation standings!\n${err}`;
     send(errMsg, reply);

@@ -21,7 +21,7 @@ export const selCutTitle = async (conn: Connection, reply?: Reply) => {
     const notExistsMsg = 'Cut title data doesn\'t exist!';
     const successMsg = titleExists ? existsMsg : notExistsMsg;
     send(successMsg, reply);
-    return rows;
+    return JSON.parse(JSON.stringify(rows));
   } catch (err) {
     const errMsg = `Failed to fetch cut title data!\n${err}`;
     send(errMsg, reply);
@@ -50,7 +50,7 @@ export const insCutTitles = async (conn: Connection, reply?: Reply) => {
     const [rows] = await conn.query(sql, [values]);
     const successMsg = 'Cut titles successfully added to the database!';
     send(successMsg, reply);
-    return rows;
+    return JSON.parse(JSON.stringify(rows));
   } catch (err) {
     const errMsg = `Failed to add cut titles to database!\n${err}`;
     send(errMsg, reply);

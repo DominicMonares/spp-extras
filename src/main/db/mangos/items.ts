@@ -20,7 +20,7 @@ export const selRewItemCharges = async (
     const [rows] = await conn.query(sql, [itemIDs]);
     const successMsg = 'Reward item charge data fetched!';
     send(successMsg, reply);
-    return rows;
+    return JSON.parse(JSON.stringify(rows));
   } catch (err) {
     const errMsg = `Failed to fetch reward item charge data!\n${err}`;
     send(errMsg, reply);
@@ -47,7 +47,7 @@ export const selPetMountItems = async (conn: Connection, reply?: Reply) => {
     const [rows] = await conn.query(sql);
     const successMsg = 'Pet and mount item data fetched!';
     send(successMsg, reply);
-    return rows;
+    return JSON.parse(JSON.stringify(rows));
   } catch (err) {
     const errMsg = `Failed to fetch pet and mount item data!\n${err}`;
     send(errMsg, reply);

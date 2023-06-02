@@ -24,7 +24,7 @@ export const selCharRidingSkills = async (
     const [rows] = await conn.query(sql, [charIDs]);
     const successMsg = 'Character riding skill data fetched!';
     send(successMsg, reply);
-    return rows;
+    return JSON.parse(JSON.stringify(rows));
   } catch (err) {
     const errMsg = `Failed to fetch character riding skill data!\n${err}`;
     send(errMsg, reply);
@@ -48,7 +48,7 @@ export const selCharPetMountSpells = async (
     const [rows] = await conn.query(sql, [charIDs, spellIDs]);
     const successMsg = 'Character pet and mount spell data fetched!';
     send(successMsg, reply);
-    return rows;
+    return JSON.parse(JSON.stringify(rows));
   } catch (err) {
     const errMsg = `Failed to fetch character pet and mount spell data!\n${err}`;
     send(errMsg, reply);
@@ -77,7 +77,7 @@ export const insCharPetMountSpells = async (
     const [rows] = await conn.query(sql, [values]);
     const successMsg = 'New pet and mount spell data successfully saved!';
     send(successMsg, reply);
-    return rows;
+    return JSON.parse(JSON.stringify(rows));
   } catch (err) {
     const errMsg = `Failed to save new pet and mount spell data!\n${err}`;
     send(errMsg, reply);

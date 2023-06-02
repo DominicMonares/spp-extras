@@ -20,7 +20,7 @@ export const showSharedProg = async (conn: Connection, reply?: Reply) => {
     const notExistsMsg = 'Shared achievement progress table doesn\'t exist!';
     const successMsg = tableExists ? existsMsg : notExistsMsg;
     send(successMsg, reply);
-    return rows;
+    return JSON.parse(JSON.stringify(rows));
   } catch (err) {
     const errMsg = `Failed to fetch shared achievement progress table data!\n${err}`;
     send(errMsg, reply);
@@ -44,7 +44,7 @@ export const createSharedProgTable = async (conn: Connection, reply?: Reply) => 
     const [rows] = await conn.query(sql);
     const successMsg = 'Successfully created character_achievement_shared_progress table!';
     send(successMsg, reply);
-    return rows;
+    return JSON.parse(JSON.stringify(rows));
   } catch (err) {
     const errMsg = `Failed to create character_achievement_shared_progress table!\n${err}`;
     send(errMsg, reply);
@@ -67,7 +67,7 @@ export const selAchSharedProg = async (
     const [rows] = await conn.query(sql, [accountIDs]);
     const successMsg = 'Character achievement shared progress data fetched!';
     send(successMsg, reply);
-    return rows;
+    return JSON.parse(JSON.stringify(rows));
   } catch (err) {
     const errMsg = `Failed to fetch character achievement shared progress data!\n${err}`;
     send(errMsg, reply);
@@ -92,7 +92,7 @@ export const insUpdCharAchSharedProg = async (
     const [rows] = await conn.query(sql, [values]);
     const successMsg = 'New character achievement shared progress successfully saved!';
     send(successMsg, reply);
-    return rows;
+    return JSON.parse(JSON.stringify(rows));
   } catch (err) {
     const errMsg = `Failed to save new character achievement shared progress!\n${err}`;
     send(errMsg, reply);

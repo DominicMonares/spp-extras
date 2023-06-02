@@ -19,7 +19,7 @@ export const selLastItemInstID = async (conn: Connection, reply?: Reply) => {
     const [rows] = await conn.query(sql);
     const successMsg = 'Last item instance ID data fetched!';
     send(successMsg, reply);
-    return rows;
+    return JSON.parse(JSON.stringify(rows));
   } catch (err) {
     const errMsg = `Failed to fetch last item instance ID data!\n${err}`;
     send(errMsg, reply);
@@ -73,7 +73,7 @@ export const insRewardItemInstances = async (
     const [rows] = await conn.query(sql, [values]);
     const successMsg = 'New item instance data successfully saved!';
     send(successMsg, reply);
-    return rows;
+    return JSON.parse(JSON.stringify(rows));
   } catch (err) {
     const errMsg = `Failed to save new item instance data!\n${err}`;
     send(errMsg, reply);
@@ -89,7 +89,7 @@ export const selLastMailID = async (conn: Connection, reply?: Reply) => {
     const [rows] = await conn.query(sql);
     const successMsg = 'Last mail ID data fetched!';
     send(successMsg, reply);
-    return rows;
+    return JSON.parse(JSON.stringify(rows));
   } catch (err) {
     const errMsg = `Failed to fetch last mail ID data!\n${err}`;
     send(errMsg, reply);
@@ -143,7 +143,7 @@ export const insRewardMail = async (
     const [rows] = await conn.query(sql, [values]);
     const successMsg = 'New mail data successfully saved!';
     send(successMsg, reply);
-    return rows;
+    return JSON.parse(JSON.stringify(rows));
   } catch (err) {
     const errMsg = `Failed to save new mail data!\n${err}`;
     send(errMsg, reply);
@@ -165,7 +165,7 @@ export const insRewardMailItems = async (
     const [rows] = await conn.query(sql, [values]);
     const successMsg = 'New mail item data successfully saved!';
     send(successMsg, reply);
-    return rows;
+    return JSON.parse(JSON.stringify(rows));
   } catch (err) {
     const errMsg = `Failed to save new mail item data!\n${err}`;
     send(errMsg, reply);

@@ -24,7 +24,7 @@ import './DropdownMenu.css';
 type Props = {
   dropdownType: DropdownType;
   items: Submenu;
-  depthLevel: number;
+  depthLevel: number | undefined;
 }
 
 const MenuItems = ({ dropdownType, items, depthLevel }: Props) => {

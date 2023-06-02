@@ -11,7 +11,7 @@ type Props = {
   dropdownType: DropdownType;
   menu: Menu;
   dropdown?: boolean;
-  depthLevel?: number;
+  depthLevel?: number | undefined;
 }
 
 const DropdownMenu = ({ depthLevel, dropdown, dropdownType, menu }: Props) => {
@@ -35,7 +35,7 @@ const DropdownMenu = ({ depthLevel, dropdown, dropdownType, menu }: Props) => {
             dropdownType={dropdownType}
             items={m}
             key={i}
-            depthLevel={depthLevel as number} // TEMP TYPE
+            depthLevel={depthLevel}
           />
         );
       })}

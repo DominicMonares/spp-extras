@@ -14,6 +14,16 @@ import {
   formatTemplateQuests,
   send,
 } from '../../utils';
+import {
+  Characters,
+  CompletedQuests,
+  Connection,
+  RawAccounts,
+  RawCharacters,
+  RawComplNonRegQuests,
+  RawComplRegQuests,
+  RawTemplateQuests,
+} from '../../types';
 
 const questTracker = async (xpac: any) => { // TEMP TYPE
   send('Starting Quest Tracker service');
@@ -22,9 +32,9 @@ const questTracker = async (xpac: any) => { // TEMP TYPE
   // Connect to all databases needed
   // ----------------------------------------------------------------
 
-  let realmdDB: any; // TEMP ANY
-  let charactersDB: any; // TEMP ANY
-  let mangosDB: any; // TEMP ANY
+  let realmdDB: Connection;
+  let charactersDB: Connection;
+  let mangosDB: Connection;
 
   try {
     realmdDB = await connect(xpac, 'realmd');
@@ -49,47 +59,48 @@ const questTracker = async (xpac: any) => { // TEMP TYPE
   // ----------------------------------------------------------------
 
   // Accounts
-  let acctIDs: any = []; // TEMP ANY
+  let acctIDs: number[] = [];
   try {
-    const rawAccounts = await selAccts(realmdDB, false);
-    if (Array.isArray(rawAccounts)) acctIDs = rawAccounts.map(a => {
-      const acct: number = JSON.parse(JSON.stringify(a)).id; // RowDataPacket workaround
-      return acct;
-    });
+    const rawAccounts: RawAccounts = await selAccts(realmdDB, false);
+    acctIDs = rawAccounts.map(a => a.id);
   } catch (err) {
     throw err;
   }
 
   // Characters
-  let charIDs: any = []; // TEMP ANY
-  let characters: any; // TEMP ANY
+  let charIDs: number[] = [];
+  let characters: Characters;
   try {
-    const rawCharacters = await selChars(charactersDB, xpac, acctIDs);
-    if (Array.isArray(rawCharacters)) charIDs = rawCharacters.map(c => {
-      const char: number = JSON.parse(JSON.stringify(c)).guid; // RowDataPacket workaround
-      return char;
-    });
+    const rawCharacters: RawCharacters = await selChars(charactersDB, xpac, acctIDs);
+    charIDs = rawCharacters.map(c => c.guid);
+    characters = formatChars(rawCharacters);
   } catch (err) {
     throw err;
   }
 
   // Completed Quests
-  let completedQuests: any = {} // TEMP ANY
+  let completedQuests: CompletedQuests = {};
   try {
     // Regular
-    const rawCompletedReg: any = await selCompletedRegQuests(charactersDB, charIDs); // TEMP ANY
+    const rawCompletedReg: RawComplRegQuests = await selCompletedRegQuests(
+      charactersDB,
+      charIDs
+    );
 
     // Daily
-    let rawCompletedDaily: any = []; //TEMP ANY
+    let rawCompletedDaily: RawComplNonRegQuests = [];
     if (xpac !== 'classic') {
       rawCompletedDaily = await selCompletedDailyQuests(charactersDB, charIDs);
     }
 
     // Weekly
-    const rawCompletedWeekly: any = await selCompletedWeeklyQuests(charactersDB, charIDs); // TEMP ANY
+    const rawCompletedWeekly: RawComplNonRegQuests = await selCompletedWeeklyQuests(
+      charactersDB,
+      charIDs
+    );
 
     // Monthly
-    let rawCompletedMonthly: any = []; // TEMP ANY
+    let rawCompletedMonthly: RawComplNonRegQuests = [];
     if (xpac !== 'classic') {
       rawCompletedMonthly = await selCompletedMonthlyQuests(charactersDB, charIDs);
     }
@@ -105,7 +116,7 @@ const questTracker = async (xpac: any) => { // TEMP TYPE
   }
 
   // Template Quests
-  let templateQuests: any; // TEMP ANY
+  let templateQuests: RawTemplateQuests;
   try {
     const rawTemplateQuests = await selTemplateQuests(mangosDB);
     templateQuests = formatTemplateQuests(rawTemplateQuests);
@@ -141,7 +152,7 @@ const questTracker = async (xpac: any) => { // TEMP TYPE
 
   send('Quest Tracker service finished running!');
 
-  const response: any = { // TEMP ANY
+  const response = {
     characters,
     completedQuests,
     templateQuests,

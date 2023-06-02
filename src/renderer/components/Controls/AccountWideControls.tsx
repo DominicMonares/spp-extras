@@ -5,7 +5,7 @@ import MainButton from '../MainButton';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { storeMessages } from '../../store/slices';
 import './Controls.css';
-
+import { AccountWideSettings } from '../../../types';
 
 // Modal styling must be passed down to Modal component via props
 const modalStyles = {
@@ -67,12 +67,12 @@ const AccountWideControls = () => {
     dispatch(storeMessages('del'));
 
     // Dispatch to display each message sent from main as they come in
-    const settings = {
+    const settings: AccountWideSettings = {
       xpac: expansion,
       petsMounts: petsMountsChecked,
       reputations: repsChecked,
       achievements: achsChecked,
-      bots: botsChecked
+      bots: botsChecked,
     };
 
     const listener = (args: any) => dispatch(storeMessages(args)); // TEMP ANY

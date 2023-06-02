@@ -13,18 +13,27 @@ import {
   transferPetsMounts,
   transferReputations
 } from '../transfers';
+import {
+  AccountCharacters,
+  AccountWideSettings,
+  Connection,
+  RawAccounts,
+  RawCharacters,
+  Reply,
+} from '../../types';
 
-const accountWide = async (reply: any, settings: any) => { // TEMP ANY
+const accountWide = async (settings: AccountWideSettings, reply: Reply) => {
   const { xpac, petsMounts, reputations, achievements, bots } = settings;
+  if (!xpac) return send('No expansion selected... How did you get here?!', reply);
   send('Starting account-wide data transfers...', reply);
 
   // ----------------------------------------------------------------
   // Connect to all databases needed
   // ----------------------------------------------------------------
 
-  let realmdDB: any; // TEMP ANY
-  let charactersDB: any; // TEMP ANY
-  let mangosDB: any; // TEMP ANY
+  let realmdDB: Connection;
+  let charactersDB: Connection;
+  let mangosDB: Connection;
 
   try {
     realmdDB = await connect(xpac, 'realmd', reply);
@@ -41,7 +50,6 @@ const accountWide = async (reply: any, settings: any) => { // TEMP ANY
   try {
     mangosDB = await connect(xpac, 'mangos', reply);
   } catch (err) {
-    // DISCONNECT FROM ALL IN ERRORS HERE?
     return;
   }
 
@@ -50,22 +58,22 @@ const accountWide = async (reply: any, settings: any) => { // TEMP ANY
   // ----------------------------------------------------------------
 
   // Accounts
-  let acctIDs: any = []; // TEMP ANY
-  let rawAccts: any = []; // TEMP ANY
+  let acctIDs: number[] = [];
+  let rawAccts: RawAccounts = [];
   try {
     rawAccts = await selAccts(realmdDB, bots, reply);
-    acctIDs = rawAccts.map((a: any) => a.id); // TEMP ANY
+    acctIDs = rawAccts.map(a => a.id);
   } catch (err) {
     throw err;
   }
 
   // Characters
-  let charIDs: any = []; // TEMP ANY
-  let rawChars: any = []; // TEMP ANY
-  let acctChars: any = {}; // TEMP ANY
+  let charIDs: number[] = [];
+  let rawChars: RawCharacters = [];
+  let acctChars: AccountCharacters = {};
   try {
     rawChars = await selChars(charactersDB, xpac, acctIDs, reply);
-    charIDs = rawChars.map((c: any) => c.guid); // TEMP ANY
+    charIDs = rawChars.map(c => c.guid);
     acctChars = formatAcctChars(rawAccts, rawChars);
   } catch (err) {
     throw err;

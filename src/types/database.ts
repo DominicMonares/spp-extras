@@ -7,7 +7,7 @@ import mysql from 'mysql2/promise';
 export type Connection = mysql.Connection;
 
 // ----------------------------------------------------------------
-// Achievement Credit
+// Achievement Credit Query Values
 // ----------------------------------------------------------------
 
 export type CreditValue = {
@@ -19,7 +19,7 @@ export type CreditValue = {
 export type CreditValues = CreditValue[];
 
 // ----------------------------------------------------------------
-// Achievement Progress
+// Achievement Progress Query Values
 // ----------------------------------------------------------------
 
 export type ProgBase = {
@@ -41,7 +41,7 @@ export interface SharedProgValue extends ProgBase {
 export type SharedProgValues = SharedProgValue[];
 
 // ----------------------------------------------------------------
-// Achievement Item Rewards
+// Achievement Item Reward Query Values
 // ----------------------------------------------------------------
 
 export type ItemInstanceValue = {
@@ -92,7 +92,7 @@ export type MailItemValue = {
 export type MailItemValues = MailItemValue[];
 
 // ----------------------------------------------------------------
-// Achievement Title Rewards
+// Achievement Title Reward Query Values
 // ----------------------------------------------------------------
 
 export type TitleValue = {
@@ -103,7 +103,7 @@ export type TitleValue = {
 export type TitleValues = TitleValue[];
 
 // ----------------------------------------------------------------
-// Pet and Mount Spells
+// Pet and Mount Spell Query Values
 // ----------------------------------------------------------------
 
 export type PetMountSpellValue = {
@@ -114,7 +114,7 @@ export type PetMountSpellValue = {
 export type PetMountSpellValues = PetMountSpellValue[];
 
 // ----------------------------------------------------------------
-// Reputations
+// Reputation Query Values
 // ----------------------------------------------------------------
 
 export type ReputationValue = {

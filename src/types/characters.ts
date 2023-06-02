@@ -1,18 +1,9 @@
-export type Account = {
-  username: string;
-  characters: Characters;
-}
-
-export type Accounts = {
-  [key: number]: Account;
-}
-
 export type Character = {
   guid: number;
   account: number;
   name: string;
   race: Race;
-  gender?: number;
+  gender?: 0 | 1 | 2;
   class_field: number;
   knowntitles?: string;
 }

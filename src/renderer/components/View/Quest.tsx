@@ -1,10 +1,13 @@
 import { useAppSelector } from '../../store/hooks';
 import complete from '../../../../assets/status/complete.png';
 import incomplete from '../../../../assets/status/incomplete.png';
-import { QuestProps } from '../../../types';
+import { ViewQuest } from '../../../types';
 
+type Props = {
+  quest: ViewQuest;
+}
 
-const Quest = ({ quest }: QuestProps) => {
+const Quest = ({ quest }: Props) => {
   const expansion = useAppSelector(state => state.expansion.selected);
 
   return (

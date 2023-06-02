@@ -1,13 +1,20 @@
-import { AllCharacters, ClassSetting, RaceSetting } from './characters';
-import { Faction, FactionSetting } from './characters';
 import {
-  AllCompletedQuests,
+  AllCharacters,
+  ClassSetting,
+  Faction,
+  FactionSetting,
+  RaceSetting
+} from './characters';
+import {
   AllTemplateQuests,
-  CharacterQuests,
   CompletedQuests,
   QuestTypeSetting,
+  TemplateQuest,
 } from './quests';
-import { ViewQuest, ViewQuests } from './view';
+
+// ----------------------------------------------------------------
+// Quest Tracker Data
+// ----------------------------------------------------------------
 
 export type AllQTData = {
   characters: AllCharacters;
@@ -15,21 +22,20 @@ export type AllQTData = {
   templateQuests: AllTemplateQuests;
 }
 
-export type CreateViewQuests = (
-  all: boolean,
-  completedQuests: AllCompletedQuests | Record<string,never>,
-  settings: QuestTrackerSettings,
-  templateQuests: AllTemplateQuests | Record<string,never>
-) => ViewQuests;
 
-export type MarkTemplateQuests = (
-  characterQuests: CharacterQuests,
-  filteredTemplateQuests: ViewQuests,
-  type: QuestTypeSetting,
-) => ViewQuests;
+// ----------------------------------------------------------------
+// Filtering
+// ----------------------------------------------------------------
 
 export type QuestCondition = {
-  setting: QTCharacter | QTClass | Faction | QuestTypeSetting | QTRace | string | Record<string,never | boolean>;
+  setting: QTCharacter
+    | QTClass
+    | Faction
+    | QuestTypeSetting
+    | QTRace
+    | string
+    | Record<string,never>
+    | boolean;
   conditionMet: () => boolean;
 }
 
@@ -37,19 +43,9 @@ export type QuestConditions = {
   [key: string]: QuestCondition;
 }
 
-export type QuestProps = {
-  quest: ViewQuest;
-}
-
-export type QuestTrackerSettings = {
-  all: boolean;
-  character: QTCharacter | Record<string,never>;
-  characterClass: QTClass | Record<string,never>;
-  faction: FactionSetting;
-  race: QTRace | Record<string,never>;
-  type: QuestTypeSetting;
-  zone: string;
-}
+// ----------------------------------------------------------------
+// Settings
+// ----------------------------------------------------------------
 
 export type QTCharacter = {
   id: number;
@@ -69,4 +65,40 @@ export type QTRace = {
   value: number;
 }
 
+export type QuestTrackerSettings = {
+  all: boolean;
+  character: QTCharacter | Record<string,never>;
+  characterClass: QTClass | Record<string,never>;
+  faction: FactionSetting;
+  race: QTRace | Record<string,never>;
+  type: QuestTypeSetting;
+  zone: string;
+}
+
 export type SortSetting = 'name' | 'id' | 'status' | '';
+
+// ----------------------------------------------------------------
+// View
+// ----------------------------------------------------------------
+
+export interface ViewQuest extends TemplateQuest {
+  completed: boolean;
+}
+
+export type ViewQuests = ViewQuest[];
+
+export type SortViewQuests = (
+  viewQuests: ViewQuests,
+  sortSetting: SortSetting,
+) => ViewQuests
+
+export type ViewSubzone = {
+  subzoneId: number;
+  subzone: string;
+}
+
+export type ViewZone = ViewSubzone[];
+
+export type ViewZones = {
+  [key: string]: ViewZone;
+}

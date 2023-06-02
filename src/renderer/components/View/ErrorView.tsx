@@ -1,11 +1,14 @@
-import { ViewProps } from "../../../types";
 import MainButton from "../MainButton";
 import MainBigHeader from "../MainBigHeader";
 import { useAppSelector } from '../../store/hooks';
 import './View.css';
 
+type Props = {
+  error?: string;
+  getAllData?: () => void;
+}
 
-const ErrorView = ({ error, getAllData }: ViewProps) => {
+const ErrorView = ({ error, getAllData }: Props) => {
   const expansion = useAppSelector(state => state.expansion.selected);
 
   return (

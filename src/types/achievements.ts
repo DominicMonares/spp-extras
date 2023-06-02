@@ -97,3 +97,12 @@ export type LoremasterAchCriteria = {
   alliance: AchCriteria;
   horde: AchCriteria;
 }
+
+export type Title = {
+  name: string;
+  inGameOrder: number;
+}
+
+export type Titles = {
+  [key: string]: Title;
+}

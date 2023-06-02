@@ -1,13 +1,13 @@
 import {
   AllCompletedQuests,
   AllTemplateQuests,
-  CreateViewQuests,
+  CharacterQuests,
   Faction,
-  MarkTemplateQuests,
   QuestConditions,
   QuestFlags,
   QuestRaces,
   QuestTrackerSettings,
+  QuestTypeSetting,
   SortViewQuests,
   ViewQuest,
   ViewQuests,
@@ -205,10 +205,10 @@ export const reverseSortViewQuests: SortViewQuests = (viewQuests, sortSetting) =
 }
 
 // Mark sorted template quests as complete or incomplete
-export const markTemplateQuests: MarkTemplateQuests = (
-  characterQuests,
-  filteredTemplateQuests,
-  type
+export const markTemplateQuests = (
+  characterQuests: CharacterQuests,
+  filteredTemplateQuests: ViewQuests,
+  type: QuestTypeSetting,
 ) => {
   // Consolidate all quests into one object
   const allCharacterQuests = {
@@ -239,7 +239,7 @@ export const markTemplateQuests: MarkTemplateQuests = (
 }
 
 // Create list of quests to be displayed
-export const createViewQuests: CreateViewQuests = (
+export const createViewQuests = (
   all: boolean,
   completedQuests: AllCompletedQuests | Record<string,never>,
   settings: QuestTrackerSettings,

@@ -4,10 +4,15 @@ import HomeView from "./HomeView";
 import LoadingView from './LoadingView';
 import QuestTrackerView from "./QuestTrackerView";
 import { useAppSelector } from '../../store/hooks';
-import { ViewProps } from '../../../types';
 import './View.css';
 
-const View = ({ error, getAllData, loading }: ViewProps) => {
+type Props = {
+  error?: string;
+  getAllData?: () => void;
+  loading?: boolean;
+}
+
+const View = ({ error, getAllData, loading }: Props) => {
   const expansion = useAppSelector(state => state.expansion.selected);
   const smallWindow = useAppSelector(state => state.window.smallWindow);
   const tool = useAppSelector(state => state.tool.selected);

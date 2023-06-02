@@ -1,8 +1,8 @@
+import { Faction } from "./characters";
+
 // ----------------------------------------------------------------
 // Reputations
 // ----------------------------------------------------------------
-
-import { Faction } from "./factions";
 
 export type Reputation = {
   standing: number;

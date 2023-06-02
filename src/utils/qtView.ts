@@ -40,8 +40,11 @@ export const filterTemplateQuests = (
 
   // Add template quests that meet all conditions to view quests
   const viewQuests: ViewQuests = [];
-  const _faction = faction as Faction; // TEMP TYPESCRIPT WORKAROUND - FIX THIS
-  const template = { ...templateQuests[_faction], ...templateQuests['neutral'] };
+  const template = {
+    ...templateQuests[faction ? faction : 'neutral'],
+    ...templateQuests['neutral'],
+  };
+
   for (const q in template) {
     const quest = template[q];
     const questClass = quest.RequiredClasses;
@@ -217,7 +220,7 @@ export const markTemplateQuests: MarkTemplateQuests = (
 
   const typeQuests = type ? characterQuests[type] : allCharacterQuests;
   for (const q in typeQuests) {
-    let completedQuestIndex: number = 0; // DOUBLE CHECK FOR SIDE EFFECTS
+    let completedQuestIndex = 0;
     const quest = typeQuests[q];
 
     const questCompleted = filteredTemplateQuests.some(((q, i) => {
@@ -249,7 +252,7 @@ export const createViewQuests: CreateViewQuests = (
 
   // Mark completed quests, check neutral factions so neutral quests are marked
   if (character && character.id) {
-    const faction = settings.faction as Faction; // TEMP??? REVISIT
+    const faction = settings.faction as Faction; // Faction will be selected by this point
     const characterQuests = completedQuests[faction][character.id];
     markTemplateQuests(characterQuests, filteredTemplateQuests, type);
   } else {

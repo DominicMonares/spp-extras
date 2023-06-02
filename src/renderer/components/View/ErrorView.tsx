@@ -5,7 +5,7 @@ import { useAppSelector } from '../../store/hooks';
 import './View.css';
 
 
-const ErrorView = ({ error, getAllData }: ViewProps) => { // TEMP error type
+const ErrorView = ({ error, getAllData }: ViewProps) => {
   const expansion = useAppSelector(state => state.expansion.selected);
 
   return (

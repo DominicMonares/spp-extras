@@ -33,22 +33,39 @@ import {
   send,
 } from '../../utils';
 import {
+  AccountCharacters,
+  AchRewardItemCharges,
+  AchRewards,
+  AllAccountData,
+  AllAchCredit,
+  AllAchProgress,
+  CompletedQuests,
+  Connection,
   CreditValues,
   ItemInstanceValues,
   MailItemValues,
   MailValues,
   ProgValues,
+  RawAchCredit,
+  RawAchRewards,
+  RawCharAchProgress,
+  RawComplRegQuests,
+  RawAchRewItemCharges,
+  RawSharedAchProgress,
+  Reply,
   SharedProgValues,
   TitleValues,
+  TemplateQuests,
+  RawTemplateQuests,
 } from '../../types';
 
-export const transferAchievements = async ( // TEMP ANY
-  acctChars: any,
-  acctIDs: any,
-  charIDs: any,
-  reply: any,
-  charactersDB: any,
-  mangosDB: any,
+export const transferAchievements = async (
+  acctChars: AccountCharacters,
+  acctIDs: number[],
+  charIDs: number[],
+  charactersDB: Connection,
+  mangosDB: Connection,
+  reply: Reply,
 ) => {
   send('Starting achievement data transfers...', reply);
 
@@ -59,7 +76,7 @@ export const transferAchievements = async ( // TEMP ANY
   // Restore cut titles if they don't exist in db
   try {
     const cutTitle = await selCutTitle(mangosDB, reply);
-    if (Array.isArray(cutTitle) && !cutTitle.length) try {
+    if (!cutTitle.length) try {
       await insCutTitles(mangosDB, reply);
     } catch (err) {
       throw err;
@@ -72,8 +89,7 @@ export const transferAchievements = async ( // TEMP ANY
   try {
     let sharedProgExists = false;
     const sharedProgTable = await showSharedProg(charactersDB, reply);
-    const tableArray = Array.isArray(sharedProgTable);
-    if (tableArray && sharedProgTable.length) sharedProgExists = true;
+    if (sharedProgTable.length) sharedProgExists = true;
     if (!sharedProgExists) try {
       await createSharedProgTable(charactersDB, reply);
     } catch (err) {
@@ -88,27 +104,39 @@ export const transferAchievements = async ( // TEMP ANY
   // ----------------------------------------------------------------
 
   // Achievement credit
-  let achCredit: any = {}; // TEMP ANY
+  let achCredit: AllAchCredit = {};
   try {
-    const rawAchCredit = await selAchCredit(charactersDB, charIDs, reply);
+    const rawAchCredit: RawAchCredit = await selAchCredit(
+      charactersDB,
+      charIDs,
+      reply
+    );
     achCredit = formatAchCredit(rawAchCredit);
   } catch (err) {
     throw err;
   }
 
   // Achievement progress
-  let achProg: any = {}; // TEMP ANY
+  let achProg: AllAchProgress = {};
   try {
-    const rawAchProg = await selAchProg(charactersDB, charIDs, reply);
+    const rawAchProg: RawCharAchProgress = await selAchProg(
+      charactersDB,
+      charIDs,
+      reply
+    );
     achProg = formatAchProg('char', rawAchProg);
   } catch (err) {
     throw err;
   }
 
   // Shared achievement progress
-  let achProgShared: any = {}; // TEMP ANY
+  let achProgShared: AllAchProgress = {};
   try {
-    const rawAchSharedProg = await selAchSharedProg(charactersDB, acctIDs, reply);
+    const rawAchSharedProg: RawSharedAchProgress = await selAchSharedProg(
+      charactersDB,
+      acctIDs,
+      reply
+    );
     achProgShared = formatAchProg('acct', rawAchSharedProg);
   } catch (err) {
     throw err;
@@ -118,16 +146,20 @@ export const transferAchievements = async ( // TEMP ANY
   // Reg progress tracked through completed quests
   // Dailies tracked through progress table
   // Weekly and monthly quests not tracked for any achievements (AFAIK)
-  let completedQuests: any = {}; // TEMP ANY
+  let completedQuests: CompletedQuests = {};
   try {
-    const rawCompletedQuests = await selCompletedRegQuests(charactersDB, charIDs, reply);
+    const rawCompletedQuests: RawComplRegQuests = await selCompletedRegQuests(
+      charactersDB,
+      charIDs,
+      reply
+    );
     completedQuests = formatCompletedQuests(rawCompletedQuests, [], [], []);
   } catch (err) {
     throw err;
   }
 
   // All account data
-  let allAcctData = formatAllAcctData(
+  let allAcctData: AllAccountData = formatAllAcctData(
     acctChars,
     achCredit,
     achProg,
@@ -138,9 +170,9 @@ export const transferAchievements = async ( // TEMP ANY
   // Last item instance ID
   let lastItemInstID = 0;
   try {
-    const rawLastItemInstID = await selLastItemInstID(charactersDB, reply);
-    const itemInstArray = Array.isArray(rawLastItemInstID);
-    if (itemInstArray) lastItemInstID = Object.values(rawLastItemInstID[0])[0];
+    const lastItemInstRes = await selLastItemInstID(charactersDB, reply);
+    const rawLastItemInstID = Object.values(lastItemInstRes[0])[0];
+    if (typeof rawLastItemInstID === 'number') lastItemInstID = rawLastItemInstID;
   } catch (err) {
     throw err;
   }
@@ -148,9 +180,9 @@ export const transferAchievements = async ( // TEMP ANY
   // Last mail ID
   let lastMailID = 0;
   try {
-    const rawLastMailID = await selLastMailID(charactersDB, reply);
-    const mailArray = Array.isArray(rawLastMailID);
-    if (mailArray) lastMailID = Object.values(rawLastMailID[0])[0];
+    const lastMailRes = await selLastMailID(charactersDB, reply);
+    const rawMailID = Object.values(lastMailRes[0])[0];
+    if (typeof rawMailID === 'number') lastMailID = rawMailID;
   } catch (err) {
     throw err;
   }
@@ -160,32 +192,36 @@ export const transferAchievements = async ( // TEMP ANY
   // ----------------------------------------------------------------
 
   // Achievement reward template
-  let achItemIDs: any = []; // TEMP ANY
-  let achRewards: any = {}; // TEMP ANY
+  let achItemIDs: number[] = [];
+  let achRewards: AchRewards = {};
   try {
-    const rawAchRewards = await selAchRewards(mangosDB, reply);
-    if (Array.isArray(rawAchRewards)) achItemIDs = rawAchRewards.map(r => {
-      const rew: number = JSON.parse(JSON.stringify(r)).item; // RowDataPacket workaround
-      return rew;
-    }); // TEMP ANY
+    const rawAchRewards: RawAchRewards = await selAchRewards(mangosDB, reply);
+    achItemIDs = rawAchRewards.map(r => r.item);
     achRewards = formatAchRewards(rawAchRewards);
   } catch (err) {
     throw err;
   }
 
   // Achievement reward item charges
-  let itemCharges: any = {}; // TEMP ANY
+  let itemCharges: AchRewardItemCharges = {};
   try {
-    const rawItemCharges = await selRewItemCharges(mangosDB, achItemIDs, reply);
+    const rawItemCharges: RawAchRewItemCharges = await selRewItemCharges(
+      mangosDB,
+      achItemIDs,
+      reply
+    );
     itemCharges = formatRewItemCharges(rawItemCharges);
   } catch (err) {
     throw err;
   }
 
   // Template Quests
-  let templateQuests: any; // TEMP ANY
+  let templateQuests: TemplateQuests = { alliance: {}, horde: {}, neutral: {} };
   try {
-    const rawTemplateQuests = await selTemplateQuests(mangosDB, reply);
+    const rawTemplateQuests: RawTemplateQuests = await selTemplateQuests(
+      mangosDB,
+      reply
+    );
     templateQuests = formatTemplateQuests(rawTemplateQuests);
   } catch (err) {
     throw err;

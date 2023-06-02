@@ -84,19 +84,19 @@ const accountWide = async (settings: AccountWideSettings, reply: Reply) => {
   // ----------------------------------------------------------------
 
   if (achievements) try {
-    await transferAchievements(acctChars, acctIDs, charIDs, reply, charactersDB, mangosDB);
+    await transferAchievements(acctChars, acctIDs, charIDs, charactersDB, mangosDB, reply);
   } catch (err) {
     throw err;
   }
 
   if (petsMounts) try {
-    await transferPetsMounts(acctChars, charIDs, reply, charactersDB, mangosDB);
+    await transferPetsMounts(acctChars, charIDs, charactersDB, mangosDB, reply);
   } catch (err) {
     throw err;
   }
 
   if (reputations) try {
-    await transferReputations(acctChars, charIDs, reply, charactersDB)
+    await transferReputations(acctChars, charIDs, charactersDB, reply)
   } catch (err) {
     throw err;
   }

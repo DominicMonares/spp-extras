@@ -9,29 +9,6 @@ import {
 // Pets and Mounts
 // ----------------------------------------------------------------
 
-export const selCharRidingSkills = async (
-  conn: Connection,
-  charIDs: number[],
-  reply?: Reply
-) => {
-  const sql = `
-    SELECT guid, value FROM character_skills
-    WHERE guid IN (?) AND skill=762
-  `;
-  try {
-    const startMsg = 'Fetching character riding skill data...';
-    send(startMsg, reply);
-    const [rows] = await conn.query(sql, [charIDs]);
-    const successMsg = 'Character riding skill data fetched!';
-    send(successMsg, reply);
-    return JSON.parse(JSON.stringify(rows));
-  } catch (err) {
-    const errMsg = `Failed to fetch character riding skill data!\n${err}`;
-    send(errMsg, reply);
-    throw errMsg;
-  }
-}
-
 export const selCharPetMountSpells = async (
   conn: Connection,
   charIDs: number[],
@@ -80,6 +57,29 @@ export const insCharPetMountSpells = async (
     return JSON.parse(JSON.stringify(rows));
   } catch (err) {
     const errMsg = `Failed to save new pet and mount spell data!\n${err}`;
+    send(errMsg, reply);
+    throw errMsg;
+  }
+}
+
+export const selCharRidingSkills = async (
+  conn: Connection,
+  charIDs: number[],
+  reply?: Reply
+) => {
+  const sql = `
+    SELECT guid, value FROM character_skills
+    WHERE guid IN (?) AND skill=762
+  `;
+  try {
+    const startMsg = 'Fetching character riding skill data...';
+    send(startMsg, reply);
+    const [rows] = await conn.query(sql, [charIDs]);
+    const successMsg = 'Character riding skill data fetched!';
+    send(successMsg, reply);
+    return JSON.parse(JSON.stringify(rows));
+  } catch (err) {
+    const errMsg = `Failed to fetch character riding skill data!\n${err}`;
     send(errMsg, reply);
     throw errMsg;
   }

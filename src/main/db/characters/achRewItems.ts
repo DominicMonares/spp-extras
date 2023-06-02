@@ -19,7 +19,7 @@ export const selLastItemInstID = async (conn: Connection, reply?: Reply) => {
     const [rows] = await conn.query(sql);
     const successMsg = 'Last item instance ID data fetched!';
     send(successMsg, reply);
-    return rows;
+    return JSON.parse(JSON.stringify(rows));
   } catch (err) {
     const errMsg = `Failed to fetch last item instance ID data!\n${err}`;
     send(errMsg, reply);
@@ -89,7 +89,7 @@ export const selLastMailID = async (conn: Connection, reply?: Reply) => {
     const [rows] = await conn.query(sql);
     const successMsg = 'Last mail ID data fetched!';
     send(successMsg, reply);
-    return rows;
+    return JSON.parse(JSON.stringify(rows));
   } catch (err) {
     const errMsg = `Failed to fetch last mail ID data!\n${err}`;
     send(errMsg, reply);

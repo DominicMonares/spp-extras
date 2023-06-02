@@ -12,6 +12,10 @@ export type CharacterQuestClass = 1 | 2 | 4 | 8 | 16 | 32 | 64 | 128 | 256 | 102
 
 export type CharacterQuestRace = 1 | 2 | 4 | 8 | 16 | 32 | 64 | 128 | 512 | 1024;
 
+export type CompletedRegQuests = {
+  [key: string]: RegQuest;
+}
+
 export type CompletedQuests = {
   [key: string]: CharacterQuests;
 }
@@ -24,18 +28,21 @@ export type PlayerQuests = {
 export type Quest = {
   guid: number;
   quest: number;
-  status?: number;
-  rewarded?: number;
-  explored?: number;
-  timer?: number;
-  mobcount1?: number;
-  mobcount2?: number;
-  mobcount3?: number;
-  mobcount4?: number;
-  itemcount1?: number;
-  itemcount2?: number;
-  itemcount3?: number;
-  itemcount4?: number;
+}
+
+export interface RegQuest extends Quest {
+  status: number;
+  rewarded: number;
+  explored: number;
+  timer: number;
+  mobcount1: number;
+  mobcount2: number;
+  mobcount3: number;
+  mobcount4: number;
+  itemcount1: number;
+  itemcount2: number;
+  itemcount3: number;
+  itemcount4: number;
 }
 
 export type QuestFlags = {

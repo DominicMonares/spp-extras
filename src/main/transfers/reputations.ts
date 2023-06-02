@@ -1,21 +1,32 @@
-import { selCharRep } from '../db';
+import { selCharRep, updCharRep } from '../db';
 import {
   createReputationValues,
   formatCharSpellData,
   send,
 } from '../../utils';
-import { ReputationValues } from 'types';
+import {
+  AccountCharacters,
+  Connection,
+  RawReputations,
+  Reply,
+  Reputations,
+  ReputationValues
+} from 'types';
 
 export const transferReputations = async (
-  acctChars: any,
-  charIDs: any,
-  reply: any,
-  charactersDB: any
+  acctChars: AccountCharacters,
+  charIDs: number[],
+  charactersDB: Connection,
+  reply: Reply,
 ) => {
   // Fetch and format character reputations
-  let reputations: any = {}; // TEMP ANY
+  let reputations: Reputations = {};
   try {
-    const rawReputations = await selCharRep(charactersDB, charIDs, reply);
+    const rawReputations: RawReputations = await selCharRep(
+      charactersDB,
+      charIDs,
+      reply
+    );
     reputations = formatCharSpellData(rawReputations);
   } catch (err) {
     throw err;
@@ -36,7 +47,10 @@ export const transferReputations = async (
     throw err;
   }
 
-
   // Run query to save new character reputation standing values
-
+  if (reputationValues.length) try {
+    await updCharRep(charactersDB, reputationValues, reply);
+  } catch (err) {
+    throw err;
+  }
 }

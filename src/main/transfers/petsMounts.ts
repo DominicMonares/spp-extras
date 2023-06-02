@@ -11,43 +11,59 @@ import {
   formatPetMountItemData,
   send,
 } from '../../utils';
-import { PetMountSpellValues } from 'types';
+import {
+  AccountCharacters,
+  Connection,
+  PetMountItems,
+  PetMountSpellValues,
+  RawCharRidingSkills,
+  RawPetMountItems,
+  RawPetMountSpells,
+  Reply,
+} from 'types';
+import { KnownSpells, RidingSkills } from 'types/petsMounts';
 
 export const transferPetsMounts = async (
-  acctChars: any,
-  charIDs: any,
-  reply: any,
-  charactersDB: any,
-  mangosDB: any,
+  acctChars: AccountCharacters,
+  charIDs: number[],
+  charactersDB: Connection,
+  mangosDB: Connection,
+  reply: Reply,
 ) => {
   // Fetch and format pet and mount items
-  let spellIDs: any = []; // TEMP ANY
-  let petMountItems: any = {}; // TEMP ANY
+  let spellIDs: number[] = [];
+  let petMountItems: PetMountItems = {};
   try {
-    const rawPetMountItems = await selPetMountItems(mangosDB, reply);
-    if (Array.isArray(rawPetMountItems)) spellIDs = rawPetMountItems.map(i => {
-      const item: number = JSON.parse(JSON.stringify(i)).spellid_2; // RowDataPacket workaround
-      return item;
-    });
+    const rawPetMountItems: RawPetMountItems = await selPetMountItems(mangosDB, reply);
+    spellIDs = rawPetMountItems.map(i => i.spellid_2);
     petMountItems = formatPetMountItemData(rawPetMountItems);
   } catch (err) {
     throw err;
   }
 
   // Fetch and format pet and mount spells
-  let knownSpells: any = {}; // TEMP ANY
+  let knownSpells: KnownSpells = {};
   try {
-    const rawSpells = await selCharPetMountSpells(charactersDB, charIDs, spellIDs, reply);
+    const rawSpells: RawPetMountSpells = await selCharPetMountSpells(
+      charactersDB,
+      charIDs,
+      spellIDs,
+      reply
+    );
     knownSpells = formatCharSpellData(rawSpells);
   } catch (err) {
     throw err;
   }
 
   // Fetch and format character riding skills
-  let charRidingSkills: any = {}; // TEMP ANY
+  let ridingSkills: RidingSkills = {};
   try {
-    const rawCharSkills = await selCharRidingSkills(charactersDB, charIDs, reply);
-    charRidingSkills = formatCharSkillData(rawCharSkills);
+    const rawCharSkills: RawCharRidingSkills = await selCharRidingSkills(
+      charactersDB,
+      charIDs,
+      reply
+    );
+    ridingSkills = formatCharSkillData(rawCharSkills);
   } catch (err) {
     throw err;
   }
@@ -60,7 +76,7 @@ export const transferPetsMounts = async (
       petMountItems,
       acctChars,
       knownSpells,
-      charRidingSkills
+      ridingSkills
     );
     send('New pet and mount spell DB values created!', reply);
   } catch (err) {

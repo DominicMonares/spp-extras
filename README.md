@@ -2,7 +2,6 @@
 Desktop application for WoW Single Player Project extras.
 
 TODO
-- Transfer all previous code to new boilerplate
 - Add source code and bug report links at in top menu
 - Remove default boilerplate logs/messages
 - Optimize
@@ -12,7 +11,6 @@ TODO
   - Development server logging during production
 - Create installation and portable versions of app
 - AccountWide transfer with no options selected - error styling
-- Combine SQL queries where possible
 - Batch disconnect db functions
 - Replace try/catch with just await/catch?
 - Replace double quotes with singles wherever possible

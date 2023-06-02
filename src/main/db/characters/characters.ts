@@ -33,7 +33,7 @@ export const selChars = async (
     const [rows] = await conn.query(sql, [accts]);
     const successMsg = 'Character data fetched!';
     send(successMsg, reply);
-    return rows;
+    return JSON.parse(JSON.stringify(rows));
   } catch (err) {
     const errMsg = `Failed to fetch character data!\n${err}`;
     send(errMsg, reply);

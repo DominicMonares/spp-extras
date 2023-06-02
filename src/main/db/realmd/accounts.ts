@@ -16,7 +16,7 @@ export const selAccts = async (conn: Connection, bots: boolean, reply?: Reply) =
     const [rows] = await conn.query(sql);
     const successMsg = 'Account data fetched!';
     send(successMsg, reply);
-    return rows;
+    return JSON.parse(JSON.stringify(rows));
   } catch (err) {
     const errMsg = `Failed to fetch account data!\n${err}`;
     send(errMsg, reply);

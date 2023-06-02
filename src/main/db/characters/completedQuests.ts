@@ -23,7 +23,7 @@ export const selCompletedRegQuests = async (
     const [rows] = await conn.query(sql, [charIDs]);
     const successMsg = 'Completed regular quest data fetched!';
     send(successMsg, reply);
-    return rows;
+    return JSON.parse(JSON.stringify(rows));
   } catch (err) {
     const errMsg = `Failed to fetch completed regular quest data!\n${err}`;
     send(errMsg, reply);
@@ -46,7 +46,7 @@ export const selCompletedDailyQuests = async (
     const [rows] = await conn.query(sql, [charIDs]);
     const successMsg = 'Completed daily quest data fetched!';
     send(successMsg, reply);
-    return rows;
+    return JSON.parse(JSON.stringify(rows));
   } catch (err) {
     const errMsg = `Failed to fetch completed daily quest data!\n${err}`;
     send(errMsg, reply);
@@ -69,7 +69,7 @@ export const selCompletedWeeklyQuests = async (
     const [rows] = await conn.query(sql, [charIDs]);
     const successMsg = 'Completed weekly quest data fetched!';
     send(successMsg, reply);
-    return rows;
+    return JSON.parse(JSON.stringify(rows));
   } catch (err) {
     const errMsg = `Failed to fetch completed weekly quest data!\n${err}`;
     send(errMsg, reply);
@@ -92,7 +92,7 @@ export const selCompletedMonthlyQuests = async (
     const [rows] = await conn.query(sql, [charIDs]);
     const successMsg = 'Completed monthly quest data fetched!';
     send(successMsg, reply);
-    return rows;
+    return JSON.parse(JSON.stringify(rows));
   } catch (err) {
     const errMsg = `Failed to fetch completed monthly quest data!\n${err}`;
     send(errMsg, reply);

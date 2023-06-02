@@ -15,6 +15,7 @@ import {
   send,
 } from '../../utils';
 import {
+  AllTemplateQuests,
   AllCharacters,
   CompletedQuests,
   Connection,
@@ -24,7 +25,6 @@ import {
   RawComplRepeatQuests,
   RawComplRegQuests,
   RawTemplateQuests,
-  TemplateQuests,
 } from '../../types';
 
 const questTracker = async (xpac: Expansion) => {
@@ -118,7 +118,7 @@ const questTracker = async (xpac: Expansion) => {
   }
 
   // Template Quests
-  let templateQuests: TemplateQuests;
+  let templateQuests: AllTemplateQuests;
   try {
     const rawTemplateQuests: RawTemplateQuests = await selTemplateQuests(mangosDB);
     templateQuests = formatTemplateQuests(rawTemplateQuests);

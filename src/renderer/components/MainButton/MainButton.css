@@ -9,34 +9,26 @@
   /* transition: width 0.1s linear, height 0.1s linear; */
 }
 
-.main-btn {
-  min-width: 224px;
-  max-width: 224px;
-  min-height: 54px;
-  max-height: 54px;
+.main-btn,
+.main-btn:hover,
+.main-btn-active {
+  width: 224px;
+  height: 54px;
+}
+
+.prefs-btn,
+.prefs-btn:hover,
+.prefs-btn-active {
+  width: 168px;
+  height: 40.5px;
 }
 
 .main-btn:hover,
-.main-btn-active {
-  min-width: 236.5px;
-  max-width: 236.5px;
-  min-height: 56.78px;
-  max-height: 56.78px;
-}
-
-.prefs-btn {
-  min-width: 168px;
-  max-width: 168px;
-  min-height: 40.5px;
-  max-height: 40.5px;
-}
-
+.main-btn-active,
 .prefs-btn:hover,
 .prefs-btn-active {
-  min-width: 177px;
-  max-width: 177px;
-  min-height: 42.67px;
-  max-height: 42.67px;
+  z-index: 1;
+  transform: scale(1.05);
 }
 
 
@@ -55,20 +47,21 @@
   /* transition: font-size 0.1s linear; */
 }
 
-.main-btn-text {
+.main-btn-text,
+.main-btn:hover > .main-btn-text,
+.main-btn-text-active {
   font-size: 25px;
 }
 
-.main-btn:hover > .main-btn-text,
-.main-btn-text-active {
-  font-size: 26.5px;
-}
-
-.prefs-btn-text {
+.prefs-btn-text,
+.prefs-btn:hover > .prefs-btn-text,
+.prefs-btn-text-active {
   font-size: 19px;
 }
 
+.main-btn:hover > .main-btn-text,
+.main-btn-text-active,
 .prefs-btn:hover > .prefs-btn-text,
 .prefs-btn-text-active {
-  font-size: 20px;
+  transform: scale(1.05);
 }

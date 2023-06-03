@@ -7,12 +7,13 @@ import { useAppSelector } from '../../store/hooks';
 import './View.css';
 
 type Props = {
-  error?: string;
-  getAllData?: () => void;
-  loading?: boolean;
+  error: string;
+  getAllData: () => void;
+  loading: boolean;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const View = ({ error, getAllData, loading }: Props) => {
+const View = ({ error, getAllData, loading, setLoading }: Props) => {
   const expansion = useAppSelector(state => state.expansion.selected);
   const smallWindow = useAppSelector(state => state.window.smallWindow);
   const tool = useAppSelector(state => state.tool.selected);
@@ -32,7 +33,7 @@ const View = ({ error, getAllData, loading }: Props) => {
         <></>
       )}
       {tool === 'questTracker' && !loading && !error ? (
-        <QuestTrackerView />
+        <QuestTrackerView setLoading={setLoading} />
       ) : (
         <></>
       )}

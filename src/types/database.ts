@@ -9,6 +9,8 @@ export type DBName = 'realmd' | 'characters' | 'mangos';
 
 export type Connection = mysql.Connection;
 
+export type ConnectionPool = [Connection, DBName][];
+
 // ----------------------------------------------------------------
 // Achievement Credit Query Values
 // ----------------------------------------------------------------

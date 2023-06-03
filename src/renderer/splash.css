@@ -1,0 +1,38 @@
+@font-face {
+  font-family: 'Friz Quadrata';
+  src: url('../../assets/fonts/Friz\ Quadrata\ Std\ Medium.otf');
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 500px;
+  height: 300px;
+}
+
+.splash-logo {
+  width: 436px;
+  height: 212px;
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.loading-text {
+  margin-top: -33px;
+  width: 86.8px;
+  background: -webkit-linear-gradient(#c88f19 40%, #f7f243 70%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: Friz Quadrata;
+  font-size: 20px;
+}

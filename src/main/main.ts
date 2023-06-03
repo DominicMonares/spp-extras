@@ -26,6 +26,7 @@ import { Expansion, Faction } from '../types';
 // }
 
 let mainWindow: BrowserWindow | null = null;
+let splashWindow: BrowserWindow | null = null;
 
 // Handle account-wide service
 ipcMain.on('account-wide', async (event, settings) => {
@@ -60,6 +61,29 @@ const createWindow = async () => {
   //   await installExtensions();
   // }
 
+  splashWindow = new BrowserWindow({
+    width: 500,
+    height: 300,
+    transparent: true,
+    frame: false,
+    alwaysOnTop: true,
+    webPreferences: {
+      images: true,
+      devTools: false,
+    }
+  });
+
+  // Display splash window while app is loading
+  // if (isDev) {
+  //   splashWindow.loadFile('electron/splash/dev-splash.html');
+  // } else {
+  //   splashWindow.loadURL(SPLASH_WINDOW_WEBPACK_ENTRY)
+  // }
+
+  const splashHTMLPath = `${path.resolve(__dirname, '../renderer/', 'splash.html')}`;
+  splashWindow.loadFile(splashHTMLPath);
+  splashWindow.center();
+
   const RESOURCES_PATH = app.isPackaged
     ? path.join(process.resourcesPath, 'assets')
     : path.join(__dirname, '../../assets');
@@ -90,9 +114,13 @@ const createWindow = async () => {
     htmlPath = `file://${path.resolve(__dirname, '../renderer/', 'index.html')}`;
   }
 
+  // Load the index.html of the app
   mainWindow.loadURL(htmlPath);
 
   mainWindow.on('ready-to-show', () => {
+    // Close the splash and display main window
+    splashWindow?.close();
+    splashWindow = null;
     if (!mainWindow) {
       throw new Error('"mainWindow" is not defined');
     }

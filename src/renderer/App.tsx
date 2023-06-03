@@ -106,22 +106,12 @@ const App = () => {
                   <Tools setInstalled={setInstalled} />
                   <Controls />
                 </div>
-                <View
-                  error={error}
-                  getAllData={getQuestTrackerData}
-                  loading={loading}
-                  setLoading={setLoading}
-                />
+                <View error={error} getAllData={getQuestTrackerData} loading={loading} />
               </>
             ) : (
               <>
                 <Tools setInstalled={setInstalled} />
-                <View
-                  error={error}
-                  getAllData={getQuestTrackerData}
-                  loading={loading}
-                  setLoading={setLoading}
-                />
+                <View error={error} getAllData={getQuestTrackerData} loading={loading} />
                 <Controls />
               </>
             )}

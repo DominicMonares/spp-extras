@@ -11,11 +11,8 @@ import { Faction, QuestTrackerSettings, SortSetting } from '../../../types';
 import './View.css';
 import { formatComplFactionQuests } from '../../../utils';
 
-type Props = {
-  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
-}
 
-const QuestTrackerView = ({ setLoading }: Props) => {
+const QuestTrackerView = () => {
   const expansion = useAppSelector(state => state.expansion.selected);
   const faction = useAppSelector(state => state.faction.selected);
 
@@ -39,7 +36,6 @@ const QuestTrackerView = ({ setLoading }: Props) => {
   const [sortStatusReverse, setStatusReverse] = useState<boolean>(true);
 
   // Add faction to settings and create view quests
-
   const viewQuests = createViewQuests(
     settings,
     faction as Faction, // Faction will be selected by this point

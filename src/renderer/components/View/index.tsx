@@ -8,12 +8,11 @@ import './View.css';
 
 type Props = {
   error: string;
-  getAllData: () => void;
+  getAllData?: () => void;
   loading: boolean;
-  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const View = ({ error, getAllData, loading, setLoading }: Props) => {
+const View = ({ error, getAllData, loading }: Props) => {
   const expansion = useAppSelector(state => state.expansion.selected);
   const smallWindow = useAppSelector(state => state.window.smallWindow);
   const tool = useAppSelector(state => state.tool.selected);
@@ -33,7 +32,7 @@ const View = ({ error, getAllData, loading, setLoading }: Props) => {
         <></>
       )}
       {tool === 'questTracker' && !loading && !error ? (
-        <QuestTrackerView setLoading={setLoading} />
+        <QuestTrackerView />
       ) : (
         <></>
       )}

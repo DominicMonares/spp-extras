@@ -10,8 +10,6 @@ TODO
 - Cleanup warning messages in console
   - Development server logging during production
 - Create installation and portable versions of app
-- Batch disconnect db functions
-- Replace try/catch with just await/catch?
 - Replace double quotes with singles wherever possible
 - JSON imports w/ types (quest tracker)
 - Go through remaining old files to double check - main splash screen

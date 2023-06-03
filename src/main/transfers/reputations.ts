@@ -1,7 +1,7 @@
 import { selCharRep, updCharRep } from '../db';
 import {
   createReputationValues,
-  formatCharSpellData,
+  formatReputations,
   send,
 } from '../../utils';
 import {
@@ -27,7 +27,7 @@ export const transferReputations = async (
       charIDs,
       reply
     );
-    reputations = formatCharSpellData(rawReputations);
+    reputations = formatReputations(rawReputations);
   } catch (err) {
     throw err;
   }

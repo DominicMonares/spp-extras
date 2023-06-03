@@ -34,20 +34,24 @@ export const createReputationValues = (
       const charReps = reputations[charID];
       if (charReps) {
         for (const factionID in charReps) {
-          // Standing
-          const standing = charReps[factionID]['standing'];
           if (!reputationTemplate[factionID]) continue;
           const charFaction = reputationTemplate[factionID]['charFaction'];
-          const existingStanding = standingsFlags[charFaction][factionID]['standing'];
+          const existingFaction = standingsFlags[charFaction][factionID];
+
+          // Standing
+          const standing = charReps[factionID]['standing'];
+          const existingStanding = existingFaction ? existingFaction.standing : 0;
           const higherStanding = existingStanding ? standing > existingStanding : false;
-          if (!existingStanding || higherStanding) {
+          if (existingFaction && (!existingStanding || higherStanding)) {
             standingsFlags[charFaction][factionID]['standing'] = standing;
           }
 
           // Flags
           const flags = charReps[factionID]['flags'];
-          const existingFlags = standingsFlags[charFaction][factionID]['flags'];
-          if (!existingFlags && flags) standingsFlags[charFaction][factionID]['flags'] = flags;
+          const existingFlags = existingFaction ? existingFaction.flags : 0;
+          if (existingFaction && (!existingFlags && flags)) {
+            standingsFlags[charFaction][factionID]['flags'] = flags;
+          }
         }
       }
     }

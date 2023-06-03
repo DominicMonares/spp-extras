@@ -15,19 +15,23 @@
   display: none;
   position: absolute;
   left: 174px;
+  bottom: -2px;
 }
 
 .dropdown-l1 {
-  right: 236px;
+  right: 228px;
 }
 
 .dropdown-sm-l1 {
-  left: 236px;
-  bottom: 0;
+  left: 228px;
 }
 
 .dd-zone {
-  top: 0;
+  bottom: 0px;
+}
+
+.dd-zone-sm {
+  top: -2px;
 }
 
 .dropdown-l2,
@@ -99,6 +103,8 @@
 
 .dd-main-button,
 .dd-main-button-active {
+  width: 224px;
+  height: 54px;
   border-radius: 5px;
   background-image: url("../../../../assets/buttons/main-button.webp");
   background-size: 100%;
@@ -106,18 +112,9 @@
   /* transition: width 0.1s linear, height 0.1s linear; */
 }
 
-.dd-main-button {
-  min-width: 224px;
-  max-width: 224px;
-  min-height: 54px;
-  max-height: 54px;
-}
-
 .dd-main-button-active {
-  min-width: 236.5px;
-  max-width: 236.5px;
-  min-height: 56.78px;
-  max-height: 56.78px;
+  z-index: 1;
+  transform: scale(1.05);
 }
 
 .dd-main-button-content {
@@ -134,51 +131,28 @@
   transition: margin 0.1s linear, width 0.1s linear, height 0.1s linear;
 } */
 
-.dd-main-arrow {
-  margin-left: 20px;
-}
-
-.dd-main-arrow-sm {
-  margin-right: 20px;
-  transform: scaleX(-1);
-}
-
-.dd-main-arrow-active {
-  margin-left: 21.5px;
-}
-
-.dd-main-arrow-sm-active {
-  margin-right: 21.5px;
-  transform: scaleX(-1);
-}
-
 .dd-main-arrow,
-.dd-main-arrow-sm {
+.dd-main-arrow-sm,
+.dd-main-arrow-active,
+.dd-main-arrow-sm-active {
   width: 20px;
   height: 20px;
 }
 
-.dd-main-arrow-active,
-.dd-main-arrow-sm-active {
-  width: 21.5px;
-  height: 21.5px;
+.dd-main-arrow-sm {
+  transform: scaleX(-1);
 }
 
-.c12, .c12-active,
-.c13, .c13-active,
-.c14, .c14-active,
-.c15, .c15-active,
-.c16, .c16-active,
-.c17, .c17-active,
-.c18, .c18-active,
-.c19, .c19-active,
-.c20, .c20-active,
-.c21, .c21-active,
-.c22, .c22-active,
-.c25, .c25-active,
-.c26, .c26-active {
-  width: 100%;
-  margin-right: 20px;
+.dd-main-arrow-active {
+  transform: scale(1.05);
+}
+
+.dd-main-arrow-sm-active {
+  transform: scale(-1, 1.05);
+}
+
+.dd-text {
+  width: 75%;
   background: -webkit-linear-gradient(#c88f19 40%, #f7f243 80%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -188,113 +162,91 @@
   /* transition: font-size 0.1s linear; */
 }
 
-.c-sm {
-  margin-left: 20px;
-  margin-right: 0px;
+.dd-11-active,
+.dd-12-active,
+.dd-13-active,
+.dd-14-active,
+.dd-15-active,
+.dd-16-active,
+.dd-17-active,
+.dd-18-active,
+.dd-19-active,
+.dd-20-active,
+.dd-21-active,
+.dd-22-active,
+.dd-25-active,
+.dd-26-active {
+  transform: scale(1.05);
 }
 
-.c12 {
+.dd-11,
+.dd-11-active {
   font-size: 25px;
 }
 
-.c12-active {
-  font-size: 26.5px;
+.dd-12,
+.dd-12-active {
+  font-size: 24px;
 }
 
-.c13 {
-  font-size: 23.5px;
+.dd-13,
+.dd-13-active {
+  font-size: 22.5px;
 }
 
-.c13-active {
-  font-size: 25.5px;
-}
-
-.c14 {
-  font-size: 21.5px;
-}
-
-.c14-active {
-  font-size: 23px;
-}
-
-.c15 {
+.dd-14,
+.dd-14-active {
   font-size: 20px;
 }
 
-.c15-active {
-  font-size: 21.5px;
+.dd-15,
+.dd-15-active {
+  font-size: 19.25px;
 }
 
-.c16 {
-  font-size: 18.5px;
+.dd-16,
+.dd-16-active {
+  font-size: 18.75px;
 }
 
-.c16-active {
-  font-size: 20px;
-}
-
-.c17 {
-  font-size: 18px;
-}
-
-.c17-active {
-  font-size: 19px;
-}
-
-.c18 {
-  font-size: 18px;
-}
-
-.c18-active {
-  font-size: 19px;
-}
-
-.c19 {
+.dd-17,
+.dd-17-active {
   font-size: 17.5px;
 }
 
-.c19-active {
-  font-size: 18.5px;
-}
-
-.c20 {
-  font-size: 16.5px;
-}
-
-.c20-active {
+.dd-18,
+.dd-18-active {
   font-size: 17.5px;
 }
 
-.c21 {
+.dd-19,
+.dd-19-active {
   font-size: 17px;
 }
 
-.c21-active {
-  font-size: 18px;
+.dd-20,
+.dd-20-active {
+  font-size: 15.75px;
 }
 
-.c22 {
-  font-size: 15px;
-}
-
-.c22-active {
+.dd-21,
+.dd-21-active {
   font-size: 16px;
 }
 
-.c25 {
-  font-size: 14px;
+.dd-22,
+.dd-22-active {
+  font-size: 14.75px;
 }
 
-.c25-active {
-  font-size: 15px;
+.dd-25,
+.dd-25-active {
+  font-size: 13.75px;
 }
 
-.c26 {
-  font-size: 12.5px;
-}
-
-.c26-active {
-  font-size: 13.5px;
+.dd-26,
+.dd-26-active {
+  font-size: 12.25px;
 }
 
 
@@ -306,8 +258,9 @@
   justify-content: center;
   align-items: center;
   position: relative;
+  /* margin-top: -1px; */
   width: 174px;
-  height: 30px;
+  height: 28.35px;
   scroll-snap-align: start;
   background-image: url("../../../../assets/buttons/sub-button.webp");
 }

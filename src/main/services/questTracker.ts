@@ -138,24 +138,17 @@ const questTracker = async (xpac: Expansion) => {
   }
 
   // ----------------------------------------------------------------
-  // Disconnect from all databases
+  // Disconnect from all databases then return Quest Tracker data
   // ----------------------------------------------------------------
 
   await disconnect(connectionPool, xpac);
-
-  // ----------------------------------------------------------------
-  // Return response
-  // ----------------------------------------------------------------
-
   send('Quest Tracker service finished running!');
 
-  const response = {
+  return {
     characters,
     completedQuests,
     templateQuests,
   };
-
-  return response;
 }
 
 export default questTracker;

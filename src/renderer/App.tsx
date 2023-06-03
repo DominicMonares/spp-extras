@@ -52,9 +52,13 @@ const App = () => {
 
     if (Object.keys(allData.characters).length) {
       dispatch(storeCharacters(allData.characters));
-    } else if (Object.keys(allData.completedQuests).length) {
+    }
+
+    if (Object.keys(allData.completedQuests).length) {
       dispatch(storeCompletedQuests(allData.completedQuests));
-    } else if (Object.keys(allData.templateQuests).length) {
+    }
+
+    if (Object.keys(allData.templateQuests).length) {
       dispatch(storeTemplateQuests(allData.templateQuests));
     }
 

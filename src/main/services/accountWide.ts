@@ -17,6 +17,7 @@ import {
   AccountCharacters,
   AccountWideSettings,
   Connection,
+  ConnectionPool,
   RawAccounts,
   RawCharacters,
   Reply,
@@ -34,23 +35,29 @@ const accountWide = async (settings: AccountWideSettings, reply: Reply) => {
   let realmdDB: Connection;
   let charactersDB: Connection;
   let mangosDB: Connection;
+  const connectionPool: ConnectionPool = [];
 
   try {
-    realmdDB = await connect(xpac, 'realmd', reply);
+    realmdDB = await connect(xpac, 'realmd');
+    connectionPool.push([realmdDB, 'realmd']);
   } catch (err) {
-    return;
+    throw err;
   }
 
   try {
-    charactersDB = await connect(xpac, 'characters', reply);
+    charactersDB = await connect(xpac, 'characters');
+    connectionPool.push([charactersDB, 'characters']);
   } catch (err) {
-    return;
+    await disconnect(connectionPool, xpac);
+    throw err;
   }
 
   try {
-    mangosDB = await connect(xpac, 'mangos', reply);
+    mangosDB = await connect(xpac, 'mangos');
+    connectionPool.push([mangosDB, 'mangos']);
   } catch (err) {
-    return;
+    await disconnect(connectionPool, xpac);
+    throw err;
   }
 
   // ----------------------------------------------------------------
@@ -64,6 +71,7 @@ const accountWide = async (settings: AccountWideSettings, reply: Reply) => {
     rawAccts = await selAccts(realmdDB, bots, reply);
     acctIDs = rawAccts.map(a => a.id);
   } catch (err) {
+    await disconnect(connectionPool, xpac);
     throw err;
   }
 
@@ -76,6 +84,7 @@ const accountWide = async (settings: AccountWideSettings, reply: Reply) => {
     charIDs = rawChars.map(c => c.guid);
     acctChars = formatAcctChars(rawAccts, rawChars);
   } catch (err) {
+    await disconnect(connectionPool, xpac);
     throw err;
   }
 
@@ -86,18 +95,21 @@ const accountWide = async (settings: AccountWideSettings, reply: Reply) => {
   if (achievements) try {
     await transferAchievements(acctChars, acctIDs, charIDs, charactersDB, mangosDB, reply);
   } catch (err) {
+    await disconnect(connectionPool, xpac);
     throw err;
   }
 
   if (petsMounts) try {
     await transferPetsMounts(acctChars, charIDs, charactersDB, mangosDB, reply);
   } catch (err) {
+    await disconnect(connectionPool, xpac);
     throw err;
   }
 
   if (reputations) try {
     await transferReputations(acctChars, charIDs, charactersDB, reply)
   } catch (err) {
+    await disconnect(connectionPool, xpac);
     throw err;
   }
 
@@ -105,24 +117,7 @@ const accountWide = async (settings: AccountWideSettings, reply: Reply) => {
   // Disconnect from all databases
   // ----------------------------------------------------------------
 
-  try {
-    await disconnect(realmdDB, xpac, 'realmd', reply);
-  } catch (err) {
-    return;
-  }
-
-  try {
-    await disconnect(charactersDB, xpac, 'characters', reply);
-  } catch (err) {
-    return;
-  }
-
-  try {
-    await disconnect(mangosDB, xpac, 'mangos', reply);
-  } catch (err) {
-    return;
-  }
-
+  await disconnect(connectionPool, xpac);
   send('Account-wide data transfers complete!', reply);
   send('This tool can be closed now.', reply);
 }

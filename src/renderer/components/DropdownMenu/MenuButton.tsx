@@ -21,7 +21,7 @@ const MenuButton = ({ selected, subHovering, title }: Props) => {
   // Font size depends on title length
   const titleLength = () => {
     const length = selected() ? selected().length : title.length;
-    return length <= 12 ? 12 : length;
+    return length <= 11 ? 11 : length;
   }
 
   return (

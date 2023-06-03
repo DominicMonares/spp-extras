@@ -13,7 +13,7 @@ const initialState: QuestTrackerSettings = {
   characterClass: {},
   race: {},
   type: '',
-  zone: 'Nagrand',
+  zone: '',
 };
 
 export const questTrackerSlice = createSlice({

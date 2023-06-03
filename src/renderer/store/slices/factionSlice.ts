@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Faction, FactionSetting } from '../../../types/factions';
+import { Faction, FactionSetting } from '../../../types/characters';
 
 interface InitialState {
   selected: FactionSetting;

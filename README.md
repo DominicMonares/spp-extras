@@ -3,17 +3,13 @@ Desktop application for WoW Single Player Project extras.
 
 TODO
 - Add source code and bug report links at in top menu
-- Remove default boilerplate logs/messages
-- Optimize
-  - Lighthouse
-  - Remove unused boilerplate code and dependencies
 - Cleanup warning messages in console
   - Development server logging during production
 - Create installation and portable versions of app
 - Replace double quotes with singles wherever possible
-- JSON imports w/ types (quest tracker)
 - Go through remaining old files to double check - main splash screen
 - Create actual readme file
+- Auto updater
 
 
 TEST
@@ -41,3 +37,6 @@ Account-wide rep:
 Account-wide rep and pets/mounts:
   - Random bot accounts are not included in the rep or pets/mounts transfers
   - I decided not to implement this because rep/pets/mounts cannot be inspected in-game
+
+
+cwebp -q 100 collapse-arrow.png -o collapse-arrow.webp

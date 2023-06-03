@@ -4,10 +4,10 @@ import {
   CharacterQuests,
   Faction,
   QuestConditions,
-  QuestFlags,
-  QuestRaces,
+  QuestRaceIDs,
   QuestTrackerSettings,
   QuestTypeSetting,
+  RepeatQuestFlags,
   SortViewQuests,
   ViewQuest,
   ViewQuests,
@@ -15,20 +15,20 @@ import {
   ViewZones,
 } from "../types";
 import devQuestKeywords from '../../data/quests/devQuestKeywords.json';
-import questRaceIDs from '../../data/quests/questRaceIDs.json';
-import repeatQuestFlags from '../../data/quests/repeatQuestFlags.json';
-import zoneRef from '../../data/zones/zoneRef.json';
+import _questRaceIDs from '../../data/quests/questRaceIDs.json';
+import _repeatQuestFlags from '../../data/quests/repeatQuestFlags.json';
+import _zones from '../../data/zones/zones.json';
 
 // Different quest types have multiple different flags in DB
 // Use those flag values to find quest type
-const questFlags = repeatQuestFlags as QuestFlags;
+const repeatQuestFlags = _repeatQuestFlags as RepeatQuestFlags;
 
 // Required quest races can come in a variety of combinations
 // i.e. Alliance, Horde, Orc, Troll-Tauren, All, etc.
-const questRaces = questRaceIDs as QuestRaces;
+const questRaceIDs = _questRaceIDs as QuestRaceIDs;
 
 // Some zones have multiple subzone IDs
-const zones = zoneRef as ViewZones;
+const zones = _zones as ViewZones;
 
 // Decide which quests to display
 export const filterTemplateQuests = (
@@ -68,7 +68,7 @@ export const filterTemplateQuests = (
         conditionMet: () => {
           // Look for race match in each race array
           let completeMatch = true;
-          const currentRaceIds = questRaces[questRace]['raceIds'];
+          const currentRaceIds = questRaceIDs[questRace]['raceIds'];
           const racesMatch = currentRaceIds.includes(race?.id) && currentRaceIds.length <= 3;
           if (Object.keys(race).length && !racesMatch) completeMatch = false;
           return completeMatch;
@@ -81,7 +81,7 @@ export const filterTemplateQuests = (
           if (type === 'regular' || type === 'daily' || type === 'weekly') {
             // The 4 monthly quests are marked as regular in template
             if (entry >= 9884 && entry <= 9887) return false;
-            return questFlags[type].includes(quest.QuestFlags);
+            return repeatQuestFlags[type].includes(quest.QuestFlags);
           } else if (type === 'monthly') {
             // Only 4 monthly quests prior to patch 4.3
             return entry >= 9884 && entry <= 9887 ? true : false;

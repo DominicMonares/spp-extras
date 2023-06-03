@@ -1,7 +1,7 @@
 import mysql from 'mysql2/promise';
 import { send } from '../../utils';
 import {
-  Connection,
+  ConnectionPool,
   Expansion,
   Reply,
 } from '../../types';
@@ -33,20 +33,23 @@ export const connect = async (
 }
 
 export const disconnect = async (
-  connection: Connection,
+  connections: ConnectionPool,
   xpac: Expansion,
-  db: string,
   reply?: Reply
 ) => {
-  try {
-    const startMsg = `Disconnecting from ${xpac}${db}...`;
-    send(startMsg, reply);
-    await connection.end();
-    const successMsg = `Disconnected from ${xpac}${db}!`;
-    send(successMsg, reply);
-  } catch (err) {
-    const errMsg = `Failed to disconnect from ${xpac}${db}!\n${err}`;
-    send(errMsg, reply);
-    throw errMsg;
+  for (const conn of connections) {
+    const connection = conn[0];
+    const db = conn[1];
+    try {
+      const startMsg = `Disconnecting from ${xpac}${db}...`;
+      send(startMsg, reply);
+      await connection.end();
+      const successMsg = `Disconnected from ${xpac}${db}!`;
+      send(successMsg, reply);
+    } catch (err) {
+      const errMsg = `Failed to disconnect from ${xpac}${db}!\n${err}`;
+      send(errMsg, reply);
+      throw errMsg;
+    }
   }
 }

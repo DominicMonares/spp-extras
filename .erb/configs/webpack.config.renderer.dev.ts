@@ -90,7 +90,7 @@ const configuration: webpack.Configuration = {
       },
       // Images
       {
-        test: /\.(png|jpg|jpeg|gif)$/i,
+        test: /\.(png|jpg|webp|jpeg|gif)$/i,
         type: 'asset/resource',
       },
       // SVG

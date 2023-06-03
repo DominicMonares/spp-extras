@@ -37,12 +37,8 @@ const accountWide = async (settings: AccountWideSettings, reply: Reply) => {
   let mangosDB: Connection;
   const connectionPool: ConnectionPool = [];
 
-  try {
-    realmdDB = await connect(xpac, 'realmd');
-    connectionPool.push([realmdDB, 'realmd']);
-  } catch (err) {
-    throw err;
-  }
+  realmdDB = await connect(xpac, 'realmd');
+  connectionPool.push([realmdDB, 'realmd']);
 
   try {
     charactersDB = await connect(xpac, 'characters');

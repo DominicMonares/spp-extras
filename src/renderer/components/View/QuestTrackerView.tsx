@@ -7,7 +7,7 @@ import {
   reverseSortViewQuests,
   sortViewQuests
 } from '../../../utils';
-import { QuestTrackerSettings, SortSetting } from '../../../types';
+import { Faction, QuestTrackerSettings, SortSetting } from '../../../types';
 import './View.css';
 import { formatComplFactionQuests } from '../../../utils';
 
@@ -36,8 +36,12 @@ const QuestTrackerView = () => {
   const [sortStatusReverse, setStatusReverse] = useState<boolean>(true);
 
   // Add faction to settings and create view quests
-  const fullSettings = { ...settings, faction: faction };
-  const viewQuests = createViewQuests(all, playerQuests, fullSettings, templateQuests);
+  const viewQuests = createViewQuests(
+    settings,
+    faction as Faction, // Faction will be selected by this point
+    playerQuests,
+    templateQuests
+  );
 
   // Ensure only one sort filter is active at a time
   const setSortedQuests = (sortSetting: SortSetting) => {

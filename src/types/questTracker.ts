@@ -2,7 +2,6 @@ import {
   AllCharacters,
   ClassSetting,
   Faction,
-  FactionSetting,
   RaceSetting
 } from './characters';
 import {
@@ -69,7 +68,6 @@ export type QuestTrackerSettings = {
   all: boolean;
   character: QTCharacter | Record<string,never>;
   characterClass: QTClass | Record<string,never>;
-  faction: FactionSetting;
   race: QTRace | Record<string,never>;
   type: QuestTypeSetting;
   zone: string;

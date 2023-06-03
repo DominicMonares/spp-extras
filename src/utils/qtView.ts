@@ -32,11 +32,13 @@ const zones = zoneRef as ViewZones;
 
 // Decide which quests to display
 export const filterTemplateQuests = (
-  all: boolean,
   settings: QuestTrackerSettings,
+  faction: Faction,
   templateQuests: AllTemplateQuests | Record<string,never>,
 ) => {
-  const { characterClass, faction, race, type, zone } = settings;
+  const { all, characterClass, race, type, zone } = settings;
+  // console.log('ASDFDSAF ', all)
+
 
   // Add template quests that meet all conditions to view quests
   const viewQuests: ViewQuests = [];
@@ -240,19 +242,18 @@ export const markTemplateQuests = (
 
 // Create list of quests to be displayed
 export const createViewQuests = (
-  all: boolean,
-  completedQuests: AllCompletedQuests | Record<string,never>,
   settings: QuestTrackerSettings,
+  faction: Faction,
+  completedQuests: AllCompletedQuests | Record<string,never>,
   templateQuests: AllTemplateQuests | Record<string,never>
 ) => {
   const { character, type } = settings as QuestTrackerSettings;
 
   // Create list of quests filtered using quest tracker settings
-  const filteredTemplateQuests = filterTemplateQuests(all, settings, templateQuests);
+  const filteredTemplateQuests = filterTemplateQuests(settings, faction, templateQuests);
 
   // Mark completed quests, check neutral factions so neutral quests are marked
   if (character && character.id) {
-    const faction = settings.faction as Faction; // Faction will be selected by this point
     const characterQuests = completedQuests[faction][character.id];
     markTemplateQuests(characterQuests, filteredTemplateQuests, type);
   } else {

@@ -11,7 +11,6 @@ const initialState: QuestTrackerSettings = {
   all: false,
   character: {},
   characterClass: {},
-  faction: '',
   race: {},
   type: '',
   zone: '',

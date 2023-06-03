@@ -10,7 +10,6 @@ TODO
 - Cleanup warning messages in console
   - Development server logging during production
 - Create installation and portable versions of app
-- AccountWide transfer with no options selected - error styling
 - Batch disconnect db functions
 - Replace try/catch with just await/catch?
 - Replace double quotes with singles wherever possible

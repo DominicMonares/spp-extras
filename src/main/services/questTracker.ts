@@ -25,6 +25,7 @@ import {
   RawComplRepeatQuests,
   RawComplRegQuests,
   RawTemplateQuests,
+  ConnectionPool,
 } from '../../types';
 
 const questTracker = async (xpac: Expansion) => {
@@ -37,22 +38,28 @@ const questTracker = async (xpac: Expansion) => {
   let realmdDB: Connection;
   let charactersDB: Connection;
   let mangosDB: Connection;
+  const connectionPool: ConnectionPool = [];
 
   try {
     realmdDB = await connect(xpac, 'realmd');
+    connectionPool.push([realmdDB, 'realmd']);
   } catch (err) {
     throw err;
   }
 
   try {
     charactersDB = await connect(xpac, 'characters');
+    connectionPool.push([charactersDB, 'characters']);
   } catch (err) {
+    await disconnect(connectionPool, xpac);
     throw err;
   }
 
   try {
     mangosDB = await connect(xpac, 'mangos');
+    connectionPool.push([mangosDB, 'mangos']);
   } catch (err) {
+    await disconnect(connectionPool, xpac);
     throw err;
   }
 
@@ -66,6 +73,7 @@ const questTracker = async (xpac: Expansion) => {
     const rawAccounts: RawAccounts = await selAccts(realmdDB, false);
     acctIDs = rawAccounts.map(a => a.id);
   } catch (err) {
+    await disconnect(connectionPool, xpac);
     throw err;
   }
 
@@ -77,6 +85,7 @@ const questTracker = async (xpac: Expansion) => {
     charIDs = rawCharacters.map(c => c.guid);
     characters = formatChars(rawCharacters);
   } catch (err) {
+    await disconnect(connectionPool, xpac);
     throw err;
   }
 
@@ -114,6 +123,7 @@ const questTracker = async (xpac: Expansion) => {
       rawCompletedMonthly
     );
   } catch (err) {
+    await disconnect(connectionPool, xpac);
     throw err
   }
 
@@ -123,6 +133,7 @@ const questTracker = async (xpac: Expansion) => {
     const rawTemplateQuests: RawTemplateQuests = await selTemplateQuests(mangosDB);
     templateQuests = formatTemplateQuests(rawTemplateQuests);
   } catch (err) {
+    await disconnect(connectionPool, xpac);
     throw err;
   }
 
@@ -130,23 +141,7 @@ const questTracker = async (xpac: Expansion) => {
   // Disconnect from all databases
   // ----------------------------------------------------------------
 
-  try {
-    await disconnect(realmdDB, xpac, 'realmd');
-  } catch (err) {
-    throw err;
-  }
-
-  try {
-    await disconnect(charactersDB, xpac, 'characters');
-  } catch (err) {
-    throw err;
-  }
-
-  try {
-    await disconnect(mangosDB, xpac, 'mangos');
-  } catch (err) {
-    throw err;
-  }
+  await disconnect(connectionPool, xpac);
 
   // ----------------------------------------------------------------
   // Return response

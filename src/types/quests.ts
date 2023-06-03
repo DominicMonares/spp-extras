@@ -81,7 +81,7 @@ export type AllTemplateQuests = {
 // JSON DATA
 // ----------------------------------------------------------------
 
-export type QuestFlags = {
+export type RepeatQuestFlags = {
   regular: number[];
   daily: number[];
   weekly: number[];
@@ -94,7 +94,7 @@ export type QuestRace = {
   raceIds: number[];
 }
 
-export type QuestRaces = {
+export type QuestRaceIDs = {
   [key: string]: QuestRace;
 }
 

@@ -39,19 +39,28 @@ const AccountWideControls = () => {
   const [achsChecked, setAchsChecked] = useState<boolean>(true);
   const [botsChecked, setBotsChecked] = useState<boolean>(false);
 
+  const noneChecked = () => !petsMountsChecked && !repsChecked && !achsChecked;
+
   // Clear settings when tool changes
   useEffect(() => {
     if (expansion === 'wotlk') {
-      setPetsMountsChecked(true)
-      setAchsChecked(true)
+      setPetsMountsChecked(true);
+      setAchsChecked(true);
     } else {
-      setPetsMountsChecked(false)
-      setAchsChecked(false)
+      setPetsMountsChecked(false);
+      setAchsChecked(false);
     }
 
-    setRepsChecked(true)
-    setBotsChecked(false)
-  }, [tool])
+    setRepsChecked(true);
+    setBotsChecked(false);
+  }, [tool]);
+
+  // Shorten modal window if no settings are checked
+  useEffect(() => {
+    !petsMountsChecked && !repsChecked && !achsChecked
+      ? modalStyles.content.height = '154px'
+      : modalStyles.content.height = '276px';
+  });
 
   const openModal = () => {
     setModalIsOpen(true);
@@ -90,10 +99,12 @@ const AccountWideControls = () => {
         contentLabel="Expansion Warning"
       >
         {!petsMountsChecked && !repsChecked && !achsChecked ? (
-          <>
+          <div>
             <div className="msg-warning">Please select a data option</div>
-            <MainButton handleClick={closeModal} buttonText="Close" />
-          </>
+            <div className="msg-warning-buttons">
+              <MainButton handleClick={closeModal} buttonText="Close" />
+            </div>
+          </div>
         ) : (
           <>
             <div className="msg-warning"><b>WARNING</b></div>

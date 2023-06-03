@@ -31,11 +31,19 @@ const MenuButton = ({ selected, subHovering, title }: Props) => {
       onMouseLeave={() => setActive('')}
     >
       <div className="dd-main-button-content">
-        {!smallWindow ? <img className={`dd-main-arrow${active}`} src={arrow} /> : <></>}
-        <div className={`c${titleLength()}${active} c${smallWindow ? '-sm' : ''}`}>
+        {!smallWindow ? (
+          <img className={`dd-main-arrow${active}`} src={arrow} />
+        ) : (
+          <></>
+        )}
+        <div className={`dd-text dd-${titleLength()}${active}`}>
           {selected() ? selected() : title}
         </div>
-        {smallWindow ? <img className={`dd-main-arrow-sm${active}`} src={arrow} /> : <></>}
+        {smallWindow ? (
+          <img className={`dd-main-arrow-sm${active}`} src={arrow} />
+        ) : (
+          <></>
+        )}
       </div>
     </button>
   );

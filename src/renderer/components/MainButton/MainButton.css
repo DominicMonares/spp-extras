@@ -3,7 +3,7 @@
 .main-btn,
 .prefs-btn {
   border-radius: 5px;
-  background-image: url("../../../../assets/buttons/main-button.png");
+  background-image: url("../../../../assets/buttons/main-button.webp");
   background-size: 100%;
   background-repeat: no-repeat;
   /* transition: width 0.1s linear, height 0.1s linear; */

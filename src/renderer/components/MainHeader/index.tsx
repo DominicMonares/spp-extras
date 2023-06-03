@@ -1,4 +1,4 @@
-import arrow from '../../../../assets/buttons/collapse-arrow.gif';
+import arrow from '../../../../assets/buttons/collapse-arrow.webp';
 import './MainHeader.css';
 
 interface Props {

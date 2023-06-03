@@ -36,19 +36,19 @@ button {
 }
 
 .all-container {
-  background-image: url("../../assets/backgrounds/all.jpg");
+  background-image: url("../../assets/backgrounds/all-background.webp");
 }
 
 .classic-container {
-  background-image: url("../../assets/backgrounds/vanilla.jpg");
+  background-image: url("../../assets/backgrounds/vanilla-background.webp");
 }
 
 .tbc-container {
-  background-image: url("../../assets/backgrounds/tbc.jpg");
+  background-image: url("../../assets/backgrounds/tbc-background.webp");
 }
 
 .wotlk-container {
-  background-image: url("../../assets/backgrounds/wotlk.jpg");
+  background-image: url("../../assets/backgrounds/wotlk-background.webp");
 }
 
 .all-container,

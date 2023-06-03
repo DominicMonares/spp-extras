@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import vanillaLogo from '../../../../assets/logos/vanilla.png';
-import tbcLogo from '../../../../assets/logos/tbc.png';
-import wotlkLogo from '../../../../assets/logos/wotlk.png';
+import vanillaLogo from '../../../../assets/logos/vanilla-logo.webp';
+import tbcLogo from '../../../../assets/logos/tbc-logo.webp';
+import wotlkLogo from '../../../../assets/logos/wotlk-logo.webp';
 import { ExpansionSetting } from '../../../types';
 import './Preferences.css';
 

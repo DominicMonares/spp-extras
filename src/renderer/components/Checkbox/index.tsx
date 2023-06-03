@@ -1,5 +1,5 @@
-import checked from '../../../../assets/checkboxes/checked.png'
-import unchecked from '../../../../assets/checkboxes/unchecked.png'
+import checked from '../../../../assets/checkboxes/checked.webp'
+import unchecked from '../../../../assets/checkboxes/unchecked.webp'
 import './Checkbox.css';
 
 interface Props {

@@ -6,8 +6,8 @@ import {
   storeQuestTrackerClass,
   storeQuestTrackerRace
 } from '../../store/slices';
-import alliance from '../../../../assets/buttons/alliance.png';
-import horde from '../../../../assets/buttons/horde.png';
+import alliance from '../../../../assets/buttons/alliance-button.webp';
+import horde from '../../../../assets/buttons/horde-button.webp';
 import { Faction } from "../../../types";
 
 

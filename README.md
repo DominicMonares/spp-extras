@@ -14,6 +14,7 @@ TODO
 - Replace try/catch with just await/catch?
 - Replace double quotes with singles wherever possible
 - JSON imports w/ types (quest tracker)
+- Go through remaining old files to double check - main splash screen
 - Create actual readme file
 
 

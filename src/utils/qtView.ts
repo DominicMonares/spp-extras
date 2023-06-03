@@ -37,8 +37,6 @@ export const filterTemplateQuests = (
   templateQuests: AllTemplateQuests | Record<string,never>,
 ) => {
   const { all, characterClass, race, type, zone } = settings;
-  // console.log('ASDFDSAF ', all)
-
 
   // Add template quests that meet all conditions to view quests
   const viewQuests: ViewQuests = [];

@@ -5,6 +5,8 @@ import { AllAccountsData } from './accountWide';
 // Connection
 // ----------------------------------------------------------------
 
+export type DBName = 'realmd' | 'characters' | 'mangos';
+
 export type Connection = mysql.Connection;
 
 // ----------------------------------------------------------------

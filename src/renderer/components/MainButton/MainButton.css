@@ -28,7 +28,7 @@
 .prefs-btn:hover,
 .prefs-btn-active {
   z-index: 1;
-  transform: scale(1.05);
+  transform: scale(1.037);
 }
 
 
@@ -63,5 +63,5 @@
 .main-btn-text-active,
 .prefs-btn:hover > .prefs-btn-text,
 .prefs-btn-text-active {
-  transform: scale(1.05);
+  transform: scale(1.037);
 }

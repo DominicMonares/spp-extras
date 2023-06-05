@@ -33,13 +33,12 @@ const SubmenuButton = ({ handleSelection, final, item, subHovering }: Props) => 
       onMouseLeave={() => setActive('')}
     >
       {!final && !smallWindow ? <img className="dd-sub-arrow" src={arrow} /> : <></>}
-      <li
+      <div
         id={item.id ? item.id.toString() : ''}
         className={`dd-sub-button-text ${longTitle}`}
-        value={item.value ? item.value : ''}
       >
         {item.title}
-      </li>
+      </div>
       {!final && smallWindow ? <img className="dd-sub-arrow-sm" src={arrow} /> : <></>}
     </button>
   );

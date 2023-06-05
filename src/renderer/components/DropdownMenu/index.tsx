@@ -25,7 +25,7 @@ const DropdownMenu = ({ depthLevel, dropdown, dropdownType, menu }: Props) => {
   const ddZone = dropdownType === 'zone' ? `dd-zone${size}` : '';
 
   return (
-    <ul className={`
+    <div className={`
       ${depthLevel ? `dropdown${size}${level} ${ddScroll} ${ddZone}` : ''}
       ${dropdown ? 'dropdown-show' : ''}
     `}>
@@ -39,7 +39,7 @@ const DropdownMenu = ({ depthLevel, dropdown, dropdownType, menu }: Props) => {
           />
         );
       })}
-    </ul>
+    </div>
   );
 };
 

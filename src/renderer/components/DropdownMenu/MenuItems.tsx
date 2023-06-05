@@ -31,10 +31,10 @@ const MenuItems = ({ dropdownType, items, depthLevel }: Props) => {
   const { character, characterClass, race, type, zone } = settings;
 
   // Determine whether a menu/submenu should be rendered or not
-  const [dropdown, setDropdown] = useState<boolean>(false);
+  const [dropdown, setDropdown] = useState<boolean>(true);
 
   // Track nested hovering - keeps parent elements hovering when children are hovering
-  const [subHovering, setSubHovering] = useState<boolean>(false);
+  const [subHovering, setSubHovering] = useState<boolean>(true);
 
   const onMouseEnter = () => {
     setDropdown(true);
@@ -105,14 +105,14 @@ const MenuItems = ({ dropdownType, items, depthLevel }: Props) => {
   }
 
   return (
-    <li
+    <ul
       className="menu-items"
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       onClick={closeDropdown}
     >
       {items.submenu ? (
-        <>
+        <li>
           {depthLevel === 0 ? (
             <MenuButton
               selected={selected}
@@ -133,16 +133,18 @@ const MenuItems = ({ dropdownType, items, depthLevel }: Props) => {
             menu={items.submenu}
             dropdown={dropdown}
           />
-        </>
+        </li>
       ) : (
-        <SubmenuButton
-          final={true}
-          handleSelection={handleSelection}
-          subHovering={subHovering}
-          item={items}
-        />
+        <li>
+          <SubmenuButton
+            final={true}
+            handleSelection={handleSelection}
+            subHovering={subHovering}
+            item={items}
+          />
+        </li>
       )}
-    </li >
+    </ul>
   );
 };
 

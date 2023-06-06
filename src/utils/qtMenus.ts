@@ -7,6 +7,7 @@ import {
   ClassSetting,
   ExpansionSetting,
   Faction,
+  QTCharacter,
   QuestTypeSetting,
   RaceSetting,
 } from "../types";
@@ -18,7 +19,7 @@ export const createCharacterMenu = (
   faction: Faction,
 ) => {
   const submenu = Object.values(characters[faction]).map(c => {
-    const value = { characterClass: c.class_field, race: c.race };
+    const value = { characterClass: c.class, race: c.race };
     return { title: c.name, id: c.guid, value: JSON.stringify(value) };
   });
 
@@ -59,8 +60,8 @@ export const createClassMenu = (
       const deathKnight = c.id === 6;
       if (expansion !== 'wotlk' && deathKnight) return false;
 
-      const noClassMatch = c.id !== characterClass;
-      const noClassSelected = !characterClass && !c.id;
+      let noClassMatch = c.id !== characterClass;
+      let noClassSelected = !characterClass && !c.id;
       return noClassMatch && noClassSelected ? false : noClassMatch;
     })
   }];
@@ -70,7 +71,7 @@ export const createClassMenu = (
 export const createRaceMenu = (
   expansion: ExpansionSetting,
   faction: Faction,
-  race: RaceSetting,
+  race: RaceSetting | Record<string,never>,
 ) => {
   const raceMenuFaction = _raceMenu[faction][0];
   return [{

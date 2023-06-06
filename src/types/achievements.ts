@@ -38,8 +38,8 @@ export type AchReward = {
   title_H: number;
   item: number;
   sender: number;
-  subject: string;
-  text: string;
+  subject: string | null;
+  text: string | null;
 }
 
 export type AchRewards = {

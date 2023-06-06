@@ -125,8 +125,8 @@ export const createCreditRewValues = (
 
       // Add title if achievement rewards one
       const faction = checkFaction(char.race);
-      const titleA = reward.title_A;
-      const titleH = reward.title_H;
+      const titleA = reward?.title_A;
+      const titleH = reward?.title_H;
       const alliance = faction === 'alliance';
       const titleID = alliance ? titleA : titleH;
       if (titleID && char.knownTitles) {
@@ -146,7 +146,7 @@ export const createCreditRewValues = (
 
       // Add mail item if achievement rewards one
       const newDate = new Date().getTime() / 1000;
-      const sender = reward.sender;
+      const sender = reward?.sender;
       if (sender) {
         addMailValue(lastMailID, sender, charID, reward, newDate);
         const itemID = reward.item;

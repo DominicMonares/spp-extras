@@ -30,9 +30,9 @@ const QuestTrackerControls = () => {
         <DropdownMenu dropdownType="zone" menu={createZoneMenu(expansion, zone)} />
         <DropdownMenu
           dropdownType="class"
-          menu={createClassMenu(expansion, faction, characterClass.id)}
+          menu={createClassMenu(expansion, faction, characterClass.id || 0)}
         />
-        <DropdownMenu dropdownType="race" menu={createRaceMenu(expansion, faction, race.id)} />
+        <DropdownMenu dropdownType="race" menu={createRaceMenu(expansion, faction, race.id || 0)} />
       </div>
       <MainButton
         handleClick={() => dispatch(storeQuestTrackerAll(true))}
@@ -42,7 +42,7 @@ const QuestTrackerControls = () => {
       <div className="qt-sec-filter-list">
         <DropdownMenu
           dropdownType="character"
-          menu={createCharacterMenu(character.id, characters, faction)}
+          menu={createCharacterMenu(character.id || 0, characters, faction)}
         />
         <DropdownMenu dropdownType="type" menu={createQuestTypeMenu(expansion, type)} />
       </div>

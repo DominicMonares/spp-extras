@@ -75,8 +75,8 @@ export type MailValue = {
   mailTemplateId: number;
   sender: number;
   receiver: number;
-  subject: string;
-  body: string;
+  subject: string | null;
+  body: string | null;
   has_items: number;
   expire_time: number;
   deliver_time: number;

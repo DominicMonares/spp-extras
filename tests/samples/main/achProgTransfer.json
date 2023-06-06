@@ -552,9 +552,9 @@
   "newAccounts": {
     "0": {
       "username": "player_accts",
-      "playerAccts": [
-        "500",
-        "501"
+      "playerAcctIDs": [
+        500,
+        501
       ],
       "characters": {
         "1001": {

@@ -233,9 +233,7 @@
 
 /* Quest Tracker */
 
-.qt-controls,
-.qt-filter-list,
-.qt-sec-filter-list {
+.qt-controls {
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -17,7 +17,7 @@
   display: none;
   position: absolute;
   left: 174px;
-  bottom: 0px;
+  bottom: 0;
 }
 
 .dropdown-l1 {
@@ -30,7 +30,7 @@
 }
 
 .dd-zone {
-  bottom: 0px;
+  /* bottom: 0px; */
 }
 
 .dd-zone-sm {
@@ -108,10 +108,9 @@
 
 .dd-main-button,
 .dd-main-button-active {
+  /* margin-top: 2px; */
   width: 224px;
   height: 54px;
-  max-width: 224px;
-  max-height: 54px;
   border-radius: 5px;
   background-image: url("../../../../assets/buttons/main-button.webp");
   background-size: 100%;

@@ -48,8 +48,7 @@ button {
 }
 
 .wotlk-container {
-  background-color: green;
-  /* background-image: url("../../assets/backgrounds/wotlk-background.webp"); */
+  background-image: url("../../assets/backgrounds/wotlk-background.webp");
 }
 
 .all-container,

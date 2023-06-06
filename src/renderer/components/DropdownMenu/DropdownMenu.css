@@ -119,7 +119,7 @@
 }
 
 .dd-main-button-active {
-  z-index: 1;
+  z-index: 1000;
   transform: scale(1.037);
 }
 

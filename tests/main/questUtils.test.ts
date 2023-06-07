@@ -25,7 +25,7 @@ describe('formatTemplateQuests', () => {
 
   it('Should not sort Alliance specific zero quest into Horde quests', () => {
     const result = formatTemplateQuests(rawTemplateQuests);
-    const resultCorrect = !result['55'];
+    const resultCorrect = !result['horde']['55'];
     const expected = true;
     expect(resultCorrect).toStrictEqual(expected);
   });

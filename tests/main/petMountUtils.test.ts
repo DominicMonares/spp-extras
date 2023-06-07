@@ -2,8 +2,8 @@ import {
   formatPetMountItemData,
   formatCharSpellData,
   formatCharSkillData,
-  createPetMountSpellArgs
-} from '../../src/utils/petsMounts';
+  createPetMountSpellValues
+} from '../../src/utils';
 import allAccountsChars from '../samples/formattedData/allAccountsChars.json';
 import characterSkills from '../samples/formattedData/characterSkills.json';
 import characterSpells from '../samples/formattedData/characterSpells.json';
@@ -12,6 +12,7 @@ import rawCharacterSkills from '../samples/rawData/rawCharacterSkills.json';
 import rawCharacterSpells from '../samples/rawData/rawCharacterSpells.json';
 import rawPetMountItems from '../samples/rawData/rawPetMountItems.json';
 import transferredPetsMounts from '../samples/main/transferredPetsMounts.json';
+import { AccountCharacters } from '../../src/types';
 
 describe('formatPetMountItemData', () => {
   it('Should return pet and mount item object sorted by spell ID', () => {
@@ -39,9 +40,9 @@ describe('formatCharSkillData', () => {
 
 describe('createPetMountSpellArgs', () => {
   it('Should return array of pet and mount spell query arguments', () => {
-    const result = createPetMountSpellArgs(
+    const result = createPetMountSpellValues(
+      allAccountsChars as AccountCharacters,
       petMountItems,
-      allAccountsChars,
       characterSpells,
       characterSkills,
     );

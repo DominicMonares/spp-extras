@@ -17,134 +17,193 @@ const { bloodElf, orc } = sampleRaces;
 
 describe('createViewQuests', () => {
   it('should return all character marked, filtered template quests', () => {
-    const noCharacterSetting = { faction: 'horde' } as QuestTrackerSettings;
-    const newFilteredQuests = filteredTemplateQuests.slice();
-    newFilteredQuests[1]['completed'] = true;
-    const result = createViewQuests(false, playerQuests, noCharacterSetting, templateQuests);
+    const settings = {
+      all: true,
+      character: {},
+      characterClass: {},
+      race: {},
+      type: '',
+      zone: '',
+    } as QuestTrackerSettings;
+
+    const newFilteredQuests = filteredTemplateQuests.allHorde;
+    // newFilteredQuests[1]['completed'] = true;
+    const result = createViewQuests(settings, 'horde', playerQuests, templateQuests);
     expect(result).toStrictEqual(newFilteredQuests);
-    newFilteredQuests[1]['completed'] = false;
+    // newFilteredQuests[1]['completed'] = false;
   });
 
   it('should return all specific character marked, filtered template quests', () => {
-    const allTypesSetting = { faction: 'horde', character: orcCharacter } as QuestTrackerSettings;
-    const newFilteredQuests = filteredTemplateQuests.slice();
-    newFilteredQuests[2]['completed'] = false;
-    newFilteredQuests[3]['completed'] = false;
-    newFilteredQuests[4]['completed'] = false;
-    const result = createViewQuests(false, playerQuests, allTypesSetting, templateQuests);
+    const settings = {
+      all: false,
+      character: orcCharacter,
+      characterClass: {},
+      race: {},
+      type: '',
+      zone: '',
+    } as QuestTrackerSettings;
+
+    const newFilteredQuests = filteredTemplateQuests.orcChar;
+    // newFilteredQuests[2]['completed'] = false;
+    // newFilteredQuests[3]['completed'] = false;
+    // newFilteredQuests[4]['completed'] = false;
+    const result = createViewQuests(settings, 'horde', playerQuests, templateQuests);
     expect(result).toStrictEqual(newFilteredQuests);
-    newFilteredQuests[2]['completed'] = true;
-    newFilteredQuests[3]['completed'] = true;
-    newFilteredQuests[4]['completed'] = true;
+    // newFilteredQuests[2]['completed'] = true;
+    // newFilteredQuests[3]['completed'] = true;
+    // newFilteredQuests[4]['completed'] = true;
   });
 
   it('should return all regular, specific character marked, filtered template quests', () => {
-    const regularTypesSetting = { faction: 'horde', type: 'regular' } as QuestTrackerSettings;
-    const newFilteredQuests = filteredTemplateQuests.slice(0, 5);
-    newFilteredQuests[1]['completed'] = true;
-    const result = createViewQuests(false, playerQuests, regularTypesSetting, templateQuests);
+    const settings = {
+      all: false,
+      character: orcCharacter,
+      characterClass: {},
+      race: {},
+      type: 'regular',
+      zone: '',
+    } as QuestTrackerSettings;
+
+
+    const newFilteredQuests = filteredTemplateQuests.regOrcQuests;
+    // newFilteredQuests[1]['completed'] = true;
+    const result = createViewQuests(settings, 'horde', playerQuests, templateQuests);
     expect(result).toStrictEqual(Object.values(newFilteredQuests));
-    newFilteredQuests[1]['completed'] = false;
+    // newFilteredQuests[1]['completed'] = false;
   });
 
   it('should return all monthly, specific character marked, filtered template quests', () => {
-    const monthlyTypesSetting = {
-      faction: 'horde',
+    const settings = {
+      all: false,
       character: orcCharacter,
-      type: 'monthly'
+      characterClass: {},
+      race: {},
+      type: 'monthly',
+      zone: '',
     } as QuestTrackerSettings;
 
-    const result = createViewQuests(false, playerQuests, monthlyTypesSetting, templateQuests);
-    expect(result).toStrictEqual(filteredTemplateQuests.slice(5, 6));
+    const newFilteredQuests = filteredTemplateQuests.monthlyOrcQuests;
+    const result = createViewQuests(settings, 'horde', playerQuests, templateQuests);
+    expect(result).toStrictEqual(newFilteredQuests);
   });
 
   it('should return all shaman marked, filtered template quests', () => {
-    const shamanSetting = { faction: 'horde', characterClass: shaman } as QuestTrackerSettings;
-    const result = createViewQuests(false, playerQuests, shamanSetting, templateQuests);
-    expect(result).toStrictEqual(filteredTemplateQuests.slice(2, 3));
+    const settings = {
+      all: false,
+      character: {},
+      characterClass: shaman,
+      race: {},
+      type: '',
+      zone: '',
+    } as QuestTrackerSettings;
+
+    const newFilteredQuests = filteredTemplateQuests.shamanQuests;
+    const result = createViewQuests(settings, 'horde', playerQuests, templateQuests);
+    expect(result).toStrictEqual(newFilteredQuests);
   });
 
   it('should return all blood elf paladin marked, filtered template quests', () => {
-    const raceClassMatchSetting = {
-      faction: 'horde',
+    const settings = {
+      all: false,
+      character: {},
       characterClass: paladin,
-      race: bloodElf
+      race: bloodElf,
+      type: '',
+      zone: '',
     } as QuestTrackerSettings;
 
-    const result = createViewQuests(false, playerQuests, raceClassMatchSetting, templateQuests);
-    expect(result).toStrictEqual(filteredTemplateQuests.slice(4, 5));
+    const result = createViewQuests(settings, 'horde', playerQuests, templateQuests);
+    expect(result).toStrictEqual(filteredTemplateQuests.bloodKnightQuests);
   });
 
   it('should return no quests for race/class mismatch', () => {
-    const raceClassMismatchSetting = {
-      faction: 'horde',
+    const settings = {
+      all: false,
+      character: {},
       characterClass: paladin,
-      race: orc
+      race: orc,
+      type: '',
+      zone: '',
     } as QuestTrackerSettings;
 
-    const result = createViewQuests(false, playerQuests, raceClassMismatchSetting, templateQuests);
+    const result = createViewQuests(settings, 'horde', playerQuests, templateQuests);
     expect(result).toStrictEqual([]);
   });
 
   it('should return all classless blood elf marked, filtered template quests', () => {
-    const noClassSetting = { faction: 'horde', race: bloodElf } as QuestTrackerSettings;
-    const result = createViewQuests(false, playerQuests, noClassSetting, templateQuests);
-    expect(result).toStrictEqual(filteredTemplateQuests.slice(3, 5));
+    const settings = {
+      all: false,
+      character: {},
+      characterClass: {},
+      race: bloodElf,
+      type: '',
+      zone: '',
+    } as QuestTrackerSettings;
+    const result = createViewQuests(settings, 'horde', playerQuests, templateQuests);
+    expect(result).toStrictEqual(filteredTemplateQuests.bloodElfQuests);
   });
 
   it('should return all zone marked, filtered template quests', () => {
-    const zoneSetting = { faction: 'horde', zone: 'Ashenvale' } as QuestTrackerSettings;
-    const newFilteredQuests = filteredTemplateQuests.slice(1, 2);
-    newFilteredQuests[0]['completed'] = true;
-    const result = createViewQuests(false, playerQuests, zoneSetting, templateQuests);
+    const settings = {
+      all: false,
+      character: {},
+      characterClass: {},
+      race: {},
+      type: '',
+      zone: 'Ashenvale',
+    } as QuestTrackerSettings;
+
+    const newFilteredQuests = filteredTemplateQuests.ashenvaleQuests;
+    // newFilteredQuests[0]['completed'] = true;
+    const result = createViewQuests(settings, 'horde', playerQuests, templateQuests);
     expect(result).toStrictEqual(newFilteredQuests);
-    newFilteredQuests[0]['completed'] = false;
+    // newFilteredQuests[0]['completed'] = false;
   });
 });
 
 describe('sortViewQuests', () => {
   it('should sort in alphabetic order when name selected', () => {
-    const quests = filteredTemplateQuests.slice(0, 4);
+    const quests = filteredTemplateQuests.sortQuests;
     const expected = [quests[0], quests[0], quests[2], quests[3], quests[1]];
     expect(sortViewQuests([quests[0], ...quests], 'name')).toStrictEqual(expected);
   });
 
   it('should sort in numeric order when id selected', () => {
-    const quests = filteredTemplateQuests.slice(0, 4);
+    const quests = filteredTemplateQuests.sortQuests;
     const shuffled = [quests[0], quests[2], quests[3], quests[1], quests[0]];
     const expected = [quests[0], ...quests];
     expect(sortViewQuests(shuffled, 'id')).toStrictEqual(expected);
   });
 
   it('should sort in completed order when status selected', () => {
-    const quests = filteredTemplateQuests.slice(0, 4);
-    quests[0]['completed'] = false;
+    const quests = filteredTemplateQuests.sortQuestsCompl;
+    // quests[0]['completed'] = false;
     const expected = [quests[2], quests[3], quests[0], quests[1]];
     expect(sortViewQuests(quests, 'status')).toStrictEqual(expected);
     expect(sortViewQuests(expected, 'status')).toStrictEqual(expected);
     expect(sortViewQuests(expected.reverse(), 'status')).toStrictEqual(expected);
-    quests[0]['completed'] = true;
+    // quests[0]['completed'] = true;
   });
 
   it('should return unsorted list when no sort setting provided', () => {
-    expect(sortViewQuests(filteredTemplateQuests, '')).toStrictEqual(filteredTemplateQuests);
+    expect(sortViewQuests(filteredTemplateQuests.allHorde, '')).toStrictEqual(filteredTemplateQuests.allHorde);
   });
 });
 
 describe('reverseSortViewQuests', () => {
   it('should sort in reverse alphabetic order when name selected', () => {
-    const quests = filteredTemplateQuests.slice(0, 4);
+    const quests = filteredTemplateQuests.sortQuests;
     const expected = [quests[1], quests[3], quests[2], quests[0], quests[0]];
     expect(reverseSortViewQuests([...quests, quests[0]], 'name')).toStrictEqual(expected);
   });
 
   it('should sort in reverse numeric order when id selected', () => {
-    const quests = filteredTemplateQuests.slice(0, 4);
+    const quests = filteredTemplateQuests.sortQuests;
     expect(reverseSortViewQuests(quests, 'id')).toStrictEqual(quests.reverse());
   });
 
   it('should sort in reverse completed order when status selected', () => {
-    const quests = filteredTemplateQuests.slice(0, 4);
+    const quests = filteredTemplateQuests.sortQuests;
     quests[0]['completed'] = false;
     const expected = [quests[1], quests[0], quests[3], quests[2]];
     expect(reverseSortViewQuests(quests, 'status')).toStrictEqual(expected);
@@ -154,6 +213,6 @@ describe('reverseSortViewQuests', () => {
   });
 
   it('should return unsorted list when no sort setting provided', () => {
-    expect(reverseSortViewQuests(filteredTemplateQuests, '')).toStrictEqual(filteredTemplateQuests);
+    expect(reverseSortViewQuests(filteredTemplateQuests.allHorde, '')).toStrictEqual(filteredTemplateQuests.allHorde);
   });
 });

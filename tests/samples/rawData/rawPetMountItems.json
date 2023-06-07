@@ -3,80 +3,80 @@
     "entry": 8494,
     "subclass": 2,
     "name": "Parrot Cage (Hyacinth Macaw)",
-    "allowablerace": -1,
-    "requiredskillrank": 0,
+    "AllowableRace": -1,
+    "RequiredSkillRank": 0,
     "spellid_2": 10682
   },
   {
     "entry": 8563,
     "subclass": 5,
     "name": "Red Mechanostrider",
-    "allowablerace": 1101,
-    "requiredskillrank": 75,
+    "AllowableRace": 1101,
+    "RequiredSkillRank": 75,
     "spellid_2": 10873
   },
   {
     "entry": 18776,
     "subclass": 5,
     "name": "Swift Palomino",
-    "allowablerace": 1101,
-    "requiredskillrank": 150,
+    "AllowableRace": 1101,
+    "RequiredSkillRank": 150,
     "spellid_2": 23227
   },
   {
     "entry": 18797,
     "subclass": 5,
     "name": "Horn of the Swift Timber Wolf",
-    "allowablerace": 690,
-    "requiredskillrank": 150,
+    "AllowableRace": 690,
+    "RequiredSkillRank": 150,
     "spellid_2": 23251
   },
   {
     "entry": 19902,
     "subclass": 5,
     "name": "Swift Zulian Tiger",
-    "allowablerace": -1,
-    "requiredskillrank": 150,
+    "AllowableRace": -1,
+    "RequiredSkillRank": 150,
     "spellid_2": 24252
   },
   {
     "entry": 32458,
     "subclass": 5,
     "name": "Ashes of Al'ar",
-    "allowablerace": -1,
-    "requiredskillrank": 300,
+    "AllowableRace": -1,
+    "RequiredSkillRank": 300,
     "spellid_2": 40192
   },
   {
     "entry": 39656,
     "subclass": 2,
     "name": "Tyrael's Hilt",
-    "allowablerace": -1,
-    "requiredskillrank": 0,
+    "AllowableRace": -1,
+    "RequiredSkillRank": 0,
     "spellid_2": 53082
   },
   {
     "entry": 44554,
     "subclass": 5,
     "name": "Flying Carpet",
-    "allowablerace": 32767,
-    "requiredskillrank": 300,
+    "AllowableRace": 32767,
+    "RequiredSkillRank": 300,
     "spellid_2": 61451
   },
   {
     "entry": 46100,
     "subclass": 5,
     "name": "White Kodo",
-    "allowablerace": 690,
-    "requiredskillrank": 75,
+    "AllowableRace": 690,
+    "RequiredSkillRank": 75,
     "spellid_2": 64657
   },
   {
     "entry": 49343,
     "subclass": 2,
     "name": "Spectral Tiger Cub",
-    "allowablerace": -1,
-    "requiredskillrank": 0,
+    "AllowableRace": -1,
+    "RequiredSkillRank": 0,
     "spellid_2": 68810
   }
 ]

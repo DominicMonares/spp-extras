@@ -1,82 +1,372 @@
-[
-  {
-    "entry": 8,
-    "requiredclasses": 0,
-    "requiredraces": 178,
-    "title": "A Rogue's Deal",
-    "type": 0,
-    "zoneorsort": 154,
-    "questflags": 0,
-    "completed": true
-  },
-  {
-    "entry": 25,
-    "requiredclasses": 0,
-    "requiredraces": 178,
-    "title": "Stonetalon Standstill",
-    "type": 0,
-    "zoneorsort": 331,
-    "questflags": 12,
-    "completed": false
-  },
-  {
-    "entry": 1523,
-    "requiredclasses": 64,
-    "requiredraces": 690,
-    "title": "Call of Fire",
-    "type": 0,
-    "zoneorsort": -82,
-    "questflags": 8,
-    "completed": true
-  },
-  {
-    "entry": 9621,
-    "requiredclasses": 0,
-    "requiredraces": 512,
-    "title": "Envoy to the Horde",
-    "type": 0,
-    "zoneorsort": 1497,
-    "questflags": 128,
-    "completed": true
-  },
-  {
-    "entry": 9678,
-    "requiredclasses": 2,
-    "requiredraces": 512,
-    "title": "The First Trial",
-    "type": 0,
-    "zoneorsort": -141,
-    "questflags": 136,
-    "completed": true
-  },
-  {
-    "entry": 9884,
-    "requiredclasses": 0,
-    "requiredraces": 0,
-    "title": "Membership Benefits",
-    "type": 0,
-    "zoneorsort": 3518,
-    "questflags": 136,
-    "completed": true
-  },
-  {
-    "entry": 11389,
-    "requiredclasses": 0,
-    "requiredraces": 0,
-    "title": "Wanted: A Warp Splinter Clipping",
-    "type": 85,
-    "zoneorsort": 3845,
-    "questflags": 4232,
-    "completed": true
-  },
-  {
-    "entry": 24584,
-    "requiredclasses": 0,
-    "requiredraces": 0,
-    "title": "Malygos Must Die!",
-    "type": 62,
-    "zoneorsort": 4500,
-    "questflags": 32968,
-    "completed": true
-  }
-]
+{
+  "allHorde": [
+    {
+      "entry": 8,
+      "RequiredClasses": 0,
+      "RequiredRaces": 178,
+      "Title": "A Rogue's Deal",
+      "Type": 0,
+      "ZoneOrSort": 154,
+      "QuestFlags": 0,
+      "completed": true
+    },
+    {
+      "entry": 25,
+      "RequiredClasses": 0,
+      "RequiredRaces": 178,
+      "Title": "Stonetalon Standstill",
+      "Type": 0,
+      "ZoneOrSort": 331,
+      "QuestFlags": 12,
+      "completed": true
+    },
+    {
+      "entry": 1523,
+      "RequiredClasses": 64,
+      "RequiredRaces": 690,
+      "Title": "Call of Fire",
+      "Type": 0,
+      "ZoneOrSort": -82,
+      "QuestFlags": 8,
+      "completed": true
+    },
+    {
+      "entry": 9621,
+      "RequiredClasses": 0,
+      "RequiredRaces": 512,
+      "Title": "Envoy to the Horde",
+      "Type": 0,
+      "ZoneOrSort": 1497,
+      "QuestFlags": 128,
+      "completed": true
+    },
+    {
+      "entry": 9678,
+      "RequiredClasses": 2,
+      "RequiredRaces": 512,
+      "Title": "The First Trial",
+      "Type": 0,
+      "ZoneOrSort": -141,
+      "QuestFlags": 136,
+      "completed": true
+    },
+    {
+      "entry": 9884,
+      "RequiredClasses": 0,
+      "RequiredRaces": 0,
+      "Title": "Membership Benefits",
+      "Type": 0,
+      "ZoneOrSort": 3518,
+      "QuestFlags": 136,
+      "completed": true
+    },
+    {
+      "entry": 11389,
+      "RequiredClasses": 0,
+      "RequiredRaces": 0,
+      "Title": "Wanted: A Warp Splinter Clipping",
+      "Type": 85,
+      "ZoneOrSort": 3845,
+      "QuestFlags": 4232,
+      "completed": true
+    },
+    {
+      "entry": 24584,
+      "RequiredClasses": 0,
+      "RequiredRaces": 0,
+      "Title": "Malygos Must Die!",
+      "Type": 62,
+      "ZoneOrSort": 4500,
+      "QuestFlags": 32968,
+      "completed": true
+    }
+  ],
+  "orcChar": [
+    {
+      "entry": 8,
+      "RequiredClasses": 0,
+      "RequiredRaces": 178,
+      "Title": "A Rogue's Deal",
+      "Type": 0,
+      "ZoneOrSort": 154,
+      "QuestFlags": 0,
+      "completed": true
+    },
+    {
+      "entry": 25,
+      "RequiredClasses": 0,
+      "RequiredRaces": 178,
+      "Title": "Stonetalon Standstill",
+      "Type": 0,
+      "ZoneOrSort": 331,
+      "QuestFlags": 12,
+      "completed": false
+    },
+    {
+      "entry": 1523,
+      "RequiredClasses": 64,
+      "RequiredRaces": 690,
+      "Title": "Call of Fire",
+      "Type": 0,
+      "ZoneOrSort": -82,
+      "QuestFlags": 8,
+      "completed": false
+    },
+    {
+      "entry": 9621,
+      "RequiredClasses": 0,
+      "RequiredRaces": 512,
+      "Title": "Envoy to the Horde",
+      "Type": 0,
+      "ZoneOrSort": 1497,
+      "QuestFlags": 128,
+      "completed": false
+    },
+    {
+      "entry": 9678,
+      "RequiredClasses": 2,
+      "RequiredRaces": 512,
+      "Title": "The First Trial",
+      "Type": 0,
+      "ZoneOrSort": -141,
+      "QuestFlags": 136,
+      "completed": false
+    },
+    {
+      "entry": 9884,
+      "RequiredClasses": 0,
+      "RequiredRaces": 0,
+      "Title": "Membership Benefits",
+      "Type": 0,
+      "ZoneOrSort": 3518,
+      "QuestFlags": 136,
+      "completed": true
+    },
+    {
+      "entry": 11389,
+      "RequiredClasses": 0,
+      "RequiredRaces": 0,
+      "Title": "Wanted: A Warp Splinter Clipping",
+      "Type": 85,
+      "ZoneOrSort": 3845,
+      "QuestFlags": 4232,
+      "completed": true
+    },
+    {
+      "entry": 24584,
+      "RequiredClasses": 0,
+      "RequiredRaces": 0,
+      "Title": "Malygos Must Die!",
+      "Type": 62,
+      "ZoneOrSort": 4500,
+      "QuestFlags": 32968,
+      "completed": true
+    }
+  ],
+  "regOrcQuests": [
+    {
+      "entry": 8,
+      "RequiredClasses": 0,
+      "RequiredRaces": 178,
+      "Title": "A Rogue's Deal",
+      "Type": 0,
+      "ZoneOrSort": 154,
+      "QuestFlags": 0,
+      "completed": true
+    },
+    {
+      "entry": 25,
+      "RequiredClasses": 0,
+      "RequiredRaces": 178,
+      "Title": "Stonetalon Standstill",
+      "Type": 0,
+      "ZoneOrSort": 331,
+      "QuestFlags": 12,
+      "completed": false
+    },
+    {
+      "entry": 1523,
+      "RequiredClasses": 64,
+      "RequiredRaces": 690,
+      "Title": "Call of Fire",
+      "Type": 0,
+      "ZoneOrSort": -82,
+      "QuestFlags": 8,
+      "completed": false
+    },
+    {
+      "entry": 9621,
+      "RequiredClasses": 0,
+      "RequiredRaces": 512,
+      "Title": "Envoy to the Horde",
+      "Type": 0,
+      "ZoneOrSort": 1497,
+      "QuestFlags": 128,
+      "completed": false
+    },
+    {
+      "entry": 9678,
+      "RequiredClasses": 2,
+      "RequiredRaces": 512,
+      "Title": "The First Trial",
+      "Type": 0,
+      "ZoneOrSort": -141,
+      "QuestFlags": 136,
+      "completed": false
+    }
+  ],
+  "monthlyOrcQuests": [
+    {
+      "entry": 9884,
+      "RequiredClasses": 0,
+      "RequiredRaces": 0,
+      "Title": "Membership Benefits",
+      "Type": 0,
+      "ZoneOrSort": 3518,
+      "QuestFlags": 136,
+      "completed": true
+    }
+  ],
+  "shamanQuests": [
+    {
+      "entry": 1523,
+      "RequiredClasses": 64,
+      "RequiredRaces": 690,
+      "Title": "Call of Fire",
+      "Type": 0,
+      "ZoneOrSort": -82,
+      "QuestFlags": 8,
+      "completed": true
+    }
+  ],
+  "bloodKnightQuests": [
+    {
+      "entry": 9678,
+      "RequiredClasses": 2,
+      "RequiredRaces": 512,
+      "Title": "The First Trial",
+      "Type": 0,
+      "ZoneOrSort": -141,
+      "QuestFlags": 136,
+      "completed": true
+    }
+  ],
+  "bloodElfQuests": [
+    {
+      "entry": 9621,
+      "RequiredClasses": 0,
+      "RequiredRaces": 512,
+      "Title": "Envoy to the Horde",
+      "Type": 0,
+      "ZoneOrSort": 1497,
+      "QuestFlags": 128,
+      "completed": true
+    },
+    {
+      "entry": 9678,
+      "RequiredClasses": 2,
+      "RequiredRaces": 512,
+      "Title": "The First Trial",
+      "Type": 0,
+      "ZoneOrSort": -141,
+      "QuestFlags": 136,
+      "completed": true
+    }
+  ],
+  "ashenvaleQuests": [
+    {
+      "entry": 25,
+      "RequiredClasses": 0,
+      "RequiredRaces": 178,
+      "Title": "Stonetalon Standstill",
+      "Type": 0,
+      "ZoneOrSort": 331,
+      "QuestFlags": 12,
+      "completed": true
+    }
+  ],
+  "sortQuests": [
+    {
+      "entry": 8,
+      "RequiredClasses": 0,
+      "RequiredRaces": 178,
+      "Title": "A Rogue's Deal",
+      "Type": 0,
+      "ZoneOrSort": 154,
+      "QuestFlags": 0,
+      "completed": true
+    },
+    {
+      "entry": 25,
+      "RequiredClasses": 0,
+      "RequiredRaces": 178,
+      "Title": "Stonetalon Standstill",
+      "Type": 0,
+      "ZoneOrSort": 331,
+      "QuestFlags": 12,
+      "completed": false
+    },
+    {
+      "entry": 1523,
+      "RequiredClasses": 64,
+      "RequiredRaces": 690,
+      "Title": "Call of Fire",
+      "Type": 0,
+      "ZoneOrSort": -82,
+      "QuestFlags": 8,
+      "completed": true
+    },
+    {
+      "entry": 9621,
+      "RequiredClasses": 0,
+      "RequiredRaces": 512,
+      "Title": "Envoy to the Horde",
+      "Type": 0,
+      "ZoneOrSort": 1497,
+      "QuestFlags": 128,
+      "completed": true
+    }
+  ],
+  "sortQuestsCompl": [
+    {
+      "entry": 8,
+      "RequiredClasses": 0,
+      "RequiredRaces": 178,
+      "Title": "A Rogue's Deal",
+      "Type": 0,
+      "ZoneOrSort": 154,
+      "QuestFlags": 0,
+      "completed": false
+    },
+    {
+      "entry": 25,
+      "RequiredClasses": 0,
+      "RequiredRaces": 178,
+      "Title": "Stonetalon Standstill",
+      "Type": 0,
+      "ZoneOrSort": 331,
+      "QuestFlags": 12,
+      "completed": false
+    },
+    {
+      "entry": 1523,
+      "RequiredClasses": 64,
+      "RequiredRaces": 690,
+      "Title": "Call of Fire",
+      "Type": 0,
+      "ZoneOrSort": -82,
+      "QuestFlags": 8,
+      "completed": true
+    },
+    {
+      "entry": 9621,
+      "RequiredClasses": 0,
+      "RequiredRaces": 512,
+      "Title": "Envoy to the Horde",
+      "Type": 0,
+      "ZoneOrSort": 1497,
+      "QuestFlags": 128,
+      "completed": true
+    }
+  ]
+}

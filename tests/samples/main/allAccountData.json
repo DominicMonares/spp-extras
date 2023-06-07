@@ -1,10 +1,6 @@
 {
   "0": {
     "username": "player_accts",
-    "playerAccts": [
-      "500",
-      "501"
-    ],
     "characters": {
       "1001": {
         "guid": 1001,
@@ -267,7 +263,7 @@
       "1793": 1682152714,
       "2136": 1682152713
     },
-    "shared_progress": {
+    "sharedProg": {
       "230": {
         "counter": 49,
         "date": 1682152683
@@ -1278,7 +1274,7 @@
     "credit": {
       "1428": 1682152714
     },
-    "shared_progress": {
+    "sharedProg": {
       "6819": {
         "counter": 20,
         "date": 1682152685

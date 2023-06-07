@@ -13,7 +13,7 @@ jest
 
 describe.only('createCreditRewValues', () => {
   it.only('Should return all credit and reward arguments', () => {
-    const accounts = achProgTransfer['newAccounts'] as AllAccountsData;
+    const accounts = achProgTransfer['newAcctData'] as AllAccountsData;
     const result = createCreditRewValues(accounts, achRewards, itemCharges, 1000, 1000);
     const expected = achCreditTransfer;
     expect(result).toStrictEqual(expected);

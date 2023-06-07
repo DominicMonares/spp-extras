@@ -12,13 +12,24 @@ import achRewards from '../samples/formattedData/achRewards.json';
 import allAccountData from '../samples/main/allAccountData.json';
 import completedQuests from '../samples/formattedData/completedQuests.json';
 import itemCharges from '../samples/formattedData/itemCharges.json';
-import playerSortedAccounts from '../samples/formattedData/playerSortedAccounts.json';
+import _playerSortedAccounts from '../samples/formattedData/playerSortedAccounts.json';
 import rawAchCredit from '../samples/rawData/rawAchCredit.json';
-import rawAchProg from '../samples/rawData/rawAchProgress.json';
-import rawAchRewards from '../samples/rawData/rawAchRewards.json';
+import rawAchProgress from '../samples/rawData/rawAchProgress.json';
+import _rawAchRewards from '../samples/rawData/rawAchRewards.json';
 import rawItemCharges from '../samples/rawData/rawItemCharges.json';
+import {
+  AccountCharacters,
+  RawAchRewards,
+  RawCharAchProgress,
+  RawSharedAchProgress
+} from '../../src/types';
 
-describe('formatAllAcctData', () => {
+const playerSortedAccounts = _playerSortedAccounts as AccountCharacters;
+const rawAchRewards = _rawAchRewards as RawAchRewards
+const rawCharAchProg = rawAchProgress.character as RawCharAchProgress;
+const rawSharedAchProg = rawAchProgress.account as RawSharedAchProgress;
+
+describe.only('formatAllAcctData', () => {
   it('Should combine all character data into one main object', () => {
     const acctProg = achProg.account;
     const charProg = achProg.character;
@@ -29,6 +40,7 @@ describe('formatAllAcctData', () => {
       acctProg,
       completedQuests,
     );
+
     const expected = allAccountData;
     expect(result).toStrictEqual(expected);
   });
@@ -44,15 +56,13 @@ describe('formatAchCredit', () => {
 
 describe('formatAchProg', () => {
   it('Should return achievement progress organized by account', () => {
-    const rawAcctProg = rawAchProg.account;
-    const result = formatAchProg('shared', rawAcctProg);
+    const result = formatAchProg(rawSharedAchProg);
     const expected = achProg.account;
     expect(result).toStrictEqual(expected);
   });
 
   it('Should return achievement progress organized by character', () => {
-    const rawCharProg = rawAchProg.character;
-    const result = formatAchProg('char', rawCharProg);
+    const result = formatAchProg(rawCharAchProg);
     const expected = achProg.character;
     expect(result).toStrictEqual(expected);
   });

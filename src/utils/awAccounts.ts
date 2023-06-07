@@ -44,7 +44,11 @@ export const formatAllAcctData = (
     for (const charID in chars) {
       // Ensure character matches account
       const char = chars[charID];
-      const validPlayerAcct = playerAcctIDs?.[char.account];
+      let validPlayerAcct = 0;
+      if (playerAcctIDs) {
+        const accountIndex = playerAcctIDs.indexOf(char.account);
+        validPlayerAcct = playerAcctIDs?.[accountIndex];
+      }
       const validPlayerChar = acctID === '0' && validPlayerAcct;
       const validBotAcct = char.account === Number(acctID);
       const validBotChar = acctID !== '0' && validBotAcct;

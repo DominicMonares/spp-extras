@@ -1,7 +1,7 @@
 {
   "0": {
     "username": "player_accts",
-    "player_accts": ["500", "501"],
+    "playerAcctIDs": [500, 501],
     "characters": {
       "alliance": {
         "5263": {
@@ -10,8 +10,8 @@
           "name": "Bub",
           "race": 1,
           "gender": 0,
-          "class_field": 1,
-          "knowntitles": "0 0 0 0 0 0 "
+          "class": 1,
+          "knownTitles": "0 0 0 0 0 0 "
         }
       },
       "horde": {
@@ -21,8 +21,8 @@
           "name": "Gaz",
           "race": 8,
           "gender": 1,
-          "class_field": 7,
-          "knowntitles": "0 136314880 4194304 0 0 0 "
+          "class": 7,
+          "knownTitles": "0 136314880 4194304 0 0 0 "
         },
         "4501": {
           "guid": 4501,
@@ -30,8 +30,8 @@
           "name": "Drak",
           "race": 2,
           "gender": 0,
-          "class_field": 3,
-          "knowntitles": "0 0 0 0 0 0 "
+          "class": 3,
+          "knownTitles": "0 0 0 0 0 0 "
         },
         "79411": {
           "guid": 79411,
@@ -39,8 +39,8 @@
           "name": "Harley",
           "race": 8,
           "gender": 0,
-          "class_field": 7,
-          "knowntitles": "0 0 0 0 0 0 "
+          "class": 7,
+          "knownTitles": "0 0 0 0 0 0 "
         }
       }
     }

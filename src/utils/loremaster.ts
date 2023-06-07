@@ -55,7 +55,7 @@ export const loremaster = (
 
     // Count Alliance progress
     const allianceTemplQuest = allAllianceTemplQuests[questID];
-    if (allianceTemplQuest) {
+    if (allianceTemplQuest?.ZoneOrSort > 0) {
       const zoneID = allianceTemplQuest.ZoneOrSort;
       const zoneCriteria = lmCriteria['alliance'][zoneID];
       const criteriaID = zoneCriteria.criteria;
@@ -74,7 +74,7 @@ export const loremaster = (
 
     // Count Horde progress
     const hordeTemplQuest = allHordeTemplQuests[questID];
-    if (hordeTemplQuest) {
+    if (hordeTemplQuest?.ZoneOrSort > 0) {
       const zoneID = hordeTemplQuest.ZoneOrSort;
       const zoneCriteria = lmCriteria['horde'][zoneID];
       const criteriaID = zoneCriteria.criteria;

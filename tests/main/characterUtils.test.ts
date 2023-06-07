@@ -1,13 +1,14 @@
-import {
-  checkFaction,
-  createCharIDs,
-  formatAcctsChars
-} from '../../src/utils/accounts';
-
+import { checkFaction, formatAcctChars } from '../../src/utils';
 import allAccountsChars from '../samples/formattedData/allAccountsChars.json';
 import playerAccountsChars from '../samples/formattedData/playerAccountsChars.json';
-import rawAllCharacters from '../samples/rawData/rawAllCharacters.json';
-import rawPlayerCharacters from '../samples/rawData/rawPlayerCharacters.json';
+import _rawAllCharacters from '../samples/rawData/rawAllCharacters.json';
+import _rawPlayerCharacters from '../samples/rawData/rawPlayerCharacters.json';
+import {
+  RawCharacters
+} from 'types';
+
+const rawAllCharacters = _rawAllCharacters as RawCharacters;
+const rawPlayerCharacters = _rawPlayerCharacters as RawCharacters;
 
 describe('checkFaction', () => {
   it('Should return "alliance" if Alliance ID provided', () => {
@@ -23,14 +24,6 @@ describe('checkFaction', () => {
   });
 });
 
-describe('createCharIDs', () => {
-  it('Should return list of char ID numbers', () => {
-    const result = createCharIDs(allAccountsChars);
-    const expected = [5263, 1001, 4501, 79411, 6000, 6001];
-    expect(result).toStrictEqual(expected);
-  });
-});
-
 describe('formatAcctsChars', () => {
   it('Should return all accounts with player accounts combined into one account with random bots included', () => {
     const rawAccounts = [
@@ -38,7 +31,7 @@ describe('formatAcctsChars', () => {
       {'id': 501, 'username': 'ACCOUNT2'},
       {'id': 502, 'username': 'RNDBOT2'}
     ];
-    const result = formatAcctsChars(rawAccounts, rawAllCharacters);
+    const result = formatAcctChars(rawAccounts, rawAllCharacters);
     const expected = allAccountsChars;
     expect(result).toStrictEqual(expected);
   });
@@ -48,13 +41,13 @@ describe('formatAcctsChars', () => {
       {'id': 500, 'username': 'ACCOUNT1'},
       {'id': 501, 'username': 'ACCOUNT2'}
     ];
-    const result = formatAcctsChars(rawAccounts, rawPlayerCharacters);
+    const result = formatAcctChars(rawAccounts, rawPlayerCharacters);
     const expected = playerAccountsChars;
     expect(result).toStrictEqual(expected);
   });
 
   it('Should return empty characters dict if no characters provided', () => {
-    const result = formatAcctsChars([], []);
+    const result = formatAcctChars([], []);
     const expected = {};
     expect(result).toStrictEqual(expected);
   });

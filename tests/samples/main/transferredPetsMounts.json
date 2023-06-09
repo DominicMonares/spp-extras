@@ -1,58 +1,58 @@
 [
   {
-    "guid": "5263",
-    "spellID": "10682"
+    "guid": 1001,
+    "spell": 10682
   },
   {
-    "guid": "5263",
-    "spellID": "24252"
+    "guid": 1001,
+    "spell": 64657
   },
   {
-    "guid": "1001",
-    "spellID": "64657"
+    "guid": 1001,
+    "spell": 24252
   },
   {
-    "guid": "1001",
-    "spellID": "53082"
+    "guid": 1001,
+    "spell": 53082
   },
   {
-    "guid": "1001",
-    "spellID": "10682"
+    "guid": 4501,
+    "spell": 53082
   },
   {
-    "guid": "1001",
-    "spellID": "24252"
+    "guid": 5263,
+    "spell": 10682
   },
   {
-    "guid": "4501",
-    "spellID": "53082"
+    "guid": 5263,
+    "spell": 24252
   },
   {
-    "guid": "79411",
-    "spellID": "64657"
+    "guid": 79411,
+    "spell": 10682
   },
   {
-    "guid": "79411",
-    "spellID": "40192"
+    "guid": 79411,
+    "spell": 64657
   },
   {
-    "guid": "79411",
-    "spellID": "53082"
+    "guid": 79411,
+    "spell": 23251
   },
   {
-    "guid": "79411",
-    "spellID": "61451"
+    "guid": 79411,
+    "spell": 40192
   },
   {
-    "guid": "79411",
-    "spellID": "23251"
+    "guid": 79411,
+    "spell": 53082
   },
   {
-    "guid": "79411",
-    "spellID": "10682"
+    "guid": 79411,
+    "spell": 61451
   },
   {
-    "guid": "6001",
-    "spellID": "68810"
+    "guid": 6001,
+    "spell": 68810
   }
 ]

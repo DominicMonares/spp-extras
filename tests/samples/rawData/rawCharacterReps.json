@@ -2,121 +2,145 @@
   {
     "guid": 5263,
     "faction": 47,
-    "standing": 500
+    "standing": 500,
+    "flags": 0
   },
   {
     "guid": 5263,
     "faction": 87,
-    "standing": 1000
+    "standing": 1000,
+    "flags": 0
   },
   {
     "guid": 5263,
     "faction": 470,
-    "standing": 2000
+    "standing": 2000,
+    "flags": 0
   },
   {
     "guid": 5263,
     "faction": 1090,
-    "standing": 0
+    "standing": 0,
+    "flags": 0
   },
   {
     "guid": 1001,
     "faction": 47,
-    "standing": -3500
+    "standing": -3500,
+    "flags": 6
   },
   {
     "guid": 1001,
     "faction": 87,
-    "standing": 1500
+    "standing": 1500,
+    "flags": 1
   },
   {
     "guid": 1001,
     "faction": 470,
-    "standing": 2000
+    "standing": 2000,
+    "flags": 2
   },
   {
     "guid": 1001,
     "faction": 1090,
-    "standing": 0
+    "standing": 0,
+    "flags": 0
   },
   {
     "guid": 4501,
     "faction": 47,
-    "standing": -3500
+    "standing": -3500,
+    "flags": 6
   },
   {
     "guid": 4501,
     "faction": 87,
-    "standing": 1000
+    "standing": 1000,
+    "flags": 0
   },
   {
     "guid": 4501,
     "faction": 470,
-    "standing": 2000
+    "standing": 2000,
+    "flags": 1
   },
   {
     "guid": 4501,
     "faction": 1090,
-    "standing": 0
+    "standing": 0,
+    "flags": 0
   },
   {
     "guid": 79411,
     "faction": 47,
-    "standing": 0
+    "standing": 0,
+    "flags": 0
   },
   {
     "guid": 79411,
     "faction": 87,
-    "standing": 0
+    "standing": 0,
+    "flags": 0
   },
   {
     "guid": 79411,
     "faction": 470,
-    "standing": 0
+    "standing": 0,
+    "flags": 0
   },
   {
     "guid": 79411,
     "faction": 1090,
-    "standing": 0
+    "standing": 0,
+    "flags": 0
   },
   {
     "guid": 6000,
     "faction": 47,
-    "standing": 0
+    "standing": 0,
+    "flags": 0
   },
   {
     "guid": 6000,
     "faction": 87,
-    "standing": 0
+    "standing": 0,
+    "flags": 0
   },
   {
     "guid": 6000,
     "faction": 470,
-    "standing": 0
+    "standing": 0,
+    "flags": 0
   },
   {
     "guid": 6000,
     "faction": 1090,
-    "standing": 0
+    "standing": 0,
+    "flags": 0
   },
   {
     "guid": 6001,
     "faction": 47,
-    "standing": 0
+    "standing": 0,
+    "flags": 0
   },
   {
     "guid": 6001,
     "faction": 87,
-    "standing": 0
+    "standing": 0,
+    "flags": 0
   },
   {
     "guid": 6001,
     "faction": 470,
-    "standing": 0
+    "standing": 0,
+    "flags": 0
   },
   {
     "guid": 6001,
     "faction": 1090,
-    "standing": 5000
+    "standing": 5000,
+    "flags": 1
   }
 ]

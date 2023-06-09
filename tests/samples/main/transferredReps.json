@@ -2,26 +2,31 @@
   {
     "guid": 5263,
     "faction": 87,
-    "standing": 1500
+    "standing": 1500,
+    "flags": 1
   },
   {
     "guid": 4501,
     "faction": 87,
-    "standing": 1500
+    "standing": 1500,
+    "flags": 1
   },
   {
     "guid": 79411,
     "faction": 87,
-    "standing": 1500
+    "standing": 1500,
+    "flags": 1
   },
   {
     "guid": 79411,
     "faction": 470,
-    "standing": 2000
+    "standing": 2000,
+    "flags": 1
   },
   {
     "guid": 6000,
     "faction": 1090,
-    "standing": 5000
+    "standing": 5000,
+    "flags": 1
   }
 ]

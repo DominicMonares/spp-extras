@@ -32,7 +32,8 @@ export const createPetMountSpellValues = (
     for (const charID in mergedChars) {
       const spells = knownSpells[charID];
       if (spells) {
-        for (const spellID in spells) {
+        for (const s in spells) {
+          const spellID = spells[s];
           const spellItem = petMountItems[spellID];
           if (spellItem) accountItems[spellID] = spellItem;
         }

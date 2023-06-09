@@ -118,13 +118,13 @@ export const miscLMCriteria = (criteriaID: number) => {
   const allianceK = [7895, 6017, 6021, 6030];
   const hordeEK = [5955, 5962, 9425, 5979, 5980, 5992, 5996, 9423];
   const hordeK = [7899, 6112, 6116, 6125];
-  if (allianceEK[criteriaID]) {
+  if (allianceEK.includes(criteriaID)) {
     return 1676;
-  } else if (allianceK[criteriaID]) {
+  } else if (allianceK.includes(criteriaID)) {
     return 1678;
-  } else if (hordeEK[criteriaID]) {
+  } else if (hordeEK.includes(criteriaID)) {
     return 1677;
-  } else if (hordeK[criteriaID]) {
+  } else if (hordeK.includes(criteriaID)) {
     return 1680;
   }
 }

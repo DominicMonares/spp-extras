@@ -121,7 +121,7 @@ export const createCreditRewValues = (
     if (rewardList) {
       const matronPatron = rewardList.length > 1;
       const gender = char.gender || 0;
-      const reward = rewardList[gender];
+      const reward = rewardList[matronPatron ? gender : 0];
 
       // Add title if achievement rewards one
       const faction = checkFaction(char.race);
@@ -150,6 +150,7 @@ export const createCreditRewValues = (
       if (sender) {
         addMailValue(lastMailID, sender, charID, reward, newDate);
         const itemID = reward.item;
+
         if (itemID) {
           addMailItemValue(lastMailID, lastItemInstID, itemID, charID);
           addItemInstValue(lastItemInstID, charID, itemID, itemCharges);
@@ -173,7 +174,7 @@ export const createCreditRewValues = (
         const itemInstLen = dbValues.itemInstVals.length;
         const mailLen = dbValues.mailVals.length;
 
-        // Check to see if achievement if faction specific/matches char faction
+        // Check to see if achievement is faction specific/matches char faction
         const factionAch = checkFactionAch(Number(achID), faction);
         const factionMatch = factionAch[0];
         const factionAchID = factionAch[1].toString();
@@ -201,13 +202,13 @@ export const createCreditRewValues = (
         const newMailLen = dbValues.mailVals.length;
         if (newItemInstLen > itemInstLen) lastItemInstID++;
         if (newMailLen > mailLen) lastMailID++;
-
-        // Add known titles once all achievement rewards given
-        dbValues.titleVals.push({
-          guid: Number(charID),
-          knownTitles: char.knownTitles || '0 0 0 0 0 0 ',
-        });
       }
+
+      // Add known titles once all achievement rewards given
+      dbValues.titleVals.push({
+        guid: Number(charID),
+        knownTitles: char.knownTitles || '0 0 0 0 0 0 ',
+      });
     }
   }
 

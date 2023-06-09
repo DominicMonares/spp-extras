@@ -162,7 +162,7 @@ export const createProgValues = (
         const isLMH = miscLMCrit === 1677 || miscLMCrit === 1680;
         const isHorde = faction === 'horde';
         const isHordeProg = isLMH && isHorde;
-        if (!miscLMCrit && (isAllianceProg || isHordeProg)) {
+        if (!miscLMCrit || isAllianceProg || isHordeProg) {
           addCharProgValues(Number(charID), Number(criteriaID), newCount, date);
         }
       }

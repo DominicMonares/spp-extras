@@ -17,7 +17,6 @@ jest
 describe('createAchProgArgs', () => {
   it('Should return progress arguments and char object with updated credit', () => {
     const result = createProgValues(allAccountData, templateQuests);
-    console.log('AAAAAAA ', JSON.stringify(result))
     const expected = achProgTransfer;
     expect(result).toStrictEqual(expected);
   });

@@ -1,161 +1,161 @@
 {
-  "creditArgs": [
+  "creditVals": [
     {
-      "guid": "1001",
-      "achievement": "6",
+      "guid": 1001,
+      "achievement": 6,
       "date": 1682152714
     },
     {
-      "guid": "1001",
-      "achievement": "603",
+      "guid": 1001,
+      "achievement": 603,
       "date": 1682152714
     },
     {
-      "guid": "1001",
-      "achievement": "1682",
+      "guid": 1001,
+      "achievement": 1176,
+      "date": 1682152689
+    },
+    {
+      "guid": 1001,
+      "achievement": 1677,
+      "date": 1682152689
+    },
+    {
+      "guid": 1001,
+      "achievement": 1680,
+      "date": 1682152689
+    },
+    {
+      "guid": 1001,
+      "achievement": 1682,
       "date": 1682152714
     },
     {
-      "guid": "1001",
-      "achievement": "1793",
+      "guid": 1001,
+      "achievement": 1793,
       "date": 1682152714
     },
     {
-      "guid": "1001",
-      "achievement": "2136",
+      "guid": 1001,
+      "achievement": 2136,
       "date": 1682152713
     },
     {
-      "guid": "1001",
-      "achievement": "1176",
-      "date": 1682152689
-    },
-    {
-      "guid": "1001",
-      "achievement": "1677",
-      "date": 1682152689
-    },
-    {
-      "guid": "1001",
-      "achievement": "1680",
-      "date": 1682152689
-    },
-    {
-      "guid": "4501",
-      "achievement": "603",
+      "guid": 4501,
+      "achievement": 603,
       "date": 1682152714
     },
     {
-      "guid": "4501",
-      "achievement": "1682",
+      "guid": 4501,
+      "achievement": 1176,
+      "date": 1682152689
+    },
+    {
+      "guid": 4501,
+      "achievement": 1677,
+      "date": 1682152689
+    },
+    {
+      "guid": 4501,
+      "achievement": 1680,
+      "date": 1682152689
+    },
+    {
+      "guid": 4501,
+      "achievement": 1682,
       "date": 1682152714
     },
     {
-      "guid": "4501",
-      "achievement": "1176",
+      "guid": 5263,
+      "achievement": 1176,
       "date": 1682152689
     },
     {
-      "guid": "4501",
-      "achievement": "1677",
+      "guid": 5263,
+      "achievement": 1676,
       "date": 1682152689
     },
     {
-      "guid": "4501",
-      "achievement": "1680",
+      "guid": 5263,
+      "achievement": 1678,
       "date": 1682152689
     },
     {
-      "guid": "5263",
-      "achievement": "1793",
+      "guid": 5263,
+      "achievement": 1793,
       "date": 1682152714
     },
     {
-      "guid": "5263",
-      "achievement": "2136",
+      "guid": 5263,
+      "achievement": 2136,
       "date": 1682152713
     },
     {
-      "guid": "5263",
-      "achievement": "1176",
+      "guid": 79411,
+      "achievement": 6,
+      "date": 1682152714
+    },
+    {
+      "guid": 79411,
+      "achievement": 603,
+      "date": 1682152714
+    },
+    {
+      "guid": 79411,
+      "achievement": 1176,
       "date": 1682152689
     },
     {
-      "guid": "5263",
-      "achievement": "1676",
+      "guid": 79411,
+      "achievement": 1677,
       "date": 1682152689
     },
     {
-      "guid": "5263",
-      "achievement": "1678",
+      "guid": 79411,
+      "achievement": 1680,
       "date": 1682152689
     },
     {
-      "guid": "79411",
-      "achievement": "6",
+      "guid": 79411,
+      "achievement": 1682,
       "date": 1682152714
     },
     {
-      "guid": "79411",
-      "achievement": "603",
+      "guid": 79411,
+      "achievement": 1793,
       "date": 1682152714
     },
     {
-      "guid": "79411",
-      "achievement": "1682",
-      "date": 1682152714
-    },
-    {
-      "guid": "79411",
-      "achievement": "1793",
-      "date": 1682152714
-    },
-    {
-      "guid": "79411",
-      "achievement": "2136",
+      "guid": 79411,
+      "achievement": 2136,
       "date": 1682152713
     },
     {
-      "guid": "79411",
-      "achievement": "1176",
-      "date": 1682152689
-    },
-    {
-      "guid": "79411",
-      "achievement": "1677",
-      "date": 1682152689
-    },
-    {
-      "guid": "79411",
-      "achievement": "1680",
-      "date": 1682152689
-    },
-    {
-      "guid": "6000",
-      "achievement": "503",
+      "guid": 6000,
+      "achievement": 503,
       "date": 1682294400
     },
     {
-      "guid": "6001",
-      "achievement": "1428",
-      "date": 1682152714
+      "guid": 6001,
+      "achievement": 503,
+      "date": 1682294400
     },
     {
-      "guid": "6001",
-      "achievement": "503",
-      "date": 1682294400
+      "guid": 6001,
+      "achievement": 1428,
+      "date": 1682152714
     }
   ],
-  "itemInstArgs": [
+  "itemInstVals": [
     {
       "guid": 11000,
-      "owner_guid": "1001",
+      "owner_guid": 1001,
       "itemEntry": 43300,
       "creatorGuid": 0,
       "giftCreatorGuid": 0,
       "count": 1,
       "duration": 0,
-      "charges": "0 0 0 0 0",
+      "charges": "0 0 0 0 0 ",
       "flags": 0,
       "enchantments": "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ",
       "randomPropertyId": 0,
@@ -165,13 +165,13 @@
     },
     {
       "guid": 11001,
-      "owner_guid": "1001",
+      "owner_guid": 1001,
       "itemEntry": 44160,
       "creatorGuid": 0,
       "giftCreatorGuid": 0,
       "count": 1,
       "duration": 0,
-      "charges": "-1 0 0 0 0",
+      "charges": "-1 0 0 0 0 ",
       "flags": 0,
       "enchantments": "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ",
       "randomPropertyId": 0,
@@ -181,13 +181,13 @@
     },
     {
       "guid": 11002,
-      "owner_guid": "4501",
+      "owner_guid": 4501,
       "itemEntry": 43300,
       "creatorGuid": 0,
       "giftCreatorGuid": 0,
       "count": 1,
       "duration": 0,
-      "charges": "0 0 0 0 0",
+      "charges": "0 0 0 0 0 ",
       "flags": 0,
       "enchantments": "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ",
       "randomPropertyId": 0,
@@ -197,13 +197,13 @@
     },
     {
       "guid": 11003,
-      "owner_guid": "5263",
+      "owner_guid": 5263,
       "itemEntry": 44160,
       "creatorGuid": 0,
       "giftCreatorGuid": 0,
       "count": 1,
       "duration": 0,
-      "charges": "-1 0 0 0 0",
+      "charges": "-1 0 0 0 0 ",
       "flags": 0,
       "enchantments": "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ",
       "randomPropertyId": 0,
@@ -213,13 +213,13 @@
     },
     {
       "guid": 11004,
-      "owner_guid": "79411",
+      "owner_guid": 79411,
       "itemEntry": 43300,
       "creatorGuid": 0,
       "giftCreatorGuid": 0,
       "count": 1,
       "duration": 0,
-      "charges": "0 0 0 0 0",
+      "charges": "0 0 0 0 0 ",
       "flags": 0,
       "enchantments": "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ",
       "randomPropertyId": 0,
@@ -229,13 +229,13 @@
     },
     {
       "guid": 11005,
-      "owner_guid": "79411",
+      "owner_guid": 79411,
       "itemEntry": 44160,
       "creatorGuid": 0,
       "giftCreatorGuid": 0,
       "count": 1,
       "duration": 0,
-      "charges": "-1 0 0 0 0",
+      "charges": "-1 0 0 0 0 ",
       "flags": 0,
       "enchantments": "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ",
       "randomPropertyId": 0,
@@ -244,14 +244,14 @@
       "text": ""
     }
   ],
-  "mailArgs": [
+  "mailVals": [
     {
       "id": 11000,
       "messageType": 3,
       "stationery": 41,
       "mailTemplateId": 0,
       "sender": 3057,
-      "receiver": "1001",
+      "receiver": 1001,
       "subject": "",
       "body": "News of your accomplishments has traveled far. The winds of turmoil howl through our lands. Those who stand to challenge evil are our only hope.\nOnly those who listen to the winds understand the debts our fallen heroes have paid to protect our people. May a hero such as yourself live long to tell the tales of your adventures. For only then will we remember how much we have to be thankful for.\nOur appreciation runs deep, Loremaster.\nFor the Horde!\n--Cairne Bloodhoof",
       "has_items": 1,
@@ -267,7 +267,7 @@
       "stationery": 41,
       "mailTemplateId": 0,
       "sender": 26917,
-      "receiver": "1001",
+      "receiver": 1001,
       "subject": "Glory of the Hero",
       "body": "Champion,\n\nWord has traveled to Wyrmrest Temple\nof the great heroic deeds you have\naccomplished since arriving in\nNorthrend.\n\nYour bravery should not go\nunrecognized. Please accept this gift\non behalf of the Aspects. Together we\nshall rid Azeroth of evil, once and for\neternity.\n\nAlexstrasza the Life-Binder",
       "has_items": 1,
@@ -283,7 +283,7 @@
       "stationery": 41,
       "mailTemplateId": 0,
       "sender": 3057,
-      "receiver": "4501",
+      "receiver": 4501,
       "subject": "",
       "body": "News of your accomplishments has traveled far. The winds of turmoil howl through our lands. Those who stand to challenge evil are our only hope.\nOnly those who listen to the winds understand the debts our fallen heroes have paid to protect our people. May a hero such as yourself live long to tell the tales of your adventures. For only then will we remember how much we have to be thankful for.\nOur appreciation runs deep, Loremaster.\nFor the Horde!\n--Cairne Bloodhoof",
       "has_items": 1,
@@ -299,7 +299,7 @@
       "stationery": 41,
       "mailTemplateId": 0,
       "sender": 26917,
-      "receiver": "5263",
+      "receiver": 5263,
       "subject": "Glory of the Hero",
       "body": "Champion,\n\nWord has traveled to Wyrmrest Temple\nof the great heroic deeds you have\naccomplished since arriving in\nNorthrend.\n\nYour bravery should not go\nunrecognized. Please accept this gift\non behalf of the Aspects. Together we\nshall rid Azeroth of evil, once and for\neternity.\n\nAlexstrasza the Life-Binder",
       "has_items": 1,
@@ -315,7 +315,7 @@
       "stationery": 41,
       "mailTemplateId": 0,
       "sender": 3057,
-      "receiver": "79411",
+      "receiver": 79411,
       "subject": "",
       "body": "News of your accomplishments has traveled far. The winds of turmoil howl through our lands. Those who stand to challenge evil are our only hope.\nOnly those who listen to the winds understand the debts our fallen heroes have paid to protect our people. May a hero such as yourself live long to tell the tales of your adventures. For only then will we remember how much we have to be thankful for.\nOur appreciation runs deep, Loremaster.\nFor the Horde!\n--Cairne Bloodhoof",
       "has_items": 1,
@@ -331,7 +331,7 @@
       "stationery": 41,
       "mailTemplateId": 0,
       "sender": 26917,
-      "receiver": "79411",
+      "receiver": 79411,
       "subject": "Glory of the Hero",
       "body": "Champion,\n\nWord has traveled to Wyrmrest Temple\nof the great heroic deeds you have\naccomplished since arriving in\nNorthrend.\n\nYour bravery should not go\nunrecognized. Please accept this gift\non behalf of the Aspects. Together we\nshall rid Azeroth of evil, once and for\neternity.\n\nAlexstrasza the Life-Binder",
       "has_items": 1,
@@ -342,67 +342,67 @@
       "checked": 0
     }
   ],
-  "mailItemArgs": [
+  "mailItemVals": [
     {
       "mail_id": 11000,
       "item_guid": 11000,
       "item_template": 43300,
-      "receiver": "1001"
+      "receiver": 1001
     },
     {
       "mail_id": 11001,
       "item_guid": 11001,
       "item_template": 44160,
-      "receiver": "1001"
+      "receiver": 1001
     },
     {
       "mail_id": 11002,
       "item_guid": 11002,
       "item_template": 43300,
-      "receiver": "4501"
+      "receiver": 4501
     },
     {
       "mail_id": 11003,
       "item_guid": 11003,
       "item_template": 44160,
-      "receiver": "5263"
+      "receiver": 5263
     },
     {
       "mail_id": 11004,
       "item_guid": 11004,
       "item_template": 43300,
-      "receiver": "79411"
+      "receiver": 79411
     },
     {
       "mail_id": 11005,
       "item_guid": 11005,
       "item_template": 44160,
-      "receiver": "79411"
+      "receiver": 79411
     }
   ],
-  "titleArgs": [
+  "titleVals": [
     {
-      "guid": "1001",
+      "guid": 1001,
       "knownTitles": "0 136314880 541065216 256 0 0 "
     },
     {
-      "guid": "4501",
+      "guid": 4501,
       "knownTitles": "0 0 536870912 0 0 0 "
     },
     {
-      "guid": "5263",
+      "guid": 5263,
       "knownTitles": "0 0 0 512 0 0 "
     },
     {
-      "guid": "79411",
+      "guid": 79411,
       "knownTitles": "0 0 536870912 512 0 0 "
     },
     {
-      "guid": "6000",
+      "guid": 6000,
       "knownTitles": "0 0 0 0 0 0 "
     },
     {
-      "guid": "6001",
+      "guid": 6001,
       "knownTitles": "0 0 0 0 0 0 "
     }
   ]

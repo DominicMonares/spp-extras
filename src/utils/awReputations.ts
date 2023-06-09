@@ -9,6 +9,7 @@ import {
   ReputationTemplate,
   ReputationValues,
 } from '../types';
+import { checkFaction } from './characters';
 
 const maxRaceReps = _maxRaceReps as MaxRaceReps;
 const reputationTemplate = _reputationTemplate as ReputationTemplate;
@@ -32,26 +33,37 @@ export const createReputationValues = (
     // Add the highest standing and flags for each rep to standingsFlags tracker
     for (const charID in mergedChars) {
       const charReps = reputations[charID];
-      if (charReps) {
-        for (const factionID in charReps) {
-          if (!reputationTemplate[factionID]) continue;
-          const charFaction = reputationTemplate[factionID]['charFaction'];
-          const existingFaction = standingsFlags[charFaction][factionID];
+      for (const factionID in charReps) {
+        if (!reputationTemplate[factionID]) continue;
+        const curCharFaction = checkFaction(mergedChars[charID]['race']);
+        const charFaction = reputationTemplate[factionID]['charFaction'];
+        const existingFaction = standingsFlags[charFaction][factionID];
 
-          // Standing
-          const standing = charReps[factionID]['standing'];
-          const existingStanding = existingFaction ? existingFaction.standing : 0;
-          const higherStanding = existingStanding ? standing > existingStanding : false;
-          if (existingFaction && (!existingStanding || higherStanding)) {
-            standingsFlags[charFaction][factionID]['standing'] = standing;
-          }
+        // Ensure that Horde and Alliance progress doesn't get crossed
+        if (curCharFaction !== charFaction && charFaction !== 'neutral') continue;
 
-          // Flags
-          const flags = charReps[factionID]['flags'];
-          const existingFlags = existingFaction ? existingFaction.flags : 0;
-          if (existingFaction && (!existingFlags && flags)) {
-            standingsFlags[charFaction][factionID]['flags'] = flags;
+        // Standing
+        const standing = charReps[factionID]['standing'];
+        const existingStanding = existingFaction ? existingFaction.standing : 0;
+        const higherStanding = standing > existingStanding;
+        const highestStanding = existingFaction && (!existingStanding || higherStanding);
+        const equalStanding = standing === existingStanding;
+
+        // Flags
+        const flags = charReps[factionID]['flags'];
+        const existingFlags = existingFaction?.flags || 0;
+
+        console.log('ASDFDSA ', standingsFlags)
+        if (highestStanding) {
+          standingsFlags[charFaction][factionID] = {
+            standing: standing,
+            flags: flags
           }
+          // ['standing'] = standing;
+          // standingsFlags[charFaction][factionID]['flags'] = flags;
+        } else if (equalStanding && flags < existingFlags && flags !== 0) {
+          // Use lower flags if equal standing to prevent unwanted 'At War'
+          standingsFlags[charFaction][factionID]['flags'] = flags;
         }
       }
     }
@@ -66,8 +78,8 @@ export const createReputationValues = (
           ...standingsFlags[charFaction as Faction],
           ...standingsFlags.neutral
         };
-        const repsExist = reputations[charID];
-        const charReps = repsExist ? reputations[charID] : {};
+        // const repsExist = reputations[charID];
+        const charReps = reputations[charID] ? reputations[charID] : {};
         for (const repID in mergedStandingsFlags) {
           const standingFlags = mergedStandingsFlags[repID];
           let highestStanding = standingFlags.standing;

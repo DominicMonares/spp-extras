@@ -43,6 +43,6 @@ export type MaxRaceReps = {
 export type ReputationTemplate = {
   [key: string]: {
     name: string;
-    charFaction: Faction;
+    charFaction: Faction | 'neutral';
   }
 }

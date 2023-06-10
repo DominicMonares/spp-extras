@@ -46,14 +46,13 @@ export const createReputationValues = (
         const standing = charReps[factionID]['standing'];
         const existingStanding = existingFaction ? existingFaction.standing : 0;
         const higherStanding = standing > existingStanding;
-        const highestStanding = existingFaction && (!existingStanding || higherStanding);
+        const highestStanding = !existingStanding || higherStanding;
         const equalStanding = standing === existingStanding;
 
         // Flags
         const flags = charReps[factionID]['flags'];
         const existingFlags = existingFaction?.flags || 0;
 
-        console.log('ASDFDSA ', standingsFlags)
         if (highestStanding) {
           standingsFlags[charFaction][factionID] = {
             standing: standing,

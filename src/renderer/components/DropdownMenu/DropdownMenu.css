@@ -2,54 +2,24 @@
 /* Dropdown */
 /* ---------------------------------------------------------------- */
 
-.dropdown-l1,
-.dropdown-l2,
-.dropdown-l3,
-.dropdown-sm-l1,
-.dropdown-sm-l2,
-.dropdown-sm-l3 {
+.dropdown-l1 {
   display: none;
   position: absolute;
-  left: 174px;
+  left: 228px;
   bottom: 0;
 }
 
-/* .dropdown-sm-l1,
-.dropdown-sm-l2,
-.dropdown-sm-l3 {
+.dropdown-l2,
+.dropdown-l3 {
   display: none;
   position: absolute;
   left: 174px;
-  bottom: 0;
-} */
-
-/* .dropdown-l1 {
-  right: 228px;
-  top: -0.5px;
-} */
-
-.dropdown-l1,
-.dropdown-sm-l1 {
-  left: 228px;
+  top: 0
 }
 
 .dd-zone {
-  /* bottom: 0px; */
-}
-
-.dd-zone,
-.dd-zone-sm {
-  top: 0px;
-}
-
-/* .dropdown-l2,
-.dropdown-sm-l2 {
-  z-index: 1;
-}
-
-.dropdown-sm-l2 {
   top: 0;
-} */
+}
 
 .dropdown-l3,
 .dropdown-sm-l3 {

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import MainButton from '../MainButton';
 import MainHeader from '../MainHeader';
 import Tool from './Tool';
@@ -11,7 +11,16 @@ type Props = {
 
 const Tools = ({ setInstalled }: Props) => {
   const expansion = useAppSelector(state => state.expansion.selected);
+  const tool = useAppSelector(state => state.tool.selected);
+  const windowHeight = useAppSelector(state => state.window.windowHeight);
   const [collapsed, setCollapsed] = useState<boolean>(false);
+
+  // Collapse Tools menu if window height decreases past a certain point
+  useEffect(() => {
+    let toolHeight = 740; // Quest Tracker cutoff height
+    if (tool === 'accountWide') toolHeight = 628;
+    windowHeight > toolHeight ? setCollapsed(false) : setCollapsed(true);
+  }, [windowHeight]);
 
   const handlePreferences = async () => {
     // Clear electron store when preference menu is opened after initial setup

@@ -40,7 +40,6 @@ export const formatAllAcctData = (
     const credit: AchCredit = {};
     const sharedProgress = achSharedProg[acctID] || {};
     const quests: CompletedRegQuests = {};
-    if (!Object.keys(chars).length) continue;
     for (const charID in chars) {
       // Ensure character matches account
       const char = chars[charID];

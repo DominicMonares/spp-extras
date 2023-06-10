@@ -163,7 +163,6 @@ export const createCreditRewValues = (
   for (const acctID in allAcctData) {
     const chars = allAcctData[acctID]['characters'];
     const credit = allAcctData[acctID]['credit'];
-    if (!chars) continue;
     for (const charID in chars) {
       const char = chars[charID];
       const charCredit = char.credit;

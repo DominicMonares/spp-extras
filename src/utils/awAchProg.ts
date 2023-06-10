@@ -112,8 +112,8 @@ export const createProgValues = (
 
       if (acctSharedCriteriaExists) {
         const sharedCriteria = sharedProgress?.[criteriaID];
-        previousCount = sharedCriteria?.counter || 0;
-        date = sharedCriteria?.date || 0;
+        previousCount = sharedCriteria.counter || 0;
+        date = sharedCriteria.date || 0;
       }
 
       // Calculate new count using previous count

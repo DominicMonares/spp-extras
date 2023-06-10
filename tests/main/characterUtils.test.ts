@@ -1,5 +1,6 @@
-import { checkFaction, formatAcctChars } from '../../src/utils';
+import { checkFaction, formatAcctChars, formatChars } from '../../src/utils';
 import allAccountsChars from '../samples/formattedData/allAccountsChars.json';
+import factionSortedChars from '../samples/formattedData/factionSortedChars.json';
 import playerAccountsChars from '../samples/formattedData/playerAccountsChars.json';
 import _rawAllCharacters from '../samples/rawData/rawAllCharacters.json';
 import _rawPlayerCharacters from '../samples/rawData/rawPlayerCharacters.json';
@@ -21,6 +22,13 @@ describe('checkFaction', () => {
     const result = checkFaction(5);
     const expected = 'horde';
     expect(result).toStrictEqual(expected);
+  });
+});
+
+describe('formatChars', () => {
+  it('Should sort characters by faction', () => {
+    const result = formatChars(rawAllCharacters);
+    expect(result).toStrictEqual(factionSortedChars);
   });
 });
 

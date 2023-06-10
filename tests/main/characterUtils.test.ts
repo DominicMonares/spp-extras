@@ -4,9 +4,7 @@ import factionSortedChars from '../samples/formattedData/factionSortedChars.json
 import playerAccountsChars from '../samples/formattedData/playerAccountsChars.json';
 import _rawAllCharacters from '../samples/rawData/rawAllCharacters.json';
 import _rawPlayerCharacters from '../samples/rawData/rawPlayerCharacters.json';
-import {
-  RawCharacters
-} from 'types';
+import { RawCharacters } from 'types';
 
 const rawAllCharacters = _rawAllCharacters as RawCharacters;
 const rawPlayerCharacters = _rawPlayerCharacters as RawCharacters;

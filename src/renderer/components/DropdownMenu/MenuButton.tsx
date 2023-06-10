@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useAppSelector } from '../../store/hooks';
 import arrow from '../../../../assets/buttons/button-arrow.webp';
 import './DropdownMenu.css';
 
@@ -10,8 +9,6 @@ type Props = {
 }
 
 const MenuButton = ({ selected, subHovering, title }: Props) => {
-  const smallWindow = useAppSelector(state => state.window.smallWindow);
-
   // Need to use hovering class name to track nested sub-button hovering
   const [active, setActive] = useState<string>('');
 
@@ -31,19 +28,10 @@ const MenuButton = ({ selected, subHovering, title }: Props) => {
       onMouseLeave={() => setActive('')}
     >
       <div className="dd-main-button-content">
-        {!smallWindow ? (
-          <img className={`dd-main-arrow${active}`} src={arrow} />
-        ) : (
-          <></>
-        )}
         <div className={`dd-text dd-${titleLength()}${active}`}>
           {selected() ? selected() : title}
         </div>
-        {smallWindow ? (
-          <img className={`dd-main-arrow-sm${active}`} src={arrow} />
-        ) : (
-          <></>
-        )}
+        <img className={`dd-main-arrow-sm${active}`} src={arrow} />
       </div>
     </button>
   );

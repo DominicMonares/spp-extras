@@ -66,7 +66,7 @@ const createWindow = async () => {
     height: 300,
     transparent: true,
     frame: false,
-    alwaysOnTop: true,
+    center: true,
     webPreferences: {
       images: true,
       devTools: false,
@@ -81,8 +81,9 @@ const createWindow = async () => {
   // }
 
   const splashHTMLPath = `${path.resolve(__dirname, '../renderer/', 'splash.html')}`;
+  // splashWindow.center();
   splashWindow.loadFile(splashHTMLPath);
-  splashWindow.center();
+  // splashWindow.moveTop();
 
   const RESOURCES_PATH = app.isPackaged
     ? path.join(process.resourcesPath, 'assets')
@@ -94,9 +95,20 @@ const createWindow = async () => {
 
   mainWindow = new BrowserWindow({
     show: false,
-    width: 1024,
-    height: 728,
+    width: 1080,
+    minWidth: 794,
+    height: 830,
+    minHeight: 670,
     icon: getAssetPath('icon.png'),
+    // frame: false,
+    // titleBarStyle: 'hidden',
+    // titleBarOverlay: {
+    //   color: '#2f3241',
+    //   symbolColor: '#74b1be',
+    //   height: 5,
+    // },
+    // useContentSize: true,
+    // center: true,
     webPreferences: {
       preload: app.isPackaged
         ? path.join(__dirname, 'preload.js')
@@ -127,7 +139,9 @@ const createWindow = async () => {
     if (process.env.START_MINIMIZED) {
       mainWindow.minimize();
     } else {
+      // mainWindow.center();
       mainWindow.show();
+      mainWindow.setSize(1080, 830);
     }
   });
 

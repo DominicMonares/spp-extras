@@ -3,7 +3,6 @@
 .main-btn,
 .prefs-btn {
   border-radius: 5px;
-  background-image: url("../../../../assets/buttons/main-button.webp");
   background-size: 100%;
   background-repeat: no-repeat;
   /* transition: width 0.1s linear, height 0.1s linear; */
@@ -13,14 +12,16 @@
 .main-btn:hover,
 .main-btn-active {
   width: 224px;
-  height: 54px;
+  height: 48px;
+  background-image: url("../../../../assets/buttons/main-button.webp");
 }
 
 .prefs-btn,
 .prefs-btn:hover,
 .prefs-btn-active {
   width: 168px;
-  height: 40.5px;
+  height: 40px;
+  background-image: url("../../../../assets/buttons/prefs-button.webp");
 }
 
 .main-btn:hover,

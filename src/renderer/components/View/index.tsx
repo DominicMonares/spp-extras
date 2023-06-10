@@ -14,15 +14,10 @@ type Props = {
 
 const View = ({ error, getAllData, loading }: Props) => {
   const expansion = useAppSelector(state => state.expansion.selected);
-  const smallWindow = useAppSelector(state => state.window.smallWindow);
   const tool = useAppSelector(state => state.tool.selected);
 
   return (
-    <div className={`
-      view
-      ${expansion}-view
-      ${smallWindow ? 'small-view' : ''}
-    `}>
+    <div className={`view ${expansion}-view`}>
       {loading && !error ? <LoadingView /> : <></>}
       {error ? <ErrorView error={error} getAllData={getAllData} /> : <></>}
       {!tool && !loading && !error ? <HomeView /> : <></>}

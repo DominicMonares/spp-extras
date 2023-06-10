@@ -22,7 +22,6 @@ const App = () => {
   const dispatch = useAppDispatch();
   const expansion = useAppSelector(state => state.expansion.selected);
   const faction = useAppSelector(state => state.faction.selected);
-  const smallWindow = useAppSelector(state => state.window.smallWindow);
   const [error, setError] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -100,21 +99,11 @@ const App = () => {
         <>
           <ExpansionNav getAllData={getQuestTrackerData} />
           <div className="lower-app">
-            {smallWindow ? (
-              <>
-                <div>
-                  <Tools setInstalled={setInstalled} />
-                  <Controls />
-                </div>
-                <View error={error} getAllData={getQuestTrackerData} loading={loading} />
-              </>
-            ) : (
-              <>
-                <Tools setInstalled={setInstalled} />
-                <View error={error} getAllData={getQuestTrackerData} loading={loading} />
-                <Controls />
-              </>
-            )}
+            <div>
+              <Tools setInstalled={setInstalled} />
+              <Controls />
+            </div>
+            <View error={error} getAllData={getQuestTrackerData} loading={loading} />
           </div>
         </>
       ) : (

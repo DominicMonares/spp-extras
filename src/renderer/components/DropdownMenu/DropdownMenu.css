@@ -4,13 +4,7 @@
 
 .dropdown-l1,
 .dropdown-l2,
-.dropdown-l3 {
-  display: none;
-  position: absolute;
-  right: 174px;
-  top: 0;
-}
-
+.dropdown-l3,
 .dropdown-sm-l1,
 .dropdown-sm-l2,
 .dropdown-sm-l3 {
@@ -20,11 +14,21 @@
   bottom: 0;
 }
 
-.dropdown-l1 {
-  right: 228px;
-  /* top: -0.5px; */
-}
+/* .dropdown-sm-l1,
+.dropdown-sm-l2,
+.dropdown-sm-l3 {
+  display: none;
+  position: absolute;
+  left: 174px;
+  bottom: 0;
+} */
 
+/* .dropdown-l1 {
+  right: 228px;
+  top: -0.5px;
+} */
+
+.dropdown-l1,
 .dropdown-sm-l1 {
   left: 228px;
 }
@@ -33,36 +37,36 @@
   /* bottom: 0px; */
 }
 
+.dd-zone,
 .dd-zone-sm {
   top: 0px;
 }
 
-.dropdown-l2,
+/* .dropdown-l2,
 .dropdown-sm-l2 {
   z-index: 1;
 }
 
 .dropdown-sm-l2 {
   top: 0;
-}
+} */
 
 .dropdown-l3,
 .dropdown-sm-l3 {
+  direction: ltr;
   overflow-y: scroll;
-  z-index: 2;
+  /* z-index: 2; */
   scroll-snap-type: y mandatory;
+  height: mod(40vh, 25px);
 }
 
-.dropdown-l3{
-  direction: rtl;
-  height: 340.2px;
+/* .dropdown-l3{
+  height: 250px;
 }
 
 .dropdown-sm-l3{
-  direction: ltr;
-  top: 0;
-  height: 170.1px;
-}
+  height: 225px;
+} */
 
 .dd-scroll::-webkit-scrollbar {
   width: 10px;
@@ -110,7 +114,7 @@
 .dd-main-button-active {
   /* margin-top: 2px; */
   width: 224px;
-  height: 54px;
+  height: 48px;
   border-radius: 5px;
   background-image: url("../../../../assets/buttons/main-button.webp");
   background-size: 100%;
@@ -120,7 +124,7 @@
 
 .dd-main-button-active {
   z-index: 1000;
-  transform: scale(1.037);
+  transform: scale(1.0416);
 }
 
 .dd-main-button-content {
@@ -150,11 +154,11 @@
 }
 
 .dd-main-arrow-active {
-  transform: scale(1.037);
+  transform: scale(1.0416);
 }
 
 .dd-main-arrow-sm-active {
-  transform: scale(-1, 1.037);
+  transform: scale(-1, 1.0416);
 }
 
 .dd-text {
@@ -182,7 +186,7 @@
 .dd-22-active,
 .dd-25-active,
 .dd-26-active {
-  transform: scale(1.037);
+  transform: scale(1.0416);
 }
 
 .dd-11,
@@ -267,7 +271,7 @@
   position: relative;
   /* margin-top: -1px; */
   width: 174px;
-  height: 28px;
+  height: 25px;
   scroll-snap-align: start;
   background-image: url("../../../../assets/buttons/sub-button.webp");
 }

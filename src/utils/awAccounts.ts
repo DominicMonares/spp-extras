@@ -40,7 +40,7 @@ export const formatAllAcctData = (
     const credit: AchCredit = {};
     const sharedProgress = achSharedProg[acctID] || {};
     const quests: CompletedRegQuests = {};
-    if (!chars) continue;
+    if (!Object.keys(chars).length) continue;
     for (const charID in chars) {
       // Ensure character matches account
       const char = chars[charID];
@@ -81,11 +81,11 @@ export const formatAllAcctData = (
             if (!quests[questID]) {
               quests[questID] = quest;
             } else {
-              const existing_date = quests[questID]['timer'] || 0;
-              const incoming_date = quest.timer || 0;
+              const existingDate = quests[questID]['timer'] || 0;
+              const incomingDate = quest.timer || 0;
 
               // Use more recent date for Loremaster progress
-              if (incoming_date > existing_date) quests[questID] = quest;
+              if (incomingDate > existingDate) quests[questID] = quest;
             }
           }
 

@@ -2,22 +2,22 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { windowIsSmall } from '../../../utils';
 
 interface InitialState {
-  smallWindow: boolean;
+  windowHeight: number;
 }
 
 const initialState: InitialState = {
-  smallWindow: windowIsSmall(window.innerWidth),
+  windowHeight: window.innerHeight,
 }
 
 export const windowSlice = createSlice({
   name: 'window',
   initialState,
   reducers: {
-    storeWindowWidth: (state, action: PayloadAction<boolean>) => {
-      state.smallWindow = action.payload;
+    storeWindowHeight: (state, action: PayloadAction<number>) => {
+      state.windowHeight = action.payload;
     },
   },
 });
 
-export const { storeWindowWidth } = windowSlice.actions;
+export const { storeWindowHeight } = windowSlice.actions;
 export default windowSlice.reducer;

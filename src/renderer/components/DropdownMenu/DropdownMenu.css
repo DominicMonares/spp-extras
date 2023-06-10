@@ -57,7 +57,7 @@
   overflow-y: scroll;
   /* z-index: 2; */
   scroll-snap-type: y mandatory;
-  height: mod(40vh, 25px);
+  /* height: 40vh; */
 }
 
 /* .dropdown-l3{

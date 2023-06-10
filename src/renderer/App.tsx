@@ -11,7 +11,7 @@ import {
   storeExpansion,
   storeFaction,
   storeTemplateQuests,
-  storeWindowWidth
+  storeWindowHeight
 } from './store/slices';
 import { windowIsSmall } from '../utils';
 import { AllQTData, ExpansionSetting } from '../types';
@@ -88,9 +88,9 @@ const App = () => {
 
   useEffect(() => {
     // Track window size and change class names accordingly
-    const handleWidthChange = () => dispatch(storeWindowWidth(windowIsSmall(window.innerWidth)));
-    window.addEventListener('resize', handleWidthChange);
-    return () => window.removeEventListener('resize', handleWidthChange);
+    const handleHeightChange = () => dispatch(storeWindowHeight(window.innerHeight));
+    window.addEventListener('resize', handleHeightChange);
+    return () => window.removeEventListener('resize', handleHeightChange);
   }, []);
 
   return (

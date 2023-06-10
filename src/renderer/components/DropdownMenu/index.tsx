@@ -15,20 +15,27 @@ type Props = {
 }
 
 const DropdownMenu = ({ depthLevel, dropdown, dropdownType, menu }: Props) => {
-  const smallWindow = useAppSelector(state => state.window.smallWindow);
+  const windowHeight = useAppSelector(state => state.window.windowHeight);
 
   // Create class names depending on different factors
   depthLevel === undefined ? depthLevel = 0 : depthLevel = depthLevel + 1;
   const level = depthLevel ? `-l${depthLevel}` : '';
-  const size = smallWindow ? '-sm' : '';
+  // const size = smallWindow ? '-sm' : '';
+  // const subMultiplier = ((windowHeight - 500) / 25)
   const ddScroll = depthLevel === 3 ? 'dd-scroll' : '';
-  const ddZone = dropdownType === 'zone' ? `dd-zone${size}` : '';
+  const ddZone = dropdownType === 'zone' ? 'dd-zone' : '';
 
   return (
-    <div className={`
-      ${depthLevel ? `dropdown${size}${level} ${ddScroll} ${ddZone}` : ''}
-      ${dropdown ? 'dropdown-show' : ''}
-    `}>
+    <div
+      className={`
+        ${depthLevel ? `dropdown${level} ${ddScroll} ${ddZone}` : ''}
+        ${dropdown ? 'dropdown-show' : ''}
+      `}
+      style={`dropdown${level}` === 'dropdown-l3'
+        ? { height: Math.floor((windowHeight - 350) / 25) * 25 }
+        : {}
+      }
+    >
       {menu.map((m: Submenu, i: number) => {
         return (
           <MenuItems

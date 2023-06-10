@@ -14,7 +14,6 @@ type Props = {
 }
 
 const SubmenuButton = ({ handleSelection, final, item, subHovering }: Props) => {
-  const smallWindow = useAppSelector(state => state.window.smallWindow);
   const [active, setActive] = useState<string>('');
 
   // Keep parent sub-menu buttons hovering when children are hovering

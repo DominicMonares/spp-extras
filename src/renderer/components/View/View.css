@@ -26,7 +26,7 @@
 .qt-table,
 .error {
   margin: 5px;
-  max-height: 88.5vh;
+  max-height: calc(100vh - 90px);
   border: black 1px solid;
 }
 

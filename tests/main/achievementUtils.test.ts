@@ -29,7 +29,7 @@ const rawAchRewards = _rawAchRewards as RawAchRewards
 const rawCharAchProg = rawAchProgress.character as RawCharAchProgress;
 const rawSharedAchProg = rawAchProgress.account as RawSharedAchProgress;
 
-describe.only('formatAllAcctData', () => {
+describe('formatAllAcctData', () => {
   it('Should combine all character data into one main object', () => {
     const acctProg = achProg.account;
     const charProg = achProg.character;

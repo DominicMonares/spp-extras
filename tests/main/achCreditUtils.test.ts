@@ -11,8 +11,8 @@ jest
   .useFakeTimers()
   .setSystemTime(new Date('2023-04-24'));
 
-describe.only('createCreditRewValues', () => {
-  it.only('Should return all credit and reward arguments', () => {
+describe('createCreditRewValues', () => {
+  it('Should return all credit and reward arguments', () => {
     const accounts = achProgTransfer['newAcctData'] as AllAccountsData;
     const result = createCreditRewValues(accounts, achRewards, itemCharges, 1000, 1000);
     const expected = achCreditTransfer;

@@ -58,17 +58,19 @@ export const loremaster = (
     if (allianceTemplQuest?.ZoneOrSort > 0) {
       const zoneID = allianceTemplQuest.ZoneOrSort;
       const zoneCriteria = lmCriteria['alliance'][zoneID];
-      const criteriaID = zoneCriteria.criteria;
-      const achID = zoneCriteria.achievement;
-      countSubCriteria(criteriaID, date, 'alliance');
+      if (zoneCriteria) {
+        const criteriaID = zoneCriteria.criteria;
+        const achID = zoneCriteria.achievement;
+        countSubCriteria(criteriaID, date, 'alliance');
 
-      // Add to main counters
-      if (achID === 1676) {
-        allianceEKCount++;
-        if (allianceEKDate < date) allianceEKDate = date
-      } else if (achID === 1678) {
-        allianceKCount++;
-        if (allianceKDate < date) allianceKDate = date;
+        // Add to main counters
+        if (achID === 1676) {
+          allianceEKCount++;
+          if (allianceEKDate < date) allianceEKDate = date;
+        } else if (achID === 1678) {
+          allianceKCount++;
+          if (allianceKDate < date) allianceKDate = date;
+        }
       }
     }
 
@@ -77,6 +79,7 @@ export const loremaster = (
     if (hordeTemplQuest?.ZoneOrSort > 0) {
       const zoneID = hordeTemplQuest.ZoneOrSort;
       const zoneCriteria = lmCriteria['horde'][zoneID];
+      if (!zoneCriteria) continue;
       const criteriaID = zoneCriteria.criteria;
       const achID = zoneCriteria.achievement;
       countSubCriteria(criteriaID, date, 'horde');

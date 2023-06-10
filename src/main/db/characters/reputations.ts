@@ -39,7 +39,7 @@ export const updCharRep = async (
 ) => {
   const values = reputations.map(r => [r.guid, r.faction, r.standing, r.flags]);
   const sql = `
-    INSERT INTO characters (guid, faction, standing, flags) VALUES ?
+    INSERT INTO character_reputation (guid, faction, standing, flags) VALUES ?
       ON DUPLICATE KEY UPDATE standing=VALUES(standing)
   `;
   try {

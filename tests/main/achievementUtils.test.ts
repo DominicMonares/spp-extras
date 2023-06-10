@@ -12,7 +12,7 @@ import achRewards from '../samples/formattedData/achRewards.json';
 import allAccountData from '../samples/main/allAccountData.json';
 import completedQuests from '../samples/formattedData/completedQuests.json';
 import itemCharges from '../samples/formattedData/itemCharges.json';
-import _playerSortedAccounts from '../samples/formattedData/playerSortedAccounts.json';
+import playerSortedAccounts from '../samples/formattedData/playerSortedAccounts.json';
 import rawAchCredit from '../samples/rawData/rawAchCredit.json';
 import rawAchProgress from '../samples/rawData/rawAchProgress.json';
 import _rawAchRewards from '../samples/rawData/rawAchRewards.json';
@@ -24,17 +24,17 @@ import {
   RawSharedAchProgress
 } from '../../src/types';
 
-const playerSortedAccounts = _playerSortedAccounts as AccountCharacters;
 const rawAchRewards = _rawAchRewards as RawAchRewards
 const rawCharAchProg = rawAchProgress.character as RawCharAchProgress;
 const rawSharedAchProg = rawAchProgress.account as RawSharedAchProgress;
 
 describe('formatAllAcctData', () => {
   it('Should combine all character data into one main object', () => {
+    const accounts = playerSortedAccounts.all as AccountCharacters;
     const acctProg = achProg.account;
     const charProg = achProg.character;
     const result = formatAllAcctData(
-      playerSortedAccounts,
+      accounts,
       achCredit,
       charProg,
       acctProg,
@@ -42,6 +42,18 @@ describe('formatAllAcctData', () => {
     );
 
     const expected = allAccountData;
+    expect(result).toStrictEqual(expected);
+  });
+
+  it('Should return an empty object if no characters exist', () => {
+    const accounts = playerSortedAccounts.noChars as AccountCharacters;
+    const result = formatAllAcctData(accounts, {}, {}, {}, {});
+    const expected = {
+      '0': {
+        characters: {},
+        username: 'player_accts',
+      },
+    }
     expect(result).toStrictEqual(expected);
   });
 });

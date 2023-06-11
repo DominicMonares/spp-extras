@@ -6,7 +6,7 @@ import {
   AllAchProgress,
   CompletedQuests,
   CompletedRegQuests,
-} from '../types';
+} from 'types';
 
 // Organize all quest, achievement, and other character related data by character
 export const formatAllAcctData = (
@@ -33,7 +33,6 @@ export const formatAllAcctData = (
       username: account.username,
       characters: mergedChars,
     };
-
     const chars = all[acctID]['characters'];
 
     // Combine quests and achievement credit/progress

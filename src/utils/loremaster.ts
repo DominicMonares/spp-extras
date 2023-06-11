@@ -1,4 +1,3 @@
-import _lmCriteria from '../../data/achievements/loremasterAchCriteria.json';
 import {
   AchProgress,
   AllTemplateQuests,
@@ -6,7 +5,8 @@ import {
   Faction,
   LMCriteriaTracker,
   LoremasterCriteria,
-} from '../types';
+} from 'types';
+import _lmCriteria from '../../data/achievements/loremasterAchCriteria.json';
 
 const lmCriteria = _lmCriteria as LoremasterCriteria;
 

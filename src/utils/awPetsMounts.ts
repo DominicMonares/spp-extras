@@ -1,6 +1,4 @@
-import { checkFaction } from "./characters";
-import _factionSpells from '../../data/petsAndMounts/factionSpells.json';
-import _professionSpells from '../../data/petsAndMounts/professionSpells.json';
+import { checkFaction } from './characters';
 import {
   AccountCharacters,
   FactionSpells,
@@ -9,7 +7,9 @@ import {
   PetMountSpellValues,
   ProfessionSpells,
   RidingSkills
-} from '../types';
+} from 'types';
+import _factionSpells from '../../data/petsAndMounts/factionSpells.json';
+import _professionSpells from '../../data/petsAndMounts/professionSpells.json';
 
 const factionSpells = _factionSpells as FactionSpells;
 const professionSpells = _professionSpells as ProfessionSpells;
@@ -92,7 +92,7 @@ export const createPetMountSpellValues = (
         if (charCanUse && !alreadyKnown) {
           dbValues.push({
             guid: Number(charID),
-            spell: Number(spellID)
+            spell: Number(spellID),
           });
         }
       }

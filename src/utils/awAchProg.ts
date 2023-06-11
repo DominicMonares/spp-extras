@@ -1,11 +1,5 @@
-import { checkFaction } from "./characters";
-import {
-  loremaster,
-  loremasterEarned,
-  miscLMCriteria
-} from './loremaster';
-import _questAchCriteria from '../../data/achievements/questAchCriteria.json';
-import _sharedAchCriteria from '../../data/achievements/sharedAchCriteria.json';
+import { checkFaction } from './characters';
+import { loremaster, loremasterEarned, miscLMCriteria } from './loremaster';
 import {
   AchCriteria,
   AllAccountsData,
@@ -13,20 +7,22 @@ import {
   NewSharedProg,
   NewSharedProgress,
   ProgressValues,
-} from '../types';
+} from 'types';
+import _questAchCriteria from '../../data/achievements/questAchCriteria.json';
+import _sharedAchCriteria from '../../data/achievements/sharedAchCriteria.json';
 
 const questAchCriteria = _questAchCriteria as AchCriteria;
 const sharedAchCriteria = _sharedAchCriteria as AchCriteria;
 
 export const createProgValues = (
   allAcctData: AllAccountsData,
-  templateQuests: AllTemplateQuests
+  templateQuests: AllTemplateQuests,
 ) => {
   const dbValues: ProgressValues = {
     charProgVals: [],
     sharedProgVals: [],
     newAcctData: allAcctData,
-  }
+  };
 
   const addCharProgValues = (
     guid: number,
@@ -52,7 +48,7 @@ export const createProgValues = (
       id: acctID,
       criteria: Number(criteriaID),
       counter: counter,
-      date: date
+      date: date,
     });
   }
 
@@ -71,7 +67,7 @@ export const createProgValues = (
       1677: {counter: 0, date: new Date('0000000000').getTime() / 1000},
       // Horde Kalimdor
       1680: {counter: 0, date: new Date('0000000000').getTime() / 1000},
-    }
+    };
 
     // Organize all character shared achievement progress by criteria
     const newSharedProg: NewSharedProgress = {};

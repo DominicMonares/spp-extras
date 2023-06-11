@@ -1,10 +1,10 @@
+import { checkFaction } from './characters';
 import {
   AccountCharacters,
   AccountCharsNode,
   RawAccounts,
   RawCharacters,
-} from "types";
-import { checkFaction } from "./characters";
+} from 'types';
 
 // Combine player accounts into a single account separate from bots
 export const formatPlayerAccts = (acctChars: AccountCharacters) => {
@@ -13,7 +13,7 @@ export const formatPlayerAccts = (acctChars: AccountCharacters) => {
     username: 'player_accts',
     playerAcctIDs: [],
     characters: { alliance: {}, horde: {} },
-  }
+  };
 
   for (const acctID in acctChars) {
     const acct = acctChars[acctID];

@@ -10,8 +10,9 @@ import {
   RawAchRewards,
   RawCharAchProgress,
   RawSharedAchProgress,
-} from '../types';
+} from 'types';
 import _factionAchievements from '../../data/achievements/factionAchievements.json';
+
 const factionAchievements = _factionAchievements as FactionAchievements;
 
 // Organize achievement credit by character
@@ -36,9 +37,8 @@ export const formatAchProg = (prog: RawCharAchProgress | RawSharedAchProgress) =
     all[guidOrAcct][criteria] = {
       counter: ach.counter,
       date: ach.date,
-    }
+    };
   });
-
   return all;
 }
 
@@ -46,7 +46,7 @@ export const formatAchProg = (prog: RawCharAchProgress | RawSharedAchProgress) =
 export const formatAchRewards = (rewards: RawAchRewards) => {
   const all: AchRewards = {};
   rewards.forEach(ach => {
-    // Store in arrays b/c of Matron/Patron duplicate
+    // Store in arrays because of Matron/Patron duplicate
     const entry = ach.entry.toString();
     if (!all[entry]) all[entry] = [ach];
     else all[entry].push(ach);

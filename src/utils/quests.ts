@@ -1,4 +1,3 @@
-import _questRaceZeros from '../../data/quests/questRaceZeros.json';
 import {
   AllCharacters,
   AllCompletedQuests,
@@ -10,7 +9,8 @@ import {
   QuestRaceZeros,
   QuestType,
   RawTemplateQuests,
-} from "../types";
+} from 'types';
+import _questRaceZeros from '../../data/quests/questRaceZeros.json';
 
 const questRaceZeros = _questRaceZeros as QuestRaceZeros;
 
@@ -23,14 +23,14 @@ export const formatCompletedQuests = (
 ) => {
   const all: CompletedQuests = {};
   const addQuest = (quest: Quest, type: QuestType) => {
-    const guid = quest.guid.toString();
-    const questID = quest.quest.toString();
+    const guid = quest.guid;
+    const questID = quest.quest;
     if (!all[guid]) {
       all[guid] = {
         regular: {},
         daily: {},
         weekly: {},
-        monthly: {}
+        monthly: {},
       };
     }
 
@@ -72,7 +72,7 @@ export const formatTemplateQuests = (quests: RawTemplateQuests) => {
   const all: AllTemplateQuests = {
     alliance: {},
     horde: {},
-    neutral: {}
+    neutral: {},
   };
 
   const alliance = [1, 4, 5, 8, 64, 65, 68, 77, 1101, 1024];

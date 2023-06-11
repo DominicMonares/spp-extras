@@ -11,13 +11,12 @@ import {
   SortViewQuests,
   ViewQuest,
   ViewQuests,
-  ViewSubzone,
   ViewZones,
-} from "../types";
-import devQuestKeywords from '../../data/quests/devQuestKeywords.json';
+} from 'types';
 import _questRaceIDs from '../../data/quests/questRaceIDs.json';
 import _repeatQuestFlags from '../../data/quests/repeatQuestFlags.json';
 import _zones from '../../data/zones/zones.json';
+import devQuestKeywords from '../../data/quests/devQuestKeywords.json';
 
 // Different quest types have multiple different flags in DB
 // Use those flag values to find quest type
@@ -58,10 +57,11 @@ export const filterTemplateQuests = (
         conditionMet: () => {
           // Look for exact class match
           let completeMatch = true;
+          const classExists = Object.keys(characterClass).length;
           const classesMatch = characterClass?.value === questClass;
-          if (Object.keys(characterClass).length && !classesMatch) completeMatch = false;
+          if (classExists && !classesMatch) completeMatch = false;
           return completeMatch;
-        }
+        },
       },
       race: {
         setting: race,
@@ -69,10 +69,12 @@ export const filterTemplateQuests = (
           // Look for race match in each race array
           let completeMatch = true;
           const currentRaceIds = questRaceIDs[questRace]['raceIds'];
-          const racesMatch = currentRaceIds.includes(race?.id) && currentRaceIds.length <= 3;
-          if (Object.keys(race).length && !racesMatch) completeMatch = false;
+          const raceExists = Object.keys(race).length;
+          const raceIncluded = currentRaceIds.includes(race?.id);
+          const racesMatch = raceIncluded && currentRaceIds.length <= 3;
+          if (raceExists && !racesMatch) completeMatch = false;
           return completeMatch;
-        }
+        },
       },
       type: {
         setting: type,
@@ -88,16 +90,16 @@ export const filterTemplateQuests = (
           } else {
             return true;
           }
-        }
+        },
       },
       zone: {
         setting: zone,
         conditionMet: () => {
           // Look for exact zone match
-          const zoneIds = zone ? zones[zone].map((s: ViewSubzone) => s.subzoneId) : false;
+          const zoneIds = zone ? zones[zone].map((s) => s.subzoneId) : false;
           return zoneIds ? zoneIds.includes(quest.ZoneOrSort) : false;
-        }
-      }
+        },
+      },
     };
 
     // Run all conditions
@@ -111,7 +113,8 @@ export const filterTemplateQuests = (
     }
 
     // Remove unused/dev quests
-    if (devQuestKeywords.some((k: string) => quest.Title.includes(k))) conditionsMet = false;
+    const keywordsExist = devQuestKeywords.some((k: string) => quest.Title.includes(k));
+    if (keywordsExist) conditionsMet = false;
 
     // Add quest to viewQuests if conditions are met
     if (conditionsMet) viewQuests.push({ ...quest, completed: false });
@@ -215,14 +218,13 @@ export const markTemplateQuests = (
     ...characterQuests?.regular,
     ...characterQuests?.daily,
     ...characterQuests?.weekly,
-    ...characterQuests?.monthly
-  }
+    ...characterQuests?.monthly,
+  };
 
   const typeQuests = type ? characterQuests[type] : allCharacterQuests;
   for (const q in typeQuests) {
     let completedQuestIndex = 0;
     const quest = typeQuests[q];
-
     const questCompleted = filteredTemplateQuests.some(((q, i) => {
       // quest.quest is essentially quest.entry - named so b/c of legacy DB schema
       const match = q.entry === quest.quest;
@@ -243,7 +245,7 @@ export const createViewQuests = (
   settings: QuestTrackerSettings,
   faction: Faction,
   completedQuests: AllCompletedQuests | Record<string,never>,
-  templateQuests: AllTemplateQuests | Record<string,never>
+  templateQuests: AllTemplateQuests | Record<string,never>,
 ) => {
   const { character, type } = settings as QuestTrackerSettings;
 
@@ -251,11 +253,15 @@ export const createViewQuests = (
   const filteredTemplateQuests = filterTemplateQuests(settings, faction, templateQuests);
 
   // Mark completed quests, check neutral factions so neutral quests are marked
-  if (character && character.id) {
+  if (character?.id) {
     const characterQuests = completedQuests[faction][character.id];
     markTemplateQuests(characterQuests, filteredTemplateQuests, type);
   } else {
-    const allCompletedQuests = { ...completedQuests['alliance'], ...completedQuests['horde'] };
+    const allCompletedQuests = {
+      ...completedQuests['alliance'],
+      ...completedQuests['horde']
+    };
+
     for (const c in allCompletedQuests) {
       markTemplateQuests(allCompletedQuests[c], filteredTemplateQuests, type);
     }

@@ -1,6 +1,5 @@
-import { checkFactionAch } from "./achievements";
+import { checkFactionAch } from './achievements';
 import { checkFaction } from './characters';
-import _titles from '../../data/titles/titles.json';
 import {
   AchReward,
   AchRewardItemCharges,
@@ -9,7 +8,8 @@ import {
   Character,
   CreditRewardValues,
   Titles,
-} from "../types";
+} from 'types';
+import _titles from '../../data/titles/titles.json';
 
 const titles = _titles as Titles;
 
@@ -150,7 +150,6 @@ export const createCreditRewValues = (
       if (sender) {
         addMailValue(lastMailID, sender, charID, reward, newDate);
         const itemID = reward.item;
-
         if (itemID) {
           addMailItemValue(lastMailID, lastItemInstID, itemID, charID);
           addItemInstValue(lastItemInstID, charID, itemID, itemCharges);
@@ -177,10 +176,7 @@ export const createCreditRewValues = (
         const factionAch = checkFactionAch(Number(achID), faction);
         const factionMatch = factionAch[0];
         const factionAchID = factionAch[1].toString();
-        if (achID !== factionAchID) {
-          if (credit[factionAchID]) continue;
-        }
-
+        if (achID !== factionAchID && credit[factionAchID]) continue;
         achID = factionAchID;
         existingAch = charCredit?.[achID];
 
@@ -192,7 +188,7 @@ export const createCreditRewValues = (
             date,
             char,
             lastItemInstID,
-            lastMailID
+            lastMailID,
           );
         }
 

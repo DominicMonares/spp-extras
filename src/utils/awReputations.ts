@@ -1,5 +1,4 @@
-import _maxRaceReps from '../../data/reputations/maxRaceReps.json';
-import _reputationTemplate from '../../data/reputations/reputationTemplate.json';
+import { checkFaction } from './characters';
 import {
   AccountCharacters,
   AllReputations,
@@ -8,8 +7,9 @@ import {
   MaxRaceReps,
   ReputationTemplate,
   ReputationValues,
-} from '../types';
-import { checkFaction } from './characters';
+} from 'types';
+import _maxRaceReps from '../../data/reputations/maxRaceReps.json';
+import _reputationTemplate from '../../data/reputations/reputationTemplate.json';
 
 const maxRaceReps = _maxRaceReps as MaxRaceReps;
 const reputationTemplate = _reputationTemplate as ReputationTemplate;
@@ -56,10 +56,8 @@ export const createReputationValues = (
         if (highestStanding) {
           standingsFlags[charFaction][factionID] = {
             standing: standing,
-            flags: flags
-          }
-          // ['standing'] = standing;
-          // standingsFlags[charFaction][factionID]['flags'] = flags;
+            flags: flags,
+          };
         } else if (equalStanding && flags < existingFlags && flags !== 0) {
           // Use lower flags if equal standing to prevent unwanted 'At War'
           standingsFlags[charFaction][factionID]['flags'] = flags;
@@ -75,9 +73,8 @@ export const createReputationValues = (
         const race = char.race;
         const mergedStandingsFlags = {
           ...standingsFlags[charFaction as Faction],
-          ...standingsFlags.neutral
+          ...standingsFlags.neutral,
         };
-        // const repsExist = reputations[charID];
         const charReps = reputations[charID] ? reputations[charID] : {};
         for (const repID in mergedStandingsFlags) {
           const standingFlags = mergedStandingsFlags[repID];

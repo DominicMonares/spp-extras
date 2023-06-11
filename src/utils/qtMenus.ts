@@ -1,16 +1,15 @@
-import _classMenu from '../../data/menus/classMenu.json';
-import _questTypeMenu from '../../data/menus/questTypeMenu.json';
-import _raceMenu from '../../data/menus/raceMenu.json';
-import _zoneMenu from '../../data/menus/zoneMenu.json';
+import classMenu from '../../data/menus/classMenu.json';
+import questTypeMenu from '../../data/menus/questTypeMenu.json';
+import raceMenu from '../../data/menus/raceMenu.json';
+import zoneMenu from '../../data/menus/zoneMenu.json';
 import {
   AllCharacters,
   ClassSetting,
   ExpansionSetting,
   Faction,
-  QTCharacter,
   QuestTypeSetting,
   RaceSetting,
-} from "../types";
+} from 'types';
 
 // Create character menu from player character data
 export const createCharacterMenu = (
@@ -28,13 +27,13 @@ export const createCharacterMenu = (
     submenu.unshift({
       title: 'All Characters',
       id: 0,
-      value: '{ "characterClass": 0, "race": 0 }'
+      value: '{ "characterClass": 0, "race": 0 }',
     });
   }
 
   return [{
     title: 'Characters',
-    submenu: submenu.filter(s => s.id !== character)
+    submenu: submenu.filter(s => s.id !== character),
   }];
 }
 
@@ -45,8 +44,8 @@ export const createClassMenu = (
   characterClass: ClassSetting,
 ) => {
   return [{
-    title: _classMenu[0]['title'],
-    submenu: _classMenu[0]['submenu'].filter(c => {
+    title: classMenu[0]['title'],
+    submenu: classMenu[0]['submenu'].filter(c => {
       // Do not include Alliance Shamans or Horde Paladins when Vanilla selected
       const onAlliance = faction === 'alliance';
       const onHorde = faction === 'horde';
@@ -73,7 +72,7 @@ export const createRaceMenu = (
   faction: Faction,
   race: RaceSetting | Record<string,never>,
 ) => {
-  const raceMenuFaction = _raceMenu[faction][0];
+  const raceMenuFaction = raceMenu[faction][0];
   return [{
     title: raceMenuFaction.title,
     submenu: raceMenuFaction.submenu.filter(r => {
@@ -94,8 +93,8 @@ export const createQuestTypeMenu = (
   type: QuestTypeSetting,
 ) => {
   return [{
-    title: _questTypeMenu[0]['title'],
-    submenu: _questTypeMenu[0]['submenu'].filter(t => {
+    title: questTypeMenu[0]['title'],
+    submenu: questTypeMenu[0]['submenu'].filter(t => {
       // Do not include daily or monthly quests if Vanilla not selected
       const nonVanillaType = t.title === 'Daily' || t.title === 'Monthly';
       if (nonVanillaType && expansion === 'classic') return false;
@@ -113,8 +112,8 @@ export const createZoneMenu = (
   zone: string,
 ) => {
   const menu = [{
-    title: _zoneMenu[0]['title'],
-    submenu: _zoneMenu[0]['submenu'].map(w => {
+    title: zoneMenu[0]['title'],
+    submenu: zoneMenu[0]['submenu'].map(w => {
       return {
         title: w.title,
         submenu: w.submenu?.map(c => {
@@ -133,7 +132,7 @@ export const createZoneMenu = (
               const kalimdor = azuremyst || bloodmyst || exodar;
               const newZones = easternKingdoms || kalimdor;
               return expansion === 'classic' && newZones ? false : z.title !== zone;
-            })
+            }),
           };
         }).filter(f => {
           const onOutland = f.title === 'Outland';

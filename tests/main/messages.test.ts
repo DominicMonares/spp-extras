@@ -1,4 +1,4 @@
-import { send } from '../../src/utils';
+import { send } from 'utils';
 
 describe('send', () => {
   it('should call the reply function if passed', () => {

@@ -13,4 +13,3 @@ export * from './qtMenus';
 export * from './qtView';
 export * from './quests';
 export * from './reputations';
-export * from './window';

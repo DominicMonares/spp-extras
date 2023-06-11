@@ -3,7 +3,8 @@ import {
   formatCharSpellData,
   formatCharSkillData,
   createPetMountSpellValues
-} from '../../src/utils';
+} from 'utils';
+import { AccountCharacters } from 'types';
 import allAccountsChars from '../samples/formattedData/allAccountsChars.json';
 import characterSkills from '../samples/formattedData/characterSkills.json';
 import characterSpells from '../samples/formattedData/characterSpells.json';
@@ -12,10 +13,9 @@ import rawCharacterSkills from '../samples/rawData/rawCharacterSkills.json';
 import rawCharacterSpells from '../samples/rawData/rawCharacterSpells.json';
 import rawPetMountItems from '../samples/rawData/rawPetMountItems.json';
 import transferredPetsMounts from '../samples/main/transferredPetsMounts.json';
-import { AccountCharacters } from '../../src/types';
 
 describe('formatPetMountItemData', () => {
-  it('Should return pet and mount item object sorted by spell ID', () => {
+  it('should return pet and mount item object sorted by spell ID', () => {
     const result = formatPetMountItemData(rawPetMountItems);
     const expected = petMountItems;
     expect(result).toStrictEqual(expected);
@@ -23,7 +23,7 @@ describe('formatPetMountItemData', () => {
 });
 
 describe('formatCharSpellData', () => {
-  it('Should return known pet and mount spell object sorted by character', () => {
+  it('should return known pet and mount spell object sorted by character', () => {
     const result = formatCharSpellData(rawCharacterSpells);
     const expected = characterSpells;
     expect(result).toStrictEqual(expected);
@@ -31,15 +31,15 @@ describe('formatCharSpellData', () => {
 });
 
 describe('formatCharSkillData', () => {
-  it('Should return riding skill object sorted by character', () => {
+  it('should return riding skill object sorted by character', () => {
     const result = formatCharSkillData(rawCharacterSkills);
     const expected = characterSkills;
     expect(result).toStrictEqual(expected);
   });
 });
 
-describe('createPetMountSpellArgs', () => {
-  it('Should return array of pet and mount spell query arguments', () => {
+describe('createPetMountSpellValues', () => {
+  it('should return array of pet and mount spell query arguments', () => {
     const result = createPetMountSpellValues(
       allAccountsChars as AccountCharacters,
       petMountItems,
@@ -47,6 +47,6 @@ describe('createPetMountSpellArgs', () => {
       characterSkills,
     );
     const expected = transferredPetsMounts;
-    expect(result).toStrictEqual(expected);
+    expect(result).toStrictEqual(transferredPetsMounts);
   });
 });

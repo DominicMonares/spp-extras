@@ -6,7 +6,7 @@
   display: none;
   position: absolute;
   left: 228px;
-  bottom: 0;
+  bottom: -1px;
 }
 
 .dropdown-l2,
@@ -18,7 +18,7 @@
 }
 
 .dd-zone {
-  top: 0;
+  top: -0.5px;
 }
 
 .dropdown-l3,

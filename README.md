@@ -10,7 +10,7 @@ TODO
 - Go through remaining old files to double check - main splash screen
 - Create actual readme file
 - Auto updater
--animations
+- Animations
 
 
 TEST

@@ -11,6 +11,14 @@
   height: 24px;
 }
 
+.checkbox-img:hover {
+  filter: brightness(1.5);
+}
+
+.checkbox-img:active {
+  filter: brightness(1);
+}
+
 .checkbox-text {
   padding-bottom: 4px;
   width: 200px;

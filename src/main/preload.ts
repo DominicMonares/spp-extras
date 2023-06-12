@@ -1,5 +1,11 @@
 import { contextBridge, ipcRenderer, IpcRendererEvent } from 'electron';
-import { Channels, ElectronCallback, Expansion, Faction } from 'types';
+import {
+  Channels,
+  ElectronCallback,
+  Expansion,
+  ExpansionSetting,
+  FactionSetting
+} from 'types';
 
 const electronHandler = {
   ipcRenderer: {
@@ -29,15 +35,15 @@ const electronHandler = {
   getExpansion: async () => {
     return ipcRenderer.invoke('get:expansion');
   },
-  setExpansion: async (expansion: Expansion) => {
+  setExpansion: async (expansion: ExpansionSetting) => {
     return ipcRenderer.invoke('set:expansion', expansion);
   },
   getFaction: async () => {
     return ipcRenderer.invoke('get:faction');
   },
-  setFaction: async (faction: Faction) => {
+  setFaction: async (faction: FactionSetting) => {
     return ipcRenderer.invoke('set:faction', faction);
-  }
+  },
 };
 
 contextBridge.exposeInMainWorld('electron', electronHandler);

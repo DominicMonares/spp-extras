@@ -1,7 +1,6 @@
 import MainBigHeader from '../MainBigHeader';
 import './View.css';
 
-
 const HomeView = () => {
   return (
     <div>

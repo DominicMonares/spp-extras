@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { CompletedQuests, AllTemplateQuests } from '../../../types';
+import { CompletedQuests, AllTemplateQuests } from 'types';
 
-interface InitialState {
+type InitialState = {
   completedQuests: CompletedQuests | Record<string,never>;
   templateQuests: AllTemplateQuests | Record<string,never>;
 }

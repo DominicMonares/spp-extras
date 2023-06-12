@@ -1,16 +1,15 @@
 import { useState } from 'react';
 import MainBigHeader from '../MainBigHeader';
 import Quest from './Quest';
-import { useAppSelector } from '../../store/hooks';
+import { useAppSelector } from 'renderer/store/hooks';
 import {
   createViewQuests,
+  formatComplFactionQuests,
   reverseSortViewQuests,
   sortViewQuests
-} from '../../../utils';
-import { Faction, QuestTrackerSettings, SortSetting } from '../../../types';
+} from 'utils';
+import { Faction, QuestTrackerSettings, SortSetting } from 'types';
 import './View.css';
-import { formatComplFactionQuests } from '../../../utils';
-
 
 const QuestTrackerView = () => {
   const expansion = useAppSelector(state => state.expansion.selected);
@@ -18,7 +17,6 @@ const QuestTrackerView = () => {
 
   // Separate completed player quests from bot quests
   const characters = useAppSelector(state => state.characters);
-  // const account = accounts[0]
   const quests = useAppSelector(state => state.quests);
   const { completedQuests, templateQuests } = quests;
   const playerQuests = formatComplFactionQuests(characters, completedQuests);
@@ -40,7 +38,7 @@ const QuestTrackerView = () => {
     settings,
     faction as Faction, // Faction will be selected by this point
     playerQuests,
-    templateQuests
+    templateQuests,
   );
 
   // Ensure only one sort filter is active at a time

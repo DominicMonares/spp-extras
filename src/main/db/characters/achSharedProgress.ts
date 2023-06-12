@@ -1,9 +1,5 @@
 import { send } from '../../../utils';
-import {
-  Connection,
-  Reply,
-  SharedProgValues,
-} from '../../../types';
+import { Connection, Reply, SharedProgValues } from 'types';
 
 // ----------------------------------------------------------------
 // Achievement Shared Progress
@@ -55,7 +51,7 @@ export const createSharedProgTable = async (conn: Connection, reply?: Reply) => 
 export const selAchSharedProg = async (
   conn: Connection,
   accountIDs: number[],
-  reply?: Reply
+  reply?: Reply,
 ) => {
   const sql = `
     SELECT * FROM character_achievement_shared_progress
@@ -78,7 +74,7 @@ export const selAchSharedProg = async (
 export const insUpdCharAchSharedProg = async (
   conn: Connection,
   achSharedProg: SharedProgValues,
-  reply?: Reply
+  reply?: Reply,
 ) => {
   const columns = 'id, criteria, counter, date';
   const values = achSharedProg.map(a =>  [a.id, a.criteria, a.counter, a.date]);

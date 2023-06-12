@@ -5,7 +5,7 @@ import {
   QTRace,
   QuestTrackerSettings,
   QuestTypeSetting,
-} from '../../../types';
+} from 'types';
 
 const initialState: QuestTrackerSettings = {
   all: false,

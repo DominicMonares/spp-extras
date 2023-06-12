@@ -2,10 +2,10 @@ import { useState } from 'react';
 import ExpansionPreferences from './ExpansionPreferences';
 import FactionPreferences from './FactionPreferences';
 import MainButton from '../MainButton';
-import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { storeExpansion, storeFaction } from '../../store/slices';
+import { useAppDispatch, useAppSelector } from 'renderer/store/hooks';
+import { storeExpansion, storeFaction } from 'renderer/store/slices';
+import { ExpansionSetting, FactionSetting } from 'types';
 import mainLogo from 'assets/logos/main-logo.webp';
-import { ExpansionSetting, FactionSetting } from '../../../types';
 import './Preferences.css';
 
 interface Props {
@@ -38,8 +38,8 @@ const Preferences = ({ setInstalled }: Props) => {
     setInstalled(true);
   }
 
-  const prefsSet = expansion || faction
-  const prefsNotSet = !expansion || !faction
+  const prefsSet = expansion || faction;
+  const prefsNotSet = !expansion || !faction;
 
   return (
     <div className="preferences">

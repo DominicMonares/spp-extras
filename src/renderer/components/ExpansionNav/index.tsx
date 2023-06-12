@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Modal from 'react-modal';
 import MainButton from '../MainButton';
 import Tabs from './Tabs';
-import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { useAppDispatch, useAppSelector } from 'renderer/store/hooks';
 import {
   storeCharacters,
   storeCompletedQuests,
@@ -16,8 +16,8 @@ import {
   storeQuestTrackerZone,
   storeTemplateQuests,
   storeTool
- } from '../../store/slices';
-import { Expansion, ExpansionSetting } from '../../../types';
+ } from 'renderer/store/slices';
+import { Expansion, ExpansionSetting } from 'types';
 import './ExpansionNav.css';
 
 // Modal styling must be passed down to Modal component via props

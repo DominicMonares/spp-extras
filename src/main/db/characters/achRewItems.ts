@@ -5,7 +5,7 @@ import {
   MailItemValues,
   MailValues,
   Reply,
-} from '../../../types';
+} from 'types';
 
 // ----------------------------------------------------------------
 // Achievement Reward Items
@@ -30,7 +30,7 @@ export const selLastItemInstID = async (conn: Connection, reply?: Reply) => {
 export const insRewardItemInstances = async (
   conn: Connection,
   instances: ItemInstanceValues,
-  reply?: Reply
+  reply?: Reply,
 ) => {
   const columns = `
     guid,
@@ -63,7 +63,7 @@ export const insRewardItemInstances = async (
       i.randomPropertyId,
       i.durability,
       i.playedTime,
-      i.text
+      i.text,
     ];
   });
   const sql = `INSERT INTO item_instance (${columns}) VALUES ?`;
@@ -100,7 +100,7 @@ export const selLastMailID = async (conn: Connection, reply?: Reply) => {
 export const insRewardMail = async (
   conn: Connection,
   mail: MailValues,
-  reply?: Reply
+  reply?: Reply,
 ) => {
   const columns = `
     id,
@@ -133,7 +133,7 @@ export const insRewardMail = async (
       m.deliver_time,
       m.money,
       m.cod,
-      m.checked
+      m.checked,
     ];
   });
   const sql = `INSERT INTO mail (${columns}) VALUES ?`;
@@ -154,7 +154,7 @@ export const insRewardMail = async (
 export const insRewardMailItems = async (
   conn: Connection,
   items: MailItemValues,
-  reply?: Reply
+  reply?: Reply,
 ) => {
   const columns = 'mail_id, item_guid, item_template, receiver';
   const values = items.map(i => [i.mail_id, i.item_guid, i.item_template, i.receiver]);

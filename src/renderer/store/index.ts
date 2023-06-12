@@ -18,8 +18,8 @@ export const store = configureStore({
     tool: toolReducer,
     questTracker: questTrackerReducer,
     messages: messageReducer,
-    window: windowReducer
-  }
+    window: windowReducer,
+  },
 });
 
 export type RootState = ReturnType<typeof store.getState>;

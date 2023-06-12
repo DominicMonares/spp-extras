@@ -1,9 +1,5 @@
 import { send } from '../../../utils';
-import {
-  Connection,
-  Reply,
-  ReputationValues,
-} from '../../../types';
+import { Connection, Reply, ReputationValues } from 'types';
 
 // ----------------------------------------------------------------
 // Reputation
@@ -12,7 +8,7 @@ import {
 export const selCharRep = async (
   conn: Connection,
   charIDs: number[],
-  reply?: Reply
+  reply?: Reply,
 ) => {
   const sql = `
     SELECT * FROM character_reputation
@@ -35,7 +31,7 @@ export const selCharRep = async (
 export const updCharRep = async (
   conn: Connection,
   reputations: ReputationValues,
-  reply?: Reply
+  reply?: Reply,
 ) => {
   const values = reputations.map(r => [r.guid, r.faction, r.standing, r.flags]);
   const sql = `

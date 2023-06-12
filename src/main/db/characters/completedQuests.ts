@@ -1,8 +1,5 @@
 import { send } from '../../../utils';
-import {
-  Connection,
-  Reply,
-} from '../../../types';
+import { Connection, Reply } from 'types';
 
 // ----------------------------------------------------------------
 // Completed Quests
@@ -11,7 +8,7 @@ import {
 export const selCompletedRegQuests = async (
   conn: Connection,
   charIDs: number[],
-  reply?: Reply
+  reply?: Reply,
 ) => {
   const sql = `
     SELECT * FROM character_queststatus
@@ -34,7 +31,7 @@ export const selCompletedRegQuests = async (
 export const selCompletedDailyQuests = async (
   conn: Connection,
   charIDs: number[],
-  reply?: Reply
+  reply?: Reply,
 ) => {
   const sql = `
     SELECT * FROM character_queststatus_daily
@@ -57,7 +54,7 @@ export const selCompletedDailyQuests = async (
 export const selCompletedWeeklyQuests = async (
   conn: Connection,
   charIDs: number[],
-  reply?: Reply
+  reply?: Reply,
 ) => {
   const sql = `
     SELECT * FROM character_queststatus_weekly
@@ -80,7 +77,7 @@ export const selCompletedWeeklyQuests = async (
 export const selCompletedMonthlyQuests = async (
   conn: Connection,
   charIDs: number[],
-  reply?: Reply
+  reply?: Reply,
 ) => {
   const sql = `
     SELECT * FROM character_queststatus_monthly

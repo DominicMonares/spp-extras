@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import MainButton from '../MainButton';
-import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { storeMessages, storeTool } from '../../store/slices';
-import { SelectedTool } from '../../../types';
+import { useAppDispatch, useAppSelector } from 'renderer/store/hooks';
+import { storeMessages, storeTool } from 'renderer/store/slices';
+import { SelectedTool } from 'types';
 import './Tools.css';
 
 type Props = {

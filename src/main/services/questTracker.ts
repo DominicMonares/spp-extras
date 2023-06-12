@@ -26,7 +26,7 @@ import {
   RawComplRegQuests,
   RawTemplateQuests,
   ConnectionPool,
-} from '../../types';
+} from 'types';
 
 const questTracker = async (xpac: Expansion) => {
   send('Starting Quest Tracker service');
@@ -95,7 +95,7 @@ const questTracker = async (xpac: Expansion) => {
     // Regular
     const rawCompletedReg: RawComplRegQuests = await selCompletedRegQuests(
       charactersDB,
-      charIDs
+      charIDs,
     );
 
     // Daily
@@ -107,7 +107,7 @@ const questTracker = async (xpac: Expansion) => {
     // Weekly
     const rawCompletedWeekly: RawComplRepeatQuests = await selCompletedWeeklyQuests(
       charactersDB,
-      charIDs
+      charIDs,
     );
 
     // Monthly
@@ -120,11 +120,11 @@ const questTracker = async (xpac: Expansion) => {
       rawCompletedReg,
       rawCompletedDaily,
       rawCompletedWeekly,
-      rawCompletedMonthly
+      rawCompletedMonthly,
     );
   } catch (err) {
     await disconnect(connectionPool, xpac);
-    throw err
+    throw err;
   }
 
   // Template Quests

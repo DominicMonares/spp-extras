@@ -1,18 +1,17 @@
 import DropdownMenu from '../DropdownMenu';
 import FactionSelect from './FactionSelect';
 import MainButton from '../MainButton';
-import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { storeQuestTrackerAll } from '../../store/slices';
+import { useAppDispatch, useAppSelector } from 'renderer/store/hooks';
+import { storeQuestTrackerAll } from 'renderer/store/slices';
 import {
   createCharacterMenu,
   createClassMenu,
   createQuestTypeMenu,
   createRaceMenu,
   createZoneMenu
-} from '../../../utils';
-import './Controls.css';
+} from 'utils';
 import { Faction } from 'types';
-
+import './Controls.css';
 
 const QuestTrackerControls = () => {
   const dispatch = useAppDispatch();

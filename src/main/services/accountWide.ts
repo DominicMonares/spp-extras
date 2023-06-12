@@ -21,7 +21,7 @@ import {
   RawAccounts,
   RawCharacters,
   Reply,
-} from '../../types';
+} from 'types';
 
 const accountWide = async (settings: AccountWideSettings, reply: Reply) => {
   const { xpac, petsMounts, reputations, achievements, bots } = settings;

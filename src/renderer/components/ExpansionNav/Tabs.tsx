@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Tab from './Tab';
-import { useAppSelector } from '../../store/hooks';
-import { Expansion } from "types";
+import { useAppSelector } from 'renderer/store/hooks';
+import { Expansion } from 'types';
 import './ExpansionNav.css';
 
 type Props = {

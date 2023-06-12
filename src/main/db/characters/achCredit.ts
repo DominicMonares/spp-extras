@@ -1,9 +1,5 @@
 import { send } from '../../../utils';
-import {
-  Connection,
-  CreditValues,
-  Reply,
-} from 'types';
+import { Connection, CreditValues, Reply } from 'types';
 
 // ----------------------------------------------------------------
 // Achievement Credit
@@ -12,7 +8,7 @@ import {
 export const selAchCredit = async (
   conn: Connection,
   charIDs: number[],
-  reply?: Reply
+  reply?: Reply,
 ) => {
   const sql = `
     SELECT * FROM character_achievement
@@ -35,7 +31,7 @@ export const selAchCredit = async (
 export const insCharAchs = async (
   conn: Connection,
   achCredit: CreditValues,
-  reply?: Reply
+  reply?: Reply,
 ) => {
   const columns = 'guid, achievement, date';
   const values = achCredit.map(a =>[a.guid, a.achievement, a.date]);

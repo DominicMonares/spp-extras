@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AllCharacters } from '../../../types';
+import { AllCharacters } from 'types';
 
 const initialState: AllCharacters = {
   alliance: {},

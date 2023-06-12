@@ -1,5 +1,5 @@
 import { send } from '../../../utils';
-import { Connection, Reply } from '../../../types';
+import { Connection, Reply } from 'types';
 
 // ----------------------------------------------------------------
 // Items
@@ -8,7 +8,7 @@ import { Connection, Reply } from '../../../types';
 export const selRewItemCharges = async (
   conn: Connection,
   itemIDs: number[],
-  reply?: Reply
+  reply?: Reply,
 ) => {
   const sql = `
     SELECT entry, spellcharges_1 FROM item_template

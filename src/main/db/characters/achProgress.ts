@@ -1,9 +1,5 @@
 import { send } from '../../../utils';
-import {
-  Connection,
-  CharProgValues,
-  Reply,
-} from '../../../types';
+import { Connection, CharProgValues, Reply } from 'types';
 
 // ----------------------------------------------------------------
 // Achievement Progress
@@ -12,7 +8,7 @@ import {
 export const selAchProg = async (
   conn: Connection,
   charIDs: number[],
-  reply?: Reply
+  reply?: Reply,
 ) => {
   const sql = `
     SELECT * FROM character_achievement_progress
@@ -35,7 +31,7 @@ export const selAchProg = async (
 export const insUpdAchProg = async (
   conn: Connection,
   achProg: CharProgValues,
-  reply?: Reply
+  reply?: Reply,
 ) => {
   const columns = 'guid, criteria, counter, date';
   const values = achProg.map(a => {

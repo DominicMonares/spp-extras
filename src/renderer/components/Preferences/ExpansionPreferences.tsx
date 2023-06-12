@@ -1,8 +1,8 @@
 import { useState } from 'react';
+import { ExpansionSetting } from 'types';
 import vanillaLogo from 'assets/logos/vanilla-logo.webp';
 import tbcLogo from 'assets/logos/tbc-logo.webp';
 import wotlkLogo from 'assets/logos/wotlk-logo.webp';
-import { ExpansionSetting } from '../../../types';
 import './Preferences.css';
 
 interface Props {
@@ -91,7 +91,5 @@ const ExpansionPreferences = ({ setSelectedExpansion }: Props) => {
     </div>
   );
 }
-
-
 
 export default ExpansionPreferences;

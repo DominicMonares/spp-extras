@@ -1,20 +1,20 @@
 import { useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { useAppDispatch, useAppSelector } from 'renderer/store/hooks';
 import {
   storeFaction,
   storeQuestTrackerCharacter,
   storeQuestTrackerClass,
   storeQuestTrackerRace
-} from '../../store/slices';
+} from 'renderer/store/slices';
+import { Faction } from 'types';
 import alliance from 'assets/buttons/alliance-button.webp';
 import horde from 'assets/buttons/horde-button.webp';
-import { Faction } from 'types';
-
 
 const FactionSelect = () => {
   const dispatch = useAppDispatch();
   const faction = useAppSelector(state => state.faction.selected);
   const settings = useAppSelector(state => state.questTracker);
+
   // Switch animation depending on currently selected faction
   const [animation, setAnimation] = useState<string>('');
 

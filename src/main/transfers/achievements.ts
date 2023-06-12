@@ -57,7 +57,7 @@ import {
   SharedProgValues,
   TitleValues,
   RawTemplateQuests,
-} from '../../types';
+} from 'types';
 
 export const transferAchievements = async (
   acctChars: AccountCharacters,
@@ -109,7 +109,7 @@ export const transferAchievements = async (
     const rawAchCredit: RawAchCredit = await selAchCredit(
       charactersDB,
       charIDs,
-      reply
+      reply,
     );
     achCredit = formatAchCredit(rawAchCredit);
   } catch (err) {
@@ -122,7 +122,7 @@ export const transferAchievements = async (
     const rawAchProg: RawCharAchProgress = await selAchProg(
       charactersDB,
       charIDs,
-      reply
+      reply,
     );
     achProg = formatAchProg(rawAchProg);
   } catch (err) {
@@ -135,7 +135,7 @@ export const transferAchievements = async (
     const rawAchSharedProg: RawSharedAchProgress = await selAchSharedProg(
       charactersDB,
       acctIDs,
-      reply
+      reply,
     );
     achProgShared = formatAchProg(rawAchSharedProg);
   } catch (err) {
@@ -151,7 +151,7 @@ export const transferAchievements = async (
     const rawCompletedQuests: RawComplRegQuests = await selCompletedRegQuests(
       charactersDB,
       charIDs,
-      reply
+      reply,
     );
     completedQuests = formatCompletedQuests(rawCompletedQuests, [], [], []);
   } catch (err) {
@@ -164,7 +164,7 @@ export const transferAchievements = async (
     achCredit,
     achProg,
     achProgShared,
-    completedQuests
+    completedQuests,
   );
 
   // Last item instance ID
@@ -208,7 +208,7 @@ export const transferAchievements = async (
     const rawItemCharges: RawAchRewItemCharges = await selRewItemCharges(
       mangosDB,
       achItemIDs,
-      reply
+      reply,
     );
     itemCharges = formatRewItemCharges(rawItemCharges);
   } catch (err) {
@@ -220,7 +220,7 @@ export const transferAchievements = async (
   try {
     const rawTemplateQuests: RawTemplateQuests = await selTemplateQuests(
       mangosDB,
-      reply
+      reply,
     );
     templateQuests = formatTemplateQuests(rawTemplateQuests);
   } catch (err) {
@@ -261,14 +261,14 @@ export const transferAchievements = async (
       achRewards,
       itemCharges,
       lastItemInstID,
-      lastMailID
+      lastMailID,
     );
     const {
       creditVals,
       itemInstVals,
       mailVals,
       mailItemVals,
-      titleVals
+      titleVals,
     } = creditRewardValues;
     creditValues = creditVals;
     itemInstValues = itemInstVals;

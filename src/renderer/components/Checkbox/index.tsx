@@ -2,7 +2,7 @@ import checked from 'assets/checkboxes/checked.webp'
 import unchecked from 'assets/checkboxes/unchecked.webp'
 import './Checkbox.css';
 
-interface Props {
+type Props = {
   callback: () => void;
   isChecked: boolean;
   text: string;

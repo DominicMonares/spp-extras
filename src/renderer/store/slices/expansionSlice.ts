@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Expansion, ExpansionSetting } from '../../../types';
+import { Expansion, ExpansionSetting } from 'types';
 
-interface InitialState {
+type InitialState = {
   selected: ExpansionSetting;
 }
 

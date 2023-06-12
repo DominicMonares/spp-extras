@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
-import { useAppSelector } from '../../store/hooks';
-import arrow from 'assets/buttons/button-arrow.webp';
 import { Submenu } from 'types';
+import arrow from 'assets/buttons/button-arrow.webp';
 import './DropdownMenu.css';
 
 type Props = {

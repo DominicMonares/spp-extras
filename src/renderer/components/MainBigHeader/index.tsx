@@ -1,6 +1,6 @@
 import './MainBigHeader.css';
 
-interface Props {
+type Props = {
   headerText: string;
 }
 

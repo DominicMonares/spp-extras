@@ -1,22 +1,22 @@
-import { useState, MouseEvent } from 'react';
+import { useState } from 'react';
 import DropdownMenu from './index';
 import MenuButton from './MenuButton';
 import SubmenuButton from './SubmenuButton';
-import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { useAppDispatch, useAppSelector } from 'renderer/store/hooks';
 import {
   storeQuestTrackerCharacter,
   storeQuestTrackerClass,
   storeQuestTrackerRace,
   storeQuestTrackerType,
-  storeQuestTrackerZone
-} from '../../store/slices';
+  storeQuestTrackerZone,
+} from 'renderer/store/slices';
 import {
   CharacterClass,
   DropdownType,
   QuestTypeSetting,
   Race,
   Submenu,
-} from '../../../types';
+} from 'types';
 import './DropdownMenu.css';
 
 type Props = {
@@ -53,7 +53,9 @@ const MenuItems = ({ dropdownType, items, depthLevel }: Props) => {
 
   // Update quest tracker settings depending on the dropdown menu selection
   // Multiple selections can be made at once
-  const handleSelection = (e: React.MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => {
+  const handleSelection = (
+    e: React.MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
+  ) => {
     const target = e.target as HTMLInputElement;
     const title = target.innerText;
     const id = Number(target.id);

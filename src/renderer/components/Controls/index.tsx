@@ -2,9 +2,8 @@ import { useState } from 'react';
 import AccountWideControls from './AccountWideControls';
 import MainHeader from '../MainHeader';
 import QuestTrackerControls from './QuestTrackerControls';
-import { useAppSelector } from '../../store/hooks';
+import { useAppSelector } from 'renderer/store/hooks';
 import './Controls.css';
-
 
 const Controls = () => {
   const expansion = useAppSelector(state => state.expansion.selected);

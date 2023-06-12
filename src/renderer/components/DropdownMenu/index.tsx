@@ -1,10 +1,6 @@
 import MenuItems from './MenuItems';
-import { useAppSelector } from '../../store/hooks';
-import {
-  DropdownType,
-  Menu,
-  Submenu
-} from '../../../types';
+import { useAppSelector } from 'renderer/store/hooks';
+import { DropdownType, Menu, Submenu } from 'types';
 import './DropdownMenu.css';
 
 type Props = {
@@ -20,8 +16,6 @@ const DropdownMenu = ({ depthLevel, dropdown, dropdownType, menu }: Props) => {
   // Create class names depending on different factors
   depthLevel === undefined ? depthLevel = 0 : depthLevel = depthLevel + 1;
   const level = depthLevel ? `-l${depthLevel}` : '';
-  // const size = smallWindow ? '-sm' : '';
-  // const subMultiplier = ((windowHeight - 500) / 25)
   const ddScroll = depthLevel === 3 ? 'dd-scroll' : '';
   const ddZone = dropdownType === 'zone' && depthLevel === 1 ? 'dd-zone' : '';
 
@@ -48,6 +42,6 @@ const DropdownMenu = ({ depthLevel, dropdown, dropdownType, menu }: Props) => {
       })}
     </div>
   );
-};
+}
 
 export default DropdownMenu;

@@ -1,11 +1,11 @@
 import Store from 'electron-store';
 
-export interface SchemaString {
+export type SchemaString = {
   type: 'string';
   default: '';
 }
 
-export interface StoreSchema {
+export type StoreSchema = {
   expansion: SchemaString;
   faction: SchemaString;
 }

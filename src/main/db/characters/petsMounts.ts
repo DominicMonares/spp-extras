@@ -1,9 +1,5 @@
 import { send } from '../../../utils';
-import {
-  Connection,
-  PetMountSpellValues,
-  Reply,
-} from '../../../types';
+import { Connection, PetMountSpellValues, Reply } from 'types';
 
 // ----------------------------------------------------------------
 // Pets and Mounts
@@ -13,7 +9,7 @@ export const selCharPetMountSpells = async (
   conn: Connection,
   charIDs: number[],
   spellIDs: number[],
-  reply?: Reply
+  reply?: Reply,
 ) => {
   const sql = `
     SELECT guid, spell FROM character_spell
@@ -36,7 +32,7 @@ export const selCharPetMountSpells = async (
 export const insCharPetMountSpells = async (
   conn: Connection,
   spells: PetMountSpellValues,
-  reply?: Reply
+  reply?: Reply,
 ) => {
   const columns = 'guid, spell, active, disabled';
   const values = spells.map(s => {
@@ -44,7 +40,7 @@ export const insCharPetMountSpells = async (
       s.guid,
       s.spell,
       1, // active
-      0 // disabled
+      0, // disabled
     ];
   });
   const sql = `INSERT INTO character_spell (${columns}) VALUES ?`;
@@ -65,7 +61,7 @@ export const insCharPetMountSpells = async (
 export const selCharRidingSkills = async (
   conn: Connection,
   charIDs: number[],
-  reply?: Reply
+  reply?: Reply,
 ) => {
   const sql = `
     SELECT guid, value FROM character_skills

@@ -1,9 +1,9 @@
-import MessageView from './MessageView';
 import ErrorView from './ErrorView';
 import HomeView from "./HomeView";
 import LoadingView from './LoadingView';
-import QuestTrackerView from "./QuestTrackerView";
-import { useAppSelector } from '../../store/hooks';
+import MessageView from './MessageView';
+import QuestTrackerView from './QuestTrackerView';
+import { useAppSelector } from 'renderer/store/hooks';
 import './View.css';
 
 type Props = {

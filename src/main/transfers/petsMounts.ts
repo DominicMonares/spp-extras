@@ -14,14 +14,15 @@ import {
 import {
   AccountCharacters,
   Connection,
+  KnownSpells,
   PetMountItems,
   PetMountSpellValues,
   RawCharRidingSkills,
   RawPetMountItems,
   RawPetMountSpells,
   Reply,
+  RidingSkills,
 } from 'types';
-import { KnownSpells, RidingSkills } from 'types/petsMounts';
 
 export const transferPetsMounts = async (
   acctChars: AccountCharacters,

@@ -1,9 +1,5 @@
 import { selCharRep, updCharRep } from '../db';
-import {
-  createReputationValues,
-  formatReputations,
-  send,
-} from '../../utils';
+import { createReputationValues, formatReputations, send } from '../../utils';
 import {
   AccountCharacters,
   AllReputations,
@@ -25,7 +21,7 @@ export const transferReputations = async (
     const rawReputations: RawReputations = await selCharRep(
       charactersDB,
       charIDs,
-      reply
+      reply,
     );
     reputations = formatReputations(rawReputations);
   } catch (err) {
@@ -38,7 +34,7 @@ export const transferReputations = async (
     send('Creating new character reputation standing DB values...', reply);
     reputationValues = createReputationValues(
       acctChars,
-      reputations
+      reputations,
     );
     send('New character reputation standing DB values created!', reply);
   } catch (err) {

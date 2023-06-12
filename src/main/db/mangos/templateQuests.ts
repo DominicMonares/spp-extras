@@ -1,5 +1,5 @@
 import { send } from '../../../utils';
-import { Connection, Reply } from '../../../types';
+import { Connection, Reply } from 'types';
 
 // ----------------------------------------------------------------
 // Quests

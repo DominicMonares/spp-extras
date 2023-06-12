@@ -1,6 +1,6 @@
 import MainButton from "../MainButton";
 import MainBigHeader from "../MainBigHeader";
-import { useAppSelector } from '../../store/hooks';
+import { useAppSelector } from 'renderer/store/hooks';
 import './View.css';
 
 type Props = {

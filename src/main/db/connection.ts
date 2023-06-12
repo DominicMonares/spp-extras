@@ -1,22 +1,18 @@
 import mysql from 'mysql2/promise';
 import { send } from '../../utils';
-import {
-  ConnectionPool,
-  Expansion,
-  Reply,
-} from '../../types';
+import { ConnectionPool, Expansion, Reply } from 'types';
 
 export const connect = async (
   xpac: Expansion,
   db: string,
-  reply?: Reply
+  reply?: Reply,
 ) => {
   const settings = {
     host: 'localhost',
     port: 3310,
     user: 'root',
     password: '123456',
-    database: `${xpac}${db}`
+    database: `${xpac}${db}`,
   };
   try {
     const startMsg = `Connecting to ${xpac}${db}...`;
@@ -35,7 +31,7 @@ export const connect = async (
 export const disconnect = async (
   connections: ConnectionPool,
   xpac: Expansion,
-  reply?: Reply
+  reply?: Reply,
 ) => {
   for (const conn of connections) {
     const connection = conn[0];

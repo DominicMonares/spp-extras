@@ -1,9 +1,5 @@
 import { send } from '../../../utils';
-import {
-  Connection,
-  Reply,
-  TitleValues,
-} from '../../../types';
+import { Connection, Reply, TitleValues } from 'types';
 
 // ----------------------------------------------------------------
 // Achievement Reward Titles
@@ -12,7 +8,7 @@ import {
 export const updRewardTitles = async (
   conn: Connection,
   titles: TitleValues,
-  reply?: Reply
+  reply?: Reply,
 ) => {
   const values = titles.map(t => [t.guid, t.knownTitles]);
   const sql = `

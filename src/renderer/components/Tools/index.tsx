@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import MainButton from '../MainButton';
 import MainHeader from '../MainHeader';
 import Tool from './Tool';
-import { useAppSelector } from '../../store/hooks';
+import { useAppSelector } from 'renderer/store/hooks';
 import './Tools.css';
 
 type Props = {

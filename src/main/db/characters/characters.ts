@@ -1,9 +1,5 @@
 import { send } from '../../../utils';
-import {
-  Connection,
-  Expansion,
-  Reply,
-} from '../../../types';
+import { Connection, Expansion, Reply } from 'types';
 
 // ----------------------------------------------------------------
 // Characters
@@ -13,7 +9,7 @@ export const selChars = async (
   conn: Connection,
   xpac: Expansion,
   accts: number[],
-  reply?: Reply
+  reply?: Reply,
 ) => {
   const values = `
     guid,

@@ -1,6 +1,6 @@
 import { send } from '../../../utils';
 import cutTitles from '../../../data/titles/cutTitles.json';
-import { Connection, Reply } from '../../../types';
+import { Connection, Reply } from 'types';
 
 // ----------------------------------------------------------------
 // Cut Titles
@@ -40,7 +40,7 @@ export const insCutTitles = async (conn: Connection, reply?: Reply) => {
       0, // item
       0, // sender
       null, // subject
-      null // text
+      null, // text
     ];
   });
   const sql = `INSERT IGNORE INTO achievement_reward (${columns}) VALUES ?`;

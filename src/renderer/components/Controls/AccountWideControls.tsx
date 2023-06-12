@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Modal from 'react-modal';
-import Checkbox from 'renderer/components/Checkbox';
-import MainButton from 'renderer/components/MainButton';
+import Checkbox from '../Checkbox';
+import MainButton from '../MainButton';
 import { useAppDispatch, useAppSelector } from 'renderer/store/hooks';
 import { storeMessages } from 'renderer/store/slices';
 import { AccountWideSettings, ElectronCallback } from 'types';
@@ -38,8 +38,6 @@ const AccountWideControls = () => {
   const [repsChecked, setRepsChecked] = useState<boolean>(true);
   const [achsChecked, setAchsChecked] = useState<boolean>(true);
   const [botsChecked, setBotsChecked] = useState<boolean>(false);
-
-  const noneChecked = () => !petsMountsChecked && !repsChecked && !achsChecked;
 
   // Clear settings when tool changes
   useEffect(() => {
@@ -118,7 +116,6 @@ const AccountWideControls = () => {
             </div>
           </>
         )}
-
       </Modal>
       <div className="ctrl-label msg-label">Choose data to transfer</div>
       <div className={`checkboxes ${expansion}-checkboxes`}>

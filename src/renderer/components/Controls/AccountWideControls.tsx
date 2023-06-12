@@ -17,7 +17,7 @@ const modalStyles = {
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
     width: '600px',
-    height: '276px',
+    height: '270px',
     background: 'rgba(0, 0, 0, 0.7)',
     border: 'black 2px solid',
   },
@@ -56,8 +56,8 @@ const AccountWideControls = () => {
   // Shorten modal window if no settings are checked
   useEffect(() => {
     !petsMountsChecked && !repsChecked && !achsChecked
-      ? modalStyles.content.height = '154px'
-      : modalStyles.content.height = '276px';
+      ? modalStyles.content.height = '148px'
+      : modalStyles.content.height = '270px';
   });
 
   const openModal = () => {

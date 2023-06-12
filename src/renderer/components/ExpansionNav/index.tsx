@@ -30,7 +30,7 @@ const modalStyles = {
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
     width: '600px',
-    height: '182px',
+    height: '176px',
     background: 'rgba(0, 0, 0, 0.7)',
     border: 'black 2px solid',
   },

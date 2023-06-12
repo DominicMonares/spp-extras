@@ -1,6 +1,6 @@
 import './MainButton.css';
 
-interface Props {
+type Props = {
   active?: string;
   handleClick: () => void;
   buttonText: string;

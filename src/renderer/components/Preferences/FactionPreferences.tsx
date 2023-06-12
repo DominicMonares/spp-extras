@@ -4,7 +4,7 @@ import alliance from 'assets/buttons/alliance-button.webp';
 import horde from 'assets/buttons/horde-button.webp';
 import './Preferences.css';
 
-interface Props {
+type Props = {
   setSelectedFaction: React.Dispatch<React.SetStateAction<FactionSetting>>;
 }
 

@@ -8,7 +8,7 @@ import { ExpansionSetting, FactionSetting } from 'types';
 import mainLogo from 'assets/logos/main-logo.webp';
 import './Preferences.css';
 
-interface Props {
+type Props = {
   setInstalled: React.Dispatch<React.SetStateAction<boolean>>;
 }
 

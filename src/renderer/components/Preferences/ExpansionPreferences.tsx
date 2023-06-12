@@ -5,7 +5,7 @@ import tbcLogo from 'assets/logos/tbc-logo.webp';
 import wotlkLogo from 'assets/logos/wotlk-logo.webp';
 import './Preferences.css';
 
-interface Props {
+type Props = {
   setSelectedExpansion: React.Dispatch<React.SetStateAction<ExpansionSetting>>;
 }
 

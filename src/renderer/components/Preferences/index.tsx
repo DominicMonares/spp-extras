@@ -4,7 +4,7 @@ import FactionPreferences from './FactionPreferences';
 import MainButton from '../MainButton';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { storeExpansion, storeFaction } from '../../store/slices';
-import mainLogo from '../../../../assets/logos/main-logo.webp';
+import mainLogo from 'assets/logos/main-logo.webp';
 import { ExpansionSetting, FactionSetting } from '../../../types';
 import './Preferences.css';
 

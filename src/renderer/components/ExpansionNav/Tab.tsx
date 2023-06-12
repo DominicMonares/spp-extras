@@ -1,8 +1,8 @@
 import { useAppSelector } from '../../store/hooks';
-import vanillaTab from '../../../../assets/tabs/vanilla-tab.webp';
-import tbcTab from '../../../../assets/tabs/tbc-tab.webp';
-import wotlkTab from '../../../../assets/tabs/wotlk-tab.webp';
-import { Expansion } from "../../../types";
+import vanillaTab from 'assets/tabs/vanilla-tab.webp';
+import tbcTab from 'assets/tabs/tbc-tab.webp';
+import wotlkTab from 'assets/tabs/wotlk-tab.webp';
+import { Expansion } from "types";
 import './ExpansionNav.css';
 
 type Props = {

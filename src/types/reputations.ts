@@ -1,4 +1,4 @@
-import { Faction } from "./characters";
+import { Faction } from './characters';
 
 // ----------------------------------------------------------------
 // Reputations

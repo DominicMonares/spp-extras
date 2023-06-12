@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import Checkbox from '../Checkbox';
 import Modal from 'react-modal';
-import MainButton from '../MainButton';
-import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { storeMessages } from '../../store/slices';
+import Checkbox from 'renderer/components/Checkbox';
+import MainButton from 'renderer/components/MainButton';
+import { useAppDispatch, useAppSelector } from 'renderer/store/hooks';
+import { storeMessages } from 'renderer/store/slices';
+import { AccountWideSettings, ElectronCallback } from 'types';
 import './Controls.css';
-import { AccountWideSettings } from '../../../types';
 
 // Modal styling must be passed down to Modal component via props
 const modalStyles = {
@@ -19,11 +19,11 @@ const modalStyles = {
     width: '600px',
     height: '276px',
     background: 'rgba(0, 0, 0, 0.7)',
-    border: 'black 2px solid'
+    border: 'black 2px solid',
   },
   overlay: {
-    background: 'rgba(0, 0, 0, 0.5)'
-  }
+    background: 'rgba(0, 0, 0, 0.5)',
+  },
 };
 
 // Attach modal component to root div
@@ -85,7 +85,7 @@ const AccountWideControls = () => {
     };
 
     const listener = (msg: string) => dispatch(storeMessages(msg));
-    window.electron.ipcRenderer.on('account-wide', listener);
+    window.electron.ipcRenderer.on('account-wide', listener as ElectronCallback);
     window.electron.ipcRenderer.sendMessage('account-wide', settings);
     setModalIsOpen(false);
   }

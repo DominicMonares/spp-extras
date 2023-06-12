@@ -1,5 +1,5 @@
-import { AchCredit, AchProgress } from "./achievements";
-import { CharacterQuests } from "./quests";
+import { AchCredit, AchProgress } from './achievements';
+import { CharacterQuests } from './quests';
 
 // ----------------------------------------------------------------
 // Characters

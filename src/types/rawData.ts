@@ -1,7 +1,7 @@
-import { AchReward } from "./achievements";
-import { Character } from "./characters";
-import { PetMountItem } from "./petsMounts";
-import { Quest, TemplateQuest } from "./quests";
+import { AchReward } from './achievements';
+import { Character } from './characters';
+import { PetMountItem } from './petsMounts';
+import { Quest, TemplateQuest } from './quests';
 
 // ----------------------------------------------------------------
 // Accounts

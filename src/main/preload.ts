@@ -1,20 +1,17 @@
 import { contextBridge, ipcRenderer, IpcRendererEvent } from 'electron';
-import { Expansion, Faction } from 'types';
-
-export type Channels = 'account-wide';
-export type Callback = (...args: unknown[]) => void;
+import { Channels, ElectronCallback, Expansion, Faction } from 'types';
 
 const electronHandler = {
   ipcRenderer: {
     sendMessage: (channel: Channels, ...args: unknown[]) => {
       ipcRenderer.send(channel, ...args);
     },
-    on: (channel: Channels, func: Callback) => {
+    on: (channel: Channels, func: ElectronCallback) => {
       const listeners = ipcRenderer.rawListeners('account-wide');
       const subscription = (_event: IpcRendererEvent, ...args: unknown[]) => func(...args);
       listeners.forEach(listener => {
         const listenerExists = listener.toString() === subscription.toString();
-        if (listenerExists) ipcRenderer.removeListener(channel, listener as Callback);
+        if (listenerExists) ipcRenderer.removeListener(channel, listener as ElectronCallback);
       });
 
       ipcRenderer.on(channel, subscription);
@@ -22,7 +19,7 @@ const electronHandler = {
         ipcRenderer.removeListener(channel, subscription);
       };
     },
-    once: (channel: Channels, func: Callback) => {
+    once: (channel: Channels, func: ElectronCallback) => {
       ipcRenderer.once(channel, (_event, ...args) => func(...args));
     },
   },

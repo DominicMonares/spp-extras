@@ -8,8 +8,8 @@ import {
   ReputationTemplate,
   ReputationValues,
 } from 'types';
-import _maxRaceReps from '../../data/reputations/maxRaceReps.json';
-import _reputationTemplate from '../../data/reputations/reputationTemplate.json';
+import _maxRaceReps from '../data/reputations/maxRaceReps.json';
+import _reputationTemplate from '../data/reputations/reputationTemplate.json';
 
 const maxRaceReps = _maxRaceReps as MaxRaceReps;
 const reputationTemplate = _reputationTemplate as ReputationTemplate;

@@ -13,10 +13,8 @@ import {
   storeTemplateQuests,
   storeWindowHeight
 } from './store/slices';
-import { windowIsSmall } from '../utils';
-import { AllQTData, ExpansionSetting } from '../types';
+import { AllQTData, Expansion, ExpansionSetting } from 'types';
 import './App.css';
-
 
 const App = () => {
   const dispatch = useAppDispatch();
@@ -30,7 +28,7 @@ const App = () => {
 
   // Fetch all data used in SPP Extras from DB
   const getQuestTrackerData = async (e?: unknown, xpac?: ExpansionSetting) => {
-    if (!xpac) xpac = expansion; // Used when switching expansions
+    if (!xpac) xpac = expansion as Expansion; // Used when switching expansions
     setLoading(true);
     setError('');
     let allData: AllQTData | Record<string,never> = {};
@@ -80,7 +78,7 @@ const App = () => {
     }
 
     checkPreferences();
-  }, [installed])
+  }, [installed]);
 
   useEffect(() => {
     if (expansion && faction) getQuestTrackerData();
@@ -111,7 +109,6 @@ const App = () => {
       )}
     </div >
   );
-
 }
 
 export default App;

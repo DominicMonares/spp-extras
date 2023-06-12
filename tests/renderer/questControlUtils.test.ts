@@ -11,15 +11,15 @@ import {
   Menu,
   RaceSetting
 } from 'types';
-import classMenu from '../../data/menus/classMenu.json';
-import questTypes from '../../data/menus/questTypeMenu.json';
-import raceMenu from '../../data/menus/raceMenu.json';
+import classMenu from 'data/menus/classMenu.json';
+import questTypes from 'data/menus/questTypeMenu.json';
+import raceMenu from 'data/menus/raceMenu.json';
 import sampleAccounts from '../samples/formattedData/allAccountsChars.json';
 import sampleCharacterMenus from '../samples/renderer/characterMenus.json';
 import sampleCharacterSettings from '../samples/renderer/characterSettings.json';
 import sampleClasses from '../samples/renderer/classes.json';
 import sampleRaces from '../samples/renderer/races.json';
-import zoneMenu from '../../data/menus/zoneMenu.json';
+import zoneMenu from 'data/menus/zoneMenu.json';
 
 const sampleCharacters = sampleAccounts[0]['characters'] as AllCharacters;
 const { currentCharacterMenu, noCharacterMenu } = sampleCharacterMenus;

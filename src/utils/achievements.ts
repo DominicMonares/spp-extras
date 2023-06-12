@@ -11,7 +11,7 @@ import {
   RawCharAchProgress,
   RawSharedAchProgress,
 } from 'types';
-import _factionAchievements from '../../data/achievements/factionAchievements.json';
+import _factionAchievements from '../data/achievements/factionAchievements.json';
 
 const factionAchievements = _factionAchievements as FactionAchievements;
 

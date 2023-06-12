@@ -1,4 +1,4 @@
-import { AllCharacters } from "./characters";
+import { AllCharacters } from './characters';
 
 // ----------------------------------------------------------------
 // Characters Sorted By Account

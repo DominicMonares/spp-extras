@@ -1,6 +1,6 @@
 import { useAppSelector } from '../../store/hooks';
-import complete from '../../../../assets/status/complete.webp';
-import incomplete from '../../../../assets/status/incomplete.webp';
+import complete from 'assets/status/complete.webp';
+import incomplete from 'assets/status/incomplete.webp';
 import { ViewQuest } from '../../../types';
 
 type Props = {

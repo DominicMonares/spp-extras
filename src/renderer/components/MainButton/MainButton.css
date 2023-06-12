@@ -13,7 +13,7 @@
 .main-btn-active {
   width: 224px;
   height: 48px;
-  background-image: url("../../../../assets/buttons/main-button.webp");
+  background-image: url("assets/buttons/main-button.webp");
 }
 
 .prefs-btn,
@@ -21,7 +21,7 @@
 .prefs-btn-active {
   width: 168px;
   height: 40px;
-  background-image: url("../../../../assets/buttons/prefs-button.webp");
+  background-image: url("assets/buttons/prefs-button.webp");
 }
 
 .main-btn:hover,

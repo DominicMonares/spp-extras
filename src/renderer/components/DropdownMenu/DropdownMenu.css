@@ -86,7 +86,7 @@
   width: 224px;
   height: 48px;
   border-radius: 5px;
-  background-image: url("../../../../assets/buttons/main-button.webp");
+  background-image: url("assets/buttons/main-button.webp");
   background-size: 100%;
   background-repeat: no-repeat;
   /* transition: width 0.1s linear, height 0.1s linear; */
@@ -243,7 +243,7 @@
   width: 174px;
   height: 25px;
   scroll-snap-align: start;
-  background-image: url("../../../../assets/buttons/sub-button.webp");
+  background-image: url("assets/buttons/sub-button.webp");
 }
 
 .dd-sub-button-active {

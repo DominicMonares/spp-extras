@@ -1,7 +1,11 @@
 import { IpcMainEvent } from 'electron';
 
 // ----------------------------------------------------------------
-// Electron Reply Function
+// Functions
 // ----------------------------------------------------------------
+
+export type Channels = 'account-wide';
+
+export type ElectronCallback = (...args: unknown[]) => void;
 
 export type Reply = IpcMainEvent['reply'];

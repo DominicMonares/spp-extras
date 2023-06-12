@@ -9,7 +9,7 @@ import {
   CreditRewardValues,
   Titles,
 } from 'types';
-import _titles from '../../data/titles/titles.json';
+import _titles from '../data/titles/titles.json';
 
 const titles = _titles as Titles;
 

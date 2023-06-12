@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import alliance from '../../../../assets/buttons/alliance-button.webp';
-import horde from '../../../../assets/buttons/horde-button.webp';
-import { FactionSetting } from '../../../types';
+import alliance from 'assets/buttons/alliance-button.webp';
+import horde from 'assets/buttons/horde-button.webp';
+import { FactionSetting } from 'types';
 import './Preferences.css';
 
 interface Props {

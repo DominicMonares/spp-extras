@@ -75,7 +75,10 @@
   background-image: url("assets/buttons/main-button.webp");
   background-size: 100%;
   background-repeat: no-repeat;
-  /* transition: width 0.1s linear, height 0.1s linear; */
+  transition-duration: 75ms;
+  transition-property: all;
+  transition-timing-function: ease-in;
+  animation-fill-mode: backwards;
 }
 
 .dd-main-button-active {
@@ -88,6 +91,8 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  transition-duration: 100ms;
+  transform-origin: center;
 }
 
 .dd-main-arrow,
@@ -118,7 +123,6 @@
   -webkit-text-fill-color: transparent;
   text-align: center;
   font-family: Friz Quadrata;
-  /* transition: font-size 0.1s linear; */
 }
 
 .dd-11-active,
@@ -256,7 +260,6 @@
   -webkit-text-fill-color: transparent;
   font-family: Friz Quadrata;
   font-weight: bold;
-  /* transition: font-size 0.1s linear; */
 }
 
 .dd-long-sub-text {

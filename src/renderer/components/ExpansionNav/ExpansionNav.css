@@ -87,40 +87,39 @@
 .tbc-label,
 .wotlk-label {
   margin-top: 5px;
-  transition: width 0.1s linear, height 0.1s linear;
+  transition-duration: 75ms;
+  transition-property: all;
+  transition-timing-function: linear;
 }
 
-.classic-label {
+.classic-label,
+.classic-tab:hover > .classic-label,
+.classic-label-active {
   width: 115px;
   height: 30px;
 }
 
-.classic-tab:hover > .classic-label,
-.classic-label-active {
-  width: 150px;
-  height: 39px;
-}
-
-.tbc-label {
+.tbc-label,
+.tbc-tab:hover > .tbc-label,
+.tbc-label-active {
   width: 49px;
   height: 30px;
 }
 
-.tbc-tab:hover > .tbc-label,
-.tbc-label-active {
-  width: 64px;
-  height: 39px;
-}
-
-.wotlk-label {
+.wotlk-label,
+.wotlk-tab:hover > .wotlk-label,
+.wotlk-label-active {
   width: 94px;
   height: 30px;
 }
 
+.classic-tab:hover > .classic-label,
+.classic-label-active,
+.tbc-tab:hover > .tbc-label,
+.tbc-label-active,
 .wotlk-tab:hover > .wotlk-label,
 .wotlk-label-active {
-  width: 122px;
-  height: 39px;
+  transform: scale(1.1);
 }
 
 /* ---------------------------------------------------------------- */

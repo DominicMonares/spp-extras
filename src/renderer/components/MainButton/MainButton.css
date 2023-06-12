@@ -7,7 +7,9 @@
   border-radius: 5px;
   background-size: 100%;
   background-repeat: no-repeat;
-  /* transition: width 0.1s linear, height 0.1s linear; */
+  transition-duration: 75ms;
+  transition-property: all;
+  transition-timing-function: linear;
 }
 
 .main-btn,
@@ -48,7 +50,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: Friz Quadrata;
-  /* transition: font-size 0.1s linear; */
+  transition-duration: 75ms;
 }
 
 .main-btn-text,
@@ -68,4 +70,5 @@
 .prefs-btn:hover > .prefs-btn-text,
 .prefs-btn-text-active {
   transform: scale(1.037);
+  transition-duration: 100ms;
 }

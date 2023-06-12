@@ -65,8 +65,11 @@
 }
 
 .alliance-pref,
-.horde-pref {
-  transform: scale(1, 1);
+.alliance-pref-active,
+.horde-pref,
+.horde-pref-active  {
+  width: 177px;
+  height: 48px;
   transition-duration: 100ms;
 }
 
@@ -74,8 +77,7 @@
 .alliance-pref-active,
 .horde-pref:hover,
 .horde-pref-active {
-  transform: scale(1.1, 1.1);
-  transition-duration: 100ms;
+  transform: scale(1.1);
 }
 
 .alliance-pref:hover,

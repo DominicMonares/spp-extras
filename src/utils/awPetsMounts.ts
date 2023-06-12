@@ -46,7 +46,6 @@ export const createPetMountSpellValues = (
       const charFaction = checkFaction(char.race);
       for (let spellID in accountItems) {
         let item = accountItems[spellID];
-
         // Change to opposing faction pet/mount if faction equivalents exist
         const factionSpell = factionSpells[spellID];
         if (factionSpell) {
@@ -63,6 +62,8 @@ export const createPetMountSpellValues = (
             item = petMountItems[spellID];
           }
         }
+
+        if (!item) continue;
 
         // Check to see if character has high enough riding skill
         const skillExists = ridingSkills[charID];

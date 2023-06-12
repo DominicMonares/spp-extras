@@ -3,13 +3,9 @@ Desktop application for WoW Single Player Project extras.
 
 TODO
 - Add source code and bug report links at in top menu
-- Cleanup warning messages in console
-  - Development server logging during production
 - Create installation and portable versions of app
-- Go through remaining old files to double check - main splash screen
 - Create actual readme file
 - Auto updater
-- Animations
 
 
 TEST

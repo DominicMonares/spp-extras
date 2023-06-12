@@ -14,10 +14,16 @@ const electronHandler = {
     },
     on: (channel: Channels, func: ElectronCallback) => {
       const listeners = ipcRenderer.rawListeners('account-wide');
-      const subscription = (_event: IpcRendererEvent, ...args: unknown[]) => func(...args);
+      const subscription = (
+        _event: IpcRendererEvent,
+        ...args: unknown[]
+      ) => func(...args);
       listeners.forEach(listener => {
         const listenerExists = listener.toString() === subscription.toString();
-        if (listenerExists) ipcRenderer.removeListener(channel, listener as ElectronCallback);
+        if (listenerExists) ipcRenderer.removeListener(
+          channel,
+          listener as ElectronCallback,
+        );
       });
 
       ipcRenderer.on(channel, subscription);

@@ -39,9 +39,9 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 const isDev = process.env.NODE_ENV === 'development';
-const isDebug = isDev || process.env.DEBUG_PROD === 'true';
+const isDebug = process.env.DEBUG_PROD === 'true';
 
-if (isDebug) require('electron-debug')();
+if (isDev || isDebug) require('electron-debug')();
 
 // const installExtensions = async () => {
 //   const installer = require('electron-devtools-installer');

@@ -36,7 +36,7 @@ export const updCharRep = async (
   const values = reputations.map(r => [r.guid, r.faction, r.standing, r.flags]);
   const sql = `
     INSERT INTO character_reputation (guid, faction, standing, flags) VALUES ?
-      ON DUPLICATE KEY UPDATE standing=VALUES(standing)
+      ON DUPLICATE KEY UPDATE standing=VALUES(standing), flags=VALUES(flags)
   `;
   try {
     const startMsg = 'Updating character reputation standings...';

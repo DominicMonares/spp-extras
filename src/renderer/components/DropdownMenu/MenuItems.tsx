@@ -34,7 +34,7 @@ const MenuItems = ({ dropdownType, items, depthLevel }: Props) => {
   const [dropdown, setDropdown] = useState<boolean>(false);
 
   // Track nested hovering - keeps parent elements hovering when children are hovering
-  const [subHovering, setSubHovering] = useState<boolean>(true);
+  const [subHovering, setSubHovering] = useState<boolean>(false);
 
   const onMouseEnter = () => {
     setDropdown(true);

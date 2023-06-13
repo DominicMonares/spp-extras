@@ -1,7 +1,7 @@
-import classMenu from '../data/menus/classMenu.json';
-import questTypeMenu from '../data/menus/questTypeMenu.json';
-import raceMenu from '../data/menus/raceMenu.json';
-import zoneMenu from '../data/menus/zoneMenu.json';
+import classMenu from '../../data/menus/classMenu.json';
+import questTypeMenu from '../../data/menus/questTypeMenu.json';
+import raceMenu from '../../data/menus/raceMenu.json';
+import zoneMenu from '../../data/menus/zoneMenu.json';
 import {
   AllCharacters,
   ClassSetting,

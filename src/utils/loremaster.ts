@@ -6,7 +6,7 @@ import {
   LMCriteriaTracker,
   LoremasterCriteria,
 } from 'types';
-import _lmCriteria from '../data/achievements/loremasterAchCriteria.json';
+import _lmCriteria from '../../data/achievements/loremasterAchCriteria.json';
 
 const lmCriteria = _lmCriteria as LoremasterCriteria;
 

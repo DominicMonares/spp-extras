@@ -7,11 +7,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  cursor: url('assets/cursors/gauntlet.cur'), auto;
+  cursor: url('../../assets/cursors/gauntlet.cur'), auto;
 }
 
 *:hover {
-  cursor: url('assets/cursors/gauntlet.cur'), auto;
+  cursor: url('../../assets/cursors/gauntlet.cur'), auto;
 }
 
 html,
@@ -44,19 +44,19 @@ button {
 }
 
 .all-container {
-  background-image: url("assets/backgrounds/all-background.webp");
+  background-image: url("../../assets/backgrounds/all-background.webp");
 }
 
 .classic-container {
-  background-image: url("assets/backgrounds/vanilla-background.webp");
+  background-image: url("../../assets/backgrounds/vanilla-background.webp");
 }
 
 .tbc-container {
-  background-image: url("assets/backgrounds/tbc-background.webp");
+  background-image: url("../../assets/backgrounds/tbc-background.webp");
 }
 
 .wotlk-container {
-  background-image: url("assets/backgrounds/wotlk-background.webp");
+  background-image: url("../../assets/backgrounds/wotlk-background.webp");
 }
 
 .all-container,
@@ -75,10 +75,10 @@ button {
 
 @font-face {
   font-family: 'Friz Quadrata';
-  src: url('assets/fonts/Friz\ Quadrata\ Std\ Medium.otf');
+  src: url('../../assets/fonts/Friz\ Quadrata\ Std\ Medium.otf');
 }
 
 @font-face {
   font-family: 'MORPHEUS';
-  src: url('assets/fonts/MORPHEUS.TTF');
+  src: url('../../assets/fonts/MORPHEUS.TTF');
 }

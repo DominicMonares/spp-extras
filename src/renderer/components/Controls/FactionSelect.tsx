@@ -7,8 +7,8 @@ import {
   storeQuestTrackerRace
 } from 'renderer/store/slices';
 import { Faction } from 'types';
-import alliance from 'assets/buttons/alliance-button.webp';
-import horde from 'assets/buttons/horde-button.webp';
+import alliance from '../../../../assets/buttons/alliance-button.webp';
+import horde from '../../../../assets/buttons/horde-button.webp';
 
 const FactionSelect = () => {
   const dispatch = useAppDispatch();

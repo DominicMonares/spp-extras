@@ -8,8 +8,8 @@ import {
   NewSharedProgress,
   ProgressValues,
 } from 'types';
-import _questAchCriteria from '../data/achievements/questAchCriteria.json';
-import _sharedAchCriteria from '../data/achievements/sharedAchCriteria.json';
+import _questAchCriteria from '../../data/achievements/questAchCriteria.json';
+import _sharedAchCriteria from '../../data/achievements/sharedAchCriteria.json';
 
 const questAchCriteria = _questAchCriteria as AchCriteria;
 const sharedAchCriteria = _sharedAchCriteria as AchCriteria;

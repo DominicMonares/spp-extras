@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import arrow from 'assets/buttons/button-arrow.webp';
+import arrow from '../../../../assets/buttons/button-arrow.webp';
 import './DropdownMenu.css';
 
 type Props = {

@@ -17,7 +17,7 @@
   align-items: center;
   width: 198px;
   height: 40px;
-  background-image: url("assets/headers/main-header.webp");
+  background-image: url("../../../../assets/headers/main-header.webp");
 }
 
 .main-header-text {

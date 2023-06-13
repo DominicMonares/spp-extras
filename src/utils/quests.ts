@@ -10,7 +10,7 @@ import {
   QuestType,
   RawTemplateQuests,
 } from 'types';
-import _questRaceZeros from '../data/quests/questRaceZeros.json';
+import _questRaceZeros from '../../data/quests/questRaceZeros.json';
 
 const questRaceZeros = _questRaceZeros as QuestRaceZeros;
 

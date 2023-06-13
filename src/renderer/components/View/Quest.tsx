@@ -1,7 +1,7 @@
 import { useAppSelector } from 'renderer/store/hooks';
 import { ViewQuest } from 'types';
-import complete from 'assets/status/complete.webp';
-import incomplete from 'assets/status/incomplete.webp';
+import complete from '../../../../assets/status/complete.webp';
+import incomplete from '../../../../assets/status/incomplete.webp';
 
 type Props = {
   quest: ViewQuest;

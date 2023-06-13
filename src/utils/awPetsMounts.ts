@@ -8,8 +8,8 @@ import {
   ProfessionSpells,
   RidingSkills
 } from 'types';
-import _factionSpells from '../data/petsAndMounts/factionSpells.json';
-import _professionSpells from '../data/petsAndMounts/professionSpells.json';
+import _factionSpells from '../../data/petsAndMounts/factionSpells.json';
+import _professionSpells from '../../data/petsAndMounts/professionSpells.json';
 
 const factionSpells = _factionSpells as FactionSpells;
 const professionSpells = _professionSpells as ProfessionSpells;

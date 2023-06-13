@@ -1,5 +1,5 @@
 import { send } from '../../../utils';
-import cutTitles from '../../../data/titles/cutTitles.json';
+import cutTitles from '../../../../data/titles/cutTitles.json';
 import { Connection, Reply } from 'types';
 
 // ----------------------------------------------------------------

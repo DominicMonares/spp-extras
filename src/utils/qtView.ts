@@ -13,10 +13,10 @@ import {
   ViewQuests,
   ViewZones,
 } from 'types';
-import _questRaceIDs from '../data/quests/questRaceIDs.json';
-import _repeatQuestFlags from '../data/quests/repeatQuestFlags.json';
-import _zones from '../data/zones/zones.json';
-import devQuestKeywords from '../data/quests/devQuestKeywords.json';
+import _questRaceIDs from '../../data/quests/questRaceIDs.json';
+import _repeatQuestFlags from '../../data/quests/repeatQuestFlags.json';
+import _zones from '../../data/zones/zones.json';
+import devQuestKeywords from '../../data/quests/devQuestKeywords.json';
 
 // Different quest types have multiple different flags in DB
 // Use those flag values to find quest type

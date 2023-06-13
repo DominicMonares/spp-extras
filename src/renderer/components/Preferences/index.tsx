@@ -5,7 +5,7 @@ import MainButton from '../MainButton';
 import { useAppDispatch, useAppSelector } from 'renderer/store/hooks';
 import { storeExpansion, storeFaction } from 'renderer/store/slices';
 import { ExpansionSetting, FactionSetting } from 'types';
-import mainLogo from 'assets/logos/main-logo.webp';
+import mainLogo from '../../../../assets/logos/main-logo.webp';
 import './Preferences.css';
 
 type Props = {

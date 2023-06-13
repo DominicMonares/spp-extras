@@ -8,8 +8,39 @@ TODO
 
 TEST
 General
-  - Starting prod build without database running - websocket
-  - Test everything in production
+  - Quest Tracker
+    - Expansion
+    - Types
+  - Account-Wide
+    - Achievements
+      - gold - x
+      - emblems - x
+      - dedicated (arena) - x
+      - arathi basin - x
+      - alterac valley - x
+      - eye of the storm - x
+      - strand of the ancients - X - bg too unstable to test
+      - warsong gulch - x
+      - honorable kills - x - STILL REQUIRES HK SHARE
+      - bread winner - x
+      - dailies - x
+      - loremaster alliance - x
+      - loremaster horde - x
+      - quests - x - COUNTER STILL DOESN'T WORK
+      - mail reward items for multiple characters and multiple rewards at once
+      - see if earning ek/k loremaster through sharing prog, if loremaster ol/northrend are
+        already earned, does the main loremaster achievement need to be transferred or will
+        it trigger on login? 
+
+    - Pets Mounts
+      - Factions
+      - Neutral
+
+    - Reputations
+      - At war
+      - General
+
+  - Preferences
 
 
 NOTES

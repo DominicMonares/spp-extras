@@ -9,21 +9,11 @@
 import path from 'path';
 import { URL } from 'url';
 import { app, BrowserWindow, shell, ipcMain } from 'electron';
-import { autoUpdater } from 'electron-updater';
-import log from 'electron-log';
 import MenuBuilder from './menu';
 import store from './store';
 import accountWide from './services/accountWide';
 import questTracker from './services/questTracker';
 import { Expansion, Faction } from '../types';
-
-// class AppUpdater {
-//   constructor() {
-//     log.transports.file.level = 'info';
-//     autoUpdater.logger = log;
-//     autoUpdater.checkForUpdatesAndNotify();
-//   }
-// }
 
 let mainWindow: BrowserWindow | null = null;
 let splashWindow: BrowserWindow | null = null;
@@ -43,23 +33,23 @@ const isDebug = process.env.DEBUG_PROD === 'true';
 
 if (isDev || isDebug) require('electron-debug')();
 
-// const installExtensions = async () => {
-//   const installer = require('electron-devtools-installer');
-//   const forceDownload = !!process.env.UPGRADE_EXTENSIONS;
-//   const extensions = ['REACT_DEVELOPER_TOOLS'];
+const installExtensions = async () => {
+  const installer = require('electron-devtools-installer');
+  const forceDownload = !!process.env.UPGRADE_EXTENSIONS;
+  const extensions = ['REACT_DEVELOPER_TOOLS'];
 
-//   return installer
-//     .default(
-//       extensions.map((name) => installer[name]),
-//       forceDownload
-//     )
-//     .catch(console.log);
-// };
+  return installer
+    .default(
+      extensions.map((name) => installer[name]),
+      forceDownload
+    )
+    .catch(console.log);
+};
 
 const createWindow = async () => {
-  // if (isDebug) {
-  //   await installExtensions();
-  // }
+  if (isDebug) {
+    await installExtensions();
+  }
 
   splashWindow = new BrowserWindow({
     width: 500,
@@ -74,16 +64,8 @@ const createWindow = async () => {
   });
 
   // Display splash window while app is loading
-  // if (isDev) {
-  //   splashWindow.loadFile('electron/splash/dev-splash.html');
-  // } else {
-  //   splashWindow.loadURL(SPLASH_WINDOW_WEBPACK_ENTRY)
-  // }
-
   const splashHTMLPath = `${path.resolve(__dirname, '../renderer/', 'splash.html')}`;
-  // splashWindow.center();
   splashWindow.loadFile(splashHTMLPath);
-  // splashWindow.moveTop();
 
   const RESOURCES_PATH = app.isPackaged
     ? path.join(process.resourcesPath, 'assets')
@@ -100,15 +82,6 @@ const createWindow = async () => {
     height: 830,
     minHeight: 670,
     icon: getAssetPath('icon.png'),
-    // frame: false,
-    // titleBarStyle: 'hidden',
-    // titleBarOverlay: {
-    //   color: '#2f3241',
-    //   symbolColor: '#74b1be',
-    //   height: 5,
-    // },
-    // useContentSize: true,
-    // center: true,
     webPreferences: {
       preload: app.isPackaged
         ? path.join(__dirname, 'preload.js')
@@ -157,15 +130,7 @@ const createWindow = async () => {
     shell.openExternal(edata.url);
     return { action: 'deny' };
   });
-
-  // Remove this if your app does not use auto updates
-  // eslint-disable-next-line
-  // new AppUpdater();
 };
-
-/**
- * Add event listeners...
- */
 
 app.on('window-all-closed', () => {
   // Respect the OSX convention of having the application in memory even

@@ -43,7 +43,11 @@ const QuestTrackerControls = () => {
           dropdownType="character"
           menu={createCharacterMenu(character.id || 0, characters, faction)}
         />
-        <DropdownMenu dropdownType="type" menu={createQuestTypeMenu(expansion, type)} />
+        {expansion !== 'classic' ? (
+          <DropdownMenu dropdownType="type" menu={createQuestTypeMenu(expansion, type)} />
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   );

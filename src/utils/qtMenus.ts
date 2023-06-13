@@ -96,8 +96,7 @@ export const createQuestTypeMenu = (
     title: questTypeMenu[0]['title'],
     submenu: questTypeMenu[0]['submenu'].filter(t => {
       // Do not include daily or monthly quests if Vanilla not selected
-      const nonVanillaType = t.title === 'Daily' || t.title === 'Monthly';
-      if (nonVanillaType && expansion === 'classic') return false;
+      if (t.title === 'Weekly' && expansion === 'tbc') return false;
 
       const noTypeMatch = t.title.toLowerCase() !== type;
       const noTypeSelected = !type && t.title === 'All Quest Types';

@@ -22,7 +22,7 @@ const DropdownMenu = ({ depthLevel, dropdown, dropdownType, menu }: Props) => {
 
   const dropdownSize = () => {
     const toolHeight = toolCollapsed ? 350 : 475;
-    return Math.floor((windowHeight - toolHeight) / 25) * 25
+    return Math.floor((windowHeight - toolHeight) / 25) * 25;
   }
 
   return (

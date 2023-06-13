@@ -23,7 +23,7 @@
 .prefs-btn,
 .prefs-btn:hover,
 .prefs-btn-active {
-  width: 168px;
+  width: 166px;
   height: 40px;
   background-image: url("../../../../assets/buttons/prefs-button.webp");
 }

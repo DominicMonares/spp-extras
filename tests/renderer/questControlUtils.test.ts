@@ -121,18 +121,17 @@ describe('createQuestTypeMenu', () => {
     expect(result).toStrictEqual(expected);
   });
 
-  it('should not render the daily and monthly options if on classic and no type selected', () => {
+  it('should not render the weekly option if on tbc and no type selected', () => {
     submenu?.shift();
-    submenu?.splice(1, 1);
-    submenu?.pop();
-    const result = createQuestTypeMenu('classic', '');
+    submenu?.splice(2, 1);
+    const result = createQuestTypeMenu('tbc', '');
     const expected = menu;
     expect(result).toStrictEqual(expected);
   });
 
   it('should render all types option and not regular option when regular type selected', () => {
     submenu?.splice(1, 1);
-    const result = createQuestTypeMenu('tbc', 'regular');
+    const result = createQuestTypeMenu('wotlk', 'regular');
     const expected = menu;
     expect(result).toStrictEqual(expected);
   });

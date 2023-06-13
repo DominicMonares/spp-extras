@@ -2,11 +2,9 @@
 Desktop application for WoW Single Player Project extras.
 
 TODO
-- Add source code and bug report links at in top menu
 - Create installation and portable versions of app
 - Create actual readme file
 - Auto updater
-
 
 TEST
 General

@@ -104,12 +104,10 @@ export const filterTemplateQuests = (
 
     // Run all conditions
     let conditionsMet = true;
-    if (!all) {
-      for (const c in conditions) {
-        const conditionSetting = conditions[c]['setting'];
-        const conditionMet = conditions[c]['conditionMet']();
-        if (conditionSetting && !conditionMet) conditionsMet = false;
-      }
+    for (const c in conditions) {
+      const conditionSetting = conditions[c]['setting'];
+      const conditionMet = conditions[c]['conditionMet']();
+      if (conditionSetting && !conditionMet) conditionsMet = false;
     }
 
     // Remove unused/dev quests

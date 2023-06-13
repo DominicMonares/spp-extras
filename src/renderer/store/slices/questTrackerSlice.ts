@@ -23,12 +23,10 @@ export const questTrackerSlice = createSlice({
     storeQuestTrackerAll: (state, action: PayloadAction<boolean>) => {
       state.all = action.payload;
 
-      // Clear previous state items
-      state.character = {};
+      // Clear previous primary filters
       state.characterClass = {};
       state.race = {};
       state.characterClass = {};
-      state.type = '';
       state.zone = '';
     },
     storeQuestTrackerCharacter: (state, action: PayloadAction<QTCharacter>) => {
@@ -40,7 +38,6 @@ export const questTrackerSlice = createSlice({
         state.character.name = payload.name;
         state.character.value = payload.value;
       }
-      state.all = false;
     },
     storeQuestTrackerClass: (state, action: PayloadAction<QTClass>) => {
       const payload = action.payload;
@@ -74,7 +71,6 @@ export const questTrackerSlice = createSlice({
       } else if (payload) {
         state.type = payload as QuestTypeSetting;
       }
-      state.all = false;
     },
     storeQuestTrackerZone: (state, action: PayloadAction<string>) => {
       if (action.payload === 'All Zones') {

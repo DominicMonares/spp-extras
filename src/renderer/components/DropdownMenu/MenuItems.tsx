@@ -34,7 +34,7 @@ const MenuItems = ({ dropdownType, items, depthLevel }: Props) => {
   const [dropdown, setDropdown] = useState<boolean>(false);
 
   // Track nested hovering - keeps parent elements hovering when children are hovering
-  const [subHovering, setSubHovering] = useState<boolean>(false);
+  const [subHovering, setSubHovering] = useState<boolean>(true);
 
   const onMouseEnter = () => {
     setDropdown(true);
@@ -72,7 +72,6 @@ const MenuItems = ({ dropdownType, items, depthLevel }: Props) => {
     } else if (dropdownType === 'zone') {
       dispatch(storeQuestTrackerZone(title));
     } else if (dropdownType === 'class') {
-      console.log('JKJKJDFSA ', id, title, value)
       dispatch(storeQuestTrackerClass({
         id: id as CharacterClass,
         title: title,

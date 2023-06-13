@@ -19,7 +19,8 @@ const Tools = ({ setInstalled }: Props) => {
   useEffect(() => {
     let toolHeight = 740; // Quest Tracker cutoff height
     if (tool === 'accountWide') toolHeight = 628;
-    windowHeight > toolHeight ? setCollapsed(false) : setCollapsed(true);
+    const greaterHeight = windowHeight > toolHeight;
+    greaterHeight && tool ? setCollapsed(false) : setCollapsed(true);
   }, [windowHeight]);
 
   const handlePreferences = async () => {

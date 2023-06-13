@@ -72,6 +72,7 @@ const MenuItems = ({ dropdownType, items, depthLevel }: Props) => {
     } else if (dropdownType === 'zone') {
       dispatch(storeQuestTrackerZone(title));
     } else if (dropdownType === 'class') {
+      console.log('JKJKJDFSA ', id, title, value)
       dispatch(storeQuestTrackerClass({
         id: id as CharacterClass,
         title: title,

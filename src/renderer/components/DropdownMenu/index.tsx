@@ -11,6 +11,7 @@ type Props = {
 }
 
 const DropdownMenu = ({ depthLevel, dropdown, dropdownType, menu }: Props) => {
+  const toolCollapsed = useAppSelector(state => state.tool.collapsed);
   const windowHeight = useAppSelector(state => state.window.windowHeight);
 
   // Create class names depending on different factors
@@ -19,6 +20,11 @@ const DropdownMenu = ({ depthLevel, dropdown, dropdownType, menu }: Props) => {
   const ddScroll = depthLevel === 3 ? 'dd-scroll' : '';
   const ddZone = dropdownType === 'zone' && depthLevel === 1 ? 'dd-zone' : '';
 
+  const dropdownSize = () => {
+    const toolHeight = toolCollapsed ? 350 : 475;
+    return Math.floor((windowHeight - toolHeight) / 25) * 25
+  }
+
   return (
     <div
       className={`
@@ -26,7 +32,7 @@ const DropdownMenu = ({ depthLevel, dropdown, dropdownType, menu }: Props) => {
         ${dropdown ? 'dropdown-show' : ''}
       `}
       style={`dropdown${level}` === 'dropdown-l3'
-        ? { height: Math.floor((windowHeight - 350) / 25) * 25 }
+        ? { height: dropdownSize() }
         : {}
       }
     >

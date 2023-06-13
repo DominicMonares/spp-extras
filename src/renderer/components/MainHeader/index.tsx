@@ -1,10 +1,12 @@
 import arrow from '../../../../assets/buttons/collapse-arrow.webp';
 import './MainHeader.css';
 
+type CollapseFunc = React.Dispatch<React.SetStateAction<boolean>> | ((option: boolean) => void);
+
 type Props = {
   collapsed: boolean;
   headerText: string;
-  setCollapsed: React.Dispatch<React.SetStateAction<boolean>>;
+  setCollapsed: CollapseFunc;
 }
 
 const MainHeader = ({ collapsed, headerText, setCollapsed }: Props) => {

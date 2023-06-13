@@ -221,7 +221,8 @@ export const markTemplateQuests = (
     ...characterQuests?.monthly,
   };
 
-  const typeQuests = type ? characterQuests[type] : allCharacterQuests;
+  const typeExists = type && characterQuests?.[type];
+  const typeQuests = typeExists ? characterQuests[type] : allCharacterQuests;
   for (const q in typeQuests) {
     let completedQuestIndex = 0;
     const quest = typeQuests[q];

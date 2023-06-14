@@ -48,6 +48,7 @@ Loremaster:
   Some quests like Captain's Chest are neutral but are different quests
     - Alliance is 614 and Horde is 8551
     - This doesn't seem to be the case for all though - further testing needed
+Completed Quest in-game counter doesn't work without cluttering db/sharing quests
 
 All account-wide tools:
   Deleting a character will remove most of their progress from your account-wide prog

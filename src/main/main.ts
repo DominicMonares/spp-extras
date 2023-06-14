@@ -51,6 +51,14 @@ const createWindow = async () => {
     await installExtensions();
   }
 
+  const RESOURCES_PATH = app.isPackaged
+    ? path.join(process.resourcesPath, 'assets')
+    : path.join(__dirname, '../../assets');
+
+  const getAssetPath = (...paths: string[]): string => {
+    return path.join(RESOURCES_PATH, ...paths);
+  };
+
   splashWindow = new BrowserWindow({
     width: 500,
     height: 300,
@@ -64,16 +72,14 @@ const createWindow = async () => {
   });
 
   // Display splash window while app is loading
-  const splashHTMLPath = `${path.resolve(__dirname, '../renderer/', 'splash.html')}`;
+  let splashHTMLPath: string;
+  if (isDev) {
+    splashHTMLPath = `${path.resolve(__dirname, '../../splash/', 'index.html')}`;
+  } else {
+    splashHTMLPath = `${path.resolve(process.resourcesPath, 'splash/', 'index.html')}`;
+  }
+
   splashWindow.loadFile(splashHTMLPath);
-
-  const RESOURCES_PATH = app.isPackaged
-    ? path.join(process.resourcesPath, 'assets')
-    : path.join(__dirname, '../../assets');
-
-  const getAssetPath = (...paths: string[]): string => {
-    return path.join(RESOURCES_PATH, ...paths);
-  };
 
   mainWindow = new BrowserWindow({
     show: false,

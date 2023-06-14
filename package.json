@@ -195,6 +195,15 @@
       "buildResources": "assets",
       "output": "release/build"
     },
+    "extraResources": [
+      {
+        "from": "./splash/",
+        "to": "splash",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
     "publish": {
       "provider": "github",
       "owner": "electron-react-boilerplate",

@@ -31,6 +31,8 @@ export const transferPetsMounts = async (
   mangosDB: Connection,
   reply: Reply,
 ) => {
+  send('Starting pet and mount data transfers...', reply);
+
   // Fetch and format pet and mount items
   let spellIDs: number[] = [];
   let petMountItems: PetMountItems = {};
@@ -92,4 +94,6 @@ export const transferPetsMounts = async (
   } catch (err) {
     throw err;
   }
+
+  send('Pet and mount data transfers complete!', reply);
 }

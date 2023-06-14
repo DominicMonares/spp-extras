@@ -15,6 +15,8 @@ export const transferReputations = async (
   charactersDB: Connection,
   reply: Reply,
 ) => {
+  send('Starting achievement data transfers...', reply);
+
   // Fetch and format character reputations
   let reputations: AllReputations = {};
   try {
@@ -49,4 +51,6 @@ export const transferReputations = async (
   } catch (err) {
     throw err;
   }
+
+  send('Reputation data transfers complete!', reply);
 }

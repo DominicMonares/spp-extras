@@ -136,9 +136,6 @@ export const createProgValues = (
         }
       }
 
-      // Add shared achievement progress
-      addSharedProgValues(Number(acctID), Number(criteriaID), newCount, date);
-
       // Ensure progress counter doesn't exceed threshold
       const threshold = sharedAchCriteria[criteriaID]['threshold'];
       if (newCount > threshold) newCount = threshold;
@@ -162,6 +159,9 @@ export const createProgValues = (
           addCharProgValues(Number(charID), Number(criteriaID), newCount, date);
         }
       }
+
+      // Add shared achievement progress
+      addSharedProgValues(Number(acctID), Number(criteriaID), newCount, date);
     }
 
     // Add all Loremaster progress

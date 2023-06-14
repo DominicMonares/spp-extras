@@ -2,42 +2,7 @@
 Desktop application for WoW Single Player Project extras.
 
 TODO
-- Create installation and portable versions of app
 - Create actual readme file
-- Auto updater
-
-TEST
-General
-  - Quest Tracker
-    - Expansion
-    - Types
-  - Account-Wide
-    - Achievements
-      - gold - x
-      - emblems - x
-      - dedicated (arena) - x
-      - arathi basin - x
-      - alterac valley - x
-      - eye of the storm - x
-      - strand of the ancients - X - bg too unstable to test
-      - warsong gulch - x
-      - honorable kills - x - STILL REQUIRES HK SHARE
-      - bread winner - x
-      - dailies - x
-      - loremaster alliance - x
-      - loremaster horde - x
-      - quests - x - COUNTER STILL DOESN'T WORK
-      - mail reward items for multiple characters and multiple rewards at once
-      - see if earning ek/k loremaster through sharing prog, if loremaster ol/northrend are
-        already earned, does the main loremaster achievement need to be transferred or will
-        it trigger on login? 
-
-    - Pets Mounts
-      - Factions
-      - Neutral
-
-  - Preferences
-
 
 NOTES
 Loremaster:
@@ -60,5 +25,6 @@ Account-wide rep and pets/mounts:
   - Random bot accounts are not included in the rep or pets/mounts transfers
   - I decided not to implement this because rep/pets/mounts cannot be inspected in-game
 
+Rep achievement progress is on character basis
 
 cwebp -q 100 collapse-arrow.png -o collapse-arrow.webp

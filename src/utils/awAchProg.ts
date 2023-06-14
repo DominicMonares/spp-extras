@@ -211,8 +211,8 @@ export const createProgValues = (
     }
 
     // Use length of credit for Complete {X} Quests achievement chain
-    let completedQuestCount = completedQuests ? Object.keys(completedQuests).length : 0;
     for (const criteriaID in questAchCriteria) {
+      let completedQuestCount = completedQuests ? Object.keys(completedQuests).length : 0;
       const criteria = questAchCriteria[criteriaID];
       const date = new Date().getTime() / 1000;
 

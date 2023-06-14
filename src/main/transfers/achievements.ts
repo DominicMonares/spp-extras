@@ -132,6 +132,7 @@ export const transferAchievements = async (
   // Shared achievement progress
   let achProgShared: AllAchProgress = {};
   try {
+    acctIDs.push(0); // Add shared player account ID
     const rawAchSharedProg: RawSharedAchProgress = await selAchSharedProg(
       charactersDB,
       acctIDs,

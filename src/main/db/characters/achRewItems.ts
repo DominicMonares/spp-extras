@@ -71,7 +71,7 @@ export const insRewardItemInstances = async (
     const startMsg = 'Saving new item instance data...';
     send(startMsg, reply);
     const [rows] = await conn.query(sql, [values]);
-    const successMsg = 'New item instance data successfully saved!';
+    const successMsg = 'New item instance data saved!';
     send(successMsg, reply);
     return JSON.parse(JSON.stringify(rows));
   } catch (err) {
@@ -141,7 +141,7 @@ export const insRewardMail = async (
     const startMsg = 'Saving new mail data...';
     send(startMsg, reply);
     const [rows] = await conn.query(sql, [values]);
-    const successMsg = 'New mail data successfully saved!';
+    const successMsg = 'New mail data saved!';
     send(successMsg, reply);
     return JSON.parse(JSON.stringify(rows));
   } catch (err) {
@@ -163,7 +163,7 @@ export const insRewardMailItems = async (
     const startMsg = 'Saving new mail item data...';
     send(startMsg, reply);
     const [rows] = await conn.query(sql, [values]);
-    const successMsg = 'New mail item data successfully saved!';
+    const successMsg = 'New mail item data saved!';
     send(successMsg, reply);
     return JSON.parse(JSON.stringify(rows));
   } catch (err) {

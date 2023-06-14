@@ -45,7 +45,7 @@ export const insUpdAchProg = async (
     const startMsg = 'Saving new character achievement progress...';
     send(startMsg, reply);
     const [rows] = await conn.query(sql, [values]);
-    const successMsg = 'New character achievement progress successfully saved!';
+    const successMsg = 'New character achievement progress saved!';
     send(successMsg, reply);
     return JSON.parse(JSON.stringify(rows));
   } catch (err) {

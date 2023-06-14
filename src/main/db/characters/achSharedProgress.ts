@@ -86,7 +86,7 @@ export const insUpdCharAchSharedProg = async (
     const startMsg = 'Saving new character achievement shared progress...';
     send(startMsg, reply);
     const [rows] = await conn.query(sql, [values]);
-    const successMsg = 'New character achievement shared progress successfully saved!';
+    const successMsg = 'New character achievement shared progress saved!';
     send(successMsg, reply);
     return JSON.parse(JSON.stringify(rows));
   } catch (err) {

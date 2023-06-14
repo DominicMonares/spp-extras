@@ -40,7 +40,7 @@ export const insCharAchs = async (
     const startMsg = 'Saving new character achievement credit...';
     send(startMsg, reply);
     const [rows] = await conn.query(sql, [values]);
-    const successMsg = 'New character achievement credit successfully saved!';
+    const successMsg = 'New character achievement credit saved!';
     send(successMsg, reply);
     return JSON.parse(JSON.stringify(rows));
   } catch (err) {

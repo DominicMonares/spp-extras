@@ -48,7 +48,7 @@ export const insCutTitles = async (conn: Connection, reply?: Reply) => {
     const startMsg = 'Adding cut titles to the database...';
     send(startMsg, reply);
     const [rows] = await conn.query(sql, [values]);
-    const successMsg = 'Cut titles successfully added to the database!';
+    const successMsg = 'Cut titles added to the database!';
     send(successMsg, reply);
     return JSON.parse(JSON.stringify(rows));
   } catch (err) {

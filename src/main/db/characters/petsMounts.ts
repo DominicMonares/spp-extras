@@ -48,7 +48,7 @@ export const insCharPetMountSpells = async (
     const startMsg = 'Saving new pet and mount spell data...';
     send(startMsg, reply);
     const [rows] = await conn.query(sql, [values]);
-    const successMsg = 'New pet and mount spell data successfully saved!';
+    const successMsg = 'New pet and mount spell data saved!';
     send(successMsg, reply);
     return JSON.parse(JSON.stringify(rows));
   } catch (err) {

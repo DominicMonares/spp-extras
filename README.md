@@ -36,10 +36,6 @@ General
       - Factions
       - Neutral
 
-    - Reputations
-      - At war
-      - General
-
   - Preferences
 
 

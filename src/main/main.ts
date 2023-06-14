@@ -77,9 +77,9 @@ const createWindow = async () => {
 
   mainWindow = new BrowserWindow({
     show: false,
-    width: 1080,
+    width: 800,
     minWidth: 794,
-    height: 830,
+    height: 800,
     minHeight: 670,
     icon: getAssetPath('icon.png'),
     webPreferences: {
@@ -114,7 +114,7 @@ const createWindow = async () => {
     } else {
       // mainWindow.center();
       mainWindow.show();
-      mainWindow.setSize(1080, 830);
+      mainWindow.setSize(800, 800);
     }
   });
 

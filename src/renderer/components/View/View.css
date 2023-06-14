@@ -13,11 +13,11 @@
 }
 
 .classic-view {
-  background: rgba(241, 221, 111, 0.7);
+  background: rgba(241, 221, 111, 0.85);
 }
 
 .tbc-view {
-  background: rgba(45, 159, 5, 0.7);
+  background: rgba(45, 159, 5, 0.85);
 }
 
 .wotlk-view {
@@ -167,7 +167,7 @@ tbody {
   overflow-y: overlay;
   scrollbar-gutter: auto;
   font-family: MORPHEUS;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 tbody::-webkit-scrollbar {

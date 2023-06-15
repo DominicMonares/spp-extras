@@ -120,6 +120,7 @@ export const createZoneMenu = (
             title: c.title,
             submenu: c.submenu.filter(z => {
               // Do not include new Eastern Kingdoms or Kalimdor zones if Vanilla selected
+              const cavernsOfTime = z.title === 'Caverns of Time';
               const eversong = z.title === 'Eversong Woods';
               const ghostlands = z.title === 'Ghostlands';
               const isle = z.title === 'Isle of Quel\'Danas';
@@ -128,7 +129,7 @@ export const createZoneMenu = (
               const bloodmyst = z.title === 'Bloodmyst Isle';
               const exodar = z.title === 'The Exodar';
               const easternKingdoms = eversong || ghostlands || isle || silvermoon;
-              const kalimdor = azuremyst || bloodmyst || exodar;
+              const kalimdor = cavernsOfTime || azuremyst || bloodmyst || exodar;
               const newZones = easternKingdoms || kalimdor;
               return expansion === 'classic' && newZones ? false : z.title !== zone;
             }),

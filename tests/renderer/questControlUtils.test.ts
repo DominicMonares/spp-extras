@@ -160,8 +160,8 @@ describe('createZoneMenu', () => {
     submenu?.[0].submenu?.[0].submenu?.splice(13, 2);
     submenu?.[0].submenu?.[0].submenu?.splice(15, 1);
     submenu?.[0].submenu?.[0].submenu?.splice(18, 1);
-    submenu?.[0].submenu?.[1].submenu?.splice(2, 2);
-    submenu?.[0].submenu?.[1].submenu?.splice(18, 1);
+    submenu?.[0].submenu?.[1].submenu?.splice(2, 3);
+    submenu?.[0].submenu?.[1].submenu?.splice(17, 1);
     const result = createZoneMenu('classic', '');
     const expected = menu;
     expect(result).toStrictEqual(expected);

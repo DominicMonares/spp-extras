@@ -65,10 +65,15 @@ const accountWide = async (settings: AccountWideSettings, reply: Reply) => {
   let rawAccts: RawAccounts = [];
   try {
     rawAccts = await selAccts(realmdDB, bots, reply);
-    acctIDs = rawAccts.map(a => a.id);
+    acctIDs = rawAccts.map(a => a.id) || [];
   } catch (err) {
     await disconnect(connectionPool, xpac);
     throw err;
+  }
+
+  if (!acctIDs.length) {
+    send('No accounts found!', reply);
+    return;
   }
 
   // Characters
@@ -82,6 +87,11 @@ const accountWide = async (settings: AccountWideSettings, reply: Reply) => {
   } catch (err) {
     await disconnect(connectionPool, xpac);
     throw err;
+  }
+
+  if (!charIDs.length) {
+    send('No characters found!', reply);
+    return;
   }
 
   // ----------------------------------------------------------------

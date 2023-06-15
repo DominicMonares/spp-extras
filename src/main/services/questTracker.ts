@@ -77,6 +77,11 @@ const questTracker = async (xpac: Expansion) => {
     throw err;
   }
 
+  if (!acctIDs.length) {
+    send('No accounts found!');
+    return { characters: {}, completedQuests: {}, templateQuests: {} };
+  }
+
   // Characters
   let charIDs: number[] = [];
   let characters: AllCharacters;
@@ -87,6 +92,11 @@ const questTracker = async (xpac: Expansion) => {
   } catch (err) {
     await disconnect(connectionPool, xpac);
     throw err;
+  }
+
+  if (!charIDs.length) {
+    send('No characters found!');
+    return { characters: {}, completedQuests: {}, templateQuests: {} };
   }
 
   // Completed Quests

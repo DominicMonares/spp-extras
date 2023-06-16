@@ -32,7 +32,7 @@ export const createCharacterMenu = (
   }
 
   return [{
-    title: 'Characters',
+    title: 'Character',
     submenu: submenu.filter(s => s.id !== character),
   }];
 }

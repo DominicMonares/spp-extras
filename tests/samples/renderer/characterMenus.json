@@ -1,7 +1,7 @@
 {
   "noCharacterMenu": [
     {
-      "title": "Characters",
+      "title": "Character",
       "submenu": [
         {
           "title": "Gaz",
@@ -23,7 +23,7 @@
   ],
   "currentCharacterMenu": [
     {
-      "title": "Characters",
+      "title": "Character",
       "submenu": [
         {
           "title": "All Characters",

@@ -81,7 +81,7 @@ Track the completion status of all quests
 
 https://github.com/DominicMonares/spp-extras/assets/78285106/a287fd1a-92e5-4f7a-ad8c-19a6e67de800
 
-- Completed quests are marked with a green circle and incomplete quests with a red circle
+- Completed quests are marked with green circles and incomplete quests with red circles
 - Quests can be sorted by name, ID, or completion status
 
 ## Primary Filters
@@ -103,18 +103,18 @@ https://github.com/DominicMonares/spp-extras/assets/78285106/a287fd1a-92e5-4f7a-
 
 # Warnings & Limitations:
   - Account-Wide data transfers are irreversible, making a backup of your game save/database through the SPP Classics launcher before running any transfers is **STRONGLY** recommended
-  - Your characters must be logged out before transferring in order to work properly
+  - Your characters must be logged out before running transfers for them to work properly
   - Transfers only work on characters that have logged in at least once since being created
   - If your alts are logged in as bots, any achievement progress they make will count toward shared progress
-  - Mounts that are above a character's riding skill level are not given to that character on transfer, you will need to re-run the transfer once they have the appropriate riding skill to share those mounts with them
+  - Mounts that are above a character's riding skill level are not given to that character on transfer, you will need to re-run the transfer once they have the appropriate riding skill to transfer those mounts to them
   - Retrieving achievement item rewards from your characters' mail boxes immediately after transfer is **strongly** recommended, in order to reduce the risk of mail being lost
-  - Due to how the following achievement chains track progress, in-game progress counters for them do not update properly when new progress is earned and won't reflect the true total until after the tool is run:
+  - Due to how the following achievement chains track progress, in-game progress counters for them do not update properly when new progress is earned and won't reflect the true total until after the transfer is run:
     - Quests Complete (50 - 3,000)
     - Honorable Kills (100 - 100,000)
   - Deleting a character will remove most of their progress from your account-wide achievement progress
     - If you want to delete a character to make space, but want to keep their account-wide progress, I recommend creating a second account and moving that character to the second account using an editor like HeidiSQL
-      - Get the newly created account ID from wotlkrealmd > account
-      - Find the character you planned to delete in wotlkcharacters > characters
+      - Get the newly created account ID from classicrealmd/tbcrealmd/wotlkrealmd > account
+      - Find the character you planned to delete in classiccharacters/tbccharacters/wotlkcharacters > characters
       - Change their current account ID to the newly created account ID
 
 # Installation
@@ -146,6 +146,6 @@ Create release (both installer and unpacked versions):
 npm run package
 ```
 
-[SPP Classics Repack](https://github.com/celguar/spp-classics-cmangos) is CMaNGOS based so this program will likely work with other CMaNGOS based repacks or forks.
+[Celguar's SPP Classics Repack](https://github.com/celguar/spp-classics-cmangos) is CMaNGOS based, so this program will likely work with other CMaNGOS based repacks or forks.
 
 If testing with a repack or fork other than [Celguar's SPP Classics Repack](https://github.com/celguar/spp-classics-cmangos), be sure to make a database backup and check src/main/db/connection.ts to ensure database credentials are correct.

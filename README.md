@@ -1,19 +1,23 @@
 <div align="center">
   <img
     src="https://github.com/DominicMonares/spp-extras/blob/main/assets/logos/main.png"
-    width="299"
-    height="146"
+    width="363"
+    height="177"
   />
   <p>
-  A desktop application that provides miscellaneous tools for use with
-    <a href="https://github.com/celguar/spp-classics-cmangos" target="_blank">
+    A desktop application that provides miscellaneous tools for use with
+    <a href="https://github.com/celguar/spp-classics-cmangos">
       Celguar's SPP Classics Repack
     </a>
   </p>
 </div>
 
-## Account-Wide
-- Transfers achievement credit between all characters
+# Account-Wide
+Transfer data between all characters for each account
+  - All non-bot accounts are combined, so you can share between multiple accounts if you want to have more than 10 characters
+  - Achievement transfers can be applied to bots if the option is selected
+
+## Achievements
   - Achievements that have been earned on any character are shared between all other characters
   - Faction specific achievements are converted depending on each character's faction
   - Achievements transferred to characters will use the earliest date if earned on multiple characters
@@ -44,13 +48,13 @@
     - Loremaster of Kalimdor (Progress tracked separately for each faction)
   - If the combined progress for an achievement is greater than the completion threshold, the achievement and reward will be added
   
-- Transfers pets and mounts between all characters
+## Pets & Mounts
   - Pet and mount items are not transferred, only their spells
   - Faction specific pets and mounts are converted depending on each character's faction
   - Counts toward Mountain o' Mounts achievement chain
   - Counts toward Lil' Game Hunter achievement chain
 
-- Transfers reputation standings between all characters
+## Reputations
   - Takes the highest standing for each reputation and transfers to all other characters
   - Faction specific reputations do not get shared (i.e. Horde characters won't get Stormwind rep)
     - Faction specific standings are NOT converted to their opposing faction equivalents
@@ -61,8 +65,8 @@
 - All non-bot accounts are combined, so you can share between multiple accounts if you want to play more than 10 characters
 - Achievement transfers can be applied to bots if option is selected.
 
-## Quest Tracker
-  - An in-depth 
+# Quest Tracker
+An in-depth 
 
 
 ## Warnings/Limitations:

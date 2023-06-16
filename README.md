@@ -68,7 +68,7 @@ https://github.com/DominicMonares/spp-extras/assets/78285106/e3d4c5e6-12fe-455f-
 - Counts toward Lil' Game Hunter achievement chain
 
 ## Reputations
-https://github.com/DominicMonares/spp-extras/assets/78285106/bbd40f4f-2e42-448b-8394-f29c300018f4
+https://github.com/DominicMonares/spp-extras/assets/78285106/53787772-e8da-4dc7-835d-7e83e3ccc882
 
 - The highest current standing for each reputation is shared between all characters
 - Faction specific reputations do not get shared (i.e. Horde characters won't get Stormwind rep)
@@ -79,7 +79,7 @@ https://github.com/DominicMonares/spp-extras/assets/78285106/bbd40f4f-2e42-448b-
 # Quest Tracker
 Track the completion status of all quests
 
-https://github.com/DominicMonares/spp-extras/assets/78285106/53787772-e8da-4dc7-835d-7e83e3ccc882
+https://github.com/DominicMonares/spp-extras/assets/78285106/bbd40f4f-2e42-448b-8394-f29c300018f4
 
 - Completed quests are marked with green circles and incomplete quests with red circles
 - Quests can be sorted by name, ID, or completion status

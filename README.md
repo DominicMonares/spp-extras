@@ -1,6 +1,6 @@
 <div align="center">
   <img
-    src="https://github.com/DominicMonares/spp-extras/blob/main/assets/logos/main.png"
+    src="https://github.com/DominicMonares/spp-extras/blob/main/assets/logos/main-logo.png"
     width="363"
     height="177"
   />

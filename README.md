@@ -1,39 +1,11 @@
-# spp-extras
-Desktop application for WoW Single Player Project extras.
+<p align="center">
+  <img
+    src="https://github.com/DominicMonares/spp-extras/blob/main/assets/logos/main.png"
+    style="width: "
+  />
+</p>
 
-TODO
-- Create actual readme file
-
-NOTES
-Loremaster:
-  Some quests like Captain's Chest are neutral but are different quests
-    - Alliance is 614 and Horde is 8551
-    - This doesn't seem to be the case for all though - further testing needed
-Completed Quest in-game counter doesn't work without cluttering db/sharing quests
-
-All account-wide tools:
-  Deleting a character will remove most of their progress from your account-wide prog
-  If you want to delete a character to make space, but want to keep their account-wide prog,
-  I recommend creating a second account and moving that char to the second account using an
-  editor like HeidiSQL
-    - get account id from wotlkrealmd > account and change the character's account in wotlkcharacters > characters
-
-Account-wide rep:
-  - Progress won't appear in the in-game Reputation tab until a character has discovered the rep
-
-Account-wide rep and pets/mounts:
-  - Random bot accounts are not included in the rep or pets/mounts transfers
-  - I decided not to implement this because rep/pets/mounts cannot be inspected in-game
-
-Rep achievement progress is on character basis
-
-cwebp -q 100 collapse-arrow.png -o collapse-arrow.webp
-
-
-
-This program provides miscellaneous tools for use with [Celguar's SPP Classics Repack](https://github.com/celguar/spp-classics-cmangos).
-
-[SPP Classics Repack](https://github.com/celguar/spp-classics-cmangos) is CMaNGOS based so this program will likely work with other CMaNGOS based repacks or forks.
+This desktop application provides miscellaneous tools for use with [Celguar's SPP Classics Repack](https://github.com/celguar/spp-classics-cmangos).
 
 ## Account-Wide
 - Transfers achievement credit between all characters
@@ -127,3 +99,41 @@ npm run build
 ```
 
 If testing with a repack or fork other than [Celguar's SPP Classics Repack](https://github.com/celguar/spp-classics-cmangos), be sure to make a database backup and check config.js to ensure database credentials are correct.
+
+
+https://github.com/DominicMonares/spp-extras/assets/78285106/3ea33f6f-cb81-4fb1-892f-4467e55e5fd3
+
+
+
+https://github.com/DominicMonares/spp-extras/assets/78285106/967ac467-ca81-4268-9dbb-8dfeee065a09
+
+
+
+https://github.com/DominicMonares/spp-extras/assets/78285106/fb9db23e-1e6d-48f4-8d89-a5bca5f5dbd4
+
+
+
+https://github.com/DominicMonares/spp-extras/assets/78285106/a287fd1a-92e5-4f7a-ad8c-19a6e67de800
+
+
+NOTES
+Loremaster:
+  Some quests like Captain's Chest are neutral but are different quests
+    - Alliance is 614 and Horde is 8551
+    - This doesn't seem to be the case for all though - further testing needed
+Completed Quest in-game counter doesn't work without cluttering db/sharing quests
+
+All account-wide tools:
+  Deleting a character will remove most of their progress from your account-wide prog
+  If you want to delete a character to make space, but want to keep their account-wide prog,
+  I recommend creating a second account and moving that char to the second account using an
+  editor like HeidiSQL
+    - get account id from wotlkrealmd > account and change the character's account in wotlkcharacters > characters
+
+Account-wide rep and pets/mounts:
+  - Random bot accounts are not included in the rep or pets/mounts transfers
+  - I decided not to implement this because rep/pets/mounts cannot be inspected in-game
+
+Rep achievement progress is on character basis
+
+[SPP Classics Repack](https://github.com/celguar/spp-classics-cmangos) is CMaNGOS based so this program will likely work with other CMaNGOS based repacks or forks.

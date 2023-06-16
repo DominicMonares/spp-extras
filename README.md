@@ -19,7 +19,7 @@ Transfer data between all of your characters
     - You will not receive any achievements, pets, etc. from bot accounts and vice versa
 
 ## Achievements
-https://github.com/DominicMonares/spp-extras/assets/78285106/3ea33f6f-cb81-4fb1-892f-4467e55e5fd3
+https://github.com/DominicMonares/spp-extras/assets/78285106/045ca524-c156-4bb6-9b41-7049225a9787
 
 ### Credit
   - Achievements that have been earned on any character are shared between all other characters
@@ -59,7 +59,7 @@ https://github.com/DominicMonares/spp-extras/assets/78285106/3ea33f6f-cb81-4fb1-
   - If the combined progress for an achievement is greater than the completion threshold, the achievement credit and rewards will be added
 
 ## Pets & Mounts
-https://github.com/DominicMonares/spp-extras/assets/78285106/967ac467-ca81-4268-9dbb-8dfeee065a09
+https://github.com/DominicMonares/spp-extras/assets/78285106/e3d4c5e6-12fe-455f-8697-08149f158515
 
 - All known pets and mounts are shared between all characters
 - Pet and mount items are not transferred, only their spells, so they will be available to summon/ride right away
@@ -68,7 +68,7 @@ https://github.com/DominicMonares/spp-extras/assets/78285106/967ac467-ca81-4268-
 - Counts toward Lil' Game Hunter achievement chain
 
 ## Reputations
-https://github.com/DominicMonares/spp-extras/assets/78285106/fb9db23e-1e6d-48f4-8d89-a5bca5f5dbd4
+https://github.com/DominicMonares/spp-extras/assets/78285106/bbd40f4f-2e42-448b-8394-f29c300018f4
 
 - The highest current standing for each reputation is shared between all characters
 - Faction specific reputations do not get shared (i.e. Horde characters won't get Stormwind rep)
@@ -79,7 +79,7 @@ https://github.com/DominicMonares/spp-extras/assets/78285106/fb9db23e-1e6d-48f4-
 # Quest Tracker
 Track the completion status of all quests
 
-https://github.com/DominicMonares/spp-extras/assets/78285106/a287fd1a-92e5-4f7a-ad8c-19a6e67de800
+https://github.com/DominicMonares/spp-extras/assets/78285106/53787772-e8da-4dc7-835d-7e83e3ccc882
 
 - Completed quests are marked with green circles and incomplete quests with red circles
 - Quests can be sorted by name, ID, or completion status

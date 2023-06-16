@@ -32,11 +32,8 @@ Transfer data between all of your characters
   - All item rewards will appear in each character's mailbox on login 
 
 ### Progress
-  - If the combined progress for an achievement is greater than the completion threshold, the achievement credit and rewards will be added
-  - Achievements and achievement chains include:
+  - Progress for the following achievement chains are shared between all characters:
     - Quests Complete (50 - 3,000)
-      - In-game counter does not update when new progress is earned, due to limitations
-      - Total count is updated after tool is run
     - Daily Quests Complete (5 - 1,000)
     - Loremaster of Eastern Kingdoms
       - Progress tracked separately for each faction
@@ -47,8 +44,6 @@ Transfer data between all of your characters
     - Dungeon & Raid Emblems (25 - 2,500)
     - Looking for More/Many/Multitudes
     - Honorable Kills (100 - 100,000)
-      - In-game counter does not update when new progress is earned, due to limitations
-      - Total count is updated after tool is run
     - Mercilessly/Vengefully/Brutally Dedicated
     - Battleground Veteran
       - Alterac Valley
@@ -58,23 +53,24 @@ Transfer data between all of your characters
       - Strand of the Ancients
       - Warsong Gulch
       - Wintergrasp
+  - If the combined progress for an achievement is greater than the completion threshold, the achievement credit and rewards will be added
 
 ## Pets & Mounts
-  - Pet and mount items are not transferred, only their spells
+  - All known pets and mounts are shared between all characters
+  - Pet and mount items are not transferred, only their spells, so they will be available to summon/ride right away
   - Faction specific pets and mounts are converted depending on each character's faction
   - Counts toward Mountain o' Mounts achievement chain
   - Counts toward Lil' Game Hunter achievement chain
 
 ## Reputations
-  - Takes the highest standing for each reputation and transfers to all other characters
+  - The highest earned standing for each reputation is shared between all characters
   - Faction specific reputations do not get shared (i.e. Horde characters won't get Stormwind rep)
-    - Faction specific standings are NOT converted to their opposing faction equivalents
-  - Counts toward REP CHAIN NAME HERE
+    - Faction specific standings are **not** converted to their opposing faction equivalents
+  - "At War" flags will not be applied unless all characters are at war with that faction/reputation
+  - Counts toward Exalted Reputations (5 - 40) achievement chain
   
 - Cut title content has been restored, including Realm First titles and 'the Flawless Victor'
 
-- All non-bot accounts are combined, so you can share between multiple accounts if you want to play more than 10 characters
-- Achievement transfers can be applied to bots if option is selected.
 
 # Quest Tracker
 An in-depth 
@@ -88,7 +84,7 @@ An in-depth
   - It is highly recommended to retrieve item rewards from mail immediately after transfer, in order to reduce risk of mail being lost
   - Only works on characters that have logged in at least once since being created
 
-  - Due to the way the following achievement chains track progress, in-game progress counters for them do not update properly when new progress is earned and won't reflect the true total until after the tool is run:
+  - Due to how the following achievement chains track progress, in-game progress counters for them do not update properly when new progress is earned and won't reflect the true total until after the tool is run:
       - Quests Complete (50 - 3,000)
       - Honorable Kills (100 - 100,000)
 
@@ -150,10 +146,6 @@ All account-wide tools:
   I recommend creating a second account and moving that char to the second account using an
   editor like HeidiSQL
     - get account id from wotlkrealmd > account and change the character's account in wotlkcharacters > characters
-
-Account-wide rep and pets/mounts:
-  - Random bot accounts are not included in the rep or pets/mounts transfers
-  - I decided not to implement this because rep/pets/mounts cannot be inspected in-game
 
 Rep achievement progress is on character basis
 

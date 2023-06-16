@@ -1,11 +1,16 @@
-<p align="center">
+<div align="center">
   <img
     src="https://github.com/DominicMonares/spp-extras/blob/main/assets/logos/main.png"
-    style="width: "
+    width="299"
+    height="146"
   />
-</p>
-
-This desktop application provides miscellaneous tools for use with [Celguar's SPP Classics Repack](https://github.com/celguar/spp-classics-cmangos).
+  <p>
+  A desktop application that provides miscellaneous tools for use with
+    <a href="https://github.com/celguar/spp-classics-cmangos" target="_blank">
+      Celguar's SPP Classics Repack
+    </a>
+  </p>
+</div>
 
 ## Account-Wide
 - Transfers achievement credit between all characters

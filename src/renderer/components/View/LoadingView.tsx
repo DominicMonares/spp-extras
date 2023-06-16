@@ -17,7 +17,7 @@ const LoadingView = () => {
       } else {
         setLoading('Loading');
       }
-    }, 500);
+    }, 200);
 
     return () => clearInterval(interval);
   });

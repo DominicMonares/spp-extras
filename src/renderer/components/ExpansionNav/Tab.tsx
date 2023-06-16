@@ -7,11 +7,11 @@ import './ExpansionNav.css';
 
 type Props = {
   bufferHover: boolean;
-  openModal: (xpac: Expansion) => void;
+  switchExpansion: (xpac: Expansion) => void;
   xpac: Expansion;
 }
 
-const Tab = ({ bufferHover, openModal, xpac }: Props) => {
+const Tab = ({ bufferHover, switchExpansion, xpac }: Props) => {
   const expansion = useAppSelector(state => state.expansion.selected);
 
   const tabImg = () => {
@@ -31,7 +31,7 @@ const Tab = ({ bufferHover, openModal, xpac }: Props) => {
         ${expansion === xpac ? `${xpac}-tab-active` : ''}
         ${xpac}-gradient
       `}
-      onClick={() => openModal(xpac)}
+      onClick={() => switchExpansion(xpac)}
     >
       <img
         className={`

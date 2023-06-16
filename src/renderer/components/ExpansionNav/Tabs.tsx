@@ -5,10 +5,10 @@ import { Expansion } from 'types';
 import './ExpansionNav.css';
 
 type Props = {
-  openModal: (xpac: Expansion) => void;
+  switchExpansion: (xpac: Expansion) => void;
 }
 
-const Tabs = ({ openModal }: Props) => {
+const Tabs = ({ switchExpansion }: Props) => {
   const expansion = useAppSelector(state => state.expansion.selected);
   const [classicBufferHover, setClassicBufferHover] = useState<boolean>(false);
   const [tbcBufferHover, setTbcBufferHover] = useState<boolean>(false);
@@ -20,7 +20,7 @@ const Tabs = ({ openModal }: Props) => {
         <div className="square classic-color"></div>
         <div className={`curve ${expansion}-flc`}></div>
       </span>
-      <Tab bufferHover={classicBufferHover} openModal={openModal} xpac="classic" />
+      <Tab bufferHover={classicBufferHover} switchExpansion={switchExpansion} xpac="classic" />
       {expansion === 'classic' ? (
         <span
           className="right-buffer classic-rb"
@@ -40,7 +40,7 @@ const Tabs = ({ openModal }: Props) => {
           <div className="curve tbc-lc"></div>
         </span>
       )}
-      <Tab bufferHover={tbcBufferHover} openModal={openModal} xpac="tbc" />
+      <Tab bufferHover={tbcBufferHover} switchExpansion={switchExpansion} xpac="tbc" />
       {expansion === 'wotlk' ? (
         <span
           className="left-buffer wotlk-lb"
@@ -60,7 +60,7 @@ const Tabs = ({ openModal }: Props) => {
           <div className="curve tbc-rc"></div>
         </span>
       )}
-      <Tab bufferHover={wotlkBufferHover} openModal={openModal} xpac="wotlk" />
+      <Tab bufferHover={wotlkBufferHover} switchExpansion={switchExpansion} xpac="wotlk" />
       <span className="right-buffer wotlk-rb">
         <div className="square wotlk-color"></div>
         <div className={`curve ${expansion}-frc`}></div>

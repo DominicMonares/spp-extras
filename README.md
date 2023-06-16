@@ -28,8 +28,9 @@ Transfer data between all of your characters
 ### Rewards
   - Every new achievement transferred also grants its corresponding title and/or item rewards
   - Faction specific rewards are converted depending on each character's faction
-  - Feats of strength that don't explicitly reward titles but are title related (Vanilla PVP titles, Scarab Lord, etc.) are rewarded when shared
-  - All item rewards will appear in each character's mailbox on login 
+  - All item rewards will be sent to each character's mailbox
+  - Running this transfer will restore cut titles to the world database, including Realm First titles and "the Flawless Victor"
+  - Feats of Strength that don't explicitly reward titles yet are title related (Vanilla PVP titles, "Scarab Lord", etc.) will give each character the title
 
 ### Progress
   - Progress for the following achievement chains are shared between all characters:
@@ -63,48 +64,60 @@ Transfer data between all of your characters
   - Counts toward Lil' Game Hunter achievement chain
 
 ## Reputations
-  - The highest earned standing for each reputation is shared between all characters
+  - The highest current standing for each reputation is shared between all characters
   - Faction specific reputations do not get shared (i.e. Horde characters won't get Stormwind rep)
     - Faction specific standings are **not** converted to their opposing faction equivalents
-  - "At War" flags will not be applied unless all characters are at war with that faction/reputation
+  - "At War" flags will not be applied unless all characters are at war with that reputation/faction
   - Counts toward Exalted Reputations (5 - 40) achievement chain
-  
-- Cut title content has been restored, including Realm First titles and 'the Flawless Victor'
-
 
 # Quest Tracker
-An in-depth 
+Track the completion status of all quests
+  - Completed quests are marked with a green circle and incomplete quests with a red circle
+  - Quests can be sorted by name, ID, or completion status
 
+## Primary Filters
+  - Quests are always filtered by either Alliance or Horde
+    - Neutral quests are always included
+  - At least one of the following options must be selected to view quests:
+    - Zone
+      - Filter by World, Dungeon, Raid, or Battleground quests
+    - Class
+    - Race
+    - All Quests 
 
-## Warnings/Limitations:
-  - Always make a backup save before transferring
-  - Must be logged out before transferring
+## Secondary Filters
+  - After a primary filter is selected, you can selected the following secondary filters:
+    - Character
+      - Shows quest completion status for the selected character
+    - Quest Type
+      - Filter by Regular, Daily, Weekly, or Monthly quests
+
+# Warnings/Limitations:
+  - Account-wide data transfers are irreversible, making a backup of your game save/database through the SPP Classics launcher before running any transfers is **STRONGLY** recommended
+  - Your characters must be logged out before transferring in order to work properly
   - If your alts are logged in as bots, any progress they make will count toward shared progress
   - Mounts that are above a character's riding skill level are not given to that character on transfer, you will need to re-run the transfer once they have the appropriate riding skill to share those mounts with them
-  - It is highly recommended to retrieve item rewards from mail immediately after transfer, in order to reduce risk of mail being lost
-  - Only works on characters that have logged in at least once since being created
-
+  - Retrieving achievement item rewards from your characters' mail boxes immediately after transfer is strongly recommended, in order to reduce the risk of mail being lost
+  - Transfers only work on characters that have logged in at least once since being created
   - Due to how the following achievement chains track progress, in-game progress counters for them do not update properly when new progress is earned and won't reflect the true total until after the tool is run:
       - Quests Complete (50 - 3,000)
       - Honorable Kills (100 - 100,000)
 
-
-
-## Installation:
-### For Users
+# Installation:
+## For Users
 Download [latest release](https://github.com/akaClay/spp-achievements/releases), save anywhere.
   
-### For Devs
+## For Devs
 ```
 npm install
 ```
 
-## Usage:
-### For Users
+# Usage:
+## For Users
 - Ensure that database is running
 - Run .exe file
     
-### For Devs
+## For Devs
 Run program:
 ```
 npm start

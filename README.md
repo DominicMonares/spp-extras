@@ -13,57 +13,64 @@
 </div>
 
 # Account-Wide
-Transfer data between all characters for each account
+Transfer data between all of your characters
   - All non-bot accounts are combined, so you can share between multiple accounts if you want to have more than 10 characters
-  - Achievement transfers can be applied to bots if the option is selected
+  - Transfers can be run for bot accounts in addition to yours if the option is selected
+    - You will not receive any achievements, pets, etc. from bot accounts and vice versa
 
 ## Achievements
+### Credit
   - Achievements that have been earned on any character are shared between all other characters
   - Faction specific achievements are converted depending on each character's faction
   - Achievements transferred to characters will use the earliest date if earned on multiple characters
   - Achievements won't be overwritten on any characters
 
-- Transfers achievement rewards between all characters
+### Rewards
   - Every new achievement transferred also grants its corresponding title and/or item rewards
   - Faction specific rewards are converted depending on each character's faction
   - Feats of strength that don't explicitly reward titles but are title related (Vanilla PVP titles, Scarab Lord, etc.) are rewarded when shared
   - All item rewards will appear in each character's mailbox on login 
 
-- Transfers achievement progress for select achievements between all characters
-  - Achievements and achievement chains include:
+### Progress
+  - Progress for the following achievement chains are shared between all characters:
+    - Quests Complete (50 - 3,000)
+    - Daily Quests Complete (5 - 1,000)
+    - Loremaster of Eastern Kingdoms
+      - Progress tracked separately for each faction
+    - Loremaster of Kalimdor
+      - Progress tracked separately for each faction
     - Got My Mind On My Money (100g - 25,000g)
+    - The Bread Winner
     - Dungeon & Raid Emblems (25 - 2,500)
-    - Mercilessly, Vengefully, and Brutally Dedicated
+    - Looking for More/Many/Multitudes
+    - Honorable Kills (100 - 100,000)
+    - Mercilessly/Vengefully/Brutally Dedicated
     - Battleground Veteran
       - Alterac Valley
       - Arathi Basin
       - Eye of the Storm
+      - Isle of Conquest
       - Strand of the Ancients
       - Warsong Gulch
-    - Honorable Kills (100 - 100,000)
-    - The Bread Winner
-    - Daily Quests Complete (5 - 1,000)
-    - Quests Complete (50 - 3,000)
-    - Loremaster of Eastern Kingdoms (Progress tracked separately for each faction)
-    - Loremaster of Kalimdor (Progress tracked separately for each faction)
-  - If the combined progress for an achievement is greater than the completion threshold, the achievement and reward will be added
-  
+      - Wintergrasp
+  - If the combined progress for an achievement is greater than the completion threshold, the achievement credit and rewards will be added
+
 ## Pets & Mounts
-  - Pet and mount items are not transferred, only their spells
+  - All known pets and mounts are shared between all characters
+  - Pet and mount items are not transferred, only their spells, so they will be available to summon/ride right away
   - Faction specific pets and mounts are converted depending on each character's faction
   - Counts toward Mountain o' Mounts achievement chain
   - Counts toward Lil' Game Hunter achievement chain
 
 ## Reputations
-  - Takes the highest standing for each reputation and transfers to all other characters
+  - The highest earned standing for each reputation is shared between all characters
   - Faction specific reputations do not get shared (i.e. Horde characters won't get Stormwind rep)
-    - Faction specific standings are NOT converted to their opposing faction equivalents
-  - Counts toward REP CHAIN NAME HERE
+    - Faction specific standings are **not** converted to their opposing faction equivalents
+  - "At War" flags will not be applied unless all characters are at war with that faction/reputation
+  - Counts toward Exalted Reputations (5 - 40) achievement chain
   
 - Cut title content has been restored, including Realm First titles and 'the Flawless Victor'
 
-- All non-bot accounts are combined, so you can share between multiple accounts if you want to play more than 10 characters
-- Achievement transfers can be applied to bots if option is selected.
 
 # Quest Tracker
 An in-depth 
@@ -72,15 +79,16 @@ An in-depth
 ## Warnings/Limitations:
   - Always make a backup save before transferring
   - Must be logged out before transferring
-  - You will no longer be able to see individual honorable kills per character, as they need to be shared in order for the in-game achievement counter to work properly
   - If your alts are logged in as bots, any progress they make will count toward shared progress
   - Mounts that are above a character's riding skill level are not given to that character on transfer, you will need to re-run the transfer once they have the appropriate riding skill to share those mounts with them
   - It is highly recommended to retrieve item rewards from mail immediately after transfer, in order to reduce risk of mail being lost
   - Only works on characters that have logged in at least once since being created
-  - In-game progress counters do not work properly for X Quests Complete, Loremaster of the Eastern Kingdoms, and Loremaster of Kalimdor due to limitations
-    - Unless playing a Blood Elf or Draenei, the in-game progress counters for these achievements may not update after completing eligible quests, but progress will still be counted and the in-game counter will be updated next time the user runs the transfer
-  - Progress for Isle of Conquest and Wintergrasp Veteran achievements currently unavailable, will be updated once they're playable
-  - Progress for Looking for More, Many, and Multitudes achievements currently unavailable, will be updated once LFG is usable with solo queue
+
+  - Due to how the following achievement chains track progress, in-game progress counters for them do not update properly when new progress is earned and won't reflect the true total until after the tool is run:
+      - Quests Complete (50 - 3,000)
+      - Honorable Kills (100 - 100,000)
+
+
 
 ## Installation:
 ### For Users
@@ -138,10 +146,6 @@ All account-wide tools:
   I recommend creating a second account and moving that char to the second account using an
   editor like HeidiSQL
     - get account id from wotlkrealmd > account and change the character's account in wotlkcharacters > characters
-
-Account-wide rep and pets/mounts:
-  - Random bot accounts are not included in the rep or pets/mounts transfers
-  - I decided not to implement this because rep/pets/mounts cannot be inspected in-game
 
 Rep achievement progress is on character basis
 

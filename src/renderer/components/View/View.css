@@ -41,19 +41,19 @@
 .classic-messages,
 .classic-qt-table,
 .classic-error {
-  background: rgba(241, 221, 111, 0.5);
+  background: rgba(241, 221, 111, 0.9);
 }
 
 .tbc-messages,
 .tbc-qt-table,
 .tbc-error {
-  background: rgba(45, 159, 5, 0.5);
+  background: rgba(88, 160, 62, 0.9);
 }
 
 .wotlk-messages,
 .wotlk-qt-table,
 .wotlk-error {
-  background: rgba(3, 130, 183, 0.8);
+  background: rgba(3, 130, 183, 0.9);
 }
 
 /* ---------------------------------------------------------------- */

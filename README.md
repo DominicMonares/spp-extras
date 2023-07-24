@@ -119,7 +119,7 @@ https://github.com/DominicMonares/spp-extras/assets/78285106/bbd40f4f-2e42-448b-
 
 # Installation
 ### For Users
-If installing separate from SPP Classics (only current method, merge TBD):
+If installing separate from SPP Classics:
   - Download [latest release](https://github.com/DominicMonares/spp-extras/releases)
   - Run SPPE_Installer.exe
 

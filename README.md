@@ -95,7 +95,7 @@ https://github.com/DominicMonares/spp-extras/assets/78285106/bbd40f4f-2e42-448b-
     - All Quests 
 
 ## Secondary Filters
-  - After a primary filter is selected, you can selected the following secondary filters:
+  - After a primary filter is selected, you can select the following secondary filters:
     - Character
       - Shows quest completion status for the selected character
     - Quest Type
